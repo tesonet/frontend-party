@@ -1,0 +1,13 @@
+@import 'login';
+
+html, body {
+	min-height: 100%;
+	height: 100%;
+}
+
+.valign {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+}

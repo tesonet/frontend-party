@@ -1,0 +1,44 @@
+{
+  "name": "lead-frontend-party",
+  "version": "1.0.0",
+  "description": "If you found this task it means we are looking for you!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danteelt/lead-frontend-party.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danteelt/lead-frontend-party/issues"
+  },
+  "homepage": "https://github.com/Danteelt/lead-frontend-party#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "bootstrap-css": "^3.0.0",
+    "css-loader": "^0.26.0",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.24.1",
+    "ngstorage": "^0.3.11",
+    "node-sass": "^3.13.0",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-route": "^1.5.9"
+  }
+}
