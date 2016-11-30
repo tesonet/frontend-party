@@ -7,9 +7,10 @@ body {
   margin: 0;
   display: flex;
   flex: 1;
+  font-family: 'Roboto', sans-serif;
 }
 
-#root, .router-root {
+#root, .layout {
   flex: 1;
   display: flex;
 }
