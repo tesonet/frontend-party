@@ -1,0 +1,22 @@
+.page.not-found {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(11, 15, 39, 0.80), rgba(11, 15, 39, 0.80)),
+    url('../../public/images/bg1.png');
+  background-size: cover;
+  color: #fefefe;
+  h1 {
+    font-size: 36;
+  }
+  a {
+    color: #9FD533;
+    text-decoration: none;
+    &:hover {
+      color: #86b300;
+    }
+  }
+}
