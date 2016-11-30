@@ -2,16 +2,17 @@ import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import {
   FormGroup,
-  FormControl,
   Button,
-  Glyphicon,
   HelpBlock,
 } from 'react-bootstrap';
 import { validateLoginForm } from '../utils/validateForm';
+import InputWithIcon from './InputWithIcon';
+import FormMessage from './FormMessage';
 import './LoginForm.scss';
 
 export class LoginForm extends Component {
   static propTypes = {
+    formMessage: PropTypes.string,
     handleSubmit: PropTypes.func.isRequired,
   };
 
@@ -34,21 +35,19 @@ export class LoginForm extends Component {
       bsSize="lg"
       validationState={this.getValidationState(touched, error)}
     >
-      <div className={icon && 'input-with-icon'}>
-        {icon && <Glyphicon glyph={icon} />}
-        <FormControl
-          type={type}
-          placeholder={placeholder}
-          {...input}
-          {...custom}
-        />
-      </div>
+      <InputWithIcon
+        icon={icon}
+        type={type}
+        placeholder={placeholder}
+        input={input}
+        custom={custom}
+      />
       {touched && error && <HelpBlock>{error}</HelpBlock>}
     </FormGroup>
   );
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, formMessage } = this.props;
     return (
       <div className="login-form">
         <img src={require('../../public/images/logo_white.png')} alt="testio" />
@@ -67,6 +66,11 @@ export class LoginForm extends Component {
             placeholder="Password"
             type="password"
           />
+          {formMessage && (
+            <FormMessage type="error">
+              {formMessage}
+            </FormMessage>
+          )}
           <Button
             type="submit"
             bsStyle="success"
@@ -84,4 +88,8 @@ export class LoginForm extends Component {
 export default reduxForm({
   form: 'LoginForm',
   validate: validateLoginForm,
+  initialValues: {
+    username: 'tesonet',
+    password: 'partyanimal',
+  },
 })(LoginForm);
