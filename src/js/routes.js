@@ -1,4 +1,4 @@
-export default ['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+export default ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
     $routeProvider
         .when('/', {
             template: require('html!../templates/login.html'),

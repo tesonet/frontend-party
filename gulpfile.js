@@ -4,11 +4,14 @@ var webpack = require('webpack');
 
 gulp.task('default', function() {
     var config = require('./webpack.config.js');
-    config.entry.app.unshift("webpack-dev-server/client?http://localhost:3000");
+    config.entry.app.unshift("webpack-dev-server/client?http://0.0.0.0:80");
     var compiler = webpack(config);
     var server = new WebpackDevServer(compiler, {
         contentBase: "./dist",
-        historyApiFallback: true
+        historyApiFallback: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        }
     });
-    server.listen(3000);
+    server.listen(80);
 });

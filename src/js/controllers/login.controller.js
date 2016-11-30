@@ -13,7 +13,7 @@ export default class LoginController {
     }
 
     login() {
-        this.AuthService.login(this.user, (status, message) => {
+        this.AuthService.login(this.user, (status, data) => {
             //Failed login, error callback
             this.user = {};
             this.error = true;

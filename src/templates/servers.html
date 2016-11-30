@@ -1,3 +1,35 @@
-<div class="container-fluid">
-    <h1>Servers</h1>
+<div class="container-fluid servers-page">
+	<header>
+		<div class="row clearfix">
+			<div class="col-md-6">
+				<img src="../assets/logo-dark.png" alt="">
+			</div>
+			<div class="col-md-6 text-right">
+				<a ng-click="servers.logout()" class="btn servers-page__logout-button" href="">
+					<span class="servers-page__logout-button-icon"></span>
+					<span>Logout</span>
+				</a>
+			</div>
+		</div>
+	</header>
+	<div class="row">
+		<table class="servers-page__servers-header">
+			<thead>
+				<tr>
+					<th>
+						Server
+					</th>
+					<th>
+						Distance
+					</th>
+				</tr>
+			</thead>
+		</table>
+		<table class="servers-page__servers-list">
+			<tr ng-repeat="server in servers.list">
+				<td ng-bind="server.name"></td>
+				<td ng-bind="server.distance"></td>
+			</tr>
+		</table>
+	</div>
 </div>
