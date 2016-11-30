@@ -24,7 +24,9 @@
     "test:cover:travis": "babel-node node_modules/isparta/bin/isparta cover --root src --report lcovonly _mocha -- --require ./tools/testSetup.js \"./{,!(node_modules)/**/}*.spec.js\" && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
     "open:cover": "npm run test:cover && open coverage/index.html",
-    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Dovydas Ceilutka",
   "license": "MIT",
@@ -93,7 +95,8 @@
     "webpack-bundle-analyzer": "2.1.1",
     "webpack-dev-middleware": "1.8.4",
     "webpack-hot-middleware": "2.13.2",
-    "webpack-md5-hash": "0.0.5"
+    "webpack-md5-hash": "0.0.5",
+    "@kadira/storybook": "^2.21.0"
   },
   "keywords": [],
   "repository": {
