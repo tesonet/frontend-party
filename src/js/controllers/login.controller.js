@@ -11,17 +11,15 @@ export default class LoginController {
             password: 'partyanimal'
         }
     }
+
     login() {
         this.AuthService.login(this.user, (status, message) => {
-            if (status == 200) {
-                this.$localStorage['testio-token'] = message;
-            } else {
-                this.error = true;
-                this.user = {};
-                this.$timeout(()=> {
-                    this.error = false;
-                }, 3000);
-            }
+            //Failed login, error callback
+            this.user = {};
+            this.error = true;
+            this.$timeout(()=> {
+                this.error = false;
+            }, 3000);
         });
     }
 }

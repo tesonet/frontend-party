@@ -1,9 +1,13 @@
 class AuthService {
-    constructor($http) {
+    constructor($http, $localStorage, $location) {
+        this.$location = $location;
+        this.$localStorage = $localStorage;
         this.endpoint = 'http://playground.tesonet.lt/v1/tokens';
         this.$http = $http;
     }
+
     login(user, callback) {
+        let _this = this;
         this.$http({
             method: 'POST',
             url: this.endpoint,
@@ -12,14 +16,15 @@ class AuthService {
                 'Content-Type': 'application/json'
             }
         })
-            .then(function(e) {
-                callback(e.status, e.data.token);
-            }, function(e){
+            .then(function (e) {
+                _this.$location.path('/servers');
+                _this.$localStorage['testio-token'] = e.data.token;
+            }, function (e) {
                 callback(e.status, e.data.message);
             });
     }
 }
 
-AuthService.$inject = ['$http'];
+AuthService.$inject = ['$http', '$localStorage', '$location'];
 
 export default AuthService;
