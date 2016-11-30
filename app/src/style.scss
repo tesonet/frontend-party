@@ -1,0 +1,15 @@
+html {
+  display: flex;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex: 1;
+}
+
+#root, .router-root {
+  flex: 1;
+  display: flex;
+}

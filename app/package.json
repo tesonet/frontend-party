@@ -31,6 +31,7 @@
   "author": "Dovydas Ceilutka",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.15.3",
     "object-assign": "4.1.0",
     "react": "15.4.1",
     "react-bootstrap": "^0.30.7",
@@ -39,9 +40,11 @@
     "react-router": "next",
     "react-router-redux": "4.0.7",
     "redux": "3.6.0",
+    "redux-form": "^6.2.0",
     "redux-thunk": "2.1.0"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
     "autoprefixer": "6.5.3",
     "babel-cli": "6.18.0",
     "babel-core": "6.18.2",
@@ -95,8 +98,7 @@
     "webpack-bundle-analyzer": "2.1.1",
     "webpack-dev-middleware": "1.8.4",
     "webpack-hot-middleware": "2.13.2",
-    "webpack-md5-hash": "0.0.5",
-    "@kadira/storybook": "^2.21.0"
+    "webpack-md5-hash": "0.0.5"
   },
   "keywords": [],
   "repository": {
