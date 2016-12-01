@@ -1,10 +1,12 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
-var purify = require("purifycss-webpack-plugin");
 
 module.exports = {
 	entry: {
-		app: [__dirname + '/src/index.js']
+		app: [
+			'webpack/hot/dev-server',
+			__dirname + '/src/index.js'
+		]
 	},
 	output: {
 		path: __dirname + "/dist",
@@ -24,7 +26,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				loader: 'style-loader!css-loader'
+				loaders: ['style-loader', 'css-loader']
 			},
 			{
 				test: /\.png$/,
@@ -45,13 +47,9 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin({
 			reload: true
 		}),
-		new purify({
-			basePath: __dirname,
-			paths: [
-				"src/templates/**/*.html",
-				"src/js/**/*.html"
-			]
-		})
-		// new webpack.optimize.UglifyJsPlugin()
-	]
+		new webpack.optimize.UglifyJsPlugin()
+	],
+	devServer: {
+		hot: true
+	}
 };

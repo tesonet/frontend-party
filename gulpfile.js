@@ -13,7 +13,7 @@ var defaults = {
 gulp.task('default', ['build']);
 
 gulp.task('serve', function () {
-	config.entry.app.unshift("webpack-dev-server/client?http://0.0.0.0:80");
+	config.entry.app.unshift("webpack-dev-server/client?http://0.0.0.0:" + defaults.port);
 	var compiler = webpack(config);
 	compiler.plugin("done",function(){
 		setTimeout(function(){
