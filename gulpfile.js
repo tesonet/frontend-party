@@ -5,6 +5,8 @@ var webpack = require('webpack');
 
 var config = require('./webpack.config.js');
 
+gulp.task('default', ['build']);
+
 gulp.task('serve', function () {
 	config.entry.app.unshift("webpack-dev-server/client?http://0.0.0.0:80");
 	var compiler = webpack(config);
