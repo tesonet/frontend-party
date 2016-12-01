@@ -1,5 +1,6 @@
 .login-page {
-	position: absolute;
+	position: fixed;
+	overflow-y: auto;
 	width: 100%;
 	height: 100%;
 	background-image: url(../assets/login-bg.jpg);
@@ -7,8 +8,6 @@
 	background-position: center;
 
 	@media screen and (max-width: 991px) {
-		position: relative;
-
 		.valign {
 			position: static;
 			top: auto;

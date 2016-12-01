@@ -22,6 +22,7 @@ $topSpace: 79px;
 
 	&__logout-button {
 		color: #2f3254;
+		transition: all .5s ease;
 
 		&:hover {
 			background-color: #99cc33;
@@ -50,12 +51,21 @@ $topSpace: 79px;
 			&:first-child {
 				text-align: left;
 			}
+
+			span {
+				transition: all .5s ease;
+				padding: 5px;
+				border-radius: 5px;
+			}
 		}
 
-		th:hover {
-			background-color: #99cc33;
+		th:hover, th.active {
 			color: white;
 			cursor: pointer;
+
+			span {
+				background-color: #99cc33;
+			}
 		}
 
 		thead tr {
@@ -77,7 +87,7 @@ $topSpace: 79px;
 		}
 
 		th {
-			@extend td;
+			padding: 10px;
 			font-weight: normal;
 			text-transform: uppercase;
 			font-size: 14px;

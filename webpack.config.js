@@ -43,6 +43,6 @@ module.exports = {
             filename: 'index.html',
             template: './src/index.ejs'
         }),
-        // new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin()
     ]
 };

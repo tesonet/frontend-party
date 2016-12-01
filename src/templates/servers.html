@@ -17,11 +17,11 @@
 			<table class="servers-page__servers-header">
 				<thead>
 				<tr>
-					<th ng-click="servers.orderBy('name')">
-						Server
+					<th ng-class="{'active': order == 'name' || order == '-name'}" ng-click="servers.orderBy('name')">
+						<span>Server</span>
 					</th>
-					<th ng-click="servers.orderBy('distance')">
-						Distance
+					<th ng-class="{'active': order == 'distance' || order == '-distance'}" ng-click="servers.orderBy('distance')">
+						<span>Distance</span>
 					</th>
 				</tr>
 				</thead>
