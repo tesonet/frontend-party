@@ -1,8 +1,8 @@
 class AuthService {
-	constructor($http, $localStorage, $location) {
+	constructor($http, $localStorage, $location, config) {
 		this.$location = $location;
 		this.$localStorage = $localStorage;
-		this.endpoint = 'http://playground.tesonet.lt/v1/tokens';
+		this.endpoint = config.tokenUrl;
 		this.$http = $http;
 	}
 
@@ -26,11 +26,13 @@ class AuthService {
 
 	logout(callback) {
 		this.$localStorage['testio-token'] = '';
-		callback();
+		if (callback) {
+			callback();
+		}
 	}
 
 }
 
-AuthService.$inject = ['$http', '$localStorage', '$location'];
+AuthService.$inject = ['$http', '$localStorage', '$location', 'config'];
 
 export default AuthService;

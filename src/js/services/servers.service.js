@@ -1,14 +1,15 @@
 class ServersService {
-	constructor($http, $localStorage, AuthService) {
+	constructor($http, $localStorage, AuthService, config) {
 		this.$http = $http;
 		this.$localStorage = $localStorage;
 		this.AuthService = AuthService;
 
-		this.serversEndpoint = 'http://playground.tesonet.lt/v1/servers';
+		this.serversEndpoint = config.serversUrl;
 		this.servers = [];
 	}
 
 	getServersList(token, callback) {
+		let _this = this;
 		this.$http({
 				method: 'GET',
 				url: this.serversEndpoint,
@@ -17,15 +18,18 @@ class ServersService {
 				}
 			})
 			.then(function (e) {
-				callback(e.data);
-				console.log(e.data);
+				callback({
+					content: true,
+					list: e.data
+				});
 			}, function () {
-				this.AuthService.logout();
-				// alert('error');
+				callback({
+					content: false
+				})
 			});
 	}
 }
 
-ServersService.$inject = ['$http', '$localStorage', 'AuthService'];
+ServersService.$inject = ['$http', '$localStorage', 'AuthService', 'config'];
 
 export default ServersService;

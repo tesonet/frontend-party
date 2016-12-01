@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Danteelt/lead-frontend-party#readme",
   "devDependencies": {
+    "angular-placeholder": "^1.0.2",
     "babel": "^6.5.2",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
@@ -35,7 +36,8 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack-stream": "^3.2.0"
   },
   "dependencies": {
     "angular": "^1.5.9",

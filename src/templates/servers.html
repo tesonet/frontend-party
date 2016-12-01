@@ -1,35 +1,36 @@
 <div class="container-fluid servers-page">
-	<header>
-		<div class="row clearfix">
-			<div class="col-md-6">
-				<img src="../assets/logo-dark.png" alt="">
+	<div class="servers-page__fixed-top">
+		<header>
+			<div class="row clearfix">
+				<div class="col-xs-6">
+					<img src="../assets/logo-dark.png" alt="">
+				</div>
+				<div class="col-xs-6 text-right">
+					<a ng-click="servers.logout()" class="btn servers-page__logout-button" href="">
+						<span class="servers-page__logout-button-icon"></span>
+						<span>Logout</span>
+					</a>
+				</div>
 			</div>
-			<div class="col-md-6 text-right">
-				<a ng-click="servers.logout()" class="btn servers-page__logout-button" href="">
-					<span class="servers-page__logout-button-icon"></span>
-					<span>Logout</span>
-				</a>
-			</div>
-		</div>
-	</header>
-	<div class="row">
-		<table class="servers-page__servers-header">
-			<thead>
+		</header>
+		<div class="row">
+			<table class="servers-page__servers-header">
+				<thead>
 				<tr>
-					<th>
+					<th ng-click="servers.orderBy('name')">
 						Server
 					</th>
-					<th>
+					<th ng-click="servers.orderBy('distance')">
 						Distance
 					</th>
 				</tr>
-			</thead>
-		</table>
-		<table class="servers-page__servers-list">
-			<tr ng-repeat="server in servers.list">
-				<td ng-bind="server.name"></td>
-				<td ng-bind="server.distance"></td>
-			</tr>
-		</table>
+				</thead>
+			</table>
+		</div>
+	</div>
+	<div class="servers-page__spacing-top">
+		<div class="row">
+			<servers-list/>
+		</div>
 	</div>
 </div>
