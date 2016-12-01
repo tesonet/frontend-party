@@ -7,7 +7,7 @@
 	background-size: cover;
 	background-position: center;
 
-	@media screen and (max-width: 991px) {
+	@include screen-size(md) {
 		.valign {
 			position: static;
 			top: auto;

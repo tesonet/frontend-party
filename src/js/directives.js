@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 import loginForm from './components/loginForm/loginForm.directive';
 import serversList from './components/serversList/serversList.directive';
 

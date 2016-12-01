@@ -1,7 +1,10 @@
+@import 'setup/variables';
+@import 'setup/mixins';
 @import 'pages/login';
 @import 'pages/servers';
 
-html, body {
+html,
+body {
 	min-height: 100%;
 }
 

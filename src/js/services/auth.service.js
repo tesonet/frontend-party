@@ -9,19 +9,19 @@ class AuthService {
 	login(user, callback) {
 		let _this = this;
 		this.$http({
-				method: 'POST',
-				url: this.endpoint,
-				data: JSON.stringify(user),
-				headers: {
-					'Content-Type': 'application/json; charset=utf-8'
-				}
-			})
-			.then(function (e) {
-				_this.$location.path('/servers');
-				_this.$localStorage['testio-token'] = e.data.token;
-			}, function (e) {
-				callback(e.status, e.data);
-			});
+			method: 'POST',
+			url: this.endpoint,
+			data: angular.toJson(user),
+			headers: {
+				'Content-Type': 'application/json; charset=utf-8'
+			}
+		})
+		.then(function (e) {
+			_this.$location.path('/servers');
+			_this.$localStorage['testio-token'] = e.data.token;
+		}, function (e) {
+			callback(e.status, e.data);
+		});
 	}
 
 	logout(callback) {

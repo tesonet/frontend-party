@@ -11,12 +11,12 @@ import './directives';
 import './constants';
 
 angular.module('app', [
-		ngRoute,
-		'ngStorage',
-		'taiPlaceholder',
-		'app.services',
-		'app.controllers',
-		'app.directives',
-		'app.constants'
-	])
-	.config(routes);
+	ngRoute,
+	'ngStorage',
+	'taiPlaceholder',
+	'app.services',
+	'app.controllers',
+	'app.directives',
+	'app.constants'
+])
+.config(routes);

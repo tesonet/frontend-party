@@ -4,6 +4,6 @@ I know that you are working with ReactJS, but I chose to make this task with Ang
 
 `npm i` - to install all dependencies.
 
-`gulp build` - to build bundle to `./dist` folder.
+`gulp build` or just `gulp` - to build bundle to `./dist` folder.
 
 `gulp serve` - launches webpack server with bundle at `http://localhost/`

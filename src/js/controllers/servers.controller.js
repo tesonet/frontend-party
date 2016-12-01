@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 export default class ServersController {
 	constructor($scope, $localStorage, $location, AuthService, ServersService, config) {
 		this.$scope = $scope;

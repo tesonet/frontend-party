@@ -9,24 +9,23 @@ class ServersService {
 	}
 
 	getServersList(token, callback) {
-		let _this = this;
 		this.$http({
-				method: 'GET',
-				url: this.serversEndpoint,
-				headers: {
-					'Authorization': token
-				}
-			})
-			.then(function (e) {
-				callback({
-					content: true,
-					list: e.data
-				});
-			}, function () {
-				callback({
-					content: false
-				})
+			method: 'GET',
+			url: this.serversEndpoint,
+			headers: {
+				'Authorization': token
+			}
+		})
+		.then(function (e) {
+			callback({
+				content: true,
+				list: e.data
 			});
+		}, function () {
+			callback({
+				content: false
+			})
+		});
 	}
 }
 

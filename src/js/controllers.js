@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 import LoginController from './controllers/login.controller.js';
 import ServersController from './controllers/servers.controller.js';
 
