@@ -6,4 +6,4 @@ I know that you are working with ReactJS, but I chose to make this task with Ang
 
 `gulp build` - to build bundle to `./dist` folder.
 
-`gulp serve` - launches webpack server with bundle.
+`gulp serve` - launches webpack server with bundle at `http://localhost/`

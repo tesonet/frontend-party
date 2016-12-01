@@ -16,6 +16,7 @@ gulp.task('serve', function () {
 		}
 	});
 	server.listen(80);
+	console.log('[webpack listening] http://localhost/');
 });
 
 gulp.task('build', function () {
