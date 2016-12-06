@@ -1,0 +1,12 @@
+<table class="servers-page__servers-header">
+	<thead>
+	<tr>
+		<th ng-class="{'active': order == 'name' || order == '-name'}" ng-click="filter.orderBy('name')">
+			<span>Server</span>
+		</th>
+		<th ng-class="{'active': order == 'distance' || order == '-distance'}" ng-click="filter.orderBy('distance')">
+			<span>Distance</span>
+		</th>
+	</tr>
+	</thead>
+</table>

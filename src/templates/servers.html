@@ -6,31 +6,22 @@
 					<img src="../assets/logo-dark.png" alt="">
 				</div>
 				<div class="col-xs-6 text-right">
-					<a ng-click="servers.logout()" class="btn servers-page__logout-button" href="">
-						<span class="servers-page__logout-button-icon"></span>
-						<span>Logout</span>
-					</a>
+					<logout-button/>
 				</div>
 			</div>
 		</header>
 		<div class="row">
-			<table class="servers-page__servers-header">
-				<thead>
-				<tr>
-					<th ng-class="{'active': order == 'name' || order == '-name'}" ng-click="servers.orderBy('name')">
-						<span>Server</span>
-					</th>
-					<th ng-class="{'active': order == 'distance' || order == '-distance'}" ng-click="servers.orderBy('distance')">
-						<span>Distance</span>
-					</th>
-				</tr>
-				</thead>
-			</table>
+			<servers-list-filters
+				order="order"
+			></servers-list-filters>
 		</div>
 	</div>
 	<div class="servers-page__spacing-top">
 		<div class="row">
-			<servers-list/>
+			<servers-list
+				order="order"
+				list="servers.list"
+			></servers-list>
 		</div>
 	</div>
 </div>

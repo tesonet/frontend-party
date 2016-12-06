@@ -1,29 +1,15 @@
 import angular from 'angular';
 
 export default class ServersController {
-	constructor($scope, $localStorage, $location, AuthService, ServersService, config) {
+	constructor($scope, $localStorage, $location, ServersService) {
 		this.$scope = $scope;
 		this.$localStorage = $localStorage;
 		this.$location = $location;
-		this.AuthService = AuthService;
 		this.ServersService = ServersService;
 		this.checkToken();
-
-		this.distanceMeasurement = config.distanceMeasurement;
 		this.list = [];
 	}
-
-	orderBy(type) {
-		let _this = this;
-		if (typeof type == 'string') {
-			if (type == _this.$scope.order) {
-				_this.$scope.order = '-' + type;
-			} else {
-				_this.$scope.order = type;
-			}
-		}
-	}
-
+	
 	checkToken() {
 		let _this = this;
 		this.token = this.$localStorage['testio-token'];
@@ -39,13 +25,7 @@ export default class ServersController {
 			});
 		}
 	}
-
-	logout() {
-		let _this = this;
-		this.AuthService.logout(function () {
-			_this.$location.path('/');
-		});
-	}
 }
 
-ServersController.$inject = ['$scope', '$localStorage', '$location', 'AuthService', 'ServersService', 'config'];
+ServersController.$inject = ['$scope', '$localStorage', '$location', 'ServersService'];
+
