@@ -57,6 +57,10 @@
 			}
 		}
 
+		th > span {
+			padding: 5px;
+		}
+
 		th:hover, th.active {
 			color: white;
 			cursor: pointer;
