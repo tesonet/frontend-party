@@ -1,4 +1,4 @@
-# Lead frontend developer task
+# Senior frontend developer task
 
 If you found this task it means we are looking for you!
 
