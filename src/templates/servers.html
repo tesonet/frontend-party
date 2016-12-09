@@ -1,0 +1,27 @@
+<div class="container-fluid servers-page">
+	<div class="servers-page__fixed-top">
+		<header>
+			<div class="row clearfix">
+				<div class="col-xs-6">
+					<img src="../assets/logo-dark.png" alt="">
+				</div>
+				<div class="col-xs-6 text-right">
+					<logout-button/>
+				</div>
+			</div>
+		</header>
+		<div class="row">
+			<servers-list-filters
+				order="order"
+			></servers-list-filters>
+		</div>
+	</div>
+	<div class="servers-page__spacing-top">
+		<div class="row">
+			<servers-list
+				order="order"
+				list="servers.list"
+			></servers-list>
+		</div>
+	</div>
+</div>

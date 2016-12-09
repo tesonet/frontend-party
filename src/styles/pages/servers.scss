@@ -1,0 +1,99 @@
+.servers-page {
+	header {
+		margin: 20px 0;
+	}
+
+	&__fixed-top {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 0 15px;
+		max-height: $topSpace;
+		background-color: white;
+	}
+
+	&__spacing-top {
+		height: 100%;
+		padding-top: $topSpace;
+	}
+
+	&__logout-button {
+		color: #2f3254;
+		transition: all .5s ease;
+
+		&:hover {
+			background-color: #99cc33;
+		}
+
+		&-icon {
+			display: inline-block;
+			height: 16px;
+			width: 16px;
+			background-image: url(../assets/icons.png);
+			background-position: 0 66px;
+			margin-right: 5px;
+		}
+
+		span {
+			vertical-align: middle;
+		}
+	}
+
+	&__servers-header, &__servers-list {
+		width: 100%;
+
+		td, th {
+			text-align: right;
+			padding: 5px;
+
+			&:first-child {
+				text-align: left;
+			}
+
+			span {
+				transition: all .5s ease;
+				border-radius: 5px;
+			}
+		}
+
+		th > span {
+			padding: 5px;
+		}
+
+		th:hover, th.active {
+			color: white;
+			cursor: pointer;
+
+			span {
+				background-color: #99cc33;
+			}
+		}
+
+		thead tr {
+			border-top: 2px solid #e6e6e6;
+			border-bottom: 2px solid #e6e6e6;
+			background-color: #f5f5f5;
+		}
+
+		tr {
+			border-bottom: 1px solid #e6e6e6;
+
+			&:hover {
+				background-color: #f5f5f5;
+			}
+		}
+
+		td {
+			padding: 10px;
+		}
+
+		th {
+			padding: 10px;
+			font-weight: normal;
+			text-transform: uppercase;
+			font-size: 14px;
+			color: #999;
+		}
+	}
+}

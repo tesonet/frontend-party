@@ -1,0 +1,87 @@
+.login-page {
+	position: fixed;
+	overflow-y: auto;
+	width: 100%;
+	height: 100%;
+	background-image: url(../assets/login-bg.jpg);
+	background-size: cover;
+	background-position: center;
+
+	@include screen-size(md) {
+		.valign {
+			position: static;
+			top: auto;
+			transform: translateY(0);
+			padding: 30px 0;
+		}
+	}
+
+	&__form {
+		padding-top: 50px;
+	}
+
+	.form-control {
+		padding-top: 17px;
+		padding-bottom: 17px;
+		height: auto;
+		color: #999;
+		border: none;
+		box-shadow: none;
+
+		&:focus, &:active {
+			box-shadow: none;
+		}
+	}
+
+	.input-group-addon {
+		background-color: white;
+		border: none;
+	}
+
+	button[type=submit] {
+		width: 100%;
+		padding: 15px;
+		background-color: #9fd533;
+		transition: background-color .5s ease;
+		border: none;
+		color: white;
+		font-weight: bold;
+
+		&:hover {
+			background-color: #86b300;
+		}
+
+	}
+
+	&__icons {
+		background-image: url(../assets/icons.png);
+		height: 16px;
+		width: 14px;
+		background-repeat: no-repeat;
+		display: inline-block;
+
+		&--username {
+			background-position: 0 0;
+		}
+
+		&--password {
+			background-position: 0 -17px;
+		}
+	}
+
+	&__error {
+		margin-top: 20px;
+		visibility: hidden;
+		opacity: 0;
+		transition: all 0.5s ease;
+		border-radius: 5px;
+		background-color: red;
+		color: white;
+
+		&.show {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+

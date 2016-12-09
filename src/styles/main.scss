@@ -1,0 +1,16 @@
+@import 'setup/variables';
+@import 'setup/mixins';
+@import 'pages/login';
+@import 'pages/servers';
+
+html,
+body {
+	min-height: 100%;
+}
+
+.valign {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+}

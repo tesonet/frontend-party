@@ -1,0 +1,9 @@
+<table class="servers-page__servers-list">
+	<tr ng-repeat="server in list | orderBy: order">
+		<td ng-bind="server.name"></td>
+		<td>
+			<span ng-bind="server.distance"></span>
+			<span ng-bind="serversList.distanceMeasurement"></span>
+		</td>
+	</tr>
+</table>
