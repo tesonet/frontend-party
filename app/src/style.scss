@@ -1,0 +1,16 @@
+html {
+  display: flex;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex: 1;
+  font-family: 'Roboto', sans-serif;
+}
+
+#root, .layout {
+  flex: 1;
+  display: flex;
+}

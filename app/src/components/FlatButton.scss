@@ -1,0 +1,13 @@
+.flat-button {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  color: #2F3254;
+  &:hover {
+    color: #99CC33;
+  }
+  .glyphicon {
+    margin-right: 10px;
+  }
+}

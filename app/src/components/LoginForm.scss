@@ -1,0 +1,24 @@
+.login-form {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(11, 15, 39, 0.80), rgba(11, 15, 39, 0.80)),
+    url('../../public/images/bg1.png');
+  background-size: cover;
+  form {
+    text-align: center;
+    width: 400px;
+  }
+  img {
+    margin-bottom: 50px;
+  }
+  .btn-success {
+    background-color: #9FD533;
+    &:hover {
+      background-color: #86b300;
+    }
+  }
+}
