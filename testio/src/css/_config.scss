@@ -1,0 +1,70 @@
+
+
+
+// Colors
+$black:				     #000 !default;
+$gray-dark:        #333 !default;
+$gray-dark-1:      #555 !default;
+$gray-light:       #727272 !default;
+$gray-light-1:		 #999 !default;
+$gray-light-2:     #aaa !default;
+
+$gray-light-3:     #b2b2b2 !default;
+$gray-light-4:		 #ccc !default;
+
+$gray-light-5:		 #e6e6e6 !default;
+$gray-light-6:		 #f0f0f0 !default;
+$white:				     #fff !default;
+
+$brand-primary:    #9fd533 !default;
+
+
+
+// Typography
+
+$font-primary-name:					"Roboto" !default;
+$font-family-sans-serif:		$font-primary-name, Helvetica, Arial, sans-serif !default;
+$font-size-base:            16px !default;
+
+$line-height-base:          1.45 !default;
+$line-height-computed:      floor($font-size-base * $line-height-base) !default;
+
+$icon-font-name:            'testio-icons' !default;
+$icon-font-path:            '../../fonts/' !default;
+$icon-font-size:            $font-size-base !default;
+
+$link-color:                #2f3254 !default;
+$link-hover-color:          #99cc33 !default;
+
+
+// Buttons
+
+$btn-padding-x:             20px !default;
+$btn-padding-y:             17px !default;
+
+
+// Forms
+
+$input-padding-y:           17px !default;
+$input-padding-x:           20px !default;
+$input-line-height:         1.25 !default;
+$input-line-height-computed:floor($font-size-base * $input-line-height) !default;
+
+$input-height:              floor($input-line-height-computed + ($input-padding-y * 2) +2) !default;
+
+$input-color:               $gray-light-1 !default; //999
+$input-color-placeholder:   $gray-light-3 !default;
+
+$login-width:               24em !default;
+
+
+
+// Navbar
+
+$navbar-light-color:        $link-color !default;
+$navbar-light-hover-color:  $link-hover-color !default;
+$navbar-padding-y:          1.8rem;
+
+// Tables
+
+$table-border-color:        $gray-light-5 !default;

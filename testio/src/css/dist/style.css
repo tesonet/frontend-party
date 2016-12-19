@@ -1,0 +1,158 @@
+.d-table {
+  display: table;
+}
+
+.d-table-cell {
+  display: table-cell;
+}
+
+.min-h-100vh {
+  min-height: 100vh;
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+.min-h-auto {
+  min-height: auto;
+}
+
+.min-h-init {
+  min-height: initial;
+}
+
+@font-face {
+  font-family: "testio-icons";
+  src: url("../../fonts/testio-icons.woff") format("woff"), url("../../fonts/testio-icons.ttf") format("truetype"), url("../../fonts/testio-icons.svg#testio-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "testio-icons";
+  content: attr(data-icon);
+  display: block;
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+.container-login {
+  max-width: 24em;
+}
+
+.login-bg {
+  background-color: #0b0f27;
+  background-image: url("../../images/login-bg-small.jpg");
+  background-size: cover;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .login-bg {
+    background-image: url("../../images/login-bg-medium.jpg");
+  }
+}
+
+@media (min-width: 992px) {
+  .login-bg {
+    background-image: url("../../images/login-bg.jpg");
+  }
+}
+
+.app-logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+
+.app-logo-inner {
+  display: block;
+  height: 30px;
+}
+
+[data-icon] {
+  display: inline-block;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 16px;
+  height: 16px;
+  text-align: center;
+}
+
+[data-icon] + .title,
+.title + [data-icon] {
+  margin-left: 11px;
+}
+
+.btn-primary {
+  font-weight: bold;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #86b300;
+}
+
+.btn-plain {
+  color: #2f3254;
+}
+
+.btn-plain:hover {
+  color: #99cc33;
+}
+
+.form-control:active,
+.form-control:focus {
+  color: #999;
+}
+
+.form-control-icon {
+  display: block;
+  color: #b2b2b2;
+  text-align: center;
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  pointer-events: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.has-icon {
+  position: relative;
+}
+
+.has-icon .form-control {
+  padding-left: 56px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+th {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.table thead th {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.thead-default th {
+  background-color: #f5f5f5;
+  color: #999;
+}
