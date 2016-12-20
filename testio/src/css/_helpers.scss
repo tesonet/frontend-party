@@ -1,0 +1,23 @@
+.d-table {
+  display: table;
+}
+
+.d-table-cell {
+  display: table-cell;
+}
+
+.min-h-100vh {
+    min-height: 100vh;
+}
+
+.h-100vh {
+    height: 100vh; // for Firefox
+}
+
+.min-h-auto {
+    min-height: auto; // for IE Edge, 10, 9
+}
+
+.min-h-init {
+    min-height: initial;
+}

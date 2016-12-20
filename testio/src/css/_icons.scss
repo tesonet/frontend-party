@@ -1,0 +1,21 @@
+@font-face {
+    font-family: $icon-font-name;
+    src: url('#{$icon-font-path+$icon-font-name}.woff') format('woff'), // standards
+         url('#{$icon-font-path+$icon-font-name}.ttf') format('truetype'), // Safari, Android, iOS
+         url('#{$icon-font-path+$icon-font-name}.svg##{$icon-font-name}') format('svg'); // legacy iOS
+    font-weight: normal;
+    font-style: normal;
+}
+
+[data-icon]:before {
+    font-family: $icon-font-name;
+    content: attr(data-icon);
+    display: block;
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

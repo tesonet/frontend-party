@@ -1,0 +1,132 @@
+@import "config";
+@import "bootstrap/variables";
+@import "bootstrap/mixins/breakpoints";
+@import "helpers";
+@import "icons";
+
+body {
+  font-family: $font-family-sans-serif;
+}
+
+.container-login {
+  max-width: $login-width;
+}
+
+.login-bg {
+  background-color: #0b0f27;
+  background-image: url("../../images/login-bg-small.jpg");
+  background-size: cover;
+
+  width: 100vw;
+  min-height: 100vh;
+}
+
+@include media-breakpoint-between(md, lg) {
+  .login-bg {
+    background-image: url("../../images/login-bg-medium.jpg");
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .login-bg {
+    background-image: url("../../images/login-bg.jpg");
+  }
+}
+
+.app-logo{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+.app-logo-inner {
+  display: block;
+  height: 30px
+}
+
+
+// Icons
+
+[data-icon] {
+  display: inline-block;
+  font-style: normal;
+  font-size: $font-size-base;
+  line-height: $icon-font-size;
+  height: $icon-font-size;
+  text-align: center;
+}
+
+// Buttons
+
+[data-icon] + .title,
+.title + [data-icon] {
+    margin-left: ceil(($font-size-base/1.5));
+}
+
+.btn-primary {
+  font-weight: bold;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #86b300;
+}
+
+.btn-plain {
+  color: $link-color;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+// Forms
+
+.form-control:active,
+.form-control:focus {
+  color: #999;
+}
+
+.form-control-icon {
+    display: block;
+    color: $gray-light-3;
+    text-align: center;
+    width: $input-height;
+    height: $input-height;
+    line-height: $input-height;
+    pointer-events: auto; // fix for links to reset filter values
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.has-icon {
+  position: relative;
+}
+
+.has-icon .form-control {
+  padding-left: $input-height;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+
+
+// Tables
+
+th {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.table thead th {
+  border-bottom: 1px solid $table-border-color;
+}
+
+.thead-default {
+  th {
+    background-color: #f5f5f5;
+    color: $gray-light-1;
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "IcoMoonType": "selection",
+  "icons": [
+    {
+      "icon": {
+        "paths": [
+          "M320 0v256h128v-128h448v768h-448v-128h-128v256h704v-1024z",
+          "M640 448h-384v-160l-224 224 224 224v-160h384z"
+        ],
+        "attrs": [
+          {},
+          {}
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": [
+          "exit"
+        ]
+      },
+      "attrs": [
+        {},
+        {}
+      ],
+      "properties": {
+        "order": 5,
+        "id": 0,
+        "name": "exit",
+        "prevSize": 16,
+        "code": 101
+      },
+      "setIdx": 0,
+      "setId": 1,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
+          "M936.377 847.332c0 97.334-64 176.668-141.999 176.668h-569.332c-78 0-141.999-79.334-141.999-176.668 0-175.334 43.333-377.999 218-377.999 54 52.666 127.333 85.334 208.666 85.334s154.666-32.666 208.666-85.334c174.667 0 218 202.666 218 377.999zM765.709 256c0 141.333-114.667 256-256 256s-256-114.667-256-256 114.667-256 256-256 256 114.667 256 256z"
+        ],
+        "width": 1019.4285714285713,
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "user"
+        ],
+        "defaultCode": 61447,
+        "grid": 16
+      },
+      "attrs": [],
+      "properties": {
+        "name": "user",
+        "id": 11,
+        "order": 2,
+        "prevSize": 16,
+        "code": 85
+      },
+      "setIdx": 1,
+      "setId": 0,
+      "iconIdx": 11
+    },
+    {
+      "icon": {
+        "paths": [
+          "M318.958 465.455h372.363v-139.636c0-102.545-83.636-186.182-186.182-186.182s-186.182 83.636-186.182 186.182v139.636zM924.050 535.273v418.909c0 38.546-31.273 69.818-69.818 69.818h-698.184c-38.546 0-69.818-31.273-69.818-69.818v-418.909c0-38.546 31.273-69.818 69.818-69.818h23.273v-139.636c0-178.909 146.91-325.818 325.818-325.818s325.818 146.91 325.818 325.818v139.636h23.273c38.546 0 69.818 31.273 69.818 69.818z"
+        ],
+        "width": 1010.2857142857142,
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "lock"
+        ],
+        "defaultCode": 61475,
+        "grid": 16
+      },
+      "attrs": [],
+      "properties": {
+        "name": "lock",
+        "id": 36,
+        "order": 3,
+        "prevSize": 16,
+        "code": 76
+      },
+      "setIdx": 1,
+      "setId": 0,
+      "iconIdx": 36
+    }
+  ],
+  "height": 1024,
+  "metadata": {
+    "name": "testio-icons"
+  },
+  "preferences": {
+    "showGlyphs": true,
+    "showCodes": true,
+    "showQuickUse": true,
+    "showQuickUse2": true,
+    "showSVGs": true,
+    "fontPref": {
+      "prefix": "icon-",
+      "metadata": {
+        "fontFamily": "testio-icons",
+        "majorVersion": 1,
+        "minorVersion": 0
+      },
+      "metrics": {
+        "emSize": 1024,
+        "baseline": 6.25,
+        "whitespace": 50
+      },
+      "embed": false,
+      "noie8": true,
+      "ie7": false,
+      "showSelector": true,
+      "showMetrics": false,
+      "showMetadata": false
+    },
+    "imagePref": {
+      "prefix": "icon-",
+      "png": true,
+      "useClassSelector": true,
+      "color": 0,
+      "bgColor": 16777215
+    },
+    "historySize": 100,
+    "gridSize": 16,
+    "showGrid": true
+  }
+}
