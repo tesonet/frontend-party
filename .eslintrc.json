@@ -19,7 +19,8 @@
       "imports": "never",
       "exports": "never",
       "functions": "never"
-    }]
+    }],
+    "react/prop-types": 0
   },
   "env": {
     "es6": true,

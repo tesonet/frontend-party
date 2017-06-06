@@ -11,6 +11,7 @@ const renderApp = () => {
     document.getElementById('app')
   );
 };
+
 renderApp();
 
 if (module.hot) {

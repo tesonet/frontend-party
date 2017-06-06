@@ -42,8 +42,7 @@ server.use((req, res) => {
     res.redirect(301, context.url);
   }
 
-  res.write(template({ body }));
-  res.end();
+  res.end(template({ body }));
 });
 
 console.log(`listening on ${port}`);

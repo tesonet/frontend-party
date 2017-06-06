@@ -1,24 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
+import Routes from './routes';
 
-window.store = store; // TODO: only expose in dev environment
-
-const Home = () => (
-  <div>home</div>
-);
-
-const Login = () => (
-  <div>login</div>
-);
+window.store = store; // TODO: only expose in the dev environment
 
 const App = () => (
   <Provider store={store}>
-    <div>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/login" component={Login} />
-    </div>
+    <Routes />
   </Provider>
 );
 
