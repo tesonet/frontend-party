@@ -1,0 +1,44 @@
+@require '../var'
+@require '../stylus-mixin-library'
+
+.grid-row
+	clearfix()
+	box-sizing border-box
+
+	&--has-spaces
+		width calc(100% + 15px + 15px)//  15px = spacePrimary
+		margin-right -(spaceRightPrimary)
+		margin-left -(spaceLeftPrimary)
+
+		> .grid-coll
+			padding(null spaceRightPrimary null spaceLeftPrimary)
+
+	&--has-spaces-sm
+		width calc(100% + 10px + 10px)//  10px = spaceSm
+		margin-right -(spaceRightSm)
+		margin-left -(spaceLeftSm)
+
+		> .grid-coll
+			padding(null spaceRightSm null spaceLeftSm)
+
+	&--has-spaces-xs
+		width calc(100% + 5px + 5px)//  10px = spaceXs
+		margin-right -(spaceRightXs)
+		margin-left -(spaceLeftXs)
+
+		> .grid-coll
+			padding(null spaceRightXs null spaceLeftXs)
+
+.grid-coll
+	float left
+	width 100%
+	max-width 100%
+	box-sizing border-box
+	padding(null 0 null 0)
+	min-height 1px
+
+	&--right
+		float right
+
+	&--space-top
+		padding-top spaceTopPrimary

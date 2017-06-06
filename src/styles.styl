@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+assetLocation = 'asset/'
+styleLocation = 'style/'
+stylusLocation = assetLocation + styleLocation + 'stylus/'
+
+@require stylusLocation + 'atom/stylus-mixin-library/stylus-mixin-library'
+@require stylusLocation + 'atom/reset'
+@require stylusLocation + 'atom/var'
+@require stylusLocation + 'atom/typography'
+@require stylusLocation + 'atom/icon'
+@require stylusLocation + 'atom/base'
+@require stylusLocation + 'atom/grid'
+@require stylusLocation + 'atom/heading'
+@require stylusLocation + 'atom/text'
+@require stylusLocation + 'atom/link'
+@require stylusLocation + 'atom/table'
+@require stylusLocation + 'atom/list'
+@require stylusLocation + 'atom/data-grid'
+@require stylusLocation + 'atom/spinner'
+@require stylusLocation + 'atom/js'
+
+@import stylusLocation + 'molecule/base/*'
+@import stylusLocation + 'molecule/form/base/*'
+@import stylusLocation + 'molecule/custom/*'
+
+// @import stylusLocation + '/structure/**/*'
+
+// @import stylusLocation + '/vendor/**/*'
+
+@import 'app/**/*'

@@ -1,0 +1,13 @@
+//--Keyword values--
+//  1s / 200ms
+//--Multiple animations--
+//  1s, 200ms
+//--Usage:
+//  .someClass
+//      animation-duration 200ms
+animation-duration()
+	if current-property {
+		vendor('animation-duration', arguments)
+	} else {
+		error('animation-duration() must be used within a property')
+	}

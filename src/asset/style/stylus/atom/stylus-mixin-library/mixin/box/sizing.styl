@@ -1,0 +1,11 @@
+//--Keyword values--
+//  content-box | border-box | inherit | inherit | unset
+//--Usage:
+//  .someClass
+//      box-sizing border-box
+box-sizing()
+	if current-property {
+		vendor('box-sizing', arguments)
+	} else {
+		error('box-sizing() must be used within a property')
+	}

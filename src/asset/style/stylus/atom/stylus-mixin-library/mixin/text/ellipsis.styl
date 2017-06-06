@@ -1,0 +1,14 @@
+//  TODO: implement this into bourbone
+//--Usage:
+//  .class
+//      ellipsis 50%, block
+ellipsis(
+	elementWidth = 100%,
+	elementDisplay = inline-block
+)
+	max-width elementWidth
+	display elementDisplay
+	overflow hidden
+	text-overflow ellipsis
+	white-space nowrap
+	word-wrap normal

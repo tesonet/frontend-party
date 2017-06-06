@@ -1,0 +1,13 @@
+//--Keyword values--
+//  @keyframes duration | timing-function | delay | iteration-count | direction | fill-mode | play-state | name
+//  @keyframes duration | timing-function | delay | name
+//  @keyframes duration | name
+//--Usage:
+//  .someClass
+//      animation 3s ease-in 1s 2 reverse both paused slidein
+animation()
+	if current-property {
+		vendor('animation', arguments)
+	} else {
+		error('animation() must be used within a property')
+	}

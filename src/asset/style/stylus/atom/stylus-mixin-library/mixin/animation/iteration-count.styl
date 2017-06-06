@@ -1,0 +1,13 @@
+//--Keyword values--
+//  infinite | 1
+//--Multiple animations--
+//  1, infinite, 2.3
+//--Usage:
+//  .someClass
+//      animation-iteration-count infinite
+animation-iteration-count()
+	if current-property {
+		vendor('animation-iteration-count', arguments)
+	} else {
+		error('animation-iteration-count() must be used within a property')
+	}

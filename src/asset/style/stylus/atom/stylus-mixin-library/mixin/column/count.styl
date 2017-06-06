@@ -1,0 +1,11 @@
+//--Keyword values--
+//  column-count | initial | inherit
+//--Usage:
+//  .someClass
+//      column-count 3
+column-count()
+	if current-property {
+		vendor('column-count', arguments)
+	} else {
+		error('column-count() must be used within a property')
+	}

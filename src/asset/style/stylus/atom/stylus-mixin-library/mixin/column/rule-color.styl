@@ -1,0 +1,11 @@
+//--Keyword values--
+//  color | initial | inherit
+//--Usage:
+//  .someClass
+//      column-rule-color initial
+column-rule-color()
+	if current-property {
+		vendor('column-rule-color', arguments)
+	} else {
+		error('column-rule-color() must be used within a property')
+	}

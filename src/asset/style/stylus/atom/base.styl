@@ -1,0 +1,44 @@
+body
+	background-color bgBody
+	-ms-text-size-adjust 100%
+	-webkit-text-size-adjust 100%
+	-webkit-print-color-adjust exact
+	text-align left
+	min-height 450px
+
+html, body, button, input, select, textarea
+body, p, span, a, b, strong, h1, h2, h3
+h4, h5, th, td, i, em, li, div, label
+	font-size fzPrimary
+	color cFontPrimary
+	font-family ffPrimary, sans-serif
+
+html, body, button, input, select, textarea
+body, p, h1, h2, h3, h4, h5, th, td, li, div
+	line-height lhPrimary
+
+span, a, b, strong, i, em, label
+	line-height inherit
+
+a
+	color cLinkPrimary
+	text-decoration underline
+
+	&:hover
+		text-decoration underline
+		color cLinkPrimaryHover
+
+p
+	margin-top pSpaceTop
+
+strong, b
+	font-weight bold
+
+i, em
+	font-style italic
+
+.clear
+	height 1px
+	overflow hidden
+	margin-top -1px
+	clear both

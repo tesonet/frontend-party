@@ -1,0 +1,13 @@
+//--Keyword values--
+//  running | paused | inherited | initial | unset
+//--Multiple animations--
+//  running, paused
+//--Usage:
+//  .someClass
+//      animation-play-state running
+animation-play-state()
+	if current-property {
+		vendor('animation-play-state', arguments)
+	} else {
+		error('animation-play-state() must be used within a property')
+	}

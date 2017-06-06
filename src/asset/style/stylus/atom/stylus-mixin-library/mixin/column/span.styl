@@ -1,0 +1,11 @@
+//--Keyword values--
+//  1 | all | initial | inherit
+//--Usage:
+//  .someClass
+//      column-span 2
+column-span()
+	if current-property {
+		vendor('column-span', arguments)
+	} else {
+		error('column-span() must be used within a property')
+	}

@@ -1,0 +1,11 @@
+//--Keyword values--
+//  auto | column-width   column-count | initial | inherit
+//--Usage:
+//  .someClass
+//      columns(auto)
+columns()
+	if current-property {
+		vendor('columns', arguments)
+	} else {
+		error('columns() must be used within a property')
+	}

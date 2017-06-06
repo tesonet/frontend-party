@@ -1,0 +1,11 @@
+//--Keyword values--
+//  auto | column-width
+//--Usage:
+//  .someClass
+//      column-width auto
+column-width()
+	if current-property {
+		vendor('column-width', arguments)
+	} else {
+		error('column-width() must be used within a property')
+	}

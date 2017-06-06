@@ -1,0 +1,11 @@
+//--Keyword values--
+//  number | unset | initial | inherit
+//--Usage:
+//  ul.someClass
+//      opacity 0.5
+opacity()
+	if current-property {
+		vendor('opacity', arguments)
+	} else {
+		error('opacity() must be used within a property')
+	}

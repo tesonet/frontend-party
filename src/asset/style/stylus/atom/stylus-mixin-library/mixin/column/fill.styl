@@ -1,0 +1,11 @@
+//--Keyword values--
+//  balance | auto | initial | inherit
+//--Usage:
+//  .someClass
+//      column-fill balance
+column-fill()
+	if current-property {
+		vendor('column-fill', arguments)
+	} else {
+		error('column-fill() must be used within a property')
+	}

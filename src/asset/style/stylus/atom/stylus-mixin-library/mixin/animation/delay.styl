@@ -1,0 +1,13 @@
+//--Keyword values--
+//  1s / 200ms
+//--Multiple animations--
+//  1s, 200ms
+//--Usage:
+//  .someClass
+//      animation-delay(1s)
+animation-delay()
+	if current-property {
+		vendor('animation-delay', arguments)
+	} else {
+		error('animation-delay() must be used within a property')
+	}

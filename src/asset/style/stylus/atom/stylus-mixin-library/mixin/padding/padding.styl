@@ -1,0 +1,46 @@
+//--Usage:
+//  .class
+//      padding(0)
+//  OR
+//      padding(0 10px)
+//  OR
+//      padding(5px 0 2px)
+//  OR
+//      padding(null null 20px null)
+padding(args)
+	if length(args) == 1
+		if args[0] != null
+			padding-top args[0]
+			padding-right args[0]
+			padding-bottom args[0]
+			padding-left args[0]
+
+	else if length(args) == 2
+		if args[0] != null
+			padding-top args[0]
+		if args[1] != null
+			padding-right args[1]
+		if args[0] != null
+			padding-bottom args[0]
+		if args[1] != null
+			padding-left args[1]
+
+	else if length(args) == 3
+		if args[0] != null
+			padding-top args[0]
+		if args[1] != null
+			padding-right args[1]
+		if args[2] != null
+			padding-bottom args[2]
+		if args[1] != null
+			padding-left args[1]
+
+	else if length(args) == 4
+		if args[0] != null
+			padding-top args[0]
+		if args[1] != null
+			padding-right args[1]
+		if args[2] != null
+			padding-bottom args[2]
+		if args[3] != null
+			padding-left args[3]
