@@ -11,7 +11,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className={cn('row', styles.header)}>
-        <div className={cn('col-9', styles.main)}>
+        <div className={cn('col-9 col-xs-12', styles.main)}>
           <img
             src="/static/img/logo.png"
             alt="Testio"
@@ -20,7 +20,7 @@ class Header extends React.Component {
             className={styles.logo}
           />
         </div>
-        <div className={cn('col-3', styles.aside)}>
+        <div className={cn('col-3 col-xs-12', styles.aside)}>
           <button onClick={this.handleLogoutClick}>&#x21e4; Logout</button>
         </div>
       </div>
