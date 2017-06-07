@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: url(/static/img/bg.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+.form {
+  text-align: center;
+}
+
+.logo {
+  margin: 6vw 0;
+  max-width: 80vw;
+  height: auto;
+}
+
+.form p {
+  margin: 2vw 0;
+}
+
+.form button {
+  margin: 3vw 0 0;
+}
+
+.error {
+  color: #ff756f;
+}

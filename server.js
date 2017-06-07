@@ -39,7 +39,9 @@ if (process.env.NODE_ENV === 'development') {
   );
   server.use(webpackHotMiddleware(compiler));
 }
+
 server.use('/public', express.static('./public'));
+server.use('/static', express.static('./static'));
 
 server.use((req, res) => {
   const context = {};
