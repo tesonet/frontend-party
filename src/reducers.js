@@ -8,7 +8,7 @@ const ui = (state = {}, action) => {
     case LOGIN_ERROR:
       return { ...state, token: false, loginError: action.payload };
     case LOGOUT:
-      return { ...state, token: false };
+      return { ...state, token: false, loginError: false };
     default:
       return state;
   }
