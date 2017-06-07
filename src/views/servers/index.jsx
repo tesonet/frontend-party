@@ -1,6 +1,10 @@
 import React from 'react';
+import cn from 'classnames';
 import { connect } from 'react-redux';
 import { getServers } from '../../actions';
+import Row from './row';
+
+import styles from './index.scss';
 
 class Servers extends React.Component {
   componentDidMount() {
@@ -20,21 +24,21 @@ class Servers extends React.Component {
     return 0;
   };
 
+  // A3A3A3
   renderItems = () => (
-    this.props.items.sort(this.sortItems).map(this.renderItem)
+    <div>
+      <Row item={{ name: 'SERVERS' }} index={-1} />
+      {this.props.items.sort(this.sortItems).map(this.renderItem)}
+    </div>
   );
 
   renderLoading = () => <div>loading</div>;
 
-  renderItem = (item, index) => (
-    <div key={index}>
-      {item.name} {item.distance}
-    </div>
-  );
+  renderItem = (item, index) => <Row key={index} item={item} />;
 
   render() {
     return (
-      <div>
+      <div className={cn('container-fluid', styles.container)}>
         {this.props.loading && this.renderLoading()}
         {!!this.props.items.length && this.renderItems()}
       </div>

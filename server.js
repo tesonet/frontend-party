@@ -12,6 +12,15 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpack = require('webpack');
 const config = require('./webpack.config');
 
+const hook = require('css-modules-require-hook');
+
+hook({
+  rootDir: './src',
+  generateScopedName: '[sha512:hash:base32]-[local]',
+  extensions: ['.scss']
+});
+
+
 global.window = {};
 const App = require('./src/app').default;
 

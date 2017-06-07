@@ -1,10 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const IS_DEV = process.env.NODE_ENV === 'development';
+
 const config = {
   context: __dirname,
   entry: ['./src/client.jsx'],
-  devtool: process.env.NODE_ENV === 'development' ? 'cheap-eval-source-map' : false,
+  devtool: IS_DEV ? 'cheap-eval-source-map' : false,
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
@@ -36,6 +38,28 @@ const config = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: [{
+          loader: 'style-loader',
+          options: { sourceMap: IS_DEV }
+        }, {
+          loader: 'css-loader',
+          options: {
+            localIdentName: '[local]_[hash:base64:5]',
+            modules: true,
+            sourceMap: IS_DEV
+          }
+        }, {
+          loader: 'postcss-loader',
+          options: { sourceMap: IS_DEV }
+        }, {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: IS_DEV
+          }
+        }]
       }
     ]
   }
