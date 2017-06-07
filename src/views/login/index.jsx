@@ -14,9 +14,12 @@ class Login extends React.Component {
   };
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+
     if (this.props.token) {
-      return <Redirect to="/" />;
+      return <Redirect to={from} />;
     }
+
     return (
       <div>
         <p><input type="text" ref={(c) => { this.username = c; }} /></p>

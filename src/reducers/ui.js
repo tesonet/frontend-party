@@ -6,11 +6,12 @@ const defaultState = {
 };
 
 const ui = (state = defaultState, action) => {
+  const { payload } = action;
   switch (action.type) {
     case LOGIN:
-      return { ...state, token: action.payload, loginError: false };
+      return { ...state, token: payload, loginError: false };
     case LOGIN_ERROR:
-      return { ...state, token: false, loginError: action.payload };
+      return { ...state, token: false, loginError: payload };
     case LOGOUT:
       return { ...state, token: false, loginError: false };
     default:

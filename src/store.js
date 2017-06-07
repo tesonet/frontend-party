@@ -1,12 +1,17 @@
 import { createStore, compose, applyMiddleware } from 'redux';
+import { persistStore, autoRehydrate } from 'redux-persist';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+import reducers from './reducers';
 
 const store = createStore(
-  rootReducer,
+  reducers,
+  {},
   compose(
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
+    autoRehydrate()
   )
 );
+
+persistStore(store, { whitelist: ['ui'] });
 
 export default store;
