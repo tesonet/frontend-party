@@ -1,4 +1,4 @@
-.icon
+.{pre}icon
 	display inline-block
 	font-family ffIcon// TODO: priority:1, use !important to prevent issues with browser extensions that change fonts for
 	line-height 1
@@ -22,12 +22,13 @@
 		font-weight normal
 		font-variant normal
 		text-transform none
+		color cInputPlaceholder
 
-	&--torso
+	&--torso:before
 		content '\f007'
 
-	&--lock
+	&--lock:before
 		content '\f023'
 
-	&--arrow-left-door
+	&--arrow-left-door:before
 		content '\f08b'

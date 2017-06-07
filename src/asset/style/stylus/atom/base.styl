@@ -4,7 +4,9 @@ body
 	-webkit-text-size-adjust 100%
 	-webkit-print-color-adjust exact
 	text-align left
+	size 100% 100%
 	min-height 450px
+	position relative, null, null, null, null
 
 html, body, button, input, select, textarea
 body, p, span, a, b, strong, h1, h2, h3
@@ -37,7 +39,15 @@ strong, b
 i, em
 	font-style italic
 
-.clear
+img.{pre}image
+
+	&--block
+		display block
+
+	&--responsive
+		max-width 100%
+
+.{pre}clear
 	height 1px
 	overflow hidden
 	margin-top -1px

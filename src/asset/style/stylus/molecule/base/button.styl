@@ -1,4 +1,4 @@
-.button
+.{pre}button
 	background-color cPrimary
 	display inline-block
 	border 0 solid cPrimary
@@ -10,7 +10,7 @@
 	min-height hFormControl
 	color cInverted
 	text-align center
-	text-transform uppercase
+	border-radius bdrsFormControl
 
 	&__text
 	&__icon
@@ -20,14 +20,12 @@
 
 	&__text
 		color cInverted
-		font-size fzMd
-		text-transform uppercase
-		font-family ffPrimarySemiBold
+		font-family ffPrimaryBold
 
 	&:hover
 	&:active
 		text-decoration none
-		background-color #009dbb
+		background-color #86b300
 
 		.button
 			&__text
@@ -35,6 +33,10 @@
 				text-decoration none
 				*
 					text-decoration none
+
+	&[disabled]
+		background-color cDisabledButton
+		cursor default
 
 	&--no-min-height
 		min-height auto
@@ -65,8 +67,8 @@
 		max-width 100%
 		max-height 100%
 
-a.button
-	padding(11px null 9px null)//  11px imitate vertical align middle in A tag
+a.{pre}button
+	padding(15px null 9px null)//  11px imitate vertical align middle in A tag
 
 	&--transparent
 		padding-top 0

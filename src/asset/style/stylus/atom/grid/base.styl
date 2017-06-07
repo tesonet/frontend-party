@@ -1,7 +1,7 @@
 @require '../var'
 @require '../stylus-mixin-library'
 
-.grid-row
+.{pre}grid-row
 	clearfix()
 	box-sizing border-box
 
@@ -13,23 +13,7 @@
 		> .grid-coll
 			padding(null spaceRightPrimary null spaceLeftPrimary)
 
-	&--has-spaces-sm
-		width calc(100% + 10px + 10px)//  10px = spaceSm
-		margin-right -(spaceRightSm)
-		margin-left -(spaceLeftSm)
-
-		> .grid-coll
-			padding(null spaceRightSm null spaceLeftSm)
-
-	&--has-spaces-xs
-		width calc(100% + 5px + 5px)//  10px = spaceXs
-		margin-right -(spaceRightXs)
-		margin-left -(spaceLeftXs)
-
-		> .grid-coll
-			padding(null spaceRightXs null spaceLeftXs)
-
-.grid-coll
+.{pre}grid-coll
 	float left
 	width 100%
 	max-width 100%
