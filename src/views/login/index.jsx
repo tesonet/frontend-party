@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import cn from 'classnames';
 import { login } from '../../actions';
-import styles from './indes.scss';
+import styles from './index.scss';
 
 class Login extends React.Component {
   handleClick = () => {
@@ -35,7 +35,7 @@ class Login extends React.Component {
           <p><input type="text" ref={(c) => { this.username = c; }} /></p>
           <p><input type="password" ref={(c) => { this.password = c; }} /></p>
           {!!this.props.error && <p className={styles.error}>{this.props.error}</p>}
-          <p><button onClick={this.handleClick}>Login</button></p>
+          <p><button type="button" onClick={this.handleClick}>Login</button></p>
         </div>
       </div>
     );

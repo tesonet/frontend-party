@@ -11,20 +11,26 @@
 
 .form {
   text-align: center;
+
+  p {
+    margin: 2vw 0;
+  }
+
+  button {
+    margin: 3vw 0 0;
+  }
+
+  input,
+  button {
+    width: 80vw;
+    max-width: 300px;
+  }
 }
 
 .logo {
   margin: 6vw 0;
   max-width: 80vw;
   height: auto;
-}
-
-.form p {
-  margin: 2vw 0;
-}
-
-.form button {
-  margin: 3vw 0 0;
 }
 
 .error {

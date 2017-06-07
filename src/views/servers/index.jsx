@@ -24,7 +24,6 @@ class Servers extends React.Component {
     return 0;
   };
 
-  // A3A3A3
   renderItems = () => (
     <div>
       <Row item={{ name: 'SERVERS' }} index={-1} />
@@ -38,7 +37,7 @@ class Servers extends React.Component {
 
   render() {
     return (
-      <div className={cn('container-fluid', styles.container)}>
+      <div className={cn(styles.container)}>
         {this.props.loading && this.renderLoading()}
         {!!this.props.items.length && this.renderItems()}
       </div>
