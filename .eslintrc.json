@@ -29,6 +29,7 @@
     "node": true
   },
   "globals": {
-    "DEBUG": false
+    "DEBUG": false,
+    "__DEV__": true
   }
 }

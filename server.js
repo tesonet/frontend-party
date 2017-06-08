@@ -1,6 +1,8 @@
 /* eslint no-console:0 */
 require('babel-register');
 
+const IS_DEV = process.env.NODE_ENV === 'development';
+
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
@@ -22,6 +24,9 @@ hook({
 
 
 global.window = {};
+global.__DEV__ = IS_DEV;
+
+
 const App = require('./src/app').default;
 
 const StaticRouter = ReactRouter.StaticRouter;

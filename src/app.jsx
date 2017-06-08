@@ -4,7 +4,9 @@ import store from './store';
 import Routes from './routes';
 import globalStyles from './app.scss'; // eslint-disable-line no-unused-vars
 
-window.store = store; // TODO: only expose in the dev environment
+if (__DEV__) {
+  window.store = store;
+}
 
 const App = () => (
   <Provider store={store}>

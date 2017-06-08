@@ -25,7 +25,13 @@ const config = {
     reasons: true,
     chunks: false
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      __DEV__: JSON.stringify(IS_DEV)
+    })
+  ],
   module: {
     rules: [
       {
