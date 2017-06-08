@@ -1,9 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import cn from 'classnames';
-import { login } from '../../actions';
-import styles from './index.scss';
+import styles from './component.scss';
 
 class Login extends React.Component {
   handleClick = () => {
@@ -42,15 +40,4 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = state => (
-  {
-    token: state.ui.token,
-    error: state.ui.loginError
-  }
-);
-
-const mapDispatchToProps = dispatch => (
-  { login: (username, password) => dispatch(login(username, password)) }
-);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

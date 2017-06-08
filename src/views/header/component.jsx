@@ -1,9 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { logout } from '../../actions';
 
-import styles from './index.scss';
+import styles from './component.scss';
 
 class Header extends React.Component {
   handleLogoutClick = () => this.props.logout();
@@ -28,8 +26,4 @@ class Header extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
-});
-
-export default connect(null, mapDispatchToProps)(Header);
+export default Header;

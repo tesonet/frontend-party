@@ -1,10 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { getServers } from '../../actions';
 import Row from './row';
 
-import styles from './index.scss';
+import styles from './component.scss';
 
 class Servers extends React.Component {
   componentDidMount() {
@@ -45,10 +43,4 @@ class Servers extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ ...state.servers });
-
-const mapDispatchToProps = dispatch => ({
-  getServers: () => dispatch(getServers())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Servers);
+export default Servers;
