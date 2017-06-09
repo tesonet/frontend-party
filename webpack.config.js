@@ -1,39 +1,43 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const IS_DEV = process.env.NODE_ENV === 'development';
+
+const extractFonts = new ExtractTextPlugin('fonts.css');
 
 const config = {
   context: __dirname,
   entry: [
     'babel-polyfill',
-    './src/Client.jsx'
+    './src/Client.jsx',
   ],
   devtool: IS_DEV ? 'cheap-eval-source-map' : false,
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/public/'
+    publicPath: '/public/',
   },
   devServer: {
     hot: true,
     publicPath: '/public/',
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json'],
   },
   stats: {
     colors: true,
     reasons: true,
-    chunks: false
+    chunks: false,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(IS_DEV)
-    })
+      __DEV__: JSON.stringify(IS_DEV),
+    }),
+    extractFonts,
   ],
   module: {
     rules: [
@@ -41,37 +45,49 @@ const config = {
         enforce: 'pre',
         test: /\.jsx?$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.s[ac]ss$/,
         use: [{
           loader: 'style-loader',
-          options: { sourceMap: IS_DEV }
+          options: { sourceMap: IS_DEV },
         }, {
           loader: 'css-loader',
           options: {
             localIdentName: '[local]_[hash:base64:5]',
             modules: true,
-            sourceMap: IS_DEV
-          }
+            sourceMap: IS_DEV,
+          },
         }, {
           loader: 'postcss-loader',
-          options: { sourceMap: IS_DEV }
+          options: { sourceMap: IS_DEV },
         }, {
           loader: 'sass-loader',
           options: {
-            sourceMap: IS_DEV
-          }
-        }]
-      }
-    ]
-  }
+            sourceMap: IS_DEV,
+          },
+        }],
+      },
+      {
+        test: /font-awesome\.css$/,
+        loader: extractFonts.extract({ fallback: 'style-loader', use: 'css-loader' }),
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader',
+      },
+    ],
+  },
 };
 
 if (process.env.NODE_ENV === 'development') {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-fa';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import cn from 'classnames';
@@ -34,7 +35,11 @@ class Login extends React.Component {
           <p><input type="text" ref={(c) => { this.username = c; }} /></p>
           <p><input type="password" ref={(c) => { this.password = c; }} /></p>
           {!!this.props.error && <p className={styles.error}>{this.props.error}</p>}
-          <p><button type="button" onClick={this.handleClick}>Login</button></p>
+          <p>
+            <button type="button" onClick={this.handleClick} disabled={this.props.loading}>
+              {this.props.loading ? <Icon spin name="spinner" /> : 'Login'}
+            </button>
+          </p>
         </div>
       </div>
     );
@@ -54,6 +59,7 @@ Login.propTypes = {
     PropTypes.string,
     PropTypes.bool,
   ]),
+  loading: PropTypes.bool.isRequired,
 };
 
 Login.defaultProps = {

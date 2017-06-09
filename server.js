@@ -24,7 +24,7 @@ const apiProxy = require('./apiProxy');
 hook({
   rootDir: './',
   generateScopedName: '[local]_[hash:base64:5]',
-  extensions: ['.scss']
+  extensions: ['.scss', '.css'],
 });
 
 

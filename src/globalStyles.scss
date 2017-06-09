@@ -43,5 +43,8 @@
         background: #86b300;
       }
     }
+    &[disabled] {
+      opacity: 0.5;
+    }
   }
 }

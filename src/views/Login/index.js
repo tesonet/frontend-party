@@ -5,6 +5,7 @@ import Component from './Component';
 const mapStateToProps = state => ({
   token: state.login.token,
   error: state.login.error,
+  loading: state.login.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
