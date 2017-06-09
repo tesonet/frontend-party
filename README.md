@@ -26,8 +26,10 @@ If you found this task it means we are looking for you!
     {"username": "tesonet", "password": "partyanimal"}
     ```
 
-* Save the newly-created token to AppState(redux) or sessionStorage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
+* Use ngrx to track the state
+* Save the newly-created token to sessionStorage
+* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers
+* Order the results by `distance` and `name`.
 * Implement logout
 
 ### Miscellaneous

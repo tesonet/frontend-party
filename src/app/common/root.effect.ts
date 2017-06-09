@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
-import { LoginEffect } from './template/login-form/effect';
+import { LoginEffect } from './component/login-form/effect';
 
 @NgModule({
 	imports: [

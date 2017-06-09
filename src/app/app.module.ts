@@ -4,18 +4,19 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-// Module
+// Module list
 import { AppRoutingModule } from './global/routing/app';
 import { RootEffectModule } from './common/root.effect';
 import { rootReducer } from './common/root.reducer';
 
-// Component
+// Component list
 import { AppComponent } from './app.component';
 import { LoginComponent, ServerListComponent } from './component';
-import { LoginFormComponent } from './common/template';
+import { LoginFormComponent } from './common/component';
 
-// Service
+// Service list
 import { AuthGuard } from './global/guard/auth';
 
 const DECLARATION_LIST = [
@@ -26,6 +27,9 @@ const IMPORT_LIST = [
 	BrowserModule, AppRoutingModule, FormsModule,
 	HttpModule,
 	StoreModule.provideStore(rootReducer),
+	StoreDevtoolsModule.instrumentOnlyWithExtension({
+		maxAge: 5
+	}),
 	RootEffectModule
 ];
 const PROVIDER_LIST = [

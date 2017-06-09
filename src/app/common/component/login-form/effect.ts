@@ -16,7 +16,10 @@ export class LoginEffect {
 			.switchMap(({userLoginData}) => {
 				return this.login(userLoginData)
 					.map(
-						res => new LoginSuccessAction(res.json())
+						res => {
+							this.setSessionStorageToken(res.json());
+							return new LoginSuccessAction(res.json());
+						}
 					)
 					.catch(
 						(e) => of(new LoginFailedAction(e))
@@ -28,7 +31,7 @@ export class LoginEffect {
 		private actions$: Actions
 	) { }
 
-	login(userLoginData) {
+	private login(userLoginData) {
 		const headers = new Headers({ 'Content-Type': 'application/json' });
 		const options = new RequestOptions({ headers: headers });
 		const route = CONFIG.api.root + CONFIG.api.login;
@@ -37,6 +40,10 @@ export class LoginEffect {
 			userLoginData,
 			options
 		);
+	}
+
+	private setSessionStorageToken(token) {
+		console.log(token);
 	}
 
 }

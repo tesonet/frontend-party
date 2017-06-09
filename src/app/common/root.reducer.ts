@@ -1,5 +1,5 @@
 import { combineReducers } from '@ngrx/store';
-import { reducer as loginReducer } from './template/login-form/reducer';
+import { reducer as loginReducer } from './component/login-form/reducer';
 
 export const commonReducers = {
 	login: loginReducer

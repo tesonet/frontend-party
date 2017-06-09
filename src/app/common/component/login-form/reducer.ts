@@ -55,7 +55,18 @@ function handleLoginFailed(state: State, action: Action): State {
 			loading: false
 		}
 	)
-
+}
+function handleLoginClear(state: State, action: Action): State {
+	return Object.assign(
+		{},
+		state,
+		{
+			response: null,
+			token: null,
+			message: null,
+			loading: false
+		}
+	)
 }
 
 export function reducer(state = initialState, action: Action): State {
@@ -66,6 +77,8 @@ export function reducer(state = initialState, action: Action): State {
 			return handleLoginSuccess(state, action);
 		case login.ActionTypes.LOGIN_FAILED:
 			return handleLoginFailed(state, action);
+		case login.ActionTypes.LOGIN_CLEAR:
+			return handleLoginClear(state, action);
 		default:
 			return state;
 	}

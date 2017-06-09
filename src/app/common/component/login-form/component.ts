@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -14,8 +15,9 @@ import * as messageType from './model';
 })
 export class LoginFormComponent implements OnDestroy {
 
-	public login$: Observable<any>;
 	private loginSubscription: Subscription;
+
+	public login$: Observable<any>;
 	public componentText = ComponentText;
 	public model: LoginFormTemplate = new LoginFormTemplate();
 	public message: messageType.ILoginMessage;
@@ -23,15 +25,13 @@ export class LoginFormComponent implements OnDestroy {
 
 	constructor(
 		public store: Store<IAppState>,
+		private router: Router
 	) {
 		this.login$ = this.store.select(state => state.login);
 		this.loginSubscription = this.login$.subscribe(data => {
 			this.message = data.message;
 			if (data.message && data.message.type && data.message.type === 'success') {
-				setTimeout(
-					() => { this.message = null },
-					1000
-				)
+				this.navigateToServerList();
 			}
 		});
 	}
@@ -53,14 +53,39 @@ export class LoginFormComponent implements OnDestroy {
 		}
 	}
 
-	public removeMessage() {
+	private removeMessage() {
 		if (this.message) {
 			this.message = null;
 		}
 	}
 
-	ngOnDestroy() {
+	private clearState() {
+		this.store.dispatch(
+			new login.LoginClearAction()
+		);
+	}
+
+	private clearLogin() {
+		this.removeMessage();
+		this.clearState();
 		this.loginSubscription.unsubscribe();
+	}
+
+	private navigateToServerList() {
+		setTimeout(
+			() => {
+				this.clearLogin();
+				this.router.navigate(
+					['/server-list'],
+					{}
+				);
+			},
+			1000
+		)
+	}
+
+	ngOnDestroy() {
+		this.clearLogin();
 	}
 
 }

@@ -1,4 +1,4 @@
-import { ILogin } from '../../common/template/login-form/model';
+import { ILogin } from '../../common/component/login-form/model';
 
 export interface IAppState {
 	login: ILogin;
