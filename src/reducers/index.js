@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import ui from './reducers/ui';
-import servers from './reducers/servers';
+import ui from './ui';
+import servers from './servers';
 
 const rootReducer = combineReducers({ ui, servers });
 

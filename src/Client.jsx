@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './app';
+import App from './App';
 
 const renderApp = () => {
   render(
@@ -15,7 +15,7 @@ const renderApp = () => {
 renderApp();
 
 if (module.hot) {
-  module.hot.accept('./app', () => {
+  module.hot.accept('./App', () => {
     renderApp();
   });
 }

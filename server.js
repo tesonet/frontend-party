@@ -27,7 +27,7 @@ global.window = {};
 global.__DEV__ = IS_DEV;
 
 
-const App = require('./src/app').default;
+const App = require('./src/App').default;
 
 const StaticRouter = ReactRouter.StaticRouter;
 const port = 8100;

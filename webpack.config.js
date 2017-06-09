@@ -5,7 +5,7 @@ const IS_DEV = process.env.NODE_ENV === 'development';
 
 const config = {
   context: __dirname,
-  entry: ['./src/client.jsx'],
+  entry: ['./src/Client.jsx'],
   devtool: IS_DEV ? 'cheap-eval-source-map' : false,
   output: {
     path: path.resolve(__dirname, 'public'),

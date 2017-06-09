@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import styles from './row.scss';
+import styles from './styles.scss';
 
 const Row = props => (
   <div

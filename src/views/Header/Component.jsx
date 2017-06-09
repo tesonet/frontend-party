@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import styles from './component.scss';
+import styles from './styles.scss';
 
 class Header extends React.Component {
   handleLogoutClick = () => this.props.logout();

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions';
-import Component from './component';
+import Component from './Component';
 
 const mapStateToProps = state => ({
   token: state.ui.token,

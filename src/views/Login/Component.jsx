@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import cn from 'classnames';
-import styles from './component.scss';
+import styles from './styles.scss';
 
 class Login extends React.Component {
   handleClick = () => {

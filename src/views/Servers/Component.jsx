@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-import Row from './row';
+import ServerRow from '../../components/ServerRow';
 
-import styles from './component.scss';
+import styles from './styles.scss';
 
 class Servers extends React.Component {
   componentDidMount() {
@@ -24,14 +24,14 @@ class Servers extends React.Component {
 
   renderItems = () => (
     <div>
-      <Row item={{ name: 'SERVERS' }} index={-1} />
+      <ServerRow item={{ name: 'SERVERS' }} index={-1} />
       {this.props.items.sort(this.sortItems).map(this.renderItem)}
     </div>
   );
 
   renderLoading = () => <div>loading</div>;
 
-  renderItem = (item, index) => <Row key={index} item={item} />;
+  renderItem = (item, index) => <ServerRow key={index} item={item} />;
 
   render() {
     return (
