@@ -25,6 +25,13 @@
     width: 80vw;
     max-width: 300px;
   }
+
+  input[name=username],
+  input[name=password] {
+    &:placeholder-shown {
+      background: #eee;
+    }
+  }
 }
 
 .logo {

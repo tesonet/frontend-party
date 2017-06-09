@@ -6,10 +6,10 @@ import cn from 'classnames';
 import styles from './styles.scss';
 
 class Login extends React.Component {
-  handleClick = () => {
-    // todo: use proper form validation
-    const username = this.username.value;
-    const password = this.password.value;
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const username = e.target.elements.username.value;
+    const password = e.target.elements.password.value;
     if (username && password) {
       this.props.login(username, password);
     }
@@ -24,7 +24,7 @@ class Login extends React.Component {
 
     return (
       <div className={cn('container', styles.container)}>
-        <div className={styles.form}>
+        <form className={styles.form} onSubmit={this.handleSubmit}>
           <img
             src="/static/img/logo-front.png"
             alt="Testio"
@@ -32,15 +32,15 @@ class Login extends React.Component {
             height={65}
             className={styles.logo}
           />
-          <p><input type="text" ref={(c) => { this.username = c; }} /></p>
-          <p><input type="password" ref={(c) => { this.password = c; }} /></p>
+          <p><input type="text" name="username" required placeholder="Username" /></p>
+          <p><input type="password" name="password" required placeholder="Password" /></p>
           {!!this.props.error && <p className={styles.error}>{this.props.error}</p>}
           <p>
-            <button type="button" onClick={this.handleClick} disabled={this.props.loading}>
+            <button type="submit" disabled={this.props.loading}>
               {this.props.loading ? <Icon spin name="spinner" /> : 'Login'}
             </button>
           </p>
-        </div>
+        </form>
       </div>
     );
   }
