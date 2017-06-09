@@ -37,7 +37,7 @@ class Login extends React.Component {
           {!!this.props.error && <p className={styles.error}>{this.props.error}</p>}
           <p>
             <button type="submit" disabled={this.props.loading}>
-              {this.props.loading ? <Icon spin name="spinner" /> : 'Login'}
+              {this.props.loading ? <Icon spin name="spinner" /> : 'Log In'}
             </button>
           </p>
         </form>
