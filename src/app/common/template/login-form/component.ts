@@ -2,7 +2,7 @@ import { Component, ViewChild, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-import { IAppState } from '../../../global/store/AppModel';
+import { IAppState } from '../../../global';
 import * as login from './action';
 import { LoginFormTemplate } from './template';
 import * as ComponentText from './componentText';

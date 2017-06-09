@@ -1,6 +1,6 @@
 import { ActionTypes, LoginSuccessAction, LoginFailedAction } from './action';
 import '../../rxjs/common-imports';
-import { CONFIG } from '../../../global/config/global';
+import { CONFIG } from '../../../global';
 import { Actions, Effect } from '@ngrx/effects';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
