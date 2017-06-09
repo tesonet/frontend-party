@@ -6,7 +6,7 @@ import Servers from './views/Servers';
 import Login from './views/Login';
 
 const PrivateRoutes = connect(state => (
-  { token: state.ui.token }
+  { token: state.login.token }
 ))((props) => {
   if (props.token) {
     return (

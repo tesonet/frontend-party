@@ -3,8 +3,8 @@ import { login } from '../../actions';
 import Component from './Component';
 
 const mapStateToProps = state => ({
-  token: state.ui.token,
-  error: state.ui.loginError,
+  token: state.login.token,
+  error: state.login.error,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -12,6 +12,6 @@ const store = createStore(
   ),
 );
 
-persistStore(store, { whitelist: ['ui'] });
+persistStore(store, { whitelist: ['login'] });
 
 export default store;

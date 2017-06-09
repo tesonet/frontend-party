@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import ui from './ui';
+import login from './login';
 import servers from './servers';
 
-const rootReducer = combineReducers({ ui, servers });
+const rootReducer = combineReducers({ login, servers });
 
 export default rootReducer;
