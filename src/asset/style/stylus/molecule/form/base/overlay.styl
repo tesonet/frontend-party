@@ -1,0 +1,15 @@
+.{pre}form
+
+	&__overlay
+		position absolute, 0, 0, 0, 0
+		background-color cInverted
+		opacity 0.3
+		z-index 2
+
+	&__overlay-message
+		position absolute, 50%, null, null, 50%
+		transform translate(-50%, -50%)
+		z-index 3
+
+		&--success
+			color cPrimary

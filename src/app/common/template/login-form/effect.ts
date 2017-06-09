@@ -2,7 +2,7 @@ import { ActionTypes, LoginSuccessAction, LoginFailedAction } from './action';
 import '../../rxjs/common-imports';
 import { CONFIG } from '../../../global/config/global';
 import { Actions, Effect } from '@ngrx/effects';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs/observable/of';
 
@@ -10,10 +10,11 @@ import { of } from 'rxjs/observable/of';
 export class LoginEffect {
 
 	@Effect() Login$ =
-		this._actions$.ofType(ActionTypes.LOGIN)
+		this.actions$.ofType(ActionTypes.LOGIN)
+			.debounceTime(1500)
 			.map(action => action.payload)
-			.switchMap(({type}) => {
-				return this.login(type)
+			.switchMap(({userLoginData}) => {
+				return this.login(userLoginData)
 					.map(
 						res => new LoginSuccessAction(res.json())
 					)
@@ -23,15 +24,19 @@ export class LoginEffect {
 			});
 
 	constructor(
-		private _http: Http,
-		private _actions$: Actions
+		private http: Http,
+		private actions$: Actions
 	) { }
 
-	login(type) {
+	login(userLoginData) {
+		const headers = new Headers({ 'Content-Type': 'application/json' });
+		const options = new RequestOptions({ headers: headers });
 		const route = CONFIG.api.root + CONFIG.api.login;
-		return this._http.post(
+		return this.http.post(
 			route,
-			type.payload
+			userLoginData,
+			options
 		);
 	}
+
 }
