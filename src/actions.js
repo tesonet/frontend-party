@@ -27,11 +27,7 @@ const login = (username, password) => (
   }
 );
 
-const logout = () => (
-  (dispatch) => {
-    dispatch({ type: LOGOUT });
-  }
-);
+const logout = () => ({ type: LOGOUT });
 
 const getServers = () => (
   (dispatch, getState) => {
