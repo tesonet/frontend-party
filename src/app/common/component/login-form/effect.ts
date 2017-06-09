@@ -1,10 +1,11 @@
-import { ActionTypes, LoginSuccessAction, LoginFailedAction } from './action';
-import '../../rxjs/common-imports';
-import { CONFIG } from '../../../global';
 import { Actions, Effect } from '@ngrx/effects';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs/observable/of';
+import { CONFIG } from '../../../global';
+import '../../rxjs/common-imports';
+import { ActionTypes, LoginSuccessAction, LoginFailedAction } from './action';
+import { SessionStorageService } from '../../../common/service'
 
 @Injectable()
 export class LoginEffect {
@@ -17,7 +18,7 @@ export class LoginEffect {
 				return this.login(userLoginData)
 					.map(
 						res => {
-							this.setSessionStorageToken(res.json());
+							this.setSessionStorageToken(res.json().token);
 							return new LoginSuccessAction(res.json());
 						}
 					)
@@ -28,7 +29,8 @@ export class LoginEffect {
 
 	constructor(
 		private http: Http,
-		private actions$: Actions
+		private actions$: Actions,
+		private sessionStorageService: SessionStorageService
 	) { }
 
 	private login(userLoginData) {
@@ -43,7 +45,7 @@ export class LoginEffect {
 	}
 
 	private setSessionStorageToken(token) {
-		console.log(token);
+		this.sessionStorageService.setItem('token', token);
 	}
 
 }

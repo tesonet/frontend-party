@@ -17,7 +17,8 @@ import { LoginComponent, ServerListComponent } from './component';
 import { LoginFormComponent } from './common/component';
 
 // Service list
-import { AuthGuard } from './global/guard/auth';
+import { AuthGuard, LoginGuard } from './global';
+import { SessionStorageService } from './common/service';
 
 const DECLARATION_LIST = [
 	AppComponent, LoginComponent, ServerListComponent,
@@ -33,7 +34,7 @@ const IMPORT_LIST = [
 	RootEffectModule
 ];
 const PROVIDER_LIST = [
-	AuthGuard
+	AuthGuard, LoginGuard, SessionStorageService
 ];
 
 @NgModule({
