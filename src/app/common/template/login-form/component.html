@@ -6,6 +6,9 @@
 
 	<div
 		*ngIf="(login$ | async).loading || (message && message.type === 'success')"
+		[ngClass]="{
+			'app-form__overlay--success': (message && message.type === 'success')
+		}"
 		class="app-form__overlay"></div>
 	<div
 		*ngIf="(login$ | async).loading"
@@ -16,7 +19,7 @@
 		*ngIf="message"
 		[ngClass]="{
 			'app-form__overlay-message app-form__overlay-message--success': message.type === 'success',
-			'app-form__message app-form__message--danger': message.type === 'failed'
+			'app-form__server-message app-form__server-message--danger': message.type === 'failed'
 		}"
 		class="app-form__overlay-message">
 		{{ message.text }}

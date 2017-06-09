@@ -18,7 +18,7 @@ export class LoginFormComponent implements OnDestroy {
 	private loginSubscription: Subscription;
 	public componentText = ComponentText;
 	public model: LoginFormTemplate = new LoginFormTemplate();
-	public message: messageType.IMessage;
+	public message: messageType.ILoginMessage;
 	@ViewChild('loginForm') public loginForm: any;
 
 	constructor(
@@ -54,7 +54,9 @@ export class LoginFormComponent implements OnDestroy {
 	}
 
 	public removeMessage() {
-		this.message = null;
+		if (this.message) {
+			this.message = null;
+		}
 	}
 
 	ngOnDestroy() {

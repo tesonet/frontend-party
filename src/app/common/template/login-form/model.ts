@@ -1,9 +1,11 @@
 export interface ILogin {
-	payload: any;
+	response: any;
+	token: string;
+	message: {};
 	loading: boolean;
 }
 
-export interface IMessage {
+export interface ILoginMessage {
 	type: string;
 	text: string;
 }
