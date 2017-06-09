@@ -11,8 +11,8 @@ const Row = props => (
       props.index === -1 && styles.head,
     )}
   >
-    <div className="col-xs-9">{props.item.name}</div>
-    <div className={cn('col-xs-3', styles.distance)}>
+    <div className="col-xs-8">{props.item.name}</div>
+    <div className={cn('col-xs-4', styles.distance)}>
       {props.item.distance ? `${props.item.distance} km` : 'DISTANCE'}
     </div>
   </div>

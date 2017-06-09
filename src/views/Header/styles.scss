@@ -4,12 +4,13 @@
 
 .aside {
   text-align: right;
-  font-size: 80%;
 
   button {
     border: none;
-    background: none;
-    padding: 12px;
+    padding: 0 12px 0 30px;
+    height: 40px;
+    background: url(/static/img/logout.png) 5px 50% no-repeat;
+    color: #2F3254;
 
     &:hover {
       color: #9c3;

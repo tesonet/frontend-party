@@ -1,11 +1,14 @@
 .row {
-  padding: 10px 0;
+  padding: 15px 0;
+  margin-top: -1px;
+  border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   color: #7A7A7A;
 }
 .head {
   background: #F5F5F5;
   color: #B2B2B2;
+  letter-spacing: 0.05em;
 }
 .distance {
   text-align: right;

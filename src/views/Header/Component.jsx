@@ -6,7 +6,7 @@ import styles from './styles.scss';
 
 const Header = props => (
   <div className={cn('row', styles.header)}>
-    <div className={cn('col-xs-9', styles.main)}>
+    <div className={cn('col-xs-8', styles.main)}>
       <img
         src="/static/img/logo.png"
         alt="Testio"
@@ -15,8 +15,8 @@ const Header = props => (
         className={styles.logo}
       />
     </div>
-    <div className={cn('col-xs-3', styles.aside)}>
-      <button onClick={props.logout}>&#x21e4; Logout</button>
+    <div className={cn('col-xs-4', styles.aside)}>
+      <button onClick={props.logout}>Logout</button>
     </div>
   </div>
 );

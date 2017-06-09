@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-fa';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ServerRow from '../../components/ServerRow';
@@ -25,12 +26,12 @@ class Servers extends React.Component {
 
   renderItems = () => (
     <div>
-      <ServerRow item={{ name: 'SERVERS' }} index={-1} />
+      <ServerRow item={{ name: 'SERVER' }} index={-1} />
       {this.props.items.sort(this.sortItems).map(this.renderItem)}
     </div>
   );
 
-  renderLoading = () => <div>loading</div>;
+  renderLoading = () => <div className={styles.loading}><Icon spin name="spinner" /></div>;
 
   renderItem = (item, index) => <ServerRow key={index} item={item} index={index} />;
 
