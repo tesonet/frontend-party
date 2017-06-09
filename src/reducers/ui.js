@@ -2,7 +2,7 @@ import { LOGIN, LOGIN_ERROR, LOGOUT } from '../constants';
 
 const defaultState = {
   token: false,
-  loginError: false
+  loginError: false,
 };
 
 const ui = (state = defaultState, action) => {

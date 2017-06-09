@@ -2,7 +2,7 @@ import { SERVERS_REQUEST, SERVERS_SUCCESS, LOGOUT, LOGIN_ERROR } from '../consta
 
 const defaultState = {
   loading: false,
-  items: []
+  items: [],
 };
 
 const servers = (state = defaultState, action) => {

@@ -13,13 +13,6 @@
     }
   },
   "rules": {
-    "comma-dangle": ["error", {
-      "arrays": "never",
-      "objects": "never",
-      "imports": "never",
-      "exports": "never",
-      "functions": "never"
-    }],
     "react/prop-types": 0 // todo: not forcing propTypes to speed up development, fix this
   },
   "env": {

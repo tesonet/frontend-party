@@ -12,7 +12,7 @@ const renderApp = () => {
     <Router>
       <App />
     </Router>,
-    document.getElementById('app')
+    document.getElementById('app'),
   );
 };
 

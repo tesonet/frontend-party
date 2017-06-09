@@ -8,8 +8,8 @@ const store = createStore(
   {},
   compose(
     applyMiddleware(thunk),
-    autoRehydrate()
-  )
+    autoRehydrate(),
+  ),
 );
 
 persistStore(store, { whitelist: ['ui'] });

@@ -7,7 +7,7 @@ const Row = props => (
     className={cn(
       'row',
       styles.row,
-      props.index === -1 && styles.head
+      props.index === -1 && styles.head,
     )}
   >
     <div className="col-xs-9">{props.item.name}</div>
