@@ -11,19 +11,17 @@
 
 .form {
   text-align: center;
+  font-size: 18px;
 
   p {
-    margin: 2vw 0;
-  }
-
-  button {
-    margin: 3vw 0 0;
+    margin: 20px 0;
   }
 
   input,
   button {
-    width: 80vw;
-    max-width: 300px;
+    width: 360px;
+    height: 55px;
+    font-size: 18px;
   }
 
   input[name=username],
@@ -35,7 +33,7 @@
 }
 
 .logo {
-  margin: 6vw 0;
+  margin: 0 0 50px;
   max-width: 80vw;
   height: auto;
 }
