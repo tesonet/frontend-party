@@ -10,7 +10,7 @@ import {
 const login = (username, password) => (
   (dispatch) => {
     dispatch({ type: LOGIN_ERROR, payload: false });
-    axios.post('http://playground.tesonet.lt/v1/tokens', {
+    axios.post('/api/tokens', {
       username, password
     }, {
       headers: {
@@ -21,7 +21,9 @@ const login = (username, password) => (
         dispatch({ type: LOGIN, payload: response.data.token });
       }
     }, (error) => {
-      dispatch({ type: LOGIN_ERROR, payload: error.response.data.message });
+      if (error && error.response && error.response.data && error.response.data.message) {
+        dispatch({ type: LOGIN_ERROR, payload: error.response.data.message });
+      }
     });
   }
 );
@@ -35,12 +37,14 @@ const logout = () => (
 const getServers = () => (
   (dispatch, getState) => {
     dispatch({ type: SERVERS_REQUEST });
-    axios.get('http://playground.tesonet.lt/v1/servers', {
+    axios.get('/api/servers', {
       headers: { Authorization: getState().ui.token }
     }).then((response) => {
       dispatch({ type: SERVERS_SUCCESS, payload: response.data });
     }, (error) => {
-      dispatch({ type: LOGIN_ERROR, payload: error.response.data.message });
+      if (error && error.response && error.response.data && error.response.data.message) {
+        dispatch({ type: LOGIN_ERROR, payload: error.response.data.message });
+      }
     });
   }
 );

@@ -5,7 +5,10 @@ const IS_DEV = process.env.NODE_ENV === 'development';
 
 const config = {
   context: __dirname,
-  entry: ['./src/Client.jsx'],
+  entry: [
+    'babel-polyfill',
+    './src/Client.jsx'
+  ],
   devtool: IS_DEV ? 'cheap-eval-source-map' : false,
   output: {
     path: path.resolve(__dirname, 'public'),
