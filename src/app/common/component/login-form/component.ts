@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { IAppState } from '../../../global';
 import * as login from './action';
 import { LoginFormTemplate } from './template';
-import * as ComponentText from './componentText';
+import * as ComponentText from './component-text';
 import * as messageType from './model';
 
 @Component({

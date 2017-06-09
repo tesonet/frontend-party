@@ -13,16 +13,20 @@ import { rootReducer } from './common/root.reducer';
 
 // Component list
 import { AppComponent } from './app.component';
-import { LoginComponent, ServerListComponent } from './component';
-import { LoginFormComponent } from './common/component';
+import { LoginComponent, ShellComponent, PageNotFoundComponent } from './component';
+import {
+	LoginFormComponent, ServerListComponent, HeaderComponent,
+	UserNavigationComponent
+} from './common/component';
 
 // Service list
 import { AuthGuard, LoginGuard } from './global';
 import { SessionStorageService } from './common/service';
 
 const DECLARATION_LIST = [
-	AppComponent, LoginComponent, ServerListComponent,
-	LoginFormComponent
+	AppComponent, LoginComponent, ShellComponent,
+	LoginFormComponent, ServerListComponent, HeaderComponent,
+	UserNavigationComponent, PageNotFoundComponent
 ];
 const IMPORT_LIST = [
 	BrowserModule, AppRoutingModule, FormsModule,

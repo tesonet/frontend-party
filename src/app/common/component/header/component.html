@@ -1,0 +1,16 @@
+<div class="app-header">
+
+	<div class="app-header__logo">
+		<img
+			class="app-image--block app-image--responsive"
+			src="asset/image/testio-blue.png"
+			alt="Testio blue!">
+	</div>
+
+	<div
+		*ngIf="userLoggedIn"
+		class="app-header__user-navigation">
+		<app-user-navigation></app-user-navigation>
+	</div>
+
+</div>

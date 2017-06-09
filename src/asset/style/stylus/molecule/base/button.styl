@@ -27,7 +27,7 @@
 		text-decoration none
 		background-color #86b300
 
-		.button
+		.{pre}button
 			&__text
 			&__icon
 				text-decoration none
@@ -53,11 +53,6 @@
 		&:active
 			background-color transparent
 
-		.button
-			&__text
-				color cFontPrimary
-				text-transform none
-
 	&--full-width
 		width 100%
 		max-width 100%
@@ -67,8 +62,19 @@
 		max-width 100%
 		max-height 100%
 
+	&--link
+		.{pre}button
+
+			&__text
+			&__icon
+				color cSecondary
+				*
+					color cSecondary
+					&:before
+						color cSecondary
+
 a.{pre}button
 	padding(15px null 9px null)//  11px imitate vertical align middle in A tag
 
-	&--transparent
-		padding-top 0
+	&--no-min-height
+		padding(0 null 0 null)

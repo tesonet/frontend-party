@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from '../../component/login/component';
-import { ServerListComponent } from '../../component/server-list/component';
+import { LoginComponent, ShellComponent, PageNotFoundComponent } from '../../component';
 import { AuthGuard, LoginGuard } from '../../global';
 
 const routes: Routes = [
@@ -12,8 +11,12 @@ const routes: Routes = [
 	},
 	{
 		path: 'server-list',
-		component: ServerListComponent,
+		component: ShellComponent,
 		canActivate: [ AuthGuard ]
+	},
+	{
+		path: 'not-found',
+		component: PageNotFoundComponent
 	},
 	{
 		path: '',
@@ -22,7 +25,7 @@ const routes: Routes = [
 	},
 	{
 		path: '**',
-		redirectTo: '/login',
+		redirectTo: '/not-found',
 		pathMatch: 'full'
 	}
 ];

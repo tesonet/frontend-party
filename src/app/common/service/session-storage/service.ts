@@ -4,11 +4,15 @@ import { Injectable } from '@angular/core';
 export class SessionStorageService {
 
 	public getItem(item) {
-		return JSON.parse(sessionStorage.getItem(item));
+		return sessionStorage.getItem(item);
 	}
 
 	public setItem(item, data) {
-		return sessionStorage.setItem(item, JSON.stringify(data));
+		sessionStorage.setItem(item, data);
+	}
+
+	public removeItem(item) {
+		sessionStorage.removeItem(item);
 	}
 
 }

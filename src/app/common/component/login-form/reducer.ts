@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import * as login from './action';
-import * as ComponentText from './componentText';
+import * as ComponentText from './component-text';
 
 export interface State {
 	response: any;
