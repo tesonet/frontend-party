@@ -11,18 +11,7 @@ class Servers extends React.Component {
     this.props.getServers();
   }
 
-  sortItems = (a, b) => {
-    if (a.distance < b.distance) {
-      return -1;
-    } else if (a.distance > b.distance) {
-      return 1;
-    } else if (a.name < b.name) {
-      return -1;
-    } else if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  };
+  sortItems = (a, b) => (a.distance - b.distance) || (a.name - b.name);
 
   renderItems = () => (
     <div>
