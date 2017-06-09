@@ -10,8 +10,8 @@ const Row = props => (
       props.index === -1 && styles.head
     )}
   >
-    <div className="col-md-9 col-xs-12">{props.item.name}</div>
-    <div className={cn('col-md-3 col-xs-12', styles.distance)}>
+    <div className="col-xs-9">{props.item.name}</div>
+    <div className={cn('col-xs-3', styles.distance)}>
       {props.item.distance ? `${props.item.distance} km` : 'DISTANCE'}
     </div>
   </div>

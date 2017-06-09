@@ -38,6 +38,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "body-parser": "^1.17.2",
+    "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.4",
     "css-modules-require-hook": "^4.0.6",
