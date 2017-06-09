@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IS_DEV = process.env.NODE_ENV === 'development';
 
 const extractFonts = new ExtractTextPlugin('fonts.css');
+const extractStyles = new ExtractTextPlugin('styles.css');
 
 const config = {
   context: __dirname,
@@ -38,6 +39,7 @@ const config = {
       __DEV__: JSON.stringify(IS_DEV),
     }),
     extractFonts,
+    extractStyles,
   ],
   module: {
     rules: [
@@ -54,25 +56,26 @@ const config = {
       },
       {
         test: /\.s[ac]ss$/,
-        use: [{
-          loader: 'style-loader',
-          options: { sourceMap: IS_DEV },
-        }, {
-          loader: 'css-loader',
-          options: {
-            localIdentName: '[local]_[hash:base64:5]',
-            modules: true,
-            sourceMap: IS_DEV,
-          },
-        }, {
-          loader: 'postcss-loader',
-          options: { sourceMap: IS_DEV },
-        }, {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: IS_DEV,
-          },
-        }],
+        use: extractStyles.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: 'css-loader',
+            options: {
+              localIdentName: '[local]_[hash:base64:5]',
+              modules: true,
+              importLoaders: true,
+              sourceMap: IS_DEV,
+            },
+          }, {
+            loader: 'postcss-loader',
+            options: { sourceMap: IS_DEV },
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: IS_DEV,
+            },
+          }],
+        }),
       },
       {
         test: /font-awesome\.css$/,
