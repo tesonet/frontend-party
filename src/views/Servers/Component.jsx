@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ServerRow from '../../components/ServerRow';
 
@@ -31,7 +32,7 @@ class Servers extends React.Component {
 
   renderLoading = () => <div>loading</div>;
 
-  renderItem = (item, index) => <ServerRow key={index} item={item} />;
+  renderItem = (item, index) => <ServerRow key={index} item={item} index={index} />;
 
   render() {
     return (
@@ -42,5 +43,15 @@ class Servers extends React.Component {
     );
   }
 }
+
+Servers.propTypes = {
+  getServers: PropTypes.func.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.bool,
+};
+
+Servers.defaultProps = {
+  loading: false,
+};
 
 export default Servers;

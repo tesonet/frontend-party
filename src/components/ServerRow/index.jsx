@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './styles.scss';
 
@@ -16,5 +17,13 @@ const Row = props => (
     </div>
   </div>
 );
+
+Row.propTypes = {
+  index: PropTypes.number.isRequired,
+  item: PropTypes.PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    distance: PropTypes.number,
+  }).isRequired,
+};
 
 export default Row;

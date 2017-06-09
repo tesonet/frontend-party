@@ -12,9 +12,6 @@
       "jsx": true
     }
   },
-  "rules": {
-    "react/prop-types": 0 // todo: not forcing propTypes to speed up development, fix this
-  },
   "env": {
     "es6": true,
     "jest": true,

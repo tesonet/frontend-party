@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import cn from 'classnames';
 import styles from './styles.scss';
@@ -39,5 +40,24 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  token: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]).isRequired,
+  location: PropTypes.PropTypes.shape({
+    state: PropTypes.string,
+  }).isRequired,
+  error: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
+};
+
+Login.defaultProps = {
+  error: '',
+};
 
 export default Login;
