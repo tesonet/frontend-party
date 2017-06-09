@@ -41,3 +41,15 @@
 .error {
   color: #ff756f;
 }
+
+@media (max-width: 768px) {
+  .form {
+    input,
+    button {
+      width: 80vw;
+      max-width: 320px;
+      height: 45px;
+      font-size: 16px;
+    }
+  }
+}
