@@ -17,8 +17,8 @@ const config = require('./webpack.config');
 const hook = require('css-modules-require-hook');
 
 hook({
-  rootDir: './src',
-  generateScopedName: '[sha512:hash:base32]-[local]',
+  rootDir: './',
+  generateScopedName: '[local]_[hash:base64:5]',
   extensions: ['.scss']
 });
 
