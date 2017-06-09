@@ -3,5 +3,8 @@ export const CONFIG = {
 		'root': 'http://playground.tesonet.lt/v1',
 		'login': '/tokens',
 		'serverList': '/servers',
+	},
+	'dev': {
+		'fakeDelay': 1500
 	}
 };

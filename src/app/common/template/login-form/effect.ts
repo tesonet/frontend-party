@@ -11,7 +11,7 @@ export class LoginEffect {
 
 	@Effect() Login$ =
 		this.actions$.ofType(ActionTypes.LOGIN)
-			.debounceTime(1500)
+			.debounceTime(CONFIG.dev.fakeDelay)
 			.map(action => action.payload)
 			.switchMap(({userLoginData}) => {
 				return this.login(userLoginData)
