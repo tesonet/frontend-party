@@ -12,6 +12,10 @@ const login = (username, password) => (
     dispatch({ type: LOGIN_ERROR, payload: false });
     axios.post('http://playground.tesonet.lt/v1/tokens', {
       username, password
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }).then((response) => {
       if (response && response.data && response.data.token) {
         dispatch({ type: LOGIN, payload: response.data.token });
