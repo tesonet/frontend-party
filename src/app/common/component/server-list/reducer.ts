@@ -9,13 +9,15 @@ export interface State {
 	message: messageType.IMessage;
 	loading: boolean;
 	data: Array<serverType.IServer>;
+	sortedData: Array<serverType.IServer>;
 }
 
 const initialState: State = {
 	response: null,
 	message: null,
 	loading: false,
-	data: null
+	data: null,
+	sortedData: null
 };
 
 function handleServerList(state: State, action: Action): State {
@@ -35,7 +37,8 @@ function handleServerListSuccess(state: State, action: Action): State {
 		state,
 		{
 			loading: false,
-			data: action.payload
+			data: action.payload,
+			sortedData: sortData(action.payload)
 		}
 	);
 }
@@ -66,4 +69,11 @@ export function reducer(state = initialState, action: Action): State {
 		default:
 			return state;
 	}
+}
+
+function sortData(data) {
+	const sortedData = data.sort(function (a, b) {
+		return a.distance - b.distance || a.name.toLowerCase() - b.name.toLowerCase();
+	});
+	return sortedData;
 }

@@ -4,10 +4,13 @@
 		*ngIf="(serverList$ | async).loading"
 		class="app-server-list__loading">
 		<div class="app-spinner"></div>
+		<p>
+			{{ componentText.LABEL_LIST.loadingServers }}
+		</p>
 	</div>
 
 	<div
-		*ngIf="(serverList$ | async).data"
+		*ngIf="(serverList$ | async).sortedData"
 		class="app-server-list__heading">
 		<div class="app-server-list__heading-item app-server-list__heading-item--left">
 			{{ componentText.LABEL_LIST.server }}
@@ -18,11 +21,11 @@
 	</div>
 
 	<ul
-		*ngIf="(serverList$ | async).data"
+		*ngIf="(serverList$ | async).sortedData"
 		class="app-server-list__content">
 		<li
 			class="app-server-list__content-item"
-			*ngFor="let server of (serverList$ | async).data">
+			*ngFor="let server of (serverList$ | async).sortedData">
 			<div class="app-server-list__content-item-text app-server-list__content-item-text--left">
 				{{ server['name'] }}
 			</div>
@@ -33,7 +36,7 @@
 	</ul>
 
 	<div
-		*ngIf="message || ((serverList$ | async).data && (serverList$ | async).data.length === 0)"
+		*ngIf="(!(serverList$ | async).data || (serverList$ | async).data.length === 0) && !(serverList$ | async).loading"
 		class="app-server-list__no-data">
 		<p class="app-message app-message--danger">
 			{{ componentText.MESSAGE_LIST.serverListFailed }}

@@ -1,6 +1,7 @@
 export const LABEL_LIST = {
 	'server': 'Server',
-	'distance': 'Distance'
+	'distance': 'Distance',
+	'loadingServers': 'Loading servers!'
 };
 
 export const MESSAGE_LIST = {
