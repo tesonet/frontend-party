@@ -20,23 +20,41 @@
 		</div>
 	</div>
 
-	<ul
-		*ngIf="(serverList$ | async).sortedData"
-		class="app-server-list__content">
-		<li
-			class="app-server-list__content-item"
-			*ngFor="let server of (serverList$ | async).sortedData">
-			<div class="app-server-list__content-item-text app-server-list__content-item-text--left">
-				{{ server['name'] }}
+	<div class="app-server-list__content">
+		<perfect-scrollbar class="container">
+			<div class="content">
+				<ul
+					*ngIf="(serverList$ | async).sortedData"
+					class="">
+					<li
+						class="app-server-list__content-item"
+						*ngFor="let server of (serverList$ | async).sortedData">
+						<div class="app-server-list__content-item-text app-server-list__content-item-text--left">
+							{{ server['name'] }}
+						</div>
+						<div class="app-server-list__content-item-text app-server-list__content-item-text--right">
+							{{ server['distance'] }} km
+						</div>
+					</li>
+				</ul>
 			</div>
-			<div class="app-server-list__content-item-text app-server-list__content-item-text--right">
-				{{ server['distance'] }} km
-			</div>
-		</li>
-	</ul>
+		</perfect-scrollbar>
+	</div>
 
 	<div
-		*ngIf="(!(serverList$ | async).data || (serverList$ | async).data.length === 0) && !(serverList$ | async).loading"
+		*ngIf="
+			(
+				!(serverList$ | async).data
+				||
+				(
+					(serverList$ | async).data
+					&&
+					(serverList$ | async).data.length === 0
+				)
+			)
+			&&
+			!(serverList$ | async).loading
+		"
 		class="app-server-list__no-data">
 		<p class="app-message app-message--danger">
 			{{ componentText.MESSAGE_LIST.serverListFailed }}

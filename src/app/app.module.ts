@@ -7,6 +7,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 // Module list
+import { PerfectScrollbarModule } from 'angular2-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
 import { AppRoutingModule } from './global/routing/app';
 import { RootEffectModule } from './common/root.effect';
 import { rootReducer } from './common/root.reducer';
@@ -21,7 +23,11 @@ import {
 
 // Service list
 import { AuthGuard, LoginGuard } from './global';
-import { SessionStorageService } from './common/service';
+import { SessionStorageService, TokenSecureService } from './common/service';
+
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+	suppressScrollX: true
+};
 
 const DECLARATION_LIST = [
 	AppComponent, LoginComponent, ShellComponent,
@@ -35,10 +41,12 @@ const IMPORT_LIST = [
 	StoreDevtoolsModule.instrumentOnlyWithExtension({
 		maxAge: 5
 	}),
-	RootEffectModule
+	RootEffectModule,
+	PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
 ];
 const PROVIDER_LIST = [
-	AuthGuard, LoginGuard, SessionStorageService
+	AuthGuard, LoginGuard, SessionStorageService,
+	TokenSecureService
 ];
 
 @NgModule({

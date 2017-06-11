@@ -5,7 +5,7 @@ import { of } from 'rxjs/observable/of';
 import { CONFIG } from '../../../global';
 import '../../rxjs/common-imports';
 import { ActionTypes, LoginSuccessAction, LoginFailedAction } from './action';
-import { SessionStorageService } from '../../../common/service'
+import { SessionStorageService, TokenSecureService } from '../../../common/service'
 
 @Injectable()
 export class LoginEffect {
@@ -30,7 +30,8 @@ export class LoginEffect {
 	constructor(
 		private http: Http,
 		private actions$: Actions,
-		private sessionStorageService: SessionStorageService
+		private sessionStorageService: SessionStorageService,
+		private tokenSecureService: TokenSecureService
 	) { }
 
 	private login(userLoginData) {
@@ -45,7 +46,8 @@ export class LoginEffect {
 	}
 
 	private setSessionStorageToken(token) {
-		this.sessionStorageService.setItem('token', token);
+		const securedToken = this.tokenSecureService.secure(token);
+		this.sessionStorageService.setItem('token', securedToken);
 	}
 
 }

@@ -5,7 +5,7 @@ import { of } from 'rxjs/observable/of';
 import { CONFIG } from '../../../global';
 import '../../rxjs/common-imports';
 import { ActionTypes, ServerListSuccessAction, ServerListFailedAction } from './action';
-import { SessionStorageService } from '../../../common/service'
+import { SessionStorageService, TokenSecureService } from '../../../common/service'
 
 @Injectable()
 export class ServerListEffect {
@@ -29,11 +29,12 @@ export class ServerListEffect {
 	constructor(
 		private http: Http,
 		private actions$: Actions,
-		private sessionStorageService: SessionStorageService
+		private sessionStorageService: SessionStorageService,
+		private tokenSecureService: TokenSecureService
 	) { }
 
 	private getServerList() {
-		const token = this.getSessionStorageToken();
+		const token = this.tokenSecureService.revert(this.getSessionStorageToken());
 		const headers = new Headers({ 'Authorization': token });
 		const options = new RequestOptions({ headers: headers });
 		const route = CONFIG.api.root + CONFIG.api.serverList;
