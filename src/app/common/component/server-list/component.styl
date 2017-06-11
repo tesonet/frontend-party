@@ -1,2 +1,56 @@
+hServerListHeading = 60px
+
 .{pre}server-list
-	display block
+	height 100%
+	min-height 100%
+	position relative, null, null, null, null
+
+	&__heading
+		height hServerListHeading
+		border-top 1px solid bdcPrimary
+		border-bottom 1px solid bdcPrimary
+		box-sizing border-box
+		background-color #f5f5f5
+		position relative, null, null, null, null
+
+		&-item
+			padding(null spaceRightPrimary null spaceLeftPrimary)
+			position absolute, 50%, null, null, null
+			transform translateY(-50%)
+			color cFontLight
+			text-transform uppercase
+			font-size fzSm
+			line-height lhNone
+
+			&--left
+				left 0
+
+			&--right
+				right 0
+
+	&__content
+		position absolute, hServerListHeading, 0, 0, 0
+		overflow auto
+
+		&-item
+			border-top 1px solid bdcPrimary
+			height hServerListHeading
+			position relative, null, null, null, null
+
+			&:first-child
+				border-top 0
+
+			&-text
+				padding(null spaceRightPrimary null spaceLeftPrimary)
+				position absolute, 50%, null, null, null
+				transform translateY(-50%)
+
+				&--left
+					left 0
+
+				&--right
+					right 0
+
+	&__loading
+		position relative, 50%, null, null, 50%
+		transform translate(-50%, -50%)

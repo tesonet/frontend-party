@@ -7,7 +7,7 @@ import { IAppState } from '../../../global';
 import * as login from './action';
 import { LoginFormTemplate } from './template';
 import * as ComponentText from './component-text';
-import * as messageType from './model';
+import * as messageType from '../../../global/model/message';
 
 @Component({
 	selector: 'app-login-form',
@@ -20,7 +20,7 @@ export class LoginFormComponent implements OnDestroy {
 	public login$: Observable<any>;
 	public componentText = ComponentText;
 	public model: LoginFormTemplate = new LoginFormTemplate();
-	public message: messageType.ILoginMessage;
+	public message: messageType.IMessage;
 	@ViewChild('loginForm') public loginForm: any;
 
 	constructor(

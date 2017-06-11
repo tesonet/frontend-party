@@ -1,2 +1,17 @@
 .{pre}shell
-	display block
+	position relative, null, null, null, null
+	min-height 100%
+
+	&__header
+	&__content
+		position absolute, null, null, null, null
+
+	&__header
+		position null, 0, spaceRightPrimary, null, spaceLeftPrimary
+		height hHeader
+
+	&__content
+		position null, hHeader, 0, 0, 0
+
+		&--has-side-spaces
+			position null, null, spaceRightPrimary, null, spaceLeftPrimary

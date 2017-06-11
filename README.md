@@ -34,7 +34,7 @@ If you found this task it means we are looking for you!
 
 ### Miscellaneous
 * Browser support must be great. All modern browsers plus IE9 and above.
-* Use a Javascript task-runner (gulp preferred) if no CLI available. Or u can surprise us with your awesome knowledge of webpack
+* Use CLI of a framework of your choice, if not available, use a Javascript task-runner (gulp preferred) but u can surprise us with your awesome knowledge of Webpack
 * Do not commit the build
 
 ## Few tips

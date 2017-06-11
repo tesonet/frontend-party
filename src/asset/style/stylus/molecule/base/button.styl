@@ -63,15 +63,32 @@
 		max-height 100%
 
 	&--link
+
 		.{pre}button
 
 			&__text
 			&__icon
-				color cSecondary
+				color cLinkPrimary
 				*
-					color cSecondary
+					color cLinkPrimary
 					&:before
-						color cSecondary
+						color cLinkPrimary
+
+			&__text
+				font-family ffPrimaryLight
+				font-size fzSm
+
+		&:hover
+		&:active
+			.{pre}button
+
+				&__text
+				&__icon
+					color cLinkPrimaryHover
+					*
+						color cLinkPrimaryHover
+						&:before
+							color cLinkPrimaryHover
 
 a.{pre}button
 	padding(15px null 9px null)//  11px imitate vertical align middle in A tag

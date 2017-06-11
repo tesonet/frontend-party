@@ -1,3 +1,43 @@
 <div class="app-server-list">
-	Server list component works
+
+	<div
+		*ngIf="(serverList$ | async).loading"
+		class="app-server-list__loading">
+		<div class="app-spinner"></div>
+	</div>
+
+	<div
+		*ngIf="(serverList$ | async).data"
+		class="app-server-list__heading">
+		<div class="app-server-list__heading-item app-server-list__heading-item--left">
+			{{ componentText.LABEL_LIST.server }}
+		</div>
+		<div class="app-server-list__heading-item app-server-list__heading-item--right">
+			{{ componentText.LABEL_LIST.distance }}
+		</div>
+	</div>
+
+	<ul
+		*ngIf="(serverList$ | async).data"
+		class="app-server-list__content">
+		<li
+			class="app-server-list__content-item"
+			*ngFor="let server of (serverList$ | async).data">
+			<div class="app-server-list__content-item-text app-server-list__content-item-text--left">
+				{{ server['name'] }}
+			</div>
+			<div class="app-server-list__content-item-text app-server-list__content-item-text--right">
+				{{ server['distance'] }} km
+			</div>
+		</li>
+	</ul>
+
+	<div
+		*ngIf="message || ((serverList$ | async).data && (serverList$ | async).data.length === 0)"
+		class="app-server-list__no-data">
+		<p class="app-message app-message--danger">
+			{{ componentText.MESSAGE_LIST.serverListFailed }}
+		</p>
+	</div>
+
 </div>

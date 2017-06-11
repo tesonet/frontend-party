@@ -1,11 +1,12 @@
 import { Action } from '@ngrx/store';
 import * as login from './action';
 import * as ComponentText from './component-text';
+import * as messageType from '../../../global/model/message';
 
 export interface State {
 	response: any;
 	token: string;
-	message: {};
+	message: messageType.IMessage;
 	loading: boolean;
 }
 

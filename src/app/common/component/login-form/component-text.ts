@@ -7,6 +7,6 @@ export const LABEL_LIST = {
 export const MESSAGE_LIST = {
 	'errorMessageUserName': 'User name is required',
 	'errorMessagePassword': 'Password is required',
-	'loginSuccessful': 'Login successful',
+	'loginSuccessful': 'Login successful, please wait while we redirect you to our server list!',
 	'loginFailed': 'Wrong username or password'
 };
