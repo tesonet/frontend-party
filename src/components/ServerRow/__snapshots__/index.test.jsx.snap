@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Server list header row 1`] = `
+<div
+  className="row row head"
+>
+  <div
+    className="col-xs-8"
+  >
+    header
+  </div>
+  <div
+    className="col-xs-4 distance"
+  >
+    DISTANCE
+  </div>
+</div>
+`;
+
+exports[`Server list value row 1`] = `
+<div
+  className="row row"
+>
+  <div
+    className="col-xs-8"
+  >
+    value
+  </div>
+  <div
+    className="col-xs-4 distance"
+  >
+    123 km
+  </div>
+</div>
+`;

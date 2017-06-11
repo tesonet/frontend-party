@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dont show private content when no token is found 1`] = `null`;
+
+exports[`Show private content when no token is found 1`] = `
+<div
+  className="container-fluid"
+>
+  <div
+    className="row header"
+  >
+    <div
+      className="col-xs-8 main"
+    >
+      <img
+        alt="Testio"
+        className="logo"
+        height={30}
+        src="/static/img/logo.png"
+        width={115}
+      />
+    </div>
+    <div
+      className="col-xs-4 aside"
+    >
+      <button
+        onClick={[Function]}
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+  <div
+    className="container"
+  />
+</div>
+`;

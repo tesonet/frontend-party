@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Items showing 1`] = `
+<div
+  className="container"
+>
+  <div>
+    <div
+      className="row row head"
+    >
+      <div
+        className="col-xs-8"
+      >
+        SERVER
+      </div>
+      <div
+        className="col-xs-4 distance"
+      >
+        DISTANCE
+      </div>
+    </div>
+    <div
+      className="row row"
+    >
+      <div
+        className="col-xs-8"
+      >
+        e
+      </div>
+      <div
+        className="col-xs-4 distance"
+      >
+        40 km
+      </div>
+    </div>
+    <div
+      className="row row"
+    >
+      <div
+        className="col-xs-8"
+      >
+        d
+      </div>
+      <div
+        className="col-xs-4 distance"
+      >
+        50 km
+      </div>
+    </div>
+    <div
+      className="row row"
+    >
+      <div
+        className="col-xs-8"
+      >
+        a
+      </div>
+      <div
+        className="col-xs-4 distance"
+      >
+        100 km
+      </div>
+    </div>
+    <div
+      className="row row"
+    >
+      <div
+        className="col-xs-8"
+      >
+        b
+      </div>
+      <div
+        className="col-xs-4 distance"
+      >
+        100 km
+      </div>
+    </div>
+    <div
+      className="row row"
+    >
+      <div
+        className="col-xs-8"
+      >
+        c
+      </div>
+      <div
+        className="col-xs-4 distance"
+      >
+        200 km
+      </div>
+    </div>
+    <div
+      className="row row"
+    >
+      <div
+        className="col-xs-8"
+      >
+        f
+      </div>
+      <div
+        className="col-xs-4 distance"
+      >
+        300 km
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Loading indicator 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="loading"
+  >
+    <span
+      className="fa fa-spinner fa-spin"
+    />
+  </div>
+</div>
+`;
