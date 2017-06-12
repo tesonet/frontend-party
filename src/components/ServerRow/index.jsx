@@ -3,23 +3,30 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './styles.scss';
 
-const Row = props => (
-  <div
-    className={cn(
-      'row',
-      styles.row,
-      props.index === -1 && styles.head,
-    )}
-  >
-    <div className="col-xs-8">{props.item.name}</div>
-    <div className={cn('col-xs-4', styles.distance)}>
-      {props.item.distance ? `${props.item.distance} km` : 'DISTANCE'}
+const Row = (props) => {
+  const { item, isHeader } = props;
+  return (
+    <div
+      className={cn(
+        'row',
+        styles.row,
+        isHeader && styles.head,
+      )}
+    >
+      <div className="col-xs-8">{item.name}</div>
+      <div className={cn('col-xs-4', styles.distance)}>
+        {item.distance ? `${item.distance} km` : 'DISTANCE'}
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+Row.defaultProps = {
+  isHeader: false,
+};
 
 Row.propTypes = {
-  index: PropTypes.number.isRequired,
+  isHeader: PropTypes.bool,
   item: PropTypes.PropTypes.shape({
     name: PropTypes.string.isRequired,
     distance: PropTypes.number,

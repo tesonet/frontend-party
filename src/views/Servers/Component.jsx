@@ -15,14 +15,14 @@ class Servers extends React.Component {
 
   renderItems = () => (
     <div>
-      <ServerRow item={{ name: 'SERVER' }} index={-1} />
+      <ServerRow item={{ name: 'SERVER' }} isHeader />
       {this.props.items.sort(this.sortItems).map(this.renderItem)}
     </div>
   );
 
   renderLoading = () => <div className={styles.loading}><Icon spin name="spinner" /></div>;
 
-  renderItem = (item, index) => <ServerRow key={index} item={item} index={index} />;
+  renderItem = (item, index) => <ServerRow key={index} item={item} />;
 
   render() {
     return (
