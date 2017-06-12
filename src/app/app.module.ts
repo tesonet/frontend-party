@@ -22,16 +22,13 @@ import {
 } from './common/component';
 
 // Service list
-import { AuthGuard, LoginGuard } from './global';
+import { AuthGuard, LoginGuard, CONFIG } from './global';
 import { SessionStorageService, TokenSecureService } from './common/service';
 
-const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-	suppressScrollX: true
-};
-
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = CONFIG.perfectScrollbar;
 const DECLARATION_LIST = [
-	AppComponent, LoginComponent, ShellComponent,
-	LoginFormComponent, ServerListComponent, HeaderComponent,
+	AppComponent, LoginFormComponent, ShellComponent,
+	LoginComponent, ServerListComponent, HeaderComponent,
 	UserNavigationComponent, PageNotFoundComponent
 ];
 const IMPORT_LIST = [

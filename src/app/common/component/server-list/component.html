@@ -10,7 +10,7 @@
 	</div>
 
 	<div
-		*ngIf="(serverList$ | async).sortedData"
+		*ngIf="(serverList$ | async).sortedData && !(serverList$ | async).loading"
 		class="app-server-list__heading">
 		<div class="app-server-list__heading-item app-server-list__heading-item--left">
 			{{ componentText.LABEL_LIST.server }}
@@ -24,7 +24,7 @@
 		<perfect-scrollbar class="container">
 			<div class="content">
 				<ul
-					*ngIf="(serverList$ | async).sortedData"
+					*ngIf="(serverList$ | async).sortedData && !(serverList$ | async).loading"
 					class="">
 					<li
 						class="app-server-list__content-item"

@@ -6,5 +6,10 @@ export const CONFIG = {
 	},
 	'dev': {
 		'fakeDelay': 1500
+	},
+	'perfectScrollbar': {
+		suppressScrollX: true,
+		minScrollbarLength: 64,
+		maxScrollbarLength: 64
 	}
 };
