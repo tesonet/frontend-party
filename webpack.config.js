@@ -37,7 +37,7 @@ const config = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(IS_DEV),
+      IS_DEV: JSON.stringify(IS_DEV),
     }),
     extractFonts,
     extractStyles,

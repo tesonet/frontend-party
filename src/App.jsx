@@ -4,7 +4,7 @@ import store from './store';
 import Routes from './Routes';
 import './globalStyles.scss';
 
-if (__DEV__) {
+if (IS_DEV) {
   window.store = store;
 }
 

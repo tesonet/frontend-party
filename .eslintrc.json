@@ -20,6 +20,6 @@
   },
   "globals": {
     "DEBUG": false,
-    "__DEV__": true
+    "IS_DEV": true
   }
 }

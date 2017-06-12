@@ -14,8 +14,8 @@ module.exports = (req, res) => {
     url: endpoint + req.originalUrl.replace(/^\/api/, ''),
     data: req.body,
     headers: {
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   };
   if (req.headers.authorization) {
     params.headers.authorization = req.headers.authorization;

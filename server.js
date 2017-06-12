@@ -29,7 +29,7 @@ hook({
 
 
 global.window = {};
-global.__DEV__ = IS_DEV;
+global.IS_DEV = IS_DEV;
 
 const App = require('./src/App').default;
 
@@ -43,8 +43,8 @@ if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(config);
   server.use(
     webpackDevMiddleware(compiler, {
-      publicPath: config.output.publicPath
-    })
+      publicPath: config.output.publicPath,
+    }),
   );
   server.use(webpackHotMiddleware(compiler));
 }
@@ -58,7 +58,7 @@ server.all('/api/*', apiProxy);
 server.use((req, res) => {
   const context = {};
   const body = ReactDOMServer.renderToString(
-    React.createElement(StaticRouter, { location: req.url, context }, React.createElement(App))
+    React.createElement(StaticRouter, { location: req.url, context }, React.createElement(App)),
   );
   res.end(template({ body }));
 });
