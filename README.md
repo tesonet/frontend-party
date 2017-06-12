@@ -10,6 +10,10 @@
 
 * yarn run test
 
+# Lint:
+
+* yarn run lint
+
 # Comments:
 
 * Gulp is not used as it's redundant, webpack is sufficient;
