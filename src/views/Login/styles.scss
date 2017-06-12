@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: url(/static/img/bg.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+.form {
+  text-align: center;
+  font-size: 18px;
+
+  p {
+    margin: 20px 0;
+  }
+
+  input,
+  button {
+    width: 360px;
+    height: 55px;
+    font-size: 18px;
+  }
+}
+
+.logo {
+  margin: 0 0 50px;
+  max-width: 80vw;
+  height: auto;
+}
+
+.error {
+  color: #ff756f;
+}
+
+@media (max-width: 768px) {
+  .form {
+    input,
+    button {
+      width: 80vw;
+      max-width: 320px;
+      height: 45px;
+      font-size: 16px;
+    }
+  }
+}

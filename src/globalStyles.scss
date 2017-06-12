@@ -1,0 +1,48 @@
+:global {
+  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    font: 140%/150% Arial, Helvetica, sans-serif;
+  }
+
+  input[type=text],
+  input[type=password] {
+    padding: 12px 16px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  button {
+    cursor: pointer;
+
+    &[type] {
+      background: #9FD533;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 16px;
+
+      &:hover {
+        background: #86b300;
+      }
+    }
+    &[disabled] {
+      opacity: 0.5;
+    }
+  }
+}

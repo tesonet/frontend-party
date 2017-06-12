@@ -1,0 +1,19 @@
+.header {
+  padding: 5vh 1vw;
+}
+
+.aside {
+  text-align: right;
+
+  button {
+    border: none;
+    padding: 0 12px 0 30px;
+    height: 40px;
+    background: url(/static/img/logout.png) 5px 50% no-repeat;
+    color: #2F3254;
+
+    &:hover {
+      color: #9c3;
+    }
+  }
+}

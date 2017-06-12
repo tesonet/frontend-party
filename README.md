@@ -1,43 +1,24 @@
-# Senior frontend developer task
+# Install packages:
 
-If you found this task it means we are looking for you!
+* yarn
 
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
+# Run:
 
-## Few simple steps
+* yarn run dev
 
-1. Fork this repo
-2. Do your best
-3. Prepare a pull request and let us know that you are done
+# Test:
 
-## Few simple requirements
-### Design
-* Design should be recreated as closely as possible.
-* Design must be responsive. 
-* Use `container` for the login page
-* Use `container-fluid` for the server list page
-* Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred).
+* yarn run test
 
-### App
-* Use a component-based framework - AngularJS / ReactJS / Vue.js
-* This app needs to be single page. Use a javascript router to achieve this
-* Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
+# Lint:
 
-    ```
-    {"username": "tesonet", "password": "partyanimal"}
-    ```
+* yarn run lint
 
-* Save the newly-created token to the local storage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
-* Implement logout
+# Comments:
 
-### Miscellaneous
-* Browser support must be great. All modern browsers plus IE9 and above.
-* Use a Javascript task-runner (gulp preferred).
-* Do not commit the build
-
-## Few tips
-* Structure! WE LOVE STRUCTURE!
-* Maybe You have an idea how it should interact with users? Do it! Its on you!
-* Have fun!
+* Gulp is not used as it's redundant, webpack is sufficient;
+* Token is persisted in localStorage via the white-listed reducer "login" using the "redux-persist" middleware;
+* Only bootstrap grid is imported, as bootstrap by itself is too bloated;
+* Using Jest for Snapshot testing — I'm new to Jest and it looks awesome, but I need to read a bit more about it, as now I don't know how high up the component tree should the testing continue, as it looks like I can simply test my whole app from the root, just mocking the state tree, but this kind of testing would be a bit too bloated, so I'm a bit undecided on how deep I should dig.
+* IE9 (and older) is getting special treatment by being forced to use hash-based-routing, as push-state is not supported there;
+* Some basic server-side-rendering is being done, but not "all the way", as in the user session is not honored, thus a not-logged-in user is getting the login page from the back-end, but the logged-in user is not getting a rendered server list from the back-end;
