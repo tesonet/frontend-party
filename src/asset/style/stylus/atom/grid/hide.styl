@@ -1,0 +1,20 @@
+@require '../var'
+@require '../stylus-mixin-library'
+
+.{pre}hidden
+
+	@media screen and (max-width (tablet - 1))
+		&--xs
+			display none !important
+
+	@media screen and (min-width tablet) and (max-width (desktop - 1))
+		&--sm
+			display none !important
+
+	@media screen and (min-width desktop) and (max-width (desktopMd - 1))
+		&--md
+			display none !important
+
+	@media screen and (min-width desktopMd)
+		&--lg
+			display none !important

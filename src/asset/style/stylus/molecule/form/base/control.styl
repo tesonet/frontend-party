@@ -1,0 +1,26 @@
+.{pre}form
+
+	&__control
+		size 100% hFormControl
+		max-width 100%
+		box-sizing border-box
+		border 1px solid transparent
+		padding(null spaceRightFormControl null spaceLeftFormControl)
+		color cFontLight
+		outline none
+		background-color cInverted
+		border-radius bdrsFormControl
+
+		&:active
+		&:focus
+			outline none
+
+		&--has-icon
+			&-left
+				padding-left (spaceLeftFormControl + spaceForIconLeftFormControl)
+
+		&--danger
+			border-color cDanger
+
+		&--success
+			border-color cSuccess

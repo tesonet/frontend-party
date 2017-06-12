@@ -1,0 +1,11 @@
+//--Keyword values--
+//  visible | hidden
+//--Usage:
+//  .someClass
+//      backface-visibility visible
+backface-visibility()
+	if current-property {
+		vendor('backface-visibility', arguments)
+	} else {
+		error('backface-visibility() must be used within a property')
+	}

@@ -1,0 +1,28 @@
+@require '../var'
+@require '../stylus-mixin-library'
+
+.{pre}grid-row
+	clearfix()
+	box-sizing border-box
+
+	&--has-spaces
+		width calc(100% + 15px + 15px)//  15px = spacePrimary
+		margin-right -(spaceRightPrimary)
+		margin-left -(spaceLeftPrimary)
+
+		> .grid-coll
+			padding(null spaceRightPrimary null spaceLeftPrimary)
+
+.{pre}grid-coll
+	float left
+	width 100%
+	max-width 100%
+	box-sizing border-box
+	padding(null 0 null 0)
+	min-height 1px
+
+	&--right
+		float right
+
+	&--space-top
+		padding-top spaceTopPrimary

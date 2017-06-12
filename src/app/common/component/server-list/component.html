@@ -1,0 +1,64 @@
+<div class="app-server-list">
+
+	<div
+		*ngIf="(serverList$ | async).loading"
+		class="app-server-list__loading">
+		<div class="app-spinner"></div>
+		<p>
+			{{ componentText.LABEL_LIST.loadingServers }}
+		</p>
+	</div>
+
+	<div
+		*ngIf="(serverList$ | async).sortedData && !(serverList$ | async).loading"
+		class="app-server-list__heading">
+		<div class="app-server-list__heading-item app-server-list__heading-item--left">
+			{{ componentText.LABEL_LIST.server }}
+		</div>
+		<div class="app-server-list__heading-item app-server-list__heading-item--right">
+			{{ componentText.LABEL_LIST.distance }}
+		</div>
+	</div>
+
+	<div class="app-server-list__content">
+		<perfect-scrollbar class="container">
+			<div class="content">
+				<ul
+					*ngIf="(serverList$ | async).sortedData && !(serverList$ | async).loading"
+					class="">
+					<li
+						class="app-server-list__content-item"
+						*ngFor="let server of (serverList$ | async).sortedData">
+						<div class="app-server-list__content-item-text app-server-list__content-item-text--left">
+							{{ server['name'] }}
+						</div>
+						<div class="app-server-list__content-item-text app-server-list__content-item-text--right">
+							{{ server['distance'] }} km
+						</div>
+					</li>
+				</ul>
+			</div>
+		</perfect-scrollbar>
+	</div>
+
+	<div
+		*ngIf="
+			(
+				!(serverList$ | async).data
+				||
+				(
+					(serverList$ | async).data
+					&&
+					(serverList$ | async).data.length === 0
+				)
+			)
+			&&
+			!(serverList$ | async).loading
+		"
+		class="app-server-list__no-data">
+		<p class="app-message app-message--danger">
+			{{ componentText.MESSAGE_LIST.serverListFailed }}
+		</p>
+	</div>
+
+</div>

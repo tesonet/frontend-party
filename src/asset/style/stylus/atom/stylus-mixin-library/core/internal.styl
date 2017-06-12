@@ -1,0 +1,12 @@
+//  TODO: usages
+vendor(prop, args)
+	for vendor in mixin-library-vendors
+		-{vendor}-{prop} args
+	{prop} args
+
+//  TODO: usages + check if works
+vendor-opacity(prop, args)
+	for vendor in mixin-library-vendors
+		-{vendor}-{prop} args
+	{prop} args
+	filter alpha(opacity=(args * 100))

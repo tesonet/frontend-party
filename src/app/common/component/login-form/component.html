@@ -1,0 +1,108 @@
+<form
+	class="app-form"
+	novalidate
+	(ngSubmit)="onSubmit()"
+	#loginForm="ngForm">
+
+	<div
+		*ngIf="(login$ | async).loading || (message && message.type === 'success')"
+		[ngClass]="{
+			'app-form__overlay--success': (message && message.type === 'success')
+		}"
+		class="app-form__overlay"></div>
+	<div
+		*ngIf="(login$ | async).loading"
+		class="app-form__spinner">
+		<div class="app-spinner"></div>
+	</div>
+	<div
+		*ngIf="message"
+		[ngClass]="{
+			'app-form__overlay-message app-form__overlay-message--success': message.type === 'success',
+			'app-form__server-message app-form__server-message--danger': message.type === 'failed'
+		}"
+		class="app-form__overlay-message">
+		{{ message.text }}
+	</div>
+
+	<fieldset ngModelGroup="credentials">
+
+		<div class="app-form__field app-form__field--no-space-top">
+
+			<div class="app-form__element app-form__element--has-icon">
+				<div class="app-form__element-icon app-form__element-icon--left">
+					<span class="app-icon app-icon--torso"></span>
+				</div>
+				<input type="text"
+					   class="app-form__control app-form__control--has-icon-left"
+					   [ngClass]="{
+							'app-form__control--danger': userName.invalid && (userName.dirty || userName.touched),
+							'app-form__control--success': userName.valid && (userName.dirty || userName.touched)
+						}"
+					   placeholder="{{ componentText.LABEL_LIST.userName }}"
+					   name="userName"
+					   [(ngModel)]="model.userName"
+					   required
+					   #userName="ngModel">
+			</div>
+
+			<div
+				class="app-form__message"
+				[ngClass]="{
+					'app-form__message--danger': userName.errors && (userName.dirty || userName.touched)
+				}"
+				*ngIf="userName.errors && (userName.dirty || userName.touched)">
+				<span *ngIf="userName.errors['required']">
+					{{ componentText.MESSAGE_LIST.errorMessageUserName }}
+				</span>
+			</div>
+
+		</div>
+
+		<div class="app-form__field">
+
+			<div class="app-form__element app-form__element--has-icon">
+				<div class="app-form__element-icon app-form__element-icon--left">
+					<span class="app-icon app-icon--lock"></span>
+				</div>
+				<input type="password"
+					   class="app-form__control app-form__control--has-icon-left"
+					   [ngClass]="{
+							'app-form__control--danger': password.invalid && (password.dirty || password.touched),
+							'app-form__control--success': password.valid && (password.dirty || password.touched)
+						}"
+					   placeholder="{{ componentText.LABEL_LIST.password }}"
+					   name="password"
+					   [(ngModel)]="model.password"
+					   required
+					   #password="ngModel">
+			</div>
+
+			<div
+				class="app-form__message"
+				[ngClass]="{
+					'app-form__message--danger': password.errors && (password.dirty || password.touched)
+				}"
+				*ngIf="password.errors && (password.dirty || password.touched)">
+				<span *ngIf="password.errors['required']">
+					{{ componentText.MESSAGE_LIST.errorMessagePassword }}
+				</span>
+			</div>
+		</div>
+
+	</fieldset>
+
+	<div class="app-form__actions">
+
+		<button
+			type="submit"
+			class="app-button app-button--full-width"
+			[disabled]="loginForm.invalid">
+			<span class="app-button__text">
+				{{ componentText.LABEL_LIST.logIn }}
+			</span>
+		</button>
+
+	</div>
+
+</form>

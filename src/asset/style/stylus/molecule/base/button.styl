@@ -1,0 +1,97 @@
+.{pre}button
+	background-color cPrimary
+	display inline-block
+	border 0 solid cPrimary
+	padding(0 spaceRightPrimary 0 spaceLeftPrimary)
+	text-decoration none
+	cursor pointer
+	outline none
+	box-sizing border-box
+	min-height hFormControl
+	color cInverted
+	text-align center
+	border-radius bdrsFormControl
+
+	&__text
+	&__icon
+		text-decoration none
+		*
+			text-decoration none
+
+	&__text
+		color cInverted
+		font-family ffPrimaryBold
+
+	&:hover
+	&:active
+		text-decoration none
+		background-color #86b300
+
+		.{pre}button
+			&__text
+			&__icon
+				text-decoration none
+				*
+					text-decoration none
+
+	&[disabled]
+		background-color cDisabledButton
+		cursor default
+
+	&--no-min-height
+		min-height auto
+
+	&--transparent
+		padding(0 0 0 0)
+		border none
+		height auto
+		background-color transparent
+		color cFontPrimary
+		text-transform none
+
+		&:hover
+		&:active
+			background-color transparent
+
+	&--full-width
+		width 100%
+		max-width 100%
+
+	&--full-size
+		size 100% 100%
+		max-width 100%
+		max-height 100%
+
+	&--link
+
+		.{pre}button
+
+			&__text
+			&__icon
+				color cLinkPrimary
+				*
+					color cLinkPrimary
+					&:before
+						color cLinkPrimary
+
+			&__text
+				font-family ffPrimaryLight
+				font-size fzSm
+
+		&:hover
+		&:active
+			.{pre}button
+
+				&__text
+				&__icon
+					color cLinkPrimaryHover
+					*
+						color cLinkPrimaryHover
+						&:before
+							color cLinkPrimaryHover
+
+a.{pre}button
+	padding(15px null 9px null)//  11px imitate vertical align middle in A tag
+
+	&--no-min-height
+		padding(0 null 0 null)

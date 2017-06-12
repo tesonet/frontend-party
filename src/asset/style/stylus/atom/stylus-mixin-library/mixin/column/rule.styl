@@ -1,0 +1,11 @@
+//--Keyword values--
+//  column-rule-width   column-rule-style   column-rule-color | initial | inherit
+//--Usage:
+//  .someClass
+//      column-rule initial
+column-rule()
+	if current-property {
+		vendor('column-rule', arguments)
+	} else {
+		error('column-rule() must be used within a property')
+	}

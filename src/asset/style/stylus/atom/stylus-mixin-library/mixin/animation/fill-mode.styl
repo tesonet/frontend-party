@@ -1,0 +1,13 @@
+//--Keyword values--
+//  none | forwards | backwards | both
+//--Multiple animations--
+//  none, forwards
+//--Usage:
+//  .someClass
+//      animation-fill-mode none
+animation-fill-mode()
+	if current-property {
+		vendor('animation-fill-mode', arguments)
+	} else {
+		error('animation-fill-mode() must be used within a property')
+	}

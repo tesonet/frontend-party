@@ -1,0 +1,11 @@
+//--Keyword values--
+//  none | button | .. a huge list of appearances
+//--Usage:
+//  .someClass
+//      appearance none
+appearance()
+	if current-property {
+		vendor('appearance', arguments)
+	} else {
+		error('appearance() must be used within a property')
+	}

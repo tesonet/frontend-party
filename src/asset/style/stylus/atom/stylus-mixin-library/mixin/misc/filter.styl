@@ -1,0 +1,13 @@
+//--Keyword values--
+//  none | blur() | brightness() | contrast() | drop-shadow() |
+//  grayscale() | hue-rotate() | invert() | opacity() | saturate() | sepia() | url()
+//--Usage:
+//  .someClass
+//      filter none
+//  TODO:  check if works
+filter()
+	if current-property {
+		vendor-opacity('filter', arguments)
+	} else {
+		error('filter() must be used within a property')
+	}

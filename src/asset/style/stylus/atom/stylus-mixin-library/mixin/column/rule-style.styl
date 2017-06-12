@@ -1,0 +1,11 @@
+//--Keyword values--
+//  none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | initial | inherit
+//--Usage:
+//  .someClass
+//      column-rule-style hidden
+column-rule-style()
+	if current-property {
+		vendor('column-rule-style', arguments)
+	} else {
+		error('column-rule-style() must be used within a property')
+	}

@@ -1,0 +1,11 @@
+//--Keyword values--
+//  none | text | all | element(only MS)
+//--Usage:
+//  .someClass
+//      user-select initial
+user-select()
+	if current-property {
+		vendor('user-select', arguments)
+	} else {
+		error('user-select() must be used within a property')
+	}

@@ -1,0 +1,13 @@
+//--Keyword values--
+//  name | inherited | initial | unset
+//--Multiple animations--
+//  name1, name2
+//--Usage:
+//  .someClass
+//      animation-name inherited
+animation-name()
+	if current-property {
+		vendor('animation-name', arguments)
+	} else {
+		error('animation-name() must be used within a property')
+	}

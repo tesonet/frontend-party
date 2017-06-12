@@ -1,0 +1,18 @@
+//--Usage:
+//  font-face('asSvgFont', 'fontFileName', 'asSvgFont', font-weight(optional), font-style(optional))
+font-face(
+	fontFamily,
+	fontFileName,
+	fontFilePath,
+	fontWeight = normal,
+	fontStyle = normal
+)
+	@font-face
+		font-family fontFamily
+		src: url(fontFilePath + fontFileName + '.eot');
+		src: url(fontFilePath + fontFileName + '.eot?#iefix') format('embedded-opentype'),
+			 url(fontFilePath + fontFileName + '.woff') format('woff'),
+			 url(fontFilePath + fontFileName + '.ttf') format('truetype'),
+			 url(fontFilePath + fontFileName + '.svg#' + fontFileName) format('svg');
+		font-weight fontWeight
+		font-style fontStyle

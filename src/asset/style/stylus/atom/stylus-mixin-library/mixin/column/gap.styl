@@ -1,0 +1,11 @@
+//--Keyword values--
+//  column-gap | normal | initial | inherit
+//--Usage:
+//  .someClass
+//      column-gap normal
+column-gap()
+	if current-property {
+		vendor('column-gap', arguments)
+	} else {
+		error('column-gap() must be used within a property')
+	}

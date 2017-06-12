@@ -1,0 +1,24 @@
+.{pre}spinner
+	size 40px 40px
+	margin(null auto null auto)
+	background-color #333
+	border-radius 100%
+	animation spinner-scaleout 1.0s infinite ease-in-out
+
+@-webkit-keyframes spinner-scaleout
+	0%
+		-webkit-transform scale(0)
+
+	100%
+		-webkit-transform scale(1.0)
+		opacity 0
+
+@keyframes spinner-scaleout
+	0%
+		-webkit-transform scale(0)
+		transform scale(0)
+
+	100%
+		-webkit-transform scale(1.0)
+		transform scale(1.0)
+		opacity 0

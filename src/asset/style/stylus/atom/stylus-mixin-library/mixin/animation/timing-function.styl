@@ -1,0 +1,15 @@
+//--Keyword values--
+//  ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | inherited | initial | unset
+//--Function values--
+//  cubic-bezier(0.1, 0.7, 1.0, 0.1) | steps(4, end)
+//--Multiple animations--
+//  ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+//--Usage:
+//  .someClass
+//      animation-timing-function ease
+animation-timing-function()
+	if current-property {
+		vendor('animation-timing-function', arguments)
+	} else {
+		error('animation-timing-function() must be used within a property')
+	}

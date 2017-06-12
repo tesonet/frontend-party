@@ -1,0 +1,6 @@
+//  TODO: add usage
+font-resize(iterations, iterationBase, baseSize, multiplier, iterationsMinimum)
+	for i in iterations..iterationsMinimum
+		@media screen and (max-width iterationBase * i)
+			html
+				font-size round(baseSize * (multiplier * i))

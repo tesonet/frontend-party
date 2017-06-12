@@ -1,0 +1,13 @@
+//--Keyword values--
+//  normal | reverse | alternate | alternate-reverse | inherited | initial | unset
+//--Multiple animations--
+//  normal, reverse | alternate, reverse, normal
+//--Usage:
+//  .someClass
+//      animation-direction reverse
+animation-direction()
+	if current-property {
+		vendor('animation-direction', arguments)
+	} else {
+		error('animation-direction() must be used within a property')
+	}

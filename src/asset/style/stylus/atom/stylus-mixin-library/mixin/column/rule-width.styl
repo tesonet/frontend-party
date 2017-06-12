@@ -1,0 +1,11 @@
+//--Keyword values--
+//  medium | thin | thick | length | initial | inherit
+//--Usage:
+//  .someClass
+//      column-rule-width thin
+column-rule-width()
+	if current-property {
+		vendor('column-rule-width', arguments)
+	} else {
+		error('column-rule-width() must be used within a property')
+	}

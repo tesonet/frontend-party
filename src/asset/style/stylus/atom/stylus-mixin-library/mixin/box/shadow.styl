@@ -1,0 +1,11 @@
+//--Keyword values--
+//  inset(optional) | offset-x | offset-y | blur-radius | spread-radius | color
+//--Usage:
+//  .someClass
+//      box-shadow inset 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+box-shadow()
+	if current-property {
+		vendor('box-shadow', arguments)
+	} else {
+		error('box-shadow() must be used within a property')
+	}
