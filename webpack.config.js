@@ -11,6 +11,7 @@ const config = {
   context: __dirname,
   entry: [
     'babel-polyfill',
+    'locale-compare-polyfill',
     './src/Client.jsx',
   ],
   devtool: IS_DEV ? 'cheap-eval-source-map' : false,

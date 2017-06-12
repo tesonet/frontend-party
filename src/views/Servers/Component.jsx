@@ -11,7 +11,7 @@ class Servers extends React.Component {
     this.props.getServers();
   }
 
-  sortItems = (a, b) => (a.distance - b.distance) || (a.name.charCodeAt(0) - b.name.charCodeAt(0));
+  sortItems = (a, b) => (a.distance - b.distance) || a.name.localeCompare(b.name);
 
   renderItems = () => (
     <div>
