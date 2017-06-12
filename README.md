@@ -1,11 +1,18 @@
-# To run, do:
+# Install packages:
 
 * yarn
+
+# Run:
+
 * yarn run dev
+
+# Test:
+
+* yarn run test
 
 # Comments:
 
-* Gulp is not used as it's redundant;
+* Gulp is not used as it's redundant, webpack is sufficient;
 * Token is persisted in localStorage via the white-listed reducer "login" using the "redux-persist" middleware;
 * Only bootstrap grid is imported, as bootstrap by itself is too bloated;
 * Using Jest for Snapshot testing — I'm new to Jest and it looks awesome, but I need to read a bit more about it, as now I don't know how high up the component tree should the testing continue, as it looks like I can simply test my whole app from the root, just mocking the state tree, but this kind of testing would be a bit too bloated, so I'm a bit undecided on how deep I should dig.
