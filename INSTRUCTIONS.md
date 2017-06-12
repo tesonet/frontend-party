@@ -14,10 +14,10 @@
 
 1. Class name, folder name, variable name, etc. => only singular, NO users, but userList or user-list
 2. Naming convention list:
-* File name, folder name, css class name => snake-case
-* Variables => lowerCamelCase
-* Constants => UPPERCASE_CONSTANT
-* Class names => UpperCamelCase
+ * File name, folder name, css class name => snake-case
+ * Variables => lowerCamelCase
+ * Constants => UPPERCASE_CONSTANT
+ * Class names => UpperCamelCase
 
 ## HTML/CSS RULES
 
