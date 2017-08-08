@@ -31,12 +31,10 @@ If you found this task it means we are looking for you!
 * Implement logout
 
 ### Miscellaneous
-* Your code style tells a lot about you (we use Airbnb JavaScript Style Guide)
 * Your app must work on all modern browsers and IE11+
 * Use JS bundler (Webpack preferred)
 * Use npm scripts or gulp for running tasks
 * Use a unit testing library (Jest preferred)
-* Tell us how to use your app (we expect a good README.md)
 * Do not commit the build
 
 ## Few tips
