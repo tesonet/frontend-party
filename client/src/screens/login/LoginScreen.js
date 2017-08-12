@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import * as loginActions from '../../reducers/login/actions';
 
 class LoginScreen extends Component {
@@ -22,7 +23,7 @@ class LoginScreen extends Component {
   renderContent() {
     return (
       <div className={'home-screen'}>
-        <p>
+        <p style={{color: 'red'}}>
           Here will be homescreen
         </p>
       </div>
@@ -48,4 +49,4 @@ function mapStateToProps(state, props) {
   };
 }
 
-export default connect(mapStateToProps)(LoginScreen);
+export default withRouter(connect(mapStateToProps)(LoginScreen));

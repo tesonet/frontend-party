@@ -16,16 +16,20 @@ export default function login(state=initialState, action={}){
         isFetching: true
       });
     case types.TOKEN_SUCCESS:
+      const { message, token } = payload;
+
       return Object.assign({}, state, {
         isFetching: false,
-        errorMessage: payload.message || false,
-        token: payload.token
+        errorMessage: message || false,
+        token: token
       });
     case types.TOKEN_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
         errorMessage: 'Something went wrong while login in'
       });
+
+    // case types.LOGOUT: localStorage.clear(); return initialState;
 
     default:
       return state;

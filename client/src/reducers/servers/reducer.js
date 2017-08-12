@@ -16,16 +16,12 @@ export default function servers(state=initialState, action={}){
         isFetching: true
       });
     case types.SUCCESS:
-      console.log('SUCCESS', payload);
-
       return Object.assign({}, state, {
         isFetching: false,
         errorMessage: false,
         servers: payload
       });
     case types.FAILURE:
-      console.log('FAILURE', payload);
-
       return Object.assign({}, state, {
         isFetching: false,
         errorMessage: 'Something went horibly wrong, please try later!'

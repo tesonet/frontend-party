@@ -1,23 +1,53 @@
 import React, { Component } from 'react';
-import { LoginScreen } from './screens/login';
-import { ServersScreen } from './screens/servers';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import Routes from './screens';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { persistStore, autoRehydrate } from 'redux-persist';
 import { Provider } from 'react-redux';
-import thunk from "redux-thunk";
+import thunk from 'redux-thunk';
 import { ApiMiddleware } from './utils';
-import * as reducers from "./reducers";
+import reducer from './reducers';
+
+const persistorConfig = {
+  whitelist: [ 'login' ]
+};
 
 const middlewares = [thunk, ApiMiddleware('')];
-const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
-const reducer = combineReducers(reducers);
-const store = createStoreWithMiddleware(reducer);
+const toolChain = [ applyMiddleware(...middlewares), autoRehydrate() ];
+const store = compose(...toolChain)(createStore)(reducer, {});
 
 class App extends Component {
-  render() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      rehydrated: false
+    }
+  }
+
+  componentWillMount(){
+    persistStore(store, persistorConfig, () => {
+      this.setState({ rehydrated: true })
+    })
+  }
+
+  renderContent() {
     return (
       <Provider store={store}>
-        <LoginScreen />
+        <Routes />
       </Provider>
+    );
+  }
+
+  renderLoading() {
+    return (
+      <div><p>Rehydrating</p></div>
+    );
+  }
+
+  render() {
+    const { rehydrated } = this.state;
+
+    return (
+      rehydrated ? this.renderContent() : this.renderLoading()
     );
   }
 }

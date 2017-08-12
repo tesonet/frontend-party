@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import * as serversActions from '../../reducers/servers/actions';
 
 class ServersScreen extends Component {
@@ -12,10 +13,6 @@ class ServersScreen extends Component {
   }
 
   render() {
-    const { servers, isFetching, errorMessage, token } = this.props;
-
-    console.log('HERE', servers, isFetching, errorMessage, token );
-
     return (
       <div className={'home-screen'}>
         <p>
@@ -38,4 +35,4 @@ function mapStateToProps(state, props) {
   };
 }
 
-export default connect(mapStateToProps)(ServersScreen);
+export default withRouter(connect(mapStateToProps)(ServersScreen));
