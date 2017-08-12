@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ServerRowStyle } from './style';
 
 class ServerRow extends Component {
   static propTypes = {
@@ -19,9 +20,8 @@ class ServerRow extends Component {
     const { name, distance } = this.props;
 
     return (
-      <div>
+      <div className={'row'}>
         <span>{name}</span>
-        <span>{'           '}</span>
         <span>{`${distance} km`}</span>
       </div>
     );

@@ -9,11 +9,9 @@ class Routes extends Component {
     const { token } = this.props;
 
     return (
-      <div>
-        <Router>
-          <Route exact path='/' component={token ? servers.ServersScreen : login.LoginScreen} />
-        </Router>
-      </div>
+      <Router>
+        <Route exact path='/' component={token ? servers.ServersScreen : login.LoginScreen} />
+      </Router>
     );
   }
 }

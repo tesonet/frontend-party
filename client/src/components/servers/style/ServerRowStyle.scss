@@ -1,0 +1,7 @@
+@import "../../../constants.scss";
+
+.row {
+  @include border(0 0 1px);
+  @include row;
+  color: $darkGrey;
+}

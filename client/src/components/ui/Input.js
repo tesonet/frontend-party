@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { InputStyle } from './style';
 
 class Input extends Component {
   static propTypes = {
@@ -39,6 +40,7 @@ class Input extends Component {
         value={value || state.value}
         placeholder={placeholder}
         onChange={(val) => this.onChange(val)}
+        className={'input'}
       />
     );
   }

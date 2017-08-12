@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Input } from '../ui';
 import PropTypes from 'prop-types';
+import { LoginFormStyle } from './style';
 
 class LoginForm extends Component {
   static propTypes = {
@@ -21,7 +22,11 @@ class LoginForm extends Component {
 
   validateForm() {
     const data = this.state;
-    return Object.values(data).every(val => val !== '');
+    const dataObjValues = Object.keys(data).map(
+      key => data[key]
+    );
+
+    return dataObjValues.every(val => val !== '');
   }
 
   onSubmit() {
@@ -44,7 +49,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={() => this.onSubmit()} className={'login-form'}>
         <Input
           placeholder={'Username'}
           onChange={(val) => this.onChange('username', val)}
@@ -54,7 +59,7 @@ class LoginForm extends Component {
           type={'password'}
           onChange={(val) => this.onChange('password', val)}
         />
-        <Button text={'Login'} onClick={() => this.onSubmit()} />
+        <Button text={'Log In'} onClick={() => this.onSubmit()} />
       </form>
     );
   }

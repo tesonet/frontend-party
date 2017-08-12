@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { ApiMiddleware } from './utils';
 import reducer from './reducers';
+import 'font-awesome/css/font-awesome.min.css';
+import './App.scss';
 
 const persistorConfig = {
   whitelist: [ 'login' ]

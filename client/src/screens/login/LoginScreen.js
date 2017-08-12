@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { LoginForm } from '../../components/login';
 import * as loginActions from '../../reducers/login/actions';
+import { LoginScreenStyle } from './style';
 
 class LoginScreen extends Component {
   onLogin(data) {
@@ -20,8 +21,15 @@ class LoginScreen extends Component {
 
   renderContent() {
     return (
-      <div className={'home-screen'}>
-        <LoginForm onSubmit={(data) => this.onLogin(data)}/>
+      <div className={'login-screen'}>
+        <div>
+          <img
+            src={require('../../assets/img/logo-main.png')}
+            alt={'tesonet logo'}
+            className={'logo'}
+          />
+          <LoginForm onSubmit={(data) => this.onLogin(data)}/>
+        </div>
       </div>
     );
   }

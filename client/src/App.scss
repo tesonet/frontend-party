@@ -1,0 +1,14 @@
+@import "constants.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  transition: all 0.3s linear;
+}
+
+html, body, #root {
+  height: 100%;
+  color: $grey;
+  font-size: $baseFontSize;
+}
