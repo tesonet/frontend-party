@@ -1,3 +1,4 @@
+import { persistStore } from 'redux-persist';
 import * as types from './actionTypes';
 import Immutable from 'seamless-immutable';
 
@@ -29,7 +30,8 @@ export default function login(state=initialState, action={}){
         errorMessage: 'Something went wrong while login in'
       });
 
-    // case types.LOGOUT: localStorage.clear(); return initialState;
+    case types.LOGOUT:
+      return initialState;
 
     default:
       return state;

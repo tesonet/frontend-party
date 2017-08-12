@@ -6,3 +6,9 @@ export function login(data) {
     api: (api) => api('/tokens', Object.assign({}, data, { method: 'POST' }))
   }
 }
+
+export function logout(data) {
+  return {
+    type: types.LOGOUT,
+  }
+}
