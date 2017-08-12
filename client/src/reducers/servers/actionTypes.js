@@ -1,3 +1,3 @@
-export const FETCH = 'redditreader.servers.FETCH';
-export const SUCCESS = 'redditreader.servers.SUCCESS';
-export const FAILURE = 'redditreader.servers.FAILURE';
+export const FETCH = 'tesonettask.servers.FETCH';
+export const SUCCESS = 'tesonettask.servers.SUCCESS';
+export const FAILURE = 'tesonettask.servers.FAILURE';

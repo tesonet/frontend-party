@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { LoginForm } from '../../components/login';
 import * as loginActions from '../../reducers/login/actions';
 
 class LoginScreen extends Component {
-  componentWillMount() {
-    const { dispatch, token } = this.props;
-
-    if (!token) {
-      dispatch(loginActions.login({ username: 'tesonet', password: 'partyanimal' }));
-    }
+  onLogin(data) {
+    const { dispatch } = this.props;
+    dispatch(loginActions.login(data));
   }
 
   renderLoading() {
@@ -23,9 +21,7 @@ class LoginScreen extends Component {
   renderContent() {
     return (
       <div className={'home-screen'}>
-        <p style={{color: 'red'}}>
-          Here will be homescreen
-        </p>
+        <LoginForm onSubmit={(data) => this.onLogin(data)}/>
       </div>
     );
   }

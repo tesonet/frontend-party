@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Button extends Component {
+class ImageIcon extends Component {
   static propTypes = {
-    type: PropTypes.string,
-    text: PropTypes.string,
+    icon: PropTypes.string.isRequired,
     onClick: PropTypes.func
   };
 
   static defaultProps = {
-    type: 'button',
-    text: 'Submit',
     onClick: () => {}
   };
 
@@ -20,14 +17,17 @@ class Button extends Component {
   }
 
   render() {
-    const { type, text } = this.props;
+    const { icon } = this.props;
+    const alt = `${icon} icon`;
 
     return (
-      <button type={type} onClick={() => this.onClick()}>
-        {text}
-      </button>
+      <img
+        src={require(`../../assets/icons/${icon}.png`)}
+        alt={alt}
+        onClick={() => this.onClick()}
+      />
     );
   }
 }
 
-export default Button;
+export default ImageIcon;
