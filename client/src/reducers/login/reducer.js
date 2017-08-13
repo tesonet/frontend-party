@@ -1,4 +1,3 @@
-import { persistStore } from 'redux-persist';
 import * as types from './actionTypes';
 import Immutable from 'seamless-immutable';
 

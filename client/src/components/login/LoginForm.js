@@ -36,8 +36,6 @@ class LoginForm extends Component {
 
     if (isValid) {
       onSubmit(data);
-    } else {
-      console.log('set invalid stuff');
     }
   }
 

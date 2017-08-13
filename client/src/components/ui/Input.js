@@ -26,7 +26,7 @@ class Input extends Component {
   }
 
   onChange(event) {
-    const { onChange, type } = this.props;
+    const { onChange } = this.props;
     const { value } = event.target;
 
     onChange(value);
