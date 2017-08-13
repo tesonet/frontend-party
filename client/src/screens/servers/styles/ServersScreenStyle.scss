@@ -37,7 +37,7 @@
       justify-content: space-between;
       padding: 0px 25px;
       background: $lightGrey;
-      @include border;
+      @include border(1px 0px 1px);
     }
   }
 }
