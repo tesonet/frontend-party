@@ -2,19 +2,34 @@
 
 .input-wrapper {
   margin: 10px;
+  position: relative;
+
+  .fa {
+    font-size: 18px;
+    position: absolute;
+    left: 20px;
+  }
 
   .input {
     background: $white;
     border: none;
-    font-size: 16px;
     padding: 0 20px;
+    font-size: 16px;
     border-radius: $defaultBorderRadius;
-    line-height: $sizeXL;
     color: $black;
     width: 100%;
 
+    &.icon-true {
+      padding-left: 40px;
+    }
+
     &:focus {
       color: $inputGrey;
+      padding: 0 20px;
     }
+  }
+
+  .fa, .input {
+    line-height: $sizeXL;
   }
 }

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { ApiMiddleware } from './utils';
 import reducer from './reducers';
+import { LoadingView } from './components/ui';
 import 'font-awesome/css/font-awesome.min.css';
 import './App.scss';
 
@@ -41,7 +42,7 @@ class App extends Component {
 
   renderLoading() {
     return (
-      <div><p>Rehydrating</p></div>
+      <LoadingView />
     );
   }
 

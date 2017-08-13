@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { ServerRow } from '../../components/servers';
-import { ImageIcon } from '../../components/ui';
+import { LoadingView } from '../../components/ui';
 import * as serversActions from '../../reducers/servers/actions';
 import * as loginActions from '../../reducers/login/actions';
 import { ServersScreenStyle } from './styles';
@@ -35,9 +35,7 @@ class ServersScreen extends Component {
 
   renderLoading() {
     return (
-      <div>
-        <p>Loading...</p>
-      </div>
+      <LoadingView />
     );
   }
 
