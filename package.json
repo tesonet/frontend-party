@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"npm start-server\" \"cd client && npm start\"",
-    "start-server": "node server.js"
+    "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
+    "start-server": "node server.js",
+    "start-client": "node start-client.js",
+    "install-all": "bash install-all.sh",
+    "reinstall": "bash reinstall.sh",
+    "clean": "bash clean.sh"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "node-fetch": "^1.7.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
   }
 }
