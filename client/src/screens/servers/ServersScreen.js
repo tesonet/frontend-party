@@ -59,7 +59,10 @@ class ServersScreen extends Component {
 
     return (
       <div className={'servers-list'}>
-        <div className={'top'}>Sticky header</div>
+        <div className={'top'}>
+          <span>Server</span>
+          <span>Distance</span>
+        </div>
         { Rows }
       </div>
     );

@@ -23,9 +23,10 @@ $defaultBorderRadius: 4px;
   border-width: $size;
 }
 
-@mixin row($justify: space-between, $padding: 0px 25px) {
+@mixin row($justify: space-between, $align: center, $padding: 0px 25px) {
   display: flex;
   flex-direction: row;
   justify-content: $justify;
   padding: $padding;
+  align-items: $align;
 }
