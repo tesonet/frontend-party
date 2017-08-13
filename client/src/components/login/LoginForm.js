@@ -53,11 +53,13 @@ class LoginForm extends Component {
         <Input
           placeholder={'Username'}
           onChange={(val) => this.onChange('username', val)}
+          icon={'user'}
         />
         <Input
           placeholder={'Password'}
           type={'password'}
           onChange={(val) => this.onChange('password', val)}
+          icon={'lock'}
         />
         <Button text={'Log In'} onClick={() => this.onSubmit()} />
       </form>

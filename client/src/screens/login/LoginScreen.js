@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { LoginForm } from '../../components/login';
+import { LoadingView } from '../../components/ui';
 import * as loginActions from '../../reducers/login/actions';
 import { LoginScreenStyle } from './style';
 
@@ -13,16 +14,14 @@ class LoginScreen extends Component {
 
   renderLoading() {
     return (
-      <div>
-        <p>Loading...</p>
-      </div>
+      <LoadingView />
     );
   }
 
   renderContent() {
     return (
       <div className={'login-screen'}>
-        <div>
+        <div className={'login-wrapper'}>
           <img
             src={require('../../assets/img/logo-main.png')}
             alt={'tesonet logo'}
