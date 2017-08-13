@@ -8,8 +8,6 @@ class Routes extends Component {
   render() {
     const { token } = this.props;
 
-    console.log('Ahaha');
-
     return (
       <Router>
         <div className={'main'}>
