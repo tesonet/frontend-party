@@ -4,4 +4,17 @@
   @include border(0 0 1px);
   @include row;
   color: $darkGrey;
+  min-height: $sizeL;
+
+  .name, .distance {
+    line-height: 26px;
+  }
+
+  .distance{
+    padding-left: 10px;
+  }
+
+  .name {
+    padding-right: 10px;
+  }
 }

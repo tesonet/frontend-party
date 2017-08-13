@@ -21,8 +21,8 @@ class ServerRow extends Component {
 
     return (
       <div className={'row'}>
-        <span>{name}</span>
-        <span>{`${distance} km`}</span>
+        <span className={'name'}>{name}</span>
+        <span className={'distance'}>{`${distance} km`}</span>
       </div>
     );
   }
