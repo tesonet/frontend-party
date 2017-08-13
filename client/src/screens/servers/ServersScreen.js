@@ -5,6 +5,7 @@ import { ServerRow } from '../../components/servers';
 import { ImageIcon } from '../../components/ui';
 import * as serversActions from '../../reducers/servers/actions';
 import * as loginActions from '../../reducers/login/actions';
+import { ServersScreenStyle } from './styles';
 
 class ServersScreen extends Component {
   componentWillMount() {
@@ -22,10 +23,13 @@ class ServersScreen extends Component {
 
   renderHeader() {
     return (
-      <div>
-        <img src={require('../../assets/img/logo.png')} alt={'tesonet logo'}/>
-        <ImageIcon icon={'logout'} onClick={() => this.onLogout()}/>
-      </div>
+        <div className={'header'}>
+          <img src={require('../../assets/img/logo.png')} alt={'tesonet logo'}/>
+          <a onClick={() => this.onLogout()} className={'logout'}>
+            <i className={'fa fa-sign-out'}></i>
+            <span>Logout</span>
+          </a>
+        </div>
     );
   }
 
@@ -56,9 +60,10 @@ class ServersScreen extends Component {
     );
 
     return (
-      <ul>
+      <div className={'servers-list'}>
+        <div className={'top'}>Sticky header</div>
         { Rows }
-      </ul>
+      </div>
     );
   }
 

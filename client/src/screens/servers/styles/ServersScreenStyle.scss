@@ -1,0 +1,43 @@
+@import "../../../constants.scss";
+
+.servers-screen {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    .logout {
+      cursor: pointer;
+
+      .fa-sign-out {
+        transform: rotate(180deg);
+        font-size: $sizeS;
+      }
+
+      span, .fa-sign-out {
+        vertical-align: -webkit-baseline-middle;
+      }
+
+      span {
+        padding-left: 10px;
+      }
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+
+  .servers-list {
+    line-height: $sizeL;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 25px;
+      background: $lightGrey;
+      @include border;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+$black: #000;
+$white: #fff;
+$lightGrey: #efeff4;
+$grey: #a9a8ab;
+$darkGrey: #85858a;
+$green: #99cc33;
+$darkGreen: #86b300;
+$inputGrey: #999;
+
+$baseFontSize: 18px;
+
+$sizeS: 22px;
+$sizeM: 32px;
+$sizeL: 42px;
+$sizeXL: 52px;
+
+$defaultBorderRadius: 4px;
+
+@mixin border($size: 1px, $color: $grey, $style: solid) {
+  border-color: $color;
+  border-style: $style;
+  border-width: $size;
+}
+
+@mixin row($justify: space-between, $padding: 0px 25px) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  padding: $padding;
+}

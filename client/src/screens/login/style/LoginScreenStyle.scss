@@ -1,0 +1,14 @@
+.login-screen {
+  background-color: red;
+  height: 100%;
+  background: url('../../../assets/img/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    display: block;
+    margin: 30px auto;
+  }
+}
