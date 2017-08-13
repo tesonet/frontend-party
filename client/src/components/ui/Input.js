@@ -35,13 +35,15 @@ class Input extends Component {
     const state = this.state;
 
     return (
-      <input
-        type={type}
-        value={value || state.value}
-        placeholder={placeholder}
-        onChange={(val) => this.onChange(val)}
-        className={'input'}
-      />
+      <div className={'input-wrapper'}>
+        <input
+          type={type}
+          value={value || state.value}
+          placeholder={placeholder}
+          onChange={(val) => this.onChange(val)}
+          className={'input'}
+        />
+      </div>
     );
   }
 }

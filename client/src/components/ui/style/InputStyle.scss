@@ -1,18 +1,20 @@
 @import "../../../constants.scss";
 
-.input {
-  background: $white;
-  border: none;
-  font-size: 16px;
-  box-sizing: border-box;
-  padding: 0 20px;
-  border-radius: $defaultBorderRadius;
-  line-height: $sizeXL;
-  color: $black;
+.input-wrapper {
   margin: 10px;
-  font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
 
-  &:focus {
-    color: $inputGrey;
+  .input {
+    background: $white;
+    border: none;
+    font-size: 16px;
+    padding: 0 20px;
+    border-radius: $defaultBorderRadius;
+    line-height: $sizeXL;
+    color: $black;
+    width: 100%;
+
+    &:focus {
+      color: $inputGrey;
+    }
   }
 }

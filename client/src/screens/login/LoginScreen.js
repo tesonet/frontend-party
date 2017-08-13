@@ -22,7 +22,7 @@ class LoginScreen extends Component {
   renderContent() {
     return (
       <div className={'login-screen'}>
-        <div>
+        <div className={'login-wrapper'}>
           <img
             src={require('../../assets/img/logo-main.png')}
             alt={'tesonet logo'}
