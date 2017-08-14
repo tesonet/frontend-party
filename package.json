@@ -8,7 +8,7 @@
     "start-client": "node start-client.js",
     "install-all": "bash install-all.sh",
     "reinstall": "bash reinstall.sh",
-    "clean": "bash clean.sh",
+    "clean-all": "bash clean-all.sh",
     "test": "cd client && npm run test"
   },
   "dependencies": {

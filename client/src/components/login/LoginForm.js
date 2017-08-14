@@ -5,11 +5,7 @@ import { LoginFormStyle } from './style';
 
 class LoginForm extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func
-  };
-
-  static defaultProps = {
-    onSubmit: () => {}
+    onSubmit: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -29,7 +25,7 @@ class LoginForm extends Component {
     return dataObjValues.every(val => val !== '');
   }
 
-  onSubmit() {
+  onSubmit = () => {
     const { onSubmit } = this.props;
     const data = this.state;
     const isValid = this.validateForm();
@@ -47,7 +43,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form onSubmit={() => this.onSubmit()} className={'login-form'}>
+      <form onSubmit={this.onSubmit} className={'login-form'}>
         <Input
           placeholder={'Username'}
           onChange={(val) => this.onChange('username', val)}
@@ -59,7 +55,7 @@ class LoginForm extends Component {
           onChange={(val) => this.onChange('password', val)}
           icon={'lock'}
         />
-        <Button text={'Log In'} onClick={() => this.onSubmit()} />
+        <Button text={'Log In'} type={'submit'} />
       </form>
     );
   }

@@ -12,7 +12,7 @@ class Routes extends Component {
       <Router>
         <div className={'main'}>
           <Route exact path='/' component={token ? servers.ServersScreen : login.LoginScreen} />
-          { window.location.pathname !== '/' && <Redirect to="/"/> }
+          { window.location.pathname !== '/' && <Redirect to='/'/> }
         </div>
       </Router>
     );

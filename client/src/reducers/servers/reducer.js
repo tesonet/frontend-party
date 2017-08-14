@@ -24,7 +24,7 @@ export default function servers(state=initialState, action={}){
     case types.FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
-        errorMessage: 'Something went horibly wrong, please try later!'
+        errorMessage: 'Something went horribly wrong, please try later!'
       });
 
     default:

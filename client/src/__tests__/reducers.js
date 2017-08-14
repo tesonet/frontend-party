@@ -5,14 +5,15 @@ import * as loginActions from '../reducers/login/actions';
 import * as serversActions from '../reducers/servers/actions';
 import loginReducer from '../reducers/login/reducer';
 import * as loginTypes from '../reducers/login/actionTypes';
+import { baseUrl } from '../utils/Constants';
 
-const middlewares = [thunk, ApiMiddleware('http://playground.tesonet.lt/v1')];
+const middlewares = [thunk, ApiMiddleware(baseUrl)];
 const createMockStore = configureStore(middlewares);
 
 describe('redux api middleware test', () => {
   describe('loginActions', () => {
-    const loginData = { username: "tesonet", password: "partyanimal" };
-    const badLoginData = { username: "tesonet", password: "empty" };
+    const loginData = { username: 'tesonet', password: 'partyanimal' };
+    const badLoginData = { username: 'tesonet', password: 'empty' };
     const expectedPayload = { token: 'f9731b590611a5a9377fbd02f247fcdf' };
     const failPayload = { message: 'Unauthorized' };
 

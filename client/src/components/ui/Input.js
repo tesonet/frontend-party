@@ -57,7 +57,7 @@ class Input extends Component {
         {showIcon && this.renderIcon()}
         <input
           type={type}
-          value={value || state.value}
+          value={value}
           placeholder={placeholder}
           onChange={(val) => this.onChange(val)}
           className={`input icon-${showIcon}`}

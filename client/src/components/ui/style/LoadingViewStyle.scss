@@ -1,4 +1,4 @@
-@import "../../../constants.scss";
+@import '../../../constants.scss';
 
 @keyframes spinning {
   from {
@@ -18,8 +18,8 @@
 
   .loader {
     font-size: 10px;
-    width: 11em;
-    height: 11em;
+    width: 176px;
+    height: 176px;
     border-radius: 50%;
     background: linear-gradient(to right, $grey 10%, rgba(255, 255, 255, 0) 42%);
     animation: spinning 1.4s infinite linear;

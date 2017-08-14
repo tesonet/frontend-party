@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const url = require('url');
-const bodyParser = require("body-parser");
-const express = require("express");
+const bodyParser = require('body-parser');
+const express = require('express');
 const app = express();
 const baseUrl = 'http://playground.tesonet.lt/v1';
 
@@ -25,10 +25,10 @@ app.post('/tokens', (req, res) => {
     });
 });
 
-app.get("/servers", (req, res) => {
+app.get('/servers', (req, res) => {
   const getData = {
     headers: {
-      "authorization": req.headers.authorization
+      'authorization': req.headers.authorization
     }
   };
 
