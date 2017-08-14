@@ -39,7 +39,7 @@ test('Basic ServerRow renders without crash', () => {
 
 test('Basic LoginForm renders without crash', () => {
   const component = renderer.create(
-    <LoginForm />
+    <LoginForm onSubmit={() => console.log('Submit clicked')} />
   );
 
   let tree = component.toJSON();

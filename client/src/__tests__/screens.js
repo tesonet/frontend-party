@@ -30,6 +30,7 @@ test('Show LoginScreen when no token', () => {
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
+  expect(tree.children[0].props.className).toEqual('login-screen');
 });
 
 test('Show ServersScreen when token is present', () => {
@@ -58,4 +59,5 @@ test('Show ServersScreen when token is present', () => {
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
+  expect(tree.children[0].props.className).toEqual('servers-screen');
 });
