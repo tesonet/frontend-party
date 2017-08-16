@@ -26,7 +26,7 @@ export default function login(state=initialState, action={}){
     case types.TOKEN_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
-        errorMessage: 'Something went wrong while login in'
+        errorMessage: 'Something went wrong while logging'
       });
 
     case types.LOGOUT:

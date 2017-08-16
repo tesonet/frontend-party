@@ -11,11 +11,11 @@ import 'font-awesome/css/font-awesome.min.css';
 import './App.scss';
 
 const persistorConfig = {
-  whitelist: [ 'login' ]
+  whitelist: ['login']
 };
 
 const middlewares = [thunk, ApiMiddleware('')];
-const toolChain = [ applyMiddleware(...middlewares), autoRehydrate() ];
+const toolChain = [applyMiddleware(...middlewares), autoRehydrate()];
 const store = compose(...toolChain)(createStore)(reducer, {});
 
 class App extends Component {

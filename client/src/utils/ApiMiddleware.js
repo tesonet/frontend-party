@@ -25,7 +25,7 @@ function json(response) {
 
 function request(context, base, { api, types, ...rest }, next) {
   const accessToken = context.getState().login.token;
-  const [ REQUEST, SUCCESS, FAILURE ] = types;
+  const [REQUEST, SUCCESS, FAILURE] = types;
 
   next({ ...rest, type: REQUEST });
 

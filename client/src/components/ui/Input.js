@@ -47,20 +47,23 @@ class Input extends Component {
   }
 
   render() {
-    const { type, placeholder, value, icon } = this.props;
+    const { type, placeholder, value, icon, invalid } = this.props;
     const state = this.state;
     const { focus } = state;
     const showIcon = icon && icon !== '' && state.value === '' && !focus;
+    let className = ['input'];
+    showIcon && className.push('icon');
+    invalid && className.push('invalid');
 
     return (
       <div className={'input-wrapper'}>
         {showIcon && this.renderIcon()}
         <input
           type={type}
-          value={value || state.value}
+          value={value}
           placeholder={placeholder}
           onChange={(val) => this.onChange(val)}
-          className={`input icon-${showIcon}`}
+          className={className.join(' ')}
           onFocus={() => this.toggleFocus()}
           onBlur={() => this.toggleFocus()}
         />

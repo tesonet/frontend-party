@@ -1,11 +1,11 @@
-@import "constants.scss";
+@import 'constants.scss';
 
 * {
   padding: 0;
   margin: 0;
   outline: none;
   transition: all 0.3s linear;
-  font-family: "Open Sans", Verdana, sans-serif;
+  font-family: 'Open Sans', Verdana, sans-serif;
 }
 
 html, body, #root, .main {
@@ -15,5 +15,5 @@ html, body, #root, .main {
 }
 
 input, button, textarea {
-    box-sizing : border-box;
+  box-sizing: border-box;
 }

@@ -4,6 +4,21 @@ If you found this task it means we are looking for you!
 
 > Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
 
+## Getting started
+open terminal window in the root folder and run this command:  
+`yarn install-all`  
+this will install all dependencies for both server & client
+
+to launch app simply run this command in root folder:  
+`yarn start`  
+this will trigger two commands, to start server & to start client, concurrently.
+
+## Getting started
+Few useful scripts:  
+`yarn clean-all` or `bash clean-all.sh` - will delete all dependencies(node_modules) for both: server & client. Also it will delete yarn cache.  
+
+`yarn reinstall` or `bash reinstall.sh` - under the hood this runs _clean-all.sh_ to delete all packages and afterwards _install-all.sh_ to install packages fro both server & client.  
+
 ## Few simple steps
 
 1. Fork this repo - **_Did that_**
