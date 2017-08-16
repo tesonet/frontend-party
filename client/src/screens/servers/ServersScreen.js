@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Immutable from 'seamless-immutable';
 import { withRouter } from 'react-router-dom';
 import { ServerRow } from '../../components/servers';
 import { LoadingView } from '../../components/ui';
@@ -9,10 +11,10 @@ import { ServersScreenStyle } from './styles';
 
 class ServersScreen extends Component {
   componentWillMount() {
-    const { dispatch, token } = this.props;
+    const { dispatch, token, fetch } = this.props;
 
     if (token) {
-      dispatch(serversActions.fetch());
+      fetch();
     }
   }
 
@@ -91,13 +93,23 @@ class ServersScreen extends Component {
 function mapStateToProps(state, props) {
   const { servers, isFetching, errorMessage } = state.servers;
   const { token } = state.login;
+  let sortedServers = Immutable.asMutable(servers);
+  sortedServers = sortedServers.sort(
+    (a, b) => a['distance'] - b['distance'] || a['name'].toLowerCase() > b['name'].toLowerCase()
+  );
 
   return {
-    servers,
     isFetching,
     errorMessage,
-    token
+    token,
+    servers: sortedServers
   };
 }
 
-export default withRouter(connect(mapStateToProps)(ServersScreen));
+function mapDispatchToProps(dispatch) {
+  return {
+    fetch: bindActionCreators(serversActions.fetch, dispatch)
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ServersScreen));

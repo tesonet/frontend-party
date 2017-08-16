@@ -66,7 +66,6 @@ class Input extends Component {
           className={className.join(' ')}
           onFocus={() => this.toggleFocus()}
           onBlur={() => this.toggleFocus()}
-          invalid={invalid}
         />
       </div>
     );
