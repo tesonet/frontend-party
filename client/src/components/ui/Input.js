@@ -25,7 +25,7 @@ class Input extends Component {
     }
   }
 
-  onChange(event) {
+  onChange = (event) => {
     const { onChange } = this.props;
     const { value } = event.target;
 
@@ -62,7 +62,7 @@ class Input extends Component {
           type={type}
           value={value}
           placeholder={placeholder}
-          onChange={(val) => this.onChange(val)}
+          onChange={this.onChange}
           className={className.join(' ')}
           onFocus={() => this.toggleFocus()}
           onBlur={() => this.toggleFocus()}

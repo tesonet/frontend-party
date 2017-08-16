@@ -15,7 +15,7 @@ class Button extends Component {
     onClick: () => {}
   };
 
-  onClick() {
+  onClick = () => {
     const { onClick } = this.props;
     onClick();
   }
@@ -26,7 +26,7 @@ class Button extends Component {
     return (
       <button
         type={type}
-        onClick={() => this.onClick()}
+        onClick={this.onClick}
         className={'button'}
       >
         {text}

@@ -10,6 +10,9 @@
 
     .logout {
       cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 16px;
 
       .fa-sign-out {
         transform: rotate(180deg);
