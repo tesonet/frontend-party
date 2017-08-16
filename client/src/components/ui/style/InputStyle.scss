@@ -18,8 +18,13 @@
     border-radius: $defaultBorderRadius;
     color: $black;
     width: 100%;
+    @include border(2px, transparent);
 
-    &.icon-true {
+    &.invalid {
+      @include border(2px, $red);
+    }
+
+    &.icon {
       padding-left: 40px;
     }
 

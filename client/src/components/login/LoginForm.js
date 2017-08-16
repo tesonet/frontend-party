@@ -12,12 +12,14 @@ class LoginForm extends Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      invalidForm: false
     }
   }
 
   validateForm() {
-    const data = this.state;
+    const { username, password } = this.state;
+    const data = { username, password };
     const dataObjValues = Object.keys(data).map(
       key => data[key]
     );
@@ -27,35 +29,42 @@ class LoginForm extends Component {
 
   onSubmit = () => {
     const { onSubmit } = this.props;
-    const data = this.state;
+    const { username, password } = this.state;
+    const data = { username, password };
     const isValid = this.validateForm();
 
     if (isValid) {
       onSubmit(data);
+    } else {
+      this.setState({ invalidForm: true });
     }
   }
 
   onChange(key, val) {
     this.setState({
-      [key]: val
+      [key]: val,
     });
   }
 
   render() {
+    const { invalidForm, username, password } = this.state;
+
     return (
       <form onSubmit={this.onSubmit} className={'login-form'}>
         <Input
           placeholder={'Username'}
           onChange={(val) => this.onChange('username', val)}
           icon={'user'}
+          invalid={invalidForm && (!username || username === '' )}
         />
         <Input
           placeholder={'Password'}
           type={'password'}
           onChange={(val) => this.onChange('password', val)}
           icon={'lock'}
+          invalid={invalidForm && (!password || password === '' )}
         />
-        <Button text={'Log In'} type={'submit'} />
+        <Button text={'Log In'} onClick={this.onSubmit} />
       </form>
     );
   }
