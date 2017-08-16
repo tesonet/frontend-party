@@ -19,18 +19,18 @@ class ServersScreen extends Component {
   }
 
   onLogout() {
-    const { dispatch } = this.props;
-    dispatch(loginActions.logout());
+    const { logout } = this.props;
+    logout();
   }
 
   renderHeader() {
     return (
         <div className={'header'}>
           <img src={require('../../assets/img/logo.png')} alt={'tesonet logo'}/>
-          <a onClick={() => this.onLogout()} className={'logout'}>
+          <button onClick={() => this.onLogout()} className={'logout'}>
             <i className={'fa fa-sign-out'}></i>
             <span>Logout</span>
-          </a>
+          </button>
         </div>
     );
   }
@@ -108,7 +108,8 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetch: bindActionCreators(serversActions.fetch, dispatch)
+    fetch: bindActionCreators(serversActions.fetch, dispatch),
+    logout: bindActionCreators(loginActions.logout, dispatch)
   };
 }
 

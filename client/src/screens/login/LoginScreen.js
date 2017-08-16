@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { LoginForm } from '../../components/login';
 import { LoadingView } from '../../components/ui';
@@ -8,8 +9,8 @@ import { LoginScreenStyle } from './style';
 
 class LoginScreen extends Component {
   onLogin(data) {
-    const { dispatch } = this.props;
-    dispatch(loginActions.login(data));
+    const { login } = this.props;
+    login(data);
   }
 
   renderLoading() {
@@ -52,4 +53,10 @@ function mapStateToProps(state, props) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(LoginScreen));
+function mapDispatchToProps(dispatch) {
+  return {
+    login: bindActionCreators(loginActions.login, dispatch)
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginScreen));
