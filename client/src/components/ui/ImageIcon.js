@@ -11,7 +11,7 @@ class ImageIcon extends Component {
     onClick: () => {}
   };
 
-  onClick() {
+  onClick = () => {
     const { onClick } = this.props;
     onClick();
   }
@@ -24,7 +24,7 @@ class ImageIcon extends Component {
       <img
         src={require(`../../assets/icons/${icon}.png`)}
         alt={alt}
-        onClick={() => this.onClick()}
+        onClick={this.onClick}
       />
     );
   }

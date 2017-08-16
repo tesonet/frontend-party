@@ -18,7 +18,7 @@ class ServersScreen extends Component {
     }
   }
 
-  onLogout() {
+  onLogout = () => {
     const { logout } = this.props;
     logout();
   }
@@ -27,7 +27,7 @@ class ServersScreen extends Component {
     return (
         <div className={'header'}>
           <img src={require('../../assets/img/logo.png')} alt={'tesonet logo'}/>
-          <button onClick={() => this.onLogout()} className={'logout'}>
+          <button onClick={this.onLogout} className={'logout'}>
             <i className={'fa fa-sign-out'}></i>
             <span>Logout</span>
           </button>

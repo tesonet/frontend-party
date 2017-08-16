@@ -42,7 +42,7 @@ class LoginForm extends Component {
 
   onChange(key, val) {
     this.setState({
-      [key]: val,
+      [key]: val
     });
   }
 
