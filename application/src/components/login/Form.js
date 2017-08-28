@@ -10,8 +10,8 @@ class Form extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        username: '',
-        password: '',
+        username: 'tesonet',
+        password: 'partyanimal',
         err: false
       }
     }
@@ -28,7 +28,7 @@ class Form extends Component {
     render() {
         return (
           <div className="container">
-            <form onSubmit={this.props.handleSubmit(Login)}>
+            <form onSubmit={this.props.handleSubmit(this.props.Login)}>
                <div>
                 <Field name="username" className='form-control' component={this.renderField} type="text" placeholder='Username'/>
               </div>
@@ -46,4 +46,12 @@ class Form extends Component {
     form: 'login'
   })(Form)
 
-export default Form;
+  const mapDispatchToProps = (dispatch) => {
+  return {
+    Login: () => {
+      dispatch(Login());
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Form);
