@@ -1,0 +1,9 @@
+$btn: #99cc33;
+$btn-focus: #86b300;
+$radius: 4px;
+
+.btn {
+  background: $btn;
+  border-radius: $radius;
+  color: #fff;
+}
