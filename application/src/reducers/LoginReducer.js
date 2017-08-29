@@ -7,7 +7,7 @@ const initialState = {
 export default (state=initialState, action) => {
   switch(action.type) {
     case "LOGIN_REQUEST_PENDING": {
-      state = {...state, pending: true};
+      state = {...state, errorMessage: '', pending: true};
       console.log('pending should be true');
       break;
     }
@@ -18,12 +18,9 @@ export default (state=initialState, action) => {
       break;
     }
     case "LOGIN_REQUEST_REJECTED": {
-      state = {...state, errorMessage: "oops"};
+      state = {...state, pending: false, errorMessage: "oops"};
       console.log('nekazka ' + state.errorMessage);
       break;
-    }
-    default: {
-      state
     }
   }
   return state;

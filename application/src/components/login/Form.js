@@ -3,16 +3,39 @@ import { connect } from 'react-redux';
 import { Login } from '../../actions/LoginAction';
 // import { FormStyle } from './styles/FormStyle';
 
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, SubmissionError } from 'redux-form'
 
 class Form extends Component {
 
   constructor(props) {
       super(props);
       this.state = {
-        username: 'tesonet',
-        password: 'partyanimal',
+        username: '',
+        password: '',
         err: false
+      }
+    }
+
+    submit = ({username='', password=''}) => {
+
+      let error = {},
+          isError = false;
+
+      if(username.trim() === '') {
+        error.username = 'Please enter your username';
+        isError = true;
+      }
+
+      if(password.trim() === '') {
+        error.password = 'Please enter your password';
+        isError = true;
+      }
+
+      if (isError) {
+        throw new SubmissionError(error)
+      } else {
+        console.log(username, password);
+        this.props.Login({ username, password });
       }
     }
 
@@ -28,13 +51,9 @@ class Form extends Component {
     render() {
         return (
           <div className="container">
-            <form onSubmit={this.props.handleSubmit(this.props.Login)}>
-               <div>
-                <Field name="username" className='form-control' component={this.renderField} type="text" placeholder='Username'/>
-              </div>
-              <div>
-                <Field name="password" className='form-control' component={this.renderField} type="password" placeholder='Password'/>
-              </div>
+            <form onSubmit={this.props.handleSubmit(this.submit)}>
+              <Field name="username" className='form-control' component={this.renderField} type="text" placeholder='Username'/>
+              <Field name="password" className='form-control' component={this.renderField} type="password" placeholder='Password'/>
               <button type="submit" className='btn'>Login</button>
             </form>
           </div>

@@ -1,17 +1,24 @@
 import axios from 'axios';
 import { LOGIN_REQUEST } from './Actions';
 
-export function Login(username, password) {
+export function Login({ username, password }) {
   return {
     type: LOGIN_REQUEST,
     payload: axios.post('http://playground.tesonet.lt/v1/tokens',
         {
-        username: this.state.username,
-        password: this.state.password,
+    data: {
+        username,
+        password
+      },
         headers: {
         "Content-Type": "application/json"
       }
     })
+    // .then((res) => {
+    //   console.log(res);
+    // }).catch((err) => {
+    //   console.log(username, password);
+    // })
   }
 }
 
