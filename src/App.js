@@ -11,14 +11,17 @@ import Home from './components/home'
 import {PrivateRoute} from './components/auth/PrivateRoute'
 import Login from './components/auth/Login'
 import Header from './components/Header'
+
 import logo from './logo.svg'
+import 'normalize.css/normalize.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="testio-app">
 
           <Header authenticated={this.props.auth.authenticated} />
 
