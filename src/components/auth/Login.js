@@ -48,7 +48,7 @@ class Login extends React.Component {
           <Row className="d-flex align-items-center justify-content-center align-center">
             <Col sm={{ size: 10, offset: 1 }} md={{ size: 8, offset: 2 }}>
               <div>
-                <h1>
+                <h1 className="d-flex justify-content-center align-items-center">
                   <img src="../images/logotype-testio.png" width="240" />
                 </h1>
                 <p>You must log in to view the page at {from.pathname}</p>
