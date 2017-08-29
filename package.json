@@ -1,0 +1,38 @@
+{
+  "name": "testio",
+  "version": "0.0.1",
+  "description": "testio server explorer",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buz-zard/senior-frontend-party.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Karolis Šarapnickis <pastas.k@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/buz-zard/senior-frontend-party/issues"
+  },
+  "homepage": "https://github.com/buz-zard/senior-frontend-party#readme",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^2.30.1",
+    "path": "^0.12.7",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  }
+}
