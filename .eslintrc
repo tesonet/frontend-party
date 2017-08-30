@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "babel",
+    "react"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "object-curly-spacing": [0],
+    "import/prefer-default-export": [0],
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/jsx-first-prop-new-line": 0,
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "max-len": ["error", 120]
+  }
+}
