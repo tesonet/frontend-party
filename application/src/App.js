@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from './components/login/Form';
+import LoginPage from './components/login/LoginPage';
 
 class App extends Component {
 
@@ -9,9 +9,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <h1>.TESTIO</h1>
-
-        <Form />
+        <LoginPage />
 
       </div>
     );

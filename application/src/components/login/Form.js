@@ -25,8 +25,8 @@ class Form extends Component {
       if (isError) {
         throw new SubmissionError(error)
       } else {
-        console.log(values);
         this.props.Login(values);
+        console.log(this.props.login);
         //then dispatch servers?
       }
     }
@@ -48,19 +48,21 @@ class Form extends Component {
               <Field name="password" className='form-control' component={this.renderField} type="password" placeholder='Password'/>
               <button type="submit" className='btn'>Login</button>
             </form>
+            <span>{this.props.login.errorMessage ? this.props.login.errorMessage : ''}</span>
           </div>
         )
       }
     }
 
   Form = reduxForm({
-    form: 'login'
+    form: 'login',
+    destroyOnUnmount: false
   })(Form)
 
   const mapStateToProps = (state) => {
     return {
       login: state.LoginReducer,
-      serverList: state.ServersReducer
+      servers: state.ServersReducer
     }
   }
 
@@ -72,4 +74,4 @@ class Form extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
