@@ -1,4 +1,5 @@
 const initialState = {
+  userAuthenticated: false,
   pending: false,
   errorMessage: '',
   token: null
@@ -7,13 +8,12 @@ const initialState = {
 export default (state=initialState, action) => {
   switch(action.type) {
     case "LOGIN_REQUEST_PENDING": {
-      state = {...state, errorMessage: '', pending: true};
+      state = {...state, pending: true, errorMessage: false};
       console.log('pending should be true');
       break;
     }
     case "LOGIN_REQUEST_FULFILLED": {
-      state = {...state,  token: action.payload.data.token};
-      localStorage.setItem('token', state.token);
+      state = {...state, pending: false, token: action.payload.data.token, userAuthenticated: true};
       console.log('yas kween');
       break;
     }
@@ -21,6 +21,9 @@ export default (state=initialState, action) => {
       state = {...state, pending: false, errorMessage: "oops"};
       console.log('nekazka ' + state.errorMessage);
       break;
+    }
+    default: {
+      state
     }
   }
   return state;

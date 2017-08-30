@@ -1,32 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Login } from '../../actions/LoginAction';
+import { Login } from '../../actions/index';
 // import { FormStyle } from './styles/FormStyle';
 
 import { Field, reduxForm, SubmissionError } from 'redux-form'
 
 class Form extends Component {
 
-  constructor(props) {
-      super(props);
-      this.state = {
-        username: '',
-        password: '',
-        err: false
-      }
-    }
-
-    submit = ({username='', password=''}) => {
+    submit = (values) => {
 
       let error = {},
           isError = false;
 
-      if(username.trim() === '') {
+      if(values.username.trim() === '') {
         error.username = 'Please enter your username';
         isError = true;
       }
 
-      if(password.trim() === '') {
+      if(values.password.trim() === '') {
         error.password = 'Please enter your password';
         isError = true;
       }
@@ -34,8 +25,9 @@ class Form extends Component {
       if (isError) {
         throw new SubmissionError(error)
       } else {
-        console.log(username, password);
-        this.props.Login({ username, password });
+        console.log(values);
+        this.props.Login(values);
+        //then dispatch servers?
       }
     }
 
@@ -65,10 +57,17 @@ class Form extends Component {
     form: 'login'
   })(Form)
 
+  const mapStateToProps = (state) => {
+    return {
+      login: state.LoginReducer,
+      serverList: state.ServersReducer
+    }
+  }
+
   const mapDispatchToProps = (dispatch) => {
   return {
-    Login: () => {
-      dispatch(Login());
+    Login: (values) => {
+      dispatch(Login(values));
     }
   }
 }
