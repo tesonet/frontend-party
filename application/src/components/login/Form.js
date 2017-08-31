@@ -12,12 +12,12 @@ class Form extends Component {
       let error = {},
           isError = false;
 
-      if(values.username.trim() === '') {
+      if(values.username == undefined) {
         error.username = 'Please enter your username';
         isError = true;
       }
 
-      if(values.password.trim() === '') {
+      if(values.password == undefined) {
         error.password = 'Please enter your password';
         isError = true;
       }
@@ -44,8 +44,12 @@ class Form extends Component {
         return (
           <div className="container">
             <form onSubmit={this.props.handleSubmit(this.submit)}>
-              <Field name="username" className='form-control' component={this.renderField} type="text" placeholder='Username'/>
-              <Field name="password" className='form-control' component={this.renderField} type="password" placeholder='Password'/>
+              <Field name="username" className='form-control'
+              component={this.renderField} type="text"
+              placeholder='Username'/>
+              <Field name="password" className='form-control'
+              component={this.renderField} type="password"
+              placeholder='Password'/>
               <button type="submit" className='btn'>Login</button>
             </form>
             <span>{this.props.login.errorMessage ? this.props.login.errorMessage : ''}</span>
@@ -61,8 +65,7 @@ class Form extends Component {
 
   const mapStateToProps = (state) => {
     return {
-      login: state.LoginReducer,
-      servers: state.ServersReducer
+      login: state.LoginReducer
     }
   }
 

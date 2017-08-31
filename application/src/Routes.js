@@ -5,7 +5,7 @@ import App from './App';
 import Servers from './components/servers/ServersPage';
 import PageNotFound from './components/PageNotFound';
 import { persistStore } from 'redux-persist';
-import store from './store';
+import store from './Store';
 
 class Routes extends Component {
 

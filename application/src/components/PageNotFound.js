@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 
 class PageNotFound extends Component {
 
+  constructor() {
+    super()
+    this.state = { redirect: false }
+  }
+
+  componentDidMount(){
+    setTimeout(() => {
+      this.setState({ redirect: true })
+    }, 6000)
+}
+
   render() {
+    if (this.state.redirect) {
+      console.log('yis')
+      return <Redirect to='/'/>
+    }
     return (
       <div>
         <h1>404 - Page Not Found</h1>
