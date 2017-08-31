@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Login } from '../../actions/index';
-// import { FormStyle } from './styles/FormStyle';
+import './styles/FormStyle.css';
 
 import { Field, reduxForm, SubmissionError } from 'redux-form'
 
@@ -12,12 +12,18 @@ class Form extends Component {
       let error = {},
           isError = false;
 
-      if(values.username == undefined) {
+      if(values.username === undefined ) {
+        error.username = 'Please enter your username';
+        isError = true;
+      } else if (values.username.trim() === "") {
         error.username = 'Please enter your username';
         isError = true;
       }
 
-      if(values.password == undefined) {
+      if(values.password === undefined ) {
+        error.password = 'Please enter your password';
+        isError = true;
+      } else if (values.password.trim() === "") {
         error.password = 'Please enter your password';
         isError = true;
       }
@@ -42,7 +48,7 @@ class Form extends Component {
 
     render() {
         return (
-          <div className="container">
+          <div className="form">
             <form onSubmit={this.props.handleSubmit(this.submit)}>
               <Field name="username" className='form-control'
               component={this.renderField} type="text"
@@ -50,7 +56,7 @@ class Form extends Component {
               <Field name="password" className='form-control'
               component={this.renderField} type="password"
               placeholder='Password'/>
-              <button type="submit" className='btn'>Login</button>
+              <button type="submit" className='btn'>Log In</button>
             </form>
             <span>{this.props.login.errorMessage ? this.props.login.errorMessage : ''}</span>
           </div>

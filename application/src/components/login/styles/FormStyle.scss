@@ -1,9 +1,44 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin size {
+  @media (min-width: 768px) {
+    width: 360px;
+  }
+  @media (max-width: 768px) {
+    width: 250px;
+  }
+  height: 60px;
+}
+
 $btn: #99cc33;
 $btn-focus: #86b300;
-$radius: 4px;
 
-.btn {
-  background: $btn;
-  border-radius: $radius;
-  color: #fff;
+.form{
+  text-align: center;
+  span {
+    color: #fff;
+  }
+  .btn {
+    background: $btn;
+    @include border-radius(6px);
+    @include size;
+    color: #fff;
+    &:hover {
+      background: $btn-focus;
+      color: #fff;
+    }
+  }
+  .form-group {
+    margin-bottom: 20px;
+
+    .form-control {
+      @include size;
+      margin: 0 auto;
+    }
+  }
 }

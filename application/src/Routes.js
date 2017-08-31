@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import App from './App';
+import LoginPage from './components/login/LoginPage';
 import Servers from './components/servers/ServersPage';
 import PageNotFound from './components/PageNotFound';
 import { persistStore } from 'redux-persist';
@@ -27,7 +27,7 @@ class Routes extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={(this.props.login.token && this.props.login.userAuthenticated) ? Servers : App} />
+          <Route exact path='/' component={(this.props.login.token && this.props.login.userAuthenticated) ? Servers : LoginPage} />
           <Route path='*' component={PageNotFound} />
         </Switch>
       </BrowserRouter>
