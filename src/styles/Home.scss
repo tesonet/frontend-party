@@ -1,0 +1,74 @@
+.testio-app {
+  display: flex;
+  flex-direction: column;
+
+  > header {
+    height: 150px;
+    display: flex;
+    flex: 0 0 100px;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1.25rem;
+
+    button {
+      margin-left: auto;
+      padding-right: 0;
+      color: $linkBtnColor;
+      display: flex;
+      align-items: center;
+      transition: none;
+      font-size: 14px;
+
+      svg {
+        height: 16px;
+        margin-right: 12px;
+        fill: $linkBtnColor;
+        transition: none;
+      }
+      &:hover,
+      &:hover svg {
+        color: $linkBtnColor-hover;
+        fill: $linkBtnColor-hover;
+        text-decoration: none;
+      }
+
+    }
+  }
+
+  > article {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    > ul {
+      height: 55px;
+      display: block;
+      flex: 0;
+    }
+
+    ul li {
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      padding: 15px 1.25rem;
+    }
+
+    > div {
+      flex: 1 0 100%;
+      overflow: scroll;
+    }
+
+    .list-header {
+      background: $grey-f;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: $grey-9;
+
+      li {
+        background: transparent;
+        border-radius: 0;
+      }
+    }
+  }
+}

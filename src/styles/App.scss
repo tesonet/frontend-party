@@ -1,4 +1,6 @@
 @import "./variables.scss";
+@import "./Login.scss";
+@import "./Home.scss";
 
 html,
 body,
@@ -14,60 +16,10 @@ body {
   padding: 0;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
+  font-weight: lighter;
   color: $fontColor;
 }
 
 .App {
   text-align: center;
-}
-
-.auth-screen {
-  background: url(./images/background.jpg);
-  background-position: bottom;
-
-  .input-group-addon {
-    background: transparent;
-    width: 80px;
-    padding: 0;
-    z-index: 1;
-    position: relative;
-    border-color: transparent;
-
-    svg {
-      height: 16px;
-    }
-
-    + input {
-      margin-left: -80px;
-      z-index: 0;
-      padding-left: 80px;
-      height: 56px;
-      border-radius: 5px !important;
-      font-weight: lighter;
-      position: relative;
-      z-index: 0 !important;
-      color: $inputPlaceholder !important;
-      transition: all .3s ease;
-
-      &:hover,
-      &:active {
-        color: $fontColor !important;
-      }
-    }
-  }
-
-  .submit-btn {
-    height: 56px;
-    background: $btnPrimary;
-    color: white;
-    font-size: 16px;
-    display: block;
-    width: 100%;
-    border-color: transparent;
-    transition: all .3s ease;
-
-    &:hover {
-      background-color: $btnPrimary-hover;
-    }
-  }
 }

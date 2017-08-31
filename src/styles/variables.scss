@@ -1,6 +1,15 @@
-$dark-grey: #222;
-$fontColor: #999;
-$inputPlaceholder: #B3B3B3;
+$grey-f: #F5F5F5;
+$grey-e: #EEE;
+$grey-b: #B3B3B3;
+$grey-9: #999;
+$grey-2: #222;
+
+$fontColor: $grey-9;
+$inputNotActive: $grey-b;
+$inputPlaceholder: $grey-e;
 
 $btnPrimary: #9FD533;
 $btnPrimary-hover: #86b300;
+
+$linkBtnColor: #2F3254;
+$linkBtnColor-hover: #99CC33;

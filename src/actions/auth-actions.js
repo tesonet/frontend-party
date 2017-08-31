@@ -1,10 +1,15 @@
 import {TESONET_API_URL} from './URL-const'
 
-export const fetchToken = () => {
+export const fetchToken = (credentials) => {
+    // console.log('credentials', credentials);
   const loginData = {
     "username": "tesonet",
     "password": "partyanimal"
   }
+  // const loginData = {
+  //   "username": credentials.username,
+  //   "password": credentials.password,
+  // }
   const loginHeaders = new Headers()
   loginHeaders.append('Content-Type', 'application/json')
   loginHeaders.append('Accept', 'application/json')

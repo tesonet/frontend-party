@@ -1,33 +1,36 @@
 # Senior frontend developer task
 
-If you found this task it means we are looking for you!
-
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
-
 ## Few simple steps
 
-1. Fork this repo
-2. Do your best
-3. Prepare a pull request and let us know that you are done
+<div style="color:LimeGreen">
+✔ 1. Fork this repo<br />
+✔ 2. Do your best<br />
+✔ 3. Prepare a pull request and let us know that you are done<br />
+</div>
 
 ## Few simple requirements
 ### Design
-* Design should be recreated as closely as possible.
-* Design must be responsive.
-* Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
+<div style="color:LimeGreen">
+✔ Design should be recreated as closely as possible.<br />
+✔ Design must be responsive.<br />
+✔ Use [bootstrap css](http://getbootstrap.com/css/)<br />
+✔ Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
+</div>
 
 ### App
-* Use ReactJS
-* This must be a single page application. Use React Router for frontend routing
-* Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
+<div style="color:LimeGreen">
+✔ Use ReactJS<br />
+✔ This must be a single page application.<br />
+✔ Use React Router for frontend routing<br />
+✔ Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
+</div>
 
 ```
 {"username": "tesonet", "password": "partyanimal"}
 ```
 
-* Save the newly-created token to the local storage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
+* <span style="color:LimeGreen">✔ Save the newly-created token to the local storage</span>
+* <span style="color:LimeGreen">✔ Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.</span> 
 * Implement logout
 
 ### Miscellaneous

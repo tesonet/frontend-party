@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
 import * as Actions from '../../actions/data-actions'
+import ServerList from './ServerList'
 
 
 class Home extends Component {
@@ -15,22 +16,14 @@ class Home extends Component {
     if (!this.props.data.servers) {
       return (
         <div>
-          <div> Welcome Home!</div>
+          <div>No servers yet added 😥</div>
         </div>
       )
     } else {
-      const serverList = this.props.data.servers.map( server => (
-        <li key={`id-${server.name}`}>
-          <div>{server.name}</div>
-          <div>{server.distance}</div>
-        </li>
-      ))
       return (
-        <div>
-          <ul>
-             {serverList}
-           </ul>
-        </div>
+        <ServerList
+          servers={this.props.data.servers}
+        />
       )
     }
   }

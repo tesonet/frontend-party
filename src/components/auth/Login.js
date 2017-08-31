@@ -4,32 +4,18 @@ import {
   Redirect
 } from 'react-router-dom'
 import { Container, Row, Col } from 'reactstrap'
-import { Button, Form, FormGroup, Input, FormText } from 'reactstrap'
-import { InputGroup, InputGroupAddon } from 'reactstrap'
 
 import * as Actions from '../../actions/auth-actions'
-import UserIcon from '../svg/UserIcon'
-import LockIcon from '../svg/LockIcon'
-
-const fakeAuth = {
-  isAuthenticated: false,
-  fetched: false,
-  fetching: false,
-  error: null,
-
-  signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100)
-  }
-}
+import SigninForm from './SigninForm'
 
 class Login extends React.Component {
   state = {
     redirectToReferrer: false
   }
 
-  login = () => {
-    this.props.fetchToken()
+  submit = (values) => {
+    console.log(values);
+    this.props.fetchToken(values)
   }
 
   render() {
@@ -46,48 +32,17 @@ class Login extends React.Component {
       <div className="auth-screen">
         <Container>
           <Row className="d-flex align-items-center justify-content-center align-center">
-            <Col sm={{ size: 10, offset: 1 }} md={{ size: 8, offset: 2 }}>
+            <Col sm="10" md="6" lg="4">
               <div>
                 <h1 className="d-flex justify-content-center align-items-center">
                   <img src="../images/logotype-testio.png" width="240" />
                 </h1>
-                <p>You must log in to view the page at {from.pathname}</p>
-                <Form>
-                  <FormGroup>
-                    <InputGroup>
-                      <InputGroupAddon>
-                        <UserIcon />
-                      </InputGroupAddon>
-                      <Input
-                        type="email"
-                        name="email"
-                        id="loginEmail"
-                        placeholder="Email"
-                        autocomplete="off"
-                      />
-                    </InputGroup>
-                  </FormGroup>
-                  <FormGroup>
-                    <InputGroup>
-                      <InputGroupAddon>
-                        <LockIcon />
-                      </InputGroupAddon>
-                      <Input
-                        type="password"
-                        name="password"
-                        id="loginPassword"
-                        placeholder="Password"
-                        autocomplete="off"
-                      />
-                    </InputGroup>
-                  </FormGroup>
-                  <Button
-                    className="submit-btn"
-                    color="primary"
-                    onClick={this.login}>
-                    Log In
-                  </Button>
-                </Form>
+
+                { from.pathname !== '/login' &&
+                  (<p>You must log in to view this page at {from.pathname}</p>)
+                }
+
+                <SigninForm onSubmit={this.submit} error={this.props.auth.error} />
               </div>
             </Col>
           </Row>

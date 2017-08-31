@@ -1,0 +1,68 @@
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $inputNotActive !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $inputNotActive !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $inputNotActive !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $inputNotActive !important;
+}
+
+.auth-screen {
+  background: #132b43 url(./images/background.jpg);
+  background-position: bottom;
+
+  h1 {
+    margin-bottom: 70px;
+  }
+
+  .input-group-addon {
+    background: transparent;
+    width: 60px;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+    border-color: transparent;
+
+    svg {
+      height: 16px;
+      fill-opacity: .25;
+    }
+
+    + input {
+      margin-left: -60px;
+      z-index: 0;
+      padding-left: 50px;
+      height: 56px;
+      border-radius: 5px !important;
+      font-weight: lighter;
+      position: relative;
+      z-index: 0 !important;
+      color: $inputNotActive !important;
+      transition: all .3s ease;
+
+      &:hover,
+      &:active {
+        color: $fontColor !important;
+      }
+    }
+  }
+
+  .submit-btn {
+    height: 56px;
+    background: $btnPrimary;
+    color: white;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    border-color: transparent;
+    transition: all .3s ease;
+
+    &:hover {
+      background-color: $btnPrimary-hover;
+    }
+  }
+}
