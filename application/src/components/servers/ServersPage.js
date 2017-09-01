@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchServers } from '../../actions/index';
 import _, { uniqueId } from 'lodash';
 import Header from './Header';
+import './styles/ServersPageStyle.css'
 
 class ServersPage extends Component {
   componentWillMount() {
@@ -15,9 +16,15 @@ class ServersPage extends Component {
   listServers() {
     return this.props.servers.servers.map((server) => {
       server.id = _.uniqueId('ID-');
-      console.log(server);
       return (
-        <li key={server.id}>{server.name} {server.distance}</li>
+          <div className='list row'>
+              <div className='left col-xs-6'>
+                <div key={server.id}>{server.name}</div>
+              </div>
+              <div className='right col-xs-6'>
+                <div key={server.id}>{server.distance}</div>
+            </div>
+          </div>
       )
     })
   }
@@ -26,10 +33,17 @@ class ServersPage extends Component {
     return(
       <div>
       <div className='container-fluid'>
-      <Header />
-        <h1>servers</h1>
-        {this.listServers()}
-      </div>
+        <Header />
+        <div className='info row'>
+            <div className='left col-xs-6'>
+              <div>Server</div>
+            </div>
+            <div className='right col-xs-6'>
+              <div>Distance</div>
+          </div>
+        </div>
+          {this.listServers()}
+        </div>
     </div>
     )
   }

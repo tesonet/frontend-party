@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+import './styles/PageNotFoundStyle.css';
 
 class PageNotFound extends Component {
 
@@ -13,7 +13,7 @@ class PageNotFound extends Component {
   componentDidMount(){
     setTimeout(() => {
       this.setState({ redirect: true })
-    }, 6000)
+    }, 5000)
 }
 
   render() {
@@ -22,10 +22,12 @@ class PageNotFound extends Component {
       return <Redirect to='/'/>
     }
     return (
-      <div>
-        <h1>404 - Page Not Found</h1>
-        <p>Sorry, the page you were looking for does not exist.</p>
-        <p>You will be redirected to {(this.props.login.token && this.props.login.userAuthenticated) ? "servers" : "login"} page in a few seconds</p>
+      <div className='page'>
+        <div className='container'>
+          <h1>404 - Page Not Found</h1>
+          <p>Sorry, the page you were looking for does not exist.</p>
+          <p>You will be redirected to {(this.props.login.token && this.props.login.userAuthenticated) ? "servers" : "login"} page in a few seconds</p>
+        </div>
       </div>
     )
   }

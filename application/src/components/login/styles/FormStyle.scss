@@ -27,6 +27,8 @@ $btn-focus: #86b300;
     background: $btn;
     @include border-radius(6px);
     @include size;
+    font-size: 16px;
+    font-weight: bold;
     color: #fff;
     &:hover {
       background: $btn-focus;
@@ -39,6 +41,7 @@ $btn-focus: #86b300;
     .form-control {
       @include size;
       margin: 0 auto;
+      font-size: 16px;
     }
   }
 }
