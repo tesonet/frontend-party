@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchServers } from '../../actions/index';
 import _, { uniqueId } from 'lodash';
 import Header from './Header';
+import { Scrollbars } from 'react-custom-scrollbars';
 import './styles/ServersPageStyle.css'
 
 class ServersPage extends Component {
@@ -17,13 +18,9 @@ class ServersPage extends Component {
     return this.props.servers.servers.map((server) => {
       server.id = _.uniqueId('ID-');
       return (
-          <div className='list row'>
-              <div className='left col-xs-6'>
-                <div key={server.id}>{server.name}</div>
-              </div>
-              <div className='right col-xs-6'>
-                <div key={server.id}>{server.distance}</div>
-            </div>
+          <div className='list row' key={server.id}>
+                <div className='col-xs-6'>{server.name}</div>
+                <div className='right col-xs-6'>{server.distance} km</div>
           </div>
       )
     })
@@ -32,19 +29,13 @@ class ServersPage extends Component {
   render() {
     return(
       <div>
-      <div className='container-fluid'>
-        <Header />
-        <div className='info row'>
-            <div className='left col-xs-6'>
-              <div>Server</div>
+          <Header />
+            <div className='servers container-fluid'>
+              <Scrollbars autoHide={true}>
+                {this.listServers()}
+              </Scrollbars>
             </div>
-            <div className='right col-xs-6'>
-              <div>Distance</div>
-          </div>
-        </div>
-          {this.listServers()}
-        </div>
-    </div>
+      </div>
     )
   }
 }

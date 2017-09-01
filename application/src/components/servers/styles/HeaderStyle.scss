@@ -1,0 +1,52 @@
+.header {
+  top: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  .top {
+    padding: 45px 0px 45px 0px;
+    margin: 0;
+    .log-out {
+      float: right;
+      width: 120px;
+      color: #2f3254;
+      transition: all ease-in-out 0.1s;
+      font-size: 14px;
+      padding-right: 30px;
+      position: relative;
+      .logout-icon {
+        padding: 0 10px 1px 0;
+        .cls-1 {
+
+        }
+      }
+      &:hover {
+        cursor:pointer;
+        color: red;
+        .logout-icon {
+          .cls-1 {
+            fill: red;
+          }
+        }
+      }
+    }
+  }
+  .info {
+      padding: 20px 0px 20px 0px;
+      border-top: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+      background-color: #f5f5f5;
+      color: #999;
+      font-size: 14px;
+      margin: 0;
+      div {
+      text-transform: uppercase;
+      transition: all ease-in-out 0.1s;
+      }
+  }
+
+  .info div:hover {
+      cursor: pointer;
+      color: #666;
+  }
+}
