@@ -7,7 +7,7 @@ const src = './src';
 
 
 module.exports = {
-  entry: src + '/index.js',
+  entry: `${src}/index.js`,
   output: {
     path: path.resolve('build'),
     filename: 'index_bundle.js',
@@ -17,9 +17,13 @@ module.exports = {
       {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
     ],
   },
+  resolve: {
+    alias: {'~': path.resolve(`${__dirname}/src`)},
+  },
   plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new HtmlWebpackPlugin({
-      template: src + '/index.html',
+      template: `${src}/index.html`,
       filename: 'index.html',
       inject: 'body',
       minify: {
@@ -40,12 +44,11 @@ module.exports = {
         dead_code: true,
         evaluate: true,
         if_return: true,
-        join_vars: true
+        join_vars: true,
       },
       output: {
         comments: false,
       },
     }),
-    new webpack.HashedModuleIdsPlugin(),
   ],
 };

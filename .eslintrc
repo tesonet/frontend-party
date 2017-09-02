@@ -9,13 +9,22 @@
     "browser": true,
     "jest": true
   },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.dev.js"
+      }
+    }
+  },
   "rules": {
-    "object-curly-spacing": [0],
-    "import/prefer-default-export": [0],
+    "object-curly-spacing": ["error", "never"],
     "jsx-quotes": ["error", "prefer-single"],
+    "import/prefer-default-export": [0],
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-    "react/jsx-first-prop-new-line": 0,
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "max-len": ["error", 120]
+    "react/jsx-first-prop-new-line": [0, "multiline"],
+    "react/jsx-closing-bracket-location": ["error", {"selfClosing": "after-props"}],
+    "max-len": ["error", 120],
+    "no-confusing-arrow": [0],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   }
 }

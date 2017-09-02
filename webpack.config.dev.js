@@ -7,8 +7,11 @@ const src = './src';
 
 
 module.exports = {
-  entry: src + '/index.js',
+  entry: `${src}/index.js`,
   devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true,
+  },
   output: {
     path: path.resolve('build'),
     filename: 'index_bundle.js',
@@ -18,9 +21,13 @@ module.exports = {
       {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
     ],
   },
+  resolve: {
+    alias: {'~': path.resolve(`${__dirname}/src`)},
+  },
   plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new HtmlWebpackPlugin({
-      template: src + '/index.html',
+      template: `${src}/index.html`,
       filename: 'index.html',
       inject: 'body',
     }),
