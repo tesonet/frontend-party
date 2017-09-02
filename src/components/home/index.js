@@ -12,12 +12,9 @@ class Home extends Component {
   }
 
   render() {
-
     if (!this.props.data.servers) {
       return (
-        <div>
-          <div>No servers yet added 😥</div>
-        </div>
+        <div></div>
       )
     } else {
       return (
@@ -32,8 +29,8 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
-    data: state.data,
+    user: state.user.user,
+    data: state.user.data,
   }
 }
 

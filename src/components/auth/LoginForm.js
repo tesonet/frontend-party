@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-import { Button, Form, FormGroup } from 'reactstrap'
+import { Button, FormGroup } from 'reactstrap'
 import { InputGroup, InputGroupAddon } from 'reactstrap'
 
 import UserIcon from '../svg/UserIcon'
@@ -14,7 +14,6 @@ const SigninForm = props => {
     if (props.error) {
       return <div className="alert alert-danger">{props.error}</div>
     }
-
     return <div></div>
   }
 
@@ -23,7 +22,7 @@ const SigninForm = props => {
   return (
     <div>
       { renderAuthenticationError() }
-      <Form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <FormGroup>
           <InputGroup>
             <InputGroupAddon>
@@ -37,6 +36,7 @@ const SigninForm = props => {
               placeholder="Username"
               autoComplete="off"
               className="form-control"
+              required="required"
             />
           </InputGroup>
         </FormGroup>
@@ -53,6 +53,7 @@ const SigninForm = props => {
               placeholder="Password"
               autoComplete="off"
               className="form-control"
+              required="required"
             />
           </InputGroup>
         </FormGroup>
@@ -61,7 +62,7 @@ const SigninForm = props => {
           color="primary">
           Log In
         </Button>
-      </Form>
+      </form>
     </div>
   )
 }

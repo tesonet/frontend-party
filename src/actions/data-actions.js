@@ -3,7 +3,7 @@ import {TESONET_API_URL} from './URL-const'
 export const fetchServer = () => {
   return (dispatch, getState) => {
 
-    const userToken = getState().user.token
+    const userToken = getState().user.user.token
     const loginHeaders = new Headers()
     loginHeaders.append('Authorization', userToken)
     loginHeaders.append('Accept', 'application/json')
@@ -13,6 +13,7 @@ export const fetchServer = () => {
       headers: loginHeaders
     })
 
+    console.log('here');
     request.then((response) => {
       if (isAuthorized(response.status)) {
         return response.json()
@@ -28,7 +29,7 @@ export const fetchServer = () => {
     }).then((json) => {
       dispatch({type: 'FETCHED_SERVERS_FULFILLED', payload: json})
     }).catch(error => {
-      dispatch({type: 'FETCHED_SERVERS_ERROR', payload: error})
+      dispatch({type: 'FETCHED_SERVERS_ERROR', payload: error.message})
     })
   }
 }

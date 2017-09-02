@@ -19,6 +19,14 @@
     margin-bottom: 70px;
   }
 
+  .alert {
+    position: fixed;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    text-align: center;
+  }
+
   .input-group-addon {
     background: transparent;
     width: 60px;

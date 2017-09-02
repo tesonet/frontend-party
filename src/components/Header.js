@@ -1,19 +1,17 @@
 import React from 'react'
-import { Button } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 import QuitIcon from './svg/QuitIcon'
 
 const Home = (props) => {
-  // fakeAuth.signout(() => history.push('/'))
-
   return props.authenticated
     ? (
       <header>
-        <img src="../images/logotype-testio-dark.png" width="115" />
-        <Button color="link" onClick={() => {}}>
+        <img alt="Logo" src="../images/logotype-testio-dark.png" width="115" />
+        <Link to="/logout" className="btn btn-link">
           <QuitIcon />
           Logout
-        </Button>
+        </Link>
       </header>
     )
     : (<div></div>)
