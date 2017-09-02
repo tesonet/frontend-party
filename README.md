@@ -12,6 +12,10 @@ Used:
 * Sass / SVG components / flexbox layout
 * My head and few hands
 
+## Getting started
+1. `npm install`
+1. `npm start`
+
 ----
 ## Few simple steps
 
