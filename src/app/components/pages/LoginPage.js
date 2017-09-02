@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {Badge} from '../';
 import {LoginForm} from '../forms';
 
 
@@ -15,6 +16,10 @@ const Container = styled.div`
   background: url(${`${process.env.PUBLIC_URL}/bg.jpeg`}) no-repeat center center fixed;
   background-size: cover;
 
+  > *:first-child {
+    margin-bottom: 40px;
+  }
+
   > form {
     width: 100%;
     max-width: 400px;
@@ -24,6 +29,7 @@ const Container = styled.div`
 
 const LoginPage = () => (
   <Container className='container-fluid'>
+    <Badge />
     <LoginForm />
   </Container>
 );
