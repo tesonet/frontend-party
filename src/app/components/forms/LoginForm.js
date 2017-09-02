@@ -5,14 +5,15 @@ import {compose, mapProps} from 'recompose';
 
 import i18n from '~/i18n';
 import {FormField, validate} from '~/form';
+import {Button} from '../';
 
 
 const LoginForm = ({onSubmit}) => (
   <form>
-    <FormField name='username' validate={validate.required} />
-    <FormField name='password' type='password' validate={validate.required} />
+    <FormField name='username' placeholder={i18n.t('login.username')} validate={validate.required} />
+    <FormField name='password' type='password' placeholder={i18n.t('login.password')} validate={validate.required} />
 
-    <button type='submit' onClick={onSubmit}>{i18n.t('button.logIn')}</button>
+    <Button type='submit' onClick={onSubmit}>{i18n.t('button.logIn')}</Button>
   </form>
 );
 

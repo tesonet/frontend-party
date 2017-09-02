@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Field} from 'redux-form';
+import classNames from 'classnames';
 
 import {TextInput} from '~/inputs';
 import ErrorText from '../ErrorText';
@@ -8,7 +9,7 @@ import reduxProps from './reduxProps';
 
 
 const TextFieldComponent = ({input, meta, className, hasError, ...props}) => (
-  <div className={className}>
+  <div className={classNames('form-group', className)}>
     <TextInput
       {...input}
       {...props}

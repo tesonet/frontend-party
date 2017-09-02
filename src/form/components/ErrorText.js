@@ -14,7 +14,7 @@ const Error = styled.div`
 const ErrorText = ({error, className}) => (
   <div className={className}>
     {Object.keys(error).map(errorType => (
-      <Error key={errorType}>
+      <Error key={errorType} className='form-text text-muted'>
         {error[errorType]}
       </Error>
     ))}

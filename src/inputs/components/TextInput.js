@@ -1,19 +1,31 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import styled, {css} from 'styled-components';
 
 
-const Input = ({hasError, ...props}) => ( // eslint-disable-line
-  <input {...props} />
+const Input = ({hasError, className, ...props}) => ( // eslint-disable-line
+  <input className={classNames('form-control', className)} {...props} />
 );
+
+Input.propTypes = {
+  className: PropTypes.string,
+};
+
+Input.defaultProps = {
+  className: null,
+};
 
 
 const TextInput = styled(Input)`
-  color: ${props => props.hasError ? 'red' : 'black'};
-  border: 1px solid ${props => props.hasError ? 'red' : 'black'};
+  ${props => props.hasError ? css`
+    color: ${props.theme.color.errorRed1};
+    border-color: ${props.theme.color.errorRed1};
+  ` : null}
+
 
   &:focus {
-    outline: none;
-    box-shadow: 0 0 0 1px cyan;
+    color: ${props => props.theme.color.activeInputText};
   }
 `;
 

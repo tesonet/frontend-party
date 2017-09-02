@@ -1,5 +1,6 @@
-const webpack = require('webpack');
 const path = require('path');
+const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -15,12 +16,20 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
+      {test: /\.css$/, loader: 'style-loader!css-loader'},
+      {test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/, loader: 'url-loader?limit=100000'},
     ],
   },
   resolve: {
     alias: {'~': path.resolve(`${__dirname}/src`)},
   },
   plugins: [
+    new CopyWebpackPlugin([{
+      from: 'public',
+    }]),
+    new webpack.DefinePlugin({
+      'process.env.PUBLIC_URL': JSON.stringify(''),
+    }),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
     new HtmlWebpackPlugin({
       template: `${src}/index.html`,
