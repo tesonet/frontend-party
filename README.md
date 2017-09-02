@@ -9,7 +9,7 @@ Used:
 * [Redux-form](http://redux-form.com/7.0.3/) for quick way to bind forms w/ Redux
 * Fetch API with  [IE polyfill](https://www.npmjs.com/package/whatwg-fetch)
 * [Reactstrap](https://reactstrap.github.io) for Bootstrap 4 components
-* Sass
+* Sass / SVG components / flexbox layout
 * My head and few hands
 
 ----
