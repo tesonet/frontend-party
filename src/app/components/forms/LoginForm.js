@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {reduxForm} from 'redux-form';
 import {compose, mapProps} from 'recompose';
 
+import i18n from '~/i18n';
 import {FormField, validate} from '~/form';
 
 
@@ -11,7 +12,7 @@ const LoginForm = ({onSubmit}) => (
     <FormField name='username' validate={validate.required} />
     <FormField name='password' type='password' validate={validate.required} />
 
-    <button type='submit' onClick={onSubmit}>Submit</button>
+    <button type='submit' onClick={onSubmit}>{i18n.t('button.logIn')}</button>
   </form>
 );
 
