@@ -23,9 +23,8 @@ export const theme = {
 };
 
 
-/* eslint-disable */
+/* eslint-disable no-unused-expressions */
 injectGlobal`
-
   html, body {
     margin: 0;
     padding: 0;
@@ -40,4 +39,4 @@ injectGlobal`
     height: 100%;
   }
 `;
-/* eslint-enable */
+/* eslint-enable no-unused-expressions */

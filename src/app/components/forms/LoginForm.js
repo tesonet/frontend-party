@@ -4,6 +4,7 @@ import {reduxForm} from 'redux-form';
 import {compose, mapProps} from 'recompose';
 import styled from 'styled-components';
 
+import api from '~/api';
 import i18n from '~/i18n';
 import {FormField, validate} from '~/form';
 import {Icon, Button} from '../';
@@ -42,10 +43,14 @@ LoginForm.propTypes = {
 const enhance = compose(
   reduxForm({
     form: 'LoginForm',
+    initialValues: {
+      username: 'tesonet',
+      password: 'partyanimal',
+    },
   }),
   mapProps(({handleSubmit, ...props}) => ({
     ...props,
-    onSubmit: handleSubmit(Promise.reject),
+    onSubmit: handleSubmit(values => api.login(values)),
   })),
 );
 

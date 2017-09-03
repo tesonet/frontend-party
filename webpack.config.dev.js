@@ -11,6 +11,15 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
+    proxy: {
+      '/api/*': {
+        target: process.env.API_PROXY_URL,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '',
+        },
+      },
+    },
   },
   output: {
     path: path.resolve('build'),
