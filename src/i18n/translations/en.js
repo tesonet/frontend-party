@@ -13,4 +13,8 @@ export default {
     password: 'Password',
     unauthorized: 'Authorization failed',
   },
+  servers: {
+    name: 'SERVER',
+    distance: 'DISTANCE',
+  },
 };

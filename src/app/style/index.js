@@ -7,9 +7,11 @@ const COLORS = {
   lightGreen1: '#9fd533',
   lightGreen2: '#86b300',
   lightGreen3: '#99cc33',
+  blue1: '#2f3254',
   red1: '#dc3545',
   grey1: '#999',
-  blue1: '#2f3254',
+  lightGrey1: '#f5f5f5',
+  lightGrey2: '#e6e6e6',
 };
 
 
@@ -25,6 +27,9 @@ export const theme = {
     primaryButtonHoverBG: COLORS.lightGreen2,
     linkButton: COLORS.blue1,
     linkButtonHover: COLORS.lightGreen3,
+    tableBorder: COLORS.lightGrey2,
+    tableHeaderBG: COLORS.lightGrey1,
+    tableHeaderText: COLORS.grey1,
   },
 };
 

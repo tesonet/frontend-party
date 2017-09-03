@@ -6,30 +6,26 @@ import styled from 'styled-components';
 import i18n from '~/i18n';
 import auth from '~/auth';
 
-import {Badge, Button, FAIcon} from '../';
+import {Page, Badge, Button, FAIcon, Servers} from '../';
 
 
 const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 0;
+  padding: 38px 15px;
 `;
 
 
 const ServersPage = ({logout}) => (
-  <div>
-    <div className='container-fluid'>
-      <Header>
-        <Badge small />
-        <Button styleType='link' onClick={logout}>
-          <FAIcon type='sign-out' className='fa-rotate-180' />&nbsp;&nbsp;{i18n.t('button.logout')}
-        </Button>
-      </Header>
-    </div>
-    <div>
-      Servers
-    </div>
-  </div>
+  <Page>
+    <Header>
+      <Badge small />
+      <Button styleType='link' className='pull-right' onClick={logout}>
+        <FAIcon type='sign-out' className='fa-rotate-180' />&nbsp;&nbsp;{i18n.t('button.logout')}
+      </Button>
+    </Header>
+    <Page.Body>
+      <Servers />
+    </Page.Body>
+  </Page>
 );
 
 ServersPage.propTypes = {

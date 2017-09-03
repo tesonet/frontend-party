@@ -16,7 +16,7 @@ const Container = styled.span`
     width: ${props => props.small ? 8 : 20}px;
     height: ${props => props.small ? 8 : 20}px;
     border-radius: 100%;
-    bottom: ${props => props.small ? 5 : 11}px;
+    bottom: ${props => props.small ? 8 : 11}px;
     right: 0;
     background: ${props => props.theme.color.accent1};
   }

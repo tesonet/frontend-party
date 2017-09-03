@@ -1,10 +1,13 @@
 import 'whatwg-fetch';
 
+import auth from '~/auth';
+
 
 const JSON_HEADER = 'application/json;charset=utf-8';
 
 
 const call = async (method, url, options = {}) => {
+  const token = auth.utils.getToken();
   const {data} = options;
   const params = {
     method,
@@ -17,6 +20,9 @@ const call = async (method, url, options = {}) => {
     params.body = JSON.stringify(data);
     params.headers['Content-Type'] = JSON_HEADER;
   }
+
+  if (token) params.headers.Authorization = `Bearer ${token}`;
+
 
   try {
     const res = await fetch(`/api/${url}`, params);
@@ -32,5 +38,8 @@ const call = async (method, url, options = {}) => {
 export default {
   logIn(data) {
     return call('post', 'tokens', {data});
+  },
+  getServers() {
+    return call('get', 'servers');
   },
 };
