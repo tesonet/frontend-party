@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import i18n from '~/i18n';
 import {FormField, validate} from '~/form';
-import {Button} from '../';
+import {Icon, Button} from '../';
 
 
 const InputsContainer = styled.div`
@@ -20,11 +20,13 @@ const LoginForm = ({onSubmit}) => (
       <FormField
         name='username'
         placeholder={i18n.t('login.username')}
+        inputGroup={<span className='input-group-addon'><Icon className='fa-user' /></span>}
         validate={validate.required} />
       <FormField
         name='password'
         type='password'
         placeholder={i18n.t('login.password')}
+        inputGroup={<span className='input-group-addon'><Icon className='fa-lock' /></span>}
         validate={validate.required} />
     </InputsContainer>
 

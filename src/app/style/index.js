@@ -1,5 +1,6 @@
 import {injectGlobal} from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 
 
 const COLORS = {
@@ -14,6 +15,7 @@ export const theme = {
   color: {
     accent1: COLORS.lightGreen1,
     errorRed1: COLORS.red1,
+    inputGroupAddonColor1: COLORS.grey1,
     activeInputText: COLORS.grey1,
     primaryButtonBG: COLORS.lightGreen1,
     primaryButtonHoverBG: COLORS.lightGreen2,
