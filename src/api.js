@@ -1,25 +1,29 @@
-const call = (method, url, options = {}) => new Promise((resolve, reject) => {
+const JSON_HEADER = 'application/json;charset=utf-8';
+
+
+const call = async (method, url, options = {}) => {
   const {data} = options;
   const params = {
     method,
     headers: {
-      Accept: 'application/json;charset=utf-8',
+      Accept: JSON_HEADER,
     },
   };
 
   if (data != null) {
     params.body = JSON.stringify(data);
-    params.headers['Content-Type'] = 'application/json;charset=utf-8';
+    params.headers['Content-Type'] = JSON_HEADER;
   }
 
-  fetch(`/api/${url}`, params).then((res) => {
-    if (res.ok) {
-      res.json().then(resolve).catch(reject);
-    } else {
-      reject(res.body);
-    }
-  }).catch(reject);
-});
+  try {
+    const res = await fetch(`/api/${url}`, params);
+    const json = await res.json();
+    if (res.status >= 200 && res.status < 300) return json;
+    throw json;
+  } catch (err) {
+    throw err;
+  }
+};
 
 
 export default {

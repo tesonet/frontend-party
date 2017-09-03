@@ -32,7 +32,6 @@
     "react-router-redux": "next",
     "recompose": "^0.25.0",
     "redux": "^3.7.2",
-    "redux-api-middleware": "^2.0.0-beta.3",
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.0.3",
     "redux-thunk": "^2.2.0",

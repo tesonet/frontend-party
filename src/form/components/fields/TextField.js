@@ -4,7 +4,7 @@ import {Field} from 'redux-form';
 import classNames from 'classnames';
 
 import {TextInput} from '~/inputs';
-import ErrorText from '../ErrorText';
+import InputError from '../InputError';
 import reduxProps from './reduxProps';
 
 
@@ -15,7 +15,7 @@ const TextFieldComponent = ({input, meta, className, hasError, ...props}) => (
       {...props}
       hasError={hasError(meta)}
       onBlur={() => input.onBlur(input.value)} />
-    <ErrorText {...meta} />
+    <InputError {...meta} />
   </div>
 );
 

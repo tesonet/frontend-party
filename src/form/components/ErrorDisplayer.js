@@ -3,34 +3,34 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {branch, renderNothing} from 'recompose';
 
-import {fieldHasError} from '../utils';
+import {isErrorDisplayable} from '../utils';
 
 
-const Error = styled.div`
+const ErrorText = styled.div`
   color: red;
 `;
 
 
-const ErrorText = ({error, className}) => (
+const ErrorDisplayer = ({error, className}) => (
   <div className={className}>
     {Object.keys(error).map(errorType => (
-      <Error key={errorType} className='form-text text-muted'>
+      <ErrorText key={errorType} className='form-text text-muted'>
         {error[errorType]}
-      </Error>
+      </ErrorText>
     ))}
   </div>
 );
 
-ErrorText.propTypes = {
+ErrorDisplayer.propTypes = {
   error: PropTypes.shape({}).isRequired,
   className: PropTypes.string,
 };
 
-ErrorText.defaultProps = {
+ErrorDisplayer.defaultProps = {
   className: null,
 };
 
 
-const enhance = branch(({touched, error}) => !fieldHasError({touched, error}), renderNothing);
+const enhance = branch(props => !isErrorDisplayable(props.error), renderNothing);
 
-export default enhance(ErrorText);
+export default enhance(ErrorDisplayer);

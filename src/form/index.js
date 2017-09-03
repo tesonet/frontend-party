@@ -1,5 +1,5 @@
-import {FormField} from './components';
 import * as validate from './validate';
+import {FormField, FormSubmitError} from './components';
 
 
-export {FormField, validate};
+export {validate, FormField, FormSubmitError};
