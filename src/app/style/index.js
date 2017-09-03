@@ -14,7 +14,8 @@ const COLORS = {
 export const theme = {
   color: {
     accent1: COLORS.lightGreen1,
-    errorRed1: COLORS.red1,
+    errorText1: COLORS.red1,
+    errorBorder1: COLORS.red1,
     inputGroupAddonColor1: COLORS.grey1,
     activeInputText: COLORS.grey1,
     primaryButtonBG: COLORS.lightGreen1,

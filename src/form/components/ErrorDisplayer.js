@@ -7,7 +7,7 @@ import {isErrorDisplayable} from '../utils';
 
 
 const ErrorText = styled.div`
-  color: red;
+  color: ${props => props.theme.color.errorText1};
 `;
 
 

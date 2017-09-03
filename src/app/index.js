@@ -3,13 +3,18 @@ import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'react-router-redux';
 import {ThemeProvider} from 'styled-components';
 
-import {init} from './config';
+import i18n from '~/i18n';
+import auth from '~/auth';
+
 import {store, history} from './state';
 import {theme} from './style';
 import routes from './routes';
 
 
-export {init};
+export const init = () => {
+  i18n.init();
+  auth.init({dispatch: store.dispatch});
+};
 
 
 const App = () => (

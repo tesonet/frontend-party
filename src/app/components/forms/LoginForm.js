@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {reduxForm, SubmissionError} from 'redux-form';
-import {compose, mapProps} from 'recompose';
+import {compose} from 'recompose';
 import styled from 'styled-components';
 
 import api from '~/api';
+import auth from '~/auth';
 import i18n from '~/i18n';
 import {FormField, FormSubmitError, validate} from '~/form';
-import {Icon, Button} from '../';
+
+import {FAIcon, Button} from '../';
 
 
 const InputsContainer = styled.div`
@@ -15,7 +18,7 @@ const InputsContainer = styled.div`
 `;
 
 const SubmitError = styled(FormSubmitError)`
-  padding-bottom: 20px;
+  padding-top: 10px;
 `;
 
 
@@ -25,18 +28,19 @@ const LoginForm = ({onSubmit}) => (
       <FormField
         name='username'
         placeholder={i18n.t('login.username')}
-        inputGroup={<span className='input-group-addon'><Icon className='fa-user' /></span>}
+        inputGroup={<span className='input-group-addon'><FAIcon type='user' /></span>}
         validate={validate.required} />
       <FormField
         name='password'
         type='password'
         placeholder={i18n.t('login.password')}
-        inputGroup={<span className='input-group-addon'><Icon className='fa-lock' /></span>}
+        inputGroup={<span className='input-group-addon'><FAIcon type='lock' /></span>}
         validate={validate.required} />
     </InputsContainer>
-    <SubmitError name='errors' />
 
     <Button type='submit' styleType='primary' onClick={onSubmit}>{i18n.t('button.logIn')}</Button>
+
+    <SubmitError name='errors' />
   </form>
 );
 
@@ -48,26 +52,24 @@ LoginForm.propTypes = {
 const enhance = compose(
   reduxForm({
     form: 'LoginForm',
-    initialValues: {
-      username: 'tesonet2',
-      password: 'partyanimal',
-    },
   }),
-  mapProps(({handleSubmit, ...props}) => ({
-    ...props,
-    onSubmit: handleSubmit(async (values) => {
-      try {
-        const res = await api.login(values);
-        console.log('Loged in!', res);
-      } catch (err) {
-        if (err && err.message === 'Unauthorized') {
-          throw new SubmissionError({errors: {error: i18n.t('login.unauthorized')}});
-        } else {
-          console.error(err);
+  connect(
+    null,
+    (dispatch, {handleSubmit}) => ({
+      onSubmit: handleSubmit(async (values) => {
+        try {
+          const res = await api.logIn(values);
+          dispatch(auth.actions.logIn({token: res.token}));
+        } catch (err) {
+          if (err && err.message === 'Unauthorized') {
+            throw new SubmissionError({errors: {error: i18n.t('login.unauthorized')}});
+          } else {
+            throw err;
+          }
         }
-      }
+      }),
     }),
-  })),
+  ),
 );
 
 export default enhance(LoginForm);

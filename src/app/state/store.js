@@ -4,15 +4,18 @@ import thunk from 'redux-thunk';
 import {reducer as formReducer} from 'redux-form';
 import {routerReducer, routerMiddleware} from 'react-router-redux';
 
+import auth from '~/auth';
+
 // import * as reducers from './reducers';
 import history from './history';
 
 
 const store = createStore(
   combineReducers({
+    // ...reducers,
+    [auth.constants.NAME]: auth.reducer,
     form: formReducer,
     router: routerReducer,
-    // ...reducers,
   }),
   composeWithDevTools(applyMiddleware(
     thunk,

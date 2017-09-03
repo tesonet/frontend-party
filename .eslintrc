@@ -25,6 +25,7 @@
     "react/jsx-closing-bracket-location": ["error", {"selfClosing": "after-props"}],
     "max-len": ["error", 120],
     "no-confusing-arrow": [0],
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-use-before-define": ["error", {"functions": false}]
   }
 }

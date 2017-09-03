@@ -1,3 +1,6 @@
+import 'whatwg-fetch';
+
+
 const JSON_HEADER = 'application/json;charset=utf-8';
 
 
@@ -27,7 +30,7 @@ const call = async (method, url, options = {}) => {
 
 
 export default {
-  login(data) {
+  logIn(data) {
     return call('post', 'tokens', {data});
   },
 };

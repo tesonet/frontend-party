@@ -28,8 +28,8 @@ const TextInput = styled(Input)`
   }
 
   ${props => props.hasError ? css`
-    color: ${props.theme.color.errorRed1};
-    border-color: ${props.theme.color.errorRed1};
+    color: ${props.theme.color.errorText1};
+    border-color: ${props.theme.color.errorBorder1};
   ` : ''}
 `;
 
@@ -67,20 +67,20 @@ const TextInputGroup = styled(InputGroup)`
 
   ${props => props.hasError ? css`
     > .input-group-addon {
-      color: ${props.theme.color.errorRed1};
+      color: ${props.theme.color.errorText1};
     }
 
     > * {
-      border-top-color: ${props.theme.color.errorRed1};
-      border-bottom-color: ${props.theme.color.errorRed1};
+      border-top-color: ${props.theme.color.errorText1};
+      border-bottom-color: ${props.theme.color.errorText1};
     }
 
     > *:first-child {
-      border-left-color: ${props.theme.color.errorRed1};
+      border-left-color: ${props.theme.color.errorText1};
     }
 
     > *:last-child:not(:focus) {
-      border-right-color: ${props.theme.color.errorRed1};
+      border-right-color: ${props.theme.color.errorText1};
     }
   ` : ''}
 `;
