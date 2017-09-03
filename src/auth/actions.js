@@ -18,7 +18,7 @@ export const syncAuth = () => async (dispatch, getState) => {
 
   if (authenticated !== actuallyAuthenticated) {
     await dispatch(setAuthenticated(actuallyAuthenticated));
-    if (actuallyAuthenticated) removeSession();
+    if (!actuallyAuthenticated) removeSession();
   }
 };
 
@@ -29,7 +29,7 @@ export const logIn = ({token}) => async (dispatch) => {
 };
 
 
-export const logOut = () => async (dispatch) => {
+export const logout = () => async (dispatch) => {
   await dispatch(loggedOut());
   removeSession();
 };

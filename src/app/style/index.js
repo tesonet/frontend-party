@@ -6,20 +6,25 @@ import 'font-awesome/css/font-awesome.css';
 const COLORS = {
   lightGreen1: '#9fd533',
   lightGreen2: '#86b300',
+  lightGreen3: '#99cc33',
   red1: '#dc3545',
   grey1: '#999',
+  blue1: '#2f3254',
 };
 
 
 export const theme = {
   color: {
     accent1: COLORS.lightGreen1,
+    accent2: COLORS.blue1,
     errorText1: COLORS.red1,
     errorBorder1: COLORS.red1,
     inputGroupAddonColor1: COLORS.grey1,
     activeInputText: COLORS.grey1,
     primaryButtonBG: COLORS.lightGreen1,
     primaryButtonHoverBG: COLORS.lightGreen2,
+    linkButton: COLORS.blue1,
+    linkButtonHover: COLORS.lightGreen3,
   },
 };
 

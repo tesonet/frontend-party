@@ -4,6 +4,7 @@ import {Field} from 'redux-form';
 import classNames from 'classnames';
 
 import {TextInput} from '~/inputs';
+
 import InputError from '../InputError';
 import reduxProps from './reduxProps';
 

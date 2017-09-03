@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import styled, {css} from 'styled-components';
 import {branch, renderComponent} from 'recompose';
+import styled, {css} from 'styled-components';
 
 
 const Input = ({hasError, className, ...props}) => (

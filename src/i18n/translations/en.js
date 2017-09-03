@@ -1,6 +1,7 @@
 export default {
   button: {
     logIn: 'Log In',
+    logout: 'Logout',
   },
   errors: {
     field: {

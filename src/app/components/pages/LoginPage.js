@@ -1,5 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {compose, branch, renderComponent} from 'recompose';
+import {Redirect} from 'react-router';
 import styled from 'styled-components';
+
+import auth from '~/auth';
 
 import {Badge} from '../';
 import {LoginForm} from '../forms';
@@ -12,7 +17,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   background: url(${`${process.env.PUBLIC_URL}/bg.jpeg`}) no-repeat center center fixed;
   background-size: cover;
 
@@ -34,4 +38,10 @@ const LoginPage = () => (
   </Container>
 );
 
-export default LoginPage;
+
+const enhance = compose(
+  connect(state => ({isAuthenticated: auth.selectors.isAuthenticated(state)})),
+  branch(props => props.isAuthenticated, renderComponent(() => <Redirect to='/servers' />)),
+);
+
+export default enhance(LoginPage);

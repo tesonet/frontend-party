@@ -16,6 +16,7 @@ const Button = styled.button`
   }
 `;
 
+
 const PrimaryButton = styled(Button)`
   font-weight: bold;
   width: 100%;
@@ -27,6 +28,21 @@ const PrimaryButton = styled(Button)`
 `;
 
 
+const LinkButton = styled(Button)`
+  padding: 6px 12px;
+  color: ${props => props.theme.color.linkButton};
+  background-color: transparent;
+
+  &:focus {
+    color: ${props => props.theme.color.linkButton};
+  }
+
+  &:hover {
+    color: ${props => props.theme.color.linkButtonHover};
+  }
+`;
+
+
 const enhance = compose(
   mapProps(({className, ...props}) => ({
     type: 'button',
@@ -34,7 +50,7 @@ const enhance = compose(
     ...props,
   })),
   branch(props => props.styleType === 'primary', renderComponent(PrimaryButton)),
+  branch(props => props.styleType === 'link', renderComponent(LinkButton)),
 );
-
 
 export default enhance(Button);

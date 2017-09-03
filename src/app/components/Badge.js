@@ -4,27 +4,27 @@ import styled from 'styled-components';
 
 const Container = styled.span`
   font-family: 'Fredoka One', cursive;
-  color: white;
-  font-size: 80px;
-  line-height: 80px;
+  color: ${props => props.small ? props.theme.color.accent2 : 'white'};
+  font-size: ${props => props.small ? 36 : 80}px;
+  line-height: ${props => props.small ? 36 : 80}px;
   position: relative;
-  padding-right: 22px;
+  padding-right: ${props => props.small ? 9 : 22}px;
 
   &:after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: ${props => props.small ? 8 : 20}px;
+    height: ${props => props.small ? 8 : 20}px;
     border-radius: 100%;
-    bottom: 11px;
+    bottom: ${props => props.small ? 5 : 11}px;
     right: 0;
     background: ${props => props.theme.color.accent1};
   }
 `;
 
 
-const Badge = () => (
-  <Container>
+const Badge = props => (
+  <Container {...props}>
     testio
   </Container>
 );
