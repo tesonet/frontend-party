@@ -5,6 +5,13 @@
           border-radius: $radius;
 }
 
+@mixin Transform($transformation) {
+  -webkit-transform: $transformation;
+     -moz-transform: $transformation;
+      -ms-transform: $transformation;
+          transform: $transformation;
+}
+
 @mixin size {
   @media (min-width: 768px) {
     width: 360px;
@@ -37,11 +44,23 @@ $btn-focus: #86b300;
   }
   .form-group {
     margin-bottom: 20px;
-
+    .input {
+      @include size;
+      margin: 0 auto;
+      position: relative;
+      .username-icon, .password-icon {
+        position: absolute;
+        @include Transform(translate(-50%,-50%));
+        top: 50%;
+        left: 30px;
+        fill: #b2b2b2;
+      }
+    }
     .form-control {
       @include size;
       margin: 0 auto;
       font-size: 16px;
+      padding-left: 50px;
     }
   }
 }

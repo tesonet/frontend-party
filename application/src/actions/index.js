@@ -30,12 +30,6 @@ export function fetchServers() {
   }
 }
 
-export function sortList() {
-  return {
-    type: SORT_LIST
-  }
-}
-
 export function logout() {
   return {
     type: LOGOUT

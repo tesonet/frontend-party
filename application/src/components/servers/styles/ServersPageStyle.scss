@@ -42,6 +42,9 @@
     margin: 0;
     position: fixed;
     top: 120px;
+    @media(max-width: 768px) {
+      top: 90px;
+    }
     width: 100%;
     div {
     text-transform: uppercase;

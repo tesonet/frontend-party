@@ -18,7 +18,12 @@
       padding-right: 30px;
       position: relative; }
       .header .top .log-out .logout-icon {
-        padding: 0 10px 1px 0; }
+        position: absolute;
+        left: 20px;
+        top: 2px;
+        transition: all ease-in-out 0.1s; }
       .header .top .log-out:hover {
         cursor: pointer;
         color: red; }
+        .header .top .log-out:hover .logout-icon {
+          fill: red; }

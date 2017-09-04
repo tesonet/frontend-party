@@ -18,14 +18,17 @@
       padding-right: 30px;
       position: relative;
       .logout-icon {
-        padding: 0 10px 1px 0;
-        .cls-1 {
-
-        }
+        position: absolute;
+        left: 20px;
+        top: 2px;
+        transition: all ease-in-out 0.1s;
       }
       &:hover {
         cursor:pointer;
         color: red;
+        .logout-icon {
+          fill: red;
+        }
       }
     }
   }

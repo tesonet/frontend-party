@@ -39,6 +39,9 @@
   position: fixed;
   top: 120px;
   width: 100%; }
+  @media (max-width: 768px) {
+    .info {
+      top: 90px; } }
   .info div {
     text-transform: uppercase;
     transition: all ease-in-out 0.1s; }

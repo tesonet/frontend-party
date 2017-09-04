@@ -19,7 +19,7 @@ class ServersPage extends Component {
   }
 
   listServers() {
-    return this.state.servers.servers.map((server) => {
+    return this.props.servers.servers.map((server) => {
       server.id = uniqueId('ID-');
       return (
           <div className='list row' key={server.id}>
@@ -32,9 +32,9 @@ class ServersPage extends Component {
 
   sortServers(field) {
     let serverList = this.props.servers.servers;
-    this.state.servers.servers = sortBy(serverList, field);
+    this.props.servers.servers = sortBy(serverList, field);
     console.log(this.state);
-    this.setState(this.state);
+    this.setState(this.props);
   }
 
   render() {
