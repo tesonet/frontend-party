@@ -18,7 +18,6 @@ class PageNotFound extends Component {
 
   render() {
     if (this.state.redirect) {
-      console.log('yis')
       return <Redirect to='/'/>
     }
     return (

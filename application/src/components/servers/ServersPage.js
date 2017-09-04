@@ -16,6 +16,7 @@ class ServersPage extends Component {
   if (this.props.login.userAuthenticated && this.props.login.token) {
       this.props.fetchServers();
     }
+    console.log(JSON.parse(localStorage.getItem('reduxPersist:LoginReducer')).token);
   }
 
   listServers() {
@@ -33,7 +34,6 @@ class ServersPage extends Component {
   sortServers(field) {
     let serverList = this.props.servers.servers;
     this.props.servers.servers = sortBy(serverList, field);
-    console.log(this.state);
     this.setState(this.props);
   }
 

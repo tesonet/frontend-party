@@ -12,7 +12,6 @@ export default (state=initialState, action) => {
     }
     case "FETCH_SERVERS_PENDING": {
       state = {...state, pending: true};
-      console.log('pending should be true');
       break;
     }
     case "FETCH_SERVERS_FULFILLED": {

@@ -24,7 +24,7 @@ export function fetchServers() {
     payload: axios.get(`${API_URL}/servers`,
     {
         headers: {
-          Authorization: localStorage.getItem('token')
+          Authorization: JSON.parse(localStorage.getItem('reduxPersist:LoginReducer')).token
         }
     })
   }
