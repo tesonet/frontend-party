@@ -16,5 +16,6 @@ export default {
   servers: {
     name: 'SERVER',
     distance: 'DISTANCE',
+    noData: 'No servers found',
   },
 };

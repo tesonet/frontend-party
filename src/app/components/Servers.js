@@ -1,9 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
 
 import api from '~/api';
 import i18n from '~/i18n';
+import resources from '~/resources';
+
+import {Loading} from './';
+
+
+const RESOURCE_NAME = 'servers';
 
 
 const Container = styled.div`
@@ -26,39 +33,59 @@ const Server = styled.div`
   border-bottom: 1px solid ${props => props.theme.color.tableBorder};
 `;
 
+const NoData = styled.div`
+  padding: 30px;
+`;
 
-class Servers extends React.Component {
-  state = {servers: []}
 
-  componentDidMount() {
-    api.getServers().then(data => this.setState({servers: _.sortBy(data, ['distance', 'name'])}));
-  }
+const Servers = ({isLoading, hasLoaded, data}) => (
+  <Container>
+    <Header className='clearfix'>
+      <span>
+        {i18n.t('servers.name')}
+      </span>
+      <span className='pull-right'>
+        {i18n.t('servers.distance')}
+      </span>
+    </Header>
+    {isLoading &&
+      <Loading />
+    }
+    {hasLoaded && (data == null || data.length === 0) &&
+      <NoData>
+        {i18n.t('servers.noData')}
+      </NoData>
+    }
+    {_.sortBy(data, ['distance', 'name']).map(server => (
+      <Server key={server.name + server.distance} className='clearfix'>
+        <span>
+          {server.name}
+        </span>
+        <span className='pull-right'>
+          {server.distance}
+        </span>
+      </Server>
+    ))}
+  </Container>
+);
 
-  render() {
-    const {servers} = this.state;
-    return (
-      <Container>
-        <Header className='clearfix'>
-          <span>
-            {i18n.t('servers.name')}
-          </span>
-          <span className='pull-right'>
-            {i18n.t('servers.distance')}
-          </span>
-        </Header>
-        {servers.map(server => (
-          <Server key={server.name + server.distance} className='clearfix'>
-            <span>
-              {server.name}
-            </span>
-            <span className='pull-right'>
-              {server.distance}
-            </span>
-          </Server>
-        ))}
-      </Container>
-    );
-  }
-}
+Servers.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  hasLoaded: PropTypes.bool.isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    distance: PropTypes.number.isRequired,
+  })),
+};
 
-export default Servers;
+Servers.defaultProps = {
+  data: null,
+};
+
+
+const enhance = resources.hoc.withDataLoader({
+  name: RESOURCE_NAME,
+  loader: api.getServers,
+});
+
+export default enhance(Servers);
