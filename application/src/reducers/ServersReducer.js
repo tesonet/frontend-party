@@ -1,7 +1,8 @@
 const initialState = {
   pending: false,
   errorMessage: false,
-  servers: []
+  servers: [],
+  sorting: 'default'
 }
 
 export default (state=initialState, action) => {
@@ -21,6 +22,10 @@ export default (state=initialState, action) => {
     }
     case "FETCH_SERVERS_REJECTED": {
       state = {...state, pending: false, errorMessage: "Something went wrong while fetching the servers list, please try again later"};
+      break;
+    }
+    case "SORT_LIST": {
+      state = {...state, sorting: action.sorting};
       break;
     }
     case "LOGOUT": {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_REQUEST, FETCH_SERVERS, LOGOUT } from './Actions';
+import { LOGIN_REQUEST, FETCH_SERVERS, LOGOUT, SORT_LIST } from './Actions';
 
 const API_URL = 'http://playground.tesonet.lt/v1';
 
@@ -27,6 +27,12 @@ export function fetchServers() {
           Authorization: localStorage.getItem('token')
         }
     })
+  }
+}
+
+export function sortList() {
+  return {
+    type: SORT_LIST
   }
 }
 

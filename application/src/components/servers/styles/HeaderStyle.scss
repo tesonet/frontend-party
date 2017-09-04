@@ -6,6 +6,9 @@
   .top {
     padding: 45px 0px 45px 0px;
     margin: 0;
+    @media(max-width: 768px) {
+      padding: 30px 0px 30px 0px;
+    }
     .log-out {
       float: right;
       width: 120px;
@@ -23,30 +26,7 @@
       &:hover {
         cursor:pointer;
         color: red;
-        .logout-icon {
-          .cls-1 {
-            fill: red;
-          }
-        }
       }
     }
-  }
-  .info {
-      padding: 20px 0px 20px 0px;
-      border-top: 1px solid #e6e6e6;
-      border-bottom: 1px solid #e6e6e6;
-      background-color: #f5f5f5;
-      color: #999;
-      font-size: 14px;
-      margin: 0;
-      div {
-      text-transform: uppercase;
-      transition: all ease-in-out 0.1s;
-      }
-  }
-
-  .info div:hover {
-      cursor: pointer;
-      color: #666;
   }
 }
