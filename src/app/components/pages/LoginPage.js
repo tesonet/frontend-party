@@ -27,6 +27,7 @@ const Container = styled.div`
   > form {
     width: 100%;
     max-width: 400px;
+    padding-bottom: 10vh;
   }
 `;
 
