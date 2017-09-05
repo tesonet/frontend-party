@@ -24,6 +24,8 @@
 
 $btn: #99cc33;
 $btn-focus: #86b300;
+$input: #ccc;
+$active-input: #999;
 
 .form{
   text-align: center;
@@ -53,7 +55,10 @@ $btn-focus: #86b300;
         @include Transform(translate(-50%,-50%));
         top: 50%;
         left: 30px;
-        fill: #b2b2b2;
+        fill: $input;
+        &:focus {
+          fill: $active-input;
+        }
       }
     }
     .form-control {
@@ -61,6 +66,7 @@ $btn-focus: #86b300;
       margin: 0 auto;
       font-size: 16px;
       padding-left: 50px;
+      color: $active-input;
     }
   }
 }

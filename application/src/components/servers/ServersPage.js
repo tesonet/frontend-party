@@ -12,11 +12,10 @@ class ServersPage extends Component {
     this.state = this.props;
   }
 
-  componentWillMount() {
+  componentDidMount() {
   if (this.props.login.userAuthenticated && this.props.login.token) {
-      this.props.fetchServers();
+      this.props.fetchServers(this.props.login.token);
     }
-    console.log(JSON.parse(localStorage.getItem('reduxPersist:LoginReducer')).token);
   }
 
   listServers() {
@@ -64,8 +63,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchServers: () => {
-      dispatch(fetchServers());
+    fetchServers: (token) => {
+      dispatch(fetchServers(token));
     }
   }
 }

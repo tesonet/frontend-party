@@ -4,7 +4,6 @@ import { LOGIN_REQUEST, FETCH_SERVERS, LOGOUT, SORT_LIST } from './Actions';
 const API_URL = 'http://playground.tesonet.lt/v1';
 
 export function Login(values) {
-console.log(values);
   return {
     type: LOGIN_REQUEST,
     payload: axios.post(`${API_URL}/tokens`,
@@ -18,13 +17,13 @@ console.log(values);
   }
 }
 
-export function fetchServers() {
+export function fetchServers(token) {
   return {
     type: FETCH_SERVERS,
     payload: axios.get(`${API_URL}/servers`,
     {
         headers: {
-          Authorization: JSON.parse(localStorage.getItem('reduxPersist:LoginReducer')).token
+          Authorization: token
         }
     })
   }

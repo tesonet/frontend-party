@@ -86,8 +86,7 @@ class Form extends Component {
     }
 
   Form = reduxForm({
-    form: 'login',
-    destroyOnUnmount: false
+    form: 'login'
   })(Form)
 
   const mapStateToProps = (state) => {

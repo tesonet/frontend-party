@@ -24,6 +24,6 @@
         transition: all ease-in-out 0.1s; }
       .header .top .log-out:hover {
         cursor: pointer;
-        color: red; }
+        color: #99cc33; }
         .header .top .log-out:hover .logout-icon {
-          fill: red; }
+          fill: #99cc33; }
