@@ -27,7 +27,7 @@ Loading.propTypes = {
 };
 
 Loading.defaultProps = {
-  className: 'pv2',
+  className: null,
 };
 
 export default Loading;

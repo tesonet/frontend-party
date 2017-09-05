@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
+import {Scrollbars} from 'react-custom-scrollbars';
 
 import api from '~/api';
 import i18n from '~/i18n';
@@ -28,13 +29,27 @@ const Header = styled.div`
   letter-spacing: 1px;
 `;
 
+const NoData = styled.div`
+  padding: 30px;
+`;
+
+const ServersWrapper = styled.div`
+  height: 100%;
+  position: relative;
+
+  > * {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+  }
+`;
+
 const Server = styled.div`
   padding: 18px 15px;
   border-bottom: 1px solid ${props => props.theme.color.tableBorder};
-`;
-
-const NoData = styled.div`
-  padding: 30px;
 `;
 
 
@@ -56,16 +71,22 @@ const Servers = ({isLoading, hasLoaded, data}) => (
         {i18n.t('servers.noData')}
       </NoData>
     }
-    {_.sortBy(data, ['distance', 'name']).map(server => (
-      <Server key={server.name + server.distance} className='clearfix'>
-        <span>
-          {server.name}
-        </span>
-        <span className='pull-right'>
-          {server.distance}
-        </span>
-      </Server>
-    ))}
+    {!(data == null || data.length === 0) &&
+      <ServersWrapper>
+        <Scrollbars>
+          {_.sortBy(data, ['distance', 'name']).map(server => (
+            <Server key={server.name + server.distance} className='clearfix'>
+              <span>
+                {server.name}
+              </span>
+              <span className='pull-right'>
+                {server.distance}
+              </span>
+            </Server>
+          ))}
+        </Scrollbars>
+      </ServersWrapper>
+    }
   </Container>
 );
 
