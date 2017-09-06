@@ -34,21 +34,26 @@ class ServersPage extends Component {
     let serverList = this.props.servers.servers;
     this.props.servers.servers = sortBy(serverList, field);
     this.setState(this.props);
+    console.log(this.props);
   }
 
   render() {
     return(
       <div>
+
           <Header />
+
           <div className='info row'>
               <div className='col-xs-6' onClick={() => {this.sortServers('name')}}>Server</div>
               <div className='right col-xs-6' onClick={() => {this.sortServers('distance')}}>Distance</div>
           </div>
-            <div className='servers container-fluid'>
-              <Scrollbars autoHide={true}>
-                {this.listServers()}
-              </Scrollbars>
-            </div>
+
+          <div className='servers container-fluid'>
+            <Scrollbars autoHide={true}>
+              {this.listServers()}
+            </Scrollbars>
+          </div>
+
       </div>
     )
   }

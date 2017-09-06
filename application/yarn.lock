@@ -329,6 +329,12 @@ axios:
     follow-redirects "^1.2.3"
     is-buffer "^1.1.5"
 
+axios-mock-adapter:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/axios-mock-adapter/-/axios-mock-adapter-1.9.0.tgz#0e387666fceaf3f91262109a3956f588bc6af2d1"
+  dependencies:
+    deep-equal "^1.0.1"
+
 axobject-query@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-0.1.0.tgz#62f59dbc59c9f9242759ca349960e7a2fe3c36c0"

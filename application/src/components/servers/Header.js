@@ -21,7 +21,7 @@ class Header extends Component {
           <div className='top row'>
             <div className='col-xs-6'><img src={logoDark} alt={'Testio logo'} /></div>
             <div className='col-xs-6 right log-out'>
-              <div className='' onClick={() => {this.props.logout()}}>
+              <div className='log-out-btn' onClick={() => {this.props.logout()}}>
             <LogoutIcon />
             <span>Logout</span></div></div>
           </div>
