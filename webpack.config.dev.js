@@ -1,12 +1,13 @@
-const path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const baseConfig = require('./webpack.config.base');
 
 
 const src = './src';
 
 
-module.exports = {
+module.exports = merge.smart(baseConfig, {
   entry: `${src}/index.js`,
   devtool: 'source-map',
   devServer: {
@@ -21,29 +22,15 @@ module.exports = {
       },
     },
   },
-  output: {
-    path: path.resolve('build'),
-    filename: 'index_bundle.js',
-  },
-  module: {
-    loaders: [
-      {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-      {test: /\.css$/, loader: 'style-loader!css-loader'},
-      {test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/, loader: 'url-loader?limit=100000'},
-    ],
-  },
-  resolve: {
-    alias: {'~': path.resolve(`${__dirname}/src`)},
-  },
   plugins: [
+    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.PUBLIC_URL': JSON.stringify('public'),
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new HtmlWebpackPlugin({
       template: `${src}/index.html`,
       filename: 'index.html',
       inject: 'body',
     }),
   ],
-};
+});

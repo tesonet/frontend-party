@@ -1,36 +1,25 @@
-const path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const baseConfig = require('./webpack.config.base');
 
 
 const src = './src';
 
 
-module.exports = {
+module.exports = merge.smart(baseConfig, {
   entry: `${src}/index.js`,
-  output: {
-    path: path.resolve('build'),
-    filename: 'index_bundle.js',
-  },
-  module: {
-    loaders: [
-      {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-      {test: /\.css$/, loader: 'style-loader!css-loader'},
-      {test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/, loader: 'url-loader?limit=100000'},
-    ],
-  },
-  resolve: {
-    alias: {'~': path.resolve(`${__dirname}/src`)},
-  },
+  devtool: 'cheap-module-source-map',
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new CopyWebpackPlugin([{
       from: 'public',
     }]),
     new webpack.DefinePlugin({
       'process.env.PUBLIC_URL': JSON.stringify(''),
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new HtmlWebpackPlugin({
       template: `${src}/index.html`,
       filename: 'index.html',
@@ -59,5 +48,16 @@ module.exports = {
         comments: false,
       },
     }),
+    new webpack.HashedModuleIdsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
   ],
-};
+});

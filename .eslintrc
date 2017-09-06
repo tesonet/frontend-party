@@ -12,7 +12,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "webpack.config.dev.js"
+        "config": "webpack.config.eslint.js"
       }
     }
   },

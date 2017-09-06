@@ -52,10 +52,6 @@ LoginForm.propTypes = {
 const enhance = compose(
   reduxForm({
     form: 'LoginForm',
-    initialValues: {
-      username: 'tesonet',
-      password: 'partyanimal',
-    },
   }),
   connect(
     null,
