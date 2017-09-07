@@ -59,7 +59,7 @@ const enhance = compose(
       onSubmit: handleSubmit(async (values) => {
         try {
           const res = await api.logIn(values);
-          dispatch(auth.actions.logIn({token: res.token}));
+          dispatch(auth.actions.logIn(res.token));
         } catch (err) {
           if (err && err.message === 'Unauthorized') {
             throw new SubmissionError({errors: {error: i18n.t('login.unauthorized')}});

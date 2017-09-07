@@ -1,4 +1,9 @@
+import {moduleStateGetter} from '~/common/redux';
+
 import {NAME} from './constants';
 
 
-export const isAuthenticated = state => state[NAME].isAuthenticated;
+const moduleState = moduleStateGetter(NAME);
+
+
+export const isAuthenticated = state => moduleState(state).isAuthenticated;

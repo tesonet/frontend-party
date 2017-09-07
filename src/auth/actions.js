@@ -10,6 +10,19 @@ const loggedOut = () => event(t.LOGGED_OUT);
 const setAuthenticated = isAuthenticated => event(t.AUTHENTICATION_SET, isAuthenticated);
 
 
+export const logIn = (token) => {
+  if (token == null) throw new Error('No token provided');
+  setSession(token);
+  return loggedIn();
+};
+
+
+export const logout = () => {
+  removeSession();
+  return loggedOut();
+};
+
+
 // async
 export const syncAuth = () => async (dispatch, getState) => {
   const state = getState();
@@ -20,16 +33,4 @@ export const syncAuth = () => async (dispatch, getState) => {
     await dispatch(setAuthenticated(actuallyAuthenticated));
     if (!actuallyAuthenticated) removeSession();
   }
-};
-
-
-export const logIn = ({token}) => async (dispatch) => {
-  setSession(token);
-  await dispatch(loggedIn());
-};
-
-
-export const logout = () => async (dispatch) => {
-  await dispatch(loggedOut());
-  removeSession();
 };

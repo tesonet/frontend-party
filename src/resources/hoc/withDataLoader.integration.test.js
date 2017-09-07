@@ -23,6 +23,7 @@ describe('withDataLoader', () => {
       </Container>,
     );
 
+    expect(loaderMock.mock.calls.length).toBe(0);
     setImmediate(() => {
       expect(loaderMock.mock.calls.length).toBe(1);
       done();
@@ -41,6 +42,7 @@ describe('withDataLoader', () => {
       </Container>,
     );
 
+    expect(s.data(store.getState(), RESOURCE_NAME)).toEqual(null);
     setImmediate(() => {
       expect(s.data(store.getState(), RESOURCE_NAME)).toEqual(data);
       done();
