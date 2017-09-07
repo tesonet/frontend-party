@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_REQUEST, FETCH_SERVERS, LOGOUT, SORT_LIST } from './Actions';
+import { LOGIN_REQUEST, FETCH_SERVERS, LOGOUT } from './Actions';
 
 const API_URL = 'http://playground.tesonet.lt/v1';
 

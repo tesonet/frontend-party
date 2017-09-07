@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Routes from './Routes';
+import Routes from './routes';
 import { persistStore } from 'redux-persist';
 import store from './Store';
 import LoadingPage from './components/LoadingPage';

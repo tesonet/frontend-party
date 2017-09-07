@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes work as expected renders login page if user is not authenticated 1`] = `
+<div
+  class="loginPage"
+>
+  <div
+    class="container"
+  >
+    <img
+      alt="Testio logo"
+      class="logo"
+      src="logo-white.png"
+    />
+    <div
+      class="form"
+    >
+      <form>
+        <div
+          class="form-group"
+        >
+          <div
+            class="input"
+          >
+            <svg
+              class="username-icon"
+              height="16"
+              viewbox="0 0 14 16"
+              width="14"
+            >
+              <path
+                d="M582,383a4,4,0,0,0-4,4v1a4,4,0,0,0,8,0v-1A4,4,0,0,0,582,383Zm4.036,9.426a5.961,5.961,0,0,1-8.072,0A3.859,3.859,0,0,0,575,396v3h14v-3A3.859,3.859,0,0,0,586.036,392.426Z"
+                id="ico-username"
+                transform="translate(-575 -383)"
+              />
+            </svg>
+            <input
+              class="form-control"
+              name="username"
+              placeholder="Username"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="form-group"
+        >
+          <div
+            class="input"
+          >
+            <svg
+              class="password-icon"
+              height="18"
+              viewbox="0 0 14 18"
+              width="14"
+            >
+              <path
+                d="M582,458a4.012,4.012,0,0,0-4,4v3h-2a0.945,0.945,0,0,0-1,1v9a0.945,0.945,0,0,0,1,1h12a0.945,0.945,0,0,0,1-1v-9a0.945,0.945,0,0,0-1-1h-2v-3A4.012,4.012,0,0,0,582,458Zm2,7h-4v-3a2,2,0,0,1,4,0v3Zm-2,3a1,1,0,0,1,1,1v3a1,1,0,0,1-2,0v-3A1,1,0,0,1,582,468Z"
+                id="ico-lock"
+                transform="translate(-575 -458)"
+              />
+            </svg>
+            <input
+              class="form-control"
+              name="password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+        </div>
+        <button
+          class="btn"
+          type="submit"
+        >
+          Log In
+        </button>
+      </form>
+      <span />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Routes work as expected renders servers page if user is authenticated 1`] = `
+<div
+  class="serversPage"
+>
+  <div
+    class="header"
+  >
+    <div
+      class="top row"
+    >
+      <div
+        class="col-xs-6"
+      >
+        <img
+          alt="Testio logo"
+          src="logo-dark.png"
+        />
+      </div>
+      <div
+        class="col-xs-6 right log-out"
+      >
+        <div
+          class="log-out-btn"
+        >
+          <svg
+            class="logout-icon"
+            height="16"
+            viewbox="0 0 16 16"
+            width="16"
+          >
+            <path
+              d="M3027,54l-4,4,4,4V59h6V57h-6V54Zm11,12h-9a0.945,0.945,0,0,1-1-1V62h2v2h7V52h-7v2h-2V51a0.945,0.945,0,0,1,1-1h9a0.945,0.945,0,0,1,1,1V65A0.945,0.945,0,0,1,3038,66Z"
+              id="ico-logout"
+              transform="translate(-3023 -50)"
+            />
+          </svg>
+          <span>
+            Logout
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="info row"
+  >
+    <div
+      class="col-xs-6"
+    >
+      Server
+    </div>
+    <div
+      class="right col-xs-6"
+    >
+      Distance
+    </div>
+  </div>
+  <div
+    class="servers container-fluid"
+  >
+    <div
+      style="position:relative;overflow:hidden;width:100%;height:100%;"
+    >
+      <div
+        style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:scroll;-webkit-overflow-scrolling:touch;margin-right:0;margin-bottom:0;"
+      />
+      <div
+        style="position:absolute;height:6px;transition:opacity 200ms;opacity:0;display:none;right:2px;bottom:2px;left:2px;border-radius:3px;"
+      >
+        <div
+          style="position:relative;display:block;height:100%;cursor:pointer;border-radius:inherit;background-color:rgba(0,0,0,.2);"
+        />
+      </div>
+      <div
+        style="position:absolute;width:6px;transition:opacity 200ms;opacity:0;display:none;right:2px;bottom:2px;top:2px;border-radius:3px;"
+      >
+        <div
+          style="position:relative;display:block;width:100%;cursor:pointer;border-radius:inherit;background-color:rgba(0,0,0,.2);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

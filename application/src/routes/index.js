@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import LoginPage from './components/login/LoginPage';
-import Servers from './components/servers/ServersPage';
-import PageNotFound from './components/PageNotFound';
+import LoginPage from '../components/login/LoginPage';
+import Servers from '../components/servers/ServersPage';
+import PageNotFound from '../components/PageNotFound';
 
 
 class Routes extends Component {

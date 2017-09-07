@@ -39,7 +39,7 @@ class ServersPage extends Component {
 
   render() {
     return(
-      <div>
+      <div className='serversPage'>
 
           <Header />
 
@@ -50,7 +50,7 @@ class ServersPage extends Component {
 
           <div className='servers container-fluid'>
             <Scrollbars autoHide={true}>
-              {this.listServers()}
+            {this.props.servers.errorMessage ? this.props.servers.errorMessage : this.listServers()}
             </Scrollbars>
           </div>
 

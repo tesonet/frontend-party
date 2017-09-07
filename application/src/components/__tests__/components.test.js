@@ -7,7 +7,6 @@ import PageNotFound from '../PageNotFound';
 import LoadingPage from '../LoadingPage';
 import Header from '../servers/Header';
 import ServersPage from '../servers/ServersPage';
-import configureStore from 'redux-mock-store';
 import store from '../../Store';
 
 test('Login page should render as expected',() => {
