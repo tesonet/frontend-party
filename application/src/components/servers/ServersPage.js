@@ -34,7 +34,6 @@ class ServersPage extends Component {
     let serverList = this.props.servers.servers;
     this.props.servers.servers = sortBy(serverList, field);
     this.setState(this.props);
-    console.log(this.props);
   }
 
   render() {
