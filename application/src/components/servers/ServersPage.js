@@ -44,8 +44,8 @@ class ServersPage extends Component {
           <Header />
 
           <div className='info row'>
-              <div className='col-xs-6' onClick={() => {this.sortServers('name')}}>Server</div>
-              <div className='right col-xs-6' onClick={() => {this.sortServers('distance')}}>Distance</div>
+              <div className='col-xs-6'><span onClick={() => {this.sortServers('name')}}>Server</span></div>
+              <div className='right col-xs-6'><span onClick={() => {this.sortServers('distance')}}>Distance</span></div>
           </div>
 
           <div className='servers container-fluid'>
