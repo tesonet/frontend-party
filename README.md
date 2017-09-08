@@ -13,28 +13,28 @@ If you found this task it means we are looking for you!
 ## Few simple requirements
 ### Design
 * Design should be recreated as closely as possible.
-* Design must be responsive. 
-* Use `container` for the login page
-* Use `container-fluid` for the server list page
+* Design must be responsive.
 * Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred).
+* Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
 
 ### App
-* Use a component-based framework - AngularJS / ReactJS / Vue.js
-* This app needs to be single page. Use a javascript router to achieve this
+* Use ReactJS
+* This must be a single page application. Use React Router for frontend routing
 * Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
 
-    ```
-    {"username": "tesonet", "password": "partyanimal"}
-    ```
+```
+{"username": "tesonet", "password": "partyanimal"}
+```
 
 * Save the newly-created token to the local storage
 * Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
 * Implement logout
 
 ### Miscellaneous
-* Browser support must be great. All modern browsers plus IE9 and above.
-* Use a Javascript task-runner (gulp preferred).
+* Your app must work on all modern browsers and IE11+
+* Use JS bundler (Webpack preferred)
+* Use npm scripts or gulp for running tasks
+* Use a unit testing library (Jest preferred)
 * Do not commit the build
 
 ## Few tips
