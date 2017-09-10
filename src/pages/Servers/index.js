@@ -10,7 +10,7 @@ import "./index.scss";
 class ServersComponent extends Component {
 
   renderListItems () {
-    return Array.from(Array(30))
+    return Array.from(Array(5))
       .map(() => {
         return {
           name: "Canada #10",
