@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import './index.css';
+import './index.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { Login } from './pages/Login';
 import { store } from './store';
-import registerServiceWorker from './registerServiceWorker';
 
 
 ReactDOM.render(
@@ -16,4 +15,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-registerServiceWorker();

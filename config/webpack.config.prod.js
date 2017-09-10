@@ -207,7 +207,7 @@ module.exports = {
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
           {
-            test: /bootstrap\.css$/,
+            test: /\.scss$/,
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
@@ -241,6 +241,7 @@ module.exports = {
                         ],
                       },
                     },
+                    "sass-loader"
                   ],
                 },
                 extractTextPluginOptions

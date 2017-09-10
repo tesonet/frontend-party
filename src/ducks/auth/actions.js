@@ -1,4 +1,3 @@
-import {actio} from 'react-redux'
 export const names = {
   TEST_ACTION: "TEST_ACTION"
 }

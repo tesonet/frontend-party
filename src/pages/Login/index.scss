@@ -1,0 +1,41 @@
+@import '../../variables.scss';
+
+.login {
+  height: 100%;
+  width: 100%;
+  background-image: url('/fancy-surfer-bg.jpg');
+  background-size: cover;
+
+  > div > div + div {
+    margin-top: 25px;
+  }
+
+  &__logo {
+    margin-top: 290px;
+    margin-bottom: 65px;
+    
+    height: 85px;
+  }
+
+  &__field {
+    padding: 0px 40px;
+  }
+
+  &__logo-wrapper {
+    height: 100%;
+    text-align: center;
+  }
+
+  &__button {
+    font-weight: bold;
+    background-color: $green-light;
+    height: 70px;
+    width: 100%;
+    font-size: $font-size;
+
+    &:hover {
+      background-color: $green;
+    }
+  }
+
+}

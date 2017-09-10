@@ -1,0 +1,51 @@
+@import "../../variables.scss";
+
+.text-input {
+  // remove yellow prefill color
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px $white inset;
+  }
+
+  &__addon {
+    font-size: $font-size;
+    padding: 20px;
+    border: none;
+    color: $font-light;
+    background-color: $white;
+  }
+
+  &--active {
+    color: $font-normal;
+  }
+  
+  &__field {
+    height: 70px;
+    border: none;
+    padding-left: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: $font-normal;
+    font-size: $font-size;
+    
+    &:focus {
+      color: $font-normal;
+    }
+
+    &::-webkit-input-placeholder { /* Chrome */
+      color: $font-light;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $font-light;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $font-light;
+      opacity: 1;
+    }
+    &:-moz-placeholder { /* Firefox 4 - 18 */
+      color: $font-light;
+      opacity: 1;
+    }
+  }
+
+}
+
