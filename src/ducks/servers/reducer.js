@@ -1,16 +1,16 @@
 import { names } from './actions';
 
 const defaultState = {
-  token: null,
+  list: [],
 };
 
 export const reducer = (state = defaultState, action = {}) => {
   switch (action.type) {
-    case names.REGISTER_TOKEN:
-      const token = action.payload;
+    case names.LOAD_SERVERS_DONE:
+      const serverList = action.payload;
       return {
         ...state,
-        token,
+        list: serverList,
       };
 
     default: return state;

@@ -4,25 +4,29 @@ import { bindActionCreators } from "redux";
 import { Col, Row } from "reactstrap";
 
 import { actions as authActions } from "../../ducks/auth/actions";
+import { actions as serversActions } from "../../ducks/servers/actions";
+import { getSortedServers } from "../../ducks/servers/selectors";
 import { Icon } from '../../components/Icon'
 import "./index.scss";
 
 class ServersComponent extends Component {
 
+  componentDidMount() {
+    this.props.serversActions.loadServers();
+  }
+
+  logout = () => {
+    this.props.authActions.logout();
+  }
+
   renderListItems () {
-    return Array.from(Array(5))
-      .map(() => {
-        return {
-          name: "Canada #10",
-          distance: "4073 km",
-        }
-      })
+    return this.props.servers
       .map(({name, distance}, i) => {
         return (
           <Row key={i} className="servers__list-item">
             <Col xs={12}>
               <span>{name}</span>
-              <span>{distance}</span>
+              <span>{distance} km</span>
             </Col>
           </Row>
         );
@@ -38,7 +42,8 @@ class ServersComponent extends Component {
               className="servers__logo"
               src="/testio-logo-dark.png"
               alt="logo" />
-            <span className="servers__logout">
+            <span className="servers__logout"
+              onClick={this.logout}>
               <Icon name="sign-out"/>
               Logout
             </span>
@@ -58,9 +63,10 @@ class ServersComponent extends Component {
 
 export const Servers = connect(
   state => ({
-    count: state.auth.count
+    servers: getSortedServers(state)
   }),
   dispatch => ({
-    authActions: bindActionCreators(authActions, dispatch)
+    authActions: bindActionCreators(authActions, dispatch),
+    serversActions: bindActionCreators(serversActions, dispatch),
   })
 )(ServersComponent);

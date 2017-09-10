@@ -1,3 +1,1 @@
-export const OptionalRender = ({shouldRender, children}) => {
-  return shouldRender ? children : null;
-}
+export const OptionalRender = ({ shouldRender, children }) => (shouldRender ? children : null);

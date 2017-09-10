@@ -4,12 +4,37 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { actions as authActions } from "../../ducks/auth/actions";
+import { isUserLoggedIn } from "../../ducks/auth/selectors";
 import { TextInput } from "../../components/TextInput";
 import "./index.scss";
 
 class LoginComponent extends Component {
+  state = {
+    username: "tesonet",
+    password: "partyanimal",
+  }
+
+  componentDidMount() {
+    const { history, isUserLoggedIn } = this.props;
+    if(isUserLoggedIn) {
+      history.push('/servers')
+    }
+  }
+
+  onChange = field => e => {
+    this.setState({
+      [field]: e.target.value
+    })
+  }
+
+  login = () => {
+    const { login } = this.props.authActions;
+    const { username, password } = this.state;
+    login({ username, password })
+  }
+
   render() {
-    const { testAction } = this.props.authActions;
+    const { password, username } = this.state;
 
     const reponsiveSizing = {
       xs: 12,
@@ -35,9 +60,10 @@ class LoginComponent extends Component {
             <Col {...reponsiveSizing}>
               <div className="login__field">
                 <TextInput
+                  onChange={this.onChange('username')}
+                  value={username}
                   placeholder="Username"
-                  icon="user"
-                  onKeyDown={testAction} />
+                  icon="user" />
               </div>
             </Col>
           </Row>
@@ -45,17 +71,20 @@ class LoginComponent extends Component {
             <Col {...reponsiveSizing}>
               <div className="login__field">
                 <TextInput
+                  onChange={this.onChange('password')}
+                  value={password}
                   placeholder="Password"
                   type="password"
-                  icon="lock"
-                  onKeyDown={testAction} />
+                  icon="lock" />
               </div>
             </Col>
           </Row>
           <Row>
             <Col {...reponsiveSizing}>
               <div className="login__field">
-                <Button className="login__button" color="primary">
+                <Button className="login__button" 
+                  onClick={this.login}
+                  color="primary">
                   Log In
                 </Button>
               </div>
@@ -69,7 +98,7 @@ class LoginComponent extends Component {
 
 export const Login = connect(
   state => ({
-    count: state.auth.count
+    isUserLoggedIn: isUserLoggedIn(state)
   }),
   dispatch => ({
     authActions: bindActionCreators(authActions, dispatch)

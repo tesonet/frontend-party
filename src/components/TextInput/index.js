@@ -1,29 +1,25 @@
 import * as React from 'react';
 import { Input, InputGroupAddon, InputGroup } from 'reactstrap';
+
 import './index.scss';
-import classnames from 'classnames';
-import {OptionalRender} from '../OptionalRender'
+import { OptionalRender } from '../OptionalRender';
+import { Icon } from '../Icon';
 
 export class TextInput extends React.Component {
-
   render() {
-    const {icon, ...inputProps} = this.props;
+    const { icon, ...inputProps } = this.props;
 
-    const addonClass = classnames({
-      "text-input__addon": true,
-      "text-input--active": false
-    })
-    
     return (
       <InputGroup className="text-input">
         <OptionalRender shouldRender={!!icon}>
-          <InputGroupAddon className={addonClass}>
-            <i className={`fa fa-${icon}`}></i>
+          <InputGroupAddon className="text-input__addon">
+            <Icon name={icon} />
           </InputGroupAddon>
         </OptionalRender>
-        <Input 
+        <Input
           {...inputProps}
-          className="text-input__field" />
+          className="text-input__field"
+        />
       </InputGroup>
     );
   }

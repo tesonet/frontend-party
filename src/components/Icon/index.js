@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-export const Icon = ({name}) => {
-  return (
-    <i className={`fa fa-${name}`}></i>
-  );
-}
+export const Icon = ({ name }) => (
+  <i className={`fa fa-${name}`} />
+);

@@ -19,6 +19,10 @@
     height: 30px;
   }
   
+  &__logout {
+    cursor: pointer;
+  }
+  
   &__list-header {
     padding: 25px 20px;
     line-height: $font-size;
