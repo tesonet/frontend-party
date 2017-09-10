@@ -5,13 +5,14 @@ import { Provider } from 'react-redux';
 import './index.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Login } from './pages/Login';
+import { Servers } from './pages/Servers';
+// import { Login } from './pages/Login';
 import { store } from './store';
 
 
 ReactDOM.render(
   <Provider store={store}>
-    <Login />
+    <Servers />
   </Provider>,
   document.getElementById('root')
 );

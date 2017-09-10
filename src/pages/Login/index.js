@@ -11,43 +11,49 @@ class LoginComponent extends Component {
   render() {
     const { testAction } = this.props.authActions;
 
+    const reponsiveSizing = {
+      xs: 12,
+      sm:{ size: 10, offset: 1 },
+      md:{ size: 8, offset: 2 },
+      lg:{ size: 6, offset: 3 },
+      xl:{ size: 6, offset: 3 },
+    }
+
     return (
       <div className="login">
         <Container>
           <Row>
-            <Col className="login__logo-wrapper" xs={{ size: 6, offset: 3 }}>
+            <Col className="login__logo-wrapper" 
+              {...reponsiveSizing}>
               <img
                 className="login__logo"
                 src="/testio-logo-light.png"
-                alt="logo"
-              />
+                alt="logo" />
             </Col>
           </Row>
           <Row>
-            <Col xs={{ size: 6, offset: 3 }}>
+            <Col {...reponsiveSizing}>
               <div className="login__field">
                 <TextInput
                   placeholder="Username"
                   icon="user"
-                  onKeyDown={testAction}
-                />
+                  onKeyDown={testAction} />
               </div>
             </Col>
           </Row>
           <Row>
-            <Col xs={{ size: 6, offset: 3 }}>
+            <Col {...reponsiveSizing}>
               <div className="login__field">
                 <TextInput
                   placeholder="Password"
                   type="password"
                   icon="lock"
-                  onKeyDown={testAction}
-                />
+                  onKeyDown={testAction} />
               </div>
             </Col>
           </Row>
           <Row>
-            <Col xs={{ size: 6, offset: 3 }}>
+            <Col {...reponsiveSizing}>
               <div className="login__field">
                 <Button className="login__button" color="primary">
                   Log In

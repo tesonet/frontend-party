@@ -10,12 +10,12 @@
     font-size: $font-size;
     padding: 20px;
     border: none;
-    color: $font-light;
+    color: $font-color-light;
     background-color: $white;
   }
 
   &--active {
-    color: $font-normal;
+    color: $font-color;
   }
   
   &__field {
@@ -24,25 +24,25 @@
     padding-left: 0px;
     padding-top: 15px;
     padding-bottom: 15px;
-    color: $font-normal;
+    color: $font-color;
     font-size: $font-size;
     
     &:focus {
-      color: $font-normal;
+      color: $font-color;
     }
 
     &::-webkit-input-placeholder { /* Chrome */
-      color: $font-light;
+      color: $font-color-light;
     }
     &:-ms-input-placeholder { /* IE 10+ */
-      color: $font-light;
+      color: $font-color-light;
     }
     &::-moz-placeholder { /* Firefox 19+ */
-      color: $font-light;
+      color: $font-color-light;
       opacity: 1;
     }
     &:-moz-placeholder { /* Firefox 4 - 18 */
-      color: $font-light;
+      color: $font-color-light;
       opacity: 1;
     }
   }

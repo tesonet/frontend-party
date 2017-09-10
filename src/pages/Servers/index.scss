@@ -1,0 +1,51 @@
+@import "../../variables.scss";
+
+.servers {
+  &__page-header {
+    padding: 40px 20px;
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    i {
+      padding-right: 5px;
+    }
+  }
+
+  &__logo {
+    height: 30px;
+  }
+  
+  &__list-header {
+    padding: 25px 20px;
+    line-height: $font-size;
+    border: 1px solid $color-gray;
+    color: $color-gray-dark;
+    border-bottom: none;
+    background-color: $color-gray-light;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__list-item {
+    padding: 25px 20px;
+    line-height: $font-size;
+    border: 1px solid $color-gray;
+
+    & + & {
+      border-top: none;
+    }
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+}
