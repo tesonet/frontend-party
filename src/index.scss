@@ -1,4 +1,6 @@
-@import "./variables.scss";
+@import '../node_modules/react-redux-toastr/src/styles/index.scss';
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import './variables.scss';
 
 html, body, #root, #root > div {
   height: 100%;

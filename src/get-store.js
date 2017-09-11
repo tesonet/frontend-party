@@ -4,10 +4,12 @@ import thunk from 'redux-thunk';
 
 import { reducer as auth } from './ducks/auth/reducer';
 import { reducer as servers } from './ducks/servers/reducer';
+import { reducer as toastr } from 'react-redux-toastr';
 
 const rootReducer = combineReducers({
   auth,
   servers,
+  toastr,
   router: routerReducer,
 });
 

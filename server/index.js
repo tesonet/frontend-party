@@ -15,15 +15,15 @@ app.all('/api*', (req, res) => {
   const trimmedUrl = url.replace('/api', '');
 
   axios({
-    url: trimmedUrl,
-    data: body,
-    baseURL,
-    method,
-    headers: {
-      Authorization: req.headers.authorization || '',
-    },
-    validateStatus: () => true, // All status codes handled as resolved promise
-  })
+      url: trimmedUrl,
+      data: body,
+      baseURL,
+      method,
+      headers: {
+        Authorization: req.headers.authorization || '',
+      },
+      validateStatus: () => true, // All status codes handled as resolved promise
+    })
     .then(({ data, status }) => {
       res.status(status).json(data);
     })
@@ -34,5 +34,4 @@ app.all('/api*', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
-})
-;
+});

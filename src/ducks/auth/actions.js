@@ -1,13 +1,12 @@
 import { createAction } from 'redux-actions';
 import { api } from '../../util/api';
 import { push } from 'react-router-redux';
+import { toastr } from 'react-redux-toastr';
 
 export const names = {
-  LOGIN_ERROR: 'auth/LOGIN_ERROR',
   REGISTER_TOKEN: 'auth/REGISTER_TOKEN',
 };
 
-const loginError = createAction(names.LOGIN_ERROR);
 const registerToken = createAction(names.REGISTER_TOKEN);
 
 const login = ({ username, password }) => dispatch => api.post('/tokens', { username, password })
@@ -17,7 +16,7 @@ const login = ({ username, password }) => dispatch => api.post('/tokens', { user
     dispatch(push('/servers'));
   })
   .catch(() => {
-    dispatch(loginError());
+    toastr.error('Nope!', 'Please try harder.')
   });
 
 const logout = () => (dispatch) => {
@@ -30,6 +29,5 @@ export const actions = {
   login,
   registerToken,
   logout,
-  loginError,
 };
 

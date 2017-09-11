@@ -4,10 +4,9 @@ import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'react-router-redux';
 import { Route } from 'react-router';
+import ReduxToastr from 'react-redux-toastr'
 
-import 'bootstrap/dist/css/bootstrap.css';
 import './index.scss';
-
 import { Servers } from './pages/Servers';
 import { Login } from './pages/Login';
 import { getStore } from './get-store';
@@ -28,6 +27,15 @@ ReactDOM.render(
         <Route exact path="/" component={Login} />
         <Route path="/servers" component={Servers} />
         <Route path="/login" component={Login} />
+        
+        <ReduxToastr
+          timeOut={4000}
+          newestOnTop={false}
+          preventDuplicates
+          position="bottom-right"
+          transitionIn="fadeIn"
+          transitionOut="fadeOut"
+          progressBar/>
       </div>
     </ConnectedRouter>
   </Provider>,
