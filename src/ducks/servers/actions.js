@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import axios from 'axios';
+import { api } from '../../util/api';
 
 export const names = {
   LOAD_SERVERS_DONE: 'servers/LOAD_SERVERS_DONE',
@@ -8,18 +8,17 @@ export const names = {
 
 const loadServersDone = createAction(names.LOAD_SERVERS_DONE);
 const loadServersError = createAction(names.LOAD_SERVERS_ERROR);
-const loadServers = () => (dispatch, getState) => {
-
-  axios.get('/api/servers')
-    .then(({ data }) => {
-      dispatch(loadServersDone(data));
-    })
-    .catch(() => {
-      dispatch(loadServersError());
-    });
-};
+const loadServers = () => (dispatch, getState) => api.get('/servers')
+  .then(({ data }) => {
+    dispatch(loadServersDone(data));
+  })
+  .catch((e) => {
+    dispatch(loadServersError());
+  });
 
 export const actions = {
   loadServers,
+  loadServersDone,
+  loadServersError,
 };
 

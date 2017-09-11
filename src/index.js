@@ -11,14 +11,15 @@ import './index.scss';
 import { Servers } from './pages/Servers';
 import { Login } from './pages/Login';
 import { getStore } from './get-store';
-import { addRequestAuthInterceptor, loadPersistedToken } from './util/bootstrap'
+import { loadPersistedToken } from './util/bootstrap';
+import { initApi } from './util/api';
 
 const history = createHistory();
 
 const store = getStore(history);
 
-loadPersistedToken(store)
-addRequestAuthInterceptor(store)
+loadPersistedToken(store);
+initApi(store);
 
 ReactDOM.render(
   <Provider store={store}>

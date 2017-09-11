@@ -8,7 +8,8 @@ import { isUserLoggedIn } from "../../ducks/auth/selectors";
 import { TextInput } from "../../components/TextInput";
 import "./index.scss";
 
-class LoginComponent extends Component {
+// non connected component exported for testing
+export class LoginComponent extends Component {
   state = {
     username: "tesonet",
     password: "partyanimal",

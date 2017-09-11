@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import axios from 'axios';
+import { api } from '../../util/api';
 import { push } from 'react-router-redux';
 
 export const names = {
@@ -10,17 +10,15 @@ export const names = {
 const loginError = createAction(names.LOGIN_ERROR);
 const registerToken = createAction(names.REGISTER_TOKEN);
 
-const login = ({ username, password }) => (dispatch) => {
-  axios.post('/api/tokens', { username, password })
-    .then(({ data: { token } }) => {
-      localStorage.setItem('token', token);
-      dispatch(registerToken(token));
-      dispatch(push('/servers'));
-    })
-    .catch(() => {
-      dispatch(loginError());
-    });
-};
+const login = ({ username, password }) => dispatch => api.post('/tokens', { username, password })
+  .then(({ data: { token } }) => {
+    localStorage.setItem('token', token);
+    dispatch(registerToken(token));
+    dispatch(push('/servers'));
+  })
+  .catch(() => {
+    dispatch(loginError());
+  });
 
 const logout = () => (dispatch) => {
   localStorage.removeItem('token');
@@ -32,5 +30,6 @@ export const actions = {
   login,
   registerToken,
   logout,
+  loginError,
 };
 

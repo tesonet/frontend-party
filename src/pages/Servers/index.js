@@ -9,7 +9,7 @@ import { getSortedServers } from "../../ducks/servers/selectors";
 import { Icon } from '../../components/Icon'
 import "./index.scss";
 
-class ServersComponent extends Component {
+export class ServersComponent extends Component {
 
   componentDidMount() {
     this.props.serversActions.loadServers();
