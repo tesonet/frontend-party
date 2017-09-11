@@ -1,5 +1,5 @@
 /**
- * Sort by distance thenby name
+ * Sort by distance then by name
  */
 export const getSortedServers = (state) => {
   const compare = (a, b) => {
