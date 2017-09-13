@@ -6,7 +6,7 @@ import { Col, Row } from "reactstrap";
 import { actions as authActions } from "../../ducks/auth/actions";
 import { actions as serversActions } from "../../ducks/servers/actions";
 import { getSortedServers } from "../../ducks/servers/selectors";
-import { Icon } from '../../components/Icon'
+import { Icon } from '../../components/Icon';
 import "./index.scss";
 
 export class ServersComponent extends Component {
@@ -44,7 +44,7 @@ export class ServersComponent extends Component {
               alt="logo" />
             <span className="servers__logout"
               onClick={this.logout}>
-              <Icon name="sign-out"/>
+              <Icon name="sign-out" flipped/>
               Logout
             </span>
           </Col>

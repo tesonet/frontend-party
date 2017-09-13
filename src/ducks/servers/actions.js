@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import {toastr} from 'react-redux-toastr'
+import { toastr } from 'react-redux-toastr';
 import { api } from '../../util/api';
 
 export const names = {

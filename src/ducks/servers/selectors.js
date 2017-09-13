@@ -16,8 +16,7 @@ export const getSortedServers = (state) => {
   return copy(state.servers.list) // copy to prevent sort from mutating state
     .sort((a, b) => {
       const distanceComparison = compare(a.distance, b.distance);
-      const nameComparison = compare(a.name, b.name);
 
-      return distanceComparison === 0 ? nameComparison : distanceComparison;
+      return distanceComparison === 0 ? compare(a.name, b.name) : distanceComparison;
     });
 };

@@ -11,8 +11,8 @@ import "./index.scss";
 // non connected component exported for testing
 export class LoginComponent extends Component {
   state = {
-    username: "tesonet",
-    password: "partyanimal",
+    username: "",
+    password: "",
   }
 
   componentDidMount() {
@@ -31,7 +31,9 @@ export class LoginComponent extends Component {
   login = () => {
     const { login } = this.props.authActions;
     const { username, password } = this.state;
-    login({ username, password })
+    if((username + password).length !== 0) {
+      login({ username, password })
+    }
   }
 
   render() {
