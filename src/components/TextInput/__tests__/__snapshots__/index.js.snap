@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<InputGroup
+  className="text-input"
+  tag="div"
+>
+  <InputGroupAddon
+    className="text-input__addon"
+    tag="div"
+  >
+    <Component />
+  </InputGroupAddon>
+  <Input
+    className="text-input__field"
+    name="bank"
+    tag="p"
+    type="text"
+  />
+</InputGroup>
+`;

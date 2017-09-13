@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login page should render 1`] = `
+<div
+  className="login"
+>
+  <Container
+    tag="div"
+  >
+    <Row
+      tag="div"
+    >
+      <Col
+        className="login__logo-wrapper"
+        lg={
+          Object {
+            "offset": 3,
+            "size": 6,
+          }
+        }
+        md={
+          Object {
+            "offset": 2,
+            "size": 8,
+          }
+        }
+        sm={
+          Object {
+            "offset": 1,
+            "size": 10,
+          }
+        }
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xl={
+          Object {
+            "offset": 3,
+            "size": 6,
+          }
+        }
+        xs={12}
+      >
+        <img
+          alt="logo"
+          className="login__logo"
+          src="/testio-logo-light.png"
+        />
+      </Col>
+    </Row>
+    <Row
+      tag="div"
+    >
+      <Col
+        lg={
+          Object {
+            "offset": 3,
+            "size": 6,
+          }
+        }
+        md={
+          Object {
+            "offset": 2,
+            "size": 8,
+          }
+        }
+        sm={
+          Object {
+            "offset": 1,
+            "size": 10,
+          }
+        }
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xl={
+          Object {
+            "offset": 3,
+            "size": 6,
+          }
+        }
+        xs={12}
+      >
+        <div
+          className="login__field"
+        >
+          <TextInput
+            icon="user"
+            onChange={[Function]}
+            placeholder="Username"
+            value="tesonet"
+          />
+        </div>
+      </Col>
+    </Row>
+    <Row
+      tag="div"
+    >
+      <Col
+        lg={
+          Object {
+            "offset": 3,
+            "size": 6,
+          }
+        }
+        md={
+          Object {
+            "offset": 2,
+            "size": 8,
+          }
+        }
+        sm={
+          Object {
+            "offset": 1,
+            "size": 10,
+          }
+        }
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xl={
+          Object {
+            "offset": 3,
+            "size": 6,
+          }
+        }
+        xs={12}
+      >
+        <div
+          className="login__field"
+        >
+          <TextInput
+            icon="lock"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value="partyanimal"
+          />
+        </div>
+      </Col>
+    </Row>
+    <Row
+      tag="div"
+    >
+      <Col
+        lg={
+          Object {
+            "offset": 3,
+            "size": 6,
+          }
+        }
+        md={
+          Object {
+            "offset": 2,
+            "size": 8,
+          }
+        }
+        sm={
+          Object {
+            "offset": 1,
+            "size": 10,
+          }
+        }
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xl={
+          Object {
+            "offset": 3,
+            "size": 6,
+          }
+        }
+        xs={12}
+      >
+        <div
+          className="login__field"
+        >
+          <Button
+            className="login__button"
+            color="primary"
+            onClick={[Function]}
+            tag="button"
+          >
+            Log In
+          </Button>
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</div>
+`;
