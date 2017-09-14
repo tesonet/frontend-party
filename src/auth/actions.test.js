@@ -1,6 +1,6 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import {event} from '~/common/redux';
+import {action} from '~/common/redux';
 
 import * as utilsMock from './utils';
 import * as selectorsMock from './selectors';
@@ -33,7 +33,7 @@ describe('logIn', () => {
   it('sets session token', () => {
     const token = 'sample_token1';
 
-    expect(actions.logIn(token)).toEqual(event(types.LOGGED_IN));
+    expect(actions.logIn(token)).toEqual(action(types.LOGGED_IN));
     expect(utilsMock.setSession.mock.calls.length).toBe(1);
     expect(utilsMock.setSession.mock.calls[0][0]).toEqual(token);
   });
@@ -48,7 +48,7 @@ describe('logOut', () => {
 
 
   it('removes session', () => {
-    expect(actions.logout()).toEqual(event(types.LOGGED_OUT));
+    expect(actions.logout()).toEqual(action(types.LOGGED_OUT));
     expect(utilsMock.removeSession.mock.calls.length).toBe(1);
   });
 });
@@ -91,7 +91,7 @@ describe('syncAuth', () => {
   it('sets authenticated to store when is authenticated in storage', () => {
     utilsMock.isActuallyAuthenticated.mockReturnValue(true);
     selectorsMock.isAuthenticated.mockReturnValue(false);
-    const expectedActions = [event(types.AUTHENTICATION_SET, true)];
+    const expectedActions = [action(types.AUTHENTICATION_SET, true)];
     return store.dispatch(actions.syncAuth()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
@@ -101,7 +101,7 @@ describe('syncAuth', () => {
   it('sets not authenticated to store when is not authenticated in storage', () => {
     utilsMock.isActuallyAuthenticated.mockReturnValue(false);
     selectorsMock.isAuthenticated.mockReturnValue(true);
-    const expectedActions = [event(types.AUTHENTICATION_SET, false)];
+    const expectedActions = [action(types.AUTHENTICATION_SET, false)];
     return store.dispatch(actions.syncAuth()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
       expect(utilsMock.removeSession.mock.calls.length).toBe(1);

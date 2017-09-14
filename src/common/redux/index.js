@@ -1,5 +1,10 @@
-export const event = (type, payload) => ({type, payload});
+import {createAction} from 'redux-actions';
 
-export const actionBuilder = prefix => actionType => `${prefix}/${actionType}`;
+
+export const action = (type, payload, meta) => createAction(type)(payload, meta);
+
+export const actionType = (prefix, type) => `${prefix}/${type}`;
+
+export const actionTypeBuilder = prefix => type => actionType(prefix, type);
 
 export const moduleStateGetter = name => state => state && state[name] != null ? state[name] : {};

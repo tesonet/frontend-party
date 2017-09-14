@@ -5,7 +5,6 @@ import {DEFAULT_RESOURCE_STATE} from './reducer';
 
 
 const moduleState = moduleStateGetter(NAME);
-
 const getValueFromType = (state, name, field) => (moduleState(state)[name] || DEFAULT_RESOURCE_STATE)[field];
 
 

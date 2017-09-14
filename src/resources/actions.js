@@ -1,12 +1,12 @@
-import {event} from '~/common/redux';
+import {action} from '~/common/redux';
 
 import * as t from './actionTypes';
 import * as s from './selectors';
 
 
-const startLoading = type => event(t.LOADING_STARTED, type);
+const startLoading = type => action(t.LOADING_STARTED, type);
 
-const finishLoading = ({type, data}) => event(t.LOADING_FINISHED, {type, data});
+const finishLoading = ({type, data}) => action(t.LOADING_FINISHED, {type, data});
 
 
 // async

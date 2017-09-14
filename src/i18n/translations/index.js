@@ -8,6 +8,7 @@ const languages = {
   en: {translation: en},
 };
 
+
 export const setup = () => {
   const options = {
     lng: DEFAULT_LANGUAGE,

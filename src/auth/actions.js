@@ -1,13 +1,13 @@
-import {event} from '~/common/redux';
+import {action} from '~/common/redux';
 
 import * as t from './actionTypes';
 import * as s from './selectors';
 import {setSession, removeSession, isActuallyAuthenticated} from './utils';
 
 
-const loggedIn = () => event(t.LOGGED_IN);
-const loggedOut = () => event(t.LOGGED_OUT);
-const setAuthenticated = isAuthenticated => event(t.AUTHENTICATION_SET, isAuthenticated);
+const loggedIn = () => action(t.LOGGED_IN);
+const loggedOut = () => action(t.LOGGED_OUT);
+const setAuthenticated = isAuthenticated => action(t.AUTHENTICATION_SET, isAuthenticated);
 
 
 export const logIn = (token) => {

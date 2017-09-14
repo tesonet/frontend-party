@@ -19,6 +19,7 @@ Input.defaultProps = {
   hasError: false,
 };
 
+
 const TextInput = styled(Input)`
   padding: 12px 24px;
   height: 46px;
@@ -51,6 +52,7 @@ InputGroup.defaultProps = {
   className: null,
   hasError: false,
 };
+
 
 const TextInputGroup = styled(InputGroup)`
   > .input-group-addon {

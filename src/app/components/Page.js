@@ -7,6 +7,10 @@ const Page = styled.div`
   flex-direction: column;
 `;
 
+Page.Header = styled.div`
+  padding: 38px 15px;
+`;
+
 Page.Body = styled.div`
   flex: 1;
 `;
