@@ -22,7 +22,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(
     thunk,
     routerMiddleware(history),
-    createEpicMiddleware(combineEpics(...Object.keys(epics).map(key => epics[key]))),
+    createEpicMiddleware(combineEpics(...Object.values(epics))),
   )),
 );
 

@@ -11,7 +11,7 @@ export default {
     onDragStart: PropTypes.func.isRequired,
     onDrop: PropTypes.func.isRequired,
     onFocus: PropTypes.func.isRequired,
-  }).isRequired,
+  }),
   meta: PropTypes.shape({
     active: PropTypes.bool.isRequired,
     asyncValidating: PropTypes.bool.isRequired,
@@ -27,5 +27,5 @@ export default {
     touched: PropTypes.bool.isRequired,
     valid: PropTypes.bool.isRequired,
     visited: PropTypes.bool.isRequired,
-  }).isRequired,
+  }),
 };

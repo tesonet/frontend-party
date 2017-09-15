@@ -23,7 +23,7 @@ const SubmitError = styled(FormSubmitError)`
 
 
 const LoginForm = ({onSubmit}) => (
-  <form>
+  <form onSubmit={onSubmit}>
     <InputsContainer>
       <FormField
         name='username'
@@ -38,7 +38,7 @@ const LoginForm = ({onSubmit}) => (
         validate={validate.required} />
     </InputsContainer>
 
-    <Button type='submit' styleType='primary' onClick={onSubmit}>{i18n.t('button.logIn')}</Button>
+    <Button type='submit' styleType='primary'>{i18n.t('button.logIn')}</Button>
 
     <SubmitError name='errors' />
   </form>
@@ -52,6 +52,10 @@ LoginForm.propTypes = {
 const enhance = compose(
   reduxForm({
     form: 'LoginForm',
+    initialValues: {
+      username: 1,
+      password: 2,
+    },
   }),
   connect(
     null,

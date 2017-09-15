@@ -10,33 +10,53 @@ import {Badge} from '../';
 import {LoginForm} from '../forms';
 
 
-const Container = styled.div`
-  background: gray;
+const Background = styled.div`
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   background: url(${`${process.env.PUBLIC_URL}/bg.jpeg`}) no-repeat center center fixed;
   background-size: cover;
+`;
 
-  > *:first-child {
-    margin-bottom: 40px;
+
+const TopSpacer = styled.div`
+  min-height: 30px;
+  height: 20vh;
+
+  @media screen and (min-height: 600px){
+    height: 30vh;
   }
+`;
+
+
+const BadgeContainer = styled.div`
+  margin-bottom: 40px;
+  text-align: center;
+`;
+
+
+const Container = styled.div`
+  max-height: 100%;
+  overflow-y: auto;
+  padding-bottom: 30px;
 
   > form {
+    margin: auto;
     width: 100%;
     max-width: 400px;
-    padding-bottom: 10vh;
   }
 `;
 
 
 const LoginPage = () => (
-  <Container className='container-fluid'>
-    <Badge />
-    <LoginForm />
-  </Container>
+  <Background>
+    <Container className='container-fluid'>
+      <TopSpacer />
+      <BadgeContainer>
+        <Badge />
+      </BadgeContainer>
+      <LoginForm />
+    </Container>
+  </Background>
 );
 
 

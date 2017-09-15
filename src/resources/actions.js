@@ -1,18 +1,18 @@
 import {action} from '~/common/redux';
 
-import * as t from './actionTypes';
-import * as s from './selectors';
+import * as types from './actionTypes';
+import * as selectors from './selectors';
 
 
-const startLoading = type => action(t.LOADING_STARTED, type);
+const startLoading = type => action(types.LOADING_STARTED, type);
 
-const finishLoading = ({type, data}) => action(t.LOADING_FINISHED, {type, data});
+const finishLoading = ({type, data}) => action(types.LOADING_FINISHED, {type, data});
 
 
-// async
+// async ===============================================================================================================
 export const loadData = (type, requestData) => async (dispatch, getState) => {
   if (!type) throw new Error('No type given');
-  const isLoading = s.isLoading(getState(), type);
+  const isLoading = selectors.isLoading(getState(), type);
   if (isLoading) return;
   await dispatch(startLoading(type));
   try {

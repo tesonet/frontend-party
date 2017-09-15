@@ -7,6 +7,7 @@ import {isErrorDisplayable} from '../utils';
 
 
 const ErrorText = styled.div`
+  font-size: 12px;
   color: ${props => props.theme.color.errorText1};
 `;
 

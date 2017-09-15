@@ -1,13 +1,13 @@
 import {action} from '~/common/redux';
 
-import * as t from './actionTypes';
-import * as s from './selectors';
+import * as types from './actionTypes';
+import * as selectors from './selectors';
 import {setSession, removeSession, isActuallyAuthenticated} from './utils';
 
 
-const loggedIn = () => action(t.LOGGED_IN);
-const loggedOut = () => action(t.LOGGED_OUT);
-const setAuthenticated = isAuthenticated => action(t.AUTHENTICATION_SET, isAuthenticated);
+const loggedIn = () => action(types.LOGGED_IN);
+const loggedOut = () => action(types.LOGGED_OUT);
+const setAuthenticated = isAuthenticated => action(types.AUTHENTICATION_SET, isAuthenticated);
 
 
 export const logIn = (token) => {
@@ -23,10 +23,10 @@ export const logout = () => {
 };
 
 
-// async
+// async ===============================================================================================================
 export const syncAuth = () => async (dispatch, getState) => {
   const state = getState();
-  const authenticated = s.isAuthenticated(state);
+  const authenticated = selectors.isAuthenticated(state);
   const actuallyAuthenticated = isActuallyAuthenticated();
 
   if (authenticated !== actuallyAuthenticated) {
