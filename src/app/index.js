@@ -2,6 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'react-router-redux';
 import {ThemeProvider} from 'styled-components';
+import 'babel-polyfill';
 
 import i18n from '~/i18n';
 import auth from '~/auth';
