@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "strict": true,
+    "lib": [
+      "DOM",
+      "ES2015",
+      "ES5",
+      "ES6"
+    ]
+  },
+  "include": [
+    "@types/**/*.d.ts",
+    "node_modules/redux-persist/lib/index.d.ts",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "types": [
+    "node",
+    "jest"
+  ],
+  "typeRoots": [
+    "../node_modules/@types"
+  ]
+}

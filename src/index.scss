@@ -1,0 +1,10 @@
+$fa-font-path: '../node_modules/font-awesome/fonts';
+$roboto-font-path: '../node_modules/roboto-fontface/fonts';
+
+$font-family-sans-serif: Roboto, sans-serif;
+
+html, body { margin: 0; font-family: $font-family-sans-serif; }
+html, body, #application-root { height: 100%; }
+
+@import "~font-awesome/scss/font-awesome";
+@import "~roboto-fontface/css/roboto/sass/roboto-fontface.scss";

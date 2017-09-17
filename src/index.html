@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Testio.</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <% htmlWebpackPlugin.files.css.forEach(function(css) { %>
+  <link type="text/css" rel="stylesheet" href="<%= css %>">
+  <% }); %>
+</head>
+<body>
+  <div id="application-root"></div>
+  <% htmlWebpackPlugin.files.js.forEach(function(script) { %>
+  <script src="<%= script %>"></script>
+  <% }); %>
+</body>
+</html>
