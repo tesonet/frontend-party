@@ -53,7 +53,7 @@ const Server = styled.div`
 `;
 
 
-const Servers = ({isLoading, hasLoaded, data}) => (
+export const Servers = ({isLoading, hasLoaded, data}) => (
   <Container>
     <Header className='clearfix'>
       <span>

@@ -6,7 +6,6 @@ import FAIcon from './FAIcon';
 
 describe('FAIcon', () => {
   it('creates a proper fontawesome.com icon', () => {
-    const wrapper = shallow(<FAIcon type='user' />);
-    expect(wrapper.find('i.fa.fa-user[aria-hidden="true"]')).toHaveProperty('length', 1);
+    expect(shallow(<FAIcon type='user' />).find('i.fa.fa-user[aria-hidden="true"]').length).toBe(1);
   });
 });

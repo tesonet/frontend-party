@@ -5,7 +5,7 @@ import {branch, renderComponent} from 'recompose';
 import styled, {css} from 'styled-components';
 
 
-const Input = ({hasError, className, ...props}) => (
+export const Input = ({hasError, className, ...props}) => (
   <input className={classNames('form-control', className)} {...props} />
 );
 
@@ -35,16 +35,16 @@ const TextInput = styled(Input)`
 `;
 
 
-const InputGroup = ({hasError, className, inputGroup, ...props}) => (
+const InputGroup = ({hasError, className, leftInputGroupAddon, ...props}) => (
   <div className={classNames('input-group', className)}>
-    {inputGroup}
+    {leftInputGroupAddon}
     <TextInput {...props} />
   </div>
 );
 
 InputGroup.propTypes = {
   className: PropTypes.string,
-  inputGroup: PropTypes.node.isRequired,
+  leftInputGroupAddon: PropTypes.node.isRequired,
   hasError: PropTypes.bool,
 };
 
@@ -88,6 +88,6 @@ const TextInputGroup = styled(InputGroup)`
 `;
 
 
-const enhance = branch(props => props.inputGroup != null, renderComponent(TextInputGroup));
+const enhance = branch(props => props.leftInputGroupAddon != null, renderComponent(TextInputGroup));
 
 export default enhance(TextInput);

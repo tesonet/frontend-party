@@ -28,13 +28,13 @@ const LoginForm = ({onSubmit}) => (
       <FormField
         name='username'
         placeholder={i18n.t('login.username')}
-        inputGroup={<span className='input-group-addon'><FAIcon type='user' /></span>}
+        leftInputGroupAddon={<span className='input-group-addon'><FAIcon type='user' /></span>}
         validate={validate.required} />
       <FormField
         name='password'
         type='password'
         placeholder={i18n.t('login.password')}
-        inputGroup={<span className='input-group-addon'><FAIcon type='lock' /></span>}
+        leftInputGroupAddon={<span className='input-group-addon'><FAIcon type='lock' /></span>}
         validate={validate.required} />
     </InputsContainer>
 
