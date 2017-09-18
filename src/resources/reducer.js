@@ -1,6 +1,6 @@
 import update from 'immutability-helper';
 
-import * as t from './actionTypes';
+import * as types from './actionTypes';
 
 
 export const DEFAULT_RESOURCE_STATE = {
@@ -13,7 +13,7 @@ const DEFAULT_STATE = {};
 
 export default (state = DEFAULT_STATE, {type, payload}) => {
   switch (type) {
-    case t.LOADING_STARTED:
+    case types.LOADING_STARTED:
       if (state[payload] == null) {
         return update(state, {$merge: {
           [payload]: {
@@ -31,7 +31,7 @@ export default (state = DEFAULT_STATE, {type, payload}) => {
           },
         },
       });
-    case t.LOADING_FINISHED:
+    case types.LOADING_FINISHED:
       return update(state, {
         [payload.type]: {
           $merge: {
