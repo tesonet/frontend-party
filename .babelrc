@@ -1,0 +1,9 @@
+{
+  "presets": ["react", "env", "stage-0"],
+  "plugins": [
+    "transform-react-remove-prop-types",
+    "transform-react-constant-elements",
+    "transform-react-inline-elements",
+    "dynamic-import-node"
+  ]
+}
