@@ -76,7 +76,7 @@ export class AuthPage extends React.Component {
           <LoginButton
             onClick={this.handleClick}
             disabled={isLoading}
-            block // what does it mean ? not clear variable. Anyways, if it 's boolean, use isBlock, it's common practice
+            block
           >
             Log In
           </LoginButton>
