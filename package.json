@@ -73,9 +73,9 @@
     "webpack-md5-hash": "0.0.5"
   },
   "scripts": {
-    "start": "./node_modules/.bin/babel-node ./tools/server.js",
+    "start": "babel-node ./tools/server.js",
     "build": "babel-node ./tools/build.js",
-    "test": "./node_modules/.bin/jest"
+    "test": "jest"
   },
   "jest": {
     "moduleNameMapper": {

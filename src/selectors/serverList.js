@@ -7,11 +7,6 @@ import _ from 'lodash';
 
 const selectServerList = (state) => state.get('server-list');
 
-const makeSelectToken = () => createSelector(
-  selectServerList,
-  (serverListState) => serverListState.get('token')
-);
-
 const makeSelectLoading = () => createSelector(
   selectServerList,
   (serverListState) => serverListState.get('loading')
@@ -22,7 +17,7 @@ const makeSelectError = () => createSelector(
   (serverListState) => serverListState.get('error')
 );
 
-const makeSelectServerList = (nameOrder = 'asc', distanceOrder = 'dec') => createSelector(
+const makeSelectServerList = (nameOrder = 'dec', distanceOrder = 'asc') => createSelector(
   selectServerList,
   (serverListState) => {
     const list = serverListState.get('list');
@@ -35,7 +30,6 @@ const makeSelectServerList = (nameOrder = 'asc', distanceOrder = 'dec') => creat
 
 export {
   selectServerList,
-  makeSelectToken,
   makeSelectLoading,
   makeSelectError,
   makeSelectServerList,

@@ -1,4 +1,4 @@
-import request, { serialize } from './utils/request';
+import request, { serialize } from './request';
 
 export const API_BASE_URL = 'http://playground.tesonet.lt/v1';
 export const API_TOKEN_URL = `${API_BASE_URL}/tokens`;
@@ -23,6 +23,7 @@ export const getServerList = (token) =>
   });
 
 export default {
+  request,
   getToken,
   getServerList,
 };

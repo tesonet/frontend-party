@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
-import authPageReducer from '../reducer';
-import { authorize, authSuccess, authError } from '../actions';
+import authPageReducer from '../../reducers/auth';
+import { authorize, authSuccess, authError } from '../../actions/auth';
 
 describe('# Auth page reducer', () => {
   let state;

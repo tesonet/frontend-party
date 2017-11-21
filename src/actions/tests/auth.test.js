@@ -1,5 +1,5 @@
-import { authError, authSuccess, authorize } from '../actions';
-import { AUTH_SUCCESS, AUTH_LOGIN_REQUEST, AUTH_ERROR } from '../constants';
+import { authError, authSuccess, authorize } from '../auth';
+import { AUTH_SUCCESS, AUTH_LOGIN_REQUEST, AUTH_ERROR } from '../types';
 
 
 describe('# Auth page actions', () => {

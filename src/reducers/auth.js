@@ -6,8 +6,9 @@ import {
   AUTH_LOGIN_REQUEST,
   AUTH_SUCCESS,
   AUTH_ERROR,
-  LOCAL_STORE_TOKEN_KEY,
-} from './constants';
+} from '../actions/types';
+
+import { LOCAL_STORE_TOKEN_KEY } from '../constants/auth';
 
 const initialState = fromJS({
   token: localStorage.getItem(LOCAL_STORE_TOKEN_KEY),
@@ -15,7 +16,7 @@ const initialState = fromJS({
   error: null,
 });
 
-function authPageReducer(state = initialState, action) {
+function auth(state = initialState, action) {
   switch (action.type) {
     case AUTH_SUCCESS:
       return state
@@ -24,8 +25,6 @@ function authPageReducer(state = initialState, action) {
     case AUTH_LOGIN_REQUEST:
       return state
         .set('loading', true);
-      return state
-        .set('token', null);
     case AUTH_ERROR:
       return state
         .set('loading', false)
@@ -35,4 +34,4 @@ function authPageReducer(state = initialState, action) {
   }
 }
 
-export default authPageReducer;
+export default auth;

@@ -11,6 +11,7 @@ export default {
   btnPrimaryHoverBgColor: '#99cc33',
   btnDisabledBgColor: '#b2b2b2',
   btnSecondaryTextColor: '#2f3254',
+
   inputActiveTextColor: '#999',
 
   listTextColor: '#666666',

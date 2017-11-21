@@ -12,7 +12,7 @@ const plugins = [
   new webpack.DefinePlugin(GLOBALS),
   new HtmlWebpackPlugin({
     inject: true,
-    template: 'src/index.html',
+    template: 'public/index.html',
     favicon: 'src/images/favicon.ico',
     minify: {
       removeComments: true,

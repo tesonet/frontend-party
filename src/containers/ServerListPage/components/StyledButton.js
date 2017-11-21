@@ -1,19 +1,20 @@
-import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+import Button from '../../../components/Button';
 
-const StyledButton = styled(Button)`
+const StyledButton = Button.extend`
   font-size: 14px;
   border-radius: 0;
   height: 31px;
-  color: ${(props) => props.theme.btnTextColor};
-  border:0; 
-  cursor: pointer;
-
-  &:hover, &:focus, &:active,
-  &.btn-default:hover, &.btn-default:focus, &.btn-default:active {
-    color: ${(props) => props.theme.primaryTextColor};
-    outline: none;
-    background-color: ${(props) => props.disabled ? props.theme.btnDisabledBgColor : props.theme.btnPrimaryBgColor};
+  color: ${(props) => props.theme.btnSecondaryTextColor};
+ 
+  &:hover, &.btn-default:hover,
+  &:focus, &.btn-default:focus {
+    color: ${(props) => props.theme.btnPrimaryBgColor};
+    background-color: ${(props) => props.theme.primaryBgColor};
+  }
+  
+  & .glyphicon-log-out {
+    transform: rotateY(180deg);
+    padding: 0 5px;
   }
 }
 `;

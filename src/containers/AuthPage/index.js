@@ -3,12 +3,12 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, Glyphicon, Alert } from 'react-bootstrap';
+import { FormGroup, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { createStructuredSelector } from 'reselect';
-import { authorize } from './actions';
-import { makeSelectToken, makeSelectError, makeSelectLoading } from './selectors';
+import { authorize } from '../../actions/auth';
+import { makeSelectToken, makeSelectError, makeSelectLoading } from '../../selectors/auth';
 import {
   Brand,
   Wrapper,
@@ -17,6 +17,7 @@ import {
   StyledAddon as Addon,
   StyledFormControl as FormControl,
   StyledInputGroup as InputGroup,
+  StyledAlert as Alert,
 } from './components';
 
 export class AuthPage extends React.Component {
@@ -48,14 +49,11 @@ export class AuthPage extends React.Component {
   render() {
     const { error, isLoading } = this.props;
     const hasError = error !== null;
-
     return (
       <Wrapper>
         <Grid>
           <Brand alt="Testio" />
-          {hasError &&
-            <Alert bsStyle="danger">{error}</Alert>
-          }
+          <Alert visible={hasError} bsStyle="danger">{error}</Alert>
           <FormGroup>
             <InputGroup>
               <Addon>

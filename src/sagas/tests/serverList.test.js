@@ -2,10 +2,10 @@ import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { call } from 'redux-saga/effects';
 import { throwError } from 'redux-saga-test-plan/providers';
-import { serverListFlow } from '../sagas';
-import { getServerList } from '../../../api';
-import { serverListFetch, serverListError, serverListReceived } from '../actions';
-import reducer from '../reducer';
+import { serverListFlow } from '../serverList';
+import { getServerList } from '../../utils/api';
+import { serverListFetch, serverListError, serverListReceived } from '../../actions/serverList';
+import reducer from '../../reducers/serverList';
 
 describe('# Server list page sagas', () => {
   const fakeServerList = [

@@ -5,9 +5,9 @@
 import { take, call, put, cancel } from 'redux-saga/effects';
 import { takeLatest } from 'redux-saga';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { SERVER_LIST_FETCH } from './constants';
-import { serverListReceived, serverListError } from './actions';
-import { getServerList } from '../../api';
+import { SERVER_LIST_FETCH } from '../actions/types';
+import { serverListReceived, serverListError } from '../actions/serverList';
+import { getServerList } from '../utils/api';
 
 export function* serverListFlow({ token }) {
   try {

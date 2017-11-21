@@ -6,7 +6,7 @@ import {
   SERVER_LIST_FETCH,
   SERVER_LIST_RECEIVED,
   SERVER_LIST_ERROR,
-} from './constants';
+} from '../actions/types';
 
 const initialState = fromJS({
   list: [],
@@ -14,7 +14,7 @@ const initialState = fromJS({
   error: null,
 });
 
-function serverListPageReducer(state = initialState, action) {
+function serverList(state = initialState, action) {
   switch (action.type) {
     case SERVER_LIST_FETCH:
       return state
@@ -32,4 +32,4 @@ function serverListPageReducer(state = initialState, action) {
   }
 }
 
-export default serverListPageReducer;
+export default serverList;

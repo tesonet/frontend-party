@@ -3,7 +3,7 @@ import React from 'react';
 import BrandImage from '../images/logo.png';
 
 const Wrapper = styled.img`
-  margin-bottom: 70px;
+  margin-bottom: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;

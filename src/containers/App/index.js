@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import { ThemeProvider } from 'styled-components';
-import theme from '../../theme';
+import theme from '../../styles/theme';
 
 export const App = (props) => (
   <ThemeProvider theme={theme}>
@@ -15,7 +15,7 @@ export const App = (props) => (
           { name: 'description', content: 'Testio. Home work exercise' },
         ]}
       />
-      {React.Children.toArray(props.children)}
+      {props.children}
     </div>
   </ThemeProvider>
 );

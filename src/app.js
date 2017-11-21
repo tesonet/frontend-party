@@ -3,7 +3,6 @@
  *
  * Entry file for the application code.
  */
-
 // Needed for redux-saga es6 generator support
 import 'babel-polyfill';
 
@@ -19,17 +18,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import '!file-loader?name=[name].[ext]!./images/icon-512x512.png';
-import '!file-loader?name=[name].[ext]!./manifest.json';
+import '!file-loader?name=[name].[ext]!../public/manifest.json';
 /* eslint-enable import/no-unresolved, import/extensions */
 
-import configureStore from './store';
-import createRoutes from './routes';
+import configureStore from './utils/store';
+import createRoutes from './utils/routes';
 
 import App from './containers/App';
-import { makeSelectLocationState } from './containers/App/selectors';
+import { makeSelectLocationState } from './selectors/app';
 
 // Import global styles
-import './global-styles';
+import './styles/global-styles';
 
 const initialState = {};
 const store = configureStore(initialState, browserHistory);

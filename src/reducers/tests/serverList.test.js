@@ -1,6 +1,6 @@
 import { fromJS, List } from 'immutable';
-import { serverListFetch, serverListReceived, serverListError } from '../actions';
-import serverListReducer from '../reducer';
+import { serverListFetch, serverListReceived, serverListError } from '../../actions/serverList';
+import serverListReducer from '../serverList';
 
 describe('# Server list page reducer', () => {
   let state;
