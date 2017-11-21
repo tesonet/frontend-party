@@ -2,7 +2,7 @@ import {
   SERVER_LIST_FETCH,
   SERVER_LIST_RECEIVED,
   SERVER_LIST_ERROR,
-} from './constants';
+} from './types';
 
 export const serverListFetch = (token) => ({
   type: SERVER_LIST_FETCH,

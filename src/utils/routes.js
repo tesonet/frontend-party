@@ -1,4 +1,4 @@
-import { getAsyncInjectors } from './utils/asyncInjectors';
+import { getAsyncInjectors } from './asyncInjectors';
 
 const errorLoading = (err) => {
   console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
@@ -20,11 +20,11 @@ export default function createRoutes(store) {
       name: 'server-list',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          import('./containers/ServerListPage/reducer'),
-          import('./containers/AuthPage/reducer'),
-          import('./containers/ServerListPage/sagas'),
-          import('./containers/AuthPage/sagas'),
-          import('./containers/ServerListPage'),
+          import('../reducers/serverList'),
+          import('../reducers/auth'),
+          import('../sagas/serverList'),
+          import('../sagas/auth'),
+          import('../containers/ServerListPage'),
         ]);
 
         const renderRoute = loadModule(cb);
@@ -51,9 +51,9 @@ export default function createRoutes(store) {
       name: 'auth',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          import('./containers/AuthPage/reducer'),
-          import('./containers/AuthPage/sagas'),
-          import('./containers/AuthPage'),
+          import('../reducers/auth'),
+          import('../sagas/auth'),
+          import('../containers/AuthPage'),
         ]);
 
         const renderRoute = loadModule(cb);
@@ -71,7 +71,7 @@ export default function createRoutes(store) {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
-        import('./containers/NotFoundPage')
+        import('../containers/NotFoundPage')
           .then(loadModule(cb))
           .catch(errorLoading);
       },

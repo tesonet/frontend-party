@@ -3,11 +3,11 @@ import * as matchers from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
 import { call } from 'redux-saga/effects';
 import { fromJS } from 'immutable';
-import { loginFlow, logoutFlow } from '../sagas';
-import { getToken } from '../../../api';
-import { authSuccess, authError, authorize, logout } from '../actions';
-import { LOCAL_STORE_TOKEN_KEY } from '../constants';
-import reducer from '../reducer';
+import { loginFlow, logoutFlow } from '../auth';
+import { getToken } from '../../utils/api';
+import { authSuccess, authError, authorize, logout } from '../../actions/auth';
+import { LOCAL_STORE_TOKEN_KEY } from '../../constants/auth';
+import reducer from '../../reducers/auth';
 
 
 describe('# Auth page sagas', () => {

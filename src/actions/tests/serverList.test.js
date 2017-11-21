@@ -1,5 +1,5 @@
-import { serverListFetch, serverListReceived, serverListError } from '../actions';
-import { SERVER_LIST_FETCH, SERVER_LIST_RECEIVED, SERVER_LIST_ERROR } from '../constants';
+import { serverListFetch, serverListReceived, serverListError } from '../serverList';
+import { SERVER_LIST_FETCH, SERVER_LIST_RECEIVED, SERVER_LIST_ERROR } from '../types';
 
 
 describe('# Server list page actions', () => {

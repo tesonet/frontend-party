@@ -9,10 +9,10 @@ import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { push } from 'react-router-redux';
 import { Glyphicon } from 'react-bootstrap';
-import { makeSelectToken } from '../AuthPage/selectors';
-import { serverListFetch } from './actions';
-import { logout } from '../AuthPage/actions';
-import { makeSelectServerList, makeSelectLoading } from './selectors';
+import { serverListFetch } from '../../actions/serverList';
+import { logout } from '../../actions/auth';
+import { makeSelectToken } from '../../selectors/auth';
+import { makeSelectServerList, makeSelectLoading } from '../../selectors/serverList';
 import {
   Navigation,
   List,

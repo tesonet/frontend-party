@@ -3,7 +3,7 @@ import {
   AUTH_LOGOUT_REQUEST,
   AUTH_SUCCESS,
   AUTH_ERROR,
-} from './constants';
+} from './types';
 
 export const authorize = (username, password) => ({
   type: AUTH_LOGIN_REQUEST,

@@ -1,17 +1,20 @@
 import { take, call, put, cancel } from 'redux-saga/effects';
 import { takeLatest } from 'redux-saga';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { getToken } from '../../api';
+import { getToken } from '../utils/api';
+import {
+  LOCAL_STORE_TOKEN_KEY,
+} from '../constants/auth';
+
 import {
   AUTH_LOGIN_REQUEST,
   AUTH_LOGOUT_REQUEST,
-  LOCAL_STORE_TOKEN_KEY,
-} from './constants';
+} from '../actions/types';
 
 import {
   authSuccess,
   authError,
-} from './actions';
+} from '../actions/auth';
 
 export function* loginFlow({ username, password }) {
   try {
