@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Servers Component renders corectly 1`] = `
+<div
+  className="container-fluid"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-10 col-md-offset-1 col-xs-12"
+    >
+      <div
+        className="undefined undefined undefined undefined"
+      >
+        <div
+          className="undefined undefined"
+        >
+          <span
+            className="undefined undefined undefined undefined"
+          />
+        </div>
+        <div
+          className="undefined undefined"
+        >
+          <button
+            className="undefined undefined undefined undefined undefined undefined undefined undefined undefined btn btn-link"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+      <div
+        className="undefined undefined undefined undefined undefined"
+      >
+        <div
+          className="undefined undefined"
+        >
+          Server
+        </div>
+        <div
+          className="undefined undefined"
+        >
+          Distance
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

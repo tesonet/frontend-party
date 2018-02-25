@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Component renders corectly 1`] = `
+<div
+  className="undefined undefined undefined undefined undefined undefined undefined undefined"
+>
+  <div
+    className="undefined undefined undefined"
+  >
+    <div
+      className="undefined undefined undefined"
+    />
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="undefined form-group form-group-lg has-feedback"
+      >
+        <span
+          className="undefined undefined undefined undefined undefined undefined undefined undefined"
+        />
+        <input
+          className="undefined undefined undefined undefined undefined form-control"
+          id={undefined}
+          name="username"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="undefined form-group form-group-lg has-feedback"
+      >
+        <span
+          className="undefined undefined undefined undefined undefined undefined undefined undefined"
+        />
+        <input
+          className="undefined undefined undefined undefined undefined form-control"
+          id={undefined}
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <button
+          className="undefined undefined undefined undefined undefined undefined undefined undefined undefined btn btn-lg btn-success btn-block"
+          disabled={false}
+          type="submit"
+        >
+          Log In
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
