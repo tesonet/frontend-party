@@ -1,7 +1,11 @@
 import { call, put, select } from 'redux-saga/effects';
 import {
   authenticate,
+  CLEAR,
+  clear,
   getFormData,
+  LOGIN_FAILED,
+  loginFailed,
   PURGE_TOKEN,
   purgeToken,
   reducer,
@@ -13,6 +17,13 @@ import {
 import { fetchToken } from '../../api';
 
 describe('actions', () => {
+  it('should create CLEAR action', () => {
+    const action = {
+      type: CLEAR,
+    };
+    expect(clear()).toEqual(action);
+  });
+
   it('should create SUBMIT action', () => {
     const action = {
       type: SUBMIT,
@@ -34,28 +45,63 @@ describe('actions', () => {
     };
     expect(purgeToken()).toEqual(action);
   });
+
+  it('should create LOGIN_FAILED action', () => {
+    const action = {
+      type: LOGIN_FAILED,
+    };
+    expect(loginFailed()).toEqual(action);
+  });
 });
 
 describe('reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer({})).toEqual({ token: null });
+    expect(reducer({})).toEqual({ error: false, token: null });
   });
 
   it('should add token to the store', () => {
-    expect(reducer({}, saveToken('secret'))).toEqual({ token: 'secret' });
+    expect(reducer({}, saveToken('secret'))).toEqual({
+      error: false,
+      token: 'secret',
+    });
   });
 
-  it('should remove token to the store', () => {
-    expect(reducer({ token: 'secret' }, purgeToken())).toEqual({ token: null });
+  it('should remove token from the store', () => {
+    expect(reducer({ token: 'secret' }, purgeToken())).toEqual({
+      error: false,
+      token: null,
+    });
+  });
+
+  it('should add error to the store', () => {
+    expect(reducer({}, loginFailed())).toEqual({
+      error: true,
+      token: null,
+    });
+  });
+
+  it('should remove error from the store', () => {
+    expect(reducer({ error: true }, clear())).toEqual({
+      error: false,
+      token: null,
+    });
   });
 });
 
 describe('sagas', () => {
-  it('authenticate saga works as expected', () => {
+  it('authenticate saga returns token', () => {
     const response = { token: 'secret' };
     const generator = authenticate();
     expect(generator.next().value).toEqual(select(getFormData));
     expect(generator.next(response).value).toEqual(call(fetchToken, response));
     expect(generator.next(response).value).toEqual(put(saveToken('secret')));
+  });
+
+  it('authenticate saga returns error', () => {
+    const response = { error: 'error' };
+    const generator = authenticate();
+    expect(generator.next().value).toEqual(select(getFormData));
+    expect(generator.next(response).value).toEqual(call(fetchToken, response));
+    expect(generator.next(response).value).toEqual(put(loginFailed()));
   });
 });

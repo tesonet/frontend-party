@@ -65,6 +65,7 @@ const tokenReducer = rereducer(
 const errorReducer = rereducer(
   false,
   [CLEAR, always(false)],
+  [SAVE_TOKEN, always(false)],
   [LOGIN_FAILED, always(true)],
 );
 
