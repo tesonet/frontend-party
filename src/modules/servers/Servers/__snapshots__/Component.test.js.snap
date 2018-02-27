@@ -8,7 +8,7 @@ exports[`Servers Component renders corectly 1`] = `
     className="row"
   >
     <div
-      className="col-md-10 col-md-offset-1 col-xs-12"
+      className=""
     >
       <div
         className="undefined undefined undefined undefined"

@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper } from '../../../lib/components';
 import { Col, Head, Logo, Logout, Title } from './styled-components';
+import Loader from './Loader';
 import Item from './Item';
 
-const Servers = ({ servers, onClickLogout }) => (
+const Servers = ({ loading, servers, onClickLogout }) => (
   <Wrapper>
     <Title>
       <Col>
@@ -20,13 +21,18 @@ const Servers = ({ servers, onClickLogout }) => (
       <Col $fontSize={14}>Server</Col>
       <Col $fontSize={14}>Distance</Col>
     </Head>
-    {servers.map(({ name, distance }) => (
-      <Item key={`${name} - ${distance}`} {...{ name, distance }} />
-    ))}
+    {loading ? (
+      <Loader />
+    ) : (
+      servers.map(({ name, distance }) => (
+        <Item key={`${name} - ${distance}`} {...{ name, distance }} />
+      ))
+    )}
   </Wrapper>
 );
 
 Servers.propTypes = {
+  loading: PropTypes.bool,
   servers: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
