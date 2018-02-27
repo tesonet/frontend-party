@@ -1,11 +1,12 @@
 import { isNil, pipe, prop } from 'ramda';
 import { connect } from 'react-redux';
 import { branch, compose } from 'recompose';
+import { createStructuredSelector } from 'reselect';
 import { reduxForm, SubmissionError } from 'redux-form';
 import Login from './Component';
 import validate from './validate';
 import redirectToRoot from './redirectToRoot';
-import { FORM_ID, submit } from '../ducks';
+import { clear, FORM_ID, getError, submit } from '../ducks';
 import withToken from '../withToken';
 
 export default compose(
@@ -18,9 +19,15 @@ export default compose(
     compose(
       // need to be careful with action names, because
       // reduxForm provides methods `submit` and `onSubmit`
-      connect(null, {
-        onFormSubmit: submit,
-      }),
+      connect(
+        createStructuredSelector({
+          loginFailed: getError,
+        }),
+        {
+          onFormSubmit: submit,
+          onFormChange: clear,
+        },
+      ),
       reduxForm({
         form: FORM_ID,
         // set initial values for testing
@@ -38,6 +45,7 @@ export default compose(
             // we can pass something here to `onSubmitSuccess` callback
             resolve();
           }),
+        onChange: (result, dispatch, { onFormChange }) => onFormChange(),
         // validation was successful
         onSubmitSuccess: (result, dispatch, { onFormSubmit }) => onFormSubmit(),
       }),
