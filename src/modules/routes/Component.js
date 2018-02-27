@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router';
 import { Redirect } from '../../lib/components';
 import asyncComponent from '../../lib/asyncComponent';
+import PrivateRoute from './PrivateRoute';
 
 // asynchronously load pages
 const Login = asyncComponent(() =>
@@ -18,7 +19,7 @@ const Routes = () => (
   <Switch>
     <Route exact path="/" render={() => <Redirect to="/servers" />} />
     <Route path="/login" component={Login} />
-    <Route path="/servers" component={Servers} />
+    <PrivateRoute path="/servers" component={Servers} />
     <Route component={NotFound} />
   </Switch>
 );

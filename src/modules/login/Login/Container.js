@@ -31,10 +31,10 @@ export default compose(
       reduxForm({
         form: FORM_ID,
         // set initial values for testing
-        // initialValues: {
-        //   username: 'tesonet',
-        //   password: 'partyanimal',
-        // },
+        initialValues: {
+          username: 'tesonet',
+          password: 'partyanimal',
+        },
         // onSubmit handler, here we do validation
         onSubmit: values =>
           new Promise(resolve => {
