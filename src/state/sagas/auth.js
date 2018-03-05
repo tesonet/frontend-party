@@ -19,8 +19,6 @@ export function* login({ username, password }) {
     }
 
     const token = yield call(getAuthToken, username, password);
-    console.log('EJOPJIEWGIOJ', token);
-
     localStorage.setItem(LOCAL_STORAGE_AUTH_TOKEN, token);
     yield put(authSuccess(token));
   } catch (error) {
@@ -35,6 +33,9 @@ export function* logout() {
 
 export function* watchLogin() {
   yield takeLatest(AUTH_LOGIN_REQUESTED, login);
+
+  // const loginWatcher =
+  // yield cancel(loginWatcher);
 }
 
 export function* watchLogout() {

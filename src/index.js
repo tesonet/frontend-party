@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Routes from './components/Routes/Routes';
 import configureStore from './state/store';
 import registerServiceWorker from './utils/registerServiceWorker';
+import './styles/globalStyles';
 
 const history = createHistory();
 const store = configureStore({ history });

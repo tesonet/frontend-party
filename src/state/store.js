@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './reducers';
-import { watchLogin, watchLogout } from './sagas/auth';
+import { watchLogin, watchLogout, watchServerList } from './sagas';
 
 export default function configureStore({ initialState = {}, history }) {
   const sagaMiddleware = createSagaMiddleware();
@@ -19,9 +19,10 @@ export default function configureStore({ initialState = {}, history }) {
     composeWithDevTools(applyMiddleware(...middlewares))
   );
 
-  // Run sagas // TODO: optimize, to run in batch
+  // Run sagas
   sagaMiddleware.run(watchLogin);
   sagaMiddleware.run(watchLogout);
+  sagaMiddleware.run(watchServerList);
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {

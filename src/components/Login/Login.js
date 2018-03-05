@@ -3,12 +3,26 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { withFormik } from 'formik';
-import Yup from 'yup';
-import { Button, Form, FormGroup, Input, FormFeedback, Alert } from 'reactstrap';
+import {
+  Form,
+  FormGroup,
+} from 'reactstrap';
+import PersonIcon from 'react-icons/lib/md/person';
+import LockIcon from 'react-icons/lib/md/lock';
 
 import { authLogin, authErrorDismiss } from '../../state/actions/auth';
-import { FORM_AUTH } from '../../constants/forms';
+import { FORM_AUTH_CONFIG } from './constants';
 import { ROUTE_SERVER_LIST } from '../../constants/routes';
+import {
+  LoginContainer,
+  StyledAlert as Alert,
+  StyledLogo as Logo,
+  StyledInput as Input,
+  StyledInputGroup as InputGroup,
+  StyledInputGroupAddon as InputGroupAddon,
+  StyledFormFeedback as FormFeedback,
+  StyledButton as Button,
+} from './styled';
 
 class Login extends Component {
   constructor(props) {
@@ -44,50 +58,66 @@ class Login extends Component {
       handleSubmit,
       errorDismiss,
     } = this.props;
-    console.log('LOGIN COMPONENT', error);
 
     return (
-      <div>
-        <Alert color="danger" isOpen={!!error} toggle={errorDismiss}>
+      <LoginContainer>
+        <Alert isOpen={!!error} toggle={errorDismiss}>
           {error}
         </Alert>
+
+        <Logo />
+
         <Form onSubmit={handleSubmit}>
           <FormGroup>
-            <Input
-              name="username"
-              placeholder="Username"
-              autoComplete="username"
-              type="text"
-              value={values.username}
-              invalid={errors.username && touched.username}
-              onBlur={handleBlur}
-              onChange={handleChange}
-            />
-            <FormFeedback>{errors.username}</FormFeedback>
+            <InputGroup>
+              <InputGroupAddon><PersonIcon className="icon" /></InputGroupAddon>
+              <Input
+                name="username"
+                placeholder="Username"
+                autoComplete="username"
+                type="text"
+                value={values.username}
+                invalid={errors.username && touched.username}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                autoFocus
+              />
+              <FormFeedback>{errors.username}</FormFeedback>
+            </InputGroup>
           </FormGroup>
 
           <FormGroup>
-            <Input
-              name="password"
-              placeholder="Password"
-              autoComplete="current-password"
-              type="password"
-              value={values.password}
-              invalid={errors.password && touched.password}
-              onBlur={handleBlur}
-              onChange={handleChange}
-            />
-            <FormFeedback>{errors.password}</FormFeedback>
+            <InputGroup>
+              <InputGroupAddon><LockIcon className="icon" /></InputGroupAddon>
+              <Input
+                name="password"
+                placeholder="Password"
+                autoComplete="current-password"
+                type="password"
+                value={values.password}
+                invalid={errors.password && touched.password}
+                onBlur={handleBlur}
+                onChange={handleChange}
+              />
+              <FormFeedback>{errors.password}</FormFeedback>
+            </InputGroup>
           </FormGroup>
 
-          <Button disabled={isSubmitting || isLoading}>LOGIN!</Button>
+          <Button disabled={isSubmitting || isLoading}>Log in</Button>
         </Form>
-      </div>
+      </LoginContainer>
     );
   }
 }
 
 Login.propTypes = {
+  values: PropTypes.object.isRequired,
+  touched: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   push: PropTypes.func.isRequired,
   errorDismiss: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
@@ -96,13 +126,6 @@ Login.propTypes = {
     PropTypes.object,
     PropTypes.string,
   ]),
-  values: PropTypes.object,
-  touched: PropTypes.object,
-  errors: PropTypes.object,
-  isSubmitting: PropTypes.bool,
-  handleChange: PropTypes.func,
-  handleBlur: PropTypes.func,
-  handleSubmit: PropTypes.func, // TODO: isRequired to form stuff?
 };
 
 const mapStateToProps = store => {
@@ -117,18 +140,6 @@ const mapDispatchToProps = dispatch => ({
   push: path => dispatch(push(path)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withFormik({
-  mapPropsToValues: () => ({
-    username: '',
-    password: '',
-  }),
-  validationSchema: Yup.object().shape({
-    username: Yup.string().required('Please enter the username.'),
-    password: Yup.string().required('Please enter the password.'),
-  }),
-  handleSubmit: (values, { setSubmitting, props: { login } }) => {
-    login(values.username, values.password);
-    setSubmitting(false);
-  },
-  displayName: FORM_AUTH,
-})(Login)); // TODO: TO FORMCONFIG
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withFormik(FORM_AUTH_CONFIG)(Login)
+);

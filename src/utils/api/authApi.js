@@ -18,6 +18,6 @@ export const getAuthToken = (username, password) =>
     password,
   })
     .then(response => get(response, 'data.token', null))
-    .catch(error => {
-      throw new Error(get(error, 'response.data.message', 'Authentication failed')); // TODO: default to translation
+    .catch(() => {
+      throw new Error('Authentication failed. Try again.'); // TODO: default to translation
     });

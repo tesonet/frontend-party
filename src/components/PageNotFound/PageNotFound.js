@@ -1,10 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
-// TODO: style
-export default function PageNotFound() {
-  return (
-    <div>
-      Page not found! 404
-    </div>
-  );
-}
+import { ROUTE_LOGIN } from '../../constants/routes';
+
+const PageNotFound = props => (
+  <Redirect
+    to={{
+      pathname: ROUTE_LOGIN,
+      state: { from: props.location },
+    }}
+  />
+);
+
+PageNotFound.propTypes = {
+  location: PropTypes.object.isRequired,
+};
+
+export default PageNotFound;
