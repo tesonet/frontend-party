@@ -2,6 +2,7 @@ import axios from 'axios';
 import get from 'lodash.get';
 
 import { API_ENDPOINT_AUTH } from '../../constants/endpoints';
+import { errors as copy } from '../../assets/copy/global.json';
 
 /**
  * Requests an authentication token from the API.
@@ -19,5 +20,5 @@ export const getAuthToken = (username, password) =>
   })
     .then(response => get(response, 'data.token', null))
     .catch(() => {
-      throw new Error('Authentication failed. Try again.'); // TODO: default to translation
+      throw new Error(copy.errorAuthFail);
     });

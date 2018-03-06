@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component should render the app container with child components. 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ThemeProvider
+    theme={
+        Object {
+            "bgColorDark": "#0b0f27",
+            "bgColorPrimary": "#fff",
+            "bgColorSecondary": "#f5f5f5",
+            "bgColorTertiary": "#fdfdfd",
+            "btnBgColorDisabled": "#b3b3b3",
+            "btnBgColorHover": "#99cc33",
+            "btnBgColorPrimary": "#9fd533",
+            "btnTextColor": "#2f3254",
+            "inputTextColorActive": "#b3b3b3",
+            "inputTextColorPrimary": "#ccc",
+            "listBorderColor": "#e6e6e6",
+            "listTextColor": "#666666",
+            "listTextColorHead": "#999",
+          }
+    }
+>
+    <div>
+        <HelmetWrapper
+            defaultTitle="Senior Frontend Party"
+            defer={true}
+            encodeSpecialCharacters={true}
+            meta={
+                Array [
+                    Object {
+                      "content": "Senior Frontend Party App - Testio.",
+                      "name": "description",
+                    },
+                  ]
+            }
+            titleTemplate="SFP Testio | %s"
+        />
+        <div>
+            Child component
+        </div>
+    </div>
+</ThemeProvider>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <HelmetWrapper
+          defaultTitle="Senior Frontend Party"
+          defer={true}
+          encodeSpecialCharacters={true}
+          meta={
+                    Array [
+                              Object {
+                                "content": "Senior Frontend Party App - Testio.",
+                                "name": "description",
+                              },
+                            ]
+          }
+          titleTemplate="SFP Testio | %s"
+/>,
+        <div>
+          Child component
+</div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "defaultTitle": "Senior Frontend Party",
+          "defer": true,
+          "encodeSpecialCharacters": true,
+          "meta": Array [
+            Object {
+              "content": "Senior Frontend Party App - Testio.",
+              "name": "description",
+            },
+          ],
+          "titleTemplate": "SFP Testio | %s",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Child component",
+        },
+        "ref": null,
+        "rendered": "Child component",
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <HelmetWrapper
+            defaultTitle="Senior Frontend Party"
+            defer={true}
+            encodeSpecialCharacters={true}
+            meta={
+                        Array [
+                                    Object {
+                                      "content": "Senior Frontend Party App - Testio.",
+                                      "name": "description",
+                                    },
+                                  ]
+            }
+            titleTemplate="SFP Testio | %s"
+/>,
+          <div>
+            Child component
+</div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "defaultTitle": "Senior Frontend Party",
+            "defer": true,
+            "encodeSpecialCharacters": true,
+            "meta": Array [
+              Object {
+                "content": "Senior Frontend Party App - Testio.",
+                "name": "description",
+              },
+            ],
+            "titleTemplate": "SFP Testio | %s",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Child component",
+          },
+          "ref": null,
+          "rendered": "Child component",
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

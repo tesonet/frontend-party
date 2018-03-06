@@ -20,9 +20,9 @@ import {
   StyledInput as Input,
   StyledInputGroup as InputGroup,
   StyledInputGroupAddon as InputGroupAddon,
-  StyledFormFeedback as FormFeedback,
   StyledButton as Button,
 } from './styled';
+import { login as copy } from '../../assets/copy/global.json';
 
 class Login extends Component {
   constructor(props) {
@@ -47,9 +47,12 @@ class Login extends Component {
 
   render() {
     const {
+      values: {
+        username,
+        password,
+      },
       isLoading,
       error,
-      values,
       touched,
       errors,
       isSubmitting,
@@ -58,6 +61,9 @@ class Login extends Component {
       handleSubmit,
       errorDismiss,
     } = this.props;
+    const isSubmitDisabled = (
+      isSubmitting || isLoading || ((!username || !password) && (touched.username || touched.password))
+    );
 
     return (
       <LoginContainer>
@@ -73,16 +79,14 @@ class Login extends Component {
               <InputGroupAddon><PersonIcon className="icon" /></InputGroupAddon>
               <Input
                 name="username"
-                placeholder="Username"
+                placeholder={copy.placeholderUsername}
                 autoComplete="username"
                 type="text"
-                value={values.username}
-                invalid={errors.username && touched.username}
+                value={username}
+                valid={!errors.username && !touched.username}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                autoFocus
               />
-              <FormFeedback>{errors.username}</FormFeedback>
             </InputGroup>
           </FormGroup>
 
@@ -91,19 +95,22 @@ class Login extends Component {
               <InputGroupAddon><LockIcon className="icon" /></InputGroupAddon>
               <Input
                 name="password"
-                placeholder="Password"
+                placeholder={copy.placeholderPassword}
                 autoComplete="current-password"
                 type="password"
-                value={values.password}
-                invalid={errors.password && touched.password}
+                value={password}
+                valid={!errors.password && !touched.password}
                 onBlur={handleBlur}
                 onChange={handleChange}
               />
-              <FormFeedback>{errors.password}</FormFeedback>
             </InputGroup>
           </FormGroup>
 
-          <Button disabled={isSubmitting || isLoading}>Log in</Button>
+          <Button
+            disabled={isSubmitDisabled}
+          >
+            {copy.loginBtnText}
+          </Button>
         </Form>
       </LoginContainer>
     );

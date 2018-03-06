@@ -5,7 +5,7 @@ import PrivateRoute from './PrivateRoute';
 import App from '../App/App';
 import Login from '../Login/Login';
 import ServerList from '../ServerList/ServerList';
-import PageNotFound from '../PageNotFound/PageNotFound';
+import PageNotFound from './PageNotFound';
 import {
   ROUTE_SERVER_LIST,
   ROUTE_LOGIN,

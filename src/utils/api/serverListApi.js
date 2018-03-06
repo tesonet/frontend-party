@@ -3,6 +3,20 @@ import get from 'lodash.get';
 import orderBy from 'lodash.orderby';
 
 import { API_ENDPOINT_SERVERS } from '../../constants/endpoints';
+import { errors as copy } from '../../assets/copy/global.json';
+
+/**
+ * Orders the server list by distance and name values.
+ *
+ * @param  {Array} list
+ *
+ * @return {Array} ordered list
+ */
+export const orderServerList = list => orderBy(
+  list,
+  ['name', 'distance'],
+  ['dec', 'asc'],
+);
 
 /**
  * Requests a private server list by passing an auth token to the API.
@@ -18,11 +32,7 @@ export const getServerList = token =>
       Authorization: `Bearer ${token}`,
     },
   })
-    .then(response => orderBy(
-      get(response, 'data'),
-      ['name', 'distance'],
-      ['dec', 'asc'],
-    ))
+    .then(response => orderServerList(get(response, 'data')))
     .catch(error => {
-      throw new Error(get(error, 'response.data.message', 'Server error'));
+      throw new Error(get(error, 'response.data.message', copy.errorServerListRetrieve));
     });

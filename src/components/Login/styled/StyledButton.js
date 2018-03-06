@@ -17,6 +17,13 @@ const StyledContainer = styled(Button)`
     background-color: ${props => props.theme.btnBgColorHover};
     border: 0;
   }
+
+  &.disabled,
+  &:disabled {
+    background-color: ${props => props.theme.btnBgColorDisabled};
+    cursor: not-allowed;
+    opacity: 1;
+  }
 `;
 
 const StyledButton = props => (

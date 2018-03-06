@@ -3,6 +3,8 @@ import {
   SERVER_LIST_RECEIVED,
   SERVER_LIST_ERROR,
 } from '../../constants/actionTypes';
+import getErrorMessage from '../../utils/getErrorMessage';
+import { errors as copy } from '../../assets/copy/global.json';
 
 const initialState = {
   list: [],
@@ -17,7 +19,11 @@ export default function serverList(state = initialState, action) {
     case SERVER_LIST_RECEIVED:
       return { ...state, isLoading: false, list: action.serverList };
     case SERVER_LIST_ERROR:
-      return { ...state, isLoading: false, error: action.error.message };
+      return {
+        ...state,
+        isLoading: false,
+        error: getErrorMessage({ error: action.error, fallbackMessage: copy.errorServerListRetrieve }),
+      };
     default:
       return state;
   }

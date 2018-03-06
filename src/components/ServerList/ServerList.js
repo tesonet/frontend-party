@@ -18,6 +18,7 @@ import {
   StyledRow as Row,
   StyledLogo as Logo,
 } from './styled';
+import { serverList as copy } from '../../assets/copy/global.json';
 
 class ServerList extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class ServerList extends Component {
       <TopContainer>
         <Container fluid>
           <Helmet>
-            <title>Server List</title>
+            <title>{copy.pageTitle}</title>
           </Helmet>
           <Header>
             <Logo />
@@ -60,8 +61,8 @@ class ServerList extends Component {
         </Container>
 
         <ListHeading>
-          <span>Server</span>
-          <span>Distance</span>
+          <span>{copy.server}</span>
+          <span>{copy.distance}</span>
         </ListHeading>
 
         <ListContainer>
@@ -69,7 +70,7 @@ class ServerList extends Component {
             {list.map(({ name, distance }) => (
               <Row key={`${name}-${distance}`}>
                 <Col>{name}</Col>
-                <Col>{distance} km</Col>
+                <Col>{distance} {copy.distanceUnits}</Col>
               </Row>
             ))}
           </List>

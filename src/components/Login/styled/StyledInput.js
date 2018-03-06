@@ -5,7 +5,7 @@ import { Input } from 'reactstrap';
 const StyledContainer = styled(Input)`
   background-color: ${props => props.theme.bgColorPrimary};
   box-shadow: none;
-  border: inherit;
+  border: 0;
   border-bottom-right-radius: 5px !important;
   border-top-right-radius: 5px !important;
   color: ${props => props.theme.inputTextColorPrimary};
@@ -13,12 +13,16 @@ const StyledContainer = styled(Input)`
   outline: none;
   transition: none;
 
-  &:focus {
-    box-shadow: none;
+  &:hover,
+  &:focus,
+  &:active {
     color: ${props => props.theme.inputTextColorActive};
+    box-shadow: none;
+    outline: none;
   }
 
-  &.is-invalid:focus {
+  &.is-invalid:focus,
+  &.is-valid:focus {
     box-shadow: none;
   }
 

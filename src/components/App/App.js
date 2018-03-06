@@ -4,14 +4,15 @@ import Helmet from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
 
 import defaultTheme from '../../styles/defaultTheme';
+import { app as copy } from '../../assets/copy/global.json';
 
 export const App = props => (
   <ThemeProvider theme={defaultTheme}>
     <div>
       <Helmet
-        defaultTitle="Senior Frontend Party"
-        titleTemplate="SFP Testio | %s"
-        meta={[{ name: 'description', content: 'Senior Frontend Party App - Testio.' }]}
+        defaultTitle={copy.defaultTitle}
+        titleTemplate={copy.defaultTitleTpl}
+        meta={[{ name: 'description', content: copy.defaultDescription }]}
       />
       {props.children}
     </div>

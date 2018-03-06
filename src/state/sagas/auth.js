@@ -1,5 +1,4 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-// import { LOCATION_CHANGE } from 'react-router-redux';
 
 import { getAuthToken } from '../../utils/api';
 import { LOCAL_STORAGE_AUTH_TOKEN } from '../../constants/localStorage';
@@ -11,18 +10,20 @@ import {
   authSuccess,
   authError,
 } from '../actions/auth';
+import getErrorMessage from '../../utils/getErrorMessage';
+import { errors as copy } from '../../assets/copy/global.json';
 
 export function* login({ username, password }) {
   try {
     if (!username || !password) {
-      throw new Error('User name and password fields cannot be empty.'); // TODO: move string to copy
+      throw new Error(copy.errorAuthFieldsEmpty);
     }
 
     const token = yield call(getAuthToken, username, password);
     localStorage.setItem(LOCAL_STORAGE_AUTH_TOKEN, token);
     yield put(authSuccess(token));
   } catch (error) {
-    yield put(authError(error));
+    yield put(authError(getErrorMessage({ error, fallbackMessage: copy.errorAuth })));
   }
 }
 
@@ -33,9 +34,6 @@ export function* logout() {
 
 export function* watchLogin() {
   yield takeLatest(AUTH_LOGIN_REQUESTED, login);
-
-  // const loginWatcher =
-  // yield cancel(loginWatcher);
 }
 
 export function* watchLogout() {

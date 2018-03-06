@@ -10,8 +10,10 @@ const StyledIcon = styled(SignOutIcon)`
 `;
 
 const StyledContainer = styled.div`
+  transition: color .3s;
   &:hover,
   &:focus {
+    color: ${props => props.theme.inputTextColorActive};
     cursor: pointer;
   }
 `;

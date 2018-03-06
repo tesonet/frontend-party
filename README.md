@@ -1,43 +1,50 @@
 # Senior frontend developer task
 
-If you found this task it means we are looking for you!
-
 > Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
 
-## Few simple steps
+## Getting started
 
-1. Fork this repo
-2. Do your best
-3. Prepare a pull request and let us know that you are done
+1. Clone this repository
+2. Enter the folder: ```cd senior-frontend-party```
+3. Install dependencies: ```yarn install```
+4. Launch the development server: ```yarn start```
+5. In your browser navigate to: ```http://localhost:3000```
+6. Login using the ```tesonet : partyanimal``` credentials
+7. Have fun
 
-## Few simple requirements
+## Common commands
+
+- ```yarn install``` - install all dependencies
+- ```yarn cleaninstall``` - reinstall all dependencies and clean the cache
+- ```yarn start``` - start a local development server
+- ```yarn build``` - create a production optimized build
+- ```yarn lint``` - launch a code style check using ESLint
+- ```yarn test``` - launch automatic tests
+
+## Notes on task implementation
+
 ### Design
-* Design should be recreated as closely as possible.
-* Design must be responsive.
-* Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
+- Uses Bootstrap 4, and a ```reactstrap``` package for easy to use components
+- Design image elements are compressed to have the least size
+- Design is responsive
+- ```styled-components``` are used to write styles
 
 ### App
-* Use ReactJS
-* This must be a single page application. Use React Router for frontend routing
-* Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
-
-```
-{"username": "tesonet", "password": "partyanimal"}
-```
-
-* Save the newly-created token to the local storage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
-* Implement logout
+- Uses ReactJS
+- Uses Redux for state management
+- Uses Redux-saga to make application's side effects easier to manage and test
+- It's a single page application. Uses React Router 4
+- Implements a PrivateRoute
+- Implements login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token
+- Saves the newly-created token to the local storage
+- Uses the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`
+- Implements a logout
 
 ### Miscellaneous
-* Your app must work on all modern browsers and IE11+
-* Use JS bundler (Webpack preferred)
-* Use npm scripts or gulp for running tasks
-* Use a unit testing library (Jest preferred)
-* Do not commit the build
-
-## Few tips
-* Structure! WE LOVE STRUCTURE!
-* Maybe You have an idea how it should interact with users? Do it! Its on you!
-* Have fun!
+- App works in all modern browsers and IE11+
+- This app's boilerplate was generated using the ```create-react-app``` tool
+- Webpack is used as a code bundler
+- ESlint is configured for code style linting
+- Additionally there is an .editorconfig file included, which could enforce some basic rules
+- Jest is used for tests
+- Npm scripts are used for running tasks

@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServerList component should render the ServerList component. 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ServerList
+    list={Array []}
+    logout={[Function]}
+    push={[Function]}
+    retrieveServerList={[Function]}
+    store={
+        Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "subscribe": [Function],
+          }
+    }
+    storeSubscription={
+        Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "subscribe": [Function],
+            },
+            "unsubscribe": undefined,
+          }
+    }
+    token="auth-token-12345"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Container
+          fluid={true}
+          tag="div"
+>
+          <HelmetWrapper
+                    defer={true}
+                    encodeSpecialCharacters={true}
+          >
+                    <title>
+                              Server List
+                    </title>
+          </HelmetWrapper>
+          <styled.header>
+                    <StyledLogo />
+                    <SignOutButton
+                              onClick={[Function]}
+                    />
+          </styled.header>
+</Container>,
+        <styled.div>
+          <span>
+                    Server
+          </span>
+          <span>
+                    Distance
+          </span>
+</styled.div>,
+        <styled.div>
+          <styled.div>
+                    
+          </styled.div>
+</styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <HelmetWrapper
+              defer={true}
+              encodeSpecialCharacters={true}
+>
+              <title>
+                            Server List
+              </title>
+</HelmetWrapper>,
+            <styled.header>
+              <StyledLogo />
+              <SignOutButton
+                            onClick={[Function]}
+              />
+</styled.header>,
+          ],
+          "fluid": true,
+          "tag": "div",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <title>
+                Server List
+</title>,
+              "defer": true,
+              "encodeSpecialCharacters": true,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Server List",
+              },
+              "ref": null,
+              "rendered": "Server List",
+              "type": "title",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <StyledLogo />,
+                <SignOutButton
+                  onClick={[Function]}
+/>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <span>
+              Server
+</span>,
+            <span>
+              Distance
+</span>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Server",
+            },
+            "ref": null,
+            "rendered": "Server",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Distance",
+            },
+            "ref": null,
+            "rendered": "Distance",
+            "type": "span",
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <styled.div>
+            
+</styled.div>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [],
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Container
+            fluid={true}
+            tag="div"
+>
+            <HelmetWrapper
+                        defer={true}
+                        encodeSpecialCharacters={true}
+            >
+                        <title>
+                                    Server List
+                        </title>
+            </HelmetWrapper>
+            <styled.header>
+                        <StyledLogo />
+                        <SignOutButton
+                                    onClick={[Function]}
+                        />
+            </styled.header>
+</Container>,
+          <styled.div>
+            <span>
+                        Server
+            </span>
+            <span>
+                        Distance
+            </span>
+</styled.div>,
+          <styled.div>
+            <styled.div>
+                        
+            </styled.div>
+</styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <HelmetWrapper
+                defer={true}
+                encodeSpecialCharacters={true}
+>
+                <title>
+                                Server List
+                </title>
+</HelmetWrapper>,
+              <styled.header>
+                <StyledLogo />
+                <SignOutButton
+                                onClick={[Function]}
+                />
+</styled.header>,
+            ],
+            "fluid": true,
+            "tag": "div",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <title>
+                  Server List
+</title>,
+                "defer": true,
+                "encodeSpecialCharacters": true,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Server List",
+                },
+                "ref": null,
+                "rendered": "Server List",
+                "type": "title",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <StyledLogo />,
+                  <SignOutButton
+                    onClick={[Function]}
+/>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <span>
+                Server
+</span>,
+              <span>
+                Distance
+</span>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Server",
+              },
+              "ref": null,
+              "rendered": "Server",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Distance",
+              },
+              "ref": null,
+              "rendered": "Distance",
+              "type": "span",
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styled.div>
+              
+</styled.div>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [],
+            },
+            "ref": null,
+            "rendered": Array [],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

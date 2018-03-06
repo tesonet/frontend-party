@@ -9,8 +9,8 @@ export const FORM_AUTH_CONFIG = {
     password: '',
   }),
   validationSchema: Yup.object().shape({
-    username: Yup.string().required('Please enter the username.'),
-    password: Yup.string().required('Please enter the password.'),
+    username: Yup.string().required(),
+    password: Yup.string().required(),
   }),
   handleSubmit: (values, { setSubmitting, props: { login } }) => {
     login(values.username, values.password);

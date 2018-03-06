@@ -1,0 +1,433 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginContainer component should render the <div /> element. 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div>
+    <Container
+        tag="div"
+    >
+        <Styled(Row)>
+            <Col
+                lg={
+                    Object {
+                        "offset": 4,
+                        "size": 4,
+                      }
+                }
+                md={
+                    Object {
+                        "offset": 3,
+                        "size": 6,
+                      }
+                }
+                sm={
+                    Object {
+                        "offset": 2,
+                        "size": 8,
+                      }
+                }
+                tag="div"
+                widths={
+                    Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                }
+                xs={
+                    Object {
+                        "size": 12,
+                      }
+                }
+            >
+                Test
+            </Col>
+        </Styled(Row)>
+    </Container>
+</styled.div>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <Container
+        tag="div"
+>
+        <Styled(Row)>
+                <Col
+                        lg={
+                                Object {
+                                        "offset": 4,
+                                        "size": 4,
+                                      }
+                        }
+                        md={
+                                Object {
+                                        "offset": 3,
+                                        "size": 6,
+                                      }
+                        }
+                        sm={
+                                Object {
+                                        "offset": 2,
+                                        "size": 8,
+                                      }
+                        }
+                        tag="div"
+                        widths={
+                                Array [
+                                        "xs",
+                                        "sm",
+                                        "md",
+                                        "lg",
+                                        "xl",
+                                      ]
+                        }
+                        xs={
+                                Object {
+                                        "size": 12,
+                                      }
+                        }
+                >
+                        Test
+                </Col>
+        </Styled(Row)>
+</Container>,
+      "className": "sc-bdVaJa itKpME",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <Styled(Row)>
+          <Col
+                    lg={
+                              Object {
+                                        "offset": 4,
+                                        "size": 4,
+                                      }
+                    }
+                    md={
+                              Object {
+                                        "offset": 3,
+                                        "size": 6,
+                                      }
+                    }
+                    sm={
+                              Object {
+                                        "offset": 2,
+                                        "size": 8,
+                                      }
+                    }
+                    tag="div"
+                    widths={
+                              Array [
+                                        "xs",
+                                        "sm",
+                                        "md",
+                                        "lg",
+                                        "xl",
+                                      ]
+                    }
+                    xs={
+                              Object {
+                                        "size": 12,
+                                      }
+                    }
+          >
+                    Test
+          </Col>
+</Styled(Row)>,
+        "tag": "div",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <Col
+            lg={
+                        Object {
+                                    "offset": 4,
+                                    "size": 4,
+                                  }
+            }
+            md={
+                        Object {
+                                    "offset": 3,
+                                    "size": 6,
+                                  }
+            }
+            sm={
+                        Object {
+                                    "offset": 2,
+                                    "size": 8,
+                                  }
+            }
+            tag="div"
+            widths={
+                        Array [
+                                    "xs",
+                                    "sm",
+                                    "md",
+                                    "lg",
+                                    "xl",
+                                  ]
+            }
+            xs={
+                        Object {
+                                    "size": 12,
+                                  }
+            }
+>
+            Test
+</Col>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Test",
+            "lg": Object {
+              "offset": 4,
+              "size": 4,
+            },
+            "md": Object {
+              "offset": 3,
+              "size": 6,
+            },
+            "sm": Object {
+              "offset": 2,
+              "size": 8,
+            },
+            "tag": "div",
+            "widths": Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ],
+            "xs": Object {
+              "size": 12,
+            },
+          },
+          "ref": null,
+          "rendered": "Test",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Container
+          tag="div"
+>
+          <Styled(Row)>
+                    <Col
+                              lg={
+                                        Object {
+                                                  "offset": 4,
+                                                  "size": 4,
+                                                }
+                              }
+                              md={
+                                        Object {
+                                                  "offset": 3,
+                                                  "size": 6,
+                                                }
+                              }
+                              sm={
+                                        Object {
+                                                  "offset": 2,
+                                                  "size": 8,
+                                                }
+                              }
+                              tag="div"
+                              widths={
+                                        Array [
+                                                  "xs",
+                                                  "sm",
+                                                  "md",
+                                                  "lg",
+                                                  "xl",
+                                                ]
+                              }
+                              xs={
+                                        Object {
+                                                  "size": 12,
+                                                }
+                              }
+                    >
+                              Test
+                    </Col>
+          </Styled(Row)>
+</Container>,
+        "className": "sc-bdVaJa itKpME",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <Styled(Row)>
+            <Col
+                        lg={
+                                    Object {
+                                                "offset": 4,
+                                                "size": 4,
+                                              }
+                        }
+                        md={
+                                    Object {
+                                                "offset": 3,
+                                                "size": 6,
+                                              }
+                        }
+                        sm={
+                                    Object {
+                                                "offset": 2,
+                                                "size": 8,
+                                              }
+                        }
+                        tag="div"
+                        widths={
+                                    Array [
+                                                "xs",
+                                                "sm",
+                                                "md",
+                                                "lg",
+                                                "xl",
+                                              ]
+                        }
+                        xs={
+                                    Object {
+                                                "size": 12,
+                                              }
+                        }
+            >
+                        Test
+            </Col>
+</Styled(Row)>,
+          "tag": "div",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Col
+              lg={
+                            Object {
+                                          "offset": 4,
+                                          "size": 4,
+                                        }
+              }
+              md={
+                            Object {
+                                          "offset": 3,
+                                          "size": 6,
+                                        }
+              }
+              sm={
+                            Object {
+                                          "offset": 2,
+                                          "size": 8,
+                                        }
+              }
+              tag="div"
+              widths={
+                            Array [
+                                          "xs",
+                                          "sm",
+                                          "md",
+                                          "lg",
+                                          "xl",
+                                        ]
+              }
+              xs={
+                            Object {
+                                          "size": 12,
+                                        }
+              }
+>
+              Test
+</Col>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Test",
+              "lg": Object {
+                "offset": 4,
+                "size": 4,
+              },
+              "md": Object {
+                "offset": 3,
+                "size": 6,
+              },
+              "sm": Object {
+                "offset": 2,
+                "size": 8,
+              },
+              "tag": "div",
+              "widths": Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ],
+              "xs": Object {
+                "size": 12,
+              },
+            },
+            "ref": null,
+            "rendered": "Test",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
