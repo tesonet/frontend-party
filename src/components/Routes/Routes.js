@@ -14,7 +14,11 @@ import {
 export default () => (
   <App>
     <Switch>
-      <PrivateRoute exact path={ROUTE_SERVER_LIST} component={ServerList} />
+      <PrivateRoute
+        exact
+        path={ROUTE_SERVER_LIST}
+        component={ServerList}
+      />
       <Route path={ROUTE_LOGIN} component={Login} />
       <Route component={PageNotFound} />
     </Switch>

@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-import { ROUTE_LOGIN } from '../../constants/routes';
+import DefaultRedirect from './DefaultRedirect';
 
-const PrivateRoute = ({ component: Component, token, ...rest }) => (
+const PrivateRoute = ({
+  component: Component,
+  redirectComponent: RedirectComponent = DefaultRedirect,
+  token,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props =>
       token ? (
         <Component {...props} />
       ) : (
-        <Redirect
-          to={{
-            pathname: ROUTE_LOGIN,
-            state: { from: props.location },
-          }}
-        />
+        <RedirectComponent {...props} />
       )
     }
   />
@@ -27,6 +27,7 @@ PrivateRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object.isRequired,
   token: PropTypes.string,
+  redirectComponent: PropTypes.func,
 };
 
 const mapStateToProps = store => {
