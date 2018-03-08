@@ -40,8 +40,10 @@ class Login extends Component {
   }
 
   checkAuthToken(token) {
+    const { pathname } = this.props.location.state.from || ROUTE_SERVER_LIST;
+
     if (token) {
-      this.props.push(ROUTE_SERVER_LIST);
+      this.props.push(pathname);
     }
   }
 
@@ -133,6 +135,7 @@ Login.propTypes = {
     PropTypes.object,
     PropTypes.string,
   ]),
+  location: PropTypes.object,
 };
 
 const mapStateToProps = store => {
