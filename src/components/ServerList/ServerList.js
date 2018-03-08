@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 import { Container, Col } from 'reactstrap';
 
 import { authLogout } from '../../state/actions/auth';
 import { serverListRequest } from '../../state/actions/serverList';
-import { ROUTE_LOGIN } from '../../constants/routes';
 import {
   Header,
   SignOutButton,
@@ -21,28 +19,8 @@ import {
 import { serverList as copy } from '../../assets/copy/global.json';
 
 class ServerList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.checkAuthToken = this.checkAuthToken.bind(this);
-  }
-
-  componentWillMount() {
-    this.checkAuthToken(this.props.token);
-  }
-
   componentDidMount() {
     this.props.retrieveServerList(this.props.token);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.checkAuthToken(nextProps.token);
-  }
-
-  checkAuthToken(token) {
-    if (!token) {
-      this.props.push(ROUTE_LOGIN);
-    }
   }
 
   render() {
@@ -82,7 +60,6 @@ class ServerList extends Component {
 
 ServerList.propTypes = {
   retrieveServerList: PropTypes.func.isRequired,
-  push: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
   token: PropTypes.string,
   list: PropTypes.array,
@@ -99,7 +76,6 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => ({
   retrieveServerList: token => dispatch(serverListRequest(token)),
-  push: path => dispatch(push(path)),
   logout: () => dispatch(authLogout()),
 });
 
