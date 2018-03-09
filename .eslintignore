@@ -1,0 +1,11 @@
+# Ignore all generated files
+node_modules/*
+build/*
+coverage/*
+
+# Ignore all script files
+scripts/*
+
+# Ignore all config files except the enzyme.js
+config/*
+!config/enzyme.js

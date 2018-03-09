@@ -1,0 +1,30 @@
+{
+  "raw": [
+    { "name": "Germany #23", "distance": 1643 },
+    { "name": "Japan #37", "distance": 1279 },
+    { "name": "Germany #46", "distance": 953 },
+    { "name": "Germany #60", "distance": 1276 },
+    { "name": "Latvia #52", "distance": 793 },
+    { "name": "Latvia #27", "distance": 1034 },
+    { "name": "Latvia #10", "distance": 204 },
+    { "name": "Latvia #76", "distance": 115 },
+    { "name": "Latvia #66", "distance": 1945 },
+    { "name": "Germany #37", "distance": 1489 },
+    { "name": "Latvia #31", "distance": 1863 },
+    { "name": "Latvia #93", "distance": 702 }
+  ],
+  "sorted": [
+    { "name": "Germany #23", "distance": 1643 },
+    { "name": "Germany #37", "distance": 1489 },
+    { "name": "Germany #46", "distance": 953 },
+    { "name": "Germany #60", "distance": 1276 },
+    { "name": "Japan #37", "distance": 1279 },
+    { "name": "Latvia #10", "distance": 204 },
+    { "name": "Latvia #27", "distance": 1034 },
+    { "name": "Latvia #31", "distance": 1863 },
+    { "name": "Latvia #52", "distance": 793 },
+    { "name": "Latvia #66", "distance": 1945 },
+    { "name": "Latvia #76", "distance": 115 },
+    { "name": "Latvia #93", "distance": 702 }
+  ]
+}

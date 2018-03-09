@@ -1,0 +1,26 @@
+{
+  "app": {
+    "defaultTitle": "Senior Frontend Party",
+    "defaultTitleTpl": "SFP Testio | %s",
+    "defaultDescription": "Senior Frontend Party App - Testio."
+  },
+  "login": {
+    "logoAltText": "Testio logo",
+    "placeholderUsername": "Username",
+    "placeholderPassword": "Password",
+    "loginBtnText": "Log in"
+  },
+  "serverList": {
+    "pageTitle": "Server List",
+    "server": "Server",
+    "distance": "Distance",
+    "distanceUnits": "km"
+  },
+  "errors": {
+    "errorAuth": "Error occurred during authentication.",
+    "errorServerListRetrieve": "Error occurred when retrieving the server list.",
+    "errorAuthFieldsEmpty": "User name and password fields cannot be empty.",
+    "errorUnauthorized": "Unauthorized access!",
+    "errorAuthFail": "Authentication failed. Try again."
+  }
+}
