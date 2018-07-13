@@ -1,0 +1,17 @@
+{
+  "name": "tesonet-task",
+  "description": "Igne's implementation of the tesonet task",
+  "version": "0.0.1",
+  "homepage": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "@uirouter/angularjs#^1.7.2",
+    "angular-loader": "1.7.2",
+    "angular-mocks": "1.7.2",
+    "html5-boilerplate": "^5.3.0",
+    "a0-angular-storage": "^0.0.15",
+    "angular-ui-router": "1.0.4",
+    "components-font-awesome": "^5.0.6"
+  }
+}

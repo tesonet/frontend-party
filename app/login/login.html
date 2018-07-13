@@ -1,0 +1,30 @@
+<div class="bg">
+	<div class="login__wrapper">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-6 offset-md-3 login__logo">
+			  	<img src="assets/images/logo.png" alt="Testio" width="300" />
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6 offset-md-3">
+					<form ng-submit="loginCtrl.login()">
+						<div class="input-group -gray- mb-3">
+						  <div class="input-group-prepend">
+						    <span class="input-group-text" id="basic-addon1">
+						    	<i class="fa fa-user form-control-feedback"></i>
+						    </span>
+						  </div>
+						  <input type="text" class="form-control form-control-lg" ng-model="loginCtrl.username" id="loginUsername" placeholder="Username">
+						</div>
+					  <div class="form-group">
+					    <input type="password" class="form-control form-control-lg" ng-model="loginCtrl.password" id="loginPassword" placeholder="Password">
+					  </div>
+					  <button type="submit" class="btn btn-primary btn-block btn-lg">Log In</button>
+					</form>
+					<p class="text-danger">{{loginCtrl.serverErrorMsg}}</p>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
