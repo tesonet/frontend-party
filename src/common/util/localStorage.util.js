@@ -18,3 +18,5 @@ export const setToLocalStorage = (key, value) => {
         // Ignore write errors.
     }
 };
+
+export const removeFromLocalStorage = key => localStorage.removeItem(key);
