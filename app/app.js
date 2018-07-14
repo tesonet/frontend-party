@@ -11,3 +11,9 @@ var app = angular.module('tesonetApp', [
 app.config(['$urlRouterProvider', function($urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 }]);
+app.run(function ($state, $rootScope){
+  $rootScope.$on('$locationChangeStart', function () {
+
+	});
+});
+

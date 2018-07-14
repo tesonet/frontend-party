@@ -6,17 +6,25 @@ module.exports = function(config) {
 
     files: [
       'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'components/**/*.js',
-      'view*/**/*.js'
+      'bower_components/a0-angular-storage/dist/angular-storage.js',
+      'login/*.js',
+/*      'server_list/*.js',*/
+      'services.js',
+      'services.test.js',
+/*      'header/*.js'*/
     ],
+
+    colors: true,
 
     autoWatch: true,
 
     frameworks: ['jasmine'],
 
     browsers: ['Chrome'],
+
+    singleRun: true,
 
     plugins: [
       'karma-chrome-launcher',
