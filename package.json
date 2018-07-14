@@ -7,6 +7,9 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
+    "lint": "esw webpack.config.babel.js src --color -c './.eslintrc.js' --ext js --ext jsx",
+    "fix": "eslint webpack.config.babel.js src --color --fix -c './.eslintrc.js' --ext js --ext jsx",
+    "lint:watch": "npm run lint -- --watch",
     "build": "webpack --mode production"
   },
   "dependencies": {
@@ -24,6 +27,11 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
+    "eslint": "^5.1.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-watch": "^4.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "hard-source-webpack-plugin": "^0.11.1",
     "html-webpack-plugin": "^3.2.0",
