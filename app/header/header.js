@@ -13,6 +13,9 @@ authModule.config(function($stateProvider) {
       }
     });
 });
-authModule.controller('AuthCtrl',['$scope', function($scope){
-	console.log("authenticated controller");
+authModule.controller('AuthCtrl',['$scope', 'Auth', function($scope, Auth){
+  var authCtrl = this;
+  authCtrl.logout = function(){
+    Auth.logout();
+  }
 }]);

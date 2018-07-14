@@ -13,22 +13,14 @@ authModule.config(['$stateProvider', function($stateProvider) {
     });
 }])
 
-authModule.controller('LoginCtrl',['$scope','$http', 'store', '$state', function($scope, $http, store, $state) {
+authModule.controller('LoginCtrl',['$scope','$http', 'store', '$state', 'Auth', function($scope, $http, store, $state, Auth) {
 	var loginCtrl = this;
-
-	loginCtrl.logout = function(){
-		store.remove('auth_token');
-	}
-
-//	loginCtrl.logout();
+	Auth.logout();
 	loginCtrl.login = function(){
 	//	var data = {"username": "tesonet", "password": "partyanimal"},
-		var data = {"username": loginCtrl.username, "password": loginCtrl.password},
-				user = {
-					credentials: data
-				};
+		var data = {"username": loginCtrl.username, "password": loginCtrl.password};
 		this.successCallback = function(data){
-			store.set('auth_token', data.data.token);
+			Auth.storeToken(data.data.token);
 			$state.go("auth.server_list");
 		};
 		this.errorCallback = function(err){

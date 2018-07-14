@@ -17,8 +17,6 @@ serverListModule.controller('ServerListCtrl',['$scope','$http', 'store', functio
 	var listCtrl = this,
 			token = store.get('auth_token');
 
-	console.log("serverlist controller");
-
 	$http.defaults.headers.common['Authorization'] = 'Bearer '+ token;
 	listCtrl.fetchList = function(){
 		this.successCallback = function(data){
@@ -26,6 +24,8 @@ serverListModule.controller('ServerListCtrl',['$scope','$http', 'store', functio
 		};
 		this.errorCallback = function(err){
 			console.log(err);
+			listCtrl.serverError = true;
+			listCtrl.errorMessage = "There was a problem with your authorization, try loggin in again."
 		};
 		$http.get(serverlist_url).then(this.successCallback, this.errorCallback);
 	}
