@@ -1,8 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import Root from './app/components/Root/Root';
 
-const Index = () => {
-    return <div>Index</div>;
-};
+import './scss/style.scss';
 
-ReactDOM.render(<Index />, document.getElementById('index'));
+render(<Root />, document.getElementById('index'));
