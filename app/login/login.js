@@ -13,22 +13,20 @@ authModule.config(['$stateProvider', function($stateProvider) {
     });
 }])
 
-authModule.controller('LoginCtrl',['$scope','$http', '$state', 'Auth', function($scope, $http, $state, Auth) {
+authModule.controller('LoginCtrl',['$scope', '$state', 'Auth', function($scope, $state, Auth) {
 	var loginCtrl = this;
 	Auth.logout();
 	loginCtrl.login = function(){
-	//	var data = {"username": "tesonet", "password": "partyanimal"},
-		loginCtrl.login_data = {"username": loginCtrl.username, "password": loginCtrl.password};
-		this.successCallback = function(data){
-			Auth.storeToken(data.data.token);
-			$state.go("auth.server_list");
-		};
-		this.errorCallback = function(err){
-			console.log(err);
-			if(err.status === 401){
-				loginCtrl.serverErrorMsg = "Unauthorized error: make sure your username and/or password is correct.";
-			}
-		};
-		$http.post(token_url, loginCtrl.login_data).then(this.successCallback, this.errorCallback);
+		Auth.login(loginCtrl.username, loginCtrl.password)
+			.then(function(data){
+	      Auth.storeToken(data.token);
+				$state.go("auth.server_list");
+	   	})
+	   	.catch(function(response){
+	      console.error(response);
+	     if(response.status === 401){
+					loginCtrl.serverErrorMsg = "Unauthorized error: make sure your username and/or password is correct.";
+				}
+	   	}); 
 	}
 }]);
