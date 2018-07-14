@@ -10,16 +10,18 @@
 			  <div class="col-md-6 offset-md-3">
 					<form ng-submit="loginCtrl.login()">
 						<div class="input-group -gray- mb-3">
-						  <div class="input-group-prepend">
-						    <span class="input-group-text" id="basic-addon1">
-						    	<i class="fa fa-user form-control-feedback"></i>
-						    </span>
-						  </div>
-						  <input type="text" class="form-control form-control-lg" ng-model="loginCtrl.username" id="loginUsername" placeholder="Username">
-						</div>
-					  <div class="form-group">
-					    <input type="password" class="form-control form-control-lg" ng-model="loginCtrl.password" id="loginPassword" placeholder="Password">
-					  </div>
+							<span class="input-group-prepend">
+                  <div class="input-group-text bg-white"><i class="fa fa-user"></i></div>
+              </span>
+              <input type="text" class="form-control form-control-lg border-left-0" ng-model="loginCtrl.username" id="loginUsername" placeholder="Username">
+            </div>
+
+						<div class="input-group -gray- mb-3">
+							<span class="input-group-prepend">
+                  <div class="input-group-text bg-white"><i class="fa fa-lock"></i></div>
+              </span> 
+              <input type="password" class="form-control form-control-lg border-left-0" ng-model="loginCtrl.password" id="loginPassword" placeholder="Password">
+            </div>
 					  <button type="submit" class="btn btn-primary btn-block btn-lg">Log In</button>
 					</form>
 					<p class="text-danger">{{loginCtrl.serverErrorMsg}}</p>

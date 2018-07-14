@@ -9,10 +9,11 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/a0-angular-storage/dist/angular-storage.js',
+      'app_services.js',
       'login/*.js',
 /*      'server_list/*.js',*/
-      'services.js',
-      'services.test.js',
+      'login/authentication_service.js',
+      'login/authentication_service.test.js',
 /*      'header/*.js'*/
     ],
 

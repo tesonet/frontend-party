@@ -1,32 +1,36 @@
-'use strict';
+(function(){
+	'use strict';
 
-var authModule = angular.module('tesonetApp.login', ['ui.router']),
-		token_url = "http://playground.tesonet.lt/v1/tokens";
+	angular.module('tesonetApp.login', ['ui.router'])
 
-authModule.config(['$stateProvider', function($stateProvider) {
-  $stateProvider
-    .state('login', {
-    	url: '/login',
-      controller: 'LoginCtrl',
-      controllerAs: 'loginCtrl',
-      templateUrl: 'login/login.html'
-    });
-}])
+	.config(['$stateProvider', function($stateProvider) {
+	  $stateProvider
+	    .state('login', {
+	    	url: '/login',
+	      controller: 'LoginCtrl',
+	      controllerAs: 'loginCtrl',
+	      templateUrl: 'login/login.html'
+	    });
+	}])
+	.controller('LoginCtrl',['$scope', '$state', 'Auth', LoginController]);
 
-authModule.controller('LoginCtrl',['$scope', '$state', 'Auth', function($scope, $state, Auth) {
-	var loginCtrl = this;
-	Auth.logout();
-	loginCtrl.login = function(){
-		Auth.login(loginCtrl.username, loginCtrl.password)
-			.then(function(data){
-	      Auth.storeToken(data.token);
-				$state.go("auth.server_list");
-	   	})
-	   	.catch(function(response){
-	      console.error(response);
-	     if(response.status === 401){
-					loginCtrl.serverErrorMsg = "Unauthorized error: make sure your username and/or password is correct.";
-				}
-	   	}); 
+	function LoginController($scope, $state, Auth) { 
+		var loginCtrl = this;
+		loginCtrl.login = login;
+
+		Auth.logout();
+		function login(){
+			Auth.login(loginCtrl.username, loginCtrl.password)
+				.then(function(data){
+		      Auth.storeToken(data.token);
+					$state.go("auth.server_list",{},{reload:true})
+		   	})
+		   	.catch(function(response){
+		      console.error(response);
+		     if(response.status === 401){
+						loginCtrl.serverErrorMsg = "Unauthorized error: make sure your username and/or password is correct.";
+					}
+		   	}); 
+		}
 	}
-}]);
+})();

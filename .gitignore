@@ -1,0 +1,8 @@
+# dependencies
+/node_modules
+/app/bower_components
+
+# testing
+
+# production
+/build

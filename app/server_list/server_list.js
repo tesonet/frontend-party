@@ -1,41 +1,46 @@
-'use strict';
+(function(){
+	'use strict';
 
-var serverListModule = angular.module('tesonetApp.server_list', ['ui.router']),
-		serverlist_url = "http://playground.tesonet.lt/v1/servers";
+	angular.module('tesonetApp.server_list', ['ui.router'])
 
-authModule.config(['$stateProvider', function($stateProvider) {
-  $stateProvider
-    .state('auth.server_list', {
-    	url:'/server_list',
-      controller: 'ServerListCtrl',
-      controllerAs: 'listCtrl',
-      templateUrl: 'server_list/server_list.html'
-    });
-}])
+	.config(['$stateProvider', function($stateProvider) {
+	  $stateProvider
+	    .state('auth.server_list', {
+	    	url:'/server_list',
+	      controller: 'ServerListCtrl',
+	      controllerAs: 'listCtrl',
+	      templateUrl: 'server_list/server_list.html'
+	    });
+	}])
 
-serverListModule.controller('ServerListCtrl',['$scope','$http', 'store', function($scope, $http, store) {
-	var listCtrl = this,
-			token = store.get('auth_token');
+	.controller('ServerListCtrl',['$scope', 'ServerList', ServerListController]);
 
-	$http.defaults.headers.common['Authorization'] = 'Bearer '+ token;
-	listCtrl.fetchList = function(){
-		this.successCallback = function(data){
-			listCtrl.servers = data.data;
-		};
-		this.errorCallback = function(err){
-			console.log(err);
-			listCtrl.serverError = true;
-			listCtrl.errorMessage = "There was a problem with your authorization, try loggin in again."
-		};
-		$http.get(serverlist_url).then(this.successCallback, this.errorCallback);
-	}
-	listCtrl.fetchList();
+	function ServerListController($scope, ServerList) {
+		var listCtrl = this;
 
-  listCtrl.propertyName = 'name';
-  listCtrl.reverse = true;
+		listCtrl.sortBy = sortBy;
+	  listCtrl.propertyName = 'name';
+	  listCtrl.reverse = true;
+		listCtrl.fetchList = fetchList;
 
-  listCtrl.sortBy = function(propertyName) {
-    listCtrl.reverse = (listCtrl.propertyName === propertyName) ? !listCtrl.reverse : false;
-   	listCtrl.propertyName = propertyName;
-  };	
-}]);
+		listCtrl.fetchList();
+
+		function fetchList(){
+			ServerList.fetchAll()
+				.then(function(data){
+					listCtrl.servers = data;
+		   	})
+		   	.catch(function(response){
+		      console.error(response);
+		     	if(response.status === 401){
+						listCtrl.serverError = true;
+						listCtrl.errorMessage = "There was a problem with your authorization, try loggin in again."
+					}
+		   	}); 
+		}
+	  function sortBy(propertyName) {
+	    listCtrl.reverse = (listCtrl.propertyName === propertyName) ? !listCtrl.reverse : false;
+	   	listCtrl.propertyName = propertyName;
+	  };	
+	};
+})();
