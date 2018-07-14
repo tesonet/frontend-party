@@ -1,5 +1,4 @@
 import React,  { Component } from 'react';
-import { login } from '../../services/auth.service';
 
 class LoginForm extends Component {
     state = { username: '', password: ''};
@@ -12,7 +11,7 @@ class LoginForm extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        login({ username: this.state.username, password: this.state.password });
+        this.props.onSubmit({ username: this.state.username, password: this.state.password });
     };
 
     render() {

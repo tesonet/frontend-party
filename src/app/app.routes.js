@@ -1,9 +1,9 @@
-import Login from './components/Login/Login';
+import Login from './containers/Login/Login';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 const appRoutes = {
     login: {
-        name: 'Login Page',
+        name: 'Login',
         path: '/login',
         component: Login,
     },

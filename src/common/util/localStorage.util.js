@@ -1,4 +1,4 @@
-const get = key => {
+export const getFromLocalStorage = key => {
     try {
         const serializedItem = localStorage.getItem(key);
         if (serializedItem === null) {
@@ -10,16 +10,11 @@ const get = key => {
     }
 };
 
-const set = (key, value) => {
+export const setToLocalStorage = (key, value) => {
     try {
         const serializedItem = JSON.stringify(value);
         localStorage.setItem(key, serializedItem);
     } catch (err) {
         // Ignore write errors.
     }
-};
-
-export default {
-    get,
-    set,
 };
