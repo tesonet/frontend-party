@@ -3,11 +3,12 @@
 describe('Unit test: Auth in serviceModule', function () {
 
   beforeEach(module('tesonetApp.serviceModule'));
+  beforeEach(module('tesonetApp.constants'));
   beforeEach(module('angular-storage'));
 
  	describe('has methods:', function() {
 
- 		var auth_service, store, $log;
+ 		var auth_service, store, $log, ENDPOINTS;
  		var token = "abc12345",
  				username = "bigboy",
  				password = "n3v3rgiv3up";
@@ -17,6 +18,7 @@ describe('Unit test: Auth in serviceModule', function () {
 	  		auth_service = $injector.get('Auth');
 	  	//	TOKEN_URL = $injector.get('TOKEN_URL');
 	  		store = $injector.get('store');
+	  		ENDPOINTS = $injector.get('ENDPOINTS');
 
 	  		spyOn(auth_service,'login').and.callThrough();
 	  		auth_service.login(username, password);
@@ -27,7 +29,7 @@ describe('Unit test: Auth in serviceModule', function () {
 	  		spyOn(auth_service,'logout').and.callThrough();
 	  		auth_service.logout();
 		  }
-		))
+		));
 	  it('login():', function() {
 	  	expect( auth_service.login ).toHaveBeenCalledWith(username, password);
 	    expect( auth_service.login ).toBeDefined();

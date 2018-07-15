@@ -1,1 +1,1 @@
-angular.module('tesonetApp.serviceModule', [])
+angular.module('tesonetApp.serviceModule', []);

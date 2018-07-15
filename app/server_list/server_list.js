@@ -34,13 +34,13 @@
 		      console.error(response);
 		     	if(response.status === 401){
 						listCtrl.serverError = true;
-						listCtrl.errorMessage = "There was a problem with your authorization, try loggin in again."
+						listCtrl.errorMessage = "There was a problem with your authorization, try loggin in again.";
 					}
 		   	}); 
 		}
 	  function sortBy(propertyName) {
 	    listCtrl.reverse = (listCtrl.propertyName === propertyName) ? !listCtrl.reverse : false;
 	   	listCtrl.propertyName = propertyName;
-	  };	
-	};
+	  }
+	}
 })();

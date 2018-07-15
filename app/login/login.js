@@ -23,7 +23,7 @@
 			Auth.login(loginCtrl.username, loginCtrl.password)
 				.then(function(data){
 		      Auth.storeToken(data.token);
-					$state.go("auth.server_list",{},{reload:true})
+					$state.go("auth.server_list",{},{reload:true});
 		   	})
 		   	.catch(function(response){
 		      console.error(response);

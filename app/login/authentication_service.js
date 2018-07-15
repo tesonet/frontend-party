@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular.module('tesonetApp.serviceModule')
-	.factory('Auth', ['store', '$http', '$q', 'URLS', function(store, $http, $q, URLS) {
+	.factory('Auth', ['store', '$http', '$q', 'ENDPOINTS', function(store, $http, $q, ENDPOINTS) {
 			return {
 		    login: function(username, password) {
 	        var deferred = $q.defer();
 	        var login_data = {"username": username, "password": password};
-	        $http.post(URLS.TOKEN_URL, login_data)
+	        $http.post(ENDPOINTS.TOKEN_URL, login_data)
 	        	.then(function(response){
 	           	deferred.resolve(response.data);
 	        	})
@@ -28,6 +28,6 @@
 			  		return false;
 			  	}
 		    }
-		  }
+		  };
 	 }]);
 })();

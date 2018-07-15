@@ -9,12 +9,13 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/a0-angular-storage/dist/angular-storage.js',
+      'app.js',
       'app_services.js',
+      'header/*.js',
       'login/*.js',
-/*      'server_list/*.js',*/
-      'login/authentication_service.js',
-      'login/authentication_service.test.js',
-/*      'header/*.js'*/
+/*      'server_list/server_list_service.js',
+      'server_list/server_list_service.test.js',*/
+      'server_list/*.js'
     ],
 
     colors: true,

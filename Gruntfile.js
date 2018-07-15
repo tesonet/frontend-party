@@ -1,93 +1,138 @@
-//is used to configure or define tasks and load Grunt plugins
 module.exports = function (grunt) {
-    require('jit-grunt')(grunt);
-    require('load-grunt-tasks')(grunt);
-    var conf = {
-      projectName:    'tesonet',
-      mainModuleName: 'tesonetApp',
-      buildPath:      'build',
-      srcPath:        'app'
-    };
-    grunt.initConfig({
-      conf: conf,
-      pkg: grunt.file.readJSON('package.json'),
-      copy: {
-        dist: {
-          files: [  {src: 'index.html', dest: 'dist/index.html'}
-                  ]
-        },
-        html: {
-          expand: true, src: ['app/**/*.html'], dest: 'dist'
-        }
-      },
-      cssmin: {
+
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
+    clean: ["dist", '.tmp'],
+
+    copy: {
+      main: {
+        expand: true,
+        cwd: 'app/',
+        src: ['**', '!bower_components/**', '!assets/styles/**', '!**/*.css', '!**/*.js'],
+        dest: 'dist/'
+      }
+    },
+
+    rev: {
+      files: {
+          src: ['dist/**/*.{js,css}', '!dist/js/shims/**']
+      }
+    },
+
+    useminPrepare: {
+      html: 'app/index.html'
+    },
+
+    usemin: {
+      html: ['dist/index.html']
+    },
+
+    uglify: {
+      options: {
+        report: 'min',
+        mangle: false
+      }
+    },
+    less: {
+      development: {
         options: {
-          processImport: false
+          compress: true,
+          yuicompress: true,
+          optimization: 2,
+          paths: ['app/assets/styles']
+        },
+        files: {
+          "app/app.css": "app/assets/styles/app.less" // destination file and source file
         }
-      },
+      }
+    },
+    watch: {
       less: {
-          development: {
-              options: {
-                  compress: true,
-                  yuicompress: true,
-                  optimization: 2,
-                  paths: ['assets/styles']
-              },
-              files: {
-                  "app/app.css": "app/assets/styles/app.less" // destination file and source file
-              }
-          }
-      },
-      watch: {
-          js: {
-              files: ['app/**/**/**/**/**/**/*.js'],
-              tasks: ['concat']
-          },
-          less: {
-              files: ['app/assets/styles/*.less'],
-              tasks: ['less']
-          }
-      },
-      connect: {
-          server: {
-              options: {
-                  port: 9000,
-                  hostname: '*',
-                  base: {
-                    path: 'app',
-                    options: {
-                      index: 'index.html'
-                    }
-                  }
-              }
-          }
-      },
-      processhtml: {
+        files: ['app/assets/styles/*.less'],
+        tasks: ['less']
+      }
+    },
+    connect: {
+      server: {
         options: {
-        },
-        dist: {
-          files: {
-            'dist/index.html': ['dist/index.html']
+          port: 9000,
+          hostname: '*',
+          base: {
+            path: 'app',
+            options: {
+              index: 'index.html'
+            }
           }
         }
       }
-    });
+    },
+    'angular-builder': {
+      options: {
+        mainModule: 'tesonetApp',
+        externalModules: [  'ui.router',
+                            'angular-storage' ]
+      },
+      app: {
+        src:  'app/**/*.js',
+        dest: 'dist/tesonetapp.js'
+      }
+    },
+    processhtml: {
+      options: {
+      },
+      dist: {
+        files: {
+          'dist/index.html': ['dist/index.html']
+        }
+      }
+    },
 
+    karma: {  
+      unit: {
+        configFile: 'karma.conf.js'
+      }
+    },
 
-    // copies htmls
-    grunt.registerTask('copy_html', ['copy:html']);
+    jshint: {
+      all: ['Gruntfile.js', 'app/**/*.js', '!app/**/*test.js', '!app/bower_components/**/*.js']
+    }
 
-    // gathers static assets, css and external js libraries in /dist
-    grunt.registerTask('gather_dependencies', ['less', 'useminPrepare', 'copy:dist', 'concat', 'uglify', 'cssmin', 'usemin']);
+  });
 
-    // replaces the long list of custom angularjs script imports with a single built file import yapili.js
-    grunt.registerTask('replace_di', ['processhtml']);
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-rev');
+  grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-angular-builder');
+  grunt.loadNpmTasks('grunt-processhtml');
+  grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    // builds custom angularjs modules yapili.js and replaces dependencies referencies in the index.html
-    grunt.registerTask ('build_yapili_js', ['angular-builder', 'replace_di']);
-    // grunt.registerTask ('debug', ['angular-builder::debug']);
-
-  //  grunt.registerTask('build', ['copy_html', 'gather_dependencies', 'build_yapili_js']);
-
-    grunt.registerTask('serve', ['connect:server', 'less', 'watch']);
+  // builds custom modules tesonetapp.js and replaces dependencies referencies in the index.html AND
+  // replaces the long list of custom script imports with a single built file import tesonetapp.js
+  //grunt.registerTask ('build_tesonetapp_js', ['angular-builder', 'processhtml']);
+  grunt.registerTask('build', [
+    'copy', 
+    'useminPrepare', 
+    'concat', 
+    'uglify', 
+    'cssmin', 
+    'rev', 
+    'usemin'
+  ]);
+  grunt.registerTask('serve', [
+    'connect:server', 
+    'less', 
+    'watch']);
+  grunt.registerTask('test', [  
+    'jshint',
+    'karma'
+  ]);
 };

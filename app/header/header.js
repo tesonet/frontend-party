@@ -24,5 +24,5 @@
       Auth.logout();
       $state.go('login');
     }
-  };
+  }
 })();
