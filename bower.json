@@ -11,7 +11,6 @@
     "angular-mocks": "1.7.2",
     "html5-boilerplate": "^5.3.0",
     "a0-angular-storage": "^0.0.15",
-    "angular-ui-router": "1.0.4",
-    "components-font-awesome": "^5.0.6"
+    "angular-ui-router": "1.0.4"
   }
 }

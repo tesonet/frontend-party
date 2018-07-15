@@ -1,9 +1,8 @@
-# `tesonet-task` — Igne's implementation of the tesonet task
+# `tesonetApp` — Igne's implementation of the tesonet task
 
-what it does: 
+The tesonetApp is displaying a login page, where user can login and see a server list. Behind the scenes after a successful login an authentication token is fetched and sent in the http header for the next request.
 
 ## Getting Started
-
 
 ### Install Dependencies
 
@@ -27,53 +26,52 @@ Now browse to the app at [`localhost:9000`]
 
 ```
 app/                    --> all of the source files for the application
-  app.css               --> default stylesheet
-  view1/                --> the view1 view template and logic
-    view1.html            --> the partial template
-    view1.js              --> the controller logic
-    view1_test.js         --> tests of the controller
-  view2/                --> the view2 view template and logic
-    view2.html            --> the partial template
-    view2.js              --> the controller logic
-    view2_test.js         --> tests of the controller
+  app.css               --> concatenated and minified custom stylesheets
+  header/                --> the header view template and logic
+    header.html            --> the partial template
+    header.js              --> the controller logic
+    header.test.js         --> tests of the controller
+  login/                --> the login view template and logic
+    login.html            --> the partial template
+    login.js              --> the controller logic
+    login.test.js         --> tests of the controller
+    authentication_service.js         --> the service logic
+    authentication_service.test.js    --> tests of the controller
+  server_list/                --> the server_list view template and logic
+    server_list.html            --> the partial template
+    server_list.js              --> the controller logic
+    server_list.test.js         --> tests of the controller
+    server_list_service.js         --> the service logic
+    server_list_service.test.js    --> tests of the service
+  app_services.js         --> service module definition
   app.js                --> main application module
   index.html            --> app layout file (the main html template file of the app)
 karma.conf.js         --> config file for running unit tests with Karma
-e2e-tests/            --> end-to-end tests
-  protractor-conf.js    --> Protractor config file
-  scenarios.js          --> end-to-end scenarios to be run by Protractor
+
 ```
 
 
 ## Testing
 
-There are two kinds of tests in the `tesonetApp` application: Unit tests and end-to-end tests.
-
-### Running Unit Tests
-
 The `tesonetApp` app comes preconfigured with unit tests. These are written in [Jasmine][jasmine],
 which we run with the [Karma][karma] test runner. We provide a Karma configuration file to run them.
 
 * The configuration is found at `karma.conf.js`.
-* The unit tests are found next to the code they are testing and have an `_test.js` suffix (e.g.
-  `view1_test.js`).
+* The unit tests are found next to the code they are testing and have a `.test.js` suffix (e.g.
+  `login.test.js`).
 
-The easiest way to run the unit tests is to use the supplied npm script:
-
-```
-npm test
-```
-
-This script will start the Karma test runner to execute the unit tests. Moreover, Karma will start
-watching the source and test files for changes and then re-run the tests whenever any of them
-changes.
-This is the recommended strategy; if your unit tests are being run every time you save a file then
-you receive instant feedback on any changes that break the expected code functionality.
-
-You can also ask Karma to do a single run of the tests and then exit. This is useful if you want to
-check that a particular version of the code is operating as expected. The project contains a
-predefined script to do this:
+The easiest way to run the unit tests is to use the grunt task:
 
 ```
-npm run test-single-run
+grunt test
 ```
+
+This script will start the Karma test runner to execute the unit tests. Moreover, jshint is executed before any test is run, so that the code is validated in advance.
+
+## Building
+
+```
+grunt build
+```
+
+This will create a /dist directory with concatenated and uglified/minified application files, copied .html files and images.

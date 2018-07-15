@@ -1,8 +1,8 @@
 # dependencies
-/node_modules
-/app/bower_components
-
-# testing
+app/bower_components/
+node_modules/
+package-lock.json
 
 # production
-/build
+.tmp/
+dist/
