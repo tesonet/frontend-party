@@ -1,8 +1,12 @@
 import React,  { Component } from 'react';
 import serversService from '../../services/servers.service';
 import List from '../../../common/components/List/List';
+import IconLabel from '../../../common/components/IconLabel/IconLabel';
 import authService from '../../../app/services/auth.service';
 import appRoutes from '../../../app/app.routes';
+import Logo from '../../../assets/images/logo-blue.png';
+import IconLogout from '../../../assets/icons/ico-logout.png';
+import './Servers.scss';
 
 class Servers extends Component {
     state = { servers: [] };
@@ -18,22 +22,23 @@ class Servers extends Component {
     columns = [
         {
             header: 'SERVER',
-            accessor: 'server',
+            accessor: 'name',
         },
         {
             header: 'DISTANCE',
             accessor: 'distance',
+            suffix: 'km',
         }
     ];
 
     render() {
         return (
-            <div>
-                <div onClick={this.onLogOutClick}>LogOut</div>
+            <div className="Servers">
+                <div className="Servers-header">
+                    <img alt="Logo" src={Logo} />
+                    <IconLabel icon={IconLogout} onClick={this.onLogOutClick}>Logout</IconLabel>
+                </div>
                 <List data={this.state.servers} columns={this.columns} />
-                {this.state.servers.map(server => (
-                    <div key={server.name}>{server.name}</div>
-                ))}
             </div>
         )
     }

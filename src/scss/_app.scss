@@ -1,4 +1,8 @@
+html, body{
+  height: 100%;
+  overflow-y: hidden;
+}
+
 .app {
-  min-height: 100vh;
-  display: flex;
+  height: 100%;
 }

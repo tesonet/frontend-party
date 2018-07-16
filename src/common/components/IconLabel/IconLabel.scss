@@ -1,0 +1,8 @@
+.IconLabel {
+  display: flex;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+    color: #99cc33;
+  }
+}

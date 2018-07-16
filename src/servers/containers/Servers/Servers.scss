@@ -1,0 +1,11 @@
+.Servers {
+  height: 100%;
+  width: 100%;
+
+  &-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 1rem;
+  }
+}
