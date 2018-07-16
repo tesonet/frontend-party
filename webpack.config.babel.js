@@ -47,7 +47,11 @@ module.exports = {
                         loader: 'sass-loader'
                     }
                 ]
-            }
+            },
+            {
+                test: /\.(png)$/,
+                loader: 'file-loader?name=[name].[ext]',
+            },
         ]
     },
     plugins: [htmlWebpackPlugin, hardSourceWebpackPlugin]

@@ -1,0 +1,23 @@
+.Login {
+  position: relative;
+  display: flex;
+  flex: 1;
+  background-color: #0b0f27;
+  &:before {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../../../assets/images/login-bg.png');
+    width: 100%;
+    height: 100%;
+    opacity : 0.2;
+  }
+
+  &-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+}

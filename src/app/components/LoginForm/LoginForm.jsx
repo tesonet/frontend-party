@@ -1,32 +1,47 @@
-import React,  { Component } from 'react';
+import React, {Component} from 'react';
+import FormInput from '../../../common/components/FormInput/FormInput';
+import SubmitButton from '../../../common/components/SubmitButton/SubmitButton';
+import IconUser from '../../../assets/icons/ico-user.png';
+import IconLock from '../../../assets/icons/ico-lock.png';
 
 class LoginForm extends Component {
-    state = { username: '', password: ''};
+    state = {username: '', password: ''};
     onUsernameChange = e => {
-        this.setState({ username: e.target.value });
+        this.setState({username: e.target.value});
     };
     onPasswordChange = e => {
-        this.setState({ password: e.target.value });
+        this.setState({password: e.target.value});
     };
 
     onSubmit = e => {
         e.preventDefault();
-        this.props.onSubmit({ username: this.state.username, password: this.state.password });
+        this.props.onSubmit({username: this.state.username, password: this.state.password});
     };
 
     render() {
         return (
             <form onSubmit={this.onSubmit}>
-                <label>
-                    Username
-                    <input type="text" value={this.state.username} onChange={this.onUsernameChange} />
-                </label>
-                <input type="submit" value="Submit" />
-                <label>
-                    Password
-                    <input type="text" value={this.state.password} onChange={this.onPasswordChange} />
-                </label>
-                <input type="submit" value="Submit" />
+                <div className="d-flex flex-column">
+                    <FormInput
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Username"
+                        value={this.state.username}
+                        icon={IconUser}
+                        onChange={this.onUsernameChange}
+                    />
+                    <FormInput
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        value={this.state.password}
+                        icon={IconLock}
+                        onChange={this.onPasswordChange}
+                    />
+                    <SubmitButton>Log in</SubmitButton>
+                </div>
             </form>
         );
     }

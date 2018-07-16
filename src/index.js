@@ -4,4 +4,4 @@ import Root from './app/components/Root/Root';
 
 import './scss/style.scss';
 
-render(<Root />, document.getElementById('index'));
+render(<Root />, document.getElementById('app'));
