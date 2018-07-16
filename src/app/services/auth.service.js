@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { removeFromLocalStorage } from '../../common/util/localStorage.util';
+import { removeFromLocalStorage, getFromLocalStorage } from '../../common/util/localStorage.util';
 
 const ENDPOINT = 'http://playground.tesonet.lt/v1';
 
@@ -11,14 +11,14 @@ const login = ({ username, password }) =>
             username,
             password,
         },
-        // headers: {
-        //     'Content-Type': 'application/x-www-form-urlencoded',
-        // },
     });
 
 const logOut = () => removeFromLocalStorage('session');
 
+const isAuthenticated = () => !!getFromLocalStorage('session');
+
 export default {
     login,
     logOut,
+    isAuthenticated,
 };
