@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IconLabel /> should match snapshot 1`] = `
+<div
+  className="IconLabel"
+  onClick={[Function]}
+>
+  <img
+    alt="Logo"
+    className="mr-2"
+    src={
+      Object {
+        "process": [Function],
+      }
+    }
+  />
+  <span>
+    Logout
+  </span>
+</div>
+`;

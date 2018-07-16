@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List /> should match snapshot 1`] = `
+<div
+  className="List"
+>
+  <div
+    className="List-row List-row--header"
+  >
+    <div
+      className="List-cell List-cell--header"
+    >
+      Name
+    </div>
+    <div
+      className="List-cell List-cell--header"
+    >
+      Value
+    </div>
+  </div>
+  <div
+    className="List-content"
+  >
+    <div
+      className="List-row"
+    >
+      <div
+        className="List-cell"
+      >
+        Foo
+      </div>
+      <div
+        className="List-cell"
+      >
+        foo $
+      </div>
+    </div>
+    <div
+      className="List-row"
+    >
+      <div
+        className="List-cell"
+      >
+        Bar
+      </div>
+      <div
+        className="List-cell"
+      >
+        bar $
+      </div>
+    </div>
+    <div
+      className="List-row"
+    >
+      <div
+        className="List-cell"
+      >
+        Buz
+      </div>
+      <div
+        className="List-cell"
+      >
+        buz $
+      </div>
+    </div>
+  </div>
+</div>
+`;

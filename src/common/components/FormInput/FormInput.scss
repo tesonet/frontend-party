@@ -9,5 +9,8 @@
     border-left: none;
     padding-left: 0.375rem;
     line-height: 2.75;
+    &:active {
+      color: #999;
+    }
   }
 }
