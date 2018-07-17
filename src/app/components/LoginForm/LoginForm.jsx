@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import FormInput from '../../../common/components/FormInput/FormInput';
 import SubmitButton from '../../../common/components/SubmitButton/SubmitButton';
 import IconUser from '../../../assets/icons/ico-user.png';
 import IconLock from '../../../assets/icons/ico-lock.png';
+
+const propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};
 
 class LoginForm extends Component {
     state = {username: '', password: ''};
@@ -46,5 +51,7 @@ class LoginForm extends Component {
         );
     }
 }
+
+LoginForm.propTypes = propTypes;
 
 export default LoginForm;

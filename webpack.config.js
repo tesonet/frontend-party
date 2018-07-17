@@ -1,12 +1,10 @@
-import HardSourceWebpackPlugin from 'hard-source-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
     template: "./src/index.html",
     filename: "./index.html"
 });
 
-const hardSourceWebpackPlugin = new HardSourceWebpackPlugin();
 
 module.exports = {
     resolve: {
@@ -54,5 +52,5 @@ module.exports = {
             },
         ]
     },
-    plugins: [htmlWebpackPlugin, hardSourceWebpackPlugin]
+    plugins: [htmlWebpackPlugin]
 };

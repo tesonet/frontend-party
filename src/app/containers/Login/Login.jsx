@@ -1,9 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import authService from '../../services/auth.service';
 import { setToLocalStorage } from '../../../common/util/localStorage.util';
 import Logo from '../../../assets/images/logo.png';
 import './Login.scss';
+
+const propTypes = {
+    history: PropTypes.object,
+    redirectTo: PropTypes.string.isRequired,
+};
 
 const Login = ({ history, redirectTo }) => {
     const onFormSubmit = model => {
@@ -27,5 +33,7 @@ const Login = ({ history, redirectTo }) => {
         </div>
     );
 };
+
+Login.propTypes = propTypes;
 
 export default Login;

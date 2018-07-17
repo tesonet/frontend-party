@@ -1,6 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import './List.scss';
+
+const propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object),
+    columns: PropTypes.arrayOf(PropTypes.shape({
+        accessor: PropTypes.string.isRequired,
+        header: PropTypes.string.isRequired,
+        suffix: PropTypes.string,
+    }))
+};
 
 const List = ({ data, columns }) => {
     return (
@@ -22,5 +32,7 @@ const List = ({ data, columns }) => {
         </div>
     )
 };
+
+List.propTypes = propTypes;
 
 export default List;

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import FormInput from './FormInput';
-import IconUser from '../../../assets/icons/ico-user.png.png';
+import IconUser from '../../../assets/icons/ico-user.png';
 
 describe('<FormInput />', () => {
     it('should match snapshot', () => {

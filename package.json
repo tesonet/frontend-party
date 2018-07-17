@@ -8,8 +8,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "test": "jest",
-    "lint": "esw webpack.config.babel.js src --color -c './.eslintrc.js' --ext js --ext jsx",
-    "fix": "eslint webpack.config.babel.js src --color --fix -c './.eslintrc.js' --ext js --ext jsx",
+    "lint": "esw webpack.config.js src --color -c './.eslintrc.json' --ext js --ext jsx",
+    "fix": "eslint webpack.config.js src --color --fix -c './.eslintrc.json' --ext js --ext jsx",
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack --mode production"
   },
@@ -23,6 +23,7 @@
   "devDependencies": {
     "autoprefixer": "^8.6.5",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
@@ -42,6 +43,7 @@
     "jest-cli": "^23.4.1",
     "node-sass": "^4.9.2",
     "postcss-loader": "^2.1.6",
+    "prop-types": "^15.6.2",
     "react-test-renderer": "^16.4.1",
     "sass-loader": "^7.0.3",
     "shortid": "^2.2.12",

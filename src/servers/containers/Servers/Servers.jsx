@@ -1,4 +1,5 @@
 import React,  { Component } from 'react';
+import PropTypes from 'prop-types';
 import serversService from '../../services/servers.service';
 import List from '../../../common/components/List/List';
 import IconLabel from '../../../common/components/IconLabel/IconLabel';
@@ -7,6 +8,10 @@ import appRoutes from '../../../app/app.routes';
 import Logo from '../../../assets/images/logo-blue.png';
 import IconLogout from '../../../assets/icons/ico-logout.png';
 import './Servers.scss';
+
+const propTypes = {
+    history: PropTypes.object.isRequired,
+};
 
 class Servers extends Component {
     state = { servers: [] };
@@ -43,5 +48,7 @@ class Servers extends Component {
         )
     }
 }
+
+Servers.propTypes = propTypes;
 
 export default Servers;
