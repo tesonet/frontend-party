@@ -1,5 +1,6 @@
 import React,  { Component } from 'react';
 import PropTypes from 'prop-types';
+import { orderBy } from 'lodash-es';
 import serversService from '../../services/servers.service';
 import List from '../../../common/components/List/List';
 import IconLabel from '../../../common/components/IconLabel/IconLabel';
@@ -16,7 +17,9 @@ const propTypes = {
 class Servers extends Component {
     state = { servers: [] };
     componentDidMount() {
-        serversService.getServers().then(({ data }) => this.setState({ servers: data }))
+        serversService.getServers().then(({ data }) => this.setState({
+            servers: orderBy(data, ['distance', 'name']),
+        }))
     }
 
     onLogOutClick = () => {
