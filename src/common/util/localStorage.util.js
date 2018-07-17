@@ -15,7 +15,7 @@ export const setToLocalStorage = (key, value) => {
         const serializedItem = JSON.stringify(value);
         localStorage.setItem(key, serializedItem);
     } catch (err) {
-        // Ignore write errors.
+        return undefined;
     }
 };
 

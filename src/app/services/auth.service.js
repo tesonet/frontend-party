@@ -1,17 +1,7 @@
-import axios from 'axios';
+import axiosProxy from '../../axiosProxy';
 import { removeFromLocalStorage, getFromLocalStorage } from '../../common/util/localStorage.util';
 
-const ENDPOINT = 'http://playground.tesonet.lt/v1';
-
-const login = ({ username, password }) =>
-    axios({
-        method: 'POST',
-        url: `${ENDPOINT}/tokens`,
-        data: {
-            username,
-            password,
-        },
-    });
+const login = model => axiosProxy.post(`/tokens`, model);
 
 const logOut = () => removeFromLocalStorage('session');
 
