@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import authService from '../../services/auth.service';
@@ -11,28 +11,31 @@ const propTypes = {
     redirectTo: PropTypes.string.isRequired,
 };
 
-const Login = ({ history, redirectTo }) => {
-    const onFormSubmit = model => {
+class Login extends Component {
+    onFormSubmit = model => {
         authService.login(model).then(({ data }) => {
             setToLocalStorage('session', { token: data.token });
-            history.push(redirectTo);
+            this.props.history.push(this.props.redirectTo);
         })
     };
-    return (
-        <div className="Login">
-            <div className="container">
-                <div className="h-100 justify-content-center align-items-center row">
-                    <div className="col-md-4">
-                        <div className="Login-logo">
-                            <img alt="Logo" src={Logo} />
+
+    render() {
+        return (
+            <div className="Login">
+                <div className="container">
+                    <div className="h-100 justify-content-center align-items-center row">
+                        <div className="col-lg-4 col-md-6 col-sm-8 col-10">
+                            <div className="Login-logo">
+                                <img alt="Logo" src={Logo} />
+                            </div>
+                            <LoginForm onSubmit={this.onFormSubmit} />
                         </div>
-                        <LoginForm onSubmit={onFormSubmit} />
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 Login.propTypes = propTypes;
 
