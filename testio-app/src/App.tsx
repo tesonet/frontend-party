@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import { testAction } from './features/loginForm/actions';
+import Button from './components/Button/ButtonContainer';
+import FormInput from './components/Input/Input';
+import { IApp } from './types';
+
+import { setLoginInput, setPasswordInput } from './features/loginForm/actions';
 
 import logo from './logo.svg';
 
@@ -10,7 +14,13 @@ type DispatchProps = ReturnType<typeof mapDispatchToProps>;
 
 type Props = StateProps & DispatchProps;
 
-const App: React.SFC<Props> = ({ headerText, onChange }) => (
+const App: React.SFC<Props> = ({
+  headerText,
+  onLoginChange,
+  onPasswordChange,
+  username,
+  password
+}) => (
   <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
@@ -19,16 +29,21 @@ const App: React.SFC<Props> = ({ headerText, onChange }) => (
     <p className="App-intro">
       To get started, edit <code>src/App.tsx</code> and save to reload qweproqwerpiqwe poriqwperi qwpeirp qwierpqiwerpiqwepr. 
     </p>
-    <input onChange={onChange}/>
+    <FormInput onChange={onLoginChange} value={ username } />
+    <FormInput onChange={onPasswordChange} value={ password } />
+    <Button />
   </div>
 );
 
-const mapStateToProps = (state: any) => ({
-  headerText: 'Welcome to React'
+const mapStateToProps = (state: IApp) => ({
+  headerText: 'Welcome to React',
+  password: state.form.password,
+  username: state.form.username
 })
 
 const mapDispatchToProps = (dispatch: any) => ({
-  onChange: () => dispatch(testAction('q'))
+  onLoginChange: (value: string) => dispatch(setLoginInput(value)),
+  onPasswordChange: (value: string) => dispatch(setPasswordInput(value))
 });
 
 export default connect(

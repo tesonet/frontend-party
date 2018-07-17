@@ -1,0 +1,1 @@
+export const SET_TOKEN = 'loginForm/SET_TOKEN';
