@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Header from './HeaderContainer';
 import Row from './RowContainer';
 
 interface IProps {
@@ -15,6 +16,7 @@ class List extends React.Component<IProps> {
         const { uids } = this.props;
         return (
             <div>
+                <Header />
                 {uids.map((uid) => (
                     <Row uid={uid} key={uid} />
                 ))}
