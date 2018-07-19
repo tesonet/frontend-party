@@ -4,21 +4,27 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
-import App from './App';
-import FormPage from './components/FormPage/Form';
-import LoginPage from './components/LoginPage/Login';
-import './index.css';
 import registerServiceWorker from './registerServiceWorker';
+import { App_Routes } from './Routes';
 import store, { history } from './store';
 
+import './index.css';
+
+import App from './App';
+import ErrorPage from './components/ErrorPage/ErrorPage';
+import FormPageRoute from './components/PrivateRoutes/FormRoute';
+import { initUser } from './features/user/actions';
+
+
+store.dispatch(initUser() as any);
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/" exact={true} component={App} />
-        <Route path="/form" exact={true} component={FormPage} />
-        <Route component={LoginPage} />
+        <Route path={App_Routes.LOGIN_PAGE} exact={true} component={App} />
+        <FormPageRoute />
+        <Route component={ErrorPage} />
       </Switch>
     </ConnectedRouter>
   </Provider>,

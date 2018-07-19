@@ -3,8 +3,8 @@ import { push } from 'connected-react-router'
 import { createAction } from 'redux-actions';
 import { ThunkAction } from 'redux-thunk';
 import { IApp } from '../../types';
-import { setToken } from '../token/actions'
-import { ITokenAPI } from '../token/types';
+import { setLoggedInStatus, setToken } from '../user/actions'
+import { ITokenAPI } from '../user/types';
 import { REQUEST_FAILED, SET_LOGIN_VALUE, SET_PASSWORD_VALUE } from './constants';
 
 export const setLoginInput = createAction(SET_LOGIN_VALUE);
@@ -34,6 +34,7 @@ const getToken = (): ThunkAction<void, IApp ,{}, any> => (dispatch, getState)=> 
         url: postPath,
       }).then(({ data }) => {
             dispatch(setToken(data.token))
+            dispatch(setLoggedInStatus(true));
             dispatch(push('/form'))
       }).catch((error) => {
           dispatch(setRequestFailed(true));

@@ -8,7 +8,6 @@ const testAPIData: IAPIResponse[] = [
 ];
 
 describe('list actions ', () => {
-
     describe('#buildAds', () => {
         it('should build countries list from api data', () => {
             const result = testAPIData.map(buildServerList);

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { logout } from '../../features/logout/actions';
+import { logout } from '../../features/user/actions';
 import { IApp } from '../../types';
 import Button from './LoginButton';
 
-const buttonLabel = 'Click me';
+const buttonLabel = 'logout';
 
 const mapStateToProps = (state: IApp) => ({
     label: buttonLabel

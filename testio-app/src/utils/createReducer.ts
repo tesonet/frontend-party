@@ -1,9 +1,3 @@
-export interface IAction<T> {
-    type: string;
-    payload?: T;
-    meta?: any;
-}
-
 export const updateSimpleValue = (state: any, { payload }: any) => payload;
 
 export const addByUid = <TState, TItem extends { uid: string }>(

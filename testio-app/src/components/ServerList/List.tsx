@@ -16,7 +16,7 @@ class List extends React.Component<IProps> {
         return (
             <div>
                 {uids.map((uid) => (
-                    <Row uid={uid} />
+                    <Row uid={uid} key={uid} />
                 ))}
             </div>
         );

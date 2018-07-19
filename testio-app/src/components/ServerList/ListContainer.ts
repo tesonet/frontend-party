@@ -4,7 +4,7 @@ import { IApp } from '../../types';
 import List from './List';
 
 const mapStateToProps = (state: IApp) => ({
-    uids: state.list.uids
+    uids: state.serverList.uids
 })
 
 const mapDispatchToProps = (dispatch: any) => ({

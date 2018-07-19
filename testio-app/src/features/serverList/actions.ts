@@ -21,11 +21,11 @@ export const buildServerList = (data: IAPIResponse): IListItem => ({
 });
 
 export const getList = (): ThunkAction<void, IApp ,{}, any> => (dispatch, getState)=> {
-    const { token } = getState();
+    const { user } = getState();
 
     axios.request<IAPIResponse[]>({
         headers: {
-            'Authorization': token.token,
+            'Authorization': user.token,
             'content-type': 'application/json'
           },
         method:'GET',

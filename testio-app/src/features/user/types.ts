@@ -1,4 +1,5 @@
-export interface IToken {
+export interface IUser {
+    isLoggedIn: boolean;
     token: string | null;
 }
 

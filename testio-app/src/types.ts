@@ -1,9 +1,9 @@
 import { IForm } from './features/loginForm/types';
 import { IList } from './features/serverList/types';
-import { IToken } from './features/token/types';
+import { IUser } from './features/user/types';
 
 export interface IApp {
     form: IForm;
-    token: IToken;
-    list: IList;
+    serverList: IList;
+    user: IUser
 }

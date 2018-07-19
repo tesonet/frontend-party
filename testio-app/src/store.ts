@@ -7,7 +7,7 @@ import { IApp } from './types';
 // Reducers
 import FormReducer from './features/loginForm/reducer';
 import ListReducer from './features/serverList/reducer';
-import TokenReducer from './features/token/reducer';
+import UserReducer from './features/user/reducer';
 
 import createLocalStorageMiddleware from './middlewares/localStorage';
 
@@ -18,8 +18,8 @@ const middleware = [thunk, createLocalStorageMiddleware, routerMiddleware(histor
 const store = createStore(
     connectRouter(history)(combineReducers<IApp>({
         form: FormReducer,
-        list: ListReducer,
-        token: TokenReducer
+        serverList: ListReducer,
+        user: UserReducer,
     })),
     {} as IApp,
     composeEnhancers(applyMiddleware(...middleware))
