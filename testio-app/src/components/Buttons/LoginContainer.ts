@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { onSubmit } from '../../features/loginForm/actions';
 import { IApp } from '../../types';
-import Button from './Button';
+import Button from './LoginButton';
 
 const buttonLabel = 'Click me';
 

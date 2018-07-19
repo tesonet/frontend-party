@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import Button from './components/Button/ButtonContainer';
+import Button from './components/Buttons/LoginContainer';
 import FormInput from './components/Input/Input';
 import { IApp } from './types';
 
@@ -19,7 +19,8 @@ const App: React.SFC<Props> = ({
   onLoginChange,
   onPasswordChange,
   username,
-  password
+  password,
+  error
 }) => (
   <div className="App">
     <header className="App-header">
@@ -27,8 +28,9 @@ const App: React.SFC<Props> = ({
       <h1 className="App-title">{ headerText }</h1>
     </header>
     <p className="App-intro">
-      To get started, edit <code>src/App.tsx</code> and save to reload qweproqwerpiqwe poriqwperi qwpeirp qwierpqiwerpiqwepr. 
+      To get started, edit <code>src/App.tsx</code> and save to reload. 
     </p>
+    {error && (<div>error message</div>)}
     <FormInput onChange={onLoginChange} value={ username } />
     <FormInput onChange={onPasswordChange} value={ password } />
     <Button />
@@ -36,6 +38,7 @@ const App: React.SFC<Props> = ({
 );
 
 const mapStateToProps = (state: IApp) => ({
+  error: state.form.error,
   headerText: 'Welcome to React',
   password: state.form.password,
   username: state.form.username
