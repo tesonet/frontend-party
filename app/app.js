@@ -24,9 +24,21 @@
   .config(['$urlRouterProvider', function($urlRouterProvider) {
     $urlRouterProvider.otherwise('/login');
   }])
-  .run(function ($state, $rootScope){
-    $rootScope.$on('$locationChangeStart', function () {
-  //TODO: token expiration check implementation
-  	});
+
+  .run(function ($state, $rootScope, store, $transitions){
+
+    $transitions.onStart( { to: 'auth.**' }, function(trans) {
+        var MyAuthService = trans.injector().get('Auth');
+        if (!MyAuthService.isAuthenticated()) {
+          return $state.target("login");
+        }
+      });
+    $transitions.onStart( { to : 'login' }, function(trans) {
+        var MyAuthService = trans.injector().get('Auth');
+        if (MyAuthService.isAuthenticated()) {
+          return $state.target("auth.server_list");
+        }
+      });
   });
+
 })();

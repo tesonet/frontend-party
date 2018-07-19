@@ -36,7 +36,7 @@
 						listCtrl.serverError = true;
 						listCtrl.errorMessage = "There was a problem with your authorization, try loggin in again.";
 					}
-		   	}); 
+		   	});
 		}
 	  function sortBy(propertyName) {
 	    listCtrl.reverse = (listCtrl.propertyName === propertyName) ? !listCtrl.reverse : false;
