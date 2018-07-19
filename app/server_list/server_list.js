@@ -19,8 +19,8 @@
 		var listCtrl = this;
 
 		listCtrl.sortBy = sortBy;
-	  listCtrl.propertyName = 'name';
-	  listCtrl.reverse = true;
+	  listCtrl.propertyName = 'distance';
+	  listCtrl.reverse = false;
 		listCtrl.fetchList = fetchList;
 
 		listCtrl.fetchList();
