@@ -5,9 +5,6 @@ export const isUserLoggedIn = (state: IApp) => {
     const { user } = state;
     const { isLoggedIn, token } = user;
 
-    // tslint:disable-next-line:no-console
-    console.log(isLoggedIn && !!token);
-
     if (isLoggedIn && token) {
         return true;
     }
