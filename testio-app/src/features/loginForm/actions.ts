@@ -2,6 +2,7 @@ import axios from 'axios';
 import { push } from 'connected-react-router'
 import { createAction } from 'redux-actions';
 import { ThunkAction } from 'redux-thunk';
+import { App_Routes } from '../../Routes';
 import { IApp } from '../../types';
 import { setLoggedInStatus, setToken } from '../user/actions'
 import { ITokenAPI } from '../user/types';
@@ -35,7 +36,7 @@ const getToken = (): ThunkAction<void, IApp ,{}, any> => (dispatch, getState)=> 
       }).then(({ data }) => {
             dispatch(setToken(data.token))
             dispatch(setLoggedInStatus(true));
-            dispatch(push('/form'))
+            dispatch(push(App_Routes.FORM_PAGE));
       }).catch((error) => {
           dispatch(setRequestFailed(true));
       });
