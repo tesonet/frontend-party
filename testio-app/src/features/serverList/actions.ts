@@ -1,4 +1,5 @@
 import axios from 'axios';
+import orderBy from 'lodash-es/orderBy';
 import { createAction } from 'redux-actions';
 import { ThunkAction } from 'redux-thunk';
 import { v4 as uuid } from 'uuid';
@@ -7,7 +8,6 @@ import { SET_LIST } from './constants';
 import { IAPIResponse, IListItem } from './types';
 
 export const setLoginInput = createAction(SET_LIST);
-
 const getPath = 'http://playground.tesonet.lt/v1/servers';
 
 // Thunks
@@ -30,10 +30,11 @@ export const getList = (): ThunkAction<void, IApp ,{}, any> => (dispatch, getSta
           },
         method:'GET',
         url: getPath,
-      }).then(({ data }) => {
-          dispatch(setLoginInput(data.map(buildServerList)));
+      }).then(({ data }) => {       
+            const sortedArray = orderBy(data, ['distance', 'name']);
+            dispatch(setLoginInput(sortedArray.map(buildServerList)));
       }).catch((error) => {
-          // tslint:disable-next-line:no-console
-          console.log(error)
+            // tslint:disable-next-line:no-console
+            console.log(error)
       });
 }

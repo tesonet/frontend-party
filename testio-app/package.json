@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.1.2",
     "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
+    "lodash-es": "^4.17.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
@@ -14,6 +16,7 @@
     "redux": "^4.0.0",
     "redux-actions": "^2.4.0",
     "redux-thunk": "^2.3.0",
+    "reselect": "^3.0.1",
     "uuid": "^3.3.2"
   },
   "scripts": {
@@ -25,6 +28,7 @@
   "devDependencies": {
     "@types/history": "^4.6.2",
     "@types/jest": "^23.1.6",
+    "@types/lodash-es": "^4.17.0",
     "@types/node": "^10.5.2",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
