@@ -3,12 +3,12 @@ import LogoutButton from '../Buttons/LogoutContainer';
 import List from '../ServerList/ListContainer';
 
 const FormPage: React.SFC<{}> = () => (
-  <p>
+  <div>
     Form page
     <LogoutButton />
     <hr />
     <List />
-  </p>
+  </div>
 );
 
 export default FormPage;

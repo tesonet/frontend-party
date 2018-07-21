@@ -1,0 +1,15 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+@import "node_modules/bootstrap/scss/grid";
+
+$primary-color: pink;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: $primary-color;
+}
+

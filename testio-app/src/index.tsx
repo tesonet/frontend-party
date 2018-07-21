@@ -8,7 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { App_Routes } from './Routes';
 import store, { history } from './store';
 
-import './index.css';
+import './index.scss';
 
 import App from './App';
 import ErrorPage from './components/ErrorPage/ErrorPage';
