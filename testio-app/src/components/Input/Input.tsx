@@ -1,33 +1,36 @@
 import * as React from 'react';
 
 interface IProps {
-    value: string;
-    onChange: (value: string) => any;
+  value: string;
+  placeholder: string;
+  onChange: (value: string) => any;
 }
 
 class FormInput extends React.Component<IProps> {
-    constructor(props: any) {
-        super(props);
+  constructor(props: any) {
+    super(props);
 
-        this.onChange = this.onChange.bind(this);
-    }
+    this.onChange = this.onChange.bind(this);
+  }
 
-    public render() {
-        const {
-            value
-        } = this.props;
+  public render() {
+    const { value, placeholder } = this.props;
 
-        return (
-            <input
-                onChange={this.onChange}
-                value={value}
-            />
-        );
-    }
+    return (
+      <div className="col-12">
+        <input
+          className="col-12"
+          onChange={this.onChange}
+          value={value}
+          placeholder={placeholder}
+        />
+      </div>
+    );
+  }
 
-    private onChange(event: any) {
-        this.props.onChange(event.target.value);
-    }
+  private onChange(event: any) {
+    this.props.onChange(event.target.value);
+  }
 }
 
 export default FormInput;

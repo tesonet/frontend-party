@@ -6,14 +6,14 @@ import Button from './LoginButton';
 const buttonLabel = 'logout';
 
 const mapStateToProps = (state: IApp) => ({
-    label: buttonLabel
-})
-  
+  label: buttonLabel
+});
+
 const mapDispatchToProps = (dispatch: any) => ({
-    onClick: () => dispatch(logout())
+  onClick: () => dispatch(logout())
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Button);

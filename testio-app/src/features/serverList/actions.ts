@@ -11,30 +11,39 @@ export const setLoginInput = createAction(SET_LIST);
 const getPath = 'http://playground.tesonet.lt/v1/servers';
 
 // Thunks
-export const getServersList = (): ThunkAction<void, IApp ,{}, any> => (dispatch, getState) => {
-    dispatch(getList());
+export const getServersList = (): ThunkAction<void, IApp, {}, any> => (
+  dispatch,
+  getState
+) => {
+  dispatch(getList());
 };
 
 export const buildServerList = (data: IAPIResponse): IListItem => ({
-    ...data,
-    uid: uuid()
+  ...data,
+  uid: uuid()
 });
 
-export const getList = (): ThunkAction<void, IApp ,{}, any> => (dispatch, getState)=> {
-    const { user } = getState();
+export const getList = (): ThunkAction<void, IApp, {}, any> => (
+  dispatch,
+  getState
+) => {
+  const { user } = getState();
 
-    axios.request<IAPIResponse[]>({
-        headers: {
-            'Authorization': user.token,
-            'content-type': 'application/json'
-          },
-        method:'GET',
-        url: getPath,
-      }).then(({ data }) => {       
-            const sortedArray = orderBy(data, ['distance', 'name']);
-            dispatch(setLoginInput(sortedArray.map(buildServerList)));
-      }).catch((error) => {
-            // tslint:disable-next-line:no-console
-            console.log(error)
-      });
-}
+  axios
+    .request<IAPIResponse[]>({
+      headers: {
+        Authorization: user.token,
+        'content-type': 'application/json'
+      },
+      method: 'GET',
+      url: getPath
+    })
+    .then(({ data }) => {
+      const sortedArray = orderBy(data, ['distance', 'name']);
+      dispatch(setLoginInput(sortedArray.map(buildServerList)));
+    })
+    .catch(error => {
+      // tslint:disable-next-line:no-console
+      console.log(error);
+    });
+};

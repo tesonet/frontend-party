@@ -6,7 +6,9 @@ interface IProps {
 }
 
 const Cell: React.SFC<IProps> = ({ text, onClick }) => (
-  <div className="col" onClick={onClick}> { text }</div>
+  <div className="col" onClick={onClick}>
+    {text}
+  </div>
 );
 
 export default Cell;

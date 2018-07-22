@@ -15,8 +15,8 @@ const Row: React.SFC<IProps> = ({
   distanceOnClick
 }) => (
   <div className="row">
-    <Cell text={ name } onClick={ nameOnClick }/>
-    <Cell text={ distance } onClick={ distanceOnClick }/>
+    <Cell text={name} onClick={nameOnClick} />
+    <Cell text={distance} onClick={distanceOnClick} />
   </div>
 );
 

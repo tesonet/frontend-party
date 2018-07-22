@@ -4,12 +4,12 @@ import { IApp } from '../../types';
 import Row from './Row';
 
 const mapStateToProps = (state: IApp, ownProps: { uid: string }) => {
-    const { distance, name } = getServerByUid(state, ownProps);
+  const { distance, name } = getServerByUid(state, ownProps);
 
-    return {
-        distance: distance.toString(),
-        name
-    }
-}
+  return {
+    distance: distance.toString(),
+    name
+  };
+};
 
 export default connect(mapStateToProps)(Row);

@@ -4,18 +4,20 @@ Todo:
         + login inputs
         + app init function
         + 404 page + routing
-        + logout knopke
-        implement sorting (use lodash sortBy method)
-        add debounce to input fields (use lodash debounce)
-        input form handle error case (add some text + styled inputs)
-        create configuarable store (to test reducer creators)
-        add scss
+        + logout button
+        + implement sorting (use lodash sortBy method)
+        + add scss support
+        + createReducer tests
+        + use createActions
+        + implement prettier
+        style up page
         update user about bad logins
-        use createActions
-        implement redirect
-        implement re-select for list sorting
-        implement prettier
+        trim bootstrap
+        input form handle error case (add some text + styled inputs)
+        tests for axios calls
     Nice To Have:
-        code splitting
-        implement route generator
-        remove all any
+        - split vendors from bundle
+        - code splitting by route
+        - implement route generator
+        - remove all any
+        - implement re-select for list sorting
