@@ -1,8 +1,15 @@
+import LoginForm from 'components/LoginForm/Form';
+import bgImage from 'images/test.jpg';
 import * as React from 'react';
-import LoginForm from '../LoginForm/Form';
 
 const LoginPage: React.SFC<{}> = () => (
-  <div className="d-flex justify-content-center align-items-center flex-wrap vh-100 flex-column">
+  <div
+    style={{
+      backgroundImage: `url(${bgImage})`
+    }}
+    className="d-flex justify-content-center align-items-center flex-wrap vh-100 flex-column"
+  >
+    {/* <img src={bgImage} alt="test" /> */}
     <h1>Add text here</h1>
     <div style={{ maxWidth: 400 }}>
       <LoginForm />

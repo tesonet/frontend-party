@@ -1,6 +1,6 @@
+import { setLoginInput } from 'features/loginForm/actions';
 import { connect } from 'react-redux';
-import { setLoginInput } from '../../features/loginForm/actions';
-import { IApp } from '../../types';
+import { IApp } from 'types';
 import Input from './Input';
 
 const usernamePlaceholder = 'username';

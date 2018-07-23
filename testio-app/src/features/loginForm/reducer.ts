@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { handleAction } from 'redux-actions';
-import { updateSimpleValue } from '../../utils/createReducer';
+import { updateSimpleValue } from 'utils/createReducer';
 import {
   REQUEST_FAILED,
   SET_LOGIN_VALUE,

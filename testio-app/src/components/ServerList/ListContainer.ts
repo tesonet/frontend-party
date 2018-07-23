@@ -1,6 +1,6 @@
+import { getServersList } from 'features/serverList/actions';
 import { connect } from 'react-redux';
-import { getServersList } from '../../features/serverList/actions';
-import { IApp } from '../../types';
+import { IApp } from 'types';
 import List from './List';
 
 const mapStateToProps = (state: IApp) => ({

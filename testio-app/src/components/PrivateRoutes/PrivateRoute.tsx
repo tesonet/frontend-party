@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { App_Routes } from '../../Routes';
+import { App_Routes } from 'Routes';
 
 interface IProps {
   shouldRedirect: boolean;

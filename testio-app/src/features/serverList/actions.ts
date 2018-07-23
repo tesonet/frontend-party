@@ -2,8 +2,8 @@ import axios from 'axios';
 import orderBy from 'lodash-es/orderBy';
 import { createAction } from 'redux-actions';
 import { ThunkAction } from 'redux-thunk';
+import { IApp } from 'types';
 import { v4 as uuid } from 'uuid';
-import { IApp } from '../../types';
 import { SET_LIST } from './constants';
 import { IAPIResponse, IListItem } from './types';
 

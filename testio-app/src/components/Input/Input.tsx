@@ -3,11 +3,11 @@ import * as React from 'react';
 interface IProps {
   value: string;
   placeholder: string;
-  onChange: (value: string) => any;
+  onChange: (value: string) => string;
 }
 
 class FormInput extends React.Component<IProps> {
-  constructor(props: any) {
+  constructor(props: IProps) {
     super(props);
 
     this.onChange = this.onChange.bind(this);

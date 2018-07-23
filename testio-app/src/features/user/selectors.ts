@@ -1,4 +1,4 @@
-import { IApp } from '../../types';
+import { IApp } from 'types';
 
 export const isUserLoggedIn = (state: IApp) => {
   // This code be change to double destructing, but for some people its harder to read.

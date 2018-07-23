@@ -10,14 +10,20 @@ Todo:
         + createReducer tests
         + use createActions
         + implement prettier
+        + trim bootstrap
+        + dynamic paths
+
         style up page
-        update user about bad logins
-        trim bootstrap
         input form handle error case (add some text + styled inputs)
         tests for axios calls
+        add read me file
+        add loaders        
     Nice To Have:
+        - Add ascending/descending order sorting to server list
         - split vendors from bundle
         - code splitting by route
         - implement route generator
         - remove all any
         - implement re-select for list sorting
+        - Redirect user to login page
+        - Webpack Bundle Analyzer

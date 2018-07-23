@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { push } from 'connected-react-router';
+import { setLoggedInStatus, setToken } from 'features/user/actions';
+import { ITokenAPI } from 'features/user/types';
 import { createAction } from 'redux-actions';
 import { ThunkAction } from 'redux-thunk';
-import { App_Routes } from '../../Routes';
-import { IApp } from '../../types';
-import { setLoggedInStatus, setToken } from '../user/actions';
-import { ITokenAPI } from '../user/types';
+import { App_Routes } from 'Routes';
+import { IApp } from 'types';
 import {
   REQUEST_FAILED,
   SET_LOGIN_VALUE,

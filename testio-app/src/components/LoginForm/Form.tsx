@@ -1,7 +1,7 @@
+import SubmitButton from 'components/Buttons/LoginContainer';
+import PasswordInput from 'components/Input/PasswordInputContainer';
+import UsernameInput from 'components/Input/UsernameInputContainer';
 import * as React from 'react';
-import SubmitButton from '../Buttons/LoginContainer';
-import PasswordInput from '../Input/PasswordInputContainer';
-import UsernameInput from '../Input/UsernameInputContainer';
 
 const LoginForm: React.SFC<{}> = () => (
   <form>

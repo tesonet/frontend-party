@@ -1,7 +1,7 @@
+import { LOGIN_TOGGLER } from 'features/user/constants';
 import { combineReducers } from 'redux';
 import { handleAction } from 'redux-actions';
-import { LOGIN_TOGGLER } from '../../features/user/constants';
-import { addByUid, addUids } from '../../utils/createReducer';
+import { addByUid, addUids } from 'utils/createReducer';
 import { SET_LIST } from './constants';
 import { IList } from './types';
 

@@ -1,7 +1,7 @@
-import { LOGIN_TOGGLER, SET_TOKEN } from '../features/user/constants';
-import { IS_LOGGED_IN, PARTY_TOKEN } from '../localStorageKeys';
-import { createLocalStorageMiddleware } from '../utils/localStorage/middleware';
-import { setLocalStorageData } from '../utils/localStorage/utils';
+import { LOGIN_TOGGLER, SET_TOKEN } from 'features/user/constants';
+import { IS_LOGGED_IN, PARTY_TOKEN } from 'localStorageKeys';
+import { createLocalStorageMiddleware } from 'utils/localStorage/middleware';
+import { setLocalStorageData } from 'utils/localStorage/utils';
 
 const setPartyToken = ({ payload }: IAction<string>) =>
   setLocalStorageData<string | null>(PARTY_TOKEN, payload || null);

@@ -1,9 +1,9 @@
 import { push } from 'connected-react-router';
+import { IS_LOGGED_IN, PARTY_TOKEN } from 'localStorageKeys';
 import { createAction } from 'redux-actions';
 import { ThunkAction } from 'redux-thunk';
-import { IS_LOGGED_IN, PARTY_TOKEN } from '../../localStorageKeys';
-import { IApp } from '../../types';
-import { getLocalStorageData } from '../../utils/localStorage/utils';
+import { IApp } from 'types';
+import { getLocalStorageData } from 'utils/localStorage/utils';
 import { LOGIN_TOGGLER, SET_TOKEN } from './constants';
 
 export const setLoggedInStatus = createAction(LOGIN_TOGGLER);

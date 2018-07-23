@@ -1,6 +1,6 @@
+import LogoutButton from 'components/Buttons/LogoutContainer';
+import List from 'components/ServerList/ListContainer';
 import * as React from 'react';
-import LogoutButton from '../Buttons/LogoutContainer';
-import List from '../ServerList/ListContainer';
 
 const FormPage: React.SFC<{}> = () => (
   <div>

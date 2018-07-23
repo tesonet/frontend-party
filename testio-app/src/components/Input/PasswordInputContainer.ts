@@ -1,6 +1,6 @@
+import { setPasswordInput } from 'features/loginForm/actions';
 import { connect } from 'react-redux';
-import { setPasswordInput } from '../../features/loginForm/actions';
-import { IApp } from '../../types';
+import { IApp } from 'types';
 import Input from './Input';
 
 const passwordPlaceholder = 'password';

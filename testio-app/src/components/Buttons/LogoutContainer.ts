@@ -1,6 +1,6 @@
+import { logout } from 'features/user/actions';
 import { connect } from 'react-redux';
-import { logout } from '../../features/user/actions';
-import { IApp } from '../../types';
+import { IApp } from 'types';
 import Button from './LoginButton';
 
 const buttonLabel = 'logout';
