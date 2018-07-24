@@ -3,27 +3,29 @@ Todo:
         + basic project structure
         + login inputs
         + app init function
-        + 404 page + routing
+        + routing
         + logout button
         + implement sorting (use lodash sortBy method)
         + add scss support
         + createReducer tests
+        + input form handle error case (add some text + styled inputs)
+        + tests for axios calls
+        + style up page
+        - install and use icons 
+        - add read me file
+        - remove idea settings from git
+    Nice To Have:
         + use createActions
         + implement prettier
-        + trim bootstrap
         + dynamic paths
-
-        style up page
-        input form handle error case (add some text + styled inputs)
-        tests for axios calls
-        add read me file
-        add loaders        
-    Nice To Have:
+        - trim bootstrap
+        - add loaders
         - Add ascending/descending order sorting to server list
         - split vendors from bundle
         - code splitting by route
         - implement route generator
-        - remove all any
         - implement re-select for list sorting
-        - Redirect user to login page
         - Webpack Bundle Analyzer
+    Consider:
+        - Gimp support assets
+        - Drop bootstrap (I would love to use styled-components)
