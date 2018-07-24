@@ -4,10 +4,14 @@ import { IApp } from 'types';
 import Input from './Input';
 
 const usernamePlaceholder = 'username';
+const type = 'text';
 
 const mapStateToProps = (state: IApp) => ({
-  placeholder: usernamePlaceholder,
-  value: state.form.username
+  props: {
+    placeholder: usernamePlaceholder,
+    type,
+    value: state.form.username
+  }
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

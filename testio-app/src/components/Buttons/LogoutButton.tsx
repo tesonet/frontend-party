@@ -6,7 +6,9 @@ interface IProps {
 }
 
 const Button: React.SFC<IProps> = ({ label, onClick }) => (
-  <button onClick={onClick}>{label}</button>
+  <div className="logout-btn fz14" onClick={onClick}>
+    {label}
+  </div>
 );
 
 export default Button;

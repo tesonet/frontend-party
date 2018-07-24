@@ -1,12 +1,10 @@
-import LogoutButton from 'components/Buttons/LogoutContainer';
 import List from 'components/ServerList/ListContainer';
 import * as React from 'react';
+import Header from './Header';
 
 const FormPage: React.SFC<{}> = () => (
   <div>
-    Form page
-    <LogoutButton />
-    <hr />
+    <Header />
     <List />
   </div>
 );

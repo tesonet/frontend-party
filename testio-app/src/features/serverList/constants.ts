@@ -1,1 +1,2 @@
 export const SET_LIST = 'serverList/SET_LIST';
+export const SET_ERROR = 'serverList/SET_ERROR';

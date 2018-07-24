@@ -5,6 +5,7 @@ export interface ITById<T> {
 export interface IList {
   uids: string[];
   byUid: ITById<IListItem>;
+  error: boolean;
 }
 
 export interface IAPIResponse {

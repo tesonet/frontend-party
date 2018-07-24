@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { IApp } from 'types';
 import Button from './LoginButton';
 
-const buttonLabel = 'Click me';
+const buttonLabel = 'Log In';
 
 const mapStateToProps = (state: IApp) => ({
   label: buttonLabel

@@ -1,0 +1,14 @@
+@import "colors";
+
+.server-row {
+    padding: 12px 0;
+    border: 1px solid transparent;
+    border-bottom-color: $border-grey;
+    color: $grey-text;
+
+    div {
+        &:nth-child(even) {
+            text-align: right;
+        }
+    }
+}

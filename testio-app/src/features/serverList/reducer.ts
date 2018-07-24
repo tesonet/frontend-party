@@ -1,16 +1,19 @@
 import { LOGIN_TOGGLER } from 'features/user/constants';
 import { combineReducers } from 'redux';
 import { handleAction } from 'redux-actions';
-import { addByUid, addUids } from 'utils/createReducer';
-import { SET_LIST } from './constants';
+import { addByUid, addUids, updateSimpleValue } from 'utils/createReducer';
+import { SET_ERROR, SET_LIST } from './constants';
 import { IList } from './types';
 
 const byUidReducer = handleAction(SET_LIST, addByUid, {});
 const idsReducer = handleAction(SET_LIST, addUids, []);
+const errorReducer = handleAction(SET_ERROR, updateSimpleValue, false);
 
 const serverListReducer = combineReducers<IList>({
   byUid: byUidReducer,
-  uids: idsReducer
+  uids: idsReducer,
+  // tslint:disable-next-line:object-literal-sort-keys
+  error: errorReducer
 });
 
 export default (state: any, action: IAction<boolean>) =>

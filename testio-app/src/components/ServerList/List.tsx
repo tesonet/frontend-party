@@ -15,7 +15,7 @@ class List extends React.Component<IProps> {
   public render() {
     const { uids } = this.props;
     return (
-      <div className="container">
+      <div className="container-fluid">
         <Header />
         {uids.map(uid => <Row uid={uid} key={uid} />)}
       </div>

@@ -5,15 +5,14 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import registerServiceWorker from './registerServiceWorker';
-import { App_Routes } from './Routes';
+import { APP_ROUTES } from './Routes';
 import store, { history } from './store';
 
-import './index.scss';
+import LoginPage from 'components/LoginPage/Login';
+import FormPageRoute from 'components/PrivateRoutes/FormRoute';
+import { initUser } from 'features/user/actions';
 
-import ErrorPage from './components/ErrorPage/ErrorPage';
-import LoginPage from './components/LoginPage/Login';
-import FormPageRoute from './components/PrivateRoutes/FormRoute';
-import { initUser } from './features/user/actions';
+import 'scss/index.scss';
 
 store.dispatch(initUser() as any);
 
@@ -22,12 +21,11 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <Switch>
         <Route
-          path={App_Routes.LOGIN_PAGE}
+          path={APP_ROUTES.LOGIN_PAGE}
           exact={true}
           component={LoginPage}
         />
         <FormPageRoute />
-        <Route component={ErrorPage} />
       </Switch>
     </ConnectedRouter>
   </Provider>,

@@ -4,10 +4,14 @@ import { IApp } from 'types';
 import Input from './Input';
 
 const passwordPlaceholder = 'password';
+const type = 'password';
 
 const mapStateToProps = (state: IApp) => ({
-  placeholder: passwordPlaceholder,
-  value: state.form.password
+  props: {
+    placeholder: passwordPlaceholder,
+    type,
+    value: state.form.password
+  }
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

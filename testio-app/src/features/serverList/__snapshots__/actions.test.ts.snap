@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`list actions  #buildAds should build countries list from api data 1`] = `
+exports[`List actions  #buildAds should build countries list from api data 1`] = `
 Array [
   Object {
     "distance": 451,

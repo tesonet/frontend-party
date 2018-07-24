@@ -8,15 +8,11 @@ import {
 } from './constants';
 import { IForm } from './types';
 
-const loginInputReducer = handleAction(
-  SET_LOGIN_VALUE,
-  updateSimpleValue,
-  'tesonet'
-);
+const loginInputReducer = handleAction(SET_LOGIN_VALUE, updateSimpleValue, '');
 const passwordInputReducer = handleAction(
   SET_PASSWORD_VALUE,
   updateSimpleValue,
-  'partyanimal'
+  ''
 );
 const requestFailedReducer = handleAction(
   REQUEST_FAILED,

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { App_Routes } from 'Routes';
+import { APP_ROUTES } from 'Routes';
 
 interface IProps {
   shouldRedirect: boolean;
   component: any;
-  path: App_Routes;
-  redirectTo: App_Routes;
+  path: APP_ROUTES;
+  redirectTo: APP_ROUTES;
 }
 
 const PrivateRoute: React.SFC<IProps> = ({

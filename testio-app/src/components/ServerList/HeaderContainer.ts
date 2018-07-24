@@ -1,22 +1,14 @@
 import { connect } from 'react-redux';
 import Row from './Row';
 
-const distance = 'Distance';
-const name = 'name';
+const distance = 'Distance'.toLocaleUpperCase();
+const name = 'name'.toLocaleUpperCase();
+const isHeader = true;
 
 const mapStateToProps = () => ({
   distance,
+  isHeader,
   name
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-  // tslint:disable-next-line:no-console
-  distanceOnClick: () => console.log('name'),
-  // tslint:disable-next-line:no-console
-  nameOnClick: () => console.log('name')
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Row);
+export default connect(mapStateToProps)(Row);

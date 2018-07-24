@@ -1,0 +1,22 @@
+@import "colors";
+@import "index";
+
+.input {
+    @extend %login-elements-padding;
+    margin-bottom: 20px;
+    background-color: $white;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+
+
+    input {
+        padding: 0 0 0 15px;
+        border: none;
+        outline: none;
+        color: $input-text-color;
+
+        &::placeholder {
+            color: $input-placeholder-color;
+        }
+    }
+}

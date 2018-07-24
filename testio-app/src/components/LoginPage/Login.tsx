@@ -1,5 +1,6 @@
 import LoginForm from 'components/LoginForm/Form';
-import bgImage from 'images/test.jpg';
+import bgImage from 'images/login_background.jpg';
+import logo from 'images/login_logo.png';
 import * as React from 'react';
 
 const LoginPage: React.SFC<{}> = () => (
@@ -9,9 +10,8 @@ const LoginPage: React.SFC<{}> = () => (
     }}
     className="d-flex justify-content-center align-items-center flex-wrap vh-100 flex-column"
   >
-    {/* <img src={bgImage} alt="test" /> */}
-    <h1>Add text here</h1>
-    <div style={{ maxWidth: 400 }}>
+    <img src={logo} alt="logo" className="p-b-70" />
+    <div className="w-100" style={{ maxWidth: 360 }}>
       <LoginForm />
     </div>
   </div>

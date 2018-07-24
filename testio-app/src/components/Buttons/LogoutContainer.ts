@@ -1,12 +1,12 @@
 import { logout } from 'features/user/actions';
 import { connect } from 'react-redux';
 import { IApp } from 'types';
-import Button from './LoginButton';
+import Button from './LogoutButton';
 
-const buttonLabel = 'logout';
+const label = 'logout';
 
 const mapStateToProps = (state: IApp) => ({
-  label: buttonLabel
+  label
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

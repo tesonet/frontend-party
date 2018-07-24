@@ -2,6 +2,7 @@ import { push } from 'connected-react-router';
 import { IS_LOGGED_IN, PARTY_TOKEN } from 'localStorageKeys';
 import { createAction } from 'redux-actions';
 import { ThunkAction } from 'redux-thunk';
+import { APP_ROUTES } from 'Routes';
 import { IApp } from 'types';
 import { getLocalStorageData } from 'utils/localStorage/utils';
 import { LOGIN_TOGGLER, SET_TOKEN } from './constants';
@@ -30,5 +31,5 @@ export const logout = (): ThunkAction<void, IApp, {}, any> => (
 ) => {
   dispatch(setLoggedInStatus(false));
   dispatch(setToken(null));
-  dispatch(push('/'));
+  dispatch(push(APP_ROUTES.LOGIN_PAGE));
 };
