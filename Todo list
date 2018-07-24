@@ -21,7 +21,6 @@ Todo:
         + implement prettier
         + dynamic paths
         - trim bootstrap
-        - add loaders
         - Add ascending/descending order sorting to server list
         - split vendors from bundle
         - code splitting by route
