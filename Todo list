@@ -11,9 +11,11 @@ Todo:
         + input form handle error case (add some text + styled inputs)
         + tests for axios calls
         + style up page
-        - install and use icons 
+        + remove idea settings from git
+        + install and use icons 
+        + add error message to server list
+        + add loader to server list
         - add read me file
-        - remove idea settings from git
     Nice To Have:
         + use createActions
         + implement prettier
@@ -26,6 +28,7 @@ Todo:
         - implement route generator
         - implement re-select for list sorting
         - Webpack Bundle Analyzer
+        - Move critical html/css to html file
     Consider:
         - Gimp support assets
         - Drop bootstrap (I would love to use styled-components)
