@@ -46,9 +46,21 @@ body {
   color: $logout-button-text-color;
   transition: color .2s linear;
 
+  svg {
+    fill: $logout-button-text-color;
+  }
+
   &:hover {
     color: $logout-button-hover-text-color;
+
+    svg {
+      fill: $logout-button-hover-text-color;
+    }
   }
+}
+
+.p-l-10 {
+  padding-left: 10px;
 }
 
 .p-b-70 {

@@ -1,9 +1,11 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import 'scss/input.scss';
 
 interface IProps {
-  // google react input type;
-  props: any;
+  props?: any;
+  icon: IconProp;
   onChange: (value: string) => string;
 }
 
@@ -15,15 +17,15 @@ class FormInput extends React.Component<IProps> {
   }
 
   public render() {
-    const { props } = this.props;
+    const { props, icon } = this.props;
 
     return (
-      <div className="col-12 input local-padding">
-        <button type="button col-1" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div className="col-12 input local-padding d-flex">
+        <div className="button col-1 d-flex justify-content-center align-items-center flex-wrap">
+          <FontAwesomeIcon icon={icon} color={'#b3b3b3'} size={'sm'} />
+        </div>
         <input
-          className="w-100 fz16 lh30 col-11"
+          className="fz16 lh30 col-11"
           onChange={this.onChange}
           {...props}
         />

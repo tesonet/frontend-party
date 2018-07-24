@@ -3,7 +3,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-
 import registerServiceWorker from './registerServiceWorker';
 import { APP_ROUTES } from './Routes';
 import store, { history } from './store';
@@ -11,8 +10,8 @@ import store, { history } from './store';
 import LoginPage from 'components/LoginPage/Login';
 import FormPageRoute from 'components/PrivateRoutes/FormRoute';
 import { initUser } from 'features/user/actions';
-
 import 'scss/index.scss';
+import './fontAwesome';
 
 store.dispatch(initUser() as any);
 

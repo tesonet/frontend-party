@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 
 interface IProps {
@@ -7,7 +8,8 @@ interface IProps {
 
 const Button: React.SFC<IProps> = ({ label, onClick }) => (
   <div className="logout-btn fz14" onClick={onClick}>
-    {label}
+    <FontAwesomeIcon icon={'sign-out-alt'} size={'lg'} />
+    <span className="p-l-10">{label}</span>
   </div>
 );
 
