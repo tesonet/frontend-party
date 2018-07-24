@@ -50,13 +50,13 @@ describe('List actions ', () => {
       const actions = store.getActions();
 
       const expectedPayload = buildPayload(SET_ERROR, true);
-      expect(actions).toEqual([expectedPayload]);
+      expect(actions[1]).toEqual(expectedPayload);
     });
 
     it('should dispatch setServersList action then request succeed', async () => {
       await store.dispatch(getList());
       const actions = store.getActions();
-      expect(actions[0].type).toEqual(SET_LIST);
+      expect(actions[1].type).toEqual(SET_LIST);
     });
   });
 });

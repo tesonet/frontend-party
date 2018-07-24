@@ -9,6 +9,7 @@ const type = 'password';
 const icon = 'lock' as IconProp;
 
 const mapStateToProps = (state: IApp) => ({
+  hasError: state.form.error,
   icon,
   props: {
     placeholder: passwordPlaceholder,

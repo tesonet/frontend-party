@@ -1,11 +1,13 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as classnames from 'classnames';
 import * as React from 'react';
 import 'scss/input.scss';
 
 interface IProps {
   props?: any;
   icon: IconProp;
+  hasError: boolean;
   onChange: (value: string) => string;
 }
 
@@ -17,10 +19,14 @@ class FormInput extends React.Component<IProps> {
   }
 
   public render() {
-    const { props, icon } = this.props;
+    const { props, icon, hasError } = this.props;
 
     return (
-      <div className="col-12 input local-padding d-flex">
+      <div
+        className={classnames('col-12 input local-padding d-flex', {
+          error: hasError
+        })}
+      >
         <div className="button col-1 d-flex justify-content-center align-items-center flex-wrap">
           <FontAwesomeIcon icon={icon} color={'#b3b3b3'} size={'sm'} />
         </div>

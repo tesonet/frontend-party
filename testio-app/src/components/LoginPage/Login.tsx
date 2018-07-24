@@ -7,7 +7,7 @@ const LoginPage: React.SFC<{}> = () => (
   <div
     style={{
       backgroundImage: `url(${bgImage})`,
-      backgroundSize: 'contain'
+      backgroundSize: 'cover'
     }}
     className="d-flex justify-content-center align-items-center flex-wrap vh-100 flex-column"
   >

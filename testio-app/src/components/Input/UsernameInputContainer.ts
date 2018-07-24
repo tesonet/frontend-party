@@ -9,6 +9,7 @@ const type = 'text';
 const icon = 'user' as IconProp;
 
 const mapStateToProps = (state: IApp) => ({
+  hasError: state.form.error,
   icon,
   props: {
     placeholder: usernamePlaceholder,
