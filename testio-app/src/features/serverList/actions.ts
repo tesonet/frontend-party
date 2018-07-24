@@ -5,11 +5,12 @@ import { ThunkAction } from 'redux-thunk';
 import { API_ROUTES } from 'Routes';
 import { IApp } from 'types';
 import { v4 as uuid } from 'uuid';
-import { SET_ERROR, SET_LIST } from './constants';
+import { SET_ERROR, SET_LIST, SET_LOADER } from './constants';
 import { IAPIResponse, IListItem } from './types';
 
 export const setServersList = createAction(SET_LIST);
 export const setError = createAction(SET_ERROR);
+export const setLoader = createAction(SET_LOADER);
 
 // Thunks
 export const getServersList = (): ThunkAction<void, IApp, {}, any> => (
@@ -29,6 +30,7 @@ export const getList = (): ThunkAction<void, IApp, {}, any> => (
   getState
 ) => {
   const { user } = getState();
+  dispatch(setLoader(true));
 
   return axios
     .request<IAPIResponse[]>({
@@ -42,8 +44,10 @@ export const getList = (): ThunkAction<void, IApp, {}, any> => (
     .then(({ data }) => {
       const sortedArray = orderBy(data, ['distance', 'name']);
       dispatch(setServersList(sortedArray.map(buildServerList)));
+      dispatch(setLoader(false));
     })
     .catch(error => {
       dispatch(setError(true));
+      dispatch(setLoader(false));
     });
 };

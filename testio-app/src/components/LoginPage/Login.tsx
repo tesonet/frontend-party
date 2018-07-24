@@ -6,7 +6,8 @@ import * as React from 'react';
 const LoginPage: React.SFC<{}> = () => (
   <div
     style={{
-      backgroundImage: `url(${bgImage})`
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: 'contain'
     }}
     className="d-flex justify-content-center align-items-center flex-wrap vh-100 flex-column"
   >

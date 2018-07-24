@@ -4,6 +4,7 @@ import { IApp } from 'types';
 import List from './List';
 
 const mapStateToProps = (state: IApp) => ({
+  isVisible: true,
   uids: state.serverList.uids
 });
 

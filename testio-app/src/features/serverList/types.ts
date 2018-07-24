@@ -6,6 +6,7 @@ export interface IList {
   uids: string[];
   byUid: ITById<IListItem>;
   error: boolean;
+  isLoading: boolean;
 }
 
 export interface IAPIResponse {

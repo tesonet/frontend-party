@@ -5,6 +5,7 @@ import Row from './RowContainer';
 interface IProps {
   onMount: () => void;
   uids: string[];
+  isVisible: boolean;
 }
 
 class List extends React.Component<IProps> {
@@ -13,7 +14,11 @@ class List extends React.Component<IProps> {
   }
 
   public render() {
-    const { uids } = this.props;
+    const { uids, isVisible } = this.props;
+    if (!isVisible) {
+      return null;
+    }
+
     return (
       <div className="container-fluid">
         <Header />
