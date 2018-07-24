@@ -25,6 +25,7 @@ ReactDOM.render(
           component={LoginPage}
         />
         <FormPageRoute />
+        <Route component={LoginPage} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
