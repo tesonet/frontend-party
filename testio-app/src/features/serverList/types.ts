@@ -15,7 +15,7 @@ export interface IAPIResponse {
 }
 
 export interface IListItem {
-  distance: number;
+  distance: string;
   name: string;
   uid: string;
 }

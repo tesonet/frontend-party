@@ -32,14 +32,14 @@ export const getToken = (): ThunkAction<void, IApp, {}, any> => (
 
   return axios
     .request<ITokenAPI>({
+      data: {
+        password: state.form.password,
+        username: state.form.username
+      },
       headers: {
         'content-type': 'application/json'
       },
       method: 'POST',
-      params: {
-        password: state.form.password,
-        username: state.form.username
-      },
       url: API_ROUTES.TOKEN
     })
     .then(({ data }) => {

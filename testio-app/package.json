@@ -131,7 +131,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/Users/Aiko/Projects/learning-space/senior-frontend-party/testio-app/tsconfig.test.json"
+        "tsConfigFile": "tsconfig.test.json"
       }
     }
   },

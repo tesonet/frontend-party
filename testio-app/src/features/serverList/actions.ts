@@ -20,8 +20,13 @@ export const getServersList = (): ThunkAction<void, IApp, {}, any> => (
   dispatch(getList());
 };
 
-export const buildServerList = (data: IAPIResponse): IListItem => ({
-  ...data,
+const distanceUnit = 'km';
+export const buildServerList = ({
+  name,
+  distance
+}: IAPIResponse): IListItem => ({
+  distance: `${distance} ${distanceUnit}`,
+  name,
   uid: uuid()
 });
 
