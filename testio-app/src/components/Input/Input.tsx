@@ -33,6 +33,7 @@ class FormInput extends React.Component<IProps> {
         <input
           className="fz16 lh30 col-11"
           onChange={this.onChange}
+          autoComplete={false}
           {...props}
         />
       </div>
