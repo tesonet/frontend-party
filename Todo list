@@ -15,7 +15,7 @@ Todo:
         + install and use icons 
         + add error message to server list
         + add loader to server list
-        - add read me file
+        + add read me file
     Nice To Have:
         + use createActions
         + implement prettier
