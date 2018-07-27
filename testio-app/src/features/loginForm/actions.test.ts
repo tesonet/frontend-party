@@ -11,6 +11,7 @@ const mockStore = configureStore(middlewares);
 const initialState: Partial<IApp> = {
   form: {
     error: false,
+    isLoading: false,
     password: 'The Cool Guy',
     username: 'John'
   }

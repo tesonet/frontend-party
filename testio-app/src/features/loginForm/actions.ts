@@ -8,6 +8,7 @@ import { API_ROUTES, APP_ROUTES } from 'Routes';
 import { IApp } from 'types';
 import {
   REQUEST_FAILED,
+  SET_LOADER,
   SET_LOGIN_VALUE,
   SET_PASSWORD_VALUE
 } from './constants';
@@ -15,12 +16,14 @@ import {
 export const setLoginInput = createAction(SET_LOGIN_VALUE);
 export const setPasswordInput = createAction(SET_PASSWORD_VALUE);
 export const setRequestFailed = createAction(REQUEST_FAILED);
+export const setLoader = createAction(SET_LOADER);
 
 // Thunks
 export const onSubmit = (): ThunkAction<void, IApp, {}, any> => (
   dispatch,
   getState
 ) => {
+  dispatch(setLoader(true));
   dispatch(getToken());
 };
 
@@ -46,8 +49,10 @@ export const getToken = (): ThunkAction<void, IApp, {}, any> => (
       dispatch(setToken(data.token));
       dispatch(setLoggedInStatus(true));
       dispatch(push(APP_ROUTES.FORM_PAGE));
+      dispatch(setLoader(false));
     })
     .catch(() => {
       dispatch(setRequestFailed(true));
+      dispatch(setLoader(false));
     });
 };
