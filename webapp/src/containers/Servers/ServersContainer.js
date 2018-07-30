@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ServersView from './ServersView';
 import api from '../../utils/api';
 
+export const ROUTE_PATH = '/servers';
+
 export default class ServersContainer extends Component {
   state = {
     data: null,
