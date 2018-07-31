@@ -1,9 +1,11 @@
 import React from 'react';
+import LoginContainer from '../containers/Auth/Login/LoginContainer';
 import ServersContainer from '../containers/Servers/ServersContainer';
 import routes from './routes';
 
 const requiredRoutes = [
   { path: '/servers', component: ServersContainer },
+  { path: '/login', component: LoginContainer }
 ];
 
 function routeExists(requiredRoute) {

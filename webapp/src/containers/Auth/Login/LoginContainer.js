@@ -6,6 +6,8 @@ export const MSG_ERROR_USERNAME_EMPTY = 'Username cannot be empty.';
 export const MSG_ERROR_PASSWORD_EMPTY = 'Password cannot be empty.';
 export const MSG_ERROR_GLOBAL = 'Something went wrong. Try again later.';
 
+export const ROUTE_PATH = '/login';
+
 export default class LoginContainer extends Component {
   state = {
     hasSubmitted: false,
