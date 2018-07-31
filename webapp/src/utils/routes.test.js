@@ -3,18 +3,18 @@ import ServersContainer from '../containers/Servers/ServersContainer';
 import routes from './routes';
 
 const requiredRoutes = [
-  {
-    path: '/servers'
-  }
+  { path: '/servers', component: ServersContainer },
 ];
 
 function routeExists(requiredRoute) {
   let exists = false;
 
   routes.forEach(route => {
+    const wrapper = shallow(<div>{ route.component() }</div>);
+
     if (
       route.path === requiredRoute.path &&
-      route.component().type === ServersContainer
+      wrapper.find(requiredRoute.component).length > 0
     ) {
       exists = true;
     }
