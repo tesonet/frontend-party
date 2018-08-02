@@ -11,33 +11,33 @@ const defaultProps = {
   onChange: () => {}
 };
 
-export default function LoginView() {
+export default function LoginView(props) {
   return (
     <div>
       <div>
-        { this.props.showErrors && this.props.globalError }
+        { props.showErrors && props.globalError }
       </div>
 
-      <form onSubmit={ this.props.onSubmit }>
+      <form onSubmit={ props.onSubmit }>
         <input
           type="text"
-          value={ this.props.username }
-          onChange={ this.props.onChange }
+          value={ props.username }
+          onChange={ props.onChange }
           data-testid="username"
         />
 
-        { this.props.showErrors && this.props.errors && this.props.errors.username }
+        { props.showErrors && props.errors && props.errors.username }
 
         <input
           type="password"
-          value={ this.props.password }
-          onChange={ this.props.onChange }
+          value={ props.password }
+          onChange={ props.onChange }
           data-testid="password"
         />
 
-        { this.props.showErrors && this.props.errors && this.props.errors.password }
+        { props.showErrors && props.errors && props.errors.password }
 
-        <button type="submit" disabled={ this.props.disabled }>Submit</button>
+        <button type="submit" disabled={ props.disabled }>Submit</button>
       </form>
     </div>
   );
