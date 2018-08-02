@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import api from '../../../utils/api';
+import { connect } from 'react-redux';
+
 import { ROUTE_PATH as serversRoute } from '../../Servers/ServersContainer';
+import { doLogin } from '../authActions';
+import api from '../../../utils/api';
 
 export const MSG_ERROR_USERNAME_EMPTY = 'Username cannot be empty.';
 export const MSG_ERROR_PASSWORD_EMPTY = 'Password cannot be empty.';
@@ -8,7 +11,7 @@ export const MSG_ERROR_GLOBAL = 'Something went wrong. Try again later.';
 
 export const ROUTE_PATH = '/login';
 
-export default class LoginContainer extends Component {
+export class LoginContainer extends Component {
   state = {
     hasSubmitted: false,
     isBusy: false,
@@ -51,7 +54,8 @@ export default class LoginContainer extends Component {
       .post(this.state.username, this.state.password)
       .then(tokens => {
         this.setState({ isBusy: false });
-        this.props.updateAuthToken(tokens.token);
+        api.setToken(tokens.token);
+        this.props.doLogin();
         this.props.history.replace(serversRoute);
       })
       .catch(() => {
@@ -65,3 +69,5 @@ export default class LoginContainer extends Component {
     );
   }
 }
+
+export default connect(null, { doLogin })(LoginContainer);

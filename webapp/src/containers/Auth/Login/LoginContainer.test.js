@@ -2,7 +2,8 @@ import React from 'react';
 import tokens from '../../../tests/fixtures/tokens';
 import mockApi from '../../../utils/api';
 import { ROUTE_PATH as serversRoute } from '../../Servers/ServersContainer';
-import LoginContainer, {
+import {
+  LoginContainer,
   MSG_ERROR_GLOBAL,
   MSG_ERROR_PASSWORD_EMPTY,
   MSG_ERROR_USERNAME_EMPTY
@@ -97,17 +98,19 @@ describe('onSubmit()', () => {
   it('fetches the data successfully', () => {
     mockApi.tokens.post.mockImplementationOnce(() => Promise.resolve(tokens));
 
-    const updateAuthToken = jest.fn();
+    const doLoginMock = jest.fn();
     const historyMock = { replace: jest.fn() };
     const input = { username: 'my_username', password: 'my_password' };
-    const wrapper = shallow(<LoginContainer history={ historyMock } updateAuthToken={ updateAuthToken } />);
+    const wrapper = shallow(<LoginContainer history={ historyMock } doLogin={ doLoginMock } />);
 
     wrapper.setState(input);
 
     return wrapper.instance().onSubmit().then(() => {
       wrapper.update();
+
       expect(mockApi.tokens.post).toHaveBeenCalledWith(input.username, input.password);
-      expect(updateAuthToken).toHaveBeenCalledWith(tokens.token);
+      expect(mockApi.setToken).toHaveBeenCalledWith(tokens.token);
+      expect(doLoginMock).toHaveBeenCalled();
       expect(historyMock.replace).toHaveBeenCalledWith(serversRoute);
       expect(wrapper.state('isBusy')).toBe(false);
     });
