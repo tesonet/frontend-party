@@ -2,6 +2,7 @@ import React from 'react';
 import tokens from '../../../tests/fixtures/tokens';
 import mockApi from '../../../utils/api';
 import { ROUTE_PATH as serversRoute } from '../../Servers/ServersContainer';
+import LoginView from './LoginView';
 import {
   LoginContainer,
   MSG_ERROR_GLOBAL,
@@ -14,6 +15,48 @@ jest.mock('../../../utils/api');
 it('renders without crashing', () => {
   const wrapper = shallow(<LoginContainer />);
   expect(wrapper).toHaveLength(1);
+});
+
+it('renders <LoginView /> with correct props', () => {
+  const wrapper = shallow(<LoginContainer />);
+  let state = wrapper.state();
+
+  expect(wrapper.find(LoginView).props()).toEqual({
+    showErrors: state.hasSubmitted,
+    globalError: state.globalError,
+    errors: state.errors,
+    isDisabled: state.isBusy,
+    username: state.username,
+    password: state.password,
+    onSubmit: wrapper.instance().onSubmit,
+    onChange: wrapper.instance().onChange
+  });
+
+  state = {
+    hasSubmitted: true,
+    isBusy: true,
+    globalError: 'Global error',
+    errors: { username: 'Username error' },
+    username: 'Username',
+    password: 'Password',
+  };
+
+  wrapper.setState(state);
+
+  expect(wrapper.find(LoginView).props()).toEqual({
+    showErrors: state.hasSubmitted,
+    globalError: state.globalError,
+    errors: state.errors,
+    isDisabled: state.isBusy,
+    username: state.username,
+    password: state.password,
+    onSubmit: wrapper.instance().onSubmit,
+    onChange: wrapper.instance().onChange
+  });
+
+  state = { errors: { username: 'Username error' }, isBusy: false };
+  wrapper.setState(state);
+  expect(wrapper.find(LoginView).prop('isDisabled')).toBe(true);
 });
 
 describe('validate()', () => {
@@ -67,11 +110,19 @@ describe('onChange()', () => {
   });
 });
 
-describe('onSubmit()', () => {
+describe('onSubmit(event)', () => {
+  const event = { preventDefault: jest.fn() };
+
+  it('preventsDefault', () => {
+    const wrapper = shallow(<LoginContainer />);
+    wrapper.instance().onSubmit(event);
+    expect(event.preventDefault).toHaveBeenCalled();
+  });
+  
   it('sets the `hasSubmitted` flag to true', () => {
     const wrapper = shallow(<LoginContainer />);
     wrapper.setState({ hasSubmitted: false });
-    wrapper.instance().onSubmit();
+    wrapper.instance().onSubmit(event);
     expect(wrapper.state('hasSubmitted')).toBe(true);
   });
 
@@ -85,12 +136,12 @@ describe('onSubmit()', () => {
     const noErrors = null;
 
     wrapper.instance().validate.mockImplementationOnce(() => errors);
-    wrapper.instance().onSubmit();
+    wrapper.instance().onSubmit(event);
     expect(wrapper.state('errors')).toEqual(errors);
     expect(wrapper.state('isBusy')).toBe(false);
 
     wrapper.instance().validate.mockImplementationOnce(() => noErrors);
-    wrapper.instance().onSubmit();
+    wrapper.instance().onSubmit(event);
     expect(wrapper.state('errors')).toBeNull();
     expect(wrapper.state('isBusy')).toBe(true);
   });
@@ -105,7 +156,7 @@ describe('onSubmit()', () => {
 
     wrapper.setState(input);
 
-    return wrapper.instance().onSubmit().then(() => {
+    return wrapper.instance().onSubmit(event).then(() => {
       wrapper.update();
 
       expect(mockApi.tokens.post).toHaveBeenCalledWith(input.username, input.password);
@@ -124,7 +175,7 @@ describe('onSubmit()', () => {
 
     wrapper.setState(input);
 
-    return wrapper.instance().onSubmit().then(() => {
+    return wrapper.instance().onSubmit(event).then(() => {
       wrapper.update();
 
       expect(wrapper.state()).toMatchObject({

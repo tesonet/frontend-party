@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { ROUTE_PATH as serversRoute } from '../../Servers/ServersContainer';
+import LoginView from './LoginView';
 import { doLogin } from '../authActions';
+import { ROUTE_PATH as serversRoute } from '../../Servers/ServersContainer';
 import api from '../../../utils/api';
 
 export const MSG_ERROR_USERNAME_EMPTY = 'Username cannot be empty.';
@@ -41,7 +42,9 @@ export class LoginContainer extends Component {
     this.setState({ [target.name]: target.value, errors });
   };
 
-  onSubmit = () => {
+  onSubmit = (e) => {
+    e.preventDefault();
+
     const errors = this.validate();
     this.setState({ hasSubmitted: true, errors });
 
@@ -65,7 +68,16 @@ export class LoginContainer extends Component {
 
   render() {
     return (
-      null
+      <LoginView
+        showErrors={ this.state.hasSubmitted }
+        globalError={ this.state.globalError }
+        errors={ this.state.errors }
+        isDisabled={ !! (this.state.isBusy || this.state.errors) }
+        username={ this.state.username }
+        password={ this.state.password }
+        onSubmit={ this.onSubmit }
+        onChange={ this.onChange }
+      />
     );
   }
 }
