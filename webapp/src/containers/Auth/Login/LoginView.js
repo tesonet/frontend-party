@@ -21,18 +21,18 @@ export default function LoginView(props) {
       <form onSubmit={ props.onSubmit }>
         <input
           type="text"
+          name="username"
           value={ props.username }
           onChange={ props.onChange }
-          data-testid="username"
         />
 
         { props.showErrors && props.errors && props.errors.username }
 
         <input
           type="password"
+          name="password"
           value={ props.password }
           onChange={ props.onChange }
-          data-testid="password"
         />
 
         { props.showErrors && props.errors && props.errors.password }

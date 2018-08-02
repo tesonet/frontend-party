@@ -26,25 +26,24 @@ it('has a form that calls the onSubmit() handler', () => {
   expect(spy).toHaveBeenCalled();
 });
 
-const table = [
-  ['username', { 'data-testid': 'username' }],
-  ['password', { 'data-testid': 'password' }],
-];
+const table = [['username'], ['password'],];
 
 for (let field of table) {
+  let selector = { name: field[0] };
+
   describe(`input[${field[0]}]`, () => {
     it('exists', () => {
       const wrapper = shallow(<LoginView />);
-      expect(wrapper.find(field[1])).toHaveLength(1);
+      expect(wrapper.find(selector)).toHaveLength(1);
     });
 
     it('is populated with a value from the props', () => {
       const wrapper = shallow(<LoginView />);
-      expect(wrapper.find(field[1]).prop('value')).toBe(LoginView.defaultProps[field[0]]);
+      expect(wrapper.find(selector).prop('value')).toBe(LoginView.defaultProps[field[0]]);
 
       const newValue = 'A new value!';
       wrapper.setProps({ [field[0]]: newValue });
-      expect(wrapper.find(field[1]).prop('value')).toBe(newValue);
+      expect(wrapper.find(selector).prop('value')).toBe(newValue);
     });
 
     it('calls onChange() handler', () => {
@@ -52,7 +51,7 @@ for (let field of table) {
       const spy = jest.fn();
       const wrapper = shallow(<LoginView onChange={ spy } />);
 
-      wrapper.find(field[1]).simulate('change', event);
+      wrapper.find(selector).simulate('change', event);
       expect(spy).toHaveBeenCalledWith(event);
     });
   });
