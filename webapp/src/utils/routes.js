@@ -3,6 +3,6 @@ import ServersContainer, { ROUTE_PATH as serversRoute } from '../containers/Serv
 import LoginContainer, { ROUTE_PATH as loginRoute } from '../containers/Auth/Login/LoginContainer';
 
 export default [
-  { path: serversRoute, component: () => <ServersContainer /> },
-  { path: loginRoute, component: () => <LoginContainer /> }
+  { path: serversRoute, component: (props) => <ServersContainer { ...props } /> },
+  { path: loginRoute, component: (props) => <LoginContainer { ...props } /> }
 ];
