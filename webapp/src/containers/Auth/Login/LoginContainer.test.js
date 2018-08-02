@@ -6,6 +6,7 @@ import LoginView from './LoginView';
 import {
   LoginContainer,
   MSG_ERROR_GLOBAL,
+  MSG_ERROR_UNAUTHORIZED,
   MSG_ERROR_PASSWORD_EMPTY,
   MSG_ERROR_USERNAME_EMPTY
 } from './LoginContainer';
@@ -167,7 +168,25 @@ describe('onSubmit(event)', () => {
     });
   });
 
-  it('encounters an API error', () => {
+  it('encounters a 401 Unauthorized error', () => {
+    mockApi.tokens.post.mockImplementationOnce(() => Promise.reject({ response: { status: 401 } }));
+
+    const wrapper = shallow(<LoginContainer />);
+    const input = { username: 'my_username', password: 'my_password' };
+
+    wrapper.setState(input);
+
+    return wrapper.instance().onSubmit(event).then(() => {
+      wrapper.update();
+
+      expect(wrapper.state()).toMatchObject({
+        isBusy: false,
+        globalError: MSG_ERROR_UNAUTHORIZED
+      });
+    });
+  });
+
+  it('encounters a general API error', () => {
     mockApi.tokens.post.mockImplementationOnce(() => Promise.reject({}));
 
     const wrapper = shallow(<LoginContainer />);

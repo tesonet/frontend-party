@@ -8,6 +8,7 @@ import api from '../../../utils/api';
 
 export const MSG_ERROR_USERNAME_EMPTY = 'Username cannot be empty.';
 export const MSG_ERROR_PASSWORD_EMPTY = 'Password cannot be empty.';
+export const MSG_ERROR_UNAUTHORIZED = 'Your username or password is incorrect.';
 export const MSG_ERROR_GLOBAL = 'Something went wrong. Try again later.';
 
 export const ROUTE_PATH = '/login';
@@ -61,8 +62,16 @@ export class LoginContainer extends Component {
         this.props.doLogin();
         this.props.history.replace(serversRoute);
       })
-      .catch(() => {
-        this.setState({ isBusy: false, globalError: MSG_ERROR_GLOBAL });
+      .catch((e) => {
+        let errorMsg;
+
+        if (e.response && e.response.status === 401) {
+          errorMsg = MSG_ERROR_UNAUTHORIZED;
+        } else {
+          errorMsg = MSG_ERROR_GLOBAL;
+        }
+
+        this.setState({ isBusy: false, globalError: errorMsg });
       });
   };
 
