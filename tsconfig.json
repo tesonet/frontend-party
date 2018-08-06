@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "outDir": "build/dist",
+      "module": "esnext",
+      "target": "es5",
+      "lib": ["es2015", "dom"],
+      "typeRoots" : ["./node_modules/@types", "./typings"],
+      "sourceMap": true,
+      "allowJs": true,
+      "jsx": "react",
+      "moduleResolution": "node",
+      "noUnusedParameters": true,
+      "strictFunctionTypes": true,
+      "alwaysStrict": true,
+      "strictPropertyInitialization": true,
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "noUnusedLocals": true
+    },
+    "exclude": [
+      "node_modules"
+    ]
+  }
