@@ -1,0 +1,20 @@
+.servers {
+    .top {
+        padding: 0 10px;
+    }
+    .logout {
+        padding: 5px 10px;
+        font-size: 18px;
+        border: 1px #0015ff solid;
+        cursor: pointer;
+        outline: none;
+        transition: .2s border-color linear;
+        
+        &:hover {
+            border-color: #99cc33;
+        }
+        svg {
+            margin-right: 10px;
+        }
+    }
+}
