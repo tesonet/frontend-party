@@ -25,7 +25,7 @@ it('renders <ServersView />', () => {
   expect(wrapper.find(ServersView)).toHaveLength(1);
 });
 
-describe('loading the data', () => {
+describe('loadData()', () => {
   beforeEach(() => {
     jest.spyOn(ServersContainer.prototype, 'componentDidMount');
     jest.spyOn(ServersContainer.prototype, 'loadData');
