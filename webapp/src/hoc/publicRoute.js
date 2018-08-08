@@ -1,8 +1,10 @@
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect'
-import { ROUTE_PATH as serversRoute } from '../containers/Servers/ServersContainer';
+
+// DEBT: redirectPath is hardcoded, because this component was being imported within the
+// component the route comes from causing an infinite loop in the modules system
 
 export default connectedRouterRedirect({
-  redirectPath: serversRoute,
+  redirectPath: '/servers',
   authenticatedSelector: state => state.auth.isLoggedIn !== true,
   wrapperDisplayName: 'PublicRoute',
   allowRedirectBack: false
