@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import privateRoute from '../../hoc/privateRoute';
 import ServersView from './ServersView';
 import api from '../../utils/api';
 
 export const ROUTE_PATH = '/servers';
 
-export default class ServersContainer extends Component {
+export class ServersContainer extends Component {
   state = {
     data: null,
     isFetching: true,
@@ -33,3 +34,5 @@ export default class ServersContainer extends Component {
     );
   }
 }
+
+export default privateRoute(ServersContainer);
