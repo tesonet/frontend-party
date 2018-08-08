@@ -1,7 +1,6 @@
 import React from 'react';
 import tokens from '../../../tests/fixtures/tokens';
 import mockApi from '../../../utils/api';
-import { ROUTE_PATH as serversRoute } from '../../Servers/ServersContainer';
 import LoginView from './LoginView';
 import {
   LoginContainer,
@@ -151,9 +150,8 @@ describe('onSubmit(event)', () => {
     mockApi.tokens.post.mockImplementationOnce(() => Promise.resolve(tokens));
 
     const doLoginMock = jest.fn();
-    const historyMock = { replace: jest.fn() };
     const input = { username: 'my_username', password: 'my_password' };
-    const wrapper = shallow(<LoginContainer history={ historyMock } doLogin={ doLoginMock } />);
+    const wrapper = shallow(<LoginContainer doLogin={ doLoginMock } />);
 
     wrapper.setState(input);
 
@@ -163,7 +161,6 @@ describe('onSubmit(event)', () => {
       expect(mockApi.tokens.post).toHaveBeenCalledWith(input.username, input.password);
       expect(mockApi.setToken).toHaveBeenCalledWith(tokens.token);
       expect(doLoginMock).toHaveBeenCalled();
-      expect(historyMock.replace).toHaveBeenCalledWith(serversRoute);
       expect(wrapper.state('isBusy')).toBe(false);
     });
   });

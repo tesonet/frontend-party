@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import LoginView from './LoginView';
 import { doLogin } from '../authActions';
-import { ROUTE_PATH as serversRoute } from '../../Servers/ServersContainer';
+import publicRoute from '../../../hoc/publicRoute';
 import api from '../../../utils/api';
 
 export const MSG_ERROR_USERNAME_EMPTY = 'Username cannot be empty.';
@@ -60,7 +60,6 @@ export class LoginContainer extends Component {
         this.setState({ isBusy: false });
         api.setToken(tokens.token);
         this.props.doLogin();
-        this.props.history.replace(serversRoute);
       })
       .catch((e) => {
         let errorMsg;
@@ -91,4 +90,4 @@ export class LoginContainer extends Component {
   }
 }
 
-export default connect(null, { doLogin })(LoginContainer);
+export default publicRoute(connect(null, { doLogin })(LoginContainer));
