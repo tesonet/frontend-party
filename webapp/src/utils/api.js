@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _orderBy from 'lodash/orderBy';
 
 export const LS_TOKEN_KEY = 'api_token';
 
@@ -19,7 +20,8 @@ export default {
     get: function() {
       return axios
         .get('http://playground.tesonet.lt/v1/servers', { headers: { 'Authorization': 'Bearer f9731b590611a5a9377fbd02f247fcdf' } })
-        .then(({ data }) => data);
+        .then(({ data }) => data)
+        .then(data => _orderBy(data, ['distance', 'name']))
     }
   },
 

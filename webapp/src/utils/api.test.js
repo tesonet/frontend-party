@@ -1,4 +1,5 @@
 import mockAxios from 'axios';
+import { ServersContainer } from '../containers/Servers/ServersContainer';
 import api, { LS_TOKEN_KEY } from './api';
 import servers from '../tests/fixtures/servers';
 import tokens from '../tests/fixtures/tokens';
@@ -30,6 +31,22 @@ describe('servers.get', () => {
   it('returns a promise that resolves with a list of servers', () => {
     mockAxios.get.mockImplementationOnce(() => Promise.resolve({ data: servers }));
     return api.servers.get().then(result => { expect(result).toEqual(servers); });
+  });
+
+  it('sorts the data by distance and name', () => {
+    const data = [
+      { name: 'AB', distance: 15 },
+      { name: 'AA', distance: 10 },
+      { name: 'AA', distance: 15 }
+    ];
+
+    mockAxios.get.mockImplementationOnce(() => Promise.resolve({ data }));
+
+    return api.servers.get().then(result => {
+      expect(result[0]).toBe(data[1]);
+      expect(result[1]).toBe(data[2]);
+      expect(result[2]).toBe(data[0]);
+    });
   });
 });
 
