@@ -1,5 +1,5 @@
 import mockAxios from 'axios';
-import api, { LS_TOKEN_KEY } from './api';
+import api, { ERROR_MISSING_TOKEN, LS_TOKEN_KEY } from './api';
 import servers from '../tests/fixtures/servers';
 import tokens from '../tests/fixtures/tokens';
 
@@ -23,8 +23,26 @@ describe('getToken()', () => {
 });
 
 describe('servers.get', () => {
+  beforeEach(() => {
+    jest.spyOn(api, 'getToken').mockImplementation(() => tokens.token);
+  });
+
+  afterEach(() => {
+    api.getToken.mockRestore();
+  });
+
   it('exists in the API', () => {
     expect(api).toHaveProperty('servers.get');
+  });
+
+  it('throws an exception if no token exists', () => {
+    api.getToken.mockImplementationOnce(() => null);
+    expect(() => api.servers.get()).toThrow(ERROR_MISSING_TOKEN);
+  });
+
+  it('uses the token to fetch a list of servers', () => {
+    api.servers.get();
+    expect(mockAxios.get).toHaveBeenCalledWith(expect.any(String), { headers: { 'Authorization': `Bearer ${tokens.token}` } })
   });
 
   it('returns a promise that resolves with a list of servers', () => {

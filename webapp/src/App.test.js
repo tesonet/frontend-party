@@ -7,6 +7,7 @@ import LoginContainer, { ROUTE_PATH as loginRoute } from './containers/Auth/Logi
 
 jest.mock('./hoc/publicRoute');
 jest.mock('./hoc/privateRoute');
+jest.mock('./utils/api');
 
 it('renders without crashing', () => {
   const wrapper = shallow(<App />);

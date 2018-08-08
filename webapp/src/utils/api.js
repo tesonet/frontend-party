@@ -2,8 +2,9 @@ import axios from 'axios';
 import _orderBy from 'lodash/orderBy';
 
 export const LS_TOKEN_KEY = 'api_token';
+export const ERROR_MISSING_TOKEN = 'Token is missing.';
 
-export default {
+const api = {
   setToken: function(token) {
     if (token === null) {
       localStorage.removeItem(LS_TOKEN_KEY);
@@ -18,8 +19,14 @@ export default {
 
   servers: {
     get: function() {
+      const token = api.getToken();
+
+      if ( ! token) {
+        throw new Error(ERROR_MISSING_TOKEN);
+      }
+
       return axios
-        .get('http://playground.tesonet.lt/v1/servers', { headers: { 'Authorization': 'Bearer f9731b590611a5a9377fbd02f247fcdf' } })
+        .get('http://playground.tesonet.lt/v1/servers', { headers: { 'Authorization': `Bearer ${token}` } })
         .then(({ data }) => data)
         .then(data => _orderBy(data, ['distance', 'name']))
     }
@@ -33,3 +40,5 @@ export default {
     }
   }
 };
+
+export default api;
