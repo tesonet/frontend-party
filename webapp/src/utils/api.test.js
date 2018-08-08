@@ -1,5 +1,4 @@
 import mockAxios from 'axios';
-import { ServersContainer } from '../containers/Servers/ServersContainer';
 import api, { LS_TOKEN_KEY } from './api';
 import servers from '../tests/fixtures/servers';
 import tokens from '../tests/fixtures/tokens';
