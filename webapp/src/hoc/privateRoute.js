@@ -4,5 +4,6 @@ import { ROUTE_PATH as loginRoute } from '../containers/Auth/Login/LoginContaine
 export default connectedRouterRedirect({
   redirectPath: loginRoute,
   authenticatedSelector: state => state.auth.isLoggedIn === true,
-  wrapperDisplayName: 'PrivateRoute'
+  wrapperDisplayName: 'PrivateRoute',
+  allowRedirectBack: false
 });

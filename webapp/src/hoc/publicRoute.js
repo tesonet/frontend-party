@@ -4,5 +4,6 @@ import { ROUTE_PATH as serversRoute } from '../containers/Servers/ServersContain
 export default connectedRouterRedirect({
   redirectPath: serversRoute,
   authenticatedSelector: state => state.auth.isLoggedIn !== true,
-  wrapperDisplayName: 'PublicRoute'
+  wrapperDisplayName: 'PublicRoute',
+  allowRedirectBack: false
 });
