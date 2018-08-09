@@ -3,7 +3,7 @@
       "baseUrl": "./src",
       "outDir": "build/dist",
       "module": "esnext",
-      "target": "es5",
+      "target": "esnext",
       "lib": ["es2015", "dom"],
       "typeRoots" : ["./node_modules/@types", "./typings"],
       "sourceMap": true,

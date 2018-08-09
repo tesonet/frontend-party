@@ -28,7 +28,16 @@ const output = IS_PROD
 
 const tsLoader: Rule = {
   test: /\.tsx?$/,
-  use: 'ts-loader'
+  use: [
+    {
+      loader: 'babel-loader',
+      options: {
+        babelrc: false,
+        plugins: ['react-hot-loader/babel', 'syntax-dynamic-import']
+      }
+    },
+    'ts-loader'
+  ]
 };
 
 const mode = IS_PROD ? 'production' : 'development';
