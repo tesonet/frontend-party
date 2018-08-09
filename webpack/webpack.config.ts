@@ -28,6 +28,7 @@ const output = IS_PROD
 
 const tsLoader: Rule = {
   test: /\.tsx?$/,
+  exclude: /node_modules/,
   use: [
     {
       loader: 'babel-loader',

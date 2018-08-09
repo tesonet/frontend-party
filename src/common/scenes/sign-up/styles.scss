@@ -1,0 +1,13 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-color: #0b0f27;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 100%;
+    max-width: 380px;
+}

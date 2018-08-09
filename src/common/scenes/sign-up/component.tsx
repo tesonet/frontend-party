@@ -1,19 +1,16 @@
+import Input from 'common/components/input';
 import * as React from 'react';
+import * as styles from './styles.scss';
 
 const SignUp: React.SFC = () => (
-  <div
-    style={{
-      width: '100%',
-      minHeight: '100vh',
-      display: 'flex',
-      backgroundColor: '#0b0f27'
-    }}
-  >
-    <form>
-      <input type="text" />
-      <input type="text" />
-      <button type="submit" />
-    </form>
+  <div className={styles.container}>
+    <div className={styles.box}>
+      <form>
+        <Input type="text" placeholder="Username" />
+        <Input type="text" placeholder="Password" />
+        <button type="submit" />
+      </form>
+    </div>
   </div>
 );
 

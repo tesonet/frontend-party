@@ -5,6 +5,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import 'sanitize.css';
+import './styles.scss';
 
 const store = configureStore();
 
