@@ -6,7 +6,7 @@ import { Configuration, Plugin, Resolve, Rule } from 'webpack';
 const ROOT = path.resolve(__dirname, '../');
 const OUTPUT_DESTINATION = path.resolve(ROOT, 'dist');
 const IS_PROD = process.env.NODE_ENV === 'production';
-const PUBLIC_PATH = IS_PROD ? '/assets/' : '/';
+export const PUBLIC_PATH = IS_PROD ? '/assets/' : '/';
 
 const entry = {
   app: './src/client/index.tsx'
@@ -40,6 +40,23 @@ const tsLoader: Rule = {
   ]
 };
 
+const styleLoader = {
+  test: /\.s?css$/,
+  use: [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        importLoaders: 1,
+        localIdentName: '[local]--[hash:base64:5]'
+      }
+    },
+    'postcss-loader',
+    'sass-loader'
+  ]
+};
+
 const mode = IS_PROD ? 'production' : 'development';
 
 const plugins: Plugin[] = [
@@ -65,7 +82,7 @@ const config: Configuration = {
   entry,
   output,
   module: {
-    rules: [tsLoader]
+    rules: [tsLoader, styleLoader]
   },
   plugins,
   resolve
