@@ -1,0 +1,20 @@
+@import "theme_overrides";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "component_overrides";
+@import "../fonts/iconic/font/css/open-iconic-bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,700');
+
+html, body, #root {
+  height: 100%;
+}
+
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  // Default browser stylesheet is overriding letter-spacing per-element-basis, therefore
+  // we do an asterisk selector.
+  letter-spacing: 0.025em !important;
+}

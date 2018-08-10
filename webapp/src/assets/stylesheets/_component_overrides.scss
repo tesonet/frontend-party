@@ -1,0 +1,38 @@
+.btn {
+  font-weight: $font-weight-bold;
+}
+
+.btn-success {
+  $base: map-get($theme-colors, "success");
+  $base-hover: map-get($theme-colors, "success-hover");
+
+  @include button-variant($base, $base, $base-hover, $base-hover);
+  color: white;
+
+  &.disabled, &:disabled {
+    color: white;
+  }
+
+} // End .btn-success
+
+.btn-outline-success {
+  $base: map-get($theme-colors, "success");
+  $base-hover: map-get($theme-colors, "success-hover");
+
+  @include button-outline-variant($base, $base, $base-hover, $base-hover);
+}
+
+.input-group-text {
+  border-right-color: transparent;
+}
+
+.input-group-prepend + .form-control {
+  border-left-color: transparent;
+}
+
+.invalid-feedback {
+  padding: 0.1rem $input-padding-x;
+  color: $light;
+  border-radius: $input-border-radius;
+  background: $danger;
+}

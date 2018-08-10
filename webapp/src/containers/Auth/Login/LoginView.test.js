@@ -66,10 +66,10 @@ describe('button[submit]', () => {
   });
 
   it('becomes disabled based on prop input', () => {
-    const wrapper = shallow(<LoginView disabled={ false } />);
+    const wrapper = shallow(<LoginView isDisabled={ false } />);
     expect(wrapper.find(selector).prop('disabled')).toBe(false);
 
-    wrapper.setProps({ disabled: true });
+    wrapper.setProps({ isDisabled: true });
     expect(wrapper.find(selector).prop('disabled')).toBe(true);
   });
 });
