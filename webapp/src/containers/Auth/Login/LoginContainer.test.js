@@ -25,7 +25,7 @@ it('renders <LoginView /> with correct props', () => {
     showErrors: state.hasSubmitted,
     globalError: state.globalError,
     errors: state.errors,
-    isDisabled: state.isBusy,
+    isDisabled: !! (state.isBusy || state.errors),
     username: state.username,
     password: state.password,
     onSubmit: wrapper.instance().onSubmit,

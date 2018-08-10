@@ -39,8 +39,10 @@ export class LoginContainer extends Component {
   }
 
   onChange = ({ target }) => {
-    const errors = this.validate();
-    this.setState({ [target.name]: target.value, errors });
+    this.setState(
+      { [target.name]: target.value },
+      () => this.setState({ errors: this.validate() })
+    );
   };
 
   onSubmit = (e) => {
