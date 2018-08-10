@@ -16,14 +16,16 @@
     "redux-auth-wrapper": "^2.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "concurrently \"yarn dev\" \"yarn watch-css\"",
+    "dev": "react-scripts start",
+    "build": "yarn build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom --notify",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src -o src",
     "watch-css": "npm run build-css && node-sass-chokidar src -o src --watch --recursive"
   },
   "devDependencies": {
+    "concurrently": "^3.6.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4"
