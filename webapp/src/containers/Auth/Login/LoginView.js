@@ -33,49 +33,41 @@ export default function LoginView(props) {
           </div>
 
           <form onSubmit={ props.onSubmit }>
-            <div className="form-group">
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <div className="input-group-text">
-                    <span className="oi oi-person" />
-                  </div>
-                </div>
+            <div className="form-group with-icon">
+              <input
+                className={ `form-control ${props.showErrors && props.errors && props.errors.username && 'is-invalid'}` }
+                type="text"
+                name="username"
+                value={ props.username }
+                onChange={ props.onChange }
+                placeholder="Username"
+              />
 
-                <input
-                  className={ `form-control ${props.showErrors && props.errors && props.errors.username && 'is-invalid'}` }
-                  type="text"
-                  name="username"
-                  value={ props.username }
-                  onChange={ props.onChange }
-                  placeholder="Username"
-                />
+              <div className="icon">
+                <span className="oi oi-person" />
+              </div>
 
-                <div className="invalid-feedback">
-                  { props.showErrors && props.errors && props.errors.username }
-                </div>
+              <div className="invalid-feedback">
+                { props.showErrors && props.errors && props.errors.username }
               </div>
             </div>
 
-            <div className="form-group">
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <div className="input-group-text">
-                    <span className="oi oi-lock-locked" />
-                  </div>
-                </div>
+            <div className="form-group with-icon">
+              <input
+                className={ `form-control ${props.showErrors && props.errors && props.errors.password && 'is-invalid'}` }
+                type="password"
+                name="password"
+                value={ props.password }
+                onChange={ props.onChange }
+                placeholder="Password"
+              />
 
-                <input
-                  className={ `form-control ${props.showErrors && props.errors && props.errors.password && 'is-invalid'}` }
-                  type="password"
-                  name="password"
-                  value={ props.password }
-                  onChange={ props.onChange }
-                  placeholder="Password"
-                />
+              <div className="icon">
+                <span className="oi oi-lock-locked" />
+              </div>
 
-                <div className="invalid-feedback">
-                  { props.showErrors && props.errors && props.errors.password }
-                </div>
+              <div className="invalid-feedback">
+                { props.showErrors && props.errors && props.errors.password }
               </div>
             </div>
 

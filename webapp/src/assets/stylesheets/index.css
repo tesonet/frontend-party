@@ -6481,6 +6481,20 @@ a.text-success-hover:hover, a.text-success-hover:focus {
   border-radius: 0.25rem;
   background: #dc3545; }
 
+.form-group.with-icon {
+  position: relative; }
+  .form-group.with-icon .form-control {
+    padding-left: 3.375rem; }
+  .form-group.with-icon .icon {
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    z-index: 10;
+    height: calc(3.25rem + 2px);
+    line-height: calc(3.25rem + 2px); }
+    .form-group.with-icon .icon > span {
+      vertical-align: -0.1rem; }
+
 html, body, #root {
   height: 100%; }
 

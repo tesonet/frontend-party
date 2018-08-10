@@ -36,3 +36,28 @@
   border-radius: $input-border-radius;
   background: $danger;
 }
+
+.form-group.with-icon {
+  position: relative;
+
+  .form-control {
+    padding-left: $input-padding-x * 4.5;
+  }
+
+  .icon {
+    position: absolute;
+    top: 0;
+    left: $input-padding-x * 2;
+    z-index: 10;
+
+    height: $input-height;
+
+    line-height: $input-height;
+
+    & > span {
+      vertical-align: -0.1rem;
+    }
+
+  } // End .icon
+
+} // End .form-group
