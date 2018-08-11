@@ -12,7 +12,6 @@ COPY . /usr/src/app
 ENV NODE_ENV=production \
     TS_NODE_FAST=true \
     TS_NODE_CACHE_DIRECTORY=./bin \
-    TS_NODE_COMPILER_OPTIONS='{"target":"es2015", "module": "commonjs"}' \
     PORT=3000
 
 RUN yarn build
