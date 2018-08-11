@@ -1,7 +1,44 @@
+$color-default: #ccc;
+$color-active: #999;
+
+.label {
+    position: relative;
+    display: block;
+}
+
 .input {
     width: 100%;
     display: block;
     padding: 1em;
-    border-radius: 3px;
+    border-radius: 5px;
     border: none;
+    margin-bottom: 1em;
+    color: $color-default;
+    outline: none;
+    line-height: 1.5;
+
+    &::placeholder {
+        color: $color-default;
+    }
+
+    &:focus {
+        color: $color-active
+    }
+}
+
+.inputWithIcon {
+    padding-left: 3em;
+}
+
+.icon {
+    fill: $color-default;
+    position: absolute;
+    top: 50%;
+    left: 1.5em;
+    transform: translateY(-50%);
+}
+
+.input:active + .icon,
+.input:focus + .icon {
+    fill: $color-active;
 }

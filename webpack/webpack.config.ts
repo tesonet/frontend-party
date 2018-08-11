@@ -58,6 +58,11 @@ const styleLoader = {
   ]
 };
 
+const svgLoader = {
+  test: /\.svg$/,
+  use: ['desvg-loader/react', 'svg-loader']
+};
+
 const mode = IS_PROD ? 'production' : 'development';
 
 const plugins: Plugin[] = [
@@ -83,7 +88,7 @@ const config: Configuration = {
   entry,
   output,
   module: {
-    rules: [tsLoader, styleLoader]
+    rules: [tsLoader, styleLoader, svgLoader]
   },
   plugins,
   resolve

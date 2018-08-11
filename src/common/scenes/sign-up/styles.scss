@@ -10,4 +10,12 @@
 .box {
     width: 100%;
     max-width: 380px;
+    padding: 1em;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4em;
 }
