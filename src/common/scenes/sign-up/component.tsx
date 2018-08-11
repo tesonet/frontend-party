@@ -1,4 +1,5 @@
 import Logo from 'common/assets/logo.svg';
+import Button from 'common/components/button/component';
 import Input, { IconType } from 'common/components/input/component';
 import * as React from 'react';
 import * as styles from './styles.scss';
@@ -12,7 +13,7 @@ const SignUp: React.SFC = () => (
       <form>
         <Input type="text" placeholder="Username" icon={IconType.User} />
         <Input type="password" placeholder="Password" icon={IconType.Lock} />
-        <button type="submit">Log in</button>
+        <Button>Log in</Button>
       </form>
     </div>
   </div>

@@ -1,0 +1,22 @@
+$color-default: #9fd533;
+$color-hover: #86b300;
+$color-text: #fff;
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    line-height: 1.5;
+    border: none;
+    background-color: $color-default;
+    color: $color-text;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: $color-hover;
+    }
+}
