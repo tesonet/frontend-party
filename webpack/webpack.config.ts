@@ -58,6 +58,26 @@ const styleLoader = {
   ]
 };
 
+const assetLoader = {
+  test: /\.(jpg|png|woff|woff2|eot|ttf|otf)$/,
+  oneOf: [
+    {
+      resourceQuery: /inline/,
+      use: 'url-loader'
+    },
+    {
+      resourceQuery: /external/,
+      loader: 'file-loader'
+    },
+    {
+      loader: 'url-loader',
+      options: {
+        limit: 8192
+      }
+    }
+  ]
+};
+
 const svgLoader = {
   test: /\.svg$/,
   use: ['desvg-loader/react', 'svg-loader']
@@ -88,7 +108,7 @@ const config: Configuration = {
   entry,
   output,
   module: {
-    rules: [tsLoader, styleLoader, svgLoader]
+    rules: [tsLoader, styleLoader, svgLoader, assetLoader]
   },
   plugins,
   resolve
