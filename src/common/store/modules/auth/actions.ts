@@ -39,3 +39,8 @@ export const setToken = (
     localStorage.removeItem(STORAGE_KEY);
   }
 };
+
+export const logOut = (): Thunk => dispatch => {
+  dispatch(setToken(null));
+  dispatch(setIsAuthenticated(false));
+};

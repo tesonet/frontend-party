@@ -1,8 +1,9 @@
+import Header from 'common/components/header/component';
 import * as React from 'react';
 
 const Home: React.SFC = () => (
   <div>
-    <button>Logout</button>
+    <Header />
     <ul>
       <li>1</li>
       <li>2</li>
