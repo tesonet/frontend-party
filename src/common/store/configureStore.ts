@@ -3,10 +3,9 @@ import middleware from './middleware';
 import reducer from './reducer';
 import { IAppState } from './types';
 
-const devTool =
-  process.env.TARGET === 'browser' && window.__REDUX_DEVTOOLS_EXTENSION__
-    ? window.__REDUX_DEVTOOLS_EXTENSION__()
-    : <T>(f: T): T => f;
+const devTool = window.__REDUX_DEVTOOLS_EXTENSION__
+  ? window.__REDUX_DEVTOOLS_EXTENSION__()
+  : <T>(f: T): T => f;
 
 const configureStore = (preloadedState?: IAppState) => {
   const enhancedCreateStore = compose<typeof createStore>(
