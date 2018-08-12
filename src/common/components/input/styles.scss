@@ -1,5 +1,7 @@
 $color-default: #ccc;
 $color-active: #999;
+$color-error: #EE2B31;
+$color-font-light: #fff;
 
 .label {
     position: relative;
@@ -12,7 +14,6 @@ $color-active: #999;
     padding: 1em;
     border-radius: 5px;
     border: none;
-    margin-bottom: 1em;
     color: $color-default;
     outline: none;
     line-height: 1.5;
@@ -41,4 +42,32 @@ $color-active: #999;
 .input:active + .icon,
 .input:focus + .icon {
     fill: $color-active;
+}
+
+.inputWithError {
+    border: 1px solid $color-error
+    // box-shadow: 0px 0px 10px 3px rgba($color-error, 0.5);
+}
+
+.error {
+    border-radius: 5px;
+    margin-top: .5em;
+    background-color: $color-error;
+    color: $color-font-light;
+    display: block;
+    padding: 1em;
+    position: relative;
+
+    &:before {
+        content: '';
+        height: 0;
+        position: absolute;
+        width: 0;
+        border: .5em solid transparent;
+        border-bottom-color: $color-error;
+        transform: translateX(-50%);
+        position: absolute;
+        left: 50%;
+        bottom: 100%;
+    }
 }

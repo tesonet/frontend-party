@@ -1,9 +1,9 @@
-interface IAction<T> {
+export interface IAction<T> {
   type: string;
   payload?: T;
 }
 
-type Reducer<S, P> = (state: S, action: IAction<P>) => S;
+export type Reducer<S, P> = (state: S, action: IAction<P>) => S;
 
 export const createActionCreator = <P = any>(type: string) => (
   payload: P
@@ -20,3 +20,15 @@ export const createReducer = <S>(
   reducersMap.hasOwnProperty(action.type)
     ? reducersMap[action.type](state, action)
     : state;
+
+export const set = <T>(_: any, action: IAction<T>) => action.payload;
+
+export interface ISetByKeyActionPayload<T> {
+  key: string;
+  value: T;
+}
+
+export const setByKey = <S, T extends ISetByKeyActionPayload<any> = any>(
+  key: string
+) => (state: S, action: IAction<T>): S =>
+  action.payload!.key === key ? action.payload!.value : state;

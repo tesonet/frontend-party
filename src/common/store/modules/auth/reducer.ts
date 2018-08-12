@@ -1,14 +1,25 @@
-import { createReducer } from 'common/utils/redux';
+import { createReducer, set } from 'common/utils/redux';
 import { combineReducers } from 'redux';
-import { IState, Status } from './types';
+import { SET_IS_AUTHENTICATED, SET_TOKEN } from './constants';
+import { IState } from './types';
 
-const statusReducer = createReducer<Status>({}, Status.Idle);
+const isAuthenticatedReducer = createReducer<boolean>(
+  {
+    [SET_IS_AUTHENTICATED]: set
+  },
+  false
+);
 
-const isAuthenticatedReducer = createReducer<boolean>({}, false);
+const tokenReducer = createReducer<string | null>(
+  {
+    [SET_TOKEN]: set
+  },
+  null
+);
 
 const reducer = combineReducers<IState>({
-  status: statusReducer,
-  isAuthenticated: isAuthenticatedReducer
+  isAuthenticated: isAuthenticatedReducer,
+  token: tokenReducer
 });
 
 export default reducer;

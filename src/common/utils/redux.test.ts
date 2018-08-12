@@ -1,4 +1,11 @@
-import { createActionCreator, createReducer } from './redux';
+import {
+  createActionCreator,
+  createReducer,
+  IAction,
+  ISetByKeyActionPayload,
+  set,
+  setByKey
+} from './redux';
 
 describe('redux utilities', () => {
   describe('#createActionCreator', () => {
@@ -49,6 +56,38 @@ describe('redux utilities', () => {
       const result = reducer(undefined, { type: 'test-action' });
 
       expect(result).toEqual(defaultState);
+    });
+  });
+
+  describe('#set', () => {
+    it(`should return action's payload`, () => {
+      const action: IAction<boolean> = { type: 'TEST', payload: false };
+
+      expect(set(true, action)).toEqual(false);
+    });
+  });
+
+  describe('#setByKey', () => {
+    it('should return `payload.value` when `key` matches `payload.key`', () => {
+      const state = 0;
+      const action: IAction<ISetByKeyActionPayload<number>> = {
+        type: 'TEST',
+        payload: { value: 1, key: 'a' }
+      };
+      const result = setByKey('a')(state, action);
+
+      expect(result).toEqual(1);
+    });
+
+    it('should return `state` when `key` does not match `payload.key`', () => {
+      const state = 0;
+      const action: IAction<ISetByKeyActionPayload<number>> = {
+        type: 'TEST',
+        payload: { value: 1, key: 'z' }
+      };
+      const result = setByKey('a')(state, action);
+
+      expect(result).toEqual(state);
     });
   });
 });
