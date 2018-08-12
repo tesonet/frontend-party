@@ -1,5 +1,7 @@
+import { Routes } from 'common/routes';
 import { Thunk } from 'common/store/types';
 import { createActionCreator } from 'common/utils/redux';
+import { push } from 'connected-react-router';
 import wretch from 'wretch';
 import { setIsAuthenticated, setToken } from '../auth/actions';
 import { SET_ERROR, SET_IS_VALID, SET_STATUS, SET_VALUE } from './constants';
@@ -76,5 +78,6 @@ export const signIn = (): Thunk => async (dispatch, getState) => {
   dispatch(setToken(responseBody.token));
   dispatch(setIsAuthenticated(true));
   dispatch(setStatus(Status.Idle));
+  dispatch(push(Routes.Home));
   return;
 };

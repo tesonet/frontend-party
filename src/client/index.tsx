@@ -1,19 +1,23 @@
 import App from 'common/app';
+import browserHistory from 'common/browserHistory';
 import configureStore from 'common/store/configureStore';
+import { init } from 'common/store/modules/auth/actions';
+import { ConnectedRouter } from 'connected-react-router';
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import 'sanitize.css';
 import './styles.scss';
 
 const store = configureStore();
 
+store.dispatch<any>(init());
+
 const Component: React.SFC = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    <ConnectedRouter history={browserHistory}>
       <App />
-    </BrowserRouter>
+    </ConnectedRouter>
   </Provider>
 );
 

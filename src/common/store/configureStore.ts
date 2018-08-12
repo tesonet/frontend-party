@@ -1,4 +1,4 @@
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, compose, createStore, Middleware } from 'redux';
 import middleware from './middleware';
 import reducer from './reducer';
 import { IAppState } from './types';
@@ -9,7 +9,7 @@ const devTool = window.__REDUX_DEVTOOLS_EXTENSION__
 
 const configureStore = (preloadedState?: IAppState) => {
   const enhancedCreateStore = compose<typeof createStore>(
-    applyMiddleware(...middleware),
+    applyMiddleware(...(middleware as Middleware[])),
     devTool
   )(createStore);
 
