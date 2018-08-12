@@ -1,0 +1,16 @@
+$font-color: #999999;
+$background-color: #f5f5f5;
+$border-color: #e6e6e6;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  text-transform: uppercase;
+  color: $font-color;
+  background-color: $background-color;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  font-size: 14px;
+}

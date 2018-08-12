@@ -1,0 +1,10 @@
+$font-color: #666666;
+$border-color: #e6e6e6;
+
+.server {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  color: $font-color;
+  border-bottom: 1px solid $border-color;
+}
