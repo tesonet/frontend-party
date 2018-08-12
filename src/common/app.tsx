@@ -1,6 +1,7 @@
 import PrivateRoute from 'common/components/private-route';
 import { Routes } from 'common/routes';
 import Dashboard from 'common/scenes/dashboard';
+import NotFound from 'common/scenes/not-found';
 import SignIn from 'common/scenes/sign-in';
 import * as React from 'react';
 import { hot } from 'react-hot-loader';
@@ -10,6 +11,7 @@ const App: React.SFC = () => (
   <Switch>
     <PrivateRoute path={Routes.Home} exact={true} component={Dashboard} />
     <Route path={Routes.SignIn} component={SignIn} />
+    <Route component={NotFound} />
   </Switch>
 );
 

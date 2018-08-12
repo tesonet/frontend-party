@@ -14,7 +14,13 @@ const getTokenFromStorage = () => localStorage.getItem(STORAGE_KEY);
 
 export const init = (): Thunk => dispatch => {
   const token = getTokenFromStorage();
+
+  if (!token) {
+    return;
+  }
+
   dispatch(setToken(token, false));
+  dispatch(setIsAuthenticated(true));
 };
 
 export const setToken = (
