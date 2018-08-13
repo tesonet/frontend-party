@@ -14,6 +14,7 @@ class App extends Component {
                         this.props.isLoggedIn ? <Servers/> : <Redirect to="/login"/>
                     )}/>
                     <Route path="/login" component={Login}/>
+                    <Route path="*" render={() => <Redirect to="/"/>}/>
                 </Switch>
             </BrowserRouter>
         );
