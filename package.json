@@ -26,6 +26,9 @@
       "jsx",
       "json",
       "node"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
     ]
   },
   "browserslist": [

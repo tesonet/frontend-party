@@ -8,7 +8,7 @@ export const setIsAuthenticated = createActionCreator<boolean>(
 
 const setTokenAction = createActionCreator<string | null>(SET_TOKEN);
 
-const STORAGE_KEY = 'token';
+export const STORAGE_KEY = 'token';
 
 const getTokenFromStorage = () => localStorage.getItem(STORAGE_KEY);
 

@@ -11,7 +11,7 @@ import './styles.scss';
 
 const store = configureStore();
 
-store.dispatch<any>(init());
+store.dispatch(init());
 
 const Component: React.SFC = () => (
   <Provider store={store}>
