@@ -1,14 +1,19 @@
+import browserHistory from 'common/browserHistory';
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
-import browserHistory from '../browserHistory';
+import { enableBatching } from 'redux-batched-actions';
 import authReducer from './modules/auth/reducer';
+import serverListReducer from './modules/server-list/reducer';
 import signInFormReducer from './modules/sign-in-form/reducer';
 
-const reducer = connectRouter(browserHistory)(
-  combineReducers({
-    auth: authReducer,
-    signInForm: signInFormReducer
-  })
+const reducer = enableBatching(
+  connectRouter(browserHistory)(
+    combineReducers({
+      auth: authReducer,
+      signInForm: signInFormReducer,
+      serverList: serverListReducer
+    })
+  )
 );
 
 export default reducer;

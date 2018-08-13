@@ -1,4 +1,6 @@
+import Error from 'common/components/error/component';
 import PrivateRoute from 'common/components/private-route';
+import { withErrorBoundary } from 'common/hocs/withErrorBoundary';
 import { Routes } from 'common/routes';
 import Dashboard from 'common/scenes/dashboard';
 import NotFound from 'common/scenes/not-found';
@@ -15,4 +17,4 @@ const App: React.SFC = () => (
   </Switch>
 );
 
-export default hot(module)(App);
+export default hot(module)(withErrorBoundary(Error)(App));

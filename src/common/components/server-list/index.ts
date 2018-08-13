@@ -1,8 +1,10 @@
+import { getIds } from 'common/store/modules/server-list/selectors';
+import { IAppState } from 'common/store/types';
 import { connect } from 'react-redux';
 import ServerList from './component';
 
-const mapStateToProps = () => ({
-  ids: [1, 2, 3, 4, 5, 6, 7, 8, 9].map(x => x.toString())
+const mapStateToProps = (state: IAppState) => ({
+  ids: getIds(state)
 });
 
 export default connect(mapStateToProps)(ServerList);

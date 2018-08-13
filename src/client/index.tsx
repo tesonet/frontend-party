@@ -1,6 +1,6 @@
 import App from 'common/app';
 import browserHistory from 'common/browserHistory';
-import configureStore from 'common/store/configureStore';
+import configureStore from 'common/store/configure-store';
 import { init } from 'common/store/modules/auth/actions';
 import { ConnectedRouter } from 'connected-react-router';
 import * as React from 'react';
