@@ -3,6 +3,7 @@ import Input, { IconType } from 'common/components/input/component';
 import Spacer from 'common/components/spacer';
 import { noop } from 'common/utils/noop';
 import * as React from 'react';
+import Notification from './notification';
 
 export interface IProps {
   usernameValue: string;
@@ -50,6 +51,7 @@ class SignInForm extends React.Component<IProps> {
 
     return (
       <form onSubmit={this.handleSubmit}>
+        <Notification />
         <Input
           type="text"
           placeholder="Username"

@@ -4,7 +4,13 @@ import { createActionCreator } from 'common/utils/redux';
 import { push } from 'connected-react-router';
 import { setIsAuthenticated, setToken } from '../auth/actions';
 import { fetchToken } from './api';
-import { SET_ERROR, SET_IS_VALID, SET_STATUS, SET_VALUE } from './constants';
+import {
+  SET_ERROR,
+  SET_FIELD_ERROR,
+  SET_FIELD_IS_VALID,
+  SET_FIELD_VALUE,
+  SET_STATUS
+} from './constants';
 import {
   IFields,
   ISetIsValidPayload,
@@ -14,10 +20,15 @@ import {
 } from './types';
 import { validatePassword, validateUsername } from './validation';
 
-export const setValue = createActionCreator<ISetValuePayload>(SET_VALUE);
-const setIsValid = createActionCreator<ISetIsValidPayload>(SET_IS_VALID);
-const setError = createActionCreator<SetErrorPayload>(SET_ERROR);
+export const setFieldValue = createActionCreator<ISetValuePayload>(
+  SET_FIELD_VALUE
+);
+const setFieldIsValid = createActionCreator<ISetIsValidPayload>(
+  SET_FIELD_IS_VALID
+);
+const setFieldError = createActionCreator<SetErrorPayload>(SET_FIELD_ERROR);
 const setStatus = createActionCreator<Status>(SET_STATUS);
+const setError = createActionCreator<string | null>(SET_ERROR);
 
 export const validateField = (key: keyof IFields): Thunk => (
   dispatch,
@@ -30,12 +41,12 @@ export const validateField = (key: keyof IFields): Thunk => (
   try {
     validator(value);
   } catch (err) {
-    dispatch(setIsValid({ key, value: false }));
-    return dispatch(setError({ key, value: err }));
+    dispatch(setFieldIsValid({ key, value: false }));
+    return dispatch(setFieldError({ key, value: err }));
   }
 
-  dispatch(setIsValid({ key, value: true }));
-  return dispatch(setError({ key, value: null }));
+  dispatch(setFieldIsValid({ key, value: true }));
+  return dispatch(setFieldError({ key, value: null }));
 };
 
 export const signIn = (): Thunk => async (dispatch, getState) => {
@@ -66,8 +77,9 @@ export const signIn = (): Thunk => async (dispatch, getState) => {
     dispatch(setIsAuthenticated(true));
     dispatch(setStatus(Status.Idle));
     dispatch(push(Routes.Home));
-    dispatch(setValue({ key: 'password', value: null }));
+    dispatch(setFieldValue({ key: 'password', value: null }));
   } catch (err) {
     dispatch(setStatus(Status.Error));
+    dispatch(setError(err.message));
   }
 };

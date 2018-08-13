@@ -1,5 +1,5 @@
 import {
-  setValue,
+  setFieldValue,
   signIn,
   validateField
 } from 'common/store/modules/sign-in-form/actions';
@@ -39,9 +39,11 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (dispatch: any): DispatchProps => ({
-  onUsernameChange: value => dispatch(setValue({ key: 'username', value })),
+  onUsernameChange: value =>
+    dispatch(setFieldValue({ key: 'username', value })),
   onUsernameBlur: () => dispatch(validateField('username')),
-  onPasswordChange: value => dispatch(setValue({ key: 'password', value })),
+  onPasswordChange: value =>
+    dispatch(setFieldValue({ key: 'password', value })),
   onPasswordBlur: () => dispatch(validateField('password')),
   onSubmit: () => dispatch(signIn())
 });

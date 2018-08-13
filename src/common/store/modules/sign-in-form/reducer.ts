@@ -1,6 +1,12 @@
 import { createReducer, set, setByKey } from 'common/utils/redux';
 import { combineReducers } from 'redux';
-import { SET_ERROR, SET_IS_VALID, SET_STATUS, SET_VALUE } from './constants';
+import {
+  SET_ERROR,
+  SET_FIELD_ERROR,
+  SET_FIELD_IS_VALID,
+  SET_FIELD_VALUE,
+  SET_STATUS
+} from './constants';
 import { IField, IFields, IState, Status } from './types';
 
 const statusReducer = createReducer<Status>(
@@ -19,7 +25,7 @@ const defaultFieldState: IField = {
 const createFieldValueReducer = (fieldName: keyof IFields) =>
   createReducer<string | null>(
     {
-      [SET_VALUE]: setByKey(fieldName)
+      [SET_FIELD_VALUE]: setByKey(fieldName)
     },
     defaultFieldState.value
   );
@@ -27,7 +33,7 @@ const createFieldValueReducer = (fieldName: keyof IFields) =>
 const createFieldIsValidReducer = (fieldName: keyof IFields) =>
   createReducer<boolean>(
     {
-      [SET_IS_VALID]: setByKey(fieldName)
+      [SET_FIELD_IS_VALID]: setByKey(fieldName)
     },
     defaultFieldState.isValid
   );
@@ -35,10 +41,17 @@ const createFieldIsValidReducer = (fieldName: keyof IFields) =>
 const createFieldErrorReducer = (fieldName: keyof IFields) =>
   createReducer<string | null>(
     {
-      [SET_ERROR]: setByKey(fieldName)
+      [SET_FIELD_ERROR]: setByKey(fieldName)
     },
     defaultFieldState.error
   );
+
+const errorReducer = createReducer<string | null>(
+  {
+    [SET_ERROR]: set
+  },
+  null
+);
 
 const createFieldReducer = (fieldName: keyof IFields) =>
   combineReducers<IField>({
@@ -52,7 +65,8 @@ const reducer = combineReducers<IState>({
     username: createFieldReducer('username'),
     password: createFieldReducer('password')
   }),
-  status: statusReducer
+  status: statusReducer,
+  error: errorReducer
 });
 
 export default reducer;

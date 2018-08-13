@@ -1,0 +1,10 @@
+$background-color: #EE2B31;
+$font-color: #fff;
+
+.notification {
+  padding: 1em;
+  background-color: $background-color;
+  color: $font-color;
+  margin-bottom: .5em;
+  border-radius: 5px;
+}

@@ -18,6 +18,7 @@ export enum Status {
 export interface IState {
   fields: IFields;
   status: Status;
+  error: string | null;
 }
 
 export interface ISetValuePayload {
