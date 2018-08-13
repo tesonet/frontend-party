@@ -5,13 +5,15 @@ export default function ServersListView({ data }) {
   if ( ! data.length) return null;
 
   return (
-    <section>
+    <section className="partial_servers-servers-list">
       <header>
-        Server
-        Distance
+        <div className="row py-2 text-uppercase">
+          <div className="col">Server</div>
+          <div className="col text-right">Distance</div>
+        </div>
       </header>
 
-      <ul>
+      <div>
         {
           data.map(
             (server, i) => <ServersListItemView
@@ -21,7 +23,7 @@ export default function ServersListView({ data }) {
             />
           )
         }
-      </ul>
+      </div>
     </section>
   );
 }

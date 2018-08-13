@@ -72,7 +72,7 @@ export default class ServersView extends Component {
             </header>
           </div>
 
-          <div className="col scroll-y">
+          <div className="col">
             { this.renderMessage() }
             { this.renderListView() }
           </div>
