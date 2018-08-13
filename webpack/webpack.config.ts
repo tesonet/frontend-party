@@ -33,8 +33,7 @@ const tsLoader: Rule = {
     {
       loader: 'babel-loader',
       options: {
-        babelrc: false,
-        plugins: ['react-hot-loader/babel', 'syntax-dynamic-import']
+        babelrc: true
       }
     },
     'ts-loader'
