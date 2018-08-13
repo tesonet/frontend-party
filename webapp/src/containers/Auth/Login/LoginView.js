@@ -16,7 +16,7 @@ const defaultProps = {
 
 export default function LoginView(props) {
   return (
-    <div id="page-auth-login" className="container-fluid h-100">
+    <div id="page_auth-login" className="container-fluid h-100">
       <div className="row h-100 align-items-center justify-content-center">
         <div className="col-md-4">
           <div className="logo">
