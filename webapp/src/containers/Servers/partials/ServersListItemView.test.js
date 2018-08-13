@@ -7,7 +7,7 @@ it('renders without crashing', () => {
 });
 
 it('has reasonable defaultProps', () => {
-  expect(ServersListItemView.defaultProps).toEqual({ name: null, distance: null });
+  expect(ServersListItemView.defaultProps).toEqual({ name: null, distance: null, unit: 'km' });
 });
 
 it('renders nothing when no props are given', () => {
@@ -16,8 +16,9 @@ it('renders nothing when no props are given', () => {
 });
 
 it('renders country name and distance', () => {
-  const props = { name: 'Country', distance: 123 };
+  const props = { name: 'Country', distance: 123, unit: 'my unit' };
   const wrapper = shallow(<ServersListItemView { ...props } />);
   expect(wrapper.text()).toContain(props.name);
   expect(wrapper.text()).toContain(props.distance);
+  expect(wrapper.text()).toContain(props.unit);
 });

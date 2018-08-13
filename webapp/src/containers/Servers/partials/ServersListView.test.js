@@ -44,7 +44,7 @@ describe('given data', () => {
     const lastData = servers[servers.length - 1];
 
     expect(listItemWrappers.length).toBeGreaterThan(0);
-    expect(firstItemWrapper.props()).toEqual(firstData);
-    expect(lastItemWrapper.props()).toEqual(lastData);
+    expect(firstItemWrapper.props()).toEqual({ ...firstData, unit: 'km' });
+    expect(lastItemWrapper.props()).toEqual({ ...lastData, unit: 'km' });
   });
 });
