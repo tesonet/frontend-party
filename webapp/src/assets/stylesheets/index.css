@@ -140,12 +140,12 @@ sup {
   top: -.5em; }
 
 a {
-  color: #007bff;
+  color: #2f3254;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects; }
   a:hover {
-    color: #0056b3;
+    color: #99cc33;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
@@ -1271,7 +1271,7 @@ pre {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid white;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media screen and (prefers-reduced-motion: reduce) {
@@ -2053,10 +2053,10 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #007bff;
+  color: #2f3254;
   background-color: transparent; }
   .btn-link:hover {
-    color: #0056b3;
+    color: #99cc33;
     text-decoration: underline;
     background-color: transparent;
     border-color: transparent; }
@@ -2466,7 +2466,7 @@ input[type="button"].btn-block {
   text-align: center;
   white-space: nowrap;
   background-color: white;
-  border: 1px solid #ced4da;
+  border: 1px solid white;
   border-radius: 0.25rem; }
   .input-group-text input[type="radio"],
   .input-group-text input[type="checkbox"] {
@@ -2608,7 +2608,7 @@ input[type="button"].btn-block {
   vertical-align: middle;
   background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
   background-size: 8px 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid white;
   border-radius: 0.25rem;
   appearance: none; }
   .custom-select:focus {
@@ -2675,7 +2675,7 @@ input[type="button"].btn-block {
   line-height: 2.5;
   color: #495057;
   background-color: #fff;
-  border: 1px solid #ced4da;
+  border: 1px solid white;
   border-radius: 0.25rem; }
   .custom-file-label::after {
     position: absolute;
@@ -2690,7 +2690,7 @@ input[type="button"].btn-block {
     color: #495057;
     content: "Browse";
     background-color: white;
-    border-left: 1px solid #ced4da;
+    border-left: 1px solid white;
     border-radius: 0 0.25rem 0.25rem 0; }
 
 .custom-range {
@@ -3339,12 +3339,12 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #007bff;
+  color: #2f3254;
   background-color: #fff;
   border: 1px solid #dee2e6; }
   .page-link:hover {
     z-index: 2;
-    color: #0056b3;
+    color: #99cc33;
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6; }
@@ -6504,3 +6504,14 @@ html, body, #root {
 
 * {
   letter-spacing: 0.025em !important; }
+
+.scroll-y {
+  overflow: hidden;
+  overflow-y: auto; }
+
+.page-header .nav-link .label {
+  font-size: 0.875rem; }
+
+.page-header .nav-link .oi {
+  margin-right: 0.5rem;
+  vertical-align: -0.0625rem; }

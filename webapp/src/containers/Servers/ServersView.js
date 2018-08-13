@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import ServersListView from './partials/ServersListView';
+import TestioLogo from '../../assets/images/logo_833x215.png';
 
 export const MSG_LIST_LOADING = 'Fetching servers...';
 export const MSG_LIST_ERROR   = 'There was an error fetching the list.';
@@ -50,10 +53,31 @@ export default class ServersView extends Component {
 
   render() {
     return (
-      <main>
-        { this.renderMessage() }
-        { this.renderListView() }
-      </main>
+      <div id="page_servers" className="container-fluid h-100">
+        <div className="row flex-column h-100">
+          <div className="col-auto">
+            <header className="page-header navbar px-0 py-4">
+              <div className="navbar-brand">
+                <img src={ TestioLogo } height="30" alt="Testio."/>
+              </div>
+
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/logout">
+                    <span className="oi oi-account-logout" />
+                    <span className="label">Logout</span>
+                  </Link>
+                </li>
+              </ul>
+            </header>
+          </div>
+
+          <div className="col scroll-y">
+            { this.renderMessage() }
+            { this.renderListView() }
+          </div>
+        </div>
+      </div>
     );
   }
 }

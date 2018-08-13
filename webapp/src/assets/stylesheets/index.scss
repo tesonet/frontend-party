@@ -19,3 +19,23 @@ html, body, #root {
   // we do an asterisk selector.
   letter-spacing: 0.025em !important;
 }
+
+.scroll-y {
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.page-header {
+  .nav-link {
+    .label {
+      font-size: 0.875rem;
+    }
+
+    .oi {
+      margin-right: 0.5rem;
+      vertical-align: -0.0625rem;
+    }
+
+  } // End .nav-link
+
+} // End .page-header

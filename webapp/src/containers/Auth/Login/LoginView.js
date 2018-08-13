@@ -20,7 +20,7 @@ export default function LoginView(props) {
       <div className="row h-100 align-items-center justify-content-center">
         <div className="col-md-4">
           <div className="logo">
-            <img src={ TestioLogo } width="246" alt="Testio. logo"/>
+            <img src={ TestioLogo } width="246" alt="Testio."/>
           </div>
 
           <div>
