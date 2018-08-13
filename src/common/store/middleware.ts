@@ -1,7 +1,10 @@
-import browserHistory from 'common/browserHistory';
 import { routerMiddleware } from 'connected-react-router';
+import { History } from 'history';
 import thunk from 'redux-thunk';
 
-const middleware = [routerMiddleware(browserHistory), thunk];
+const createMiddleware = (history: History) => [
+  routerMiddleware(history),
+  thunk
+];
 
-export default middleware;
+export default createMiddleware;

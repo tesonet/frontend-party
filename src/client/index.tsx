@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import 'sanitize.css';
 import './styles.scss';
 
-const store = configureStore();
+const store = configureStore(undefined, browserHistory);
 
 store.dispatch(init());
 

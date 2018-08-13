@@ -2,8 +2,8 @@ import { Routes } from 'common/routes';
 import { Thunk } from 'common/store/types';
 import { createActionCreator } from 'common/utils/redux';
 import { push } from 'connected-react-router';
-import wretch from 'wretch';
 import { setIsAuthenticated, setToken } from '../auth/actions';
+import { fetchToken } from './api';
 import { SET_ERROR, SET_IS_VALID, SET_STATUS, SET_VALUE } from './constants';
 import {
   IFields,
@@ -18,8 +18,6 @@ export const setValue = createActionCreator<ISetValuePayload>(SET_VALUE);
 const setIsValid = createActionCreator<ISetIsValidPayload>(SET_IS_VALID);
 const setError = createActionCreator<SetErrorPayload>(SET_ERROR);
 const setStatus = createActionCreator<Status>(SET_STATUS);
-
-const tokensAPI = wretch('http://playground.tesonet.lt/v1/tokens');
 
 export const validateField = (key: keyof IFields): Thunk => (
   dispatch,
@@ -40,10 +38,6 @@ export const validateField = (key: keyof IFields): Thunk => (
   return dispatch(setError({ key, value: null }));
 };
 
-interface IResponseBody {
-  token: string;
-}
-
 export const signIn = (): Thunk => async (dispatch, getState) => {
   const { status } = getState().signInForm;
 
@@ -62,23 +56,18 @@ export const signIn = (): Thunk => async (dispatch, getState) => {
 
   dispatch(setStatus(Status.Loading));
 
-  const requestBody = {
-    username: fields.username.value,
-    password: fields.password.value
-  };
+  try {
+    const response = await fetchToken(
+      fields.username.value!,
+      fields.password.value!
+    );
 
-  const response = await tokensAPI.post(requestBody).res();
-
-  if (!response.ok || response.status !== 200) {
-    return dispatch(setStatus(Status.Error));
+    dispatch(setToken(response.token));
+    dispatch(setIsAuthenticated(true));
+    dispatch(setStatus(Status.Idle));
+    dispatch(push(Routes.Home));
+    dispatch(setValue({ key: 'password', value: null }));
+  } catch (err) {
+    dispatch(setStatus(Status.Error));
   }
-
-  const responseBody: IResponseBody = await response.json();
-
-  dispatch(setToken(responseBody.token));
-  dispatch(setIsAuthenticated(true));
-  dispatch(setStatus(Status.Idle));
-  dispatch(push(Routes.Home));
-  dispatch(setValue({ key: 'password', value: null }));
-  return;
 };
