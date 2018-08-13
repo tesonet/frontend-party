@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env TS_NODE_COMPILER_OPTIONS=\"{\\\"module\\\":\\\"commonjs\\\"}\" ts-node -T scripts/start",
+    "start:prod": "cross-env NODE_ENV=production yarn start",
     "build": "rimraf dist && cross-env TS_NODE_COMPILER_OPTIONS=\"{\\\"module\\\":\\\"commonjs\\\"}\" webpack --config ./webpack/webpack.config.ts",
+    "build:prod": "cross-env NODE_ENV=production yarn build",
     "test": "jest",
     "lint": "tslint \"src/**/*.{ts, tsx}\"",
     "autofix": "tslint \"src/**/*.{ts, tsx}\" --fix"
