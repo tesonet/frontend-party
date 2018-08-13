@@ -14,6 +14,7 @@ export interface IProps {
   onPasswordChange?: (value: string) => any;
   onPasswordBlur?: () => any;
   onSubmit?: () => any;
+  isSubmitDisabled?: boolean;
 }
 
 class SignInForm extends React.Component<IProps> {
@@ -24,7 +25,8 @@ class SignInForm extends React.Component<IProps> {
     onPasswordBlur: noop,
     onUsernameBlur: noop,
     passwordError: null,
-    usernameError: null
+    usernameError: null,
+    isSubmitDisabled: false
   };
 
   constructor(props: IProps) {
@@ -42,7 +44,8 @@ class SignInForm extends React.Component<IProps> {
       passwordError,
       usernameError,
       passwordValue,
-      usernameValue
+      usernameValue,
+      isSubmitDisabled
     } = this.props;
 
     return (
@@ -67,7 +70,7 @@ class SignInForm extends React.Component<IProps> {
           value={passwordValue}
         />
         <Spacer top="1em" />
-        <Button>Log in</Button>
+        <Button disabled={isSubmitDisabled}>Log in</Button>
       </form>
     );
   }

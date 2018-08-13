@@ -25,6 +25,15 @@ $color-hover-ghost: #99cc33;
     }
 }
 
+.disabled.opaque {
+    background-color: darken($color-opaque, 15%);
+    cursor: not-allowed;
+
+    &:hover {
+        background-color: darken($color-opaque, 15%);
+    }
+}
+
 .ghost {
     background: transparent;
     padding: .5em;

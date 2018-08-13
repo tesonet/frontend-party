@@ -11,19 +11,23 @@ export enum Type {
 interface IProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any;
   type?: Type;
+  disabled?: boolean;
 }
 
 const Button: React.SFC<IProps> = ({
   children,
   onClick = noop,
-  type = Type.Opaque
+  type = Type.Opaque,
+  disabled = false
 }) => (
   <button
     onClick={onClick}
     className={classnames(styles.button, {
       [styles.opaque]: type === Type.Opaque,
-      [styles.ghost]: type === Type.Ghost
+      [styles.ghost]: type === Type.Ghost,
+      [styles.disabled]: disabled
     })}
+    disabled={disabled}
   >
     {children}
   </button>
