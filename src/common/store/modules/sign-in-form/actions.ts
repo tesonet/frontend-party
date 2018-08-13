@@ -79,5 +79,6 @@ export const signIn = (): Thunk => async (dispatch, getState) => {
   dispatch(setIsAuthenticated(true));
   dispatch(setStatus(Status.Idle));
   dispatch(push(Routes.Home));
+  dispatch(setValue({ key: 'password', value: null }));
   return;
 };
