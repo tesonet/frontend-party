@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TestioLogo from '../../../assets/images/logo_833x215.png'
+import TestioLogo from '../../../assets/images/logo-light_833x215.png'
 import './assets/stylesheets/login.css';
 
 const defaultProps = {
