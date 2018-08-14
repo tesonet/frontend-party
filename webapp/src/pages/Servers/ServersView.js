@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import Page from '../../shared/Page';
+import Header from '../../shared/Header';
 import ServersListView from './partials/ServersListView';
-import TestioLogo from '../../assets/images/logo_833x215.png';
 
 export const MSG_LIST_LOADING = 'Fetching servers...';
 export const MSG_LIST_ERROR   = 'There was an error fetching the list.';
@@ -56,22 +55,7 @@ export default class ServersView extends Component {
     return (
       <Page name="servers" title="Servers - Testio.">
         <div className="row flex-column h-100">
-          <div className="col-auto">
-            <header className="page-header navbar fixed-top bg-white py-4">
-              <div className="navbar-brand">
-                <img src={ TestioLogo } height="30" alt="Testio."/>
-              </div>
-
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/logout">
-                    <span className="oi oi-account-logout" />
-                    <span className="label">Logout</span>
-                  </Link>
-                </li>
-              </ul>
-            </header>
-          </div>
+          <Header />
 
           <div className="col">
             { this.renderMessage() }

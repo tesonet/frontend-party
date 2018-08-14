@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<div
+  className="col-auto"
+>
+  <header
+    className="page-header navbar fixed-top bg-white py-4"
+  >
+    <div
+      className="navbar-brand"
+    >
+      <img
+        alt="Testio."
+        height="30"
+        src="logo_833x215.png"
+      />
+    </div>
+    <ul
+      className="navbar-nav ml-auto"
+    >
+      <li
+        className="nav-item"
+      >
+        <Link
+          className="nav-link"
+          replace={false}
+          to="/logout"
+        >
+          <span
+            className="oi oi-account-logout"
+          />
+          <span
+            className="label"
+          >
+            Logout
+          </span>
+        </Link>
+      </li>
+    </ul>
+  </header>
+</div>
+`;
