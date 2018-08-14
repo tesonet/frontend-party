@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Input from '../../../shared/forms/Input';
 import TestioLogo from '../../../assets/images/logo-light_833x215.png'
 import './assets/stylesheets/login.css';
 
@@ -33,43 +34,25 @@ export default function LoginView(props) {
           </div>
 
           <form onSubmit={ props.onSubmit }>
-            <div className="form-group with-icon">
-              <input
-                className={ `form-control ${props.showErrors && props.errors && props.errors.username && 'is-invalid'}` }
-                type="text"
-                name="username"
-                value={ props.username }
-                onChange={ props.onChange }
-                placeholder="Username"
-              />
+            <Input
+              type="text"
+              error={ props.showErrors && props.errors && props.errors.username }
+              name="username"
+              value={ props.username }
+              onChange={ props.onChange }
+              placeholder="Username"
+              icon={ <span className="oi oi-person" /> }
+            />
 
-              <div className="icon">
-                <span className="oi oi-person" />
-              </div>
-
-              <div className="invalid-feedback">
-                { props.showErrors && props.errors && props.errors.username }
-              </div>
-            </div>
-
-            <div className="form-group with-icon">
-              <input
-                className={ `form-control ${props.showErrors && props.errors && props.errors.password && 'is-invalid'}` }
-                type="password"
-                name="password"
-                value={ props.password }
-                onChange={ props.onChange }
-                placeholder="Password"
-              />
-
-              <div className="icon">
-                <span className="oi oi-lock-locked" />
-              </div>
-
-              <div className="invalid-feedback">
-                { props.showErrors && props.errors && props.errors.password }
-              </div>
-            </div>
+            <Input
+              type="password"
+              error={ props.showErrors && props.errors && props.errors.password }
+              name="password"
+              value={ props.password }
+              onChange={ props.onChange }
+              placeholder="Password"
+              icon={ <span className="oi oi-lock-locked" /> }
+            />
 
             <button className="btn btn-success w-100" type="submit" disabled={ props.isDisabled }>Log in</button>
           </form>

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<div
+  className="form-group with-icon"
+>
+  <input
+    className="form-control is-invalid"
+    name="username"
+    onChange={[Function]}
+    placeholder="Username"
+    type="text"
+    value=""
+  />
+  <div
+    className="icon"
+  >
+    <span
+      className="oi oi-person"
+    />
+  </div>
+  <div
+    className="invalid-feedback"
+  >
+    An error occurred
+  </div>
+</div>
+`;

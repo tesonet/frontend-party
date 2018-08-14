@@ -87,8 +87,8 @@ describe('errors', () => {
 
   it('will display errors when `showErrors` flag is `true`', () => {
     const wrapper = shallow(<LoginView errors={ errors } globalError={ globalError } showErrors={ true } />);
-    expect(wrapper.text()).toContain(errors.username);
-    expect(wrapper.text()).toContain(errors.password);
+    expect(wrapper.find({ error: errors.username })).toHaveLength(1);
+    expect(wrapper.find({ error: errors.password })).toHaveLength(1);
     expect(wrapper.text()).toContain(globalError);
   });
 });
