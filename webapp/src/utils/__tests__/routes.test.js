@@ -1,7 +1,7 @@
 import React from 'react';
-import LoginContainer from '../../containers/Auth/Login/LoginContainer';
-import LogoutContainer from '../../containers/Auth/Logout/LogoutContainer';
-import ServersContainer from '../../containers/Servers/ServersContainer';
+import LoginContainer from '../../pages/Auth/Login/LoginContainer';
+import LogoutContainer from '../../pages/Auth/Logout/LogoutContainer';
+import ServersContainer from '../../pages/Servers/ServersContainer';
 import routes from '../routes';
 
 const requiredRoutes = [

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
-import { ROUTE_PATH as loginRoute } from './containers/Auth/Login/LoginContainer';
+import { ROUTE_PATH as loginRoute } from './pages/Auth/Login/LoginContainer';
 import routes from './utils/routes';
 import store from './utils/store';
 
