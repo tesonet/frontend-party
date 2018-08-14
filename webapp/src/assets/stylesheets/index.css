@@ -6513,11 +6513,18 @@ html, body, #root {
     margin-right: 0.5rem;
     vertical-align: -0.0625rem; }
 
-.partial_servers-servers-list {
+#page_auth-login {
+  background: #0b0f27 url("../images/auth-login-bg.jpg") no-repeat 0 0;
+  background-size: cover; }
+  #page_auth-login .logo {
+    text-align: center;
+    margin-bottom: 4.375rem; }
+
+#page_servers .partial_servers-servers-list {
   padding-top: 3.4375rem; }
-  .partial_servers-servers-list header {
+  #page_servers .partial_servers-servers-list header {
     font-size: 0.875rem; }
-    .partial_servers-servers-list header > .row {
+    #page_servers .partial_servers-servers-list header > .row {
       position: fixed;
       top: 6.5rem;
       z-index: 5;
@@ -6526,6 +6533,6 @@ html, body, #root {
       border-bottom: 1px solid #e6e6e6;
       background: #f5f5f5; }
 
-.partial_servers-servers-list-item {
+#page_servers .partial_servers-servers-list-item {
   white-space: nowrap;
   border-bottom: 1px solid #e6e6e6; }

@@ -3,7 +3,6 @@ import React from 'react';
 import Page from '../../../shared/Page';
 import Input from '../../../shared/forms/Input';
 import TestioLogo from '../../../assets/images/logo-light_833x215.png'
-import './assets/stylesheets/login.css';
 
 const defaultProps = {
   showErrors: false,
