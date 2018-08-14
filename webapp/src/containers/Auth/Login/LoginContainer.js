@@ -23,6 +23,10 @@ export class LoginContainer extends Component {
     password: '',
   };
 
+  componentDidMount() {
+    this.setState({ errors: this.validate() });
+  }
+
   validate() {
     const errors = {};
     const { username, password } = this.state;
