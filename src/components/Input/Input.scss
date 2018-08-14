@@ -2,10 +2,25 @@
     .input-group-text {
         background-color: #ffffff;
         border: none;
+        
+        .icon > div {
+            display: flex;
+            
+            svg {
+                width: 14px;
+                height: 16px;
+                fill: #cccccc;
+            }
+        }
     }
     .form-control {
         border: none;
         outline: none;
+        
+        &:focus {
+            border: none;
+            box-shadow: none;
+        }
     }
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 30px #ffffff inset;

@@ -2,11 +2,11 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import MDSpinner from 'react-md-spinner';
 import Logo from '../../images/logo-dark.png';
-import { MdExitToApp } from 'react-icons/md';
 import './Servers.css';
 import { connect } from 'react-redux';
 import { getServers, logout } from '../../actions';
 import { GET_SERVERS_FAIL, GET_SERVERS_SUCCESS } from '../../actions/types';
+import ReactSVG from 'react-svg';
 
 class Servers extends React.Component {
     constructor(props) {
@@ -46,7 +46,9 @@ class Servers extends React.Component {
                 <div className="d-flex align-items-center justify-content-between flex-shrink-0 top">
                     <img src={Logo} className="my-4" alt="Logo"/>
                     <button type="button" className="logout d-flex align-items-center"
-                            onClick={this.logout}><MdExitToApp/>Logout
+                            onClick={this.logout}>
+                        <ReactSVG path="assets/svg/logout.svg" className="icon"/>
+                        Logout
                     </button>
                 </div>
                 <div className="d-flex flex-column flex-grow-1 flex-shrink-0 justify-content-center">

@@ -2,7 +2,6 @@ import React from 'react';
 import './Login.css';
 import Input from '../Input/Input';
 import Logo from '../../images/logo.png';
-import { MdPerson, MdLock } from 'react-icons/md';
 import { Redirect } from 'react-router-dom';
 import MDSpinner from 'react-md-spinner';
 import { connect } from 'react-redux';
@@ -46,7 +45,7 @@ class Login extends React.Component {
                                 <Input
                                     id="username"
                                     label="Username"
-                                    icon={MdPerson}
+                                    icon="user"
                                     onChange={this.onChange}
                                     value={this.state.form.username}
                                 />
@@ -54,7 +53,7 @@ class Login extends React.Component {
                                     id="password"
                                     label="Password"
                                     type="password"
-                                    icon={MdLock}
+                                    icon="lock"
                                     onChange={this.onChange}
                                     value={this.state.form.password}
                                 />

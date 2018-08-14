@@ -5,16 +5,30 @@
     .logout {
         padding: 5px 10px;
         font-size: 18px;
-        border: 1px #0015ff solid;
         cursor: pointer;
+        border: none;
         outline: none;
-        transition: .2s border-color linear;
+        transition: .2s all linear;
         
         &:hover {
-            border-color: #99cc33;
+            color: #99cc33;
+            
+            svg {
+                fill: #9fd533;
+            }
         }
-        svg {
-            margin-right: 10px;
+        .icon {
+            margin-right: 5px;
+            
+            div {
+                display: flex;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    transition: .2s all linear;
+                }
+            }
         }
     }
 }
