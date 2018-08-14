@@ -63,5 +63,6 @@ html, body, #root {
 } // .partial_servers-servers-list
 
 .partial_servers-servers-list-item {
+  white-space: nowrap;
   border-bottom: 1px solid #e6e6e6; // TODO: Needs to be DRYed with the .partial_servers-servers-list
 }
