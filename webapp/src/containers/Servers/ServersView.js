@@ -53,10 +53,10 @@ export default class ServersView extends Component {
 
   render() {
     return (
-      <div id="page_servers" className="container-fluid h-100">
+      <div id="page_servers" className="page-inner container-fluid h-100">
         <div className="row flex-column h-100">
           <div className="col-auto">
-            <header className="page-header navbar px-0 py-4">
+            <header className="page-header navbar fixed-top bg-white py-4">
               <div className="navbar-brand">
                 <img src={ TestioLogo } height="30" alt="Testio."/>
               </div>
