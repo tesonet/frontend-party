@@ -1,8 +1,8 @@
 import React from 'react';
-import mockApi from '../../../utils/api';
-import { LogoutContainer } from './LogoutContainer';
+import mockApi from '../../../../utils/api';
+import { LogoutContainer } from '../LogoutContainer';
 
-jest.mock('../../../utils/api');
+jest.mock('../../../../utils/api');
 
 it('renders without crashing', () => {
   const wrapper = shallow(<LogoutContainer />);

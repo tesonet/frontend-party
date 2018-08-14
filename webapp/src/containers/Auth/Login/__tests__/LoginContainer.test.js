@@ -1,16 +1,16 @@
 import React from 'react';
-import tokens from '../../../tests/fixtures/tokens';
-import mockApi from '../../../utils/api';
-import LoginView from './LoginView';
+import tokens from '../../../../../__fixtures__/tokens';
+import mockApi from '../../../../utils/api';
+import LoginView from '../LoginView';
 import {
   LoginContainer,
   MSG_ERROR_GLOBAL,
   MSG_ERROR_UNAUTHORIZED,
   MSG_ERROR_PASSWORD_EMPTY,
   MSG_ERROR_USERNAME_EMPTY
-} from './LoginContainer';
+} from '../LoginContainer';
 
-jest.mock('../../../utils/api');
+jest.mock('../../../../utils/api');
 
 it('renders without crashing', () => {
   const wrapper = shallow(<LoginContainer />);

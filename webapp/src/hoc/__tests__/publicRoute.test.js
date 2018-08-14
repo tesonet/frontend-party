@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { MemoryRouter as Router, Route, Switch } from 'react-router-dom';
-import publicRoute from './publicRoute';
+import publicRoute from '../publicRoute';
 
 it('redirects to /servers page if the user is authenticated', () => {
   const expectedServers = 'Servers';

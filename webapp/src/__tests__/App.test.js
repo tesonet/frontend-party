@@ -1,13 +1,13 @@
 import React from 'react';
 import { MemoryRouter as Router } from 'react-router-dom';
 
-import App from './App';
-import ServersContainer, { ROUTE_PATH as serversRoute } from './containers/Servers/ServersContainer';
-import LoginContainer, { ROUTE_PATH as loginRoute } from './containers/Auth/Login/LoginContainer';
+import App from '../App';
+import ServersContainer, { ROUTE_PATH as serversRoute } from '../containers/Servers/ServersContainer';
+import LoginContainer, { ROUTE_PATH as loginRoute } from '../containers/Auth/Login/LoginContainer';
 
-jest.mock('./hoc/publicRoute');
-jest.mock('./hoc/privateRoute');
-jest.mock('./utils/api');
+jest.mock('../hoc/publicRoute');
+jest.mock('../hoc/privateRoute');
+jest.mock('../utils/api');
 
 it('renders without crashing', () => {
   const wrapper = shallow(<App />);

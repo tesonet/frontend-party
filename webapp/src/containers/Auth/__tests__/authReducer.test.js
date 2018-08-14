@@ -1,5 +1,5 @@
-import authReducer from './authReducer';
-import { TYPE_LOG_IN, TYPE_LOG_OUT } from './authActions';
+import authReducer from '../authReducer';
+import { TYPE_LOG_IN, TYPE_LOG_OUT } from '../authActions';
 
 it('should return an initial state', () => {
   // `defaultState` is initialized the first time the `authReducer` is required, in this

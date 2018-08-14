@@ -1,5 +1,5 @@
-import servers from '../../tests/fixtures/servers';
-import tokens from '../../tests/fixtures/tokens';
+import servers from '../../../__fixtures__/servers';
+import tokens from '../../../__fixtures__/tokens';
 
 export default {
   setToken: jest.fn(),

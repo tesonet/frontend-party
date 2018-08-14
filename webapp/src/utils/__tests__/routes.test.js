@@ -1,8 +1,8 @@
 import React from 'react';
-import LoginContainer from '../containers/Auth/Login/LoginContainer';
-import LogoutContainer from '../containers/Auth/Logout/LogoutContainer';
-import ServersContainer from '../containers/Servers/ServersContainer';
-import routes from './routes';
+import LoginContainer from '../../containers/Auth/Login/LoginContainer';
+import LogoutContainer from '../../containers/Auth/Logout/LogoutContainer';
+import ServersContainer from '../../containers/Servers/ServersContainer';
+import routes from '../routes';
 
 const requiredRoutes = [
   { path: '/servers', component: ServersContainer },

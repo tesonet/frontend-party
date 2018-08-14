@@ -2,7 +2,7 @@ import React from 'react';
 import { ServersContainer } from './ServersContainer';
 import ServersView from './ServersView';
 import mockApi from '../../utils/api';
-import servers from '../../tests/fixtures/servers';
+import servers from '../../../__fixtures__/servers';
 
 jest.mock('../../utils/api');
 

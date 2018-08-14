@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { MemoryRouter as Router, Route, Switch } from 'react-router-dom';
-import privateRoute from './privateRoute';
+import privateRoute from '../privateRoute';
 
 it('redirects to login page if the user is not authenticated', () => {
   const expectedLogin = 'Login';

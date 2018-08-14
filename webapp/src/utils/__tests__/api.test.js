@@ -1,7 +1,7 @@
 import mockAxios from 'axios';
-import api, { ERROR_MISSING_TOKEN, LS_TOKEN_KEY } from './api';
-import servers from '../tests/fixtures/servers';
-import tokens from '../tests/fixtures/tokens';
+import api, { ERROR_MISSING_TOKEN, LS_TOKEN_KEY } from '../api';
+import servers from '../../../__fixtures__/servers';
+import tokens from '../../../__fixtures__/tokens';
 
 describe('setToken()', () => {
   it('will erase the token from the local storage if called with `null`', () => {

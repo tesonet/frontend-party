@@ -1,4 +1,4 @@
-import { doLogin, doLogout, TYPE_LOG_IN, TYPE_LOG_OUT } from './authActions';
+import { doLogin, doLogout, TYPE_LOG_IN, TYPE_LOG_OUT } from '../authActions';
 
 describe('doLogin', () => {
   it('returns the correct type', () => {
