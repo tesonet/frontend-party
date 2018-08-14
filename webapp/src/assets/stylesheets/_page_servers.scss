@@ -1,11 +1,12 @@
 #page_servers {
-  $border-gray: $e6e6e6;
+  $border-gray: #e6e6e6;
 
   .partial_servers-servers-list {
     padding-top: 3.4375rem;
 
     header {
       font-size: 0.875rem;
+      color: #999;
 
       > .row {
         position: fixed;

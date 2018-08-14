@@ -1,13 +1,15 @@
-$line-height-base: 2.5;
-
 $theme-colors: (
   "success": #9fd533,
   "success-hover": #86b300
 );
 
 $font-family-sans-serif: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$line-height-base: 2.5;
 $font-weight-base: 300;
-$input-group-addon-bg: white;
+$body-color: #666;
+
+$input-placeholder-color: #b2b2b2;
+$input-plaintext-color: #999;
 $input-border-color: white;
 
 $link-color: #2f3254;
