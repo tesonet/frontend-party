@@ -89,6 +89,6 @@ describe('errors', () => {
     const wrapper = shallow(<LoginView errors={ errors } globalError={ globalError } showErrors={ true } />);
     expect(wrapper.find({ error: errors.username })).toHaveLength(1);
     expect(wrapper.find({ error: errors.password })).toHaveLength(1);
-    expect(wrapper.text()).toContain(globalError);
+    expect(wrapper.find('.alert').text()).toContain(globalError);
   });
 });

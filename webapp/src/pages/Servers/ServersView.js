@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Page from '../../shared/Page';
 import ServersListView from './partials/ServersListView';
 import TestioLogo from '../../assets/images/logo_833x215.png';
 
@@ -53,7 +54,7 @@ export default class ServersView extends Component {
 
   render() {
     return (
-      <div id="page_servers" className="page-inner container-fluid h-100">
+      <Page name="servers" title="Servers - Testio.">
         <div className="row flex-column h-100">
           <div className="col-auto">
             <header className="page-header navbar fixed-top bg-white py-4">
@@ -77,7 +78,7 @@ export default class ServersView extends Component {
             { this.renderListView() }
           </div>
         </div>
-      </div>
+      </Page>
     );
   }
 }
