@@ -5,7 +5,7 @@ export default function Input(props) {
     <div className="form-group with-icon">
       <input
         type={ props.type }
-        className={ `form-control ${props.error && 'is-invalid'}` }
+        className={ `form-control ${props.error ? 'is-invalid' : ''}` }
         name={ props.name }
         value={ props.value }
         onChange={ props.onChange }
