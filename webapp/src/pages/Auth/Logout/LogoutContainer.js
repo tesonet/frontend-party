@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import privateRoute from '../../../hoc/privateRoute';
 import api from '../../../utils/api';
 import { doLogout } from '../authActions';
