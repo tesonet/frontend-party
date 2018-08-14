@@ -1,10 +1,10 @@
 import React from 'react';
-import { ServersContainer } from './ServersContainer';
-import ServersView from './ServersView';
-import mockApi from '../../utils/api';
-import servers from '../../../__fixtures__/servers';
+import { ServersContainer } from '../ServersContainer';
+import ServersView from '../ServersView';
+import mockApi from '../../../utils/api';
+import servers from '../../../../__fixtures__/servers';
 
-jest.mock('../../utils/api');
+jest.mock('../../../utils/api');
 
 let wrapper;
 

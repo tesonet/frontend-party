@@ -1,10 +1,10 @@
 import React from 'react';
-import ServersListView from './partials/ServersListView';
+import ServersListView from '../partials/ServersListView';
 import ServersView, {
   MSG_LIST_EMPTY,
   MSG_LIST_ERROR,
   MSG_LIST_LOADING
-} from './ServersView';
+} from '../ServersView';
 
 let wrapper;
 

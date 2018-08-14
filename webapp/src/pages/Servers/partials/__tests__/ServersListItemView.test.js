@@ -1,5 +1,5 @@
 import React from 'react';
-import ServersListItemView from './ServersListItemView';
+import ServersListItemView from '../ServersListItemView';
 
 it('renders without crashing', () => {
   const wrapper = shallow(<ServersListItemView />);
