@@ -19,22 +19,36 @@ class Servers extends React.Component {
 
     componentDidMount() {
         this.props.getServers().then(res => {
-            if (res.type === GET_SERVERS_SUCCESS) {
-                const servers = res.payload.data;
-                servers.sort((a, b) => {
-                    if (a.distance === b.distance) {
-                        return a.name < b.name ? -1 : 1;
-                    }
-
-                    return a.distance - b.distance;
-                });
-
-                this.setState({ servers });
-            } else if (res.type === GET_SERVERS_FAIL && res.error.response.status === 401) {
-                this.props.logout();
+            switch (res.type) {
+                case GET_SERVERS_SUCCESS:
+                    this.onServersReceivedSuccessfully(res.payload.data);
+                    break;
+                case GET_SERVERS_FAIL:
+                    this.onServersReceivedFailed(res.error);
+                    break;
+                default:
+                    return null;
             }
         });
     }
+    
+    onServersReceivedSuccessfully = (servers) => {
+        servers.sort((a, b) => {
+            if (a.distance === b.distance) {
+                return a.name < b.name ? -1 : 1;
+            }
+
+            return a.distance - b.distance;
+        });
+
+        this.setState({ servers });
+    };
+    
+    onServersReceivedFailed = (error) => {
+        if (error.response.status === 401) {
+            this.logout();
+        }
+    };
 
     logout = () => {
         this.props.logout();
