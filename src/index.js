@@ -24,7 +24,7 @@ const axiosMiddlewareOptions = {
                     config.headers['Authorization'] = `Bearer ${token}`
                 }
 
-                return config
+                return config;
             }
         ]
     }
