@@ -14,14 +14,23 @@ class Login extends React.Component {
 
         this.state = {
             form: {
-                username: '',
-                password: ''
+                username: {
+                    value: '',
+                    isValid: false
+                },
+                password: {
+                    value: '',
+                    isValid: false
+                }
             }
         };
     };
 
-    onChange = e => {
-        this.setState({ form: { ...this.state.form, [e.target.id]: e.target.value } });
+    onChange = (e, isValid = true) => {
+        e.persist();
+        this.setState(prevState => {
+            return { form: { ...prevState.form, [e.target.id]: { value: e.target.value, isValid } } }
+        });
     };
 
     onSubmit = (e) => {
@@ -47,7 +56,8 @@ class Login extends React.Component {
                                     label="Username"
                                     icon="user"
                                     onChange={this.onChange}
-                                    value={this.state.form.username}
+                                    validation={{minLength: {text: 'Username is too short. Min 4 symbols.', value: 4}}}
+                                    value={this.state.form.username.value}
                                 />
                                 <Input
                                     id="password"
@@ -55,9 +65,10 @@ class Login extends React.Component {
                                     type="password"
                                     icon="lock"
                                     onChange={this.onChange}
-                                    value={this.state.form.password}
+                                    validation={{minLength: {text: 'Password is too short. Min 4 symbols.', value: 4}}}
+                                    value={this.state.form.password.value}
                                 />
-                                <button className="button">Log In</button>
+                                <button className="button" disabled={!this.state.form.username.isValid || !this.state.form.password.isValid }>Log In</button>
                             </form>
                         )}
                 </div>

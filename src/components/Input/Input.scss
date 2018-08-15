@@ -1,28 +1,46 @@
-.input-group {
-    .input-group-text {
-        background-color: #ffffff;
-        border: none;
+.input-wrapper {
+    position: relative;
+    .input-group {
+        position: relative;
+        z-index: 1;
         
-        .icon > div {
-            display: flex;
-            
-            svg {
-                width: 14px;
-                height: 16px;
-                fill: #cccccc;
+        .input-group-text {
+            background-color: #ffffff;
+            border: none;
+
+            .icon > div {
+                display: flex;
+
+                svg {
+                    width: 14px;
+                    height: 16px;
+                    fill: #cccccc;
+                }
             }
         }
-    }
-    .form-control {
-        border: none;
-        outline: none;
-        
-        &:focus {
+        .form-control {
             border: none;
-            box-shadow: none;
+            outline: none;
+
+            &:focus {
+                border: none;
+                box-shadow: none;
+            }
+        }
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #ffffff inset;
         }
     }
-    input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 30px #ffffff inset;
+    
+    .error {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 12px;
+        transition: .2s top linear;
+        
+        &.show {
+            top: 34px;
+        }
     }
 }
