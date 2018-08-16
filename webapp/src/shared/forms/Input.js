@@ -1,5 +1,15 @@
 import React from 'react';
 
+const defaultProps = {
+  type: 'text',
+  name: '',
+  value: '',
+  placeholder: '',
+  icon: null,
+  error: null,
+  onChange: () => {}
+};
+
 export default function Input(props) {
   return (
     <div className="form-group with-icon">
@@ -23,12 +33,4 @@ export default function Input(props) {
   );
 }
 
-Input.defaultProps = {
-  type: 'text',
-  name: '',
-  value: '',
-  placeholder: '',
-  icon: null,
-  error: null,
-  onChange: () => {}
-};
+Input.defaultProps = defaultProps;

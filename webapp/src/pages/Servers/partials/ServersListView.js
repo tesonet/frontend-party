@@ -1,6 +1,10 @@
 import React from 'react';
 import ServersListItemView from './ServersListItemView';
 
+const defaultProps = {
+  data: []
+};
+
 export default function ServersListView({ data }) {
   if ( ! data.length) return null;
 
@@ -28,6 +32,4 @@ export default function ServersListView({ data }) {
   );
 }
 
-ServersListView.defaultProps = {
-  data: []
-};
+ServersListView.defaultProps = defaultProps;

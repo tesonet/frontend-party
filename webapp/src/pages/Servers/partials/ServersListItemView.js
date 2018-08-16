@@ -1,5 +1,11 @@
 import React from 'react';
 
+const defaultProps = {
+  name: null,
+  distance: null,
+  unit: 'km'
+};
+
 export default function ServersListItemView({ name, distance, unit }) {
   if ( ! name || ! distance) return null;
 
@@ -11,8 +17,4 @@ export default function ServersListItemView({ name, distance, unit }) {
   );
 }
 
-ServersListItemView.defaultProps = {
-  name: null,
-  distance: null,
-  unit: 'km'
-};
+ServersListItemView.defaultProps = defaultProps;
