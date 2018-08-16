@@ -1,0 +1,32 @@
+#page_servers {
+  $border-gray: #e6e6e6;
+
+  .partial_servers-servers-list {
+    padding-top: 3.4375rem;
+
+    header {
+      font-size: 0.875rem;
+      color: #999;
+
+      > .row {
+        position: fixed;
+        top: 6.5rem;
+        z-index: 5;
+
+        width: 100%;
+
+        border-top: 1px solid $border-gray;
+        border-bottom: 1px solid $border-gray;
+        background: #f5f5f5;
+      }
+
+    } // End header
+
+  } // .partial_servers-servers-list
+
+  .partial_servers-servers-list-item {
+    white-space: nowrap;
+    border-bottom: 1px solid $border-gray;
+  }
+
+} // End #page_servers

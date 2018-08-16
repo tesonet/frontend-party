@@ -1,0 +1,38 @@
+{
+  "name": "webapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
+    "lodash": "^4.17.10",
+    "node-sass-chokidar": "^1.3.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-auth-wrapper": "^2.0.3"
+  },
+  "scripts": {
+    "start": "concurrently \"yarn dev\" \"yarn watch-css\"",
+    "dev": "react-scripts start",
+    "build": "yarn build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom --notify",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src -o src",
+    "watch-css": "npm run build-css && node-sass-chokidar src -o src --watch --recursive"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  }
+}
