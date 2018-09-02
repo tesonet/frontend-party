@@ -12,9 +12,10 @@ class LoginPage extends React.Component{
         }
     }
 
+
     render(){
 
-        let boxContainer = {
+        const boxContainer = {
             border: "1px solid #eee",
             boxShadow: "none",
             marginTop: "24px",
@@ -23,15 +24,19 @@ class LoginPage extends React.Component{
             height: "60px",
         };
 
-        let divStyle = {
+        const divStyle = {
             marginTop: "20px",
             float: "right"
           };
 
-        let ButtonStyle = {
+        const ButtonStyle = {
             background: "transparent",
             float : "right"
         }  
+
+        const Background = {
+            background : "white"
+        }
 
 
      const countries = this.state.countries.map((country)=> 
@@ -51,7 +56,7 @@ class LoginPage extends React.Component{
 
     return(
 
-        <div>
+        <div style = {Background}>
 
             <Grid reversed='tablet' columns='equal'>
                 <Grid.Column>
@@ -60,7 +65,7 @@ class LoginPage extends React.Component{
                 <Grid.Column  style={divStyle}>
             <Button icon labelPosition='left' style={ButtonStyle}>
                     <Icon name='log out' />
-                        Log out
+                     Log out 
                     </Button>
             </Grid.Column>
         </Grid>

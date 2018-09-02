@@ -6,7 +6,6 @@ import ErrorMessage from '../messages/ErrorMessage';
 
 
 
-
 class LoginForm extends React.Component{
 
     state = {
@@ -47,14 +46,14 @@ class LoginForm extends React.Component{
 
     render(){
 
-        let ButtonStyle = {
-            width: "360px",
-            height: "56px",
+        const ButtonStyle = {
             borderRadius: "5px",
             backgroundColor: "#9fd533",
             color : "#ffff",
         }  
         
+
+
         const { data, errors, loading } = this.state;
 
         return(
@@ -94,7 +93,9 @@ class LoginForm extends React.Component{
                     />
                     {errors.password && <ErrorMessage text = { errors.password } />}
                 </Form.Field>
+
                  <Button style = {ButtonStyle}>Login</Button>
+
             </Form>
         );
     }

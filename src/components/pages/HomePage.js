@@ -14,14 +14,17 @@ class LoginPage extends React.Component{
 
     
 
-    render(){
+    render(){         
+
+        const Padding = {
+            paddingTop : "10%"
+        }
 
 
 
         return(
           
-            <div>
-                
+        <div style = {Padding}>    
             <div className = "ui middle aligned grid child">
                  <div className = "column">
                      <div className="ui center aligned page grid">
