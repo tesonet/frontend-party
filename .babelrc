@@ -1,0 +1,23 @@
+{
+  "presets": ["react"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "^/src/(.+)": "./src/\\1"
+        },
+        "extensions": [".js", ".jsx", ".json", ".scss", ".sass"]
+      }
+    ],
+    ["transform-object-rest-spread", { "useBuiltIns": true }],
+    "flow-react-proptypes",
+    "transform-class-properties",
+    "transform-inline-environment-variables"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}

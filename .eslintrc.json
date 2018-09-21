@@ -1,0 +1,43 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:flowtype/recommended", "prettier", "prettier/flowtype", "prettier/react"],
+  "plugins": ["react", "immutable", "flowtype", "prettier"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "version": "^16.4.1",
+      "flowVersion": "^0.80.0"
+    },
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/display-name": [0],
+    "import/prefer-default-export": 0,
+    "react/prop-types": 0,
+    "react/no-unused-prop-types": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
+    "react/forbid-prop-types": [0, { "forbid": [] }],
+    "import/extensions": [
+      1,
+      "never",
+      { "svg": "always", "scss": "always", "css": "always", "png": "always", "json": "always" }
+    ],
+    "import/no-absolute-path": 0
+  }
+}
+
