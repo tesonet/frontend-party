@@ -17,7 +17,10 @@ export default class Servers extends Component {
           servers: []
       };
   }
-
+  handleLogout() {
+    localStorage.removeItem('AccessToken');
+  }
+  
   componentDidMount() {
     axios({
        "async": true,
@@ -25,7 +28,7 @@ export default class Servers extends Component {
        "url": "http://playground.tesonet.lt/v1/servers",
        "method": "GET",
        "headers": {
-         "Authorization": "Bearer f9731b590611a5a9377fbd02f247fcdf"
+         "Authorization": this.props.location.token || localStorage.getItem('AccessToken')
      }})
          .then(response => {
              const servers = response.data;
@@ -34,10 +37,12 @@ export default class Servers extends Component {
      }
 
   render() {
+
     return (
         <div>
+
             <img src={logoDark} />
-            <span id="Logout"> <span class="glyphicon glyphicon-log-out"></span> Logout</span>
+            <span id="Logout" onClick={this.handleLogout.bind(this)}> <span class="glyphicon glyphicon-log-out"></span> Logout</span>
             <table class="table">
             <thead class="thead-light">
                 <tr >
@@ -46,10 +51,9 @@ export default class Servers extends Component {
                 </tr>
             </thead>
             <tbody>
-                {
-                    this.state.servers.map(
+                {this.state.servers.sort((a, b) => a.distance - b.distance).map(
                         server => 
-                        <tr>
+                        <tr key={server.objectID}>
                             <td>{server.name}</td> 
                             <td>{server.distance}</td>
                         </tr>
@@ -57,6 +61,9 @@ export default class Servers extends Component {
                 }
             </tbody>
             </table>
+            {!this.props.location.token && !localStorage.getItem('AccessToken') &&
+                <Redirect to={{pathname: '/Login'}} />
+            }
         </div>
     );
     }

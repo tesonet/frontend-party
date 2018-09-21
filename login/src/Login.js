@@ -18,18 +18,20 @@ export default class Login extends Component {
     this.state = {
         servers: [],
         redirect: false,
+        type: 'password',
         password: '',
-        username: ''
+        username: '',
+        token: ''
     };
 }
+
 handleChangeUsername(event) {
   this.setState({username: event.target.value});
 }
 handleChangePassword(event) {
   this.setState({password: event.target.value});
 }
-  handleSubmit() {
-
+handleSubmit() {
            axios({
             "async": true,
             "crossDomain": true,
@@ -43,34 +45,48 @@ handleChangePassword(event) {
               "password": this.state.password
             }
             
-            }).then(response => this.setState({redirect: true}))
+            }).then(response => {
+              this.setState({token: response.data.token});
+              localStorage.setItem('AccessToken', 'Bearer ' + response.data.token);
+              //alert(localStorage.getItem('AccessToken'));
+              this.setState({redirect: true});
+
+            })
             .catch(error => {
               this.setState({redirect: false}); 
               alert('incorrect ');
             });
   }
 
+  handlePasswordVisibility({target}) {
+    if(target.checked){
+      this.setState({type: 'text'}); 
+    }
+    else {
+      this.setState({type: 'password'}); 
+    }
+  }
 
   render() {
     return (
-
       <div className="Login">
           {this.state.redirect &&
            <Redirect to={{
               pathname: '/Servers',
+              token: "Bearer "+this.state.token
             }} />
           }
       
           <form className="Form">
-          <img src={logo} class="img-responsive center-block" />
-            <div class="form-group" >
-              <input class="form-control form-control-lg glyphicon" type="text" onChange={this.handleChangeUsername.bind(this)} placeholder="&#57352; Username" />
-             
+          <img src={logo} className="img-responsive center-block" />
+            <div className="form-group" >
+              <input className="form-control form-control-lg glyphicon" type="text" onChange={this.handleChangeUsername.bind(this)} placeholder="&#57352; Username" />
             </div>
-            <div class="form-group">
-              <input class="form-control form-control-lg glyphicon " type="password" onChange={this.handleChangePassword.bind(this)} placeholder="&#57395; Password" />
+            <div className="form-group">
+              <input className="form-control form-control-lg glyphicon" type={this.state.type} onChange={this.handleChangePassword.bind(this)} placeholder="&#57395; Password" />
+              <div className="passwordVisibility"><input type="checkbox" onChange={this.handlePasswordVisibility.bind(this)} /> Show Password </div>
             </div>
-            <button type="button" class="btn btn-success btn-lg btn-block" onClick={this.handleSubmit.bind(this)}>Log In</button>
+            <button type="button" className="btn btn-success btn-lg btn-block" onClick={this.handleSubmit.bind(this)}>Log In</button>
           </form>
         </div>
 
