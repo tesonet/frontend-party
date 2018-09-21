@@ -1,0 +1,10 @@
+.Servers {
+    background-color: white;
+  }
+  .Servers img {
+    float: left;
+  }
+  #Logout {
+      float: right;
+      padding: 20px;
+  }

@@ -1,25 +1,41 @@
-@media all and (min-width: 480px) {
+@media all {
     .Login {
       padding: 60px 0;
-      
+      background-image: url('./loginBackground.png');
+      background-color: #cccccc; /* Used if the image is unavailable */
+      height: 100vh; /* You must set a specified height */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover; /* Resize the background image to cover the entire container */
     }
     .Form {
-      margin: 0 auto;
-      max-width: 320px;
-      
+        margin-top: 15vh;
     }
-    .form-control-lg {
-        padding: 2.5rem 1rem;
+
+    .form-control, .Form button {
+        margin-left: 35vw;
+        margin-right: 35vw;
+        width: 30vw;
+        height: 10vh;
+        font-size: 2vw;
+        margin-top: 2vw;
+        border-radius: 10px;
+        min-width: 250px;
     }
     .Form button {
-        background-color: #c2c10e;
-        padding: 1.5rem 1rem;
+        background-color: #9FD533;
+    }
+    .Form img {
+        width: 20vw;
+        height: 5vw;
+        margin-left: 40vw;
+        margin-right: 40vw;
+        min-width: 200px;
+        min-height: 60px;
     }
 
   }
-  body {
-    background-color: grey
-  }
+
   .form-control::-webkit-input-placeholder { color: #999; font: 14px; }  /* WebKit, Blink, Edge */
   .form-control:-moz-placeholder { color: #999; }  /* Mozilla Firefox 4 to 18 */
   .form-control::-moz-placeholder { color: #999; }  /* Mozilla Firefox 19+ */

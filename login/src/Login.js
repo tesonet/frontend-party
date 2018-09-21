@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './Login.css';
 import logo from './logo.PNG';
+import loginBackground from './loginBackground.png';
 import axios from 'axios';
 import Servers from './Servers';
 
@@ -54,13 +55,15 @@ export default class Login extends Component {
               pathname: '/Servers',
             }} />
           }
-      <img src={logo} class="img-responsive center-block" />
+      
           <form className="Form">
+          <img src={logo} class="img-responsive center-block" />
             <div class="form-group" >
-              <input class="form-control glyphicon form-control-lg" type="text"  placeholder="&#57352; Username" />
+              <input class="form-control form-control-lg glyphicon" type="text"  placeholder="&#57352; Username" />
+             
             </div>
             <div class="form-group">
-              <input class="form-control glyphicon form-control-lg" type="password"  placeholder="&#57395; Password" />
+              <input class="form-control form-control-lg glyphicon " type="password"  placeholder="&#57395; Password" />
             </div>
             <button type="button" class="btn btn-success btn-lg btn-block" onClick={this.handleSubmit.bind(this)}>Log In</button>
           </form>

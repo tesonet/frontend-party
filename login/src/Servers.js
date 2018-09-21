@@ -6,8 +6,8 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
-
-import logo from './logo.PNG';
+import './Servers.css';
+import logoDark from './logoDark.PNG';
 import axios from 'axios';
 
 export default class Servers extends Component {
@@ -36,11 +36,13 @@ export default class Servers extends Component {
   render() {
     return (
         <div>
+            <img src={logoDark} />
+            <span id="Logout"> <span class="glyphicon glyphicon-log-out"></span> Logout</span>
             <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Server</th>
-                    <th scope="col">Distance</th>
+            <thead class="thead-light">
+                <tr >
+                    <th scope="col">SERVER</th>
+                    <th scope="col">DISTANCE</th>
                 </tr>
             </thead>
             <tbody>
