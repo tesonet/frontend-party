@@ -3,7 +3,7 @@ On entering a application files run
 ```
 npm install
 ```
-and after
+and after instalation
 
 ```
 npm run start
