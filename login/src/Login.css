@@ -1,43 +1,44 @@
 @media all {
     .Login {
       padding: 60px 0;
-      background-image: url('./loginBackground.png');
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./loginBackground.png');
       background-color: #cccccc; /* Used if the image is unavailable */
-      height: 100vh; /* You must set a specified height */
+      height: 100vh;
       background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Do not repeat the image */
-      background-size: cover; /* Resize the background image to cover the entire container */
     }
     .Form {
-        margin-top: 15vh;
+        margin: 0 auto;
+        width: 26vw;
+        margin-top: 12vh;
     }
 
     .form-control, .Form button {
-        margin-left: 35vw;
-        margin-right: 35vw;
-        width: 30vw;
-        height: 10vh;
-        font-size: 2vw;
-        margin-top: 2vw;
-        border-radius: 10px;
+        height: 7vh;
+        font-size:calc(3px + 1.4vw);
+        margin-top: 1.3vw;
+        border-radius: 5px;
         min-width: 250px;
+        min-height: 60px;
+        text-indent: 10px;
+        line-height: 1;
+
     }
     .Form button {
         background-color: #9FD533;
     }
     .Form img {
-        width: 20vw;
-        height: 5vw;
-        margin-left: 40vw;
-        margin-right: 40vw;
-        min-width: 200px;
-        min-height: 60px;
+        width: 15vw;
+        height: 4vw;
+        margin: 0 auto;
+        min-width: 150px;
+        min-height: 40px;
+        margin-bottom: 10vh;
     }
 
   }
 
-  .form-control::-webkit-input-placeholder { color: #999; font: 14px; }  /* WebKit, Blink, Edge */
-  .form-control:-moz-placeholder { color: #999; }  /* Mozilla Firefox 4 to 18 */
-  .form-control::-moz-placeholder { color: #999; }  /* Mozilla Firefox 19+ */
-  .form-control:-ms-input-placeholder { color: #999; }  /* Internet Explorer 10-11 */
-  .form-control::-ms-input-placeholder { color: #999;font: 14px; } 
+  .form-control::-webkit-input-placeholder { color: #cccccc;  }  /* WebKit, Blink, Edge */
+  .form-control:-moz-placeholder { color: #cccccc; }  /* Mozilla Firefox 4 to 18 */
+  .form-control::-moz-placeholder { color: #cccccc; }  /* Mozilla Firefox 19+ */
+  .form-control:-ms-input-placeholder { color: #cccccc; }  /* Internet Explorer 10-11 */
+  .form-control::-ms-input-placeholder { color: #cccccc; } 

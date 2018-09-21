@@ -12,37 +12,42 @@ import loginBackground from './loginBackground.png';
 import axios from 'axios';
 import Servers from './Servers';
 
-
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
         servers: [],
-        redirect: false
+        redirect: false,
+        password: '',
+        username: ''
     };
 }
-  // componentDidMount() {
-  //   const reqData = {
-  //     "username": "tesonet",
-  //     "password": "partyanimal"
-  // };
-  //   axios({
-  //     "async": true,
-  //     "crossDomain": true,
-  //     "url": "http://playground.tesonet.lt/v1/servers",
-  //     "method": "GET",
-  //     "headers": {
-  //       "Authorization": "Bearer f9731b590611a5a9377fbd02f247fcdf"
-  //   }
-  //   }).then(function (response) {
-  //     console.log(response.data.map);
-  //   })
-  //   .catch(function (error) {
-  //     alert("Post Error : " +error);
-  //   });
-  // }
+handleChangeUsername(event) {
+  this.setState({username: event.target.value});
+}
+handleChangePassword(event) {
+  this.setState({password: event.target.value});
+}
   handleSubmit() {
-        this.setState({redirect: true});
+
+           axios({
+            "async": true,
+            "crossDomain": true,
+            "url": "http://playground.tesonet.lt/v1/tokens",
+            "method": "POST",
+            "headers": {
+              'content-type':'application/json'
+            },
+            "data": {
+              "username": this.state.username,
+              "password": this.state.password
+            }
+            
+            }).then(response => this.setState({redirect: true}))
+            .catch(error => {
+              this.setState({redirect: false}); 
+              alert('incorrect ');
+            });
   }
 
 
@@ -59,11 +64,11 @@ export default class Login extends Component {
           <form className="Form">
           <img src={logo} class="img-responsive center-block" />
             <div class="form-group" >
-              <input class="form-control form-control-lg glyphicon" type="text"  placeholder="&#57352; Username" />
+              <input class="form-control form-control-lg glyphicon" type="text" onChange={this.handleChangeUsername.bind(this)} placeholder="&#57352; Username" />
              
             </div>
             <div class="form-group">
-              <input class="form-control form-control-lg glyphicon " type="password"  placeholder="&#57395; Password" />
+              <input class="form-control form-control-lg glyphicon " type="password" onChange={this.handleChangePassword.bind(this)} placeholder="&#57395; Password" />
             </div>
             <button type="button" class="btn btn-success btn-lg btn-block" onClick={this.handleSubmit.bind(this)}>Log In</button>
           </form>
