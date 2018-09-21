@@ -1,0 +1,181 @@
+body {
+  height: 100%;
+}
+
+
+.header {
+  position: relative;
+  height: 112px;
+  width: 100%;
+  font-weight: 350;
+  border-top: #eee 1px solid;
+  font-size: 14px;
+
+  .headerLogo {
+    position: absolute;
+    top: 20px;
+    left: 18px;
+    font-weight: 650;
+    font-size: 40px;
+  }
+
+  .logout {
+    position: absolute;
+    top: 33px;
+    right: 18px;
+    cursor: pointer;
+    font-weight: 600;
+
+    img{
+        padding: 10px;
+    }
+
+  }
+
+  .logout:hover{
+      color:#76c825;
+  }
+
+  .dot {
+    color: chartreuse;
+    font-weight: 800;
+  }
+}
+
+.seperator {
+  position: relative;
+  height: 58px;
+  width: 100%;
+  background-color: #f2f2f2;
+  font-weight: 350;
+  border-top: #eee 1px solid;
+  font-size: 14px;
+  color: gray;
+
+  .server {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  .distance {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+.list {
+  position: relative;
+  height: 58px;
+  width: 100%;
+  border: #eee thin solid;
+  color: gray;
+
+  .server {
+    position: absolute;
+    top: 17px;
+    left: 15px;
+  }
+
+  .distance {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+  }
+}
+
+.scrollList {
+  overflow-y: scroll;
+  height: 700px;
+}
+
+.authError {
+    text-align: center;
+    color: red;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.login-container {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  position: absolute;
+  overflow: hidden;
+  background-image: url(../style/images/background.png);
+
+  .logo {
+    position: absolute;
+    bottom: 58%;
+    left: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    font-weight: 650;
+    font-size: 67px;
+
+    .dot {
+      color: chartreuse;
+      font-weight: 800;
+    }
+  }
+
+  .login-form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30%;
+  }
+
+  .input-group-text {
+    background-color: white;
+    color: gainsboro;
+  }
+  
+  .login-btn {
+    background-color: #76c825;
+    color: white;
+    padding: 12px;
+
+  }
+  
+  .form-group{
+      width: 314px;
+  }
+  
+  .form-control {
+    padding: 12px;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: gainsboro;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: gainsboro;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: gainsboro;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: gainsboro;
+  }
+
+}
+
+.container-fluid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
