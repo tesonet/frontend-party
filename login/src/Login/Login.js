@@ -1,16 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
+import { BrowserRouter as Redirect } from 'react-router-dom';
+import axios from 'axios';
 import './Login.css';
 import logo from './logo.PNG';
-import loginBackground from './loginBackground.png';
-import axios from 'axios';
-import Servers from './Servers';
 
 export default class Login extends Component {
   constructor(props) {
@@ -46,15 +38,12 @@ handleSubmit() {
             }
             
             }).then(response => {
-              this.setState({token: response.data.token});
               localStorage.setItem('AccessToken', 'Bearer ' + response.data.token);
-              //alert(localStorage.getItem('AccessToken'));
-              this.setState({redirect: true});
-
+              this.setState({token: response.data.token, redirect: true});
             })
             .catch(error => {
               this.setState({redirect: false}); 
-              alert('incorrect ');
+              alert('incorrect');
             });
   }
 
@@ -78,7 +67,7 @@ handleSubmit() {
           }
       
           <form className="Form">
-          <img src={logo} className="img-responsive center-block" />
+          <img src={logo} alt='TestioLogo' className="img-responsive center-block" />
             <div className="form-group" >
               <input className="form-control form-control-lg glyphicon" type="text" onChange={this.handleChangeUsername.bind(this)} placeholder="&#57352; Username" />
             </div>
