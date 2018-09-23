@@ -1,0 +1,4 @@
+{
+	"watch": "webpack.config.js store",
+	"exec": "webpack-dev-server --config webpack.config.js"
+}

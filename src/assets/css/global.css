@@ -1,0 +1,24 @@
+body {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+}
+
+.fullscreen {
+	height: 100vh;
+	width: 100%;
+}
+
+body *::-webkit-scrollbar {
+	width: 6px;
+	height: 8px;
+	transition: 0.3s background;
+}
+
+body *::-webkit-scrollbar-thumb {
+	border-radius: 16px;
+	background-color: rgba(0, 0, 0, 0.25);
+}
+
+body *:hover::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.35);
+}

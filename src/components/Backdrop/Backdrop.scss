@@ -1,0 +1,18 @@
+.Backdrop {
+	background-color: #0b0f27;
+	left: 0;
+	position: fixed;
+	top: 0;
+	z-index: -200;
+}
+
+.BackgroundImage {
+	background-image: url("./../../assets/bg.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100vh;
+	left: 0;
+	opacity: 0.2;
+	position: fixed;
+	top: 0;
+	z-index: -100;
+}

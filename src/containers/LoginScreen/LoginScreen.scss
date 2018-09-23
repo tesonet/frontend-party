@@ -1,0 +1,44 @@
+.LoginForm {
+	position: relative;
+	width: 360px;
+	img {
+		margin-bottom: 70px;
+	}
+	.Status {
+		position: absolute;
+		top: 70px;
+		.Loader {
+			animation: spin 2s linear infinite;
+			border: 8px solid transparent;
+			border-radius: 50%;
+			border-top: 8px solid #86b300;
+			height: 50px;
+			opacity: 0.5;
+			width: 50px;
+		}
+	}
+	button {
+		background-color: #9fd533;
+		border-color: transparent;
+		border-radius: 8px;
+		color: #fff;
+		cursor: pointer;
+		font-family: "Roboto", sans-serif;
+		font-size: 16pt;
+		font-weight: 700;
+		text-align: center;
+		width: 100%;
+		&:hover {
+			background-color: #86b300;
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

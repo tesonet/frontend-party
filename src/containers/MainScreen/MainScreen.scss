@@ -1,0 +1,13 @@
+.MainScreen {
+	tr {
+		td,
+		th {
+			&:first-child {
+				text-align: left;
+			}
+			&:last-child {
+				text-align: right;
+			}
+		}
+	}
+}

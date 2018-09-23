@@ -1,43 +1,30 @@
-# Senior frontend developer task
+# Prerequisites
 
-If you found this task it means we are looking for you!
+To run this project node.js and npm is required
 
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
+## Installation
 
-## Few simple steps
+1.  Clone this repository
+2.  Execute "npm install".
 
-1. Fork this repo
-2. Do your best
-3. Prepare a pull request and let us know that you are done
+## Available scripts
 
-## Few simple requirements
-### Design
-* Design should be recreated as closely as possible.
-* Design must be responsive.
-* Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
+1.  Execute "npm start" to launch project in development mode
+2.  Execute "npm run build" to build production code
+3.  Execute "npm test" to run automated unit tests
 
-### App
-* Use ReactJS
-* This must be a single page application. Use React Router for frontend routing
-* Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
+## Steps to run this project locally
 
-```
-{"username": "tesonet", "password": "partyanimal"}
-```
+1.  Execute "npm start" script
+2.  Open http://localhost:5555 in your browser
 
-* Save the newly-created token to the local storage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
-* Implement logout
+## Packages
 
-### Miscellaneous
-* Your app must work on all modern browsers and IE11+
-* Use JS bundler (Webpack preferred)
-* Use npm scripts or gulp for running tasks
-* Use a unit testing library (Jest preferred)
-* Do not commit the build
+For this project following packages and frameworks were used: react-router, react, webpack, jest, redux.
 
-## Few tips
-* Structure! WE LOVE STRUCTURE!
-* Maybe You have an idea how it should interact with users? Do it! Its on you!
-* Have fun!
+## Description
+
+App consists of two main pages:
+
+1.  Login screen - simple login screen with username and password authentication
+2.  Server list screen - consists of server list (name, distance). Implemented sorting by each column in addition to search.
