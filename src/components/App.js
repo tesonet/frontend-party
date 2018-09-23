@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { LandingLayout } from '../layouts/LandingLayout';
@@ -21,7 +21,7 @@ export const App = () => (
         <Switch>
           <Route
             exact
-            path="/"
+            path="/login"
             render={() => (
               <LandingLayout>
                 <LoginPage />
@@ -29,13 +29,15 @@ export const App = () => (
             )}
           />
           <Route
-            path="/servers"
+            exact
+            path="/home"
             render={() => (
               <MainLayout>
                 <ServersPage />
               </MainLayout>
             )}
           />
+          <Route render={() => <Redirect to={store.getState().loginReducer.isLoggedIn ? '/home' : '/login'} />} />
         </Switch>
       </Router>
     </ThemeProvider>

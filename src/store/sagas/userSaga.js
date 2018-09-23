@@ -4,8 +4,8 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import type { Saga } from 'redux-saga';
 import axios from 'axios';
 
-import { LOGIN_ACTION, LOGIN_SUCCESS } from '../actions/constants';
-import type { LoginActionPayload } from '../actions/LoginAction';
+import { LOGIN_ACTION, LOGIN_SUCCESS, LOGOUT_ACTION } from '../actions/constants';
+import type { LoginActionPayload } from '../actions/userActions';
 import { API_URL } from '../../constants/constants';
 
 type handleLoginSagaArgs = {
@@ -22,13 +22,18 @@ export function* handleLoginSaga({ payload: { username, password } }: handleLogi
         'Content-Type': 'application/json',
       },
     });
-    yield put({ type: LOGIN_SUCCESS });
     localStorage.setItem('token', data.token);
+    yield put({ type: LOGIN_SUCCESS });
   } catch (e) {
     throw e;
   }
 }
 
-export function* loginSaga(): Saga<void> {
+export function handleLogoutSaga() {
+  localStorage.setItem('token', '');
+}
+
+export function* userSaga(): Saga<void> {
   yield takeLatest(LOGIN_ACTION, handleLoginSaga);
+  yield takeLatest(LOGOUT_ACTION, handleLogoutSaga);
 }

@@ -40,13 +40,13 @@ const IconWrapper = styled.div`
   }
 `;
 
-type Props = {
+type InputProps = {
   type: string,
   placeholder?: string,
   icon?: ?React.Node,
 };
 
-export const Input = ({ icon, ...rest }: Props) => (
+export const Input = ({ icon, ...rest }: InputProps) => (
   <InputWrapper>
     {icon && <IconWrapper>{icon}</IconWrapper>}
     <InputStyled {...rest} className="form-control" />

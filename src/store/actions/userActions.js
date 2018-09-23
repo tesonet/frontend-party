@@ -1,6 +1,6 @@
 // @flow
 
-import { LOGIN_ACTION } from './constants';
+import { LOGIN_ACTION, LOGOUT_ACTION } from './constants';
 
 export type LoginActionPayload = {
   username: string,
@@ -10,4 +10,8 @@ export type LoginActionPayload = {
 export const loginAction = (payload: LoginActionPayload) => ({
   type: LOGIN_ACTION,
   payload,
+});
+
+export const logoutAction = () => ({
+  type: LOGOUT_ACTION,
 });

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { UserIcon, PasswordIcon } from '../Icons/Icons';
-import type { LoginActionPayload } from '../../store/actions/LoginAction';
+import type { LoginActionPayload } from '../../store/actions/userActions';
 
 const Form = styled.form`
   margin-top: 50px;

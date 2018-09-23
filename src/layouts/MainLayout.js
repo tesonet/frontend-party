@@ -3,16 +3,17 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { LogoutIcon } from '../components/Icons/Icons';
 import logo from '../assets/logo-dark.png';
+import { LogoutButtonContainer } from '../containers/LogoutContainer/LogoutContainer';
 
 const StyledHeader = styled.header`
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 100px;
   border-bottom: 1px solid ${props => props.theme.colour.lightestGrey};
+  background-color: ${props => props.theme.colour.white};
 `;
 
 const Logo = styled.img`
@@ -20,23 +21,6 @@ const Logo = styled.img`
   top: 50%;
   left: 25px;
   transform: translateY(-50%);
-`;
-
-const LogoutWrapper = styled.span`
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  svg {
-    margin: 0 10px 3px 0;
-  }
-  &:hover {
-    cursor: pointer;
-    color: ${props => props.theme.colour.button};
-    svg {
-      fill: ${props => props.theme.colour.button};
-    }
-  }
 `;
 
 type Props = {
@@ -47,10 +31,7 @@ export const MainLayout = ({ children }: Props) => (
   <div>
     <StyledHeader>
       <Logo src={logo} />
-      <LogoutWrapper>
-        <LogoutIcon />
-        Logout
-      </LogoutWrapper>
+      <LogoutButtonContainer />
     </StyledHeader>
     {children}
   </div>
