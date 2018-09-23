@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import InputBoxWithIcon from "./../../components/InputBoxWithIcon/InputBoxWithIcon.js";
 import axios from "axios";
-import { auth, authClearError } from "./../../store/actions";
+import { auth, authClearError, authFail } from "./../../store/actions";
 import Loader from "./../../components/Loader/Loader.js";
 import Backdrop from "./../../components/Backdrop/Backdrop.js";
 import logoIcon from "./../../assets/logotype-testio.png";
@@ -13,6 +13,7 @@ import classes from "./LoginScreen.scss";
 const USERNAME = "username";
 const PASSWORD = "password";
 const ERROR_MESSAGE_DISPLAY_TIME = 5000;
+const INPUT_EMPTY_ERROR = "Input fields shouldn't be empty";
 
 class LoginScreen extends Component {
 	userInputRef = React.createRef();
@@ -26,21 +27,30 @@ class LoginScreen extends Component {
 		});
 	}
 	handleLoginClick = () => {
-		this.props
-			.attemptLogin(this.state[USERNAME], this.state[PASSWORD])
-			.then()
-			.catch(() => {
-				clearTimeout(this.errorClear);
-				this.errorClear = setTimeout(() => {
-					this.props.clearAuthError();
-				}, ERROR_MESSAGE_DISPLAY_TIME);
-			});
+		if (this.state[USERNAME].trim().length === 0 || this.state[PASSWORD].trim() === 0) {
+			console.log(this.props.setValidationError);
+			this.props.setValidationError(INPUT_EMPTY_ERROR);
+			clearTimeout(this.errorClear);
+			this.errorClear = setTimeout(() => {
+				this.props.clearAuthError();
+			}, ERROR_MESSAGE_DISPLAY_TIME);
+		} else {
+			this.props
+				.attemptLogin(this.state[USERNAME], this.state[PASSWORD])
+				.then()
+				.catch(() => {
+					clearTimeout(this.errorClear);
+					this.errorClear = setTimeout(() => {
+						this.props.clearAuthError();
+					}, ERROR_MESSAGE_DISPLAY_TIME);
+				});
+		}
 	};
 	componentWillUnmount() {
 		clearTimeout(this.errorClear);
 	}
 	componentDidMount() {
-		if (this.userInputRef) {
+		if (this.userInputRef && this.userInputRef.current) {
 			this.userInputRef.current.focus();
 		}
 	}
@@ -94,6 +104,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 	attemptLogin: (username, password) => dispatch(auth(username, password)),
 	clearAuthError: () => dispatch(authClearError()),
+	setValidationError: error => dispatch(authFail(error)),
 });
 
 export default connect(
