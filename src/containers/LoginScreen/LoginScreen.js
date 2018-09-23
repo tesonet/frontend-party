@@ -6,8 +6,6 @@ import { auth, authClearError, authFail } from "./../../store/actions";
 import Loader from "./../../components/Loader/Loader.js";
 import Backdrop from "./../../components/Backdrop/Backdrop.js";
 import logoIcon from "./../../assets/logotype-testio.png";
-import userIcon from "./../../assets/ico-username.png";
-import passIcon from "./../../assets/ico-lock.png";
 import classes from "./LoginScreen.scss";
 
 const USERNAME = "username";
@@ -27,8 +25,7 @@ class LoginScreen extends Component {
 		});
 	}
 	handleLoginClick = () => {
-		if (this.state[USERNAME].trim().length === 0 || this.state[PASSWORD].trim() === 0) {
-			console.log(this.props.setValidationError);
+		if (this.state[USERNAME].trim().length === 0 || this.state[PASSWORD].trim().length === 0) {
 			this.props.setValidationError(INPUT_EMPTY_ERROR);
 			clearTimeout(this.errorClear);
 			this.errorClear = setTimeout(() => {
@@ -72,19 +69,19 @@ class LoginScreen extends Component {
 						<InputBoxWithIcon
 							type="text"
 							placeholder="Username"
-							icon={userIcon}
+							icon="fa fa-user"
 							value={this.state[USERNAME]}
 							onChange={this.handleInputChange.bind(this, USERNAME)}
-							inputClass="mb-4"
+							containerClass="mb-4"
 							inputRef={this.userInputRef}
 						/>
 						<InputBoxWithIcon
 							type="password"
 							placeholder="Password"
-							icon={passIcon}
+							icon="fa fa-lock"
 							value={this.state[PASSWORD]}
 							onChange={this.handleInputChange.bind(this, PASSWORD)}
-							inputClass="mb-4"
+							containerClass="mb-4"
 						/>
 						<button className="py-2" onClick={this.handleLoginClick}>
 							Login

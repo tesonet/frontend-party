@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import InputBoxWithIcon from "./../InputBoxWithIcon/InputBoxWithIcon.js";
 import Loader from "./../Loader/Loader.js";
 import classes from "./DataTable.scss";
-import iconSearch from "./../../assets/ico-search.png";
 
 class DataTable extends Component {
 	searchBoxRef = React.createRef();
@@ -74,7 +73,6 @@ class DataTable extends Component {
 				<tr>
 					{dataKeys.map((key, index) => {
 						let header = this.props.headers[index];
-						//isfiltruojam null ir undefined
 						if (![header].join()) header = key;
 						return (
 							<th key={key} onClick={this.handleHeaderClick.bind(this, key)}>
@@ -135,10 +133,10 @@ class DataTable extends Component {
 					<InputBoxWithIcon
 						value={this.state.searchValue}
 						onChange={this.handleSearchChange}
-						icon={iconSearch}
+						icon="fa fa-search"
 						placeholder="Search..."
 						type="search"
-						inputClass="col-12 col-sm-4 col-xl-3"
+						containerClass="col-12 col-sm-4 col-xl-3"
 						inputRef={this.searchBoxRef}
 					/>
 				</div>

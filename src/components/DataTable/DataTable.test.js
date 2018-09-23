@@ -48,7 +48,6 @@ describe("DataTable component", () => {
 
 	it("should update correctly state when table header is clicked", () => {
 		wrapper.setProps({ allData: allDataProp });
-		console.log("last test");
 		const headers = wrapper.find("thead tr th");
 		let index = 0;
 		let header = headers.at(index);

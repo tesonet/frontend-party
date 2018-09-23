@@ -18,7 +18,6 @@ class App extends Component {
 		});
 	}
 	render() {
-		//papildomas checkas galimam memmory leakui sutvarkyti
 		if (!this.state.mounted) return null;
 		let pageUI;
 

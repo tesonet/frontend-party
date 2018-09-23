@@ -7,20 +7,22 @@ class InputBoxWithIcon extends Component {
 		this.props.onChange(event.target.value);
 	};
 	render() {
-		const iconToStyle = {
-			backgroundImage: `url(${this.props.icon})`,
-		};
+		// const iconToStyle = {
+		// 	backgroundImage: `url(${this.props.icon})`,
+		// };
 
 		return (
-			<input
-				type={this.props.type}
-				placeholder={this.props.placeholder}
-				style={iconToStyle}
-				className={`form-control h-auto py-2 ${classes.InputBoxWithIcon} ${[this.props.inputClass].join()}`}
-				value={this.props.value}
-				onChange={this.handleInputChange}
-				ref={this.props.inputRef}
-			/>
+			<div className={`${classes.InputBoxWithIcon} w-100 d-flex align-items-center ${this.props.containerClass}`}>
+				<input
+					type={this.props.type}
+					placeholder={this.props.placeholder}
+					className={`form-control h-auto py-2 ${this.props.inputClass}`}
+					value={this.props.value}
+					onChange={this.handleInputChange}
+					ref={this.props.inputRef}
+				/>
+				<i className={this.props.icon} />
+			</div>
 		);
 	}
 }
@@ -34,4 +36,5 @@ InputBoxWithIcon.propTypes = {
 	value: PropTypes.string.isRequired,
 	placeholder: PropTypes.string,
 	inputClass: PropTypes.string,
+	containerClass: PropTypes.string,
 };

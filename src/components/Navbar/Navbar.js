@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import LogoIcon from "./../../assets/logo-version-2.png";
 import { logout } from "./../../store/actions";
 import { HOME_ROUTE } from "./../../config/global_conts.js";
 import classes from "./Navbar.scss";
