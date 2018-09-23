@@ -8,6 +8,8 @@ const colour = {
   buttonHover: '#86b300',
   white: '#fff',
   grey: '#999',
+  lightGrey: '#e6e6e6',
+  lightBackground: '#f5f5f5',
 };
 
 const width = {
@@ -16,7 +18,7 @@ const width = {
 };
 
 const height = {
-  formElementRegular: '60px',
+  regular: '60px',
 };
 
 export const theme = {

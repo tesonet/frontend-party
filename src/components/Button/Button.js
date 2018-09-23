@@ -9,7 +9,7 @@ const ButtonStyled = styled.button`
   font-size: ${props => props.theme.fontSize.larger};
   width: ${props => props.theme.width.formElementRegular};
   background-color: ${props => props.theme.colour.button};
-  height: ${props => props.theme.height.formElementRegular};
+  height: ${props => props.theme.height.regular};
   color: ${props => props.theme.colour.white};
   font-weight: bold;
   margin: 10px 0;

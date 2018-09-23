@@ -12,7 +12,7 @@ const InputWrapper = styled.div`
 const InputStyled = styled.input`
   margin: 10px 0;
   width: ${props => props.theme.width.formElementRegular};
-  height: ${props => props.theme.height.formElementRegular};
+  height: ${props => props.theme.height.regular};
   padding-left: 50px;
   color: ${props => props.theme.colour.grey};
 

@@ -8,6 +8,7 @@ import { LandingLayout } from '../layouts/LandingLayout';
 import { MainLayout } from '../layouts/MainLayout';
 import { LoginPage } from '../pages/Login';
 import { theme } from '../theme';
+import { ServersPage } from '../pages/Servers';
 
 export const App = () => (
   <ThemeProvider theme={theme}>
@@ -22,7 +23,14 @@ export const App = () => (
             </LandingLayout>
           )}
         />
-        <Route path="/servers" render={() => <MainLayout>Servers</MainLayout>} />
+        <Route
+          path="/servers"
+          render={() => (
+            <MainLayout>
+              <ServersPage />
+            </MainLayout>
+          )}
+        />
       </Switch>
     </Router>
   </ThemeProvider>
