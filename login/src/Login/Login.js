@@ -15,7 +15,7 @@ export default class Login extends Component {
         type: 'password',
         password: '',
         username: '',
-        token: '',
+        token: '', //supposed to be a string
         error: ''
     };
 }

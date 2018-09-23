@@ -1,0 +1,54 @@
+$color: #cccccc;
+
+@media all {
+    .Login {
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      min-width: 100%;
+      min-height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./loginBackground.png');
+      background-color: $color; 
+      background-position: center; 
+    }
+
+    .Form 
+    {
+        margin: 0 auto;
+        width: 26vw;
+        margin-top: 12vh;
+        min-width: 26vw;
+        button {
+            background-color: #9FD533;
+        }
+        img {
+            width: 15vw;
+            height: 4vw;
+            margin: 0 auto;
+            min-width: 150px;
+            min-height: 40px;
+            margin-bottom: 10vh;
+        }
+    }
+    .form-control, .Form button, .alert {
+        height: 7vh;
+        font-size:calc(3px + 1.4vw);
+        margin-top: 1.3vw;
+        border-radius: 5px;
+        min-width: 250px;
+        min-height: 60px;
+        text-indent: 10px;
+    }
+
+    .passwordVisibility {
+        color: $color;
+        margin: 1vw 0;
+        font-size:calc(3px + 1vw);
+    }
+  }
+
+  .form-control::-webkit-input-placeholder { color: $color; } 
+  .form-control:-moz-placeholder { color: $color }  
+  .form-control::-moz-placeholder { color: $color; }  
+  .form-control:-ms-input-placeholder { color: $color; }  
+  .form-control::-ms-input-placeholder { color: $color; } 

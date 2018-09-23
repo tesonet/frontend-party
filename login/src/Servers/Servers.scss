@@ -1,0 +1,18 @@
+$pointer : pointer;
+
+.Servers {
+    background-color: white;
+    img {
+      float: left;
+    }
+  }
+
+  #Logout {
+      float: right;
+      padding: 20px;
+      cursor: $pointer;
+  }
+  .glyphicon-triangle-bottom, .glyphicon-triangle-top {
+    margin-left: 5px;
+    cursor: $pointer;
+  }
