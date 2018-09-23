@@ -3,11 +3,14 @@
   "plugins": [
     [
       "module-resolver",
+      "transform-runtime",
       {
         "alias": {
           "^/src/(.+)": "./src/\\1"
         },
-        "extensions": [".js", ".jsx", ".json", ".scss", ".sass"]
+        "extensions": [".js", ".jsx", ".json", ".scss", ".sass"],
+        "polyfill": false,
+        "regenerator": true
       }
     ],
     ["transform-object-rest-spread", { "useBuiltIns": true }],

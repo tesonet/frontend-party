@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-import { LoginForm } from '../components/LoginForm/LoginForm';
+import { LoginContainer } from '../containers/LoginContainer/LoginContainer';
 
 export const LoginPage = () => (
   <React.Fragment>
     <div className="container">
-      <LoginForm />
+      <LoginContainer />
     </div>
   </React.Fragment>
 );

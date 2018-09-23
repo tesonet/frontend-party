@@ -31,7 +31,7 @@ const InputStyled = styled.input`
 
 const IconWrapper = styled.div`
   svg {
-    fill: ${props => props.theme.colour.grey};
+    fill: ${props => props.theme.colour.lightGrey};
     height: 16px;
     position: absolute;
     top: 50%;
@@ -41,19 +41,19 @@ const IconWrapper = styled.div`
 `;
 
 type Props = {
-  inputType: string,
-  inputPlaceholder?: string,
+  type: string,
+  placeholder?: string,
   icon?: ?React.Node,
 };
 
-export const Input = ({ inputType, inputPlaceholder, icon }: Props) => (
+export const Input = ({ icon, ...rest }: Props) => (
   <InputWrapper>
     {icon && <IconWrapper>{icon}</IconWrapper>}
-    <InputStyled type={inputType} placeholder={inputPlaceholder} className="form-control" />
+    <InputStyled {...rest} className="form-control" />
   </InputWrapper>
 );
 
 Input.defaultProps = {
-  inputPlaceholder: '',
+  placeholder: '',
   icon: null,
 };

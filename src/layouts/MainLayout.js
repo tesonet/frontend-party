@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   height: 100px;
-  border-bottom: 1px solid ${props => props.theme.colour.lightGrey};
+  border-bottom: 1px solid ${props => props.theme.colour.lightestGrey};
 `;
 
 const Logo = styled.img`
