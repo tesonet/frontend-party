@@ -1,18 +1,21 @@
 @media all {
     .Login {
-      padding: 60px 0;
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      min-width: 100%;
+      min-height: 100%;
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./loginBackground.png');
-      background-color: #cccccc; /* Used if the image is unavailable */
-      height: 100vh;
-      background-position: center; /* Center the image */
+      background-color: #cccccc; 
+      background-position: center; 
     }
     .Form {
         margin: 0 auto;
         width: 26vw;
         margin-top: 12vh;
+        min-width: 26vw;
     }
-
-    .form-control, .Form button {
+    .form-control, .Form button, .alert {
         height: 7vh;
         font-size:calc(3px + 1.4vw);
         margin-top: 1.3vw;
@@ -39,11 +42,10 @@
         line-height: 1;
         font-size:calc(3px + 1vw);
     }
-
   }
 
-  .form-control::-webkit-input-placeholder { color: #cccccc;  }  /* WebKit, Blink, Edge */
-  .form-control:-moz-placeholder { color: #cccccc; }  /* Mozilla Firefox 4 to 18 */
-  .form-control::-moz-placeholder { color: #cccccc; }  /* Mozilla Firefox 19+ */
-  .form-control:-ms-input-placeholder { color: #cccccc; }  /* Internet Explorer 10-11 */
+  .form-control::-webkit-input-placeholder { color: #cccccc;  } 
+  .form-control:-moz-placeholder { color: #cccccc; }  
+  .form-control::-moz-placeholder { color: #cccccc; }  
+  .form-control:-ms-input-placeholder { color: #cccccc; }  
   .form-control::-ms-input-placeholder { color: #cccccc; } 

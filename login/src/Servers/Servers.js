@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
 import './Servers.css';
 import logoDark from './logoDark.PNG';
 import axios from 'axios';
@@ -41,9 +41,9 @@ export default class Servers extends Component {
         this.setState({ servers: sorted})
     }
     render() {
-        const {redirect} = this.state.redirect;
-        if(redirect){
-            return <Redirect push to="/Login"/>
+        const redirect = this.state.redirect;
+        if(redirect === true){
+            return <Redirect to={{pathname: '/Login'}} />
         }
         return (
         <div>
