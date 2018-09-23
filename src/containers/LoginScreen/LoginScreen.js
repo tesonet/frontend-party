@@ -63,7 +63,7 @@ class LoginScreen extends Component {
 			<Fragment>
 				<Backdrop />
 				<div className="d-flex justify-content-center align-items-center bg-transparent fullscreen">
-					<div className={`${classes.LoginForm} d-flex align-items-center justify-content-center flex-column`}>
+					<div className={`${classes.LoginForm} d-flex align-items-center justify-content-center flex-column p-2`}>
 						<img src={logoIcon} />
 						{statusUI}
 						<InputBoxWithIcon
