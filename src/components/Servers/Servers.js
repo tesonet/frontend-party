@@ -14,7 +14,6 @@ const ServerItem = styled.div`
   line-height: ${props => props.theme.height.regular};
   border-top: 1px solid ${props => props.theme.colour.lightestGrey};
   span {
-    color: ${props => props.theme.colour.grey};
     padding: 0 20px;
   }
 `;

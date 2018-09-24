@@ -22,18 +22,18 @@ export function* handleLoginSaga({ payload: { username, password } }: handleLogi
         'Content-Type': 'application/json',
       },
     });
-    localStorage.setItem('token', data.token);
+    yield localStorage.setItem('token', data.token);
     yield put({ type: LOGIN_SUCCESS });
   } catch (e) {
     throw e;
   }
 }
 
-export function handleLogoutSaga() {
-  localStorage.setItem('token', '');
+export function handleLogout() {
+  localStorage.removeItem('token');
 }
 
 export function* userSaga(): Saga<void> {
   yield takeLatest(LOGIN_ACTION, handleLoginSaga);
-  yield takeLatest(LOGOUT_ACTION, handleLogoutSaga);
+  yield takeLatest(LOGOUT_ACTION, handleLogout);
 }

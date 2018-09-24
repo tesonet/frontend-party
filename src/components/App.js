@@ -3,7 +3,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, injectGlobal } from 'styled-components';
 
 import { LandingLayout } from '../layouts/LandingLayout';
 import { MainLayout } from '../layouts/MainLayout';
@@ -11,6 +11,14 @@ import { LoginPage } from '../pages/Login';
 import { theme } from '../theme';
 import { ServersPage } from '../pages/Servers';
 import { makeStore } from '../store/store';
+
+/* eslint-disable */
+injectGlobal`
+  body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+`
+/* eslint-enable */
 
 const store = makeStore();
 

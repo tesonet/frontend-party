@@ -29,7 +29,7 @@ const InputStyled = styled.input`
   }
 `;
 
-const IconWrapper = styled.div`
+export const IconWrapper = styled.div`
   svg {
     fill: ${props => props.theme.colour.lightGrey};
     height: 16px;

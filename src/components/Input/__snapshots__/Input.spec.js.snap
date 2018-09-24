@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> matches snapshot 1`] = `
+<styled.div>
+  <styled.input
+    className="form-control"
+    placeholder=""
+    type="text"
+  />
+</styled.div>
+`;

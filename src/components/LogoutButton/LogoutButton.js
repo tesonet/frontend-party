@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { LogoutIcon } from '../Icons/Icons';
 
-const LogoutWrapper = styled.span`
+export const LogoutWrapper = styled.span`
   position: absolute;
   right: 0;
   top: 50%;

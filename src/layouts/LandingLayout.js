@@ -24,7 +24,7 @@ const Logo = styled.img`
   transform: translateX(-50%);
   bottom: 0;
 `;
-// types i virsu
+
 type Props = {
   children: ?React.Node,
 };
