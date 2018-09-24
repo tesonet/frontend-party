@@ -20,10 +20,10 @@ NPM and Node.js is required to run this project locally
 6. Execute tests by entering 'npm test'
 
 ## Technologies used:
-ReactJS (create-react-app, axios, react-router-dom)
-Bootstrap
-SCSS
-Jest/Enzyme
+ReactJS (create-react-app, axios, react-router-dom),
+Bootstrap,
+SCSS,
+Jest/Enzyme.
 
 ## Solution structure:
 
