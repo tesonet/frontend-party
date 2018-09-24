@@ -1,0 +1,124 @@
+$navy: #001e38;
+$green: #15b78f;
+$yellow: #ffc83d;
+$primary: #86b300;
+$hoover: #99cc33;
+$black: #000000;
+
+.body-component-login {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-align: center !important;
+  background: url('../assets/main.png') (center / 100%) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.body-component-servers {
+
+  justify-content: left;
+  align-items: center;
+  font-family: "Arial";
+  font-size: 0.8rem;
+  text-align: left !important;
+}
+
+h2 {
+
+  text-align: center !important;
+  font-weight: bold;
+  font-size: 1rem;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 7em;
+    height: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+    background: url('../assets/testio_main.png')
+               center/100%
+                no-repeat;
+  }
+}
+
+h3 {
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 4em;
+    height: 2em;
+    margin-left:  0.5em;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+    background: url('../assets/blue.png')
+               center/100%
+                no-repeat;
+  }
+}
+
+#logout {
+  float: right;
+}
+
+$theme-colors: (
+  "primary": #86b300,
+  "danger": #b80c03
+);
+
+.form-control {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px !important;;
+  height: 50px !important;
+  margin-bottom: 30px;
+}
+
+.btn {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 300px;
+  height: 50px !important;
+  margin-bottom: 30px;
+}
+
+
+.logoutButton {
+background-color: white; 
+border: 1px solid black;
+color: black;
+padding-top: 5px;
+text-align: center;
+text-decoration: none;
+text-indent: 20px;
+font-family: "Arial Narrow";
+font-size: 0.8rem;
+width: 100px;
+height: 30px;
+cursor: pointer;
+}
+
+.logoutButton span.icon {
+  background:url('../assets/logout.png')   no-repeat;
+  float: left;
+  padding-left: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.login {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+@import "node_modules/bootstrap/scss/bootstrap";

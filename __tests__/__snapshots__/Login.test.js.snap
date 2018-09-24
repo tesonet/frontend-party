@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` snapshot test 1`] = `
+<div
+  className="login"
+>
+  <h2 />
+  <input
+    className="form-control"
+    name="username"
+    onChange={[Function]}
+    placeholder="Username"
+    type="text"
+  />
+  <input
+    className="form-control"
+    name="password"
+    onChange={[Function]}
+    placeholder="Password"
+    type="password"
+  />
+  <input
+    className="btn btn-primary"
+    onClick={[Function]}
+    type="submit"
+    value="Login"
+  />
+</div>
+`;

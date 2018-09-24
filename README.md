@@ -1,43 +1,36 @@
-# Senior frontend developer task
+#Senior frontend developer task
 
-If you found this task it means we are looking for you!
+    V - Design must be responsive. 
+    V - Use bootstrap css
+    V - Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
 
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
+#App
 
-## Few simple steps
+    V - Use ReactJS
+    V - This must be a single page application. Use React Router for frontend routing
+    V - Implement login by sending an authorization request (POST) to 
+    http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
+    V - Save the newly-created token to the local storage
+    V - Use the token to retrieve the server list from 
+    http://playground.tesonet.lt/v1/servers , order the results by distance and name.
+    V - Implement logout
 
-1. Fork this repo
-2. Do your best
-3. Prepare a pull request and let us know that you are done
+#Miscellaneous
 
-## Few simple requirements
-### Design
-* Design should be recreated as closely as possible.
-* Design must be responsive.
-* Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
+    Some issue related to Promises, will update when fix it - 
+    X - Your app must work on all modern browsers and IE11+
+    V - Use JS bundler (Webpack preferred)
+    V - Use npm scripts or gulp for running tasks
+    
+    One test function is ready for now. It checks with snapshot wheather 
+    Login component html structure is unchanged.
 
-### App
-* Use ReactJS
-* This must be a single page application. Use React Router for frontend routing
-* Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
+    V - Use a unit testing library (Jest preferred)
+    V - Do not commit the build
 
-```
-{"username": "tesonet", "password": "partyanimal"}
-```
+#Few tips
 
-* Save the newly-created token to the local storage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
-* Implement logout
-
-### Miscellaneous
-* Your app must work on all modern browsers and IE11+
-* Use JS bundler (Webpack preferred)
-* Use npm scripts or gulp for running tasks
-* Use a unit testing library (Jest preferred)
-* Do not commit the build
-
-## Few tips
-* Structure! WE LOVE STRUCTURE!
-* Maybe You have an idea how it should interact with users? Do it! Its on you!
-* Have fun!
+    V - Structure! WE LOVE STRUCTURE!
+    Toastr can be used for interaction (will update later) - 
+    X Maybe You have an idea how it should interact with users? Do it! Its on you!
+    V - I did! :) - Have fun!
