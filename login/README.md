@@ -5,7 +5,7 @@ My solution created using ReactJS and 'create-react-app' so NPM (NodeJS) is requ
 Will be grateful if you could review my solution and provide some comments/advices.
 Thank you.
 
-##Project Title
+<b>Project Title</b>
 Pavel Project
 
 ##Installation
