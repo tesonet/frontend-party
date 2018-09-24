@@ -1,43 +1,31 @@
-# Senior frontend developer task
+Hello! First of all I would like to thank you for challenging task. It was great opportunity to increase my Front-End knowledge working on this project. 
 
-If you found this task it means we are looking for you!
+My solution created using ReactJS and 'create-react-app' so NPM (NodeJS) is required to launch this project on local machine. I have also used 'axios' to fetch data from provided API and react-router-dom to make navigation and redirection between pages. Project style has been done using 'Bootstrap' with addition of some custom styles made using 'SCSS'. To be honest I am not very familiar with unit test so created only few simple tests with 'Jest' and 'Enzyme'.
 
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
+Will be grateful if you could review my solution and provide some comments/advices.
+Thank you.
 
-## Few simple steps
+## Project Title
+Pavel Project
 
-1. Fork this repo
-2. Do your best
-3. Prepare a pull request and let us know that you are done
+## Installation
+NPM and Node.js is required to run this project locally
+# Steps:
 
-## Few simple requirements
-### Design
-* Design should be recreated as closely as possible.
-* Design must be responsive.
-* Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
+1. Clone 'git clone -b PavelProject https://github.com/PavelMak/senior-frontend-party.git'
+2. Navigate to login directory 'cd login'
+3. Install project build files 'npm install'
+4. start project locally 'npm start'
+5. Browser window with localhost should be opened, otherwise navigate to 'http://localhost:3000' manually
+6. Execute tests by entering 'npm test'
 
-### App
-* Use ReactJS
-* This must be a single page application. Use React Router for frontend routing
-* Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
+## Technologies used:
+ReactJS (create-react-app, axios, react-router-dom),
+Bootstrap,
+SCSS,
+Jest/Enzyme.
 
-```
-{"username": "tesonet", "password": "partyanimal"}
-```
+## Solution structure:
 
-* Save the newly-created token to the local storage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
-* Implement logout
-
-### Miscellaneous
-* Your app must work on all modern browsers and IE11+
-* Use JS bundler (Webpack preferred)
-* Use npm scripts or gulp for running tasks
-* Use a unit testing library (Jest preferred)
-* Do not commit the build
-
-## Few tips
-* Structure! WE LOVE STRUCTURE!
-* Maybe You have an idea how it should interact with users? Do it! Its on you!
-* Have fun!
+Login page - form with inputs for username and password (show password functionality), submit button to make login.
+Servers page - table with servers data retrieved from API, logout button, table sorting functionality implemented.
