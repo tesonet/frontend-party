@@ -1,9 +1,7 @@
-$navy: #001e38;
-$green: #15b78f;
-$yellow: #ffc83d;
 $primary: #86b300;
-$hoover: #99cc33;
-$black: #000000;
+$grey: grey;
+$black: black;
+$white: white;
 
 .body-component-login {
   margin: 0;
@@ -70,17 +68,11 @@ h3 {
   float: right;
 }
 
-$theme-colors: (
-  "primary": #86b300,
-  "danger": #b80c03
-);
-
 .form-control {
   margin-left: auto;
   margin-right: auto;
-  width: 300px !important;;
+  width: 250px !important;;
   height: 50px !important;
-  margin-bottom: 30px;
 }
 
 .btn {
@@ -91,10 +83,9 @@ $theme-colors: (
   margin-bottom: 30px;
 }
 
-
 .logoutButton {
-background-color: white; 
-border: 1px solid black;
+background-color: $white; 
+border: 1px solid $black;
 color: black;
 padding-top: 5px;
 text-align: center;
@@ -120,5 +111,17 @@ cursor: pointer;
   margin-right: auto;
   display: block;
 }
+
+.fa-user {
+  color: $grey;
+}
+
+.fa-lock {
+  color: $grey;
+}
+
+$theme-colors: (
+  "primary": $primary,
+);
 
 @import "node_modules/bootstrap/scss/bootstrap";

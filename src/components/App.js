@@ -1,17 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Header from "./Header";
+import Header from './Header';
+import 'babel-polyfill';
+import 'isomorphic-fetch';
 import './App.scss';
-
-// class App extends Component {
-//   render() {
-//     return <div>
-           
-//     </div> 
-
-
-//   }
-// }
 
 ReactDOM.render(
   <Header />, 

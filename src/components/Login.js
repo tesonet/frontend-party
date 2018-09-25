@@ -43,8 +43,6 @@ class Login extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-    console.log('changes changes')
-    console.log(this.state)
   }
 
   render() {
@@ -61,9 +59,23 @@ class Login extends Component {
 
       <div className="login">
         <h2></h2>
-        <input type="text" name="username" placeholder="Username" className="form-control" onChange={this.onChange} />
-        <input type="password" name="password" placeholder="Password" className="form-control" onChange={this.onChange} />
+
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1"><i className="fa fa-user"></i></span>
+          </div>
+          <input type="text" name="username" placeholder="Username" className="form-control" onChange={this.onChange} />
+        </div>
+
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1"><i className="fa fa-lock"></i></span>
+          </div>
+          <input type="password" name="password"  placeholder="Password" className="form-control" onChange={this.onChange}/>
+        </div>
+
         <input type="submit" className="btn btn-primary" value="Login" onClick={this.login} />
+
       </div>
 
     );

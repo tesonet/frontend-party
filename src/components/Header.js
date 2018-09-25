@@ -6,8 +6,6 @@ import {
   } from "react-router-dom";
   import Servers from "./Servers";
   import Login from "./Login";
-
-
 class Header extends Component {
 
     constructor(props){

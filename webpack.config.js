@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
-var Promise = require('es6-promise-promise');
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'components', 'App.js'),
@@ -29,7 +28,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(jpe?g|png|gif)$/,
+        test: /\.(jpe?g|png|gif|ico)$/,
         use: [{
           loader: 'url-loader',
           options: {

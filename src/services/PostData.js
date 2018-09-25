@@ -7,16 +7,16 @@ export function PostData(URL, userData) {
       body: JSON.stringify(userData),
       headers: { "Content-Type": "application/json" }
     })
-      .then((response) => response.json())
-      .then((res) => {
-        console.log('NOT HORROR');
-        resolve(res);
+      .then((response) => {
+        if (response.ok) {
+          resolve(response.json());
+        }
+        else {
+          console.log(response.statusText);
+        }
       })
       .catch((error) => {
         reject(error);
-        console.log('HORROR');
       });
-
-
   });
 }

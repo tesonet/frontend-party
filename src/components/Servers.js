@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import { GetData } from '../services/GetData';
-
 class Servers extends Component {
 
     constructor(props) {
@@ -20,23 +19,12 @@ class Servers extends Component {
         let auth_token = localStorage.getItem("token");
 
         if (auth_token) {
-            console.log("Call user feed")
-
             let URL = 'http://playground.tesonet.lt/v1/servers';
-            var parsedData = JSON.parse(auth_token);
+            let parsedData = JSON.parse(auth_token);
             let token = parsedData.token;
 
             GetData(URL, token).then((result) => {
-                let responseJson = result;
-                if (responseJson) {
-                    // For preventing WARNING:  Each child in an array or iterator should have a unique "key" prop.
-                    // Unique key should be added to the response result here.
-                    this.setState({ data: responseJson });
-                }
-                else {
-                    console.log('Something went wrong with retrieving list');
-                    console.log('Error code' + result);
-                }
+                this.setState({ data: result });
             });
         }
 
@@ -75,11 +63,11 @@ class Servers extends Component {
                                     <td>SERVER</td>
                                     <td><div className="text-right">DISTANCE</div></td>
                                 </tr>
-                                {this.state.data.map((place) => {
+                                {this.state.data.map((place, i) => {
                                     return (
-                                        <tr>
+                                        <tr key={i}>
                                             <td>{place.name}</td>
-                                            <td><div className="text-right">{place.distance}</div></td>
+                                            <td><div className="text-right">{place.distance} km</div></td>
                                         </tr>
                                     )
                                 })}

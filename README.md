@@ -1,5 +1,19 @@
 #Senior frontend developer task
 
+#Fixes
+
+- IE11 promise issue fixed;
+- Unique key added to prevent warning: Each child in an array or iterator should have a unique "key" prop;
+- Organized code in more proper way;
+- Not neccesary packages removed;
+- Icons added next to input fields;
+
+#Install and run 
+
+npm i / npm start / localhost:9000
+
+#Requirements
+
     V - Design must be responsive. 
     V - Use bootstrap css
     V - Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
@@ -17,8 +31,7 @@
 
 #Miscellaneous
 
-    Some issue related to Promises, will update when fix it - 
-    X - Your app must work on all modern browsers and IE11+
+    V - Your app must work on all modern browsers and IE11+
     V - Use JS bundler (Webpack preferred)
     V - Use npm scripts or gulp for running tasks
     
