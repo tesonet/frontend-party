@@ -7,14 +7,12 @@ const BOOTSTRAP_CLASSES = {
 };
 
 export default ({style, options, message, close}) => (
-  <div>
-    <div
-      className={`alert ${BOOTSTRAP_CLASSES[options.type]}`}
-      role="alert"
-      style={style}
-      onClick={close}
-    >
-      {message}
-    </div>
+  <div
+    className={`alert ${BOOTSTRAP_CLASSES[options.type]}`}
+    role="alert"
+    style={style}
+    onClick={close}
+  >
+    {message}
   </div>
 );
