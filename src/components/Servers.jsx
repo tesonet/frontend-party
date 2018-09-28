@@ -8,8 +8,8 @@ import bindFunctions from '../utilities/bindFunctions';
 import smallLogo from '../images/smallLogo.png';
 
 const compareName = (serverA, serverB) => {
-  return serverA.country.localeCompare(serverB.country) ||
-    serverA.number - serverB.number;
+  return serverA.country.localeCompare(serverB.country)
+    || serverA.number - serverB.number;
 };
 
 const compareDistance = (serverA, serverB) => {
@@ -84,13 +84,12 @@ class Servers extends React.Component {
   }
 
   sortServers() {
-    this.setState(({order, ascending, servers}) => {
-      const sortedServers = servers
-            .map((server, index) => [server, index])
-            .sort(buildComparator(order, ascending))
-            .map(([server, index]) => server);
-      return {servers: sortedServers};
-    });
+    this.setState(({order, ascending, servers}) => ({
+      servers: servers
+        .map((server, index) => [server, index])
+        .sort(buildComparator(order, ascending))
+        .map(([server, index]) => server)
+    }));
   };
 
   renderHeader(headerOrder, label) {
