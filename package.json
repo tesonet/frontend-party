@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --config config/webpack.dev.js --open",
-    "build": "NODE_ENV=production webpack --config config/webpack.prod.js",
+    "start": "webpack-dev-server --config config/webpack.dev.js --open",
+    "build": "webpack --config config/webpack.prod.js",
     "test": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint src/**/*.js"
