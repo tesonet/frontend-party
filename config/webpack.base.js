@@ -8,7 +8,13 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
   filename: './index.html',
 });
 
-const cleanWebpackPlugun = new CleanWebpackPlugin([path.join(__dirname, '../build')]);
+const cleanWebpackPlugin = new CleanWebpackPlugin(
+  [path.join(__dirname, '../build')],
+  {
+    root: path.resolve(__dirname, '..'),
+    verbose: true,
+  },
+);
 
 module.exports = {
   module: {
@@ -67,7 +73,7 @@ module.exports = {
     ],
   },
   plugins: [
-    cleanWebpackPlugun,
+    cleanWebpackPlugin,
     htmlWebpackPlugin,
   ],
 };
