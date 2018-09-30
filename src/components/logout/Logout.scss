@@ -1,0 +1,30 @@
+.logout {
+  float: right;
+  cursor: pointer;
+
+  a {
+    color: #2f3254;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px;
+    border: 1px solid transparent;
+
+    &:hover {
+      text-decoration: none;
+      border: 1px solid #99cc33;
+    }
+
+    &:before {
+      position: relative;
+      top: 3px;
+      content: '';
+      background: transparent url(../../assets/images/icons/ico-logout.jpg) no-repeat;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      margin-right: 12px;
+    }
+  }
+}

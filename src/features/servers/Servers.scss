@@ -1,0 +1,25 @@
+.servers {
+
+  th {
+    padding: 20px 15px;
+    color: #999999;
+    font: normal 300 14px/14px 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    text-transform: uppercase;
+    border-bottom-width: 1px !important;
+  }
+
+  td {
+    padding: 20px 15px;
+    color: #666666;
+    font: normal 300 14px/14px 'Roboto', sans-serif;
+  }
+
+  tr {
+    &:hover {
+      td {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+}

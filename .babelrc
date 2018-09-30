@@ -1,0 +1,25 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["last 5 Chrome versions"]
+      }
+    }],
+    "@babel/preset-react"
+  ],
+  "plugins": [],
+  "env": {
+    "test": {
+      "plugins": [],
+      "presets": [
+        ["@babel/preset-env", {
+          "targets": {
+            "browsers": ["last 5 Chrome versions"]
+          }
+        }],
+        "@babel/preset-react"
+      ]
+    }
+  }
+}

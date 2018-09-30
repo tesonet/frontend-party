@@ -1,0 +1,50 @@
+.pageNotFound {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  span {
+    border-bottom: 0;
+    border-right: 1px solid #EAEAEA;
+    padding: 0 20px 0 0;
+    width: auto;
+    font-size: 24px;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+    height: 100%;
+    line-height: 40px;
+
+    @media (max-width: 768px) {
+      padding-left: 20px;
+      padding-bottom: 10px;
+      border-right: 0;
+      border-bottom: 1px solid #EAEAEA;
+    }
+  }
+
+  p {
+    height: 100%;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  span + p {
+    margin: 0;
+    padding-left: 20px;
+  }
+}

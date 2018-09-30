@@ -41,3 +41,13 @@ If you found this task it means we are looking for you!
 * Structure! WE LOVE STRUCTURE!
 * Maybe You have an idea how it should interact with users? Do it! Its on you!
 * Have fun!
+
+# Start dev
+* ```npm install```
+* ```npm start```
+* ```npm run test```
+* ```npm run converage```
+
+# Deployment
+* ```npm run build```
+Builds the app for production to the build folder.

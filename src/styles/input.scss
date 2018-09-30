@@ -1,0 +1,24 @@
+$placeholder-color: #cccccc;
+
+.input {
+  padding: 16px;
+  margin-bottom: 20px;
+  color: #999 !important;
+  font: normal 300 16px/16px 'Roboto', sans-serif;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $placeholder-color;
+    opacity: 1; /* Firefox */
+  }
+
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $placeholder-color;
+  }
+
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    color: $placeholder-color;
+  }
+}

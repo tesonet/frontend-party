@@ -1,0 +1,15 @@
+.button {
+  padding: 16px;
+  color: white;
+  font: normal 700 16px/16px 'Roboto', sans-serif;
+  letter-spacing: 1.4px;
+  border: none;
+  border-radius: 4px;
+  background-color: #9fd533;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: #86b300;
+  }
+}
