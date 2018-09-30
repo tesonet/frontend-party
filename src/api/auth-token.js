@@ -6,3 +6,8 @@ export const setToken = token => setItem(authKey, token);
 export const getToken = () => getItem(authKey);
 export const removeToken = () => removeItem(authKey);
 export const isAuthToken = () => !!getItem(authKey);
+export const getBearerConfig = () => ({
+  headers: {
+    Authorization: `Bearer ${getToken()}`,
+  },
+});

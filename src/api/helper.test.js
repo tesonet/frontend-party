@@ -51,55 +51,55 @@ describe('sortByTwoColumns outer', () => {
       expect(fn(null, { a: 1 })).toBe(null);
     });
 
-    test('sortByTwoColumns() a-a 1-1 equal 0', () => {
+    test('sortByTwoColumns(a:1, a:1) equal 0', () => {
       const a = { name: 'a', distance: 1 };
       const b = { name: 'a', distance: 1 };
       expect(fn(a, b)).toBe(0);
     });
 
-    test('sortByTwoColumns() a-a 2-1 equal 1', () => {
+    test('sortByTwoColumns(a:2, a:1) equal 1', () => {
       const a = { name: 'a', distance: 2 };
       const b = { name: 'a', distance: 1 };
       expect(fn(a, b)).toBe(1);
     });
 
-    test('sortByTwoColumns() a-a 1-2 equal -1', () => {
+    test('sortByTwoColumns(a:1, a:2) equal -1', () => {
       const a = { name: 'a', distance: 1 };
       const b = { name: 'a', distance: 2 };
       expect(fn(a, b)).toBe(-1);
     });
 
-    test('sortByTwoColumns() b-a 1-1 equal 1', () => {
+    test('sortByTwoColumns(b:1, a:1) equal 1', () => {
       const a = { name: 'b', distance: 1 };
       const b = { name: 'a', distance: 1 };
       expect(fn(a, b)).toBe(1);
     });
 
-    test('sortByTwoColumns() equal 1', () => {
+    test('sortByTwoColumns(b:2, a:1) equal 1', () => {
       const a = { name: 'b', distance: 2 };
       const b = { name: 'a', distance: 1 };
       expect(fn(a, b)).toBe(1);
     });
 
-    test('sortByTwoColumns() equal 1', () => {
+    test('sortByTwoColumns(b:1, a:2) equal 1', () => {
       const a = { name: 'b', distance: 1 };
       const b = { name: 'a', distance: 2 };
       expect(fn(a, b)).toBe(1);
     });
 
-    test('sortByTwoColumns() equal -1', () => {
+    test('sortByTwoColumns(a:1, b:1) equal -1', () => {
       const a = { name: 'a', distance: 1 };
       const b = { name: 'b', distance: 1 };
       expect(fn(a, b)).toBe(-1);
     });
 
-    test('sortByTwoColumns() equal -1', () => {
+    test('sortByTwoColumns(a:2, b:1) equal -1', () => {
       const a = { name: 'a', distance: 2 };
       const b = { name: 'b', distance: 1 };
       expect(fn(a, b)).toBe(-1);
     });
 
-    test('sortByTwoColumns() equal -1', () => {
+    test('sortByTwoColumns(a:1, b:2) equal -1', () => {
       const a = { name: 'a', distance: 1 };
       const b = { name: 'b', distance: 2 };
       expect(fn(a, b)).toBe(-1);

@@ -14,6 +14,8 @@ import Servers from './features/servers/Servers';
 import style from './App.scss';
 import { isAuthToken } from './api/auth-token';
 
+import { hot } from 'react-hot-loader';
+
 const App = () => (
   <BrowserRouter>
     <div className={style.app}>
@@ -27,8 +29,4 @@ const App = () => (
   </BrowserRouter>
 );
 
-if (module.hot) {
-  module.hot.accept();
-}
-
-export default App;
+export default hot(module)(App);

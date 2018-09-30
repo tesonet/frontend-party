@@ -33,6 +33,7 @@
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.9.3",
+    "react-hot-loader": "^4.3.11",
     "regenerator-runtime": "^0.12.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",

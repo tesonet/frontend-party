@@ -17,7 +17,7 @@ class Login extends Component {
     };
   }
 
-  handleInputChange(event) {
+  inputChanged(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -58,8 +58,8 @@ class Login extends Component {
 
           <Error message={error} />
 
-          <input id="username" className={style.username} name="username" type="text" onChange={this.handleInputChange.bind(this)} placeholder="Username" required />
-          <input id="password" className={style.password} name="password" type="password" onChange={this.handleInputChange.bind(this)} placeholder="Password" required />
+          <input id="username" className={style.username} name="username" type="text" onChange={this.inputChanged.bind(this)} placeholder="Username" required />
+          <input id="password" className={style.password} name="password" type="password" onChange={this.inputChanged.bind(this)} placeholder="Password" required />
           <input className={style.button} type="submit" value="Log In" />
 
         </form>

@@ -16,12 +16,16 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+              cacheDirectory: true,
+              plugins: ['react-hot-loader/babel'],
+            },
           },
-        },
+        ],
       },
       {
         test: /\.(scss|css)$/,

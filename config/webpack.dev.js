@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
+const path = require('path');
 
 const hotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin();
 
@@ -13,7 +14,7 @@ module.exports = merge(baseConfig, {
   ],
   devtool: 'eval-source-map',
   devServer: {
-    contentBase: './build',
+    contentBase: path.join(__dirname, '../build'),
     hot: true,
     historyApiFallback: true,
   },

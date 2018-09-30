@@ -1,0 +1,37 @@
+.loading {
+  display: table;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.loadingRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -23px 0 0 -23px;
+  display: block;
+  width: 46px;
+  height: 46px;
+  z-index: 100;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    border-color: #000 transparent #000 transparent;
+    animation: loadingRing 1.2s linear infinite;
+  }
+}
+@keyframes loadingRing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

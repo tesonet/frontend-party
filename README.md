@@ -10,6 +10,7 @@
 * ```npm start```
 * ```npm run test```
 * ```npm run converage```
+* ```npm run lint```
 
 # Deployment
 * ```npm run build```
