@@ -1,0 +1,214 @@
+// As you can probably tell, CSS is one of my weak spots.
+
+$login-wrapper-bg-color:        #0b0f27;
+$login-logo-vertical-margins:   4rem;
+$login-input-inner-padding:     0.5rem;
+$login-button-bg-color:         #9fd533;
+$login-button-bg-hover-color:   #86b300;
+$login-button-fg-color:         #ffffff;
+$servers-table-fg-color:        #666666;
+$servers-logo-vertical-margins: 2rem;
+
+// Bootstrap variables.
+$link-color:              #2f3254;
+$link-hover-color:        #99cc33;
+$border-radius:           0.5rem;
+$table-cell-padding:      1.1rem;
+$table-border-color:      #e6e6e6;
+$table-head-bg:           #f5f5f5;
+$table-head-color:        #999999;
+$input-color:             #999;
+$input-placeholder-color: #b3b3b3;
+$input-border-width:      0;
+$input-btn-focus-width:   0;
+$input-btn-padding-y:     1rem;
+$input-group-addon-color: #cccccc;
+$input-group-addon-bg:    #ffffff;
+
+// Required Bootstrap imports.
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Optional Bootstrap imports.
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/utilities/visibility";
+
+// This is a workaround for an issue in Font Awesome:
+// https://github.com/vuejs-templates/webpack/issues/1313
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+// This adds a dark background and a transparent image to the login page.
+.login-wrapper {
+  background-color: $login-wrapper-bg-color;
+
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("./images/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+  }
+
+  & * {
+    z-index: 1;
+  }
+}
+
+.login-container {
+  @extend .row;
+
+  // Center the login form horizontally and vertically.
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  .login-inner {
+    @extend .col-md-6;
+    @extend .col-lg-4;
+
+    // Center the logo above the login form.
+    text-align: center;
+
+    img {
+      margin-top: $login-logo-vertical-margins;
+      margin-bottom: $login-logo-vertical-margins;
+    }
+
+    .input-group {
+      .input-group-text {
+        padding-left: 1.5rem;
+        padding-right: $login-input-inner-padding;
+      }
+      .form-control {
+        padding-left: $login-input-inner-padding;
+      }
+    }
+
+    .input-group, button {
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      @extend .btn;
+      @extend .btn-block;
+      @include button-variant(
+        $login-button-bg-color,
+        $login-button-bg-color,
+        $login-button-bg-hover-color,
+        $login-button-bg-hover-color
+      );
+      &, &:disabled {
+        color: $login-button-fg-color;
+      }
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+// The server table in the design assets seems to have a scrollbar of its own.
+// This collection of rules implements the scrollbar.
+.servers-container {
+  max-height: 100vh;
+  nav {
+    flex-shrink: 0;
+  }
+  &, table {
+    display: flex;
+    flex-direction: column;
+  }
+  table {
+    min-height: 0;
+  }
+  thead, tbody, tr {
+    display: block;
+  }
+  tbody {
+    overflow-y: auto;
+  }
+  // Manually set the size of both columns.
+  th, td {
+    display: inline-block;
+    width: 50%;
+  }
+}
+
+.servers-container {
+  // Prevent the buttons from wrapping under the logo when the screen is very small.
+  // Display them on two lines instead.
+  .navbar {
+    flex-wrap: nowrap;
+    .servers-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+  }
+
+  img {
+    margin-top: $servers-logo-vertical-margins;
+    margin-bottom: $servers-logo-vertical-margins;
+  }
+
+  button {
+    @extend .btn;
+    @extend .btn-link;
+    @include hover-focus {
+      text-decoration: none;
+    }
+    i {
+      margin-right: 0.5rem;
+      &.spinning {
+        animation-name: spin;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+
+  table {
+    @extend .table;
+    color: $servers-table-fg-color;
+    tr > :nth-child(1) {
+      text-align: left;
+    }
+    tr > :nth-child(2) {
+      text-align: right;
+    }
+    thead {
+      @extend .thead-light;
+      th {
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: normal;
+        text-transform: uppercase;
+        border-bottom: 0;
+        i {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

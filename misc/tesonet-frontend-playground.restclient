@@ -1,0 +1,36 @@
+# -*- mode: restclient -*-
+
+# I used this to experiment with the API before I started writing the application.
+# I left this in here because it serves as a form of documentation.
+
+:username           = tesonet
+:password-correct   = partyanimal
+:password-incorrect = blahblahincorrectpassword
+:token-correct      = f9731b590611a5a9377fbd02f247fcdf
+:token-incorrect    = a9731b590611a5a9377fbd02f247fcdf
+
+# Log in with correct credentials.
+POST http://playground.tesonet.lt/v1/tokens
+Content-Type: application/json
+
+{
+  "username": ":username",
+  "password": ":password-correct"
+}
+
+# Log in with incorrect credentials.
+POST http://playground.tesonet.lt/v1/tokens
+Content-Type: application/json
+
+{
+  "username": ":username",
+  "password": ":password-incorrect"
+}
+
+# Get servers with correct token.
+GET http://playground.tesonet.lt/v1/servers
+Authorization: :token-correct
+
+# Get servers with incorrect token.
+GET http://playground.tesonet.lt/v1/servers
+Authorization: :token-incorrect
