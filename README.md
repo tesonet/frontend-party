@@ -39,7 +39,7 @@ The application was tested on the following browsers:
 
 I was unable to test it on IE11, as I don't have a Windows machine.
 
-Due to a lack of time I was unable to write any unit tests.
+Due to a shortage of time I was unable to write any unit tests.
 
 # Other remarks
 
