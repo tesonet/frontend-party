@@ -1,0 +1,81 @@
+import React, { Component } from 'react';
+import { GetServers } from '../../../api/servers';
+import { getItem, removeItem } from '../../../utils/localStorageHelpers';
+import { Redirect } from 'react-router-dom';
+import { ListHeader } from '../components/ListHeader';
+import { ListRow } from '../components/ListRow';
+import { PageHeader } from '../components/PageHeader';
+import { getSortingFunction } from '../../../utils/sortingHelpers';
+
+class ServersList extends Component {
+    constructor() {
+        super();
+        this.state = {
+            servers: [],
+            redirectToLogin: false,
+            isSortDirectionDesc: false
+        }
+    }
+    
+    componentWillMount() {
+        let authToken = getItem('token');
+
+        if (!authToken) {
+            //Handle no token
+            this.setState({ redirectToLogin: true });
+            return;
+        }
+
+        GetServers(authToken).then((result) => {
+            this.setState({ servers: result })
+        }).catch((error) => {
+            // Handle not valid token
+            this.clearLoginData()
+        })
+    }
+
+    logout = () => {
+        this.clearLoginData()
+    }
+
+    sortList = (sortBy, sortingType) => {
+        let sortingFunction = getSortingFunction(sortingType);
+
+        !this.state.isSortDirectionDesc ? this.setState({ isSortDirectionDesc: true }) : this.setState({ isSortDirectionDesc: false });
+        this.setState({ servers: sortingFunction(this.state.servers, sortBy, this.state.isSortDirectionDesc) })
+    }
+
+    clearLoginData() {
+        removeItem('token')
+        this.setState({ redirectToLogin: true });
+    }
+
+    tableColumns = [{
+            title: 'Name',
+            sortBy: 'name',
+            sortingType: 'alphabetically'
+        },
+        {
+            title: 'Distance',
+            sortBy: 'distance',
+            sortingType: 'numbers'
+        }
+    ]
+
+    render() {
+        if (this.state.redirectToLogin) {
+            return <Redirect to='/login' />
+        }
+        return (
+            <div>
+                <PageHeader handleLogout={this.logout}/>
+                <ListHeader tableColumns={this.tableColumns} handleSorting={this.sortList}/>
+                { this.state.servers.map((item, index) => 
+                    (<ListRow rowEntry={item} key={index}/>))
+                }
+          </div>
+        );
+    }
+}
+
+export default ServersList;
