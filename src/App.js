@@ -1,7 +1,9 @@
+import 'react-app-polyfill/ie9';
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import Login from './pages/login/Login'
 import Servers from './pages/servers/Servers'
+import './App.scss';
 
 
 class App extends Component {

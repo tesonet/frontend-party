@@ -1,0 +1,119 @@
+//Mixins
+
+@mixin inputIcon {
+    content: '';
+    width: 14px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+    top: 13px;
+    background-repeat: no-repeat;
+}
+
+@mixin formField {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    outline: none;
+}
+
+@mixin centeredContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+//Variables
+
+$login-bg-color: #0b0f27;
+$login-btn-color: #9fd533;
+$login-btn-color-hover: #86b300;
+$input-color: #999999;
+
+.login-page {
+    height: 100%;
+    background-color: $login-bg-color;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../../assets/images/login-background.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.2;
+    }
+
+    .row,
+    .container {
+        height: 100%;
+    }
+
+    .login-form {
+        z-index: 1;
+
+        .login-logo {
+            width: 100%;
+            padding: 50px 0px;
+
+            img {
+                display: block;
+                margin: 0 auto;
+                width: 60%;
+            }
+        }
+
+
+        .input-container {
+            &-username {
+                position: relative;
+
+                &:after {
+                    @include inputIcon;
+                    background-image: url('../../assets/icons/username.png');
+                }
+            }
+
+            &-password {
+                position: relative;
+
+                &:after {
+                    @include inputIcon;
+                    background-image: url('../../assets/icons/password.png');
+                }
+            }
+
+        }
+
+        input {
+            @include formField;
+            color: $input-color;
+            padding: 10px 10px 10px 50px;
+            border: none;
+        }
+
+        button {
+            @include formField;
+            border: none;
+            cursor: pointer;
+            background-color: $login-btn-color;
+            color: white;
+            padding: 10px;
+
+            &:hover {
+                background: $login-btn-color-hover;
+            }
+        }
+    }
+
+}
+
+.error-message {
+    height: 20px;
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
