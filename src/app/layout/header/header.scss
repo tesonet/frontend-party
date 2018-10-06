@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: white;
+  max-height: 70px;
+  padding: 15px;
+}

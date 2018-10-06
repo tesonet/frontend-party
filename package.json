@@ -1,0 +1,68 @@
+{
+  "name": "senoir-frontend-party-deividas",
+  "version": "1.0.0",
+  "description": "If you found this task it means we are looking for you!",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --hot --open --mode development",
+    "eslint": "eslint ./src/ webpack.config.js",
+    "eslint:fix": "eslint ./src/ webpack.config.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdeividas/senior-frontend-party.git"
+  },
+  "author": "Deividas Maciejauskas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdeividas/senior-frontend-party/issues"
+  },
+  "homepage": "https://github.com/mdeividas/senior-frontend-party#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
+    "classnames": "^2.2.6",
+    "connected-react-router": "^4.5.0",
+    "css-loader": "^1.0.0",
+    "history": "^4.7.2",
+    "node-sass": "^4.9.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-hot-loader": "^4.3.11",
+    "react-icons": "^3.1.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-svg-loader": "^2.1.0",
+    "reactstrap": "^6.4.0",
+    "redux": "^4.0.0",
+    "redux-actions": "^2.6.1",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-form": "^7.4.2",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.3",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  }
+}

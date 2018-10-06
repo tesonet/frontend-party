@@ -1,0 +1,22 @@
+.public-pages {
+  height: 100vh;
+  background-image: url("https://www.chromethemer.com/wallpapers/chromebook-wallpapers/download/autumn-wood-3840x2160.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .public-pages-container {
+    height: 100vh;
+
+    .content {
+      height: 100%;
+      align-items: center;
+
+      .logo-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+$logo-width: 300px;
+$logo-height: 76px;
+
+.logo {
+  &.small {
+    width: $logo-width / 2;
+    height: $logo-height / 2;
+  }
+
+  &.medium {
+    width: $logo-width;
+    height: $logo-height;
+  }
+}
