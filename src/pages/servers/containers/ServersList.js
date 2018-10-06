@@ -6,6 +6,7 @@ import { ListHeader } from '../components/ListHeader';
 import { ListRow } from '../components/ListRow';
 import { PageHeader } from '../components/PageHeader';
 import { getSortingFunction } from '../../../utils/sortingHelpers';
+import Logo from '../../../assets/images/dark-logo.png';
 
 class ServersList extends Component {
     constructor() {
@@ -17,7 +18,7 @@ class ServersList extends Component {
         }
     }
     
-    componentWillMount() {
+    componentDidMount() {
         let authToken = getItem('token');
 
         if (!authToken) {
@@ -68,10 +69,10 @@ class ServersList extends Component {
         }
         return (
             <div>
-                <PageHeader handleLogout={this.logout}/>
+                <PageHeader handleLogout={this.logout} logo={Logo}/>
                 <ListHeader tableColumns={this.tableColumns} handleSorting={this.sortList}/>
                 { this.state.servers.map((item, index) => 
-                    (<ListRow rowEntry={item} key={index}/>))
+                    (<ListRow rowEntry={item} key={index} distanceSuffix="km"/>))
                 }
           </div>
         );

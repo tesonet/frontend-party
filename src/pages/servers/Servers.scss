@@ -1,0 +1,67 @@
+//Mixins
+
+@mixin space-between {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+//Variables
+
+$logout-btn-hv: #99cc33;
+$border-color: #e6e6e6;
+$list-header-bg: #f5f5f5;
+$list-text-color: #666666;
+$header-text-color: #999999;
+
+.servers-page {
+    .page-header-container {
+        @include space-between;
+    	align-items:center;
+        padding: 40px 15px;
+
+        .logout-button {
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+            font-size: 14px;
+
+            &:hover {
+                color: $logout-btn-hv;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 3px;
+                width: 15px;
+                height: 15px;
+                background: url('../../assets/icons/logout.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    .list-header-container {
+        @include space-between;
+        color: $header-text-color;
+        background-color: $list-header-bg;
+        border-bottom: 1px solid $border-color;
+        border-top: 1px solid $border-color;
+        div {
+        	&:hover {
+        		opacity: 0.6;
+        	}
+        	cursor: pointer;
+        }
+    }
+
+    .servers-list-row {
+    	color: $list-text-color;
+        @include space-between;
+        border-bottom: 1px solid $border-color;
+    }
+}

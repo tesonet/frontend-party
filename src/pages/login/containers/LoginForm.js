@@ -19,7 +19,7 @@ class LoginForm extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         // Try to redirect to servers list if already have auth token
         if (getItem('token')) {
             this.setState({ redirectToServers: true });

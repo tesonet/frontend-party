@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const TestioLogo = ({ tableColumns, handleSorting }) => {
+export const TestioLogo = ({ tableColumns, handleSorting, logo }) => {
     return (
-    	<div>
-    		Logo
+    	<div className="testio-logo">
+    		<img alt="testio" src={logo}/>
     	</div>
     )
 }

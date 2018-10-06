@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const ListRow = ({ rowEntry }) => {
+export const ListRow = ({ rowEntry, distanceSuffix }) => {
     return (
-        <div>
+        <div className="servers-list-row">
         	<div>{rowEntry.name}  </div>
-        	<div>{rowEntry.distance}</div>
+        	<div>{rowEntry.distance} {distanceSuffix}</div>
         </div>
     )
 }
