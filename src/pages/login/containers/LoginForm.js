@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import Loader from 'react-loader-spinner';
+import { Redirect } from 'react-router-dom';
 import { LoginInput } from '../components/LoginInput';
 import { LoginButton } from '../components/LoginButton';
 import { LoginError } from '../components/LoginError';
@@ -15,7 +16,8 @@ class LoginForm extends Component {
             username: '',
             password: '',
             redirectToServers: false,
-            formErrorMessage: ''
+            formErrorMessage: '',
+            loading: false
         }
     }
 
@@ -27,12 +29,15 @@ class LoginForm extends Component {
     }
 
     submitLoginForm = () => {
+        this.setState({ loading: true });
         Login(this.state).then((result) => {
             setItem('token', result.token);
             this.setState({ redirectToServers: true });
+            this.setState({ loading: false });
         }).catch(() => {
             this.setState({ formErrorMessage: 'Invalid username or password' })
             this.clearUserData();
+            this.setState({ loading: false });
         })
     }
 
@@ -58,6 +63,7 @@ class LoginForm extends Component {
                 <LoginInput value={this.state.password} handleChange={this.handleInputChange} name="password" type="password" placeholder="Password"/>
                 <LoginButton handleClick={this.submitLoginForm} label="Log in"/>
                 <LoginError errorMessage={this.state.formErrorMessage}/>
+                {this.state.loading ? (<div className="loader"><Loader type="ThreeDots" color="#99cc33"/></div>):('')}
             </div>
         );
     }

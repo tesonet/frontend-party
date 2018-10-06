@@ -1,7 +1,25 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-body, html, #root {
-	font-family: 'Roboto';
-	height: 100%;
-	width: 100%;
+body,
+html,
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    font-family: 'Roboto';
+}
+
+.loader {
+    position: fixed;
+    z-index: 999;
+    height: 20px;
+    width: 20px;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }

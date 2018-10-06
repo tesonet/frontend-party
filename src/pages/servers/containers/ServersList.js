@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loader from 'react-loader-spinner';
 import { GetServers } from '../../../api/servers';
 import { getItem, removeItem } from '../../../utils/localStorageHelpers';
 import { Redirect } from 'react-router-dom';
@@ -14,11 +15,13 @@ class ServersList extends Component {
         this.state = {
             servers: [],
             redirectToLogin: false,
-            isSortDirectionDesc: false
+            isSortDirectionDesc: false,
+            loading: true
         }
     }
     
     componentDidMount() {
+        this.setState({loading: true})
         let authToken = getItem('token');
 
         if (!authToken) {
@@ -27,8 +30,8 @@ class ServersList extends Component {
             return;
         }
 
-        GetServers(authToken).then((result) => {
-            this.setState({ servers: result })
+        GetServers(authToken).then((servers) => {
+            this.setState({ servers, loading: false })
         }).catch((error) => {
             // Handle not valid token
             this.clearLoginData()
@@ -67,6 +70,7 @@ class ServersList extends Component {
         if (this.state.redirectToLogin) {
             return <Redirect to='/login' />
         }
+     
         return (
             <div>
                 <PageHeader handleLogout={this.logout} logo={Logo}/>
@@ -74,6 +78,7 @@ class ServersList extends Component {
                 { this.state.servers.map((item, index) => 
                     (<ListRow rowEntry={item} key={index} distanceSuffix="km"/>))
                 }
+                {this.state.loading ? (<div className="loader"><Loader type="ThreeDots" color="#99cc33"/></div>):('')}
           </div>
         );
     }
