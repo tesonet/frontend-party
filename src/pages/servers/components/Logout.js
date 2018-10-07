@@ -1,7 +1,5 @@
 import React from 'react'
 
-export const Logout = ({ handleLogout }) => {
-    return (
-        <div className="logout-button" onClick={handleLogout}>Logout</div>
-    )
-}
+export const Logout = ({ handleLogout }) => (
+    <div className="logout-button" onClick={handleLogout}>Logout</div>
+)
