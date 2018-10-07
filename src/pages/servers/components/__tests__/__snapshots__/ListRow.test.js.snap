@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<div
+  className="servers-list-row"
+>
+  <div>
+    name
+      
+  </div>
+  <div
+    className="distance"
+  >
+    100
+     
+    km
+  </div>
+</div>
+`;

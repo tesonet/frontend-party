@@ -33,7 +33,6 @@ class LoginForm extends Component {
         Login(this.state).then((result) => {
             setItem('token', result.token);
             this.setState({ redirectToServers: true });
-            this.setState({ loading: false });
         }).catch(() => {
             this.setState({ formErrorMessage: 'Invalid username or password' })
             this.clearUserData();

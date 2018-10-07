@@ -21,7 +21,6 @@ class ServersList extends Component {
     }
     
     componentDidMount() {
-        this.setState({loading: true})
         let authToken = getItem('token');
 
         if (!authToken) {
@@ -44,8 +43,12 @@ class ServersList extends Component {
 
     sortList = (sortBy, sortingType) => {
         let sortingFunction = getSortingFunction(sortingType);
-
-        !this.state.isSortDirectionDesc ? this.setState({ isSortDirectionDesc: true }) : this.setState({ isSortDirectionDesc: false });
+        let sortingDirectionDesc = true;
+        
+        if(this.state.isSortDirectionDesc) {
+            sortingDirectionDesc = false;
+        }
+        this.setState({ isSortDirectionDesc: sortingDirectionDesc })
         this.setState({ servers: sortingFunction(this.state.servers, sortBy, this.state.isSortDirectionDesc) })
     }
 

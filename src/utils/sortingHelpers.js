@@ -19,4 +19,4 @@ export const getSortingFunction = function(sortingType) {
             sortingFunction = sortAlphabetically;
     }
     return sortingFunction;
-}
+};
