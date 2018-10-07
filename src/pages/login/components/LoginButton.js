@@ -1,5 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const LoginButton = ({ handleClick, label }) => (
-    <button onClick={handleClick}>{label}</button>
-)
+	<button onClick={handleClick}>{label}</button>
+);
