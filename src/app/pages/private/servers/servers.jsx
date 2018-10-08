@@ -77,8 +77,10 @@ class ServersPage extends React.Component {
             servers,
         } = this.state;
 
+        // TODO show loader
+
         return (
-            <div>
+            <React.Fragment>
                 { error && <Alert color="danger">{ error }</Alert>}
 
                 <Table hover responsive>
@@ -92,7 +94,7 @@ class ServersPage extends React.Component {
                         { ServersPage.renderContent(servers) }
                     </tbody>
                 </Table>
-            </div>
+            </React.Fragment>
         );
     }
 }
