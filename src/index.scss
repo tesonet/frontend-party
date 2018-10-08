@@ -1,0 +1,18 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+%equal-heights {
+  height: 100%;
+}
+
+html {
+  @extend %equal-heights;
+
+  body {
+    @extend %equal-heights;
+    margin: 0;
+
+    #root {
+      @extend %equal-heights;
+    }
+  }
+}

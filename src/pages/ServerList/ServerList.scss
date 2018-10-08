@@ -1,0 +1,96 @@
+@mixin background-color($background-color) {
+  background-color: $background-color;
+}
+
+@mixin border-top($border-top) {
+  border-top: $border-top;
+}
+
+@mixin font-group($font-size, $font-weight) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+@mixin text-color($color) {
+  color: $color;
+}
+
+#ServerList {
+  @include background-color(#ffffff);
+  height: inherit;
+
+  header {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    #logotype-testio {
+      display: block;
+      height: 30px;
+      margin-top: 5px;
+    }
+
+    #button-logout {
+      @include background-color(transparent);
+      @include font-group(14px, 400);
+      @include text-color(rgb(47, 50, 84));
+      display: block;
+      letter-spacing: 0px;
+      line-height: 30px;
+
+      #icon-logout {
+        height: 16px;
+        margin-bottom: 3px;
+        margin-right: 10px;
+        width: 16px;
+      }
+    }
+
+    #button-logout:hover { @include background-color(#99cc33); }
+  }
+
+  thead,
+  tbody { display: block; }
+
+  thead tr {
+    @include background-color(#f5f5f5);
+    @include border-top(1px solid #e5e5e5);
+  }
+
+  .table thead th { border-bottom: none; }
+
+  .table th,
+  .table td { @include border-top(none); }
+
+  th {
+    @include font-group(14px, 400);
+    @include text-color(rgb(153, 153, 153));
+    height: 58px;
+    letter-spacing: 1px;
+    line-height: 30px;
+  }
+
+  tbody {
+    height: 32.77rem;
+    margin-right: 5px;
+    overflow-y: auto;
+  }
+
+  tbody::-webkit-scrollbar { width: 6px; }
+  tbody::-webkit-scrollbar-track { margin-top: 5px; }
+  tbody::-webkit-scrollbar-thumb {
+    @include background-color(rgba(0, 0, 0, 0.3));
+    border-radius: 3px;
+  }
+
+  tbody tr { @include border-top(1px solid #e5e5e5); }
+
+  td {
+    @include font-group(16px, 400);
+    @include text-color(rgb(102, 102, 102));
+    height: 58px;
+    letter-spacing: 0px;
+    line-height: 30px;
+  }
+
+  td:last-child { padding-right: 3px; }
+}

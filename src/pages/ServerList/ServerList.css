@@ -1,0 +1,105 @@
+#ServerList {
+  background-color: #ffffff;
+  height: inherit;
+}
+
+#ServerList header {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#ServerList #logotype-testio {
+  display: block;
+  height: 30px;
+  margin-top: 5px;
+}
+
+#ServerList a:hover {
+  color: rgb(47, 50, 84);
+  text-decoration: none;
+}
+
+#ServerList #icon-logout {
+  height: 16px;
+  margin-bottom: 3px;
+  margin-right: 10px;
+  width: 16px;
+}
+
+#ServerList #button-logout {
+  background-color: transparent;
+  color: rgb(47, 50, 84);
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 30px;
+}
+
+#ServerList #button-logout:hover {
+  background-color: #99cc33;
+}
+
+#ServerList thead,
+#ServerList tbody {
+  display: block;
+}
+
+#ServerList .table thead th {
+  border-bottom: none;
+}
+
+#ServerList .table th,
+#ServerList .table td {
+  border-top: none;
+}
+
+#ServerList thead tr {
+  background-color: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
+}
+
+#ServerList th {
+  color: rgb(153, 153, 153);
+  font-size: 14px;
+  font-weight: 400;
+  height: 58px;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+#ServerList tbody {
+  height: 32.77rem;
+  margin-right: 5px;
+  overflow-y: auto;
+}
+
+#ServerList tbody::-webkit-scrollbar {
+  width: 6px;
+}
+
+#ServerList tbody::-webkit-scrollbar-track {
+  margin-top: 5px;
+}
+
+#ServerList tbody::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+#ServerList tbody tr {
+  border-top: 1px solid #e5e5e5;
+}
+
+#ServerList td {
+  color: rgb(102, 102, 102);
+  font-size: 16px;
+  font-weight: 400;
+  height: 58px;
+  letter-spacing: 0px;
+  line-height: 30px;
+}
+
+#ServerList td:last-child {
+  padding-right: 3px;
+}

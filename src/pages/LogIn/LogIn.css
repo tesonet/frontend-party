@@ -1,0 +1,86 @@
+#LogIn {
+  background-image: url('../../assets/images/log-in/background-image-5001x3339.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: inherit;
+}
+
+#LogIn .background-color {
+  background-color: rgba(11, 15, 39, 0.8);
+  height: inherit;
+  padding-top: 14%;
+  text-align: center;
+}
+
+#LogIn #logotype-testio {
+  margin-bottom: 65px;
+  max-width: 258px;
+}
+
+#LogIn form {
+  margin: auto;
+  max-width: 360px;
+}
+
+#LogIn .input-group-text {
+  background-color: #ffffff;
+  border: none;
+  padding-left: 1.5rem;
+  padding-right: 0;
+}
+
+#LogIn #icon-user {
+  width: 14px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+#LogIn #icon-lock {
+  width: 14px;
+  height: 18px;
+  border-radius: 1px;
+}
+
+#LogIn #input-username,
+#LogIn #input-password {
+  background-color: #ffffff;
+  border: none;
+  color: rgb(179, 179, 179);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 30px;
+  height: 56px;
+}
+
+#LogIn #input-username:active,
+#LogIn #input-password:active {
+  color: #999;
+}
+
+#LogIn #input-username:focus,
+#LogIn #input-password:focus {
+  box-shadow: none;
+}
+
+#LogIn a:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#LogIn #button-log-in {
+  background-color: #9fd533;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: bold;
+  height: 56px;
+  letter-spacing: 0px;
+  line-height: 30px;
+  width: 100%;
+}
+
+#LogIn #button-log-in:hover {
+  background-color: #86b300;
+}

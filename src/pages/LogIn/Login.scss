@@ -1,0 +1,92 @@
+%equal-heights {
+  height: inherit;
+}
+
+@mixin max-width($max-width) {
+  max-width: $max-width;
+}
+
+@mixin background-color($background-color) {
+  background-color: $background-color;
+}
+
+@mixin icon-transformation($width, $height, $border-radius) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+}
+
+@mixin text-color($color) {
+  color: $color;
+}
+
+@mixin font-group($font-size, $font-weight) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+%form-group {
+  height: 56px;
+  letter-spacing: 0px;
+  line-height: 30px;
+}
+
+#LogIn {
+  @extend %equal-heights;
+  background-image: url('../../assets/images/log-in/background-image-5001x3339.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .background-color {
+    @extend %equal-heights;
+    @include background-color(rgba(11, 15, 39, 0.8));
+    padding-top: 14%;
+    text-align: center;
+
+    #logotype-testio {
+      @include max-width(258px);
+      margin-bottom: 65px;
+    }
+
+    form {
+      @include max-width(360px);
+      margin: auto;
+
+      .input-group-text {
+        @include background-color(#ffffff);
+        border: none;
+        padding-left: 1.5rem;
+        padding-right: 0;
+
+        #icon-user { @include icon-transformation(14px, 16px, 4px); }
+        #icon-lock { @include icon-transformation(14px, 18px, 1px); }
+      }
+
+      #input-username,
+      #input-password {
+        @include background-color(#ffffff);
+        @include font-group(16px, 400);
+        @include text-color(rgb(179, 179, 179));
+        @extend %form-group;
+        border: none;
+      }
+
+      #input-username:active,
+      #input-password:active { @include text-color(#999); }
+
+      #input-username:focus,
+      #input-password:focus { box-shadow: none; }
+
+      #button-log-in {
+        @include background-color(#9fd533);
+        @include font-group(16px, bold);
+        @include text-color(rgb(255, 255, 255));
+        @extend %form-group;
+        width: 100%;
+      }
+
+      #button-log-in:hover { @include background-color(#86b300); }
+    }
+  }
+}
