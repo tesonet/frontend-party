@@ -1,6 +1,7 @@
 import React from 'react';
 import { Alert, Table } from 'reactstrap';
 
+import restService from 'app/services/api';
 import api from './api';
 
 class ServersPage extends React.Component {
@@ -41,10 +42,12 @@ class ServersPage extends React.Component {
             servers: [],
             error: null,
         };
+
+        this.getServicesSource = restService.getRequestSource();
     }
 
     componentDidMount() {
-        api.getServers()
+        api.getServers({ cancelToken: this.getServicesSource.token })
             .then((servers) => {
                 this.setState({
                     loading: false,
@@ -53,12 +56,18 @@ class ServersPage extends React.Component {
                 });
             })
             .catch((error) => {
-                // TODO parse error message
-                this.setState({
-                    loading: false,
-                    error: 'Something went wrong',
-                });
+                if (!restService.isCanceledRequest(error)) {
+                    // TODO parse error message
+                    this.setState({
+                        loading: false,
+                        error: 'Something went wrong',
+                    });
+                }
             });
+    }
+
+    componentWillUnmount() {
+        restService.cancelRequest(this.getServicesSource);
     }
 
     render() {

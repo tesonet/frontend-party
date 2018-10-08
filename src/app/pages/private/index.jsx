@@ -28,7 +28,7 @@ class PrivatePages extends React.PureComponent {
             actions,
         } = this.props;
 
-        actions.session.logout()();
+        actions.session.logout();
     }
 
     render() {
