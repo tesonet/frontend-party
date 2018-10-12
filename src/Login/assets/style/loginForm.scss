@@ -1,0 +1,71 @@
+.login-form {
+  /* login form container style.
+  Including username, password inputs and login button */
+  width: 360px;
+  height: 240px;
+}
+
+.login-input-field {
+  /*main style for username and password input fields */
+  width: 360px;
+  height: 56px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding-left: 55px;
+  border-radius: 5px;
+  border: none;
+}
+
+.login-input-field:focus {
+  background-color: #999;
+  border: none;
+}
+
+.login-button {
+  /*login button style*/
+  background-color: #9fd533;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 400;
+  padding-left: 0;
+}
+
+.login-button:hover {
+  background-color: #86b300;
+}
+
+.login-button:focus {
+  background-color: #86b300;
+}
+
+.icons {
+  /*style for username and password icons inside inputs*/
+  margin-left: 26px;
+  margin-top: 19px;
+  position: absolute;
+  z-index: 2;
+  color: #cbcbcb;
+}
+
+/*placeholder text color for different browsers*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #d1d1d1;
+    opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #d1d1d1;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #d1d1d1;
+}
+
+/*this removes default inputs blue border on focus*/
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
