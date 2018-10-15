@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './assets/style/loginForm.scss';
+import axios from 'axios';
 
 /* The login form component */
 class LoginForm extends Component {
@@ -7,10 +8,17 @@ class LoginForm extends Component {
 constructor(props) {
   super(props);
   this.state = {
-    username: "",
-    password: "",
-    error: ""
+    username: '',
+    password: '',
+    error: ''
   };
+
+}
+
+componentDidMount() {
+  if (localStorage.testio_token) {
+           this.props.history.push("/servers");
+  }
 }
 
 /*Tracking username input value and setting it in to state*/
@@ -28,14 +36,32 @@ handleLogin = e => {
   e.preventDefault();
 
   if (!this.state.username) {
-    return this.setState({error: 'Username is required'});
+    this.setState({error: 'Username is required'});
   }
 
   if (!this.state.password) {
-    return this.setState({error: 'Password is required'});
+    this.setState({error: 'Password is required'});
   }
 
-  return this.setState({error: ''});
+
+  const login_data = {
+    "username": this.state.username,
+    "password": this.state.password
+  }
+
+  axios.post('http://playground.tesonet.lt/v1/tokens', login_data, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then((res) => {
+    localStorage.setItem('testio_token', res.data.token);
+
+    if (localStorage.testio_token) {
+      this.props.history.push("/servers");
+    }
+  }).catch((e) => {
+    this.setState({error: 'Wrong username or password'});
+  })
 }
 
   render() {
@@ -67,14 +93,13 @@ handleLogin = e => {
         </div>
         {
          this.state.error &&
-         <p className="submit-error" onClick={this.dismissError}>{this.state.error}</p>
+         <p className="submit-error">{this.state.error}</p>
        }
 
         <input type="submit"
                value="Log in"
                className="btn login-input-field login-button"
         />
-
 
       </form>
 

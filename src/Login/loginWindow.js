@@ -3,9 +3,7 @@ import './assets/style/loginWindow.scss';
 import LoginForm from './loginForm';
 import Logo from './assets/images/logo.png';
 
-/*
- The main component for login window
- */
+/*The main component for login window*/
 class LoginWindow extends Component {
   render() {
     return (<div className="login-window">
@@ -13,7 +11,7 @@ class LoginWindow extends Component {
       <div className="img-container">
         <img src={Logo} className="logo" alt="logo"/>
         </div>
-        <LoginForm/>
+        <LoginForm history={this.props.history}/>
       </div>
     </div>);
   }
