@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import ServersHeader from './ServersHeader';
+import ServersList from './ServersList';
 
 class Servers extends Component {
   render() {
-    return (
-      <div className="App">
-        <p>this is servers component</p>
-      </div>
-    );
+    return (<div>
+      <ServersHeader/>
+      <ServersList/>
+    </div>);
   }
 }
 
-export default Servers;
+export default Servers

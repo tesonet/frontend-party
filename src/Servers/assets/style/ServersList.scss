@@ -1,0 +1,78 @@
+body {
+  min-width: 280px;
+  height: 100%;
+  margin: 0;
+}
+/*Server and distance header style*/
+.servers-header {
+  width: 100%;
+  height: 57px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  color: #a5a5a5;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+
+  :first-child {
+    width: 50%;
+    margin-top: 6px;
+  }
+
+  :last-child {
+    width: 50%;
+    margin-top: 6px;
+    text-align: right;
+  }
+}
+
+/*Container in which rows are rendering */
+.servers-container {
+  width: 100%;
+  overflow-y: scroll;
+  height: calc(99vh - 150px);
+}
+
+/*Custom scroll bar for Chrome and Safari*/
+  /* width */
+  ::-webkit-scrollbar {
+      width: 8px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+      background: #fff;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      background: #bfbfbf;
+      border-radius: 5px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+  }
+
+/*Server and distance row style*/
+.servers-row {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+  color: #666666;
+  height: 57px;
+
+  :first-child {
+    width: 50%;
+    margin-left: 10px;
+    margin-top: 14px;
+  }
+
+  :last-child {
+    width: 50%;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 14px;
+  }
+}

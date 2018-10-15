@@ -10,9 +10,8 @@ constructor(props) {
   this.state = {
     username: '',
     password: '',
-    error: ''
+    error: '',
   };
-
 }
 
 componentDidMount() {
@@ -43,7 +42,6 @@ handleLogin = e => {
     this.setState({error: 'Password is required'});
   }
 
-
   const login_data = {
     "username": this.state.username,
     "password": this.state.password
@@ -59,6 +57,7 @@ handleLogin = e => {
     if (localStorage.testio_token) {
       this.props.history.push("/servers");
     }
+
   }).catch((e) => {
     this.setState({error: 'Wrong username or password'});
   })
@@ -102,7 +101,6 @@ handleLogin = e => {
         />
 
       </form>
-
     </div>);
   }
 }
