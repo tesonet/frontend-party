@@ -15,6 +15,10 @@ constructor(props) {
 }
 
 componentDidMount() {
+  /*
+  Checking if token is into localstorage.
+  If it is, just redirects to servers route.
+  */
   if (localStorage.testio_token) {
            this.props.history.push("/servers");
   }
@@ -30,40 +34,45 @@ handlePasswordChange = e => {
   this.setState({password: e.target.value});
 }
 
-/* Handling form submit  after button or enter click*/
+/* Handling form submit  after button or enter click.
+   It runs login function if username and password fields are filled .
+*/
 handleLogin = e => {
   e.preventDefault();
-
   if (!this.state.username) {
     this.setState({error: 'Username is required'});
-  }
-
-  if (!this.state.password) {
+  } else if (!this.state.password) {
     this.setState({error: 'Password is required'});
+  } else {
+    this.login();
   }
+}
 
+/*Posting username and password to get autentification token*/
+login = () => {
   const login_data = {
     "username": this.state.username,
     "password": this.state.password
   }
-  /* Posting login data to get authentication token */
   axios.post('http://playground.tesonet.lt/v1/tokens', login_data, {
     headers: {
       'Content-Type': 'application/json'
     }
   }).then((res) => {
+    /*Saving token into localstorage */
     localStorage.setItem('testio_token', res.data.token);
-
+    /*Checking if token is into localstorage. If it is, redirect to servers route*/
     if (localStorage.testio_token) {
       this.props.history.push("/servers");
     }
   }).catch((e) => {
+    /*Server error handling*/
     const error_code = e.response.status
     if (error_code === 401) {
       /* 401 - Unautorized */
       this.setState({error: 'Wrong username or password'});
     } else {
-      /* If get some other error code */
+      /* If you get some other error code */
       this.setState({error: 'Internal server error'});
     }
   })
