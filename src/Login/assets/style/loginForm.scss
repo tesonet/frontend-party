@@ -1,12 +1,18 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+/*
+Login form container style.
+Including username, password inputs and login button
+*/
 .login-form {
-  /* login form container style.
-  Including username, password inputs and login button */
   width: 360px;
   height: 240px;
 }
 
-.login-input-field {
   /*main style for username and password input fields */
+.login-input-field {
   width: 360px;
   height: 56px;
   margin-bottom: 20px;
@@ -21,8 +27,8 @@
   border: none;
 }
 
-.login-button {
   /*login button style*/
+.login-button {
   background-color: #9fd533;
   border-radius: 5px;
   font-size: 18px;
@@ -30,22 +36,25 @@
   font-weight: 400;
   padding-left: 0;
 }
-
+//Login error(wrong password, server error and so on)
 .submit-error {
   color: #FF0000;
+  margin-top: 0px;
 
 }
 
+/*Login button style*/
 .login-button:hover {
   background-color: #86b300;
+  cursor: pointer;
 }
 
 .login-button:focus {
   background-color: #86b300;
 }
 
-.icons {
   /*style for username and password icons inside inputs*/
+.icons {
   margin-left: 26px;
   margin-top: 19px;
   position: absolute;
@@ -68,9 +77,4 @@
 /*this removes default inputs blue border on focus*/
 textarea:focus, input:focus{
     outline: none;
-}
-
-.btn:focus, .btn:active {
-  outline: none !important;
-  box-shadow: none !important;
 }

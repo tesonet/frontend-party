@@ -46,7 +46,7 @@ handleLogin = e => {
     "username": this.state.username,
     "password": this.state.password
   }
-
+  /* Posting login data to get authentication token */
   axios.post('http://playground.tesonet.lt/v1/tokens', login_data, {
     headers: {
       'Content-Type': 'application/json'
@@ -57,9 +57,15 @@ handleLogin = e => {
     if (localStorage.testio_token) {
       this.props.history.push("/servers");
     }
-
   }).catch((e) => {
-    this.setState({error: 'Wrong username or password'});
+    const error_code = e.response.status
+    if (error_code === 401) {
+      /* 401 - Unautorized */
+      this.setState({error: 'Wrong username or password'});
+    } else {
+      /* If get some other error code */
+      this.setState({error: 'Internal server error'});
+    }
   })
 }
 
@@ -76,7 +82,6 @@ handleLogin = e => {
                  value={this.state.username}
                  onChange={this.handleUsernameChange}
           />
-
         </div>
 
         <div className="input-field-container">
@@ -99,7 +104,6 @@ handleLogin = e => {
                value="Log in"
                className="btn login-input-field login-button"
         />
-
       </form>
     </div>);
   }

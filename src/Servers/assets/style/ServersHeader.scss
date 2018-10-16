@@ -6,26 +6,26 @@ $color-dark-blue: #2f3254;
   display: block;
   width: 100%;
   height: 50px;
-  margin-top: 26px;
-
+  margin-top: 36px;
+/*Logo style*/
   :first-child {
     float: left;
-    margin-left: $margin;
+    margin-left: 6px;
   }
-
+/*lougout container(icon and text logout) style*/
   :last-child {
     float: right;
     margin-right: $margin;
-    display: inline-block;
 
-
+    /*logout icon style*/
     :first-child {
       float: left;
-      margin-top: 4px;
+      margin-top: 6px;
     }
-
+     /*logout text style*/
     :last-child {
       margin-left: 5px;
+      margin-top: 5px;
     }
   }
 }
@@ -34,6 +34,7 @@ $color-dark-blue: #2f3254;
 .logout-container {
   color: $color-dark-blue;
 }
+/*logout container on hovery*/
 .logout-container:hover {
   color: #99cc33;
   cursor: pointer;
