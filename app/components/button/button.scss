@@ -1,0 +1,19 @@
+.button {
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.primary {
+  color: #fff;
+  background-color: #ccdb37;
+  margin: 5px 0;
+
+  &:hover {
+    background-color: rgba(#ccdb37, 0.8);
+  }
+}
+
+.secondary {
+  background-color: transparent;
+}

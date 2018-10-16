@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "jsx": "react",
+    "target": "es6",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": ".",
+    "paths": {
+      "Components/*": ["./app/components/*"],
+      "Interfaces/*": ["./app/interfaces/*"],
+      "Pages/*": ["./app/pages/*"],
+      "Services/*": ["./app/services/*"],
+      "Reducers/*": ["./app/reducers/*"],
+      "Actions/*": ["./app/actions/*"],
+      "Middlewares/*": ["./app/middlewares/*"],
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

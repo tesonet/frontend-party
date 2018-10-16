@@ -1,0 +1,26 @@
+:global {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    word-wrap: break-word;
+  }
+  
+  div {
+    box-sizing: border-box;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0 14px;
+  }
+
+  input {
+    border: none;
+    outline: none;
+  }
+}

@@ -1,0 +1,10 @@
+.idea
+node_modules
+*.log
+build
+npm-debug.log
+.DS_Store
+dist
+package-lock.json
+stats.json
+.vscode
