@@ -19,12 +19,14 @@ body {
   :first-child {
     width: 50%;
     margin-top: 6px;
+    cursor: pointer;
   }
 
   :last-child {
     width: 50%;
     margin-top: 6px;
     text-align: right;
+    cursor: pointer;
   }
 }
 
