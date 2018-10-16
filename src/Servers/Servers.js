@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ServersHeader from './ServersHeader';
 import ServersList from './ServersList';
 
-class Servers extends Component {
-  render() {
+const Servers = (props) => {
     return (<div>
       <ServersHeader/>
       <ServersList/>
     </div>);
   }
-}
+
 
 export default Servers

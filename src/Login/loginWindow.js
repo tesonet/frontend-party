@@ -1,13 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './assets/style/loginWindow.scss';
 import LoginForm from './loginForm';
 import Logo from './assets/images/logo.png';
 
 /*The main component for login window*/
-
 const LoginWindow = (props) => {
-//class LoginWindow extends Component {
-  //render() {
     return (<div className="login-window">
       <div className="login-window-container">
       <div className="img-container">
@@ -16,7 +13,6 @@ const LoginWindow = (props) => {
         <LoginForm history={props.history}/>
       </div>
     </div>);
-  //}
 }
 
 export default LoginWindow;
