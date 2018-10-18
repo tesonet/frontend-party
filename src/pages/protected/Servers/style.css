@@ -46,3 +46,8 @@
     outline: none;
     background: transparent;
 }
+
+.favorite-server .list_item {
+    background: white;
+    cursor: initial;
+}
