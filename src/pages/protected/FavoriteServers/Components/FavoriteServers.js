@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 class FavoriteServers  extends Component {
 
     render() {
-        console.log(this.props.favorites);
         return (
             <div className="inner-page favorite-server">
                 <div className="list">
