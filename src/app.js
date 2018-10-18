@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {NavLink, Route, Switch} from 'react-router-dom'
+import {NavLink, Route} from 'react-router-dom'
 import logo from './assets/images/logo-dark.png'
 import {logOut} from './pages/AuthPage/authActions'
 import {withRouter} from 'react-router-dom'

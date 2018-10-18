@@ -1,7 +1,6 @@
 import {AUTHORIZE, LOGOUT, LOGIN} from './pages/AuthPage/authActions'
 
 export const localStorageMiddleware = store => next => action => {
-    console.log(action);
     switch ((action.type)) {
         case AUTHORIZE:
             localStorage.getItem('token')
