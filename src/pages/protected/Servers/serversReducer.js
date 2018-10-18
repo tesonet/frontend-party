@@ -12,12 +12,12 @@ export default (state = initialState, action) => {
                 ...state,
                 servers: action.payload.data
             }
-        case ADD_TO_FAVORITES:
+      case ADD_TO_FAVORITES:
             return {
                 ...state,
-                favorites: [
-                    ...state.favorites,
-                    action.server
+                favorites: state.favorites.filter((server) => server.id === action.server.id).length ? state.favorites : [
+                  ...state.favorites,
+                  action.server
                 ]
             }
 
