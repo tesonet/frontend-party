@@ -1,5 +1,4 @@
 {
-  "private": true,
   "homepage": "https://create-react-app-redux.now.sh",
   "scripts": {
     "deploy": "now && now alias",
@@ -7,28 +6,35 @@
     "now-start": "serve -s ./build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:coverage": "react-scripts test --env=jsdom --coverage",
+    "test:file": "react-scripts test --env=jsdom $FILE",
     "eject": "react-scripts eject",
     "precommit": "pretty-quick --staged"
   },
   "devDependencies": {
     "prettier": "1.14.3",
-    "react-scripts": "2.0.5"
+    "react-scripts": "2.0.5",
+    "react-test-renderer": "^16.6.0",
+    "redux-mock-store": "^1.5.3"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^4.5.0",
-    "react": "16.5.2",
-    "react-dom": "16.5.2",
-    "react-redux": "5.0.7",
+    "react": "16.6.0",
+    "react-dom": "16.6.0",
+    "react-redux": "5.1.0",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "react-router-redux": "^5.0.0-alpha.9",
     "redux": "4.0.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "2.3.0",
-    "sanitize.css": "7.0.3",
+    "sanitize.css": "8.0.0",
     "serve": "10.0.2",
     "uuid": "^3.3.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",

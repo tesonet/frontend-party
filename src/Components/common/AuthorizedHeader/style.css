@@ -1,0 +1,37 @@
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 30px;
+}
+
+.top-header_logo {
+    margin-right: 15px;
+    bottom: 5px;
+    position: relative;
+}
+
+.main-navigation {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.main-navigation a {
+    color: gray;
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.main-navigation a.active {
+    color: black;
+}
+
+.top-header_btn-logout {
+    background: white;
+    border: 1px solid #efefef;
+    padding: 15px;
+}

@@ -1,5 +1,5 @@
 
-.home-page {
+.auth-page {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,18 +7,18 @@
     align-items: center;
 }
 
-.home-page_bg, .home-page_overlay {
+.auth-page_bg, .auth-page_overlay {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.home-page_bg {
+.auth-page_bg {
     background: url("../../assets/images/main-bg.jpg") no-repeat center;
     background-size: cover;
 }
 
-.home-page_overlay {
+.auth-page_overlay {
     background: #0b0f27;
     opacity: 0.7;
 }
@@ -64,7 +64,28 @@
 .auth-form_input {
     background: white;
     display: inline-block;
-    border: white;
+    border: 1px solid white;
     padding: 0px 40px;
     color: gray;
+    transition: all .2s ease-in-out;
+}
+
+.auth-form.error {
+    animation: bounce .8s ease-in-out both;
+}
+
+.auth-form.error .auth-form_input {
+    border-color: #740000;
+}
+
+@keyframes bounce {
+    0%, 100%, 20%, 50%, 80% {
+        transform:         translateX(0)
+    }
+    40% {
+        transform:         translateX(-30px)
+    }
+    60% {
+        transform:         translateX(-15px)
+    }
 }

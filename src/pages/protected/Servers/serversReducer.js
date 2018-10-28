@@ -1,27 +1,103 @@
-import {FETCH_LIST_SUCCESS, ADD_TO_FAVORITES} from './serversActions'
+import {
+    FETCH_LIST_SUCCESS,
+    ADD_TO_FAVOURITES,
+    SORT_BY_NAME,
+    SORT_BY_DISTANCE,
+    REMOVE_FROM_FAVOURITES
+} from './serversActions'
 
 const initialState = {
     servers: [],
-    favorites: []
+    favourites: [],
+    sortedByNameAscending: false,
+    sortedByDistanceAscending: false
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
+
         case FETCH_LIST_SUCCESS:
             return {
                 ...state,
-                servers: action.payload.data
+                servers: action.payload
             }
-      case ADD_TO_FAVORITES:
+
+        case ADD_TO_FAVOURITES:
             return {
                 ...state,
-                favorites: state.favorites.filter((server) => server.id === action.server.id).length ? state.favorites : [
-                  ...state.favorites,
-                  action.server
-                ]
+                favourites: state.favourites.filter(server => server.id === action.server.id).length ? state.favourites : [
+                    ...state.favourites,
+                    action.server
+                ],
+                servers: state.servers.map(server => {
+                    if (server.name === action.server.name) {
+                        return {
+                            ...server,
+                            favourite: true
+                        }
+                    }
+                    return server
+                })
+            }
+
+        case REMOVE_FROM_FAVOURITES:
+            return {
+                ...state,
+                favourites: state.favourites.filter(server => server.name !== action.server.name),
+                servers: state.servers.map(server => {
+                    if (server.name === action.server.name) {
+                        return {
+                            ...server,
+                            favourite: false
+                        }
+                    }
+                    return server
+                })
+
+            }
+
+        case SORT_BY_NAME:
+            const sortedByName = state.sortedByNameAscending ? sortByNameDescending(state.servers) : sortByNameAscending(state.servers)
+            return {
+                ...state,
+                sortedByNameAscending: !state.sortedByNameAscending,
+                servers: sortedByName
+            }
+
+        case SORT_BY_DISTANCE:
+            const sortedByDistance = state.sortedByDistanceAscending ? sortByDistanceDescending(state.servers) : sortByDistanceAscending(state.servers)
+            return {
+                ...state,
+                sortedByDistanceAscending: !state.sortedByDistanceAscending,
+                servers: sortedByDistance
             }
 
         default:
             return state
     }
 }
+
+const sortByNameAscending = servers => (servers.concat().sort((a, b) => {
+    if (a.name < b.name)
+        return -1
+    if (a.name > b.name)
+        return 1
+    return 0
+}))
+
+
+const sortByNameDescending = servers => (servers.concat().sort((a, b) => {
+    if (a.name > b.name)
+        return -1
+    if (a.name < b.name)
+        return 1
+    return 0
+}))
+
+const sortByDistanceAscending = servers => (servers.concat().sort((a, b) =>
+    a.distance - b.distance || a.distance - b.distance)
+)
+
+const sortByDistanceDescending = servers => (servers.concat().sort((a, b) =>
+    b.distance - a.distance || b.distance - a.distance)
+)

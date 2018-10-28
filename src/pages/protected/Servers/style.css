@@ -14,7 +14,7 @@
 }
 
 .list_header {
-    background: #f5f5f5;
+    background: #efefef;
 }
 
 .list_header, .list_item {
@@ -34,10 +34,15 @@
 .list_item {
     border-bottom: 1px solid #efefef;
     cursor: pointer;
+    transition: all .1s linear;
 }
 
 .list_item:hover  {
-    background: #efefef;
+    background: #f8f7fa;
+}
+
+.list_item.active {
+    background: #f8f7fa;
 }
 
 .list_header .btn {

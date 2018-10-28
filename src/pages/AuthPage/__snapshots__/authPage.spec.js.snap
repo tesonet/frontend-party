@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Authorization page AuthPage container AuthPage component renders correctly 1`] = `
+<div
+  className="auth-page"
+>
+  <div
+    className="auth-page_bg"
+  />
+  <div
+    className="auth-page_overlay"
+  />
+  <div
+    className=" auth-form"
+  >
+    <img
+      alt="logo"
+      className="logo"
+      src="logo.png"
+    />
+    <form
+      className="auth-form_form"
+      onSubmit={[Function]}
+    >
+      <input
+        className="auth-form_input user-inp"
+        name="username"
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Username"
+        type="text"
+        value=""
+      />
+      <input
+        className="auth-form_input pass-inp"
+        name="password"
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Password"
+        type="text"
+        value=""
+      />
+      <button
+        className="auth-form_btn btn"
+        disabled={true}
+        type="submit"
+      >
+        Log In
+      </button>
+    </form>
+  </div>
+</div>
+`;

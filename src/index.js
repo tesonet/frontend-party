@@ -3,6 +3,7 @@ import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import {store} from './store'
 import {BrowserRouter} from 'react-router-dom'
+import * as serviceWorker from './serviceWorker'
 import App from './app'
 
 import 'sanitize.css/sanitize.css'
@@ -20,3 +21,5 @@ render(
     </Provider>,
     targetNode
 )
+
+serviceWorker.unregister()

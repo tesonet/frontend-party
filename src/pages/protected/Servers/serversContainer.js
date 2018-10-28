@@ -1,20 +1,23 @@
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import uuid from 'uuid'
-import Servers from './Components/Servers'
-import {fetchList, addToFavorites} from './serversActions'
+import ServerList from './Components/ServerList'
+import { fetchList, addToFavourites, sortByDistance, sortByName, removeFromFavourites } from './serversActions'
 
-const mapDispatchToProps = (dispatch) => ({
-    fetchList: () => dispatch(fetchList()),
-    addToFavorites: (id) => dispatch(addToFavorites(id)),
+const mapDispatchToProps = dispatch => ({
+    fetchList: (token) => dispatch(fetchList(token)),
+    addToFavourites: server => dispatch(addToFavourites(server)),
+    sortByDistance: () => dispatch(sortByDistance()),
+    sortByName: () => dispatch(sortByName()),
+    removeFromFavourites: server => dispatch(removeFromFavourites(server))
 })
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = state => ({
     servers: addId(state.serversReducer.servers)
 })
 
-const addId = countries => countries.map((country) => Object.assign({}, country, {
+const addId = countries => countries.map(country => Object.assign({}, country, {
     id: uuid.v1()
 }))
 
-export default connect(mapStateToProps, mapDispatchToProps)(Servers)
+export default connect(mapStateToProps, mapDispatchToProps)(ServerList)
 
