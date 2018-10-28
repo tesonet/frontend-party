@@ -1,5 +1,6 @@
-import axios from 'axios'
+import axios from '../../axios/instance'
 import { ASYNC_ACTION_END, ASYNC_ACTION_START } from '../../constants/actions'
+import { USER_TOKEN_ENDPOINT } from '../../constants/endpoints'
 
 export const AUTHORIZE = '[AUTH]AUTHORIZE'
 export const LOGIN_START = '[AUTH]LOGIN_START'
@@ -8,21 +9,16 @@ export const LOGIN_ERROR = '[AUTH]LOGIN_ERROR'
 export const CLEAR_LOGIN_ERROR = '[AUTH]CLEAR_LOGIN_ERROR'
 export const LOGOUT = '[AUTH]LOGOUT'
 
-const TOKEN_URL = 'http://playground.tesonet.lt/v1/tokens'
-
 const login = (user) => (
   async (dispatch) => {
       try {
           dispatch({ type: ASYNC_ACTION_START })
           dispatch({ type: LOGIN_START })
 
-          const config = {
-              method: 'post',
-              url: TOKEN_URL,
-              data: user
-          }
 
-          const response = await axios(config)
+          const response = await axios.post(USER_TOKEN_ENDPOINT, {
+              ...user
+          })
 
           if (response.status === 200) {
               dispatch({

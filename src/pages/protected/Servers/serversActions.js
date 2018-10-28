@@ -1,5 +1,6 @@
-import axios from 'axios'
+import axios from '../../../axios/instance'
 import { ASYNC_ACTION_END, ASYNC_ACTION_START } from '../../../constants/actions'
+import {SERVER_LIST_ENDPOINT} from '../../../constants/endpoints'
 
 export const FETCH_LIST_START = '[ASYNC]FETCH_LIST_START'
 export const FETCH_LIST_SUCCESS = '[ASYNC]FETCH_LIST_SUCCESS'
@@ -9,22 +10,15 @@ export const SORT_BY_DISTANCE = '[SERVER_LIST]SORT_BY_DISTANCE'
 export const SORT_BY_NAME = '[SERVER_LIST]SORT_BY_NAME'
 
 
-export const ADD_TO_FAVOURITES = '[ADD_TO_FAVOURITES'
-export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES'
-
-const listUrl = 'http://playground.tesonet.lt/v1/servers'
+export const ADD_TO_FAVOURITES = '[SERVER_LIST]ADD_TO_FAVOURITES'
+export const REMOVE_FROM_FAVOURITES = '[SERVER_LIST]REMOVE_FROM_FAVOURITES'
 
 const fetchList = () => (
   async (dispatch) => {
       try {
           dispatch({ type: ASYNC_ACTION_START })
-          const config = {
-              method: 'get',
-              url: listUrl,
-              headers: { 'Authorization': localStorage.getItem('token') }
-          }
 
-          const response = await axios(config)
+          const response = await axios.get(SERVER_LIST_ENDPOINT)
 
           if (response.status === 200) {
               dispatch({
