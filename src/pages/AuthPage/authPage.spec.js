@@ -8,7 +8,6 @@ import * as authActions from './authActions'
 import { ASYNC_ACTION_END, ASYNC_ACTION_START } from '../../constants/actions'
 import loginResponse from '../../mockResponses/loginResponse'
 import AuthPage from './Components/AuthPage'
-import AuthForm from './Components/AuthPage/AuthForm'
 
 const mockStore = configureStore([thunk])
 

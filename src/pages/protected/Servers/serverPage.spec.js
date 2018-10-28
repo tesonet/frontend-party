@@ -1,45 +1,14 @@
 import React from 'react'
 import axios from 'axios'
-import renderer from 'react-test-renderer'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { mapStateToProps } from './serversContainer'
-import ServerList from './Components/ServerList'
-import ServerListItem from './Components/ServerListItem'
 import * as serversActions from './serversActions'
 import { ASYNC_ACTION_END, ASYNC_ACTION_START } from '../../../constants/actions'
 import serverListResponse from '../../../mockResponses/severListResponse'
-import serversReducer from './serversReducer'
 
 const mockStore = configureStore([thunk])
 
 describe('ServerList page', () => {
-
-    describe('serverList container component', () => {
-
-        describe('mapStateToProps', () => {
-            it('should mapStateToProps correctly and add Id to server list items', () => {
-
-                let serverReducer = {
-                    servers: [
-                        {
-                            name: 'Thailand 1',
-                            distance: 7500,
-                            id: '123'
-                        }
-                    ]
-                }
-
-                const state = {
-                    serversReducer: serverReducer
-                }
-
-                const componentProps = mapStateToProps(state)
-                expect(componentProps.servers[0].id).toBeDefined()
-            })
-
-        })
-    })
 
     describe('ServerLis actions', () => {
 
