@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ServerListItem from './ServerListItem'
+import ServerListItem from './ServerList/ServerListItem'
 
 export default class ServerList extends Component {
 

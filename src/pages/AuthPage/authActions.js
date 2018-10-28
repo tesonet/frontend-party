@@ -10,11 +10,11 @@ export const CLEAR_LOGIN_ERROR = '[AUTH]CLEAR_LOGIN_ERROR'
 export const LOGOUT = '[AUTH]LOGOUT'
 
 const login = (user) => (
+
   async (dispatch) => {
       try {
           dispatch({ type: ASYNC_ACTION_START })
           dispatch({ type: LOGIN_START })
-
 
           const response = await axios.post(USER_TOKEN_ENDPOINT, {
               ...user

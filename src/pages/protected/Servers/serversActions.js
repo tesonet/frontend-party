@@ -1,6 +1,6 @@
 import axios from '../../../axios/instance'
 import { ASYNC_ACTION_END, ASYNC_ACTION_START } from '../../../constants/actions'
-import {SERVER_LIST_ENDPOINT} from '../../../constants/endpoints'
+import { SERVER_LIST_ENDPOINT } from '../../../constants/endpoints'
 
 export const FETCH_LIST_START = '[ASYNC]FETCH_LIST_START'
 export const FETCH_LIST_SUCCESS = '[ASYNC]FETCH_LIST_SUCCESS'
@@ -14,6 +14,7 @@ export const ADD_TO_FAVOURITES = '[SERVER_LIST]ADD_TO_FAVOURITES'
 export const REMOVE_FROM_FAVOURITES = '[SERVER_LIST]REMOVE_FROM_FAVOURITES'
 
 const fetchList = () => (
+
   async (dispatch) => {
       try {
           dispatch({ type: ASYNC_ACTION_START })
