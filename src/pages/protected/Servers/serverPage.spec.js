@@ -1,10 +1,11 @@
 import React from 'react'
-import axios from 'axios'
+import axiosMock from 'axios'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import * as serversActions from './serversActions'
 import { ASYNC_ACTION_END, ASYNC_ACTION_START } from '../../../constants/actions'
 import serverListResponse from '../../../mockResponses/severListResponse'
+import loginResponse from '../../../mockResponses/loginResponse'
 
 const mockStore = configureStore([thunk])
 
@@ -25,7 +26,11 @@ describe('ServerList page', () => {
             })
 
             it('it should fetch and dispatch server list otherwise dispatch error message', async () => {
-                axios.__set({ data: serverListResponse, status: 200 })
+
+                axiosMock.get.mockImplementationOnce(() =>
+                  Promise.resolve({ data: serverListResponse, status: 200 })
+                )
+
                 await serversActions.fetchList()(store.dispatch)
                 const actions = store.getActions()
 
@@ -35,7 +40,11 @@ describe('ServerList page', () => {
             })
 
             it('it should dispatch an error action on unsuccessful response', async () => {
-                axios.__set({ data: 'Unauthorized', status: 401 })
+
+                axiosMock.get.mockImplementationOnce(() =>
+                  Promise.resolve({ data: 'Unauthorized', status: 401 })
+                )
+
                 await serversActions.fetchList()(store.dispatch)
                 const actions = store.getActions()
 

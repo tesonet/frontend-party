@@ -18,7 +18,6 @@ const fetchList = () => (
   async (dispatch) => {
       try {
           dispatch({ type: ASYNC_ACTION_START })
-
           const response = await axios.get(SERVER_LIST_ENDPOINT)
 
           if (response.status === 200) {

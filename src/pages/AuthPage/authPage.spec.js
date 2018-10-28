@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axiosMock from 'axios'
 import renderer from 'react-test-renderer'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -65,7 +65,11 @@ describe('Authorization page', () => {
             })
 
             it('it should fetch and dispatch server list otherwise dispatch error message', async () => {
-                axios.__set({ data: loginResponse, status: 200 })
+
+                axiosMock.post.mockImplementationOnce(() =>
+                  Promise.resolve({ data: loginResponse, status: 200 })
+                )
+
                 await authActions.login()(store.dispatch)
                 const actions = store.getActions()
 
@@ -76,7 +80,11 @@ describe('Authorization page', () => {
             })
 
             it('it should dispatch an error action on unsuccessful login', async () => {
-                axios.__set({ data: 'Unauthorized', status: 401 })
+
+                axiosMock.post.mockImplementationOnce(() =>
+                  Promise.resolve({ data: 'Unauthorized', status: 401 })
+                )
+
                 await authActions.login()(store.dispatch)
                 const actions = store.getActions()
 

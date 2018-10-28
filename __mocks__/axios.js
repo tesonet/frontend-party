@@ -1,4 +1,3 @@
-let res = {}
-const axios = jest.fn(() => res)
-axios.__set = v => res = v
+const axios = jest.genMockFromModule('axios')
+axios.create = jest.fn(() => axios)
 export default axios
