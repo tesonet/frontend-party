@@ -14,7 +14,7 @@ const App = () => {
               <Switch>
                   <Route exact path="/" component={AuthPage}/>
                   <ProtectedRoute path="/servers" component={ServerCountries}/>
-                  <ProtectedRoute path='/favourite-server' component={FavouriteServers}/>
+                  <ProtectedRoute path='/favourite-servers' component={FavouriteServers}/>
               </Switch>
           </main>
       </React.Fragment>

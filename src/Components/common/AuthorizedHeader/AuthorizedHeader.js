@@ -11,7 +11,7 @@ const AuthorizedHeader = ({ dispatch, history, withAuth }) => {
       <img className="top-header_logo" src={logo} alt="logo"/>
       <nav className="main-navigation">
         <NavLink to="/servers">Servers</NavLink>
-        <NavLink to="/favorite-server">Favorite servers</NavLink>
+        <NavLink to="/favourite-servers">Favourite servers</NavLink>
       </nav>
       <button
         className="top-header_btn-logout btn"
