@@ -9,8 +9,8 @@ import {
 const initialState = {
     servers: [],
     favourites: [],
-    sortedByNameAscending: false,
-    sortedByDistanceAscending: false
+    sortdByNameAscending: false,
+    sortdByDistanceAscending: false
 }
 
 export default (state = initialState, action) => {
@@ -57,18 +57,18 @@ export default (state = initialState, action) => {
             }
 
         case SORT_BY_NAME:
-            const sortedByName = state.sortedByNameAscending ? sortByNameDescending(state.servers) : sortByNameAscending(state.servers)
+            const sortedByName = state.sortdByNameAscending ? sortByNameDescending(state.servers) : sortByNameAscending(state.servers)
             return {
                 ...state,
-                sortedByNameAscending: !state.sortedByNameAscending,
+                sortdByNameAscending: !state.sortdByNameAscending,
                 servers: sortedByName
             }
 
         case SORT_BY_DISTANCE:
-            const sortedByDistance = state.sortedByDistanceAscending ? sortByDistanceDescending(state.servers) : sortByDistanceAscending(state.servers)
+            const sortedByDistance = state.sortdByDistanceAscending ? sortByDistanceDescending(state.servers) : sortByDistanceAscending(state.servers)
             return {
                 ...state,
-                sortedByDistanceAscending: !state.sortedByDistanceAscending,
+                sortdByDistanceAscending: !state.sortdByDistanceAscending,
                 servers: sortedByDistance
             }
 
