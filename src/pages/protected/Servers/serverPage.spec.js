@@ -25,7 +25,7 @@ describe('ServerList page', () => {
                 store.clearActions()
             })
 
-            it('it should fetch and dispatch server list otherwise dispatch error message', async () => {
+            it('it should fetch and dispatch server list', async () => {
 
                 axiosMock.get.mockImplementationOnce(() =>
                   Promise.resolve({ data: serverListResponse, status: 200 })
@@ -34,6 +34,7 @@ describe('ServerList page', () => {
                 await serversActions.fetchList()(store.dispatch)
                 const actions = store.getActions()
 
+                expect(actions.length).toEqual(3)
                 expect(actions).toContainEqual({ type: ASYNC_ACTION_START })
                 expect(actions).toContainEqual({ type: serversActions.FETCH_LIST_SUCCESS, payload: serverListResponse })
                 expect(actions).toContainEqual({ type: ASYNC_ACTION_END })
@@ -48,6 +49,7 @@ describe('ServerList page', () => {
                 await serversActions.fetchList()(store.dispatch)
                 const actions = store.getActions()
 
+                expect(actions.length).toEqual(3)
                 expect(actions).toContainEqual({ type: ASYNC_ACTION_START })
                 expect(actions).toContainEqual({
                     type: serversActions.FETCH_LIST_ERROR,

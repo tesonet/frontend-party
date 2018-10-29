@@ -5,20 +5,18 @@ class AuthPage extends Component {
 
     componentDidMount() {
         if (this.props.withAuth) {
-            this.props.history.push('servers')
+            this.props.redirectToAuthHomePage()
         }
     }
 
     render() {
-        const { history, login, withAuth, loginError, clearLoginError } = this.props
+        const { login, loginError, clearLoginError } = this.props
 
         return <div className="auth-page">
             <div className="auth-page_bg"/>
             <div className="auth-page_overlay"/>
             <AuthForm
               loginError={loginError}
-              withAuth={withAuth}
-              history={history}
               login={login}
               clearLoginError={clearLoginError}
             />

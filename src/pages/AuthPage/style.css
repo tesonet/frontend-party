@@ -1,5 +1,5 @@
 
-.auth-page {
+.auth-page, .not-found {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,18 +7,33 @@
     align-items: center;
 }
 
-.auth-page_bg, .auth-page_overlay {
+.not-found_content {
+    color: #efefef;
+    position: relative;
+    text-align: center;
+}
+
+.not-found_content_message {
+    font-size: 24px;
+}
+
+.not-found_content_status {
+    font-weight: 600;
+    font-size: 60px;
+}
+
+.auth-page_bg, .auth-page_overlay, .not-found_overlay, .not-found_bg {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.auth-page_bg {
+.auth-page_bg, .not-found_bg {
     background: url("../../assets/images/main-bg.jpg") no-repeat center;
     background-size: cover;
 }
 
-.auth-page_overlay {
+.auth-page_overlay, .not-found_overlay {
     background: #0b0f27;
     opacity: 0.7;
 }

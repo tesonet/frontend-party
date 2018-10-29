@@ -1,6 +1,8 @@
+import { push } from 'connected-react-router'
 import axios from '../../axios/instance'
 import { ASYNC_ACTION_END, ASYNC_ACTION_START } from '../../constants/actions'
 import { USER_TOKEN_ENDPOINT } from '../../constants/endpoints'
+import routes from '../../constants/routes'
 
 export const AUTHORIZE = '[AUTH]AUTHORIZE'
 export const LOGIN_START = '[AUTH]LOGIN_START'
@@ -25,6 +27,7 @@ const login = (user) => (
                   type: LOGIN_SUCCESS,
                   payload: response.data.token
               })
+              dispatch(push(routes.SERVERS))
               dispatch({ type: ASYNC_ACTION_END })
               return
           }
@@ -45,13 +48,17 @@ const login = (user) => (
   }
 )
 
+const logOut = () => (
+  (dispatch) => {
+      dispatch({ type: LOGOUT })
+      dispatch(push(routes.HOME))
+  }
+)
+
 const clearLoginError = () => ({
     type: CLEAR_LOGIN_ERROR
 })
 
-const logOut = () => ({
-    type: LOGOUT
-})
 
 export { login, logOut, clearLoginError }
 

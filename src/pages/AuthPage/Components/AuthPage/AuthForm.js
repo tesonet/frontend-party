@@ -15,12 +15,6 @@ class AuthForm extends Component {
         }
     }
 
-    componentDidUpdate() {
-        if (this.props.withAuth) {
-            this.props.history.push('servers')
-        }
-    }
-
     onInputChange = e => {
         this.setState({
             [e.target.name]: e.target.value

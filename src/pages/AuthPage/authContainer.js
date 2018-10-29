@@ -1,11 +1,14 @@
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { push } from 'connected-react-router'
 import { login, clearLoginError } from './authActions'
+import routes from '../../constants/routes'
 import AuthPage from './Components/AuthPage'
+
 
 const mapDispatchToProps = dispatch => ({
     login: token => dispatch(login(token)),
-    clearLoginError: () => dispatch(clearLoginError())
+    clearLoginError: () => dispatch(clearLoginError()),
+    redirectToAuthHomePage: () => dispatch(push(routes.SERVERS))
 })
 
 export const mapStateToProps = state => ({
@@ -13,4 +16,4 @@ export const mapStateToProps = state => ({
     loginError: state.authReducer.loginError
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AuthPage))
+export default connect(mapStateToProps, mapDispatchToProps)(AuthPage)
