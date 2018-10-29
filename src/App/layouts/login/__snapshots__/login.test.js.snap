@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-bxivhb hViyrg"
+>
+  <form
+    className="sc-EHOje jAHBuv"
+    onSubmit={[Function]}
+  >
+    <div
+      className="sc-bwzfXH cPfnUO"
+      size="large"
+    >
+      testio
+      <div
+        className="sc-htpNat cDArZf"
+        size="large"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <input
+        className="sc-bdVaJa injyga form-control"
+        id="formControlsUsername"
+        onChange={[Function]}
+        placeholder="Username"
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <input
+        className="sc-bdVaJa injyga form-control"
+        id="formControlsPassword"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+      />
+    </div>
+    <button
+      className="sc-ifAKCX dXnafa btn btn-default"
+      disabled={false}
+      type="submit"
+    >
+      Log In
+    </button>
+  </form>
+</div>
+`;

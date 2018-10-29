@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    className="sc-dnqmqq frjJcZ"
+  >
+    <div
+      className="sc-EHOje kMbdDN"
+    >
+      <div
+        className="sc-bwzfXH govhE"
+        size="small"
+      >
+        testio
+        <div
+          className="sc-htpNat iJZniu"
+          size="small"
+        />
+      </div>
+      <button
+        className="sc-bZQynM kRYBZj btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Logout 
+        <span
+          className="glyphicon glyphicon-log-out"
+        />
+      </button>
+    </div>
+    <div
+      className="sc-htoDjs eYwOGw"
+    >
+      <span>
+        SERVER
+      </span>
+      <span>
+        DISTANCE
+      </span>
+    </div>
+  </div>
+  <ul
+    className="sc-gzVnrw gynILq"
+  />
+</div>
+`;

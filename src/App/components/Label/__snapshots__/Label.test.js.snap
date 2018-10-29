@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly large label 1`] = `
+<div
+  className="sc-bdVaJa fOoPMC"
+  size="large"
+>
+  testio
+  <div
+    className="sc-bwzfXH dlyMQx"
+    size="large"
+  />
+</div>
+`;
+
+exports[`renders correctly small label 1`] = `
+<div
+  className="sc-bdVaJa dPZuTV"
+  size="small"
+>
+  testio
+  <div
+    className="sc-bwzfXH iSHyQo"
+    size="small"
+  />
+</div>
+`;

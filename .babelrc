@@ -1,0 +1,8 @@
+{
+  "presets": [["env", {"modules": false}], "react", "babel-preset-stage-0"],
+  "env": {
+    "test": {
+      "presets": [["env"], "react"]
+    }
+  }
+}
