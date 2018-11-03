@@ -1,5 +1,6 @@
 import PrivateComponent from './PrivateComponent';
 import FieldGroup from './FieldGroup';
-import Label from './Label'
+import Spinner from './Spinner';
+import Label from './Label';
 
-export { PrivateComponent, FieldGroup, Label };
+export { PrivateComponent, FieldGroup, Label, Spinner };

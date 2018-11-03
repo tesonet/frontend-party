@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly large Spinner 1`] = `
+<div
+  className="sc-bdVaJa idoegx"
+>
+  <div
+    className="sc-bwzfXH gxXqBo"
+    size="large"
+  />
+</div>
+`;
+
+exports[`renders correctly small Spinner 1`] = `
+<div
+  className="sc-bdVaJa idoegx"
+>
+  <div
+    className="sc-bwzfXH iWeIj"
+    size="small"
+  />
+</div>
+`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Label = ({ size }) => {
   return (
@@ -8,6 +9,10 @@ const Label = ({ size }) => {
       <LabelDot size={size} />
     </Container>
   )
+}
+
+Label.propTypes = {
+  size: PropTypes.string.isRequired,
 }
 
 const Container = styled.div`

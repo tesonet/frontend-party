@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import { Button, Glyphicon } from 'react-bootstrap';
 import Api from '../../utils/api';
+import Keys from '../../utils/keys';
 import { Label } from '../../components';
 
 class Main extends Component {
@@ -13,38 +14,53 @@ class Main extends Component {
     
     this.state = {
       redirectToLogin: false,
+      showError: false,
     }
   }
 
   async componentDidMount() {
-    const response = await Api.getServers(); 
-    this.setState({ servers: response.data });
+    try {
+      const response = await Api.getServers(); 
+      this.setState({ servers: response.data });
+    } catch(e) {
+      console.log(e);
+      this.setState({ showError: true })
+    }
   }
 
   onLogout() {
-    localStorage.setItem('token', '')
+    localStorage.setItem(Keys.TOKEN, '')
     this.setState({ redirectToLogin: true })
   }
 
   renderServers() {
-    const { servers } = this.state;
+    const { servers, showError } = this.state;
+    console.log(showError)
 
-    if(!servers) {
+    if(showError) {
+      return (
+        <ErrorContainer>
+          <h1>Sorry. Something went wrong...</h1>
+        </ErrorContainer>
+      )
+    } else if (!servers) {
       return null;
     }
 
     return (
-      servers
-        .sort((a, b) => a.distance - b.distance || a.name.localeCompare(b.name))
-        .map((item, i) => {
-          return (
-            <ListItem key={i}>
-              <span>{item.name}</span>
-              <span>{item.distance} km</span>
-            </ListItem>
-          )
-        }
-      )
+      <List>
+        {servers
+          .sort((a, b) => a.distance - b.distance || a.name.localeCompare(b.name))
+          .map((item, i) => {
+            return (
+              <ListItem key={i}>
+                <span>{item.name}</span>
+                <span>{item.distance} km</span>
+              </ListItem>
+            )
+          }
+        )}
+      </List>
     )
   }
 
@@ -67,9 +83,7 @@ class Main extends Component {
             <span>DISTANCE</span>
           </ListHeader>
         </HeaderContainer>
-        <List>
-          {this.renderServers()}
-        </List>
+        {this.renderServers()}
       </div>
     );
   }
@@ -112,7 +126,7 @@ const ListHeader = styled(MainItem)`
   font-weight: 500;
   color: rgb(170, 170, 170);
   padding: 14px 8px;
-  background-color: rgb(244, 243, 244	);
+  background-color: rgb(244, 243, 244);
 `;
 
 const HeaderContainer = styled.div`
@@ -120,6 +134,17 @@ const HeaderContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
+`;
+
+const ErrorContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: rgb(166, 166, 166);
+  z-index: -1;
 `;
 
 export default Main;

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import Keys from '../../utils/keys';
 
 class PrivateComponent extends Component {
   render() {
-    const { component: Component, auth, ...rest } = this.props;
-    let token = localStorage.getItem('token');
+    const { component: Component, ...rest } = this.props;
+    let token = localStorage.getItem(Keys.TOKEN);
 
     return (
       <Route
@@ -25,5 +28,11 @@ class PrivateComponent extends Component {
     );
   }
 }
+
+PrivateComponent.propTypes = {
+  component: PropTypes.func.isRequired,
+  path: PropTypes.string.isRequired,
+}
+
 
 export default PrivateComponent;

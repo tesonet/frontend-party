@@ -3,9 +3,10 @@ import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
-import { FieldGroup, Label } from '../../components';
+import { FieldGroup, Label, Spinner } from '../../components';
 import img from '../../assets/surfing.jpg';
 import Api from '../../utils/api';
+import Keys from '../../utils/keys';
 
 
 class Login extends Component {
@@ -16,12 +17,14 @@ class Login extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.renderError = this.renderError.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.renderButton = this.renderButton.bind(this);
     
     this.state = {
       username: '',
       password: '',
       error: '',
       redirectToMain: false,
+      showSpinner: false,
     };
   }
 
@@ -29,24 +32,25 @@ class Login extends Component {
     this.setState({ username: e.target.value});
   }
 
-  async handlePasswordChange(e) {
+  handlePasswordChange(e) {
     this.setState({ password: e.target.value });
   }
 
   async onSubmit(event) {
     const { username, password } = this.state;
 
+    this.setState({ showSpinner: true, error: '' });
     event.preventDefault();
     event.target.reset();
 
     try {
       const response = await Api.login({ username, password }, 'application/json');
 
-      localStorage.setItem('token', response.data.token);
-      this.setState({ redirectToMain: true })
+      localStorage.setItem(Keys.TOKEN, response.data.token);
+      this.setState({ redirectToMain: true, showSpinner: false })
     } catch(error) {
       console.log(error);
-      this.setState({ error: 'Wrong username or password', username: '', password: '' })
+      this.setState({ error: 'Wrong username or password', username: '', password: '', showSpinner: false })
     }
   }
 
@@ -54,14 +58,24 @@ class Login extends Component {
     const { error } = this.state;
 
     if (error) {
-      return <ErrorText>Wrong username or password</ErrorText>
+      return <ErrorText>{error}</ErrorText>
     }
 
     return null;
   }
 
+  renderButton() {
+    const { showSpinner } = this.state;
+
+    if (showSpinner) {
+      return <Spinner size="large" />
+    }
+
+    return <SubmitButton type="submit">Log In</SubmitButton>
+  }
+
   render() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(Keys.TOKEN);
 
     if(token || this.state.redirectToMain) {
       return <Redirect to='/main' />
@@ -74,7 +88,7 @@ class Login extends Component {
           <FieldGroup id="formControlsUsername" type="text" placeholder="Username" onChange={this.handleUsernameChange} />
           <FieldGroup id="formControlsPassword" type="password" placeholder="Password" onChange={this.handlePasswordChange} />
           {this.renderError()}
-          <SubmitButton type="submit">Log In</SubmitButton>
+          {this.renderButton()}
         </LoginForm>
       </Content>
     );
