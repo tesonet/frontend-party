@@ -1,0 +1,57 @@
+$theme-colors: (
+  "success": #9fd533
+);
+$icon-width: 40px;
+
+body {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.inner-addon { 
+  position: relative;
+
+  .glyphicon {
+    top: 0;
+    right: 0;
+    position: absolute;
+    pointer-events: none;
+    height: 100%;
+    width: $icon-width;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &.glyphicon-user {
+      background-image: url("../images/ico-username.png");
+    }
+    &.glyphicon-lock {
+      background-image: url("../images/ico-lock.png");
+    }
+    &.glyphicon-logout {
+      background-image: url("../images/ico-logout.png");
+    }
+  }
+
+  &.left-addon {
+    .glyphicon {
+      left: 0px;
+    }
+    &.btn,
+    input {
+      padding-left: $icon-width;
+    }
+  }
+  &.right-addon {
+    .glyphicon {
+      right: 0px;
+    }
+    &.btn,
+    input {
+      padding-right: $icon-width;
+    }
+  }
+}
+
+
+@import './login.scss';
+@import './dashboard.scss';

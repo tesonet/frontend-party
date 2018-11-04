@@ -1,0 +1,56 @@
+{
+  "name": "senior-frontend-party",
+  "version": "1.0.0",
+  "description": "If you found this task it means we are looking for you!",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tesonet/senior-frontend-party.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tesonet/senior-frontend-party/issues"
+  },
+  "homepage": "https://github.com/tesonet/senior-frontend-party#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.9.4",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "bootstrap": "^4.1.3",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.3.1",
+    "npm": "^6.4.1",
+    "popper.js": "^1.14.4",
+    "react-router-dom": "^4.3.1",
+    "react-test-renderer": "^16.6.0",
+    "reactstrap": "^6.5.0"
+  }
+}

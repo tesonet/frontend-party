@@ -1,0 +1,55 @@
+#login {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    opacity: 0.2;
+    background: url("../images/bg.jpg");
+    background-size: cover;
+  }
+  background: #0B0F27;
+
+  .row {
+    height: 100%;
+    margin: 0;
+  }
+
+  .icon {
+    width: 80%;
+    height: 180px;
+    margin: 0 auto 10px;
+    margin-bottom: 10px;
+    background: url("../images/logo.png") no-repeat center center;
+    background-size: contain;
+    img {
+      max-width: 100%;
+    }
+  }
+  form {
+    input {
+      color: #b3b3b3;
+
+      &:focus,
+      &:active {
+        color: #999;
+      }
+    }
+
+    .btn-success {
+      background-color: #9fd533;
+      &:hover {
+        background-color: #86B300;
+      }
+    }
+  }
+  
+}
