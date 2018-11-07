@@ -1,0 +1,13 @@
+{
+    "extends": "airbnb",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "object-curly-spacing": ["error", "always"],
+        "jsx-quotes": ["error", "prefer-single"],
+        "comma-dangle": ["error", "never"]
+    }
+}
