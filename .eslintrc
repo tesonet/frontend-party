@@ -4,10 +4,16 @@
         "browser": true
     },
     "rules": {
+        "max-len": 0,
         "indent": ["error", 4],
         "react/jsx-indent": ["error", 4],
         "object-curly-spacing": ["error", "always"],
-        "jsx-quotes": ["error", "prefer-single"],
-        "comma-dangle": ["error", "never"]
+        "comma-dangle": ["error", "never"],
+        "jsx-a11y/label-has-for": 0,
+        "jsx-a11y/label-has-associated-control": [ "error", {
+            "required": {
+                "some": [ "nesting", "id"  ]
+            }
+        }]
     }
 }
