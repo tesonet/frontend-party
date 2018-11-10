@@ -5,7 +5,7 @@ import { getServerslist } from '../repos';
 import { setServers } from '../actions';
 
 const loadServersList = lifecycle({
-    componentWillMount() {
+    componentDidMount() {
         const { dispatch } = this.props;
 
         // if no token redirect to login
