@@ -8,6 +8,7 @@ const LoginButtonContainer = styled.button`
     color: white;
     height: 56px;
     line-height: 41px;
+    margin-top: 20px;
 
     &:focus,
     &:hover {

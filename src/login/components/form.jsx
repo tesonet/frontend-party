@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import InputField from './input-field';
 import LoginButton from './submit-button';
+import ErrorMessage from './error-message';
 
 const LoginFormPage = styled.div`
     display: flex;
@@ -38,7 +39,8 @@ const TestioLogo = styled.div`
 `;
 
 const StyledFormGroup = styled.div`
-      margin-bottom: 20px
+      margin-bottom: 0px;
+      margin-top: 20px;
 `;
 
 export default class LoginForm extends React.PureComponent {
@@ -77,7 +79,7 @@ export default class LoginForm extends React.PureComponent {
 
     render() {
         const { username, password } = this.state;
-        const { usernameIsValid, passwordIsValid } = this.props;
+        const { usernameValidationMessage, passwordValidationMessage, apiErrorMessage } = this.props;
 
         return (
             <LoginFormPage>
@@ -86,7 +88,7 @@ export default class LoginForm extends React.PureComponent {
                     <form onSubmit={this.handleSubmit}>
                         <StyledFormGroup className="form-group">
                             <InputField
-                                hasError={!usernameIsValid}
+                                errorMessage={usernameValidationMessage}
                                 value={username}
                                 onChange={this.handleUsernameChange}
                                 iconName="ico-username"
@@ -97,7 +99,7 @@ export default class LoginForm extends React.PureComponent {
                         </StyledFormGroup>
                         <StyledFormGroup className="form-group">
                             <InputField
-                                hasError={!passwordIsValid}
+                                errorMessage={passwordValidationMessage}
                                 value={password}
                                 onChange={this.handlePasswordChange}
                                 iconName="ico-lock"
@@ -107,6 +109,7 @@ export default class LoginForm extends React.PureComponent {
                                 placeholder="Password"
                             />
                         </StyledFormGroup>
+                        { apiErrorMessage && <ErrorMessage message={apiErrorMessage} /> }
                         <LoginButton />
                     </form>
                 </LoginFormContainer>
@@ -117,6 +120,7 @@ export default class LoginForm extends React.PureComponent {
 
 LoginForm.propTypes = {
     onSubmit: PropTypes.func,
-    usernameIsValid: PropTypes.bool,
-    passwordIsValid: PropTypes.bool
+    usernameValidationMessage: PropTypes.string,
+    passwordValidationMessage: PropTypes.string,
+    apiErrorMessage: PropTypes.string
 };

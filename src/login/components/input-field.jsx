@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import ErrorMessage from './error-message';
+
 const StyledInput = styled.input`
     height: 56px;
 
@@ -14,14 +16,14 @@ const StyledInput = styled.input`
     }
 
     ::placeholder {
-        color: ${props => props.hasError ? 'red' : '#999'};
+        color: ${props => props.errorMessage ? '#d11124' : '#999'};
     }
 
-    border-color: ${props => props.hasError ? 'red' : 'initial'};
+    border: ${props => props.errorMessage ? 'solid #d11124 2px' : 'initial'};
 `;
 
 const InputField = ({
-    hasError,
+    errorMessage,
     onChange,
     placeholder,
     id,
@@ -29,21 +31,25 @@ const InputField = ({
     type,
     iconName
 }) => (
-    <StyledInput
-        hasError={hasError}
-        type={type}
-        className="form-control"
-        onChange={onChange}
-        value={value}
-        id={id}
-        placeholder={placeholder}
-        iconName={iconName}
-        autoComplete="off"
-    />
+    <React.Fragment>
+        <StyledInput
+            errorMessage={errorMessage}
+            type={type}
+            className="form-control"
+            onChange={onChange}
+            value={value}
+            id={id}
+            placeholder={placeholder}
+            iconName={iconName}
+            autoComplete="off"
+        />
+        { errorMessage && <ErrorMessage message={errorMessage} /> }
+    </React.Fragment>
+
 );
 
 InputField.propTypes = {
-    hasError: PropTypes.bool,
+    errorMessage: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,

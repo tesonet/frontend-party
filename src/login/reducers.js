@@ -1,26 +1,26 @@
 import { handleActions } from 'redux-actions';
 
-import { setUsernameValid, setPasswordValid } from './actions';
+import { setUsernameValidation, setPasswordValidation } from './actions';
 
 const initialState = {
-    valid: {
-        username: true,
-        password: true
+    validation: {
+        username: '',
+        password: ''
     }
 };
 
 export default handleActions({
-    [setUsernameValid]: (state, { payload }) => ({
+    [setUsernameValidation]: (state, { payload }) => ({
         ...state,
-        valid: {
-            ...state.valid,
+        validation: {
+            ...state.validation,
             username: payload
         }
     }),
-    [setPasswordValid]: (state, { payload }) => ({
+    [setPasswordValidation]: (state, { payload }) => ({
         ...state,
-        valid: {
-            ...state.valid,
+        validation: {
+            ...state.validation,
             password: payload
         }
     })

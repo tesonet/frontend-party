@@ -2,40 +2,46 @@ import { connect } from 'react-redux';
 import { compose, withHandlers } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import { setAuthTokenToStorage } from '../../app/utils';
-import { setAuthenticated } from '../../app/actions';
-import { setUsernameValid, setPasswordValid } from '../actions';
+import { setAuthenticated, setAuthenticationError } from '../../app/actions';
+import { setUsernameValidation, setPasswordValidation } from '../actions';
 import { getAuthToken } from '../repos';
 
+const USERNAME_CANNOT_BE_EMPTY = 'Username cannot be empty';
+const PASSWORD_CANNOT_BE_EMPTY = 'Password cannot be empty';
+
 const onSubmitHandler = withHandlers({
-    onSubmit: props => (username, password) => {
-        const usernameValid = !!username;
-        const passwordValid = !!password;
+    onSubmit: ({ dispatch, history }) => (username, password) => {
+        const usernameValidationMessage = username ? '' : USERNAME_CANNOT_BE_EMPTY;
+        const passwordValidationMessage = password ? '' : PASSWORD_CANNOT_BE_EMPTY;
 
-        props.dispatch(setUsernameValid(usernameValid));
-        props.dispatch(setPasswordValid(passwordValid));
+        dispatch(setUsernameValidation(usernameValidationMessage));
+        dispatch(setPasswordValidation(passwordValidationMessage));
+        dispatch(setAuthenticationError(''));
 
-        if (!usernameValid || !passwordValid) {
+        if (usernameValidationMessage || passwordValidationMessage) {
             return;
         }
 
         getAuthToken(username, password)
             .then(({ data }) => {
                 setAuthTokenToStorage(data.token);
-                props.dispatch(setAuthenticated(true));
-                props.history.push('/servers-list');
+                dispatch(setAuthenticated(true));
+                history.push('/servers-list');
             })
-            .catch(() => {
-                props.dispatch(setUsernameValid(false));
-                props.dispatch(setPasswordValid(false));
+            .catch((error) => {
+                dispatch(setUsernameValidation(''));
+                dispatch(setPasswordValidation(''));
+                dispatch(setAuthenticationError(error.response.data.message));
             });
     }
 });
 
 export default compose(
     withRouter,
-    connect(({ login: { valid } }) => ({
-        usernameIsValid: valid.username,
-        passwordIsValid: valid.password
+    connect(({ login: { validation }, app }) => ({
+        usernameValidationMessage: validation.username,
+        passwordValidationMessage: validation.password,
+        apiErrorMessage: app.authenticationError
     })),
     onSubmitHandler
 );
