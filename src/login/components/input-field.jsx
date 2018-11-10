@@ -14,7 +14,7 @@ const StyledInput = styled.input`
     }
 
     ::placeholder {
-        color: #999
+        color: ${props => props.hasError ? 'red' : '#999'};
     }
 
     border-color: ${props => props.hasError ? 'red' : 'initial'};
@@ -38,6 +38,7 @@ const InputField = ({
         id={id}
         placeholder={placeholder}
         iconName={iconName}
+        autoComplete="off"
     />
 );
 
