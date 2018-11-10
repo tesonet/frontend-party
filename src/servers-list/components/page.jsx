@@ -1,9 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const ServersList = () => (
+import enhance from '../enhancers/servers';
+
+const ServersList = ({ serversList }) => (
     <div>
         Servers List
+        { serversList.map(({ name, distance, key }) => (
+            <div key={key}>
+                <div>
+                    Name:
+                    {name}
+                </div>
+                <div>
+                    Distance:
+                    {distance}
+                </div>
+            </div>
+        ))}
     </div>
 );
 
-export default ServersList;
+ServersList.propTypes = {
+    serversList: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        distance: PropTypes.number.isRequired,
+        key: PropTypes.string.isRequired
+    }))
+};
+
+export default enhance(ServersList);
