@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { compose, withHandlers } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import { setAuthTokenToStorage } from '../../app/utils';
-import { setAuthenticated, setAuthenticationError } from '../../app/actions';
+import { setAuthenticated, setAuthenticationError, setAuthenticating } from '../../app/actions';
 import { setUsernameValidation, setPasswordValidation } from '../actions';
 import { getAuthToken } from '../repos';
 
@@ -22,6 +22,8 @@ const onSubmitHandler = withHandlers({
             return;
         }
 
+        dispatch(setAuthenticating(true));
+
         getAuthToken(username, password)
             .then(({ data }) => {
                 setAuthTokenToStorage(data.token);
@@ -32,7 +34,8 @@ const onSubmitHandler = withHandlers({
                 dispatch(setUsernameValidation(''));
                 dispatch(setPasswordValidation(''));
                 dispatch(setAuthenticationError(error.response.data.message));
-            });
+            })
+            .then(() => dispatch(setAuthenticating(false)));
     }
 });
 
@@ -41,7 +44,8 @@ export default compose(
     connect(({ login: { validation }, app }) => ({
         usernameValidationMessage: validation.username,
         passwordValidationMessage: validation.password,
-        apiErrorMessage: app.authenticationError
+        apiErrorMessage: app.authenticationError,
+        isAuthenticating: app.isAuthenticating
     })),
     onSubmitHandler
 );

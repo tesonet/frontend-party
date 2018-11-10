@@ -1,13 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import enhance from '../enhancers/servers';
 import enhanceLogout from '../enhancers/logout-button';
-
-const DITANCE_UNITS = 'km';
-
-const getDistanceWithUnits = distance => `${distance} ${DITANCE_UNITS}`;
+import ListContent from './list-content';
 
 const ServersListLogo = styled.div`
     height: 30px;
@@ -34,7 +29,7 @@ const LogoutButton = styled.button`
     height: 56px;
     background: #ffffff url(../../../../images/logout.png) no-repeat scroll 24px 18px;
     border: none;
-    padding: 0 50px;
+    padding: 0 15px 0 50px;
     cursor: pointer;
 
     &:focus,
@@ -53,7 +48,7 @@ const PageHeader = styled.div`
 
 const EnhancedLogoutButton = enhanceLogout(LogoutButton);
 
-const ServersList = ({ serversList }) => (
+const ServersList = () => (
     <div>
         <PageHeader>
             <ServersListLogo />
@@ -64,23 +59,9 @@ const ServersList = ({ serversList }) => (
                 <span>Server</span>
                 <span>Distance</span>
             </ListItem>
-            { serversList.map(({ key, name, distance }) => (
-                <ListItem key={key} className="list-group-item">
-                    <span>{ name }</span>
-                    <span>{ getDistanceWithUnits(distance) }</span>
-                </ListItem>
-            ))}
-
+            <ListContent />
         </ul>
     </div>
 );
 
-ServersList.propTypes = {
-    serversList: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        distance: PropTypes.number.isRequired,
-        key: PropTypes.string.isRequired
-    }))
-};
-
-export default enhance(ServersList);
+export default ServersList;

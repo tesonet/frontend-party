@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const LoginButtonContainer = styled.button`
     border-radius: 5px;
@@ -22,8 +23,12 @@ const LoginButtonContainer = styled.button`
     }
 `;
 
-const LoginButton = () => (
-    <LoginButtonContainer type="submit" className="btn btn-sm btn-block">Log In</LoginButtonContainer>
+const LoginButton = ({ title }) => (
+    <LoginButtonContainer type="submit" className="btn btn-sm btn-block">{ title }</LoginButtonContainer>
 );
+
+LoginButton.propTypes = {
+    title: PropTypes.string
+};
 
 export default LoginButton;

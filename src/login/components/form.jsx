@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader';
 
 import InputField from './input-field';
 import LoginButton from './submit-button';
@@ -79,7 +80,12 @@ export default class LoginForm extends React.PureComponent {
 
     render() {
         const { username, password } = this.state;
-        const { usernameValidationMessage, passwordValidationMessage, apiErrorMessage } = this.props;
+        const {
+            usernameValidationMessage,
+            passwordValidationMessage,
+            apiErrorMessage,
+            isAuthenticating
+        } = this.props;
 
         return (
             <LoginFormPage>
@@ -110,7 +116,10 @@ export default class LoginForm extends React.PureComponent {
                             />
                         </StyledFormGroup>
                         { apiErrorMessage && <ErrorMessage message={apiErrorMessage} /> }
-                        <LoginButton />
+                        <div style={{ position: 'relative' }}>
+                            <Loader loaded={!isAuthenticating} color="#fff" />
+                            <LoginButton title={isAuthenticating ? '' : 'Log In'} />
+                        </div>
                     </form>
                 </LoginFormContainer>
             </LoginFormPage>
@@ -122,5 +131,6 @@ LoginForm.propTypes = {
     onSubmit: PropTypes.func,
     usernameValidationMessage: PropTypes.string,
     passwordValidationMessage: PropTypes.string,
-    apiErrorMessage: PropTypes.string
+    apiErrorMessage: PropTypes.string,
+    isAuthenticating: PropTypes.bool
 };
