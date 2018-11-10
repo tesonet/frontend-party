@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import enhance from '../enhancers/servers';
+import enhanceLogout from '../enhancers/logout-button';
 
 const DITANCE_UNITS = 'km';
 
@@ -15,6 +16,7 @@ const ServersListLogo = styled.div`
     margin-left: 15px;
     margin-top: 35px;
     margin-bottom: 40px;
+    flex-grow: 1;
 `;
 
 const ListItem = styled.li`
@@ -27,9 +29,36 @@ const ListItem = styled.li`
     line-height: 36px;
 `;
 
+
+const LogoutButton = styled.button`
+    height: 56px;
+    background: #ffffff url(../../../../images/logout.png) no-repeat scroll 24px 18px;
+    border: none;
+    padding: 0 50px;
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+        outline: none;
+        color: #99cc33;
+    }
+`;
+
+const PageHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: center;
+`;
+
+const EnhancedLogoutButton = enhanceLogout(LogoutButton);
+
 const ServersList = ({ serversList }) => (
     <div>
-        <ServersListLogo />
+        <PageHeader>
+            <ServersListLogo />
+            <EnhancedLogoutButton>Logout</EnhancedLogoutButton>
+        </PageHeader>
         <ul className="list-group list-group-flush">
             <ListItem header className="list-group-item">
                 <span>Server</span>
