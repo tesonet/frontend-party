@@ -1,11 +1,14 @@
 
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import Routes from './routes';
-import store from '../store';
+import createStore, { history } from '../store';
+import { getAuthTokenFromStorage } from '../utils';
+
+import { setAuthenticated } from '../actions';
 
 const GlobalStyle = createGlobalStyle`
     html,
@@ -19,13 +22,20 @@ const AppContainer = styled.div`
     height: 100%
 `;
 
+const store = createStore();
+const authToken = getAuthTokenFromStorage();
+
+if (authToken) {
+    store.dispatch(setAuthenticated(true));
+}
+
 const App = () => (
     <Provider store={store}>
         <AppContainer>
             <GlobalStyle />
-            <Router>
+            <ConnectedRouter history={history}>
                 <Routes />
-            </Router>
+            </ConnectedRouter>
         </AppContainer>
     </Provider>
 );

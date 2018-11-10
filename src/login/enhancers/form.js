@@ -1,39 +1,38 @@
 import { connect } from 'react-redux';
 import { compose, withHandlers } from 'recompose';
-import axios from 'axios';
-
-import {
-    setUsernameValid,
-    setPasswordValid
-} from '../actions';
-
-import { setAuthoken, getAuthToken } from '../../app/utils';
+import { withRouter } from 'react-router-dom';
+import { setAuthTokenToStorage } from '../../app/utils';
+import { setAuthenticated } from '../../app/actions';
+import { setUsernameValid, setPasswordValid } from '../actions';
+import { getAuthToken } from '../repos';
 
 const onSubmitHandler = withHandlers({
-    onSubmit: ({ dispatch }) => (username, password) => {
+    onSubmit: props => (username, password) => {
         const usernameValid = !!username;
         const passwordValid = !!password;
 
-        dispatch(setUsernameValid(usernameValid));
-        dispatch(setPasswordValid(passwordValid));
+        props.dispatch(setUsernameValid(usernameValid));
+        props.dispatch(setPasswordValid(passwordValid));
 
         if (!usernameValid || !passwordValid) {
             return;
         }
 
-        axios.post('http://playground.tesonet.lt/v1/tokens', {
-            username,
-            password
-        })
-            .then(({ data }) => setAuthoken(data.token))
+        getAuthToken(username, password)
+            .then(({ data }) => {
+                setAuthTokenToStorage(data.token);
+                props.dispatch(setAuthenticated(true));
+                props.history.push('/servers-list');
+            })
             .catch(() => {
-                dispatch(setUsernameValid(false));
-                dispatch(setPasswordValid(false));
+                props.dispatch(setUsernameValid(false));
+                props.dispatch(setPasswordValid(false));
             });
     }
 });
 
 export default compose(
+    withRouter,
     connect(({ login: { valid } }) => ({
         usernameIsValid: valid.username,
         passwordIsValid: valid.password

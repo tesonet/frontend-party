@@ -1,1 +1,1 @@
-export { setAuthToken, getAuthToken } from './localStorage';
+export { setAuthTokenToStorage, getAuthTokenFromStorage } from './localStorage';
