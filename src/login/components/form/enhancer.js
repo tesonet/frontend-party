@@ -7,10 +7,17 @@ import {
     setAuthenticationError,
     setAuthenticating,
     setAuthTokenToStorage
-} from '../../app';
+} from '../../../app';
 
-import { setUsernameValidation, setPasswordValidation } from '../actions';
-import { getAuthToken } from '../repos';
+import { setUsernameValidation, setPasswordValidation } from '../../actions';
+import { getAuthToken } from '../../repos';
+
+const connectState = connect(({ login: { validation }, app }) => ({
+    usernameValidationMessage: validation.username,
+    passwordValidationMessage: validation.password,
+    apiErrorMessage: app.authenticationError,
+    isAuthenticating: app.isAuthenticating
+}));
 
 const USERNAME_CANNOT_BE_EMPTY = 'Username cannot be empty';
 const PASSWORD_CANNOT_BE_EMPTY = 'Password cannot be empty';
@@ -47,11 +54,6 @@ const onSubmitHandler = withHandlers({
 
 export default compose(
     withRouter,
-    connect(({ login: { validation }, app }) => ({
-        usernameValidationMessage: validation.username,
-        passwordValidationMessage: validation.password,
-        apiErrorMessage: app.authenticationError,
-        isAuthenticating: app.isAuthenticating
-    })),
+    connectState,
     onSubmitHandler
 );

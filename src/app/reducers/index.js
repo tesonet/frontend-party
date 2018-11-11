@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
 import app from './app';
-import login from '../../login/reducers';
+import { loginReducer as login } from '../../login';
 import servers from '../../servers-list/reducers';
 
 export default history => combineReducers({

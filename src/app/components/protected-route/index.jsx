@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import { PATH_BY_ID } from '../../constants';
+import { ROUTES } from '../../constants';
 import enhance from './enhancer';
 
 const ProtectedRoute = ({ component: Component, authenticated, ...rest }) => (
@@ -9,7 +9,7 @@ const ProtectedRoute = ({ component: Component, authenticated, ...rest }) => (
         {...rest}
         render={props => authenticated
             ? <Component {...props} />
-            : <Redirect to={PATH_BY_ID.LOGIN} />
+            : <Redirect to={ROUTES.login} />
         }
     />
 );

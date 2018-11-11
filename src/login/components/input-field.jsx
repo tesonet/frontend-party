@@ -3,30 +3,35 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ErrorMessage from './error-message';
+import { COLORS, ASSETS_PATHS } from '../../app';
+
+const INPUT_ICONS = {
+    username: ASSETS_PATHS.usernameIcon,
+    password: ASSETS_PATHS.passwordIcon
+};
 
 const StyledInput = styled.input`
     height: 56px;
 
-    background: #ffffff url(../../../../images/${props => props.iconName}.png) no-repeat scroll 24px 18px;
+    background: #ffffff url(../../../../${props => INPUT_ICONS[props.iconName]}) no-repeat scroll 24px 18px;
     padding-left: 54px;
 
     &:focus,
     &:active {
-        color: #999;
+        color: ${COLORS.inputTextColor};
     }
 
     ::placeholder {
-        color: ${props => props.errorMessage ? '#d11124' : '#999'};
+        color: ${props => props.errorMessage ? COLORS.inputFieldError : COLORS.inputTextColor};
     }
 
-    border: ${props => props.errorMessage ? 'solid #d11124 2px' : 'initial'};
+    border: ${props => props.errorMessage ? `solid ${COLORS.inputFieldError} 2px` : 'initial'};
 `;
 
 const InputField = ({
     errorMessage,
     onChange,
     placeholder,
-    id,
     value,
     type,
     iconName
@@ -38,7 +43,6 @@ const InputField = ({
             className="form-control"
             onChange={onChange}
             value={value}
-            id={id}
             placeholder={placeholder}
             iconName={iconName}
             autoComplete="off"
@@ -51,7 +55,6 @@ const InputField = ({
 InputField.propTypes = {
     errorMessage: PropTypes.string,
     onChange: PropTypes.func.isRequired,
-    id: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
     value: PropTypes.string,
     type: PropTypes.string,
