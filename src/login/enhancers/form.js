@@ -1,8 +1,14 @@
 import { connect } from 'react-redux';
 import { compose, withHandlers } from 'recompose';
 import { withRouter } from 'react-router-dom';
-import { setAuthTokenToStorage } from '../../app/utils';
-import { setAuthenticated, setAuthenticationError, setAuthenticating } from '../../app/actions';
+
+import {
+    setAuthenticated,
+    setAuthenticationError,
+    setAuthenticating,
+    setAuthTokenToStorage
+} from '../../app';
+
 import { setUsernameValidation, setPasswordValidation } from '../actions';
 import { getAuthToken } from '../repos';
 

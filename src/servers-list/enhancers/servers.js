@@ -7,7 +7,7 @@ import {
 } from 'recompose';
 
 import EmptyState from '../components/empty-state';
-import { getAuthTokenFromStorage, createUid } from '../../app/utils';
+import { getAuthTokenFromStorage, createUid } from '../../app';
 import { getServerslist } from '../repos';
 import { setServersList, setServersLoading } from '../actions';
 

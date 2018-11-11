@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { BASE_URL } from '../../app/constants';
+import { BASE_URL } from '../../app';
 
 const AUTH_TOKEN_URL = `${BASE_URL}/v1/tokens`;
 

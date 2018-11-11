@@ -6,8 +6,8 @@ import createRootReducer from './reducers';
 export const history = createBrowserHistory();
 
 // From documentation: https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
-const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ // eslint-disable-line
-	? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) // eslint-disable-line
+const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ /* eslint no-underscore-dangle: 0 */
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) /* eslint no-underscore-dangle: 0 */
     : compose;
 
 export default initialState => createStore(
