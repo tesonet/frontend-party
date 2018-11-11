@@ -1,9 +1,10 @@
 import { handleActions } from 'redux-actions';
-import { setServersList, setServersLoading } from './actions';
+import { setServersList, setServersLoading, setServersFailToLoad } from './actions';
 
 const initialState = {
     list: [],
-    loading: false
+    loading: false,
+    failedToLoad: false
 };
 
 export default handleActions({
@@ -14,5 +15,9 @@ export default handleActions({
     [setServersLoading]: (state, { payload }) => ({
         ...state,
         loading: payload
+    }),
+    [setServersFailToLoad]: (state, { payload }) => ({
+        ...state,
+        failedToLoad: payload
     })
 }, initialState);

@@ -24,8 +24,7 @@ const connectState = connect(({ login: { validation }, app }) => ({
 
 const onSubmitHandler = withHandlers({
     onSubmit: ({ dispatch, history, errorMessages }) => (username, password) => {
-
-        const { usernameCannotBeEmpty, passwordCannotBeEmpty } = errorMessages;
+        const { usernameCannotBeEmpty, passwordCannotBeEmpty, somethingWentWrong } = errorMessages;
         const usernameValidationMessage = username ? '' : usernameCannotBeEmpty;
         const passwordValidationMessage = password ? '' : passwordCannotBeEmpty;
 
@@ -48,7 +47,10 @@ const onSubmitHandler = withHandlers({
             .catch((error) => {
                 dispatch(setUsernameValidation(''));
                 dispatch(setPasswordValidation(''));
-                dispatch(setAuthenticationError(error.response.data.message));
+
+                const errorMessage = (error.response && error.response.data.message) || somethingWentWrong;
+
+                dispatch(setAuthenticationError(errorMessage));
             })
             .then(() => dispatch(setAuthenticating(false)));
     }
@@ -59,7 +61,8 @@ export default compose(
     withProps(({ intl }) => ({
         errorMessages: {
             usernameCannotBeEmpty: intl.formatMessage(translations.usernameCannotBeEmpty),
-            passwordCannotBeEmpty: intl.formatMessage(translations.passwordCannotBeEmpty)
+            passwordCannotBeEmpty: intl.formatMessage(translations.passwordCannotBeEmpty),
+            somethingWentWrong: intl.formatMessage(translations.somethingWentWrong)
         }
     })),
     withRouter,

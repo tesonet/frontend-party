@@ -1,20 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List Content should render loader 1`] = `
-<Fragment>
-  <styled.div>
-    <Component
-      component="div"
-      loaded={false}
-      loadedClassName="loadedContent"
-      parentClassName="loader"
-    />
-  </styled.div>
-</Fragment>
+<styled.div>
+  <Component
+    component="div"
+    loaded={false}
+    loadedClassName="loadedContent"
+    parentClassName="loader"
+  />
+</styled.div>
 `;
 
 exports[`List Content should render servers list 1`] = `
-<Fragment>
+Array [
   <styled.li
     className="list-group-item"
     key="1"
@@ -25,7 +23,7 @@ exports[`List Content should render servers list 1`] = `
     <span>
       11 km
     </span>
-  </styled.li>
+  </styled.li>,
   <styled.li
     className="list-group-item"
     key="2"
@@ -36,6 +34,6 @@ exports[`List Content should render servers list 1`] = `
     <span>
       1 km
     </span>
-  </styled.li>
-</Fragment>
+  </styled.li>,
+]
 `;

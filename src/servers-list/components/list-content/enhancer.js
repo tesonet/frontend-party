@@ -9,12 +9,13 @@ import {
 import EmptyState from '../empty-state';
 import { getAuthTokenFromStorage, createUid } from '../../../app';
 import { getServerslist } from '../../repos';
-import { setServersList, setServersLoading } from '../../actions';
-import { isServersListLoading, getServerslistSorted } from '../../selectors';
+import { setServersList, setServersLoading, setServersFailToLoad } from '../../actions';
+import { getServerslistSorted } from '../../selectors';
 
 const connectState = connect(state => ({
     serversList: getServerslistSorted(state),
-    loading: isServersListLoading(state)
+    failedToLoad: state.servers.failedToLoad,
+    loading: state.servers.loading
 }));
 
 const loadServersList = lifecycle({
@@ -23,6 +24,7 @@ const loadServersList = lifecycle({
         const authToken = getAuthTokenFromStorage();
 
         dispatch(setServersLoading(true));
+        dispatch(setServersFailToLoad(false));
 
         getServerslist(authToken)
             .then(response => dispatch(setServersList(response.data
@@ -30,14 +32,14 @@ const loadServersList = lifecycle({
                     ...server,
                     key: createUid()
                 })))))
-            .catch(() => dispatch(setServersLoading(false)))
+            .catch(() => dispatch(setServersFailToLoad(true)))
             .then(() => dispatch(setServersLoading(false)));
     }
 });
 
 
 const handleVisibility = branch(
-    ({ loading, serversList }) => !loading && !serversList.length,
+    ({ loading, serversList, failedToLoad }) => !loading && !serversList.length && !failedToLoad,
     renderComponent(EmptyState),
 );
 

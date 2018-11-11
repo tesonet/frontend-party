@@ -4,5 +4,6 @@ export default defineMessages({
     username: 'Username',
     password: 'Password',
     usernameCannotBeEmpty: 'Username cannot be empty',
-    passwordCannotBeEmpty: 'Password cannot be empty'
+    passwordCannotBeEmpty: 'Password cannot be empty',
+    somethingWentWrong: 'Something went wrong'
 });
