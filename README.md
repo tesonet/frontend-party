@@ -1,3 +1,12 @@
+# Main scripts
+
+* `yarn install` - installs all project dependencies
+* `yarn start` - starts project in development mode - runs dev-server, watches files, rebuilds automatically and reloads html.
+* `yarn run build` - bundles project for production
+* `yarn run lint` - lints js{x} code
+* `yarn run test` - run jest tests
+* `yarn run test:update-snapshots` - updates jest created snapshots
+
 # Senior frontend developer task
 
 If you found this task it means we are looking for you!
