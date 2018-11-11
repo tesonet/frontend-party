@@ -19,11 +19,13 @@ const Page = styled.div`
         opacity: 0.2;
         background: url(../../../../${ASSETS_PATHS.loginBackground});
         background-size: cover;
+        top: 0px;
+        right:0px;
       }
 `;
 
 const LoginFormContainer = styled.div`
-    position: absolute;
+    position: relative;
     max-width: 360px;
     width: 100%;
 `;
