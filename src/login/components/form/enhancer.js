@@ -6,7 +6,8 @@ import {
     setAuthenticated,
     setAuthenticationError,
     setAuthenticating,
-    setAuthTokenToStorage
+    setAuthTokenToStorage,
+    ROUTES
 } from '../../../app';
 
 import { setUsernameValidation, setPasswordValidation } from '../../actions';
@@ -41,7 +42,7 @@ const onSubmitHandler = withHandlers({
             .then(({ data }) => {
                 setAuthTokenToStorage(data.token);
                 dispatch(setAuthenticated(true));
-                history.push('/servers-list');
+                history.push(ROUTES.serversList);
             })
             .catch((error) => {
                 dispatch(setUsernameValidation(''));

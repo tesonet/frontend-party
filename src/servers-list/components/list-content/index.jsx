@@ -3,21 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Loader from 'react-loader';
 
-import enhance from '../enhancers/servers';
+import enhance from './enhancer';
+import ListItem from '../list-item';
 
 const DITANCE_UNITS = 'km';
 
 const getDistanceWithUnits = distance => `${distance} ${DITANCE_UNITS}`;
-
-const ListItem = styled.li`
-    background-color: ${props => props.header ? '#f5f5f5' : '#ffffff'};
-    text-transform: ${props => props.header ? 'uppercase' : 'initial'};
-    color: #666666;
-    display: flex;
-    justify-content: space-between;
-    height: 60px;
-    line-height: 36px;
-`;
 
 const LoaderWrapper = styled.div`
     position: relative;

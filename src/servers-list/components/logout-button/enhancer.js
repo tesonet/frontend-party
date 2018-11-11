@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { compose, withHandlers } from 'recompose';
 import { withRouter } from 'react-router-dom';
-import { removeAuthTokenFromStorage, setAuthenticated } from '../../app';
+import { removeAuthTokenFromStorage, setAuthenticated } from '../../../app';
 
 const onClickHandler = withHandlers({
     onClick: ({ dispatch, history }) => () => {

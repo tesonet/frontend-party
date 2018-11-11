@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { ROUTES } from '../constants';
 import ProtectedRoute from './protected-route';
 import { Login } from '../../login';
-import ServersList from '../../servers-list/components/page';
+import { ServersList } from '../../servers-list';
 
 const Routes = () => (
     <Switch>

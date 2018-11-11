@@ -9,7 +9,9 @@ export const ASSETS_PATHS = {
     loginBackground: 'images/bg.png',
     loginLogo: 'images/logotype-testio.png',
     passwordIcon: 'images/ico-lock.png',
-    usernameIcon: 'images/ico-username.png'
+    usernameIcon: 'images/ico-username.png',
+    serversLogo: 'images/servers-logo.png',
+    logout: 'images/logout.png'
 };
 
 export const COLORS = {
@@ -19,5 +21,8 @@ export const COLORS = {
     loginPageBackground: '#0b0f27',
     submitButton: '#9fd533',
     submitButtonOnHover: '#86b300',
-    submitButtonText: '#fff'
+    submitButtonText: '#fff',
+    listItemTextColor: '#666666',
+    listHeaderBackgroundColor: '#f5f5f5',
+    logoutOnHover: '#99cc33'
 };

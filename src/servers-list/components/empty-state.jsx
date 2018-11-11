@@ -1,21 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ListItem from './list-item';
 
-const ListItem = styled.li`
-    background-color: ${props => props.header ? '#f5f5f5' : '#ffffff'};
-    text-transform: ${props => props.header ? 'uppercase' : 'initial'};
-    color: #666666;
-    display: flex;
+const EmptyStateListItem = styled(ListItem)`
     justify-content: center;
-    height: 60px;
-    line-height: 36px;
 `;
 
 const EmptyState = () => (
-    <ListItem className="list-group-item">
+    <EmptyStateListItem className="list-group-item">
         <span>No Results</span>
-    </ListItem>
+    </EmptyStateListItem>
 );
 
 export default EmptyState;
