@@ -4,8 +4,10 @@ exports[`Empty State should should render empty state 1`] = `
 <Styled(styled.li)
   className="list-group-item"
 >
-  <span>
-    No Results
-  </span>
+  <FormattedMessage
+    defaultMessage="No results"
+    id="src.servers-list.components.empty-state.noResults"
+    values={Object {}}
+  />
 </Styled(styled.li)>
 `;

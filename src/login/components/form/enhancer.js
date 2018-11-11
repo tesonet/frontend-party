@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, withProps } from 'recompose';
 import { withRouter } from 'react-router-dom';
+import { injectIntl } from 'react-intl';
 
 import {
     setAuthenticated,
@@ -12,6 +13,7 @@ import {
 
 import { setUsernameValidation, setPasswordValidation } from '../../actions';
 import { getAuthToken } from '../../repos';
+import translations from './index.lang';
 
 const connectState = connect(({ login: { validation }, app }) => ({
     usernameValidationMessage: validation.username,
@@ -20,13 +22,12 @@ const connectState = connect(({ login: { validation }, app }) => ({
     isAuthenticating: app.isAuthenticating
 }));
 
-const USERNAME_CANNOT_BE_EMPTY = 'Username cannot be empty';
-const PASSWORD_CANNOT_BE_EMPTY = 'Password cannot be empty';
-
 const onSubmitHandler = withHandlers({
-    onSubmit: ({ dispatch, history }) => (username, password) => {
-        const usernameValidationMessage = username ? '' : USERNAME_CANNOT_BE_EMPTY;
-        const passwordValidationMessage = password ? '' : PASSWORD_CANNOT_BE_EMPTY;
+    onSubmit: ({ dispatch, history, errorMessages }) => (username, password) => {
+
+        const { usernameCannotBeEmpty, passwordCannotBeEmpty } = errorMessages;
+        const usernameValidationMessage = username ? '' : usernameCannotBeEmpty;
+        const passwordValidationMessage = password ? '' : passwordCannotBeEmpty;
 
         dispatch(setUsernameValidation(usernameValidationMessage));
         dispatch(setPasswordValidation(passwordValidationMessage));
@@ -54,6 +55,13 @@ const onSubmitHandler = withHandlers({
 });
 
 export default compose(
+    injectIntl,
+    withProps(({ intl }) => ({
+        errorMessages: {
+            usernameCannotBeEmpty: intl.formatMessage(translations.usernameCannotBeEmpty),
+            passwordCannotBeEmpty: intl.formatMessage(translations.passwordCannotBeEmpty)
+        }
+    })),
     withRouter,
     connectState,
     onSubmitHandler

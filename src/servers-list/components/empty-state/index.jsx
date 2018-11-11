@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 
-import ListItem from './list-item';
+import ListItem from '../list-item';
+import translations from './index.lang';
 
 const EmptyStateListItem = styled(ListItem)`
     justify-content: center;
@@ -9,7 +11,7 @@ const EmptyStateListItem = styled(ListItem)`
 
 const EmptyState = () => (
     <EmptyStateListItem className="list-group-item">
-        <span>No Results</span>
+        <FormattedMessage {...translations.noResults} />
     </EmptyStateListItem>
 );
 

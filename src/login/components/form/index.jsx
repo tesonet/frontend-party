@@ -6,6 +6,7 @@ import InputField from '../input-field';
 import SubmitButtonWithLoader from '../submit-button-with-loader';
 import ErrorMessage from '../error-message';
 import enhance from './enhancer';
+import translations from './index.lang';
 
 const FormGroupWithMargin = styled.div`
       margin-bottom: 0px;
@@ -63,7 +64,7 @@ class LoginForm extends React.PureComponent {
                         onChange={this.handleUsernameChange}
                         iconName="username"
                         className="form-control"
-                        placeholder="Username"
+                        placeholder={translations.username}
                     />
                 </FormGroupWithMargin>
                 <FormGroupWithMargin className="form-group">
@@ -74,7 +75,7 @@ class LoginForm extends React.PureComponent {
                         iconName="password"
                         className="form-control"
                         type="password"
-                        placeholder="Password"
+                        placeholder={translations.password}
                     />
                 </FormGroupWithMargin>
                 { apiErrorMessage && <ErrorMessage message={apiErrorMessage} /> }

@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader';
+import { FormattedMessage } from 'react-intl';
 
 import enhance from './enhancer';
 import { COLORS } from '../../../app';
+import translations from './index.lang';
 
 const SubmitButtonContainer = styled.div`
 
@@ -35,7 +37,7 @@ const SubmitButtonContainer = styled.div`
 export const SubmitButtonWithLoader = ({ isAuthenticating }) => (
     <SubmitButtonContainer style={{ position: 'relative' }}>
         <Loader loaded={!isAuthenticating} color="#fff" />
-        <button type="submit" className="btn btn-sm btn-block">{isAuthenticating ? '' : 'Log In'}</button>
+        <button type="submit" className="btn btn-sm btn-block">{isAuthenticating ? '' : <FormattedMessage {...translations.logIn} />}</button>
     </SubmitButtonContainer>
 );
 

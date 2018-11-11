@@ -17,7 +17,9 @@
     },
     "jest": {
         "setupTestFrameworkScriptFile": "./test-setup.js",
-        "snapshotSerializers": ["enzyme-to-json/serializer"]
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ]
     },
     "repository": "https://github.com/EgidijusJakas/senior-frontend-party.git",
     "author": "Egidijus Jakas <egidijusjakas@gmail.com>",
@@ -32,6 +34,7 @@
         "prop-types": "^15.6.2",
         "react": "^16.6.1",
         "react-dom": "^16.6.1",
+        "react-intl": "^2.7.2",
         "react-loader": "^2.4.5",
         "react-redux": "^5.1.0",
         "react-router-dom": "^4.3.1",
@@ -48,6 +51,7 @@
         "babel-core": "7.0.0-bridge.0",
         "babel-jest": "^23.6.0",
         "babel-loader": "^8.0.4",
+        "babel-plugin-react-intl-auto": "^1.1.1",
         "css-loader": "^1.0.1",
         "enzyme": "^3.7.0",
         "enzyme-adapter-react-16": "^1.7.0",

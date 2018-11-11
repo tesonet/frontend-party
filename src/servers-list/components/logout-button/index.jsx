@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 import enhance from './enhancer';
 import { COLORS, ASSETS_PATHS } from '../../../app';
+import translations from './index.lang';
 
 const StyledLogoutButton = styled.button`
     height: 56px;
@@ -20,7 +22,9 @@ const StyledLogoutButton = styled.button`
 `;
 
 export const LogoutButton = ({ onClick }) => (
-    <StyledLogoutButton onClick={onClick}>Logout</StyledLogoutButton>
+    <StyledLogoutButton onClick={onClick}>
+        <FormattedMessage {...translations.logout} />
+    </StyledLogoutButton>
 );
 
 LogoutButton.propTypes = {

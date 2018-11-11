@@ -3,11 +3,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { createGlobalStyle } from 'styled-components';
+import { IntlProvider } from 'react-intl';
 
 import Routes from './routes';
 import createStore, { history } from '../store';
 import { getAuthTokenFromStorage } from '../utils';
 import { setAuthenticated } from '../actions';
+import { DEFAULT_LOCALE } from '../constants';
 
 const GlobalStyle = createGlobalStyle`
     html,
@@ -25,12 +27,14 @@ if (getAuthTokenFromStorage()) {
 
 const App = () => (
     <Provider store={store}>
-        <React.Fragment>
-            <GlobalStyle />
-            <ConnectedRouter history={history}>
-                <Routes />
-            </ConnectedRouter>
-        </React.Fragment>
+        <IntlProvider locale={DEFAULT_LOCALE}>
+            <React.Fragment>
+                <GlobalStyle />
+                <ConnectedRouter history={history}>
+                    <Routes />
+                </ConnectedRouter>
+            </React.Fragment>
+        </IntlProvider>
     </Provider>
 );
 

@@ -26,3 +26,5 @@ export const COLORS = {
     listHeaderBackgroundColor: '#f5f5f5',
     logoutOnHover: '#99cc33'
 };
+
+export const DEFAULT_LOCALE = 'en';

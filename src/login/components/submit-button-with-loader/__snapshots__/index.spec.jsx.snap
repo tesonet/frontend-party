@@ -41,7 +41,11 @@ exports[`Submit Button should render button without loader 1`] = `
     className="btn btn-sm btn-block"
     type="submit"
   >
-    Log In
+    <FormattedMessage
+      defaultMessage="Log In"
+      id="src.login.components.submit-button-with-loader.logIn"
+      values={Object {}}
+    />
   </button>
 </styled.div>
 `;

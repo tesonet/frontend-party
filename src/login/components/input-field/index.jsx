@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import ErrorMessage from './error-message';
-import { COLORS, ASSETS_PATHS } from '../../app';
+import ErrorMessage from '../error-message';
+import { COLORS, ASSETS_PATHS } from '../../../app';
+import enhance from './enhancer';
 
 const INPUT_ICONS = {
     username: ASSETS_PATHS.usernameIcon,
@@ -65,4 +66,4 @@ InputField.defaultProps = {
     type: 'text'
 };
 
-export default InputField;
+export default enhance(InputField);

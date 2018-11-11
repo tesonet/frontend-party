@@ -4,6 +4,10 @@ exports[`Logout Button should render loader 1`] = `
 <styled.button
   onClick={[MockFunction]}
 >
-  Logout
+  <FormattedMessage
+    defaultMessage="Logout"
+    id="src.servers-list.components.logout-button.logout"
+    values={Object {}}
+  />
 </styled.button>
 `;

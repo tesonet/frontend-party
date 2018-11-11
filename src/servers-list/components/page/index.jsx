@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 
-import LogoutButton from './logout-button';
-import ListContent from './list-content';
-import ListItem from './list-item';
-import { ASSETS_PATHS } from '../../app';
+import LogoutButton from '../logout-button';
+import ListContent from '../list-content';
+import ListItem from '../list-item';
+import { ASSETS_PATHS } from '../../../app';
+import translations from './index.lang';
 
 const ServersListLogo = styled.div`
     height: 30px;
@@ -31,8 +33,8 @@ const ServersList = () => (
         </PageHeader>
         <ul className="list-group list-group-flush">
             <ListItem header className="list-group-item">
-                <span>Server</span>
-                <span>Distance</span>
+                <FormattedMessage {...translations.server} />
+                <FormattedMessage {...translations.distance} />
             </ListItem>
             <ListContent />
         </ul>
