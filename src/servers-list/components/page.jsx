@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import LogoutButton from './logout-button';
 import ListContent from './list-content';
 import ListItem from './list-item';
-import { COLORS, ASSETS_PATHS } from '../../app';
+import { ASSETS_PATHS } from '../../app';
 
 const ServersListLogo = styled.div`
     height: 30px;
@@ -16,11 +16,6 @@ const ServersListLogo = styled.div`
     flex-grow: 1;
 `;
 
-const ListItemHeader = styled(ListItem)`
-    background-color: ${COLORS.listHeaderBackgroundColor};
-    text-transform: uppercase;
-`;
-
 const PageHeader = styled.div`
     display: flex;
     justify-content: space-between;
@@ -29,19 +24,19 @@ const PageHeader = styled.div`
 `;
 
 const ServersList = () => (
-    <div>
+    <React.Fragment>
         <PageHeader>
             <ServersListLogo />
             <LogoutButton />
         </PageHeader>
         <ul className="list-group list-group-flush">
-            <ListItemHeader className="list-group-item">
+            <ListItem header className="list-group-item">
                 <span>Server</span>
                 <span>Distance</span>
-            </ListItemHeader>
+            </ListItem>
             <ListContent />
         </ul>
-    </div>
+    </React.Fragment>
 );
 
 export default ServersList;

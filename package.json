@@ -7,12 +7,17 @@
         "build": "rimraf dist && webpack --config webpack.config.prod.js",
         "lint": "eslint --ext .jsx --ext .js src/",
         "test": "jest",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --watch",
+        "test:update-snapshots": "jest --updateSnapshot"
     },
     "husky": {
         "hooks": {
             "pre-push": "yarn run lint"
         }
+    },
+    "jest": {
+        "setupTestFrameworkScriptFile": "./test-setup.js",
+        "snapshotSerializers": ["enzyme-to-json/serializer"]
     },
     "repository": "https://github.com/EgidijusJakas/senior-frontend-party.git",
     "author": "Egidijus Jakas <egidijusjakas@gmail.com>",
@@ -40,9 +45,13 @@
         "@babel/core": "^7.1.5",
         "@babel/preset-env": "^7.1.5",
         "@babel/preset-react": "^7.0.0",
+        "babel-core": "7.0.0-bridge.0",
         "babel-jest": "^23.6.0",
         "babel-loader": "^8.0.4",
         "css-loader": "^1.0.1",
+        "enzyme": "^3.7.0",
+        "enzyme-adapter-react-16": "^1.7.0",
+        "enzyme-to-json": "^3.3.4",
         "eslint": "^5.8.0",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-plugin-import": "^2.14.0",

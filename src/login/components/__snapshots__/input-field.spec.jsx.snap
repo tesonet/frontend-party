@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input field should render input field 1`] = `
+<Fragment>
+  <styled.input
+    autoComplete="off"
+    className="form-control"
+    onChange={[MockFunction]}
+    placeholder="Placeholder"
+    type="text"
+    value=""
+  />
+</Fragment>
+`;
+
+exports[`Input field should render input field with error 1`] = `
+<Fragment>
+  <styled.input
+    autoComplete="off"
+    className="form-control"
+    errorMessage="Value cannot be empty"
+    onChange={[MockFunction]}
+    placeholder="Placeholder"
+    type="text"
+    value=""
+  />
+  <ErrorMessage
+    message="Value cannot be empty"
+  />
+</Fragment>
+`;

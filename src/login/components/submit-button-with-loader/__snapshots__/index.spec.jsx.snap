@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Submit Button should render button with loader 1`] = `
+<styled.div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <Component
+    color="#fff"
+    component="div"
+    loaded={false}
+    loadedClassName="loadedContent"
+    parentClassName="loader"
+  />
+  <button
+    className="btn btn-sm btn-block"
+    type="submit"
+  />
+</styled.div>
+`;
+
+exports[`Submit Button should render button without loader 1`] = `
+<styled.div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <Component
+    color="#fff"
+    component="div"
+    loaded={true}
+    loadedClassName="loadedContent"
+    parentClassName="loader"
+  />
+  <button
+    className="btn btn-sm btn-block"
+    type="submit"
+  >
+    Log In
+  </button>
+</styled.div>
+`;

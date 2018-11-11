@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Content should render loader 1`] = `
+<Fragment>
+  <styled.div>
+    <Component
+      component="div"
+      loaded={false}
+      loadedClassName="loadedContent"
+      parentClassName="loader"
+    />
+  </styled.div>
+</Fragment>
+`;
+
+exports[`List Content should render servers list 1`] = `
+<Fragment>
+  <styled.li
+    className="list-group-item"
+    key="1"
+  >
+    <span>
+      Server1
+    </span>
+    <span>
+      11 km
+    </span>
+  </styled.li>
+  <styled.li
+    className="list-group-item"
+    key="2"
+  >
+    <span>
+      Server2
+    </span>
+    <span>
+      1 km
+    </span>
+  </styled.li>
+</Fragment>
+`;

@@ -32,7 +32,7 @@ const SubmitButtonContainer = styled.div`
     }
 `;
 
-const SubmitButtonWithLoader = ({ isAuthenticating }) => (
+export const SubmitButtonWithLoader = ({ isAuthenticating }) => (
     <SubmitButtonContainer style={{ position: 'relative' }}>
         <Loader loaded={!isAuthenticating} color="#fff" />
         <button type="submit" className="btn btn-sm btn-block">{isAuthenticating ? '' : 'Log In'}</button>

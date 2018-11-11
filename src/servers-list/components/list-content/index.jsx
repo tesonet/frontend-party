@@ -15,7 +15,7 @@ const LoaderWrapper = styled.div`
     height: 60px;
 `;
 
-const ListContent = ({ serversList, loading }) => (
+export const ListContent = ({ serversList, loading }) => (
     <React.Fragment>
         { loading && (
             <LoaderWrapper>
@@ -37,7 +37,7 @@ ListContent.propTypes = {
         name: PropTypes.string.isRequired,
         distance: PropTypes.number.isRequired,
         key: PropTypes.string.isRequired
-    })),
+    })).isRequired,
     loading: PropTypes.bool
 };
 

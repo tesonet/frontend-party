@@ -85,7 +85,7 @@ class LoginForm extends React.PureComponent {
 }
 
 LoginForm.propTypes = {
-    onSubmit: PropTypes.func,
+    onSubmit: PropTypes.func.isRequired,
     usernameValidationMessage: PropTypes.string,
     passwordValidationMessage: PropTypes.string,
     apiErrorMessage: PropTypes.string

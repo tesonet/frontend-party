@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty State should should render empty state 1`] = `
+<Styled(styled.li)
+  className="list-group-item"
+>
+  <span>
+    No Results
+  </span>
+</Styled(styled.li)>
+`;

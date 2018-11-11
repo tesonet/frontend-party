@@ -19,12 +19,12 @@ const StyledLogoutButton = styled.button`
     }
 `;
 
-const LogoutButton = ({ onClick }) => (
+export const LogoutButton = ({ onClick }) => (
     <StyledLogoutButton onClick={onClick}>Logout</StyledLogoutButton>
 );
 
 LogoutButton.propTypes = {
-    onClick: PropTypes.func
+    onClick: PropTypes.func.isRequired
 };
 
 export default enhance(LogoutButton);

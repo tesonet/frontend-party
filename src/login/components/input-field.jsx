@@ -28,7 +28,7 @@ const StyledInput = styled.input`
     border: ${props => props.errorMessage ? `solid ${COLORS.inputFieldError} 2px` : 'initial'};
 `;
 
-const InputField = ({
+export const InputField = ({
     errorMessage,
     onChange,
     placeholder,
@@ -56,7 +56,7 @@ InputField.propTypes = {
     errorMessage: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string.isRequired,
-    value: PropTypes.string,
+    value: PropTypes.string.isRequired,
     type: PropTypes.string,
     iconName: PropTypes.string
 };
