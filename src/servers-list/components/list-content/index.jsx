@@ -15,7 +15,7 @@ const LoaderWrapper = styled.div`
     height: 60px;
 `;
 
-const ServersList = ({ serversList, loading }) => (
+const ListContent = ({ serversList, loading }) => (
     <React.Fragment>
         { loading && (
             <LoaderWrapper>
@@ -32,7 +32,7 @@ const ServersList = ({ serversList, loading }) => (
     </React.Fragment>
 );
 
-ServersList.propTypes = {
+ListContent.propTypes = {
     serversList: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         distance: PropTypes.number.isRequired,
@@ -41,4 +41,4 @@ ServersList.propTypes = {
     loading: PropTypes.bool
 };
 
-export default enhance(ServersList);
+export default enhance(ListContent);
