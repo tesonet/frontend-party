@@ -9,7 +9,7 @@ import translations from './index.lang';
 
 const StyledLogoutButton = styled.button`
     height: 56px;
-    background: #ffffff url(../../../../${ASSETS_PATHS.logout}) no-repeat scroll 24px 18px;
+    background: #ffffff url(${ASSETS_PATHS.logout}) no-repeat scroll 24px 18px;
     border: none;
     padding: 0 15px 0 50px;
     cursor: pointer;

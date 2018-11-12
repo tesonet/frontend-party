@@ -17,7 +17,7 @@ const Page = styled.div`
         width: 100%;
         height: 100%;
         opacity: 0.2;
-        background: url(../../../../${ASSETS_PATHS.loginBackground});
+        background: url(${ASSETS_PATHS.loginBackground});
         background-size: cover;
         top: 0px;
         right:0px;
@@ -32,7 +32,7 @@ const LoginFormContainer = styled.div`
 
 const LoginLogo = styled.div`
     height: 64px;
-    background: url(../../../../${ASSETS_PATHS.loginLogo}) no-repeat center center;
+    background: url(${ASSETS_PATHS.loginLogo}) no-repeat center center;
     max-width: 286px;
     background-size: contain;
     margin: 0 auto 70px

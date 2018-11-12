@@ -7,6 +7,8 @@ import React from 'react';
 import { App } from './app';
 
 // for IE11 support
-es6Promise.polyfill();
+if (typeof Promise !== 'function') {
+    es6Promise.polyfill();
+}
 
 render(<App />, document.getElementById('root'));

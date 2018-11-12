@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`List Content should render error message 1`] = `
+<styled.div
+  className="alert alert-danger"
+>
+  <FormattedMessage
+    defaultMessage="Something went wrong. Failed to load servers list."
+    id="src.servers-list.components.list-content.failedToLoadServersList"
+    values={Object {}}
+  />
+</styled.div>
+`;
+
 exports[`List Content should render loader 1`] = `
 <styled.div>
   <Component

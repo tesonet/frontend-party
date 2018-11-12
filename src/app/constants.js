@@ -6,12 +6,12 @@ export const ROUTES = {
 };
 
 export const ASSETS_PATHS = {
-    loginBackground: 'images/bg.png',
-    loginLogo: 'images/logotype-testio.png',
-    passwordIcon: 'images/ico-lock.png',
-    usernameIcon: 'images/ico-username.png',
-    serversLogo: 'images/servers-logo.png',
-    logout: 'images/logout.png'
+    loginBackground: '/assets/bg.png',
+    loginLogo: '/assets/logotype-testio.png',
+    passwordIcon: '/assets/ico-lock.png',
+    usernameIcon: '/assets/ico-username.png',
+    serversLogo: '/assets/servers-logo.png',
+    logout: '/assets/logout.png'
 };
 
 export const COLORS = {

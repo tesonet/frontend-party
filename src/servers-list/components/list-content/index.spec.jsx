@@ -30,4 +30,15 @@ describe('List Content', () => {
         const renderedComponent = shallow(<ListContent {...props} />);
         expect(renderedComponent).toMatchSnapshot();
     });
+
+    it('should render error message', () => {
+        const props = {
+            serversList: [],
+            loading: false,
+            failedToLoad: true
+        };
+
+        const renderedComponent = shallow(<ListContent {...props} />);
+        expect(renderedComponent).toMatchSnapshot();
+    });
 });

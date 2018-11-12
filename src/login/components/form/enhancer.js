@@ -18,8 +18,7 @@ import translations from './index.lang';
 const connectState = connect(({ login: { validation }, app }) => ({
     usernameValidationMessage: validation.username,
     passwordValidationMessage: validation.password,
-    apiErrorMessage: app.authenticationError,
-    isAuthenticating: app.isAuthenticating
+    apiErrorMessage: app.authenticationError
 }));
 
 const onSubmitHandler = withHandlers({

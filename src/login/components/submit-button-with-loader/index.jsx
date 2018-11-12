@@ -20,6 +20,7 @@ const SubmitButtonContainer = styled.div`
         height: 56px;
         line-height: 41px;
         margin-top: 20px;
+        font-weight: 500;
 
         &:focus,
         &:hover {
@@ -43,7 +44,6 @@ export const SubmitButtonWithLoader = ({ isAuthenticating }) => (
 
 SubmitButtonWithLoader.propTypes = {
     isAuthenticating: PropTypes.bool
-
 };
 
 export default enhance(SubmitButtonWithLoader);

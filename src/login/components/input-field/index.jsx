@@ -14,7 +14,7 @@ const INPUT_ICONS = {
 const StyledInput = styled.input`
     height: 56px;
 
-    background: #ffffff url(../../../../${props => INPUT_ICONS[props.iconName]}) no-repeat scroll 24px 18px;
+    background: #ffffff url(${props => INPUT_ICONS[props.iconName]}) no-repeat scroll 24px 18px;
     padding-left: 54px;
 
     &:focus,
