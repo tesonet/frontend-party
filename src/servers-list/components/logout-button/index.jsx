@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import enhance from './enhancer';
-import { COLORS, ASSETS_PATHS } from '../../../app';
+import { COLORS, ASSETS } from '../../../app';
 import translations from './index.lang';
 
 const StyledLogoutButton = styled.button`
     height: 56px;
-    background: #ffffff url(${ASSETS_PATHS.logout}) no-repeat scroll 24px 18px;
+    background: #ffffff url(${ASSETS.logout}) no-repeat scroll 24px 18px;
     border: none;
     padding: 0 15px 0 50px;
     cursor: pointer;

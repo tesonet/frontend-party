@@ -5,12 +5,12 @@ import { FormattedMessage } from 'react-intl';
 import LogoutButton from '../logout-button';
 import ListContent from '../list-content';
 import ListItem from '../list-item';
-import { ASSETS_PATHS } from '../../../app';
+import { ASSETS } from '../../../app';
 import translations from './index.lang';
 
 const ServersListLogo = styled.div`
     height: 30px;
-    background: url(${ASSETS_PATHS.serversLogo}) no-repeat;
+    background: url(${ASSETS.serversLogo}) no-repeat;
     background-size: contain;
     margin-left: 15px;
     margin-top: 35px;

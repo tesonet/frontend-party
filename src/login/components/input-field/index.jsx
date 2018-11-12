@@ -3,30 +3,46 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ErrorMessage from '../error-message';
-import { COLORS, ASSETS_PATHS } from '../../../app';
+import { COLORS, ASSETS } from '../../../app';
 import enhance from './enhancer';
-
-const INPUT_ICONS = {
-    username: ASSETS_PATHS.usernameIcon,
-    password: ASSETS_PATHS.passwordIcon
-};
 
 const StyledInput = styled.input`
     height: 56px;
-
-    background: #ffffff url(${props => INPUT_ICONS[props.iconName]}) no-repeat scroll 24px 18px;
     padding-left: 54px;
+    border: ${props => props.errorMessage ? `solid ${COLORS.inputFieldError} 2px` : 'initial'};
 
     &:focus,
     &:active {
         color: ${COLORS.inputTextColor};
     }
 
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+    }
+
     ::placeholder {
         color: ${props => props.errorMessage ? COLORS.inputFieldError : COLORS.inputTextColor};
     }
+`;
 
-    border: ${props => props.errorMessage ? `solid ${COLORS.inputFieldError} 2px` : 'initial'};
+const InputContainer = styled.div`
+    display:inline-block;
+    position:relative;
+    width: 100%;
+
+    :before{
+        content:"";
+        position:absolute;
+        width:20px;
+        height:20px;
+        top: 18px;
+        left: 23px;
+        background: url(${props => ASSETS[props.iconName]}) no-repeat;
+        background-size: 20px 20px;
+    }
 `;
 
 export const InputField = ({
@@ -37,7 +53,7 @@ export const InputField = ({
     type,
     iconName
 }) => (
-    <React.Fragment>
+    <InputContainer iconName={iconName}>
         <StyledInput
             errorMessage={errorMessage}
             type={type}
@@ -45,11 +61,9 @@ export const InputField = ({
             onChange={onChange}
             value={value}
             placeholder={placeholder}
-            iconName={iconName}
-            autoComplete="off"
         />
         { errorMessage && <ErrorMessage message={errorMessage} /> }
-    </React.Fragment>
+    </InputContainer>
 
 );
 

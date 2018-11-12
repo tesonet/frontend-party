@@ -12,7 +12,7 @@ export { setAuthenticating, setAuthenticated, setAuthenticationError } from './a
 export {
     BASE_URL,
     COLORS,
-    ASSETS_PATHS,
+    ASSETS,
     ROUTES
 } from './constants';
 

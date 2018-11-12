@@ -62,7 +62,7 @@ class LoginForm extends React.PureComponent {
                         errorMessage={usernameValidationMessage}
                         value={username}
                         onChange={this.handleUsernameChange}
-                        iconName="username"
+                        iconName="usernameIcon"
                         className="form-control"
                         placeholder={translations.username}
                     />
@@ -72,7 +72,7 @@ class LoginForm extends React.PureComponent {
                         errorMessage={passwordValidationMessage}
                         value={password}
                         onChange={this.handlePasswordChange}
-                        iconName="password"
+                        iconName="passwordIcon"
                         className="form-control"
                         type="password"
                         placeholder={translations.password}

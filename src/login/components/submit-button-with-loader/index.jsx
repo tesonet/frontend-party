@@ -20,7 +20,7 @@ const SubmitButtonContainer = styled.div`
         height: 56px;
         line-height: 41px;
         margin-top: 20px;
-        font-weight: 500;
+        font-weight: 600;
 
         &:focus,
         &:hover {

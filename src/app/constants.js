@@ -1,3 +1,10 @@
+import loginBackground from '../../images/bg.png';
+import loginLogo from '../../images/logotype-testio.png';
+import passwordIcon from '../../images/ico-lock.png';
+import usernameIcon from '../../images/ico-username.png';
+import serversLogo from '../../images/servers-logo.png';
+import logout from '../../images/logout.png';
+
 export const BASE_URL = 'http://playground.tesonet.lt';
 
 export const ROUTES = {
@@ -5,13 +12,13 @@ export const ROUTES = {
     serversList: '/servers-list'
 };
 
-export const ASSETS_PATHS = {
-    loginBackground: '/assets/bg.png',
-    loginLogo: '/assets/logotype-testio.png',
-    passwordIcon: '/assets/ico-lock.png',
-    usernameIcon: '/assets/ico-username.png',
-    serversLogo: '/assets/servers-logo.png',
-    logout: '/assets/logout.png'
+export const ASSETS = {
+    loginBackground,
+    loginLogo,
+    passwordIcon,
+    usernameIcon,
+    serversLogo,
+    logout
 };
 
 export const COLORS = {
