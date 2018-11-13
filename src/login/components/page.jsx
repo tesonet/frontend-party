@@ -28,6 +28,7 @@ const LoginFormContainer = styled.div`
     position: relative;
     max-width: 360px;
     width: 100%;
+    margin: 0 10px;
 `;
 
 const LoginLogo = styled.div`
