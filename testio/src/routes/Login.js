@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import {Button} from '../styled-components/Button'
+import {Input} from '../styled-components/Input'
 import {LoginContainer} from '../styled-components/LoginContainer'
+import {FormContainer} from '../styled-components/FormContainer'
 export default class Login extends Component {
     state = {
-        username:'tesonet',
-        password:'partyanimal'
+        username:'',
+        password:''
     }
+    handleInput=e=>this.setState({[e.target.name]:e.target.value})
     login = ()=>{
                 let config = {
                     method: 'POST',
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' },
-                    body: `username=tesonet&password=partyanimal`
+                    body: `username=${this.state.username}&password=${this.state.password}`
                 }
                 // request to http://playground.tesonet.lt/v1/tokens
                 fetch('http://playground.tesonet.lt/v1/tokens', config).then(
@@ -34,9 +37,16 @@ export default class Login extends Component {
     render() {
         return (
             <LoginContainer>
-                <Button
-                onClick={this.login}
-                >Login</Button>
+                <FormContainer onSubmit={
+                    (e) => {e.preventDefault()
+                    this.login()
+                 }} >
+                    <Input autoComplete="new-username" name="username" onChange={this.handleInput} value={this.state.username} type='text'/>
+                    <Input autoComplete="new-password" name="password" onChange={this.handleInput} value={this.state.password} type='password'/>
+                    <Button
+                    onClick={this.login}
+                    >Login</Button>
+                </FormContainer>
             </LoginContainer>
         )
     }
