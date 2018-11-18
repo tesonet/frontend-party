@@ -44,7 +44,7 @@ class LoginContainer extends Component {
                 </div>
               </FormGroup>
               { this.state.message != "" && <Alert color="danger">{this.state.message}</Alert>}
-              <Button type="submit" color="success" block>Log In</Button>
+              <Button className="font-weight-bold" type="submit" color="success" block>Log In</Button>
             </Form>
           </div>
         </div>

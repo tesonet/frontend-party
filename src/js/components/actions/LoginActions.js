@@ -20,5 +20,5 @@ export function Logout() {
 }
 
 export function IsAuth() {
-  return localStorage.getItem('auth_token') != null;
+  return localStorage.getItem('auth_token') !== null;
 }

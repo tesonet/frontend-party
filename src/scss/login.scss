@@ -12,7 +12,7 @@
     left: 0;
     width: 100%; 
     height: 100%;
-    opacity: 0.2;
+    opacity: 0.15;
     background: url("../images/bg.jpg");
     background-size: cover;
   }
@@ -26,8 +26,7 @@
   .icon {
     width: 80%;
     height: 180px;
-    margin: 0 auto 10px;
-    margin-bottom: 10px;
+    margin: 0 auto 30px;
     background: url("../images/logo.png") no-repeat center center;
     background-size: contain;
     img {
@@ -36,7 +35,13 @@
   }
   form {
     input {
+      height: 55px;
       color: #b3b3b3;
+
+      &::-webkit-input-placeholder,
+      &::placeholder {
+        color: #b3b3b3
+      }
 
       &:focus,
       &:active {
@@ -45,6 +50,7 @@
     }
 
     .btn-success {
+      height: 55px;
       background-color: #9fd533;
       &:hover {
         background-color: #86B300;
