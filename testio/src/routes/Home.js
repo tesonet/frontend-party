@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {Button} from '../styled-components/Button';
+import {HomeContainer} from '../styled-components/HomeContainer';
 
 export default class Home extends Component {
     state = {
@@ -53,13 +55,11 @@ export default class Home extends Component {
     }
     render() {
         return (
-            <div>
-                Home
-                <button
+            <HomeContainer>
+                <Button
                 onClick={this.logout}
-                >Logout</button>
-            </div>
-            
+                >Logout</Button>
+            </HomeContainer>  
         )
     }
 }

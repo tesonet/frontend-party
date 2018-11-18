@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import {Button} from '../styled-components/Button'
+import {LoginContainer} from '../styled-components/LoginContainer'
 export default class Login extends Component {
     state = {
         username:'tesonet',
@@ -32,12 +33,11 @@ export default class Login extends Component {
     }
     render() {
         return (
-            <div>
-                Login
-                <button
+            <LoginContainer>
+                <Button
                 onClick={this.login}
-                >Login</button>
-            </div>
+                >Login</Button>
+            </LoginContainer>
         )
     }
 }
