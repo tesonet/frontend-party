@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-export const Wrapper = styled.div`
+export const LoginWrapper = styled.div`
     position:relative;
     height:100vh;
     margin:0px 12%;

@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import {Button} from '../styled-components/Button'
 import {Input} from '../styled-components/Input'
+import {Errors} from '../styled-components/Errors'
 import {LogoLg} from '../styled-components/LogoLg'
 import ICOUser from '../assets/img/ico-username.svg'
 import ICOPass from '../assets/img/ico-lock.svg'
 import LogoLgFile from '../assets/img/logo.png'
 import {LoginContainer} from '../styled-components/LoginContainer'
 import {FormContainer} from '../styled-components/FormContainer'
-import {Wrapper} from '../styled-components/Wrapper'
+import {LoginWrapper} from '../styled-components/LoginWrapper'
 export default class Login extends Component {
     state = {
+        errors:{},
         username:'',
         password:''
     }
@@ -39,6 +41,7 @@ export default class Login extends Component {
                           throw Error(`Request rejected with status ${res.status}`);
                         }
                     }).catch((e)=>{
+                        this.setState({loading:false,errors:{data:'Could not login bad password or login'}})
                         console.log(e);         
                     })
     }
@@ -55,7 +58,7 @@ export default class Login extends Component {
     render() {
         return (
             <LoginContainer>
-                <Wrapper className="row">
+                <LoginWrapper className="row">
                 <FormContainer className="col-lg-4 col-md-6 col-sm-10 col-xs-10" onSubmit={this.onFormSubmit} >
                     <LogoLg src={LogoLgFile}></LogoLg>
                     <Input  ref={(input) => { this.textInput = input; }} icon={ICOUser} placeholder="Username" autoComplete="new-username" name="username" onChange={this.handleInput} value={this.state.username} type='text'/>
@@ -63,8 +66,9 @@ export default class Login extends Component {
                     <Button
                     onClick={this.login}
                     >Log in</Button>
+                    {this.state.errors.data&&<Errors>{this.state.errors.data}</Errors>}
                 </FormContainer>
-                </Wrapper>
+                </LoginWrapper>
             </LoginContainer>
         )
     }

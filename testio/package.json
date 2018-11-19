@@ -9,6 +9,8 @@
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
+    "react-spinners": "^0.4.7",
+    "react-test-renderer": "^16.6.3",
     "styled-components": "^4.1.1"
   },
   "scripts": {
