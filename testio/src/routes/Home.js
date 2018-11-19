@@ -42,7 +42,15 @@ export default class Home extends Component {
                         res=>{
                             if(res.ok) {
                              res.json().then(res=>{
-                                 localStorage.setItem('data', JSON.stringify(res));
+                                res.sort(function (a, b) {
+                                    if (a.distance < b.distance) return -1;
+                                    if (a.distance > b.distance) return 1;
+                                    if (a.name > b.name) return 1;
+                                    if (a.name < b.name) return -1;
+                                    return 0;
+                        
+                                });
+                                localStorage.setItem('data', JSON.stringify(res));
                                  this.setState({data:res, loading:false})
                                  
                              })
@@ -69,8 +77,8 @@ export default class Home extends Component {
         const list= this.state.data.map((val, i)=>{
             return (
                 <ListRow key={i} className="row">
-                    <ListItem  className="col-6" side='flex-start'>{val.name}</ListItem>
-                    <ListItem  className="col-6" side='flex-end'>{val.distance}</ListItem>
+                    <ListItem  className="col-6" side='flex-start'>{val.name} km</ListItem>
+                    <ListItem  className="col-6" side='flex-end'>{val.distance} km</ListItem>
                 </ListRow>
             )
         })

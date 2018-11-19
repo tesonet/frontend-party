@@ -1,43 +1,23 @@
-# Senior frontend developer task
+# Senior frontend developer task by Juozas Masiliunas
+	
+## What i did do and what technologies used?
 
-If you found this task it means we are looking for you!
+1. Used create-react-app for fast develpment. Webpack, Npm scripts,
+2. Extracted and optimized images, for good quality, good size. (Photoshop)
+3. Used styled-components to style. (Wanted to be more modern, used for the first time this library).
+4. Used react-router-dom for routing.
+5. Created authenfication used fetch to get token(could used axios, but for smaller size used integrated library).
+6. Used localstorage to save token and data of information, to not request data from  server many times ( becouse distance will not change)
+7. Data listing and sorting.
+8. Implemented Log out, Everything is being deleted after logout.
+9. Implemented error messages for bad password or login and error if user cant get data from server.
+10. Responsive design mixed with bootstrap.
+11. Structure.
+12. Compatiblity with ie 11, made with polyfill.
 
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
 
-## Few simple steps
-
-1. Fork this repo
-2. Do your best
-3. Prepare a pull request and let us know that you are done
-
-## Few simple requirements
-### Design
-* Design should be recreated as closely as possible.
-* Design must be responsive.
-* Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
-
-### App
-* Use ReactJS
-* This must be a single page application. Use React Router for frontend routing
-* Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
-
-```
-{"username": "tesonet", "password": "partyanimal"}
-```
-
-* Save the newly-created token to the local storage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
-* Implement logout
-
-### Miscellaneous
-* Your app must work on all modern browsers and IE11+
-* Use JS bundler (Webpack preferred)
-* Use npm scripts or gulp for running tasks
-* Use a unit testing library (Jest preferred)
-* Do not commit the build
-
-## Few tips
-* Structure! WE LOVE STRUCTURE!
-* Maybe You have an idea how it should interact with users? Do it! Its on you!
-* Have fun!
+## What didn't do and why?
+1. Test, Implemented one test, but it doensn't work properly. Didn't used testing before, will learn it in future. Now skipped this step for time saving.
+2. Didnt used redux - because wanted to create more effective app, without redux complications. Not needed for such small app. But i know how to use redux. If needed i could implement it. You didn't mentioned it anyway :D.
+ 
+# Thanks for youre challenge, and sorry for bad english.
