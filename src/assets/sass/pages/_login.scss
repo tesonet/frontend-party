@@ -1,0 +1,71 @@
+.login {
+    height: 100vh;
+    background-image: linear-gradient(rgba($color-dark-blue, 0.8), rgba($color-dark-blue, 0.8)), url("/assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+        &-box {
+            position: relative;
+            top: 30%;
+            margin: 0 auto; 
+           
+            &--row {
+                @include styled-row;
+                background-color: $color-white;    
+                
+                & input {
+                    border: none;                    
+                    width: 70%; 
+                    color: #999;
+                    
+                    &:focus {
+                        color: #999;
+                        outline: none;                        
+                    }
+
+                    &:active {
+                        border: none;
+                    }
+
+                    &::placeholder {
+                        color: #ccc;
+                        font-weight: 300;
+                    }
+                }
+
+                & img {
+                    padding: 0 1rem 0.3rem 0.5rem;
+                }
+            }
+
+            &--button {
+                @include styled-row;
+                background-color: #9fd533;
+                text-align: center;
+                cursor: pointer;  
+                font-weight: bold;
+                color: $color-white;
+                transition: all .2s; 
+           
+                    &:hover {
+                        background-color: #86b300  
+                    }
+            }
+
+            &--logo {
+                width: 70%;
+                display: block;
+                padding-bottom: 4rem;
+                margin: 0 auto;
+
+                & img {
+                     @include img-block;
+                }
+            }
+        }
+}
+
+button {
+    border: none;
+}

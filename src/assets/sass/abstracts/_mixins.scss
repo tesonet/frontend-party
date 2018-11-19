@@ -1,0 +1,21 @@
+@mixin styled-row {
+    border-radius: 0.3rem;
+    margin: 0.5rem;
+    line-height: 3.5rem;
+}
+
+@mixin img-block {
+    width: 100%;
+    display: inline-block;
+}
+
+// 1em = 16px
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == tab {
+        @media ( max-width: 35.99875em) { @content }; // bootstrap size 575.98px
+    }
+    @if $breakpoint == laptop {
+        @media ( max-width: 61.99875em) { @content }; // bootstrap size 991.98px
+    }
+}

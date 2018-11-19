@@ -1,0 +1,14 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+// For better responsive. 16px = 1rem. 
+html {
+    font-size: 100%;   
+    
+}
+
