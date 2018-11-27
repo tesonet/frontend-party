@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginForm /> render() dispatches event 1`] = `Array []`;
+
+exports[`<LoginForm /> render() renders the component 1`] = `
+<div
+  className="vertical-center col"
+  style={
+    Object {
+      "backgroundImage": "url(images/log_bg.jpg)",
+    }
+  }
+>
+  <Form
+    className="form-login m-auto"
+    onSubmit={[Function]}
+    tag="form"
+  >
+    <onlyUpdateForKeys(Loader)
+      className="css-1xpl48m"
+      color="#123abc"
+      loading={false}
+      size={80}
+      sizeUnit="px"
+    />
+    <FormGroup
+      row={true}
+      tag="div"
+    >
+      <Col
+        className="mb-4"
+        sm={12}
+        style={
+          Object {
+            "backgroundImage": "url(images/log_logo.png)",
+            "backgroundPosition": "center",
+            "backgroundRepeat": "no-repeat",
+            "backgroundSize": "contain",
+            "height": "60px",
+          }
+        }
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      />
+      <Col
+        sm={12}
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <div
+          className="d-flex tes-input"
+        >
+          <Col
+            sm={1}
+            style={
+              Object {
+                "backgroundImage": "url(images/username.svg)",
+                "backgroundPosition": "center",
+                "backgroundRepeat": "no-repeat",
+                "height": "inherit",
+              }
+            }
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          />
+          <Col
+            className="pl-0"
+            sm={11}
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          >
+            <Input
+              id="username"
+              invalid={false}
+              name="username"
+              onChange={[Function]}
+              placeholder="Username"
+              type="username"
+              value="tesonet"
+            />
+          </Col>
+        </div>
+      </Col>
+    </FormGroup>
+    <FormGroup
+      row={true}
+      tag="div"
+    >
+      <Col
+        sm={12}
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <div
+          className="d-flex tes-input"
+        >
+          <Col
+            sm={1}
+            style={
+              Object {
+                "backgroundImage": "url(images/password.svg)",
+                "backgroundPosition": "center",
+                "backgroundRepeat": "no-repeat",
+                "height": "inherit",
+              }
+            }
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          />
+          <Col
+            className="pl-0"
+            sm={11}
+            tag="div"
+            widths={
+              Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ]
+            }
+          >
+            <Input
+              id="password"
+              invalid={false}
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value="partyanimal"
+            />
+          </Col>
+        </div>
+      </Col>
+    </FormGroup>
+    <FormGroup
+      row={true}
+      tag="div"
+    >
+      <Col
+        sm={12}
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <Button
+          className="w-100"
+          color="success"
+          disabled={false}
+          id="tes-submit"
+          tag="button"
+        >
+          Log In
+        </Button>
+      </Col>
+    </FormGroup>
+  </Form>
+</div>
+`;

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginPage /> render() dispatches event 1`] = `Array []`;
+
+exports[`<LoginPage /> render() renders the component 1`] = `null`;

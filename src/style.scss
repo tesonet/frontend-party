@@ -1,0 +1,64 @@
+body {
+    overflow: hidden;
+}
+.loading {
+    opacity: 0.6;
+}
+tbody {
+    display:block;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #888; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+th{
+    font-weight: normal;
+}
+.vertical-center {
+    min-height: 100%; 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+input[type="username"], input[type="password"]{
+    border: 0;
+    border-radius: 0;
+    padding-left: 0;
+}
+input[type="username"]:focus, input[type="password"]:focus{
+    outline: none;
+    box-shadow: inset 0 -1px 0 #ddd;
+}
+.tes-input{
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem; 
+}
+.btn-success {
+    color: #fff;
+    background-color: #9ed649;
+    border-color: #9ed649;
+}
+.logo-img{
+    width: 100px;
+}
