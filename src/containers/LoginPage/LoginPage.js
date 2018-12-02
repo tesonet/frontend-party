@@ -7,9 +7,24 @@ import $ from 'jquery';
 
 class LoginPage extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {name: '', password: ''};  
+        this.usernameChange = this.usernameChange.bind(this);
+        this.passwordChange = this.passwordChange.bind(this);
+      }       
+      
+    usernameChange(event) {
+        this.setState({name: event.target.value});
+    }
+
+    passwordChange(event) {
+        this.setState({password: event.target.value});
+    }
+
     checkPass = () => {
-        const username = document.querySelector('#username').value;
-        const password = document.querySelector('#password').value;
+        const username = this.state.name;
+        const password = this.state.password;
         const wrongPasswordDiv = document.getElementsByClassName('wrong-password');
         
         if ( username === 'tesonet' && password === 'partyanimal' ) {
@@ -20,8 +35,8 @@ class LoginPage extends Component {
                 contentType: 'application/x-www-form-urlencoded', 
                 data: { username: username, password: password },   
                 success: function (result){
-                       // Store token to localstorage
-                    localStorage.setItem('tokenas', result.token); 
+                    // Store token to localstorage
+                    localStorage.setItem('token', result.token); 
                     document.location = './logged';                   
                 },
                 error : function (req, status, error) {
@@ -41,23 +56,19 @@ class LoginPage extends Component {
             <section className="login">           
                 <div className="container login-box">
                     <Logo/>
-                    <Input type="text" placeholder="Username" className="login-box--input" id="username"/>
-                    <Input type="password" placeholder="Password" className="login-box--input" id="password"/>
-                   
+                    <Input type="text" placeholder="Username" className="login-box--input" id="username" value={this.state.name} changed={this.usernameChange}  />
+                    <Input type="password" placeholder="Password" className="login-box--input" id="password" value={this.state.password} changed={this.passwordChange} />                   
                     <div className="row justify-content-center" onClick={this.checkPass}>                                              
                         <button className="col-xs-6 col-sm-4 login-box--button" >
                             <span>Log In</span>
                         </button> 
-                    </div>
-    
+                    </div>    
                 </div>
                 <AlertMessage/>  
-            </section>   
-                      
+            </section>                       
         );
     } 
 }
-
 
 export default LoginPage;
 

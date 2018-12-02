@@ -2,11 +2,11 @@
     margin-top: 11.2rem;
 
     thead th {    
-        color: #999;
+        color: $color-grey-dark;
         font-weight: 300;
         padding-left: 1rem;
         padding-right: 1rem;
-        border-bottom: 1px solid #e6e6e6;
+        border-bottom: 1px solid $color-grey-light;
         border-top: none;        
     }
 
@@ -14,11 +14,11 @@
         padding-left: 1.0rem;
         padding-right: 1.0rem;       
         border-top: none;
-        border-bottom: 1px solid #e6e6e6;
-        color: #333;
+        border-bottom: 1px solid $color-grey-light;
+        color: $color-black-light;
     }
 
-    &-results-right { 
+        &-results-right { 
         text-align: right;  
     }
 }

@@ -17,10 +17,10 @@
                 & input {
                     border: none;                    
                     width: 70%; 
-                    color: #999;
+                    color: $color-grey-dark;
                     
                     &:focus {
-                        color: #999;
+                        color: $color-grey-dark;
                         outline: none;                        
                     }
 
@@ -29,7 +29,7 @@
                     }
 
                     &::placeholder {
-                        color: #ccc;
+                        color: $color-grey;
                         font-weight: 300;
                     }
                 }
@@ -41,7 +41,7 @@
 
             &--button {
                 @include styled-row;
-                background-color: #9fd533;
+                background-color: $color-green-light;
                 text-align: center;
                 cursor: pointer;  
                 font-weight: bold;
@@ -49,7 +49,7 @@
                 transition: all .2s; 
            
                     &:hover {
-                        background-color: #86b300  
+                        background-color: $color-green-light-2;  
                     }
             }
 

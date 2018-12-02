@@ -3,6 +3,10 @@ import $ from 'jquery';
 
 class LoggedPage extends Component {
 
+    state = {
+        data: []
+    }
+
     logout = () => {
         this.props.history.push("/");
         localStorage.clear();
@@ -10,21 +14,23 @@ class LoggedPage extends Component {
 
     componentDidMount () {
         // Get token from local storage
-         const tokenas = localStorage.getItem('tokenas');
+         const token = localStorage.getItem('token');
+         const self = this;
 
         $.ajax({
             type: 'GET',
             url: 'http://playground.tesonet.lt/v1/servers',
-            headers: { "Authorization": tokenas },
+            headers: { "Authorization": token },
             success: function (result){
-                let array = result;
+                // let array = result;
+                self.setState({ data: result})
                 // Ascending order by  distance
-                array.sort((a,b) => (b.distance > a.distance) ? 1 : ((a.distance > b.distance) ? -1 : 0));
+                self.state.data.sort((a,b) => (b.distance > a.distance) ? 1 : ((a.distance > b.distance) ? -1 : 0));
                 // Ascending order by name
-                array.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                self.state.data.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
                 // Loppinng in array and posting table cells one by one
-                for (let i = 0; i < array.length; i++) {
-                    $('.table-results').append('<tr><td class="table-results-left">' + array[i].name + '</td><td class="table-results-right">' + array[i].distance + ' Km</td></tr>');
+                for (let i = 0; i < self.state.data.length; i++) {
+                    $('.table-results').append('<tr><td class="table-results-left">' + self.state.data[i].name + '</td><td class="table-results-right">' + self.state.data[i].distance + ' Km</td></tr>');
                 };
             },
             // Caching the error
@@ -32,8 +38,7 @@ class LoggedPage extends Component {
                 console.log('error loading data');
                 }
         });
-    }
-    
+    }    
 
     resizeMenuOnScrool = () => {
         //Meniu resizing on scroll

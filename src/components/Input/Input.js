@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import IconPerson from '../IconPerson/IconPerson';
 
-const input = (props) => (
-    <div className="row justify-content-center">
-        <div className="col-xs-6 col-sm-4 login-box--row">
-            <IconPerson icon="lock" />            
-            <input type={props.type} placeholder={props.placeholder} className={props.className} id={props.id}></input>
-        </div>
-    </div> 
-)
+class Input extends Component {
+    
+    render () {
+        const { type, placeholder, className, id, value, changed } = this.props;
+        
+        return (            
+        <div className="row justify-content-center">
+            <div className="col-xs-6 col-sm-4 login-box--row">
+                <IconPerson  />            
+                <input type={type} placeholder={placeholder} className={className} id={id} value={value} onChange={changed}></input>
+            </div>
+        </div>   
+        );
+    }
 
+}
 
-
-
-export default input;
+export default Input;
