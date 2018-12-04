@@ -14,6 +14,15 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
+const logoStyle = {
+    height: '29px',
+    width: '120px',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundImage: "url(images/testio-2.png)"
+};
+
 class Header extends React.Component {
     constructor(props) {
         super(props);
@@ -34,8 +43,8 @@ class Header extends React.Component {
         const { isAuthenticated, logout } = this.props;
         return (
             <div id="tes-header">
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/"><img className="logo-img" src="images/testio-2.png"></img></NavbarBrand>
+                <Navbar color="light" light expand="lg">
+                    <NavbarBrand href="/" style={logoStyle} />
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" pills>

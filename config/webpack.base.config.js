@@ -6,8 +6,10 @@ const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 const APP_DIR = path.resolve(__dirname, '../src');
+
 
 module.exports = env => {
     const { PLATFORM, VERSION } = env;
@@ -52,6 +54,9 @@ module.exports = env => {
                     'process.env.VERSION': JSON.stringify(env.VERSION),
                     'process.env.PLATFORM': JSON.stringify(env.PLATFORM)
                 }),
+                new ServiceWorkerWebpackPlugin({
+                    entry: path.join(__dirname, '../src/sw.js'),
+                  }),
             ],
         }
     ])

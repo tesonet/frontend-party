@@ -1,22 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Button, Form, FormGroup, Label, Input, FormText, InputGroup, InputGroupAddon } from 'reactstrap';
+import { Col, Form, FormGroup } from 'reactstrap';
 import InlineError from '../messages/InlineError';
 import { css } from 'react-emotion';
 import { ClipLoader } from 'react-spinners';
+import TSButton from './form-components/TSButton';
+import TSInput from './form-components/TSInput';
 
 const override = css`
     display: block;
     margin: 0 auto;
     border-color: red;
     position: absolute;
-    left: 47%;
-    top: 45%;
+    left: 43%;
+    top: 42%;
     z-index: 1;
 `;
 
 const sectionStyle = {
-    backgroundImage: "url(images/log_bg.jpg)"
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundImage: "url(images/log_bg.webp)"
 };
 
 const sectionUser = {
@@ -82,9 +87,10 @@ class LoginForm extends React.Component {
 
     render() {
         const { data, errors, loading } = this.state;
+       
         return (
             <Col className="vertical-center" style={sectionStyle}>
-                <Form onSubmit={this.onSubmit} className={loading ? 'loading' : ''} className="form-login m-auto">
+                <Form onSubmit={this.onSubmit} className={loading ? 'loading' : ''} className="form-login col-sm-12 col-lg-6 m-auto">
                     <ClipLoader
                         className={override}
                         sizeUnit={"px"}
@@ -95,58 +101,47 @@ class LoginForm extends React.Component {
                     {errors.global && <InlineError text={errors.global} />}
                     <FormGroup row>
                         <Col sm={12} style={logoStyle} className="mb-4"></Col>
+                    </FormGroup>
+                    <FormGroup row className="form-inputs">
                         <Col sm={12}>
-                            <div className="d-flex tes-input">
-                                <Col sm={1} style={sectionUser}>
-                                </Col>
-                                <Col sm={11} className="pl-0">
-                                    <Input
-                                        invalid={!!errors.username}
-                                        type="username"
-                                        id="username"
-                                        name="username"
-                                        placeholder="Username"
-                                        value={data.username}
-                                        onChange={this.onChange}
-                                    />
-                                </Col>
-                            </div>
+                            <TSInput
+                                inputImgStyle={sectionUser}
+                                inputInvalid={!!errors.username}
+                                inputType="username"
+                                inputPlaceholder="Username"
+                                inputValue={data.username}
+                                inputChange={this.onChange}
+                            />
                             {errors.username && <InlineError text={errors.username} />}
                         </Col>
                     </FormGroup>
-                    <FormGroup row>
+                    <FormGroup row className="form-inputs">
                         <Col sm={12}>
-                            <div className="d-flex tes-input">
-                                <Col sm={1} style={sectionPass}>
-                                </Col>
-                                <Col sm={11} className="pl-0">
-                                    <Input
-                                        invalid={!!errors.password}
-                                        type="password"
-                                        id="password"
-                                        name="password"
-                                        placeholder="Password"
-                                        value={data.password}
-                                        onChange={this.onChange}
-                                    />
-                                </Col>
-                            </div>
+                            <TSInput
+                                inputImgStyle={sectionPass}
+                                inputInvalid={!!errors.password}
+                                inputType="password"
+                                inputPlaceholder="Password"
+                                inputValue={data.password}
+                                inputChange={this.onChange}
+                            />
                             {errors.password && <InlineError text={errors.password} />}
                         </Col>
                     </FormGroup>
-                    <FormGroup row>
+                    <FormGroup row className="form-inputs">
                         <Col sm={12}>
-                            <Button id="tes-submit" disabled={!!loading} color="success" className="w-100">Log In</Button>
+                            <TSButton
+                                buttonClass="w-100 h-100"
+                                color="success"
+                                loading={!!loading}
+                                buttonText="Log In"
+                            />
                         </Col>
                     </FormGroup>
                 </Form>
             </Col>
         );
     }
-}
-
-LoginForm.propTypes = {
-    submit: PropTypes.func.isRequired
 }
 
 export default LoginForm;

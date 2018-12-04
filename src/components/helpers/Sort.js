@@ -28,14 +28,52 @@ class Sort extends React.Component {
         this.setState(prevState => ({
             sortASC: !prevState.sortASC
         }));
-        this.props.sortBy(this.state.field, !this.state.sortASC);
+        this.sort(this.state.field, !this.state.sortASC);
     }
 
-    sort(field) {
+    sort(field, order) {
+        let sortedData;
+        field = field.toUpperCase();
+        switch (field) {
+            case 'NAME':
+                sortedData = this.props.data.sort(function (a, b) {
+                    let nameA = a.name.toUpperCase();
+                    let nameB = b.name.toUpperCase();
+                    if (nameA < nameB) {
+                        return -1;
+                    }
+                    if (nameA > nameB) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                break;
+            case 'DISTANCE':
+                sortedData = this.props.data.sort(function (a, b) {
+                    return a.distance - b.distance;
+                });
+                break;
+            case 'INIT':
+                sortedData = this.props.data.sort(function (a, b) {
+                    if (a.distance > b.distance) return 1;
+                    if (a.distance < b.distance) return -1;
+
+                    if (a.name > b.name) return 1;
+                    if (a.name < b.name) return -1;
+                });
+                break;
+            default:
+                sortedData = this.props.data.sort(function (a, b) {
+                    return a.index - b.index;
+                });
+                break;
+        }
+
         this.setState({
             field: field
         })
-        this.props.sortBy(field, this.state.sortASC);
+
+        this.props.sortBy(order ? sortedData : sortedData.reverse());
     }
 
     render() {
@@ -69,7 +107,7 @@ class Sort extends React.Component {
 }
 
 Sort.propTypes = {
-    sortBy: PropTypes.func.isRequired
+    sortBy: PropTypes.func.isRequired,
 }
 
 export default Sort;

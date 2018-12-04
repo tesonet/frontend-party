@@ -13,6 +13,27 @@ thead, tbody tr {
     width:100%;
     table-layout:fixed;
 }
+.p-absolute {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.table-responsive {
+    height: 100%;
+    overflow: hidden;
+}
+.table {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+#tes-tbody {
+    position: absolute;
+    bottom: 48px;
+    top: 57px;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -33,16 +54,28 @@ thead, tbody tr {
 th{
     font-weight: normal;
 }
+.top-50{
+    top: 50px;
+}
+.hidden{
+    display: none;
+}
 .vertical-center {
     min-height: 100%; 
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: #86b300;
+    border-color: #86b300;
 }
 input[type="username"], input[type="password"]{
     border: 0;
     border-radius: 0;
     padding-left: 0;
+    height: 100%;
 }
 input[type="username"]:focus, input[type="password"]:focus{
     outline: none;
@@ -51,8 +84,9 @@ input[type="username"]:focus, input[type="password"]:focus{
 .tes-input{
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    // border: 1px solid #ced4da;
     border-radius: .25rem; 
+    height: 58px;
 }
 .btn-success {
     color: #fff;
@@ -61,4 +95,22 @@ input[type="username"]:focus, input[type="password"]:focus{
 }
 .logo-img{
     width: 100px;
+}
+.form-inputs{
+    min-height: 58px;
+}
+.nav-link:hover{
+    background-color: #99cc33;
+}
+.set-height {
+    position: absolute;
+    bottom: 0;
+    top: 113px;
+}
+//Media queries
+@media (min-width: 992px) { 
+    .form-inputs{
+        width: 369px;
+        margin: auto;
+    }
 }

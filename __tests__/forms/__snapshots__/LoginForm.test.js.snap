@@ -7,17 +7,20 @@ exports[`<LoginForm /> render() renders the component 1`] = `
   className="vertical-center col"
   style={
     Object {
-      "backgroundImage": "url(images/log_bg.jpg)",
+      "backgroundImage": "url(images/log_bg.webp)",
+      "backgroundPosition": "center",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
     }
   }
 >
   <Form
-    className="form-login m-auto"
+    className="form-login col-sm-12 col-lg-6 m-auto"
     onSubmit={[Function]}
     tag="form"
   >
     <onlyUpdateForKeys(Loader)
-      className="css-1xpl48m"
+      className="css-58un9k"
       color="#123abc"
       loading={false}
       size={80}
@@ -50,71 +53,9 @@ exports[`<LoginForm /> render() renders the component 1`] = `
           ]
         }
       />
-      <Col
-        sm={12}
-        tag="div"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
-      >
-        <div
-          className="d-flex tes-input"
-        >
-          <Col
-            sm={1}
-            style={
-              Object {
-                "backgroundImage": "url(images/username.svg)",
-                "backgroundPosition": "center",
-                "backgroundRepeat": "no-repeat",
-                "height": "inherit",
-              }
-            }
-            tag="div"
-            widths={
-              Array [
-                "xs",
-                "sm",
-                "md",
-                "lg",
-                "xl",
-              ]
-            }
-          />
-          <Col
-            className="pl-0"
-            sm={11}
-            tag="div"
-            widths={
-              Array [
-                "xs",
-                "sm",
-                "md",
-                "lg",
-                "xl",
-              ]
-            }
-          >
-            <Input
-              id="username"
-              invalid={false}
-              name="username"
-              onChange={[Function]}
-              placeholder="Username"
-              type="username"
-              value="tesonet"
-            />
-          </Col>
-        </div>
-      </Col>
     </FormGroup>
     <FormGroup
+      className="form-inputs"
       row={true}
       tag="div"
     >
@@ -131,58 +72,25 @@ exports[`<LoginForm /> render() renders the component 1`] = `
           ]
         }
       >
-        <div
-          className="d-flex tes-input"
-        >
-          <Col
-            sm={1}
-            style={
-              Object {
-                "backgroundImage": "url(images/password.svg)",
-                "backgroundPosition": "center",
-                "backgroundRepeat": "no-repeat",
-                "height": "inherit",
-              }
+        <TSInput
+          inputChange={[Function]}
+          inputImgStyle={
+            Object {
+              "backgroundImage": "url(images/username.svg)",
+              "backgroundPosition": "center",
+              "backgroundRepeat": "no-repeat",
+              "height": "inherit",
             }
-            tag="div"
-            widths={
-              Array [
-                "xs",
-                "sm",
-                "md",
-                "lg",
-                "xl",
-              ]
-            }
-          />
-          <Col
-            className="pl-0"
-            sm={11}
-            tag="div"
-            widths={
-              Array [
-                "xs",
-                "sm",
-                "md",
-                "lg",
-                "xl",
-              ]
-            }
-          >
-            <Input
-              id="password"
-              invalid={false}
-              name="password"
-              onChange={[Function]}
-              placeholder="Password"
-              type="password"
-              value="partyanimal"
-            />
-          </Col>
-        </div>
+          }
+          inputInvalid={false}
+          inputPlaceholder="Username"
+          inputType="username"
+          inputValue="tesonet"
+        />
       </Col>
     </FormGroup>
     <FormGroup
+      className="form-inputs"
       row={true}
       tag="div"
     >
@@ -199,15 +107,47 @@ exports[`<LoginForm /> render() renders the component 1`] = `
           ]
         }
       >
-        <Button
-          className="w-100"
+        <TSInput
+          inputChange={[Function]}
+          inputImgStyle={
+            Object {
+              "backgroundImage": "url(images/password.svg)",
+              "backgroundPosition": "center",
+              "backgroundRepeat": "no-repeat",
+              "height": "inherit",
+            }
+          }
+          inputInvalid={false}
+          inputPlaceholder="Password"
+          inputType="password"
+          inputValue="partyanimal"
+        />
+      </Col>
+    </FormGroup>
+    <FormGroup
+      className="form-inputs"
+      row={true}
+      tag="div"
+    >
+      <Col
+        sm={12}
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <TSButton
+          buttonClass="w-100 h-100"
+          buttonText="Log In"
           color="success"
-          disabled={false}
-          id="tes-submit"
-          tag="button"
-        >
-          Log In
-        </Button>
+          loading={false}
+        />
       </Col>
     </FormGroup>
   </Form>

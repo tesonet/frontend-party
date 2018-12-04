@@ -25,5 +25,6 @@ export const login = (crednetials) =>
 
 export const logout = () => dispatch => {
     localStorage.removeItem('token');
+    localStorage.removeItem('data');
     dispatch(userLoggedOut());
 }
