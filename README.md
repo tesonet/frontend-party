@@ -6,15 +6,15 @@
 ### Could you fill in PR description or Readme with your thoughts on the task:
 
 * What and how everything is done?
-webpack - module bundler
-redux - state container
-styling – bootstrap 4, sass
-react-router-dom - navigation
-images - Gimp/squoosh
-axios - http calls
-localStorage - save token and other data
-react bootstrap 4 components – reactstrap
-service worker - offline functionality/caching
+webpack - module bundler;
+redux - state container;
+styling – bootstrap 4, sass;
+react-router-dom - navigation;
+images - Gimp/squoosh;
+axios - http calls;
+localStorage - save token and other data;
+react bootstrap 4 components – reactstrap;
+service worker - offline functionality/caching;
 
 * What you would do maybe differently or what were the challenges?
 Everything was a big challenge, because React/Redux/Jest was very new for me.
