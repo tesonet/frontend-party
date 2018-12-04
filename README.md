@@ -37,7 +37,7 @@ I started to develop on my work's environment, only later switched to my git acc
 I do not have experience in testing functionality. I am learning this as well.
  
 
-##Login page
+## Login page
 
 ### Bonus Points
 
