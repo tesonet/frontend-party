@@ -19,9 +19,7 @@ class Login extends React.Component {
     this.setState({ [fieldName]: value });
 
   submit = e => {
-    console.log("hey");
     e.preventDefault();
-    console.log(this.state);
     this.props.authenticate(this.state);
   };
 

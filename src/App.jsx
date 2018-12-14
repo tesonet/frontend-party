@@ -4,10 +4,9 @@ import history from "./utils/history";
 
 import GlobalStyle from "./utils/globalStyles";
 import Login from "./pages/Login";
+import List from "./pages/List";
 
 import { getToken } from "./api/api";
-
-const About = () => <h2>About</h2>;
 
 class App extends React.Component {
   state = {
@@ -44,7 +43,7 @@ class App extends React.Component {
             {isAuthenticated ? (
               <Route
                 path="/list"
-                render={() => <About logout={this.logout} />}
+                render={() => <List logout={this.logout} />}
               />
             ) : null}
           </Switch>
