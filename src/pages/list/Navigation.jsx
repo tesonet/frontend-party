@@ -1,40 +1,23 @@
 import React from "react";
-import styled from "styled-components";
+import PropTypes from "prop-types";
+
+import { Container, Logo, Icon, Button } from "./Navigation.styles";
 
 import TesonetBlackLogo from "../../assets/images/logotype-testio.png";
 import IconLogout from "../../assets/icons/ico-logout.svg";
 
-const Container = styled.div`
-  padding: 0 15px;
-  height: 110px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Logo = styled.img`
-  height: 30px;
-`;
-
-const Button = styled.button`
-  background: #fff;
-  border: 0;
-
-  :hover {
-    border: 1px solid #99cc33;
-  }
-`;
-
-const Icon = styled.img``;
-
 const Navigation = ({ onClick }) => (
   <Container>
-    <Logo src={TesonetBlackLogo} />
+    <Logo alt="testio." src={TesonetBlackLogo} />
     <Button onClick={onClick}>
-      <Icon src={IconLogout} />
-      Logout
+      <Icon alt="logout-button" src={IconLogout} />
+      <span> Logout</span>
     </Button>
   </Container>
 );
+
+Navigation.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
 
 export default Navigation;

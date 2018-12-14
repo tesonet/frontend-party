@@ -1,30 +1,7 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import PropTypes from "prop-types";
 
-const Container = styled.div`
-  padding: 0 15px;
-  display: flex;
-  border-top: 1px solid rgb(230, 230, 230);
-  justify-content: space-between;
-  height: 58px;
-
-  ${({ type }) =>
-    type == "header" &&
-    css`
-      color: #999;
-      background: rgb(245, 245, 245);
-      text-transform: uppercase;
-    `}
-`;
-
-const Title = styled.p`
-  vertical-align: middle;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-`;
+import { Container, Title } from "./ListItem.styles";
 
 const ListItem = ({ name, type, value }) => (
   <Container type={type}>
@@ -32,5 +9,14 @@ const ListItem = ({ name, type, value }) => (
     <Title>{value}</Title>
   </Container>
 );
+
+ListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired
+};
+ListItem.defaultProps = {
+  type: null
+};
 
 export default ListItem;

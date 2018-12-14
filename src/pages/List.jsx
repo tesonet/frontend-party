@@ -1,34 +1,41 @@
-import React from "react";
+import React, { Fragment } from "react";
+
 import { getTasks } from "../api/api";
+import { distanceAndNameSort } from "../helpers/sorter";
 
 import ListItem from "./list/ListItem";
 import Navigation from "./list/Navigation";
+import CountryList from "./list/CountryList";
 
 class List extends React.Component {
   state = {
-    countries: []
+    countries: [],
+    error: null
   };
 
   async componentDidMount() {
-    const countries = await getTasks();
-    this.setState({
-      countries: countries.sort(function(a, b) {
-        return a.name.localeCompare(b.name) || a.distance - b.distance;
-      })
-    });
+    try {
+      const countries = await getTasks();
+      this.setState({
+        countries: distanceAndNameSort(countries)
+      });
+    } catch (err) {
+      this.setState({ error: err.msg });
+    }
   }
 
   render() {
-    const { countries } = this.state;
+    const { logout } = this.props;
+    const { countries, error } = this.state;
 
     return (
-      <div>
-        <Navigation onClick={this.props.logout} />
+      <Fragment>
+        <Navigation onClick={logout} />
         <ListItem type="header" name="Server" value="Distance" />
-        {countries.map(({ name, distance }) => (
-          <ListItem name={name} value={distance} />
-        ))}
-      </div>
+
+        {error && error.msg}
+        <CountryList countries={countries} />
+      </Fragment>
     );
   }
 }
