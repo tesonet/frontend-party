@@ -11,7 +11,7 @@ const Navigation = ({ onClick }) => (
     <Logo alt="testio." src={TesonetBlackLogo} />
     <Button onClick={onClick}>
       <Icon alt="logout-button" src={IconLogout} />
-      <span> Logout</span>
+      <span>Logout</span>
     </Button>
   </Container>
 );

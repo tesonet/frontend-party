@@ -6,7 +6,8 @@ import {
   InputGroup,
   InputGroupText,
   InputGroupAddon,
-  FormGroup
+  FormGroup,
+  FormFeedback
 } from "reactstrap";
 
 import styled from "styled-components";
@@ -39,7 +40,14 @@ const Icon = styled.img`
   height: 18px;
 `;
 
-const StyledInput = ({ type, icon, placeholder, value, onChange }) => (
+const StyledInput = ({
+  type,
+  icon,
+  placeholder,
+  value,
+  onChange,
+  isInvalid
+}) => (
   <FormGroup>
     <InputGroup>
       <InputGroupAddon style={inputGroupStyle} addonType="prepend">
@@ -55,6 +63,7 @@ const StyledInput = ({ type, icon, placeholder, value, onChange }) => (
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        invalid={!!isInvalid}
       />
     </InputGroup>
   </FormGroup>
