@@ -20,17 +20,17 @@ const Button = styled.button`
   background: #fff;
   border: 0;
 
-  hover: {
+  :hover {
     border: 1px solid #99cc33;
   }
 `;
 
 const Icon = styled.img``;
 
-const Navigation = () => (
+const Navigation = ({ onClick }) => (
   <Container>
     <Logo src={TesonetBlackLogo} />
-    <Button>
+    <Button onClick={onClick}>
       <Icon src={IconLogout} />
       Logout
     </Button>

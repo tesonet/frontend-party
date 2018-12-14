@@ -23,7 +23,7 @@ class List extends React.Component {
 
     return (
       <div>
-        <Navigation onClick={() => console.log("logout")} />
+        <Navigation onClick={this.props.logout} />
         <ListItem type="header" name="Server" value="Distance" />
         {countries.map(({ name, distance }) => (
           <ListItem name={name} value={distance} />

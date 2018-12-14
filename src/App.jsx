@@ -22,7 +22,7 @@ class App extends React.Component {
   };
 
   logout = () => {
-    localStorage.clearItem("token");
+    localStorage.removeItem("token");
     this.setState({ isAuthenticated: false });
 
     history.push("/");
