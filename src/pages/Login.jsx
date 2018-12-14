@@ -4,7 +4,6 @@ import Input from "./login/Input";
 import Button from "./login/Button";
 import Form from "./login/Form";
 import { Logo, BackgroundContainer } from "./Login.styles";
-
 import TesonetLogo from "../assets/images/testio.png";
 import UserIcon from "../assets/icons/ico-username.svg";
 import LockIcon from "../assets/icons/ico-lock.svg";
@@ -12,15 +11,18 @@ import { Container } from "reactstrap";
 
 class Login extends React.Component {
   state = {
-    username: "",
-    password: ""
+    username: "tesonet",
+    password: "partyanimal"
   };
 
   changeInputField = fieldName => ({ target: { value } }) =>
     this.setState({ [fieldName]: value });
 
-  submit = () => {
+  submit = e => {
+    console.log("hey");
+    e.preventDefault();
     console.log(this.state);
+    this.props.authenticate(this.state);
   };
 
   render() {
@@ -54,7 +56,12 @@ class Login extends React.Component {
               placeholder="Password"
               onChange={this.changeInputField("password")}
             />
-            <Button className="w-100" color="#9fd533" text="Log In" />
+            <Button
+              type="submit"
+              className="w-100"
+              color="#9fd533"
+              text="Log In"
+            />
           </Form>
         </Container>
       </BackgroundContainer>

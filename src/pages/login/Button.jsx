@@ -17,8 +17,8 @@ const ButtonWithStyles = styled(Button)`
   }
 `;
 
-const StyledButton = ({ className, color, text }) => (
-  <ButtonWithStyles className={className} color={color}>
+const StyledButton = ({ className, type, color, text }) => (
+  <ButtonWithStyles type={type} className={className} color={color}>
     {text}
   </ButtonWithStyles>
 );

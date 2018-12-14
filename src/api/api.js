@@ -2,17 +2,17 @@ import axios from "axios";
 
 const URL = "http://playground.tesonet.lt";
 
-// { username: "tesonet", password: "partyanimal" }
-const login = async credentials => {
+const getToken = async credentials => {
   const { data } = await axios.post(`${URL}/v1/tokens`, credentials, {
     headers: {
       "Content-Type": "application/json"
     }
   });
+
   return data;
 };
 
-const getTasks = () => {
+const getTasks = async () => {
   const { data } = await axios.get(`${URL}/v1/servers`, {
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,4 @@ const getTasks = () => {
   return data;
 };
 
-export default {
-  login,
-  getTasks
-};
+export { getToken, getTasks };

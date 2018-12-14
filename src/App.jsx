@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import GlobalStyle from "./utils/globalStyles";
+import { Router, Switch, Route } from "react-router-dom";
+import history from "./utils/history";
 
+import GlobalStyle from "./utils/globalStyles";
 import Login from "./pages/Login";
 
-const Index = () => <h2>Home</h2>;
+import { getToken } from "./api/api";
+
 const About = () => <h2>About</h2>;
 
 class App extends React.Component {
@@ -12,14 +14,40 @@ class App extends React.Component {
     isAuthenticated: false
   };
 
+  authenticate = async credentials => {
+    const response = await getToken(credentials);
+    localStorage.setItem("token", response.token);
+
+    this.setState({ isAuthenticated: true });
+    history.push("/list");
+  };
+
+  logout = () => {
+    localStorage.clearItem("token");
+    this.setState({ isAuthenticated: false });
+
+    history.push("/");
+  };
+
   render() {
     const { isAuthenticated } = this.state;
     return (
-      <Router>
+      <Router history={history}>
         <Fragment>
           <GlobalStyle />
-          <Route path="/" exact component={Login} />
-          {isAuthenticated ? <Route path="/list" component={About} /> : null}
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => <Login authenticate={this.authenticate} />}
+            />
+            {isAuthenticated ? (
+              <Route
+                path="/list"
+                render={() => <About logout={this.logout} />}
+              />
+            ) : null}
+          </Switch>
         </Fragment>
       </Router>
     );
