@@ -3,12 +3,12 @@ import { validate } from "../helpers/validation";
 
 import Input from "./login/Input";
 import Button from "./login/Button";
-import Form from "./login/Form";
-import { Logo, BackgroundContainer } from "./Login.styles";
+
+import { Logo, CenterLogo, BackgroundContainer } from "./Login.styles";
 import TesonetLogo from "../assets/images/testio.png";
 import UserIcon from "../assets/icons/ico-username.svg";
 import LockIcon from "../assets/icons/ico-lock.svg";
-import { Container, Alert } from "reactstrap";
+import { Container, Form } from "reactstrap";
 
 class Login extends React.Component {
   state = {
@@ -47,28 +47,22 @@ class Login extends React.Component {
     return (
       <BackgroundContainer className="d-flex">
         <Container className="col-sm-12 col-md-6 col-lg-4 m-auto">
-          <div
-            style={{
-              paddingBottom: 60,
-              display: "flex",
-              justifyContent: "center"
-            }}
-          >
+          <CenterLogo>
             <Logo src={TesonetLogo} />
-          </div>
+          </CenterLogo>
           <Form onSubmit={this.submit}>
             <Input
-              type="username"
               icon={UserIcon}
+              name="username"
               value={username}
               placeholder="Username"
               onChange={this.changeInputField("username")}
               isInvalid={errors.username}
             />
-
             <Input
               icon={LockIcon}
               type="password"
+              name="password"
               value={password}
               placeholder="Password"
               onChange={this.changeInputField("password")}

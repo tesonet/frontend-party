@@ -8,6 +8,12 @@ const Logo = styled.img`
   background-position: center;
 `;
 
+const CenterLogo = styled.div`
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: center;
+`;
+
 const BackgroundContainer = styled.div`
   position: absolute;
   top: 0px;
@@ -25,4 +31,4 @@ const BackgroundContainer = styled.div`
     url(${BackgroundImage});
 `;
 
-export { Logo, BackgroundContainer };
+export { Logo, CenterLogo, BackgroundContainer };
