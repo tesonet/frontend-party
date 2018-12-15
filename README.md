@@ -1,44 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## To Run Project
 
-## Available Scripts
+```shell
+ npm i && npm start
+```
 
-In the project directory, you can run:
+## Future Improvements
 
-### `npm start`
+1. More tests: unit + integration (`Jest` + `Cypress`)
+2. Can introduce Redux or Context API for cleaner implementation and less coupling in `<App>` component, for now `<Auth />` as a render props was used.
+3. More general styling: seperate common padding / colors to a `<Theme />` in `styled-components`
+4. Depending on the future scaling, put components like `<Button />` to shared folders - currently there is no need. Also, depending on the reusability of components, expose more props - more Render Props & HOC's.
+5. Would like to use TS, but currently I'm more comfortable with plain `PropTypes` / `Flow`, thus `PropTypes` were used.
+6. Depending on the need, convert this to a PWA
+7. Drop Reactstrap and classes on top - only `styled-components`
+8. Add loaders - better UX
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+404 was the most fun :)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Possible Questions
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Reactstrap + Bootstrap, because I wanted a fast responsive layout - didn't want to write all grids by hand today :)
+2. Regarding structure - Fractal pattern,
+   https://hackernoon.com/fractal-a-react-app-structure-for-infinite-scale-4dab943092af?gi=3115137e263b , used in production - still happy about it :)
+3. If you change the token in localStorage - you won't get a server list, you won't be kicked out. This can be debated, but for now, there isn't other functionality to see, in more strict situations you should be kicked out.
