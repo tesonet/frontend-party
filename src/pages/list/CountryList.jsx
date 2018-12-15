@@ -13,10 +13,12 @@ const CountryList = ({ countries }) =>
   ));
 
 CountryList.propTypes = {
-  countries: PropTypes.arrayOf({
-    name: PropTypes.string.isRequired,
-    distance: PropTypes.number.isRequired
-  })
+  countries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      distance: PropTypes.number.isRequired,
+    })
+  ),
 };
 
 export default CountryList;

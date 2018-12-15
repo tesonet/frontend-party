@@ -2,35 +2,16 @@ import React, { Fragment } from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import history from "./utils/history";
 
-import GlobalStyle from "./utils/globalStyles";
+import Auth from "./utils/Auth";
 import Login from "./pages/Login";
 import List from "./pages/List";
+import GlobalStyle from "./utils/globalStyles";
 
-import { getToken } from "./api/api";
+import ErrorPage from "./pages/Error";
 
-class App extends React.Component {
-  state = {
-    isAuthenticated: false
-  };
-
-  authenticate = async credentials => {
-    const response = await getToken(credentials);
-    localStorage.setItem("token", response.token);
-
-    this.setState({ isAuthenticated: true });
-    history.push("/list");
-  };
-
-  logout = () => {
-    localStorage.removeItem("token");
-    this.setState({ isAuthenticated: false });
-
-    history.push("/");
-  };
-
-  render() {
-    const { isAuthenticated } = this.state;
-    return (
+const App = () => (
+  <Auth>
+    {({ isAuthenticated, authenticate, logout }) => (
       <Router history={history}>
         <Fragment>
           <GlobalStyle />
@@ -38,19 +19,17 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              render={() => <Login authenticate={this.authenticate} />}
+              render={() => <Login authenticate={authenticate} />}
             />
             {isAuthenticated ? (
-              <Route
-                path="/list"
-                render={() => <List logout={this.logout} />}
-              />
+              <Route path="/list" render={() => <List logout={logout} />} />
             ) : null}
+            <Route component={ErrorPage} />
           </Switch>
         </Fragment>
       </Router>
-    );
-  }
-}
+    )}
+  </Auth>
+);
 
 export default App;

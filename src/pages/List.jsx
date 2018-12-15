@@ -10,14 +10,14 @@ import CountryList from "./list/CountryList";
 class List extends React.Component {
   state = {
     countries: [],
-    error: null
+    error: null,
   };
 
   async componentDidMount() {
     try {
       const countries = await getTasks();
       this.setState({
-        countries: distanceAndNameSort(countries)
+        countries: distanceAndNameSort(countries),
       });
     } catch (err) {
       this.setState({ error: err.msg });

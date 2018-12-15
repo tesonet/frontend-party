@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import { Container, Logo, Icon, Button } from "./Navigation.styles";
 
-import TesonetBlackLogo from "../../assets/images/logotype-testio.png";
 import IconLogout from "../../assets/icons/ico-logout.svg";
+import TesonetBlackLogo from "../../assets/images/black-logo.png";
 
 const Navigation = ({ onClick }) => (
   <Container>
@@ -17,7 +17,7 @@ const Navigation = ({ onClick }) => (
 );
 
 Navigation.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Navigation;

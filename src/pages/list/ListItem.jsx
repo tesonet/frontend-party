@@ -13,10 +13,10 @@ const ListItem = ({ name, type, value }) => (
 ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 };
 ListItem.defaultProps = {
-  type: null
+  type: null,
 };
 
 export default ListItem;

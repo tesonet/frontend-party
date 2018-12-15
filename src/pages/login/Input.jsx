@@ -12,7 +12,7 @@ const StyledInput = ({
   placeholder,
   value,
   onChange,
-  isInvalid
+  isInvalid,
 }) => (
   <FormGroup>
     <InputGroup>
@@ -27,7 +27,9 @@ const StyledInput = ({
         onChange={onChange}
         invalid={!!isInvalid}
       />
-      {isInvalid ? <FormFeedback invalid>{isInvalid}</FormFeedback> : null}
+      {isInvalid ? (
+        <FormFeedback invalid="true">{isInvalid}</FormFeedback>
+      ) : null}
     </InputGroup>
   </FormGroup>
 );
@@ -37,9 +39,9 @@ StyledInput.propTypes = {
   value: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   isInvalid: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
 };
 StyledInput.defaultProps = {
-  type: "text"
+  type: "text",
 };
 export default StyledInput;

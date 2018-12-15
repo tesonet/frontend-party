@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 58px;
 
   ${({ type }) =>
-    type == "header" &&
+    type === "header" &&
     css`
       color: #999;
       background: rgb(245, 245, 245);

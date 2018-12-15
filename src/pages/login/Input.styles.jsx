@@ -5,7 +5,7 @@ const inputStyle = {
   lineHeight: 1.875,
   borderRadius: 0,
   borderTopRightRadius: 5,
-  borderBottomRightRadius: 5
+  borderBottomRightRadius: 5,
 };
 
 export { inputStyle };
