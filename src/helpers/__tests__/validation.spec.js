@@ -6,18 +6,18 @@ describe("Validation helper functionality", () => {
     const falseInput = {
       password: "fake",
     };
-    expect(validate(falseInput)).toBe({ username: USERNAME_ERROR_MSG });
+    expect(validate(falseInput)).toEqual({ username: USERNAME_ERROR_MSG });
   });
 
   it("should return a password error msg if password is missing", () => {
     const falseInput = {
       username: "fake",
     };
-    expect(validate(falseInput)).toBe({ password: PASSWORD_ERROR_MSG });
+    expect(validate(falseInput)).toEqual({ password: PASSWORD_ERROR_MSG });
   });
 
   it("should return a password and name error msg if input if false", () => {
-    expect(validate({})).toBe({
+    expect(validate({})).toEqual({
       username: USERNAME_ERROR_MSG,
       password: PASSWORD_ERROR_MSG,
     });

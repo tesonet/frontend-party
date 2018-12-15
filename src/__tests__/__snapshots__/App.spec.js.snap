@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Local Storage should write and clean token to LS after login & logout 1`] = `
+<div
+  class="d-flex sc-ifAKCX eiBayV"
+>
+  <div
+    class="col-sm-12 col-md-6 col-lg-4 m-auto container"
+  >
+    <div
+      class="sc-bxivhb hUgcLF"
+    >
+      <img
+        class="sc-htpNat eUlSDF"
+        src="white-logo.png"
+      />
+    </div>
+    <form
+      class=""
+    >
+      <div
+        class="position-relative form-group"
+      >
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+            style="border: 0px; background: rgb(255, 255, 255); border-top-left-radius: 5px; border-bottom-left-radius: 5px; padding-left: 15px;"
+          >
+            <span
+              class="input-group-text"
+              style="border: 0px; color: rgb(178, 178, 178);"
+            >
+              <img
+                class="sc-bdVaJa jyHzQx"
+                src="ico-username.svg"
+              />
+            </span>
+          </div>
+          <input
+            class="form-control-lg form-control"
+            name="username"
+            placeholder="Username"
+            style="border: 0px; color: rgb(178, 178, 178); height: 56px; line-height: 1.875; border-radius: 0; border-top-right-radius: 5px; border-bottom-right-radius: 5px;"
+            type="text"
+            value="tesonet"
+          />
+        </div>
+      </div>
+      <div
+        class="position-relative form-group"
+      >
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+            style="border: 0px; background: rgb(255, 255, 255); border-top-left-radius: 5px; border-bottom-left-radius: 5px; padding-left: 15px;"
+          >
+            <span
+              class="input-group-text"
+              style="border: 0px; color: rgb(178, 178, 178);"
+            >
+              <img
+                class="sc-bdVaJa jyHzQx"
+                src="ico-lock.svg"
+              />
+            </span>
+          </div>
+          <input
+            class="form-control-lg form-control"
+            name="password"
+            placeholder="Password"
+            style="border: 0px; color: rgb(178, 178, 178); height: 56px; line-height: 1.875; border-radius: 0; border-top-right-radius: 5px; border-bottom-right-radius: 5px;"
+            type="password"
+            value="partyanimal"
+          />
+        </div>
+      </div>
+      <button
+        class="w-100 sc-bwzfXH fPDeGH btn btn-#9fd533"
+        type="submit"
+      >
+        Log In
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Local Storage should write and clean token to LS after login & logout 2`] = `
+<div
+  class="sc-gzVnrw jHLeDV"
+>
+  <img
+    alt="testio."
+    class="sc-htoDjs ivXlwq"
+    src="black-logo.png"
+  />
+  <button
+    class="sc-iwsKbI iUDrjP"
+  >
+    <img
+      alt="logout-button"
+      class="sc-dnqmqq jzveCj"
+      src="ico-logout.svg"
+    />
+    <span>
+      Logout
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Local Storage should write and clean token to LS after login & logout 3`] = `
+<div
+  class="d-flex sc-ifAKCX eiBayV"
+>
+  <div
+    class="col-sm-12 col-md-6 col-lg-4 m-auto container"
+  >
+    <div
+      class="sc-bxivhb hUgcLF"
+    >
+      <img
+        class="sc-htpNat eUlSDF"
+        src="white-logo.png"
+      />
+    </div>
+    <form
+      class=""
+    >
+      <div
+        class="position-relative form-group"
+      >
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+            style="border: 0px; background: rgb(255, 255, 255); border-top-left-radius: 5px; border-bottom-left-radius: 5px; padding-left: 15px;"
+          >
+            <span
+              class="input-group-text"
+              style="border: 0px; color: rgb(178, 178, 178);"
+            >
+              <img
+                class="sc-bdVaJa jyHzQx"
+                src="ico-username.svg"
+              />
+            </span>
+          </div>
+          <input
+            class="form-control-lg form-control"
+            name="username"
+            placeholder="Username"
+            style="border: 0px; color: rgb(178, 178, 178); height: 56px; line-height: 1.875; border-radius: 0; border-top-right-radius: 5px; border-bottom-right-radius: 5px;"
+            type="text"
+            value="tesonet"
+          />
+        </div>
+      </div>
+      <div
+        class="position-relative form-group"
+      >
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+            style="border: 0px; background: rgb(255, 255, 255); border-top-left-radius: 5px; border-bottom-left-radius: 5px; padding-left: 15px;"
+          >
+            <span
+              class="input-group-text"
+              style="border: 0px; color: rgb(178, 178, 178);"
+            >
+              <img
+                class="sc-bdVaJa jyHzQx"
+                src="ico-lock.svg"
+              />
+            </span>
+          </div>
+          <input
+            class="form-control-lg form-control"
+            name="password"
+            placeholder="Password"
+            style="border: 0px; color: rgb(178, 178, 178); height: 56px; line-height: 1.875; border-radius: 0; border-top-right-radius: 5px; border-bottom-right-radius: 5px;"
+            type="password"
+            value="partyanimal"
+          />
+        </div>
+      </div>
+      <button
+        class="w-100 sc-bwzfXH fPDeGH btn btn-#9fd533"
+        type="submit"
+      >
+        Log In
+      </button>
+    </form>
+  </div>
+</div>
+`;

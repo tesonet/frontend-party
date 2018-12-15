@@ -77,6 +77,7 @@ class Login extends React.Component {
               isInvalid={errors.password}
             />
             <Button
+              data-testid="login-button"
               type="submit"
               className="w-100"
               color={!!errors.submit ? WARNING_COLOR : SUCCESS_COLOR}
