@@ -45,8 +45,8 @@ class Login extends Component {
   render() {
     return (
       <div className="login-container row justify-content-center align-items-center">
-        <form onSubmit={this.handleSubmit} className="login-form-container">
-          <div className="logo-container">
+        <form onSubmit={this.handleSubmit} className="login-form">
+          <div className="login-form-logo-container">
             <img src="static/images/logotype-testio.png" alt="logo"/>
           </div>
           <div className="form-group input-group login-form-group">

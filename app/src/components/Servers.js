@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { ApiUtil } from '../api/apiUtil.js'
 import ServerItem from './ServerItem.js';
 import Header from './Header.js';
-
-const listStyle = {
-  width: '100%'
-}
+import '../sass/servers.scss';
 
 class Servers extends Component {
   constructor(props) {
@@ -28,7 +25,7 @@ class Servers extends Component {
       <div>
         <Header />
         <div className="row">
-            <div className="card" style={listStyle}>
+            <div className="card server-list-container">
               <div className="card-header">
                 <ServerItem name="Server" distance='Distance'/>
               </div>

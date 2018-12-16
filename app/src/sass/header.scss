@@ -1,16 +1,18 @@
 .header-container {
   height: 113px;
+
   .header-logo {
     margin-top: 42px;
   }
   .header-logout-container {
     text-align: right;
-   //  padding-right: 15px;
+
     .header-logout-logo-container {
       vertical-align: middle;
       display: inline-block;
       margin-right: 5px;
     }
+    
     .header-logout-btn {
       margin-top: 42px;
     }
