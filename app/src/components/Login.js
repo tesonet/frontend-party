@@ -42,7 +42,7 @@ class Login extends Component {
           <div className="login-form-logo-container">
             <img src="static/images/logotype-testio.png" alt="logo"/>
           </div>
-          <div className="form-group login-form-group">
+          <div className="form-group">
             <InputWithIcon
               iconPath="static/images/ico-username.svg"
               type="text"
@@ -52,7 +52,7 @@ class Login extends Component {
               onChange={this.handleInput}
             />
           </div>
-          <div className="form-group login-form-group">
+          <div className="form-group">
             <InputWithIcon
               iconPath="static/images/ico-lock.svg"
               type="text"

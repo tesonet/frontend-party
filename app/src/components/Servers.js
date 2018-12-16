@@ -49,7 +49,7 @@ class Servers extends Component {
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <div className="row justify-content-between">
-                  <div className="col-4">
+                  <div className="col-6 col-sm-4">
                     <input
                       type="text"
                       className="form-control server-item-input"
@@ -57,7 +57,7 @@ class Servers extends Component {
                       onChange={(e) => this.filterItems(e, 'name')}
                     />
                   </div>
-                  <div className="col-4">
+                  <div className="col-6 col-sm-4">
                     <input
                       type="text"
                       className="form-control server-item-input"

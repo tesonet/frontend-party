@@ -5,7 +5,8 @@
   background-color: #0b0f27;
 
   .login-form {
-    max-width: 360px;
+    max-width: 380px;
+    padding: 0 10px;
     width: 100%;
 
     &-logo-container {
@@ -15,7 +16,6 @@
     }
 
     &-group {
-      width: 100%;
 
       &-input {
         line-height: 30px;

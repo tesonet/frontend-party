@@ -4,10 +4,10 @@ import '../sass/serveritems.scss';
 const ServerItem = ({name, distance}) => {
   return (
     <div className="row justify-content-between server-item-container">
-      <div className="col-8">
+      <div className="col-6 col-sm-4">
         {name}
       </div>
-      <div className="col-4 text-right">
+      <div className="col-6 col-sm-4 text-right">
         {distance}
       </div>
     </div>

@@ -11,9 +11,10 @@
     }
 
     &-logo-container {
-      vertical-align: middle;
       display: inline-block;
       margin-right: 5px;
+      position: relative;
+      top: 2px;
     }
     
     &-btn {
