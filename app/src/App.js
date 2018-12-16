@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './components/Login';
 import Servers from './components/Servers';
 import { BrowserRouter, Route } from 'react-router-dom';
+import './sass/base.scss';
 
 class App extends Component {
   render() {

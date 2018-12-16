@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { ApiUtil } from '../api/apiUtil.js';
 import { setAuthorizationToken } from '../utils/authorization.js';
+import InputWithIcon from './InputWithIcon.js';
 import '../sass/login.scss';
 
 class Login extends Component {
@@ -41,25 +42,23 @@ class Login extends Component {
           <div className="login-form-logo-container">
             <img src="static/images/logotype-testio.png" alt="logo"/>
           </div>
-          <div className="form-group input-group login-form-group">
-          <object type="image/svg+xml" data="static/images/ico-username.svg">
-          </object>
-            <input
+          <div className="form-group login-form-group">
+            <InputWithIcon
+              iconPath="static/images/ico-username.svg"
               type="text"
-              className="form-control login-form-input"
               value={username}
               name="username"
+              placeHolder="Username"
               onChange={this.handleInput}
             />
           </div>
-          <div className="form-group input-group login-form-group">
-            <object type="image/svg+xml"data="static/images/ico-lock.svg">
-            </object>
-            <input
-              type="password"
-              className="form-control login-form-input"
-              name="password"
+          <div className="form-group login-form-group">
+            <InputWithIcon
+              iconPath="static/images/ico-lock.svg"
+              type="text"
               value={password}
+              name="password"
+              placeHolder="Password"
               onChange={this.handleInput}
             />
           </div>

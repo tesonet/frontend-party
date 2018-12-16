@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ApiUtil } from '../api/apiUtil.js'
 import ServerItem from './ServerItem.js';
 import Header from './Header.js';
-import '../sass/servers.scss';
+import '../sass/serveritems.scss';
 
 class Servers extends Component {
   state = {
@@ -52,7 +52,7 @@ class Servers extends Component {
                   <div className="col-4">
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control server-item-input"
                       placeholder="Filter servers by name"
                       onChange={(e) => this.filterItems(e, 'name')}
                     />
@@ -60,7 +60,7 @@ class Servers extends Component {
                   <div className="col-4">
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control server-item-input"
                       placeholder="Filter servers by distance"
                       onChange={(e) => this.filterItems(e, 'distance')}
                     />

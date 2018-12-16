@@ -18,6 +18,11 @@
     
     &-btn {
       margin-top: 42px;
+      font-weight: 300;
+
+      &:hover {
+        background-color: #99cc33;
+      }
     }
   }
 }

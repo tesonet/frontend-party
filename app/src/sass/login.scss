@@ -2,7 +2,7 @@
   height: 100vh;
   background: url('/static/images/img.png') no-repeat center center fixed; 
   background-size: cover;
-  background-color: black;
+  background-color: #0b0f27;
 
   .login-form {
     max-width: 360px;
@@ -19,8 +19,14 @@
 
       &-input {
         line-height: 30px;
-        padding: 23px 0 21px;
+        padding: 23px 0 21px 45px;
         color: #999;
+        font-weight: 300;
+      }
+      &-input-prepend {
+        z-index: 2;
+        position: absolute;
+        padding: 14px 20px 20px 20px;
       }
 
       &-prepend {
