@@ -18,7 +18,7 @@ const Header = (props) => {
         <div className="header-logout-container">
           <button onClick={logOut} className="btn btn-light header-logout-btn">
             <div className="header-logout-logo-container">
-              <object type="image/svg+xml" data="static/images/ico-logout.svg" class="logo">
+              <object type="image/svg+xml" data="static/images/ico-logout.svg" className="logo">
               </object>
             </div>
             Log Out

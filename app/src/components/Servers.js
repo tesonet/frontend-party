@@ -5,32 +5,61 @@ import Header from './Header.js';
 import '../sass/servers.scss';
 
 class Servers extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      servers: [],
-    };
+  state = {
+    servers: [],
+    filteredServers: [],
+  };
+
+  filterItems = (event, key) => {
+    const filteredServers = this.state.servers.filter(el => {
+      return el[key].toString().toLowerCase().includes(event.target.value.toLowerCase());
+    })
+    this.setState({ filteredServers: filteredServers });
+
   }
 
   componentDidMount() {
     ApiUtil('/servers', 'GET', null, true)
       .then(response =>  {
-        this.setState({ servers: response })
+        this.setState({ 
+          servers: response,
+          filteredServers: response,
+        });
       })
-      .catch(err =>  console.log(err));
+      .catch(err =>  console.error(err));
   }
 
   render() {
     return (
       <div>
-        <Header />
+        <Header/>
         <div className="row">
             <div className="card server-list-container">
               <div className="card-header">
                 <ServerItem name="Server" distance='Distance'/>
               </div>
               <ul className="list-group list-group-flush">
-                {this.state.servers.map((server, idx) => 
+                <li className="list-group-item">
+                <div className="row justify-content-between">
+                  <div className="col-4">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Filter servers by name"
+                      onChange={(e) => this.filterItems(e, 'name')}
+                    />
+                  </div>
+                  <div className="col-4">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Filter servers by distance"
+                      onChange={(e) => this.filterItems(e, 'distance')}
+                    />
+                  </div>
+                </div>
+                </li>
+                {this.state.filteredServers.map((server, idx) => 
                   <li key={idx} className="list-group-item">
                     <ServerItem name={server.name} distance={`${server.distance} km`}/>
                   </li>
