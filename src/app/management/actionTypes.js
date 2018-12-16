@@ -1,0 +1,10 @@
+import { NAME } from "./constants";
+
+export const AUTHORIZATION = `${NAME}.AUTHORIZATION`;
+export const AUTHORIZATION_FAILED = `${NAME}.AUTHORIZATION_FAILED`;
+export const FETCHING = `${NAME}.FETCHING`;
+export const GET_SERVERS_SUCCESS = `${NAME}.GET_SERVERS_SUCCESS`;
+export const GET_SERVERS_FAILURE = `${NAME}.GET_SERVERS_FAILURE`;
+export const LOGOUT = `${NAME}.LOGOUT`;
+export const SORT_BY_NAME = `${NAME}.SORT_BY_NAME`;
+export const SORT_BY_DISTANCE = `${NAME}.SORT_BY_DISTANCE`;
