@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { ApiUtil } from '../api/apiUtil.js';
-import { setAuthorizationToken } from '../utils/authorization.js';
-import InputWithIcon from './InputWithIcon.js';
+import { ApiUtil } from '../api/apiUtil';
+import { setAuthorizationToken } from '../utils/authorization';
+import InputWithIcon from './InputWithIcon';
 import '../sass/login.scss';
 
 class Login extends Component {
@@ -37,35 +37,35 @@ class Login extends Component {
     const { username, password } = this.state;
 
     return (
-      <div className="login-container row justify-content-center align-items-center">
-        <form onSubmit={this.handleSubmit} className="login-form">
-          <div className="login-form-logo-container">
-            <img src="static/images/logotype-testio.png" alt="logo"/>
+      <div className='login-container row justify-content-center align-items-center'>
+        <form onSubmit={this.handleSubmit} className='login-form'>
+          <div className='login-form-logo-container'>
+            <img src='static/images/logotype-testio.png' alt='logo'/>
           </div>
-          <div className="form-group">
+          <div className='form-group'>
             <InputWithIcon
-              iconPath="static/images/ico-username.svg"
-              type="text"
+              iconPath='static/images/ico-username.svg'
+              type='text'
               value={username}
-              name="username"
-              placeHolder="Username"
+              name='username'
+              placeholder='Username'
               onChange={this.handleInput}
             />
           </div>
-          <div className="form-group">
+          <div className='form-group'>
             <InputWithIcon
-              iconPath="static/images/ico-lock.svg"
-              type="text"
+              iconPath='static/images/ico-lock.svg'
+              type='password'
               value={password}
-              name="password"
-              placeHolder="Password"
+              name='password'
+              placeholder='Password'
               onChange={this.handleInput}
             />
           </div>
-          <div className="form-group login-form-group">
+          <div className='form-group login-form-group'>
             <button
-              type="submit"
-              className="btn login-form-btn"
+              type='submit'
+              className='btn login-form-btn'
               disabled={!username || !password}
             >Log In</button>
           </div>

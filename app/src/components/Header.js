@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import '../sass/header.scss';
 import { withRouter } from 'react-router-dom';
-import { unsetAuthorizationToken } from '../utils/authorization.js';
+import { unsetAuthorizationToken } from '../utils/authorization';
 
 class Header extends Component {
   logOut = () => {
@@ -11,15 +11,15 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="row justify-content-between header-container">
-        <div className="col-6 col-sm-8">
-          <img className="header-logo" src="static/images/logotype-testio-dark.png" alt="logo"/>
+      <div className='row justify-content-between header-container'>
+        <div className='col-6 col-sm-8'>
+          <img className='header-logo' src='static/images/logotype-testio-dark.png' alt='logo'/>
         </div>
-        <div className="col-6 col-sm-4">
-          <div className="header-logout-container">
-            <button onClick={this.logOut} className="btn btn-light header-logout-btn">
-              <div className="header-logout-logo-container">
-                <object type="image/svg+xml" data="static/images/ico-logout.svg">
+        <div className='col-6 col-sm-4'>
+          <div className='header-logout-container'>
+            <button onClick={this.logOut} className='btn btn-light header-logout-btn'>
+              <div className='header-logout-logo-container'>
+                <object type='image/svg+xml' data='static/images/ico-logout.svg'>
                   icon
                 </object>
               </div>
