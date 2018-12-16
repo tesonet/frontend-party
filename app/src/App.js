@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.scss';
 import Login from './components/Login';
 import Servers from './components/Servers';
 import { BrowserRouter, Route } from 'react-router-dom';
