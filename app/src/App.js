@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Login from './components/Login';
 import ServerItems from './components/ServerItems';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute'
 import './sass/base.scss';
 
 class App extends Component {
@@ -10,8 +11,11 @@ class App extends Component {
       <div className='App'>
         <BrowserRouter>
           <div className='container-fluid'>
-            <Route exact path='/' component={Login} />
-            <Route path='/servers' component={ServerItems} />
+            <Switch>
+              <Route exact path='/' component={Login} />
+              <ProtectedRoute exact path='/servers' component={ServerItems} />
+              <Route path='*' component={() => 'Nothing here'} />
+            </Switch>
           </div>
         </BrowserRouter>
       </div>

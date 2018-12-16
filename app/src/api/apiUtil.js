@@ -1,4 +1,4 @@
-import { getAuthorizationToken } from '../utils/authorization.js';
+import { getAuthorizationToken } from '../utils/lsHelper.js';
 
 function getHeaders(withAuth) {
   let headers = new Headers();
