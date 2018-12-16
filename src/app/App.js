@@ -5,7 +5,6 @@ import AuthorizationPage from "./views/AuthorizationPage";
 import ServersList from "./views/ServersList";
 import PageNotFound from "./views/PageNotFound";
 import management from "./management";
-import "./App.css";
 
 class App extends Component {
   componentDidMount() {
