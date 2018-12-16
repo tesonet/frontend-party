@@ -37,6 +37,7 @@ class Servers extends Component {
 
   render() {
     const { filteredServers } = this.state;
+
     return (
       <div>
         <Header />

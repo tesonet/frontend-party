@@ -19,7 +19,7 @@
 
       &-input {
         line-height: 30px;
-        padding: 23px 0 21px 0;
+        padding: 23px 0 21px;
         color: #999;
       }
 
@@ -36,6 +36,7 @@
         border-radius: 5px;
         color: #fff;
         background-color: #9fd533;
+
         &:hover {
           background-color: #86b300;
         }

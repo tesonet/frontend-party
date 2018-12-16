@@ -20,6 +20,7 @@ class Header extends Component {
             <button onClick={this.logOut} className="btn btn-light header-logout-btn">
               <div className="header-logout-logo-container">
                 <object type="image/svg+xml" data="static/images/ico-logout.svg">
+                  icon
                 </object>
               </div>
               Log Out

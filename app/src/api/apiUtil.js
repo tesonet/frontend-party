@@ -1,7 +1,5 @@
 import { getAuthorizationToken } from '../utils/authorization.js';
 
-const BASE_URL = 'http://playground.tesonet.lt/v1'
-
 function getHeaders(withAuth) {
   let headers = new Headers();
   headers.append('Content-Type', 'application/json; charset=utf-8');
@@ -13,12 +11,12 @@ function getHeaders(withAuth) {
 }
 
 export function ApiUtil(url, method, body, withAuth) {
-  const fullUrl = `${BASE_URL}${url}`
+  const fullUrl = `${process.env.REACT_APP_API_URL}${url}`
   return fetch(fullUrl, {
     method,
-    mode: "cors",
-    cache: "no-cache",
-    credentials: "same-origin",
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
     headers: getHeaders(withAuth),
     body: body ? JSON.stringify(body) : undefined,
   })
@@ -30,5 +28,3 @@ export function ApiUtil(url, method, body, withAuth) {
     }
   })
 }
-
-  // error handling

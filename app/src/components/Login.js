@@ -34,6 +34,7 @@ class Login extends Component {
 
   render() {
     const { username, password } = this.state;
+
     return (
       <div className="login-container row justify-content-center align-items-center">
         <form onSubmit={this.handleSubmit} className="login-form">
