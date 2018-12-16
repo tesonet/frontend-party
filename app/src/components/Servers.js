@@ -15,31 +15,38 @@ class Servers extends Component {
       return el[key].toString().toLowerCase().includes(event.target.value.toLowerCase());
     })
     this.setState({ filteredServers: filteredServers });
+  }
 
+  sortServers = servers => {
+    return servers.sort((a, b) => {
+      return a.name - b.name || a.distance - b.distance;
+    })
   }
 
   componentDidMount() {
     ApiUtil('/servers', 'GET', null, true)
-      .then(response =>  {
-        this.setState({ 
-          servers: response,
-          filteredServers: response,
+      .then(response => {
+        const sorted = this.sortServers(response);
+        this.setState({
+          servers: sorted,
+          filteredServers: sorted,
         });
       })
-      .catch(err =>  console.error(err));
+      .catch(err => console.error(err));
   }
 
   render() {
+    const { filteredServers } = this.state;
     return (
       <div>
-        <Header/>
+        <Header />
         <div className="row">
-            <div className="card server-list-container">
-              <div className="card-header">
-                <ServerItem name="Server" distance='Distance'/>
-              </div>
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">
+          <div className="card server-list-container">
+            <div className="card-header">
+              <ServerItem name="Server" distance='Distance' />
+            </div>
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">
                 <div className="row justify-content-between">
                   <div className="col-4">
                     <input
@@ -58,14 +65,14 @@ class Servers extends Component {
                     />
                   </div>
                 </div>
+              </li>
+              {filteredServers.map((server, idx) =>
+                <li key={idx} className="list-group-item">
+                  <ServerItem name={server.name} distance={`${server.distance} km`} />
                 </li>
-                {this.state.filteredServers.map((server, idx) => 
-                  <li key={idx} className="list-group-item">
-                    <ServerItem name={server.name} distance={`${server.distance} km`}/>
-                  </li>
-                )}
-              </ul>
-            </div>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     );

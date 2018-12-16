@@ -6,16 +6,13 @@ import '../sass/login.scss';
 
 class Login extends Component {
   state = {
-    name: '',
-    pass: '',
+    username: '',
+    password: '',
   };
 
-  handleNameChange = event => {
-    this.setState({name: event.target.value});
-  }
-
-  handlePassChange = event => {
-    this.setState({pass: event.target.value});
+  handleInput = event => {
+    const { name, value } = event.target;
+    this.setState({[name]: value});
   }
 
   handleSubmit = event => {
@@ -26,8 +23,8 @@ class Login extends Component {
   login = () => {
     ApiUtil('/tokens', 'POST',
       { 
-        username: this.state.name,
-        password: this.state.pass,
+        username: this.state.username,
+        password: this.state.password,
       }
     ).then(response => {
       setAuthorizationToken(response);
@@ -36,6 +33,7 @@ class Login extends Component {
   }
 
   render() {
+    const { username, password } = this.state;
     return (
       <div className="login-container row justify-content-center align-items-center">
         <form onSubmit={this.handleSubmit} className="login-form">
@@ -45,15 +43,31 @@ class Login extends Component {
           <div className="form-group input-group login-form-group">
           <object type="image/svg+xml" data="static/images/ico-username.svg">
           </object>
-            <input type="text" className="form-control login-form-input"  value={this.state.name} onChange={this.handleNameChange} />
+            <input
+              type="text"
+              className="form-control login-form-input"
+              value={username}
+              name="username"
+              onChange={this.handleInput}
+            />
           </div>
           <div className="form-group input-group login-form-group">
             <object type="image/svg+xml"data="static/images/ico-lock.svg">
             </object>
-            <input type="password" className="form-control login-form-input"  value={this.state.pass} onChange={this.handlePassChange} />
+            <input
+              type="password"
+              className="form-control login-form-input"
+              name="password"
+              value={password}
+              onChange={this.handleInput}
+            />
           </div>
           <div className="form-group login-form-group">
-            <button type="submit" className="btn login-form-btn">Log In</button>
+            <button
+              type="submit"
+              className="btn login-form-btn"
+              disabled={!username || !password}
+            >Log In</button>
           </div>
         </form>   
       </div>
