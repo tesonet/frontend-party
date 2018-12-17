@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login renders correctly 1`] = `
+<div
+  className="login-container row justify-content-center align-items-center"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="login-form-logo-container"
+    >
+      <img
+        alt="logo"
+        src="static/images/logotype-testio.png"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <div
+        className="login-form-group"
+      >
+        <div
+          className="login-form-group-input-prepend"
+        >
+          <object
+            data="static/images/ico-username.svg"
+            type="image/svg+xml"
+          >
+            icon
+          </object>
+        </div>
+        <input
+          className="form-control login-form-group-input"
+          name="username"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="form-group"
+    >
+      <div
+        className="login-form-group"
+      >
+        <div
+          className="login-form-group-input-prepend"
+        >
+          <object
+            data="static/images/ico-lock.svg"
+            type="image/svg+xml"
+          >
+            icon
+          </object>
+        </div>
+        <input
+          className="form-control login-form-group-input"
+          name="password"
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="form-group login-form-group"
+    >
+      <button
+        className="btn login-form-btn"
+        disabled={true}
+        type="submit"
+      >
+        Log In
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div
+  className="login-container row justify-content-center align-items-center"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="login-form-logo-container"
+    >
+      <img
+        alt="logo"
+        src="static/images/logotype-testio.png"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <div
+        className="login-form-group"
+      >
+        <div
+          className="login-form-group-input-prepend"
+        >
+          <object
+            data="static/images/ico-username.svg"
+            type="image/svg+xml"
+          >
+            icon
+          </object>
+        </div>
+        <input
+          className="form-control login-form-group-input"
+          name="username"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="form-group"
+    >
+      <div
+        className="login-form-group"
+      >
+        <div
+          className="login-form-group-input-prepend"
+        >
+          <object
+            data="static/images/ico-lock.svg"
+            type="image/svg+xml"
+          >
+            icon
+          </object>
+        </div>
+        <input
+          className="form-control login-form-group-input"
+          name="password"
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="form-group login-form-group"
+    >
+      <button
+        className="btn login-form-btn"
+        disabled={true}
+        type="submit"
+      >
+        Log In
+      </button>
+    </div>
+  </form>
+</div>
+`;

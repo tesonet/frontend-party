@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import Auth from '../utils/auth';
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
+const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     Auth.isAuthorized() ? <Component {...props} />
       : <Redirect to={{
@@ -15,4 +15,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 )
 
-export default PrivateRoute;
+export default ProtectedRoute;

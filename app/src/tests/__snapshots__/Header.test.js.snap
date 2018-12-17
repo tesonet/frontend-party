@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<div
+  className="row justify-content-between header-container"
+>
+  <div
+    className="col-6 col-sm-8"
+  >
+    <img
+      alt="logo"
+      className="header-logo"
+      src="static/images/logotype-testio-dark.png"
+    />
+  </div>
+  <div
+    className="col-6 col-sm-4"
+  >
+    <div
+      className="header-logout-container"
+    >
+      <button
+        className="btn btn-light header-logout-btn"
+        onClick={[Function]}
+      >
+        <div
+          className="header-logout-logo-container"
+        >
+          <object
+            data="static/images/ico-logout.svg"
+            type="image/svg+xml"
+          >
+            icon
+          </object>
+        </div>
+        Log Out
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div
+  className="row justify-content-between header-container"
+>
+  <div
+    className="col-6 col-sm-8"
+  >
+    <img
+      alt="logo"
+      className="header-logo"
+      src="static/images/logotype-testio-dark.png"
+    />
+  </div>
+  <div
+    className="col-6 col-sm-4"
+  >
+    <div
+      className="header-logout-container"
+    >
+      <button
+        className="btn btn-light header-logout-btn"
+        onClick={[Function]}
+      >
+        <div
+          className="header-logout-logo-container"
+        >
+          <object
+            data="static/images/ico-logout.svg"
+            type="image/svg+xml"
+          >
+            icon
+          </object>
+        </div>
+        Log Out
+      </button>
+    </div>
+  </div>
+</div>
+`;
