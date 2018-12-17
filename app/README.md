@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `env`
+
+For developement build use `.env.development.local` file.<br>
+For production build use `.env.production.local` file.<br>
+Example of usage is written in `.env.example.local` file.<br>
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
