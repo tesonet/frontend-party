@@ -1,0 +1,24 @@
+$bootstrap-border-radius: .3rem;
+
+$table-colors: (
+  th-background: #f5f5f5,
+  th-color: #9f9f9f
+);
+
+$input-colors: (
+  background: #ffffff,
+  placeholder: #cccccc,
+  text: #999
+);
+
+$login-button-colors: (
+  background: #9fd533,
+  hover: #86b300,
+  color: #ffffff
+);
+
+$logout-button-colors: (
+  hover: #99cc33,
+);
+
+$login-page-background: '~app/assets/images/background.jpg';

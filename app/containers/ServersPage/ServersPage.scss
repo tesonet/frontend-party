@@ -1,0 +1,20 @@
+@import '~app/styles/vars';
+
+.servers-page {
+
+  &__logo-container, &__button-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-container {
+    justify-content: flex-end;
+  }
+
+  &__logout-button {
+    &:hover {
+      background: map-get($logout-button-colors, hover);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import '~app/styles/vars';
+
+.form {
+  .oi {
+    color: #{map-get($input-colors, placeholder)};
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+  }
+
+  .input-group > .form-control:not(:first-child) {
+    padding-left: 40px;
+    border-top-left-radius: $bootstrap-border-radius;
+    border-bottom-left-radius: $bootstrap-border-radius;
+  }
+
+  input {
+    font-size: 15px;
+    color: #{map-get($input-colors, text)};
+
+    &:active, &:focus {
+      color: #{map-get($input-colors, text)};
+    }
+
+    &::placeholder {
+      color: #{map-get($input-colors, placeholder)};
+    }
+  }
+}

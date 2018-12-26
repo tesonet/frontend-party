@@ -1,0 +1,19 @@
+@import '~app/styles/vars';
+
+.table {
+
+  &__head {
+    cursor: pointer;
+    color: map-get($table-colors, th-color);
+    background: map-get($table-colors, th-background);
+  }
+
+  &__th, &__td {
+    display: inline-block;
+  }
+
+  &__loading-icon {
+    text-align: center;
+    padding-top: 20px;
+  }
+}
