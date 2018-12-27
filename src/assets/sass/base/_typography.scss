@@ -2,6 +2,10 @@ body {
     font-family: 'Roboto', sans-serif;    
     box-sizing: border-box;
     font-weight: 300;
-    // color: $color-grey;
+}
+
+.alert-message {
+    color: $color-red;
+    font-weight: 500;
 }
 

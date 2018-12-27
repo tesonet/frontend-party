@@ -1,13 +1,10 @@
 import React from 'react';
-import whiteLogo from '../../assets/img/testio-logo-white.png'
+import whiteLogo from '../../assets/img/testio-logo-white.png';
+import darkLogo from '../../assets/img/testio-logo-dark-blue.png';
 
-const logo = () => (
-    <div className="row justify-content-center">
-        <div className="col-xs-6 col-sm-4">
-            <div className="login-box--logo">     
-                <img src={whiteLogo} alt="Testio logo" />
-            </div>
-        </div>
+const logo = (props) => (
+    <div className={props.className}>     
+        <img src={props.white ? whiteLogo : darkLogo } alt="Testio logo" />
     </div>
 )
 

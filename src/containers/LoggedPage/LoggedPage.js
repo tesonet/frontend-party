@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { connect } from 'react-redux';
+import * as loggedPageActions from '../../store/actions/index';
+import axios from 'axios';
+import Header from '../../components/Header/Header';
+import Table from '../../components/Table/Table';
 
 class LoggedPage extends Component {
 
     state = {
         data: []
-    }
+   }
 
     logout = () => {
         this.props.history.push("/");
@@ -13,81 +18,70 @@ class LoggedPage extends Component {
       };
 
     componentDidMount () {
+
+        this.props.onInitGetResult();
+        console.log(this.props.results);
+        // Ascending order by  distance
+        // this.props.results.data.sort((a,b) => (b.distance > a.distance) ? 1 : ((a.distance > b.distance) ? -1 : 0));
+        // // Ascending order by name
+        // this.props.results.data.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+        // // Loppinng in array and posting table cells one by one
+        // for (let i = 0; i < this.props.results.data.length; i++) {
+        //         $('.table-results').append('<tr><td class="table-results-left">' + this.props.results.data[i].name + '</td><td class="table-results-right">' + this.props.results.data[i].distance + ' Km</td></tr>');
+            
+        // }; 
+
         // Get token from local storage
-         const token = localStorage.getItem('token');
-         const self = this;
+        const token = localStorage.getItem('token');
+        const url = 'http://playground.tesonet.lt/v1/servers';
 
-        $.ajax({
-            type: 'GET',
-            url: 'http://playground.tesonet.lt/v1/servers',
-            headers: { "Authorization": token },
-            success: function (result){
-                // let array = result;
-                self.setState({ data: result})
-                // Ascending order by  distance
-                self.state.data.sort((a,b) => (b.distance > a.distance) ? 1 : ((a.distance > b.distance) ? -1 : 0));
-                // Ascending order by name
-                self.state.data.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
-                // Loppinng in array and posting table cells one by one
-                for (let i = 0; i < self.state.data.length; i++) {
-                    $('.table-results').append('<tr><td class="table-results-left">' + self.state.data[i].name + '</td><td class="table-results-right">' + self.state.data[i].distance + ' Km</td></tr>');
-                };
-            },
-            // Caching the error
-            error : function (req, status, error) {
-                console.log('error loading data');
-                }
-        });
+        axios({
+            method: 'GET',
+            url: url,
+            headers: { "Authorization": token, 'content-type': 'application/json;' }            
+        }).then(response => {
+
+            console.log(response.data);
+
+            this.setState({ data: response.data})
+            // Ascending order by  distance
+            this.state.data.sort((a,b) => (b.distance > a.distance) ? 1 : ((a.distance > b.distance) ? -1 : 0));
+            // Ascending order by name
+            this.state.data.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+            // Loppinng in array and posting table cells one by one
+            for (let i = 0; i < this.state.data.length; i++) {
+                 $('.table-results').append('<tr><td class="table-results-left">' + this.state.data[i].name + '</td><td class="table-results-right">' + this.state.data[i].distance + ' Km</td></tr>');
+               
+            };          
+        }).catch(error => {
+            console.log('error loading data');
+        });        
     }    
 
-    resizeMenuOnScrool = () => {
-        //Meniu resizing on scroll
-        $(document).on("scroll", function() {
-            if ($(document).scrollTop() > 50) {
-                $(".logged-header-top").addClass("logged-header-top-small");
-
-            } else {
-                $(".logged-header-top").removeClass("logged-header-top-small");
-            }
-        });
-    }    
-
-    render () {
-        this.resizeMenuOnScrool();
+    render () {        
         return (
+            <>
                 <section className="logged" >
-                    <div className="logged-header">
-                        <div className="row logged-header-top ">
-                            <div className="col-sm">
-                                <div className="logged-header-top-left">
-                                    <img src="/assets/testio-logo-dark-blue.png" alt="logo"></img>
-                                </div>
-                            </div>
-                            <div className="col-sm logged-header-top-div">
-                                <div className="logged-header-top-right">
-                                    <div className="logged-header-top-right-box" onClick={this.logout}>
-                                        <img src="/assets/logout-icon.png" alt="logo"></img>
-                                        <span>Logout</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row logged-header-bottom">
-                            <div className="col logged-header-bottom-left">
-                                <span>Server</span>
-                            </div>
-                            <div className="col logged-header-bottom-right">
-                                <span>Distance</span>
-                            </div>
-                        </div>
-                    </div>
-                    <table className="table table-hover">
-                        <tbody className="table-results"></tbody>
-                    </table>
+                    <Header onClick={this.logout}/>
+                    <Table/>
                 </section>
+            </>
             );           
     }
     
 }
 
-export default LoggedPage;
+const mapStateToProps = state => {
+    return {
+        results: state.data,
+        loading: state.loading
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {        
+        onInitGetResult:  () => dispatch(loggedPageActions.getResult())
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoggedPage);

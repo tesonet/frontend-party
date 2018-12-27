@@ -1,12 +1,9 @@
 .logged {
     
     &-header {
-        position: fixed;
         width:100%;
         background-color: $color-white;
-        z-index: 100;
         transition: all 0.3s;
-        margin-top: -11.2rem;
                     
         &-top {
             margin: 2.5rem 0 2.5rem 0;
@@ -25,7 +22,7 @@
 
                     @include respond(tab) {
                         margin: 0 auto;
-                        width: 35%;
+                        width: 30%;
                         padding-bottom: 1.5rem;                        
                     }   
 
@@ -43,7 +40,7 @@
     
                     &-box {
                         border: 1px solid $color-white;
-                        padding: 0.5rem;
+                        padding: 0.5rem 0rem;
                         cursor: pointer;                            
                         color: $color-dark-blue;
                         font-weight: 400;            
@@ -65,12 +62,17 @@
             padding-left: 1.0rem;
             font-size: 0.875rem;
             letter-spacing: 0.1rem;
+            margin-right: 0;
         
             &-right {
-                padding-right: 2.2rem;
                 text-align: right;
             }               
         }
+    }
+
+    &-table {
+        overflow-y: scroll;
+        height: 80vh;
     }
 }
 

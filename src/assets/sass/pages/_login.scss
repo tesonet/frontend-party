@@ -12,11 +12,12 @@
            
             &--row {
                 @include styled-row;
-                background-color: $color-white;    
+                background-color: $color-white;
+                display: flex;
                 
                 & input {
                     border: none;                    
-                    width: 70%; 
+                    width: 100%;
                     color: $color-grey-dark;
                     
                     &:focus {
@@ -61,6 +62,11 @@
 
                 & img {
                      @include img-block;
+                }
+
+                &-dark {
+                    padding-bottom: 0;
+                    margin: 0;
                 }
             }
         }
