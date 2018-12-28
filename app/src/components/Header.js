@@ -1,13 +1,11 @@
 import React , { Component } from 'react';
 import '../sass/header.scss';
 import { withRouter } from 'react-router-dom';
-import { unsetAuthorizationToken } from '../utils/lsHelper';
 import Auth from '../utils/auth';
 
 class Header extends Component {
   logOut = () => {
-    Auth.unauthorize();
-    unsetAuthorizationToken();
+    Auth.authorize(false);
     this.props.history.push('/');
   }
 

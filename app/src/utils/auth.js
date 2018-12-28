@@ -1,26 +1,17 @@
 import {
   getAuthorizationToken,
+  setAuthorizationToken,
 } from './lsHelper.js';
 
 class Auth {
   constructor() {
-    this.isAuthenticated = false;
-  }
-  isAuthorized() {
     const token = getAuthorizationToken();
-    if (!!token) {
-      this.isAuthenticated = true;
-      return true;
-    }
-    return false;
-
-  }
-  authorize() {
-    this.isAuthenticated = true;
+    this.isAuthenticated = !!token ? true: false;
   }
 
-  unauthorize() {
-    this.isAuthenticated = false;
+  authorize(isAuthorized, token = {}) {
+    this.isAuthenticated = isAuthorized;
+    setAuthorizationToken(token);
   }
 }
 

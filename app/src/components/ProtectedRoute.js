@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-    Auth.isAuthorized() ? <Component {...props} />
+    Auth.isAuthenticated ? <Component {...props} />
       : <Redirect to={{
         pathname: '/',
         state: { from: props.location }

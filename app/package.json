@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
@@ -24,6 +25,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.11.0",
+    "react-test-renderer": "^16.6.3",
+    "sass-lint": "^1.12.1"
   }
 }

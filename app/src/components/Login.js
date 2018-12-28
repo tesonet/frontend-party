@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { ApiUtil } from '../api/apiUtil';
-import { setAuthorizationToken } from '../utils/lsHelper';
-import  Auth from '../utils/auth';
+import { getToken } from '../api/api';
+import Auth from '../utils/auth';
 import InputWithIcon from './InputWithIcon';
 import '../sass/login.scss';
 
@@ -23,14 +22,13 @@ class Login extends Component {
   }
 
   login = () => {
-    ApiUtil('/tokens', 'POST',
+    getToken(
       { 
         username: this.state.username,
         password: this.state.password,
       }
     ).then(response => {
-      Auth.authorize();
-      setAuthorizationToken(response);
+      Auth.authorize(true, response);
       this.props.history.push('/servers');
     }).catch(err => console.error(err));
   }

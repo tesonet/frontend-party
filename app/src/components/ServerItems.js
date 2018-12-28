@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ApiUtil } from '../api/apiUtil.js'
+import { getServers } from '../api/api.js'
 import ServerItem from './ServerItem.js';
 import Header from './Header.js';
 import '../sass/serveritems.scss';
@@ -24,7 +24,7 @@ class ServerItems extends Component {
   }
 
   componentDidMount() {
-    ApiUtil('/servers', 'GET', null, true)
+    getServers()
       .then(response => {
         const sorted = this.sortServers(response);
         this.setState({
@@ -67,8 +67,8 @@ class ServerItems extends Component {
                   </div>
                 </div>
               </li>
-              {filteredServers.map((server, idx) =>
-                <li key={idx} className='list-group-item'>
+              {filteredServers.map(server =>
+                <li key={server.name + server.distance} className='list-group-item'>
                   <ServerItem name={server.name} distance={`${server.distance} km`} />
                 </li>
               )}

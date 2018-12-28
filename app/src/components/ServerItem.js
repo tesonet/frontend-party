@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../sass/serveritems.scss';
 
 const ServerItem = ({name, distance}) => {
@@ -12,6 +13,11 @@ const ServerItem = ({name, distance}) => {
       </div>
     </div>
   );
+}
+
+ServerItem.propTypes = {
+  name: PropTypes.string,
+  distance: PropTypes.string,
 }
 
 export default ServerItem;

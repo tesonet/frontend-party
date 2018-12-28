@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const InputWithIcon = ({iconPath, type, value, name, placeHolder, onChange}) => {
   return (
@@ -18,6 +19,15 @@ const InputWithIcon = ({iconPath, type, value, name, placeHolder, onChange}) => 
         />
     </div>
   );
+}
+
+InputWithIcon.propTypes = {
+  iconPath: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  name: PropTypes.string,
+  placeHolder: PropTypes.string,
+  onChange: PropTypes.func,
 }
 
 export default InputWithIcon;
