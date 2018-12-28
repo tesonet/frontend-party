@@ -7,7 +7,7 @@ import * as actions from '../../store/actions/index';
 import AlertMessage from '../AlertMessage/AlertMessage';
 import Spinner from '../Spinner/Spinner';
 
-class Auth extends Component {
+export class Auth extends Component {
 
     constructor(props) {
         super(props);
@@ -62,9 +62,9 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
     return {
-        error: state.error,
-        isAuth: state.token !== null,
-        loading: state.loading
+        error: state.auth.error,
+        isAuth: state.auth.token !== null,
+        loading: state.auth.loading
     };
 }
 

@@ -22,7 +22,7 @@ class App extends Component {
                     <Redirect to="/"/>
                 </Switch>
             );
-        }
+        };
 
         return (
             <BrowserRouter>   
@@ -30,11 +30,11 @@ class App extends Component {
             </BrowserRouter>
         );
       }
-}
+} 
 
 const mapStateToProps = state => {
     return {
-        isAuth: state.token !== null
+        isAuth: state.auth.token !== null
     };
 }
 

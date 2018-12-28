@@ -1,7 +1,8 @@
 export { 
     getResult
 } 
-from './loggedPage';
+from './results';
 export {
-    auth
+    auth,
+    logOut
 } from './auth'

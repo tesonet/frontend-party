@@ -1,7 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    data: null,
     error: null,
     loading: false,
     token: null
@@ -18,7 +17,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 token: action.token,
-                loading: false
+                loading: false,
+                error: null
             };
         case actionTypes.AUTH_FAIL:
             return {
@@ -26,10 +26,16 @@ const reducer = (state = initialState, action) => {
                 error: action.error,
                 loading: false
             };
+        case actionTypes.AUTH_LOGOUT:
+            return {
+                ...state,
+                error: null,
+                loading: false,
+                token: null
+            };
         default: 
             return state;
     }
-
 };
 
 export default reducer;

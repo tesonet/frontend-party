@@ -6,5 +6,4 @@ const alertMessage = (props) => (
     </div>
 );
 
-
 export default alertMessage;
