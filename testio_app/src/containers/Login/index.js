@@ -3,6 +3,10 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import Input from '../../components/Input';
+import LoginLogo from '../../components/LoginLogo';
+import LoginBtn from '../../components/LoginBtn';
+import './styles.scss'
 
 class Login extends Component {
 
@@ -15,7 +19,7 @@ class Login extends Component {
     };
   }
 
-  handleInput = event => {
+  handleOnChange = event => {
     const { name, value } = event.target;
     this.setState({[name]: value});
   }
@@ -29,30 +33,33 @@ class Login extends Component {
      const { username, password } = this.state;
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-            type='text'
-            name='username'
-            onChange= {this.handleInput}
-            value = {username}
-            />
-          </div>
-          <div>
-            <input
-            type='text'
-            name='password'
-            onChange= {this.handleInput}
-            value = {password}
-            />
-          </div>
-          <div>
-            <button
-              type='submit'
-            >Log In</button>
-          </div>
-        </form>
+      <div className='login-container row justify-content-center align-items-center'>
+         <form onSubmit={this.handleSubmit} className='login-form'>
+           <LoginLogo />
+           <div className='form-group'>
+             <Input
+               path='data/images/user-ico.svg'
+               type='text'
+               value={username}
+               name='username'
+               placeholder='Username'
+               onChange={this.handleOnChange}
+             />
+           </div>
+           <div className='form-group'>
+             <Input
+               path='data/images/lock-ico.svg'
+               type='password'
+               value={password}
+               name='password'
+               placeholder='Password'
+               onChange={this.handleOnChange}
+             />
+           </div>
+           <div className='form-group'>
+            <LoginBtn username={username} password={password}/>
+           </div>
+         </form>
       </div>
     );
   }

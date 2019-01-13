@@ -1,0 +1,12 @@
+.login-container {
+  height: 100vh;
+  background: url('/data/images/login-img.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #0b0f27;
+
+  .login-form {
+    max-width: 380px;
+    padding: 0 10px;
+    width: 100%;
+  }
+}

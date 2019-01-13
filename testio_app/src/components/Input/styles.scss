@@ -1,0 +1,15 @@
+.container {
+   padding: 0 0;
+
+  &-input {
+    line-height: 30px;
+    padding: 23px 0 21px 45px;
+    color: #999;
+    font-weight: 300;
+  }
+  &-icon {
+    z-index: 2;
+    position: absolute;
+    padding: 14px 20px 20px 20px;
+  }
+}
