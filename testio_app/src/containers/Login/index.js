@@ -27,6 +27,7 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.submit(this.state.username, this.state.password);
+    this.props.history.push("/servers");
   }
 
   render() {
