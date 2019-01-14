@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Intro
+
+Hello, this is mine Testio app solution. To create this project I have used [Create React App](https://github.com/facebook/create-react-app). This project uses Redux framework. To maintain asynchronous requests I have implemented Redux-saga library.
+The design is bootstrapped with 4.1.3 bootstrap version. For testing I have used Enzyme and Jest libraries. All available scripts are written below.
 
 ## Available Scripts
 

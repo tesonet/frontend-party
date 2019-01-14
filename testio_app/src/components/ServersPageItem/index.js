@@ -4,7 +4,7 @@ import './styles.scss';
 
 const ServerItem = ({name, distance}) => {
   return (
-    <div className='row justify-content-between container'>
+    <div className='row justify-content-between server-item-container'>
       <div className='col-6 col-sm-4'>
         {name}
       </div>
@@ -17,7 +17,7 @@ const ServerItem = ({name, distance}) => {
 
 ServerItem.propTypes = {
   name: PropTypes.string,
-  distance: PropTypes.string,
+  distance: PropTypes.number,
 }
 
 export default ServerItem;

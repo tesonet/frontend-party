@@ -24,7 +24,7 @@ class ServersPage extends Component {
       <div>
         <Header />
          <div className='row'>
-           <div className='card container'>
+           <div className='card server-container'>
              <div className='card-header'>
                <ServersPageItem name='Server' distance='Distance' />
              </div>
