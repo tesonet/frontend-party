@@ -20,26 +20,26 @@ class ServersPage extends Component {
           return <LoadingBackground component={LoadingIndicator} />;
      }
 
-    return (
-      <div>
-        <Header />
-         <div className='row'>
-           <div className='card server-container'>
-             <div className='card-header'>
-               <ServersPageItem name='Server' distance='Distance' />
-             </div>
-             <ul className='list-group list-group-flush'>
-             {this.props.serversList &&
-               this.props.serversList.map(( item, index) => (
-                 <li key={item.name + item.distance} className='list-group-item'>
-                   <ServersPageItem name={item.name} distance={item.distance} />
-                 </li>
-              ))}
-             </ul>
-           </div>
-         </div>
-      </div>
-    );
+   return (
+     <div>
+       <Header />
+        <div className='row'>
+          <div className='card server-container'>
+            <div className='card-header'>
+              <ServersPageItem name='Server' distance='Distance' />
+            </div>
+            <ul className='list-group list-group-flush'>
+            {this.props.serversList &&
+              this.props.serversList.map(( item, index) => (
+                <li key={item.name + item.distance} className='list-group-item'>
+                  <ServersPageItem name={item.name} distance={item.distance} />
+                </li>
+             ))}
+            </ul>
+          </div>
+        </div>
+     </div>
+   );
   }
 }
 
