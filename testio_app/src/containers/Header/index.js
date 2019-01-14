@@ -6,8 +6,8 @@ import './styles.scss';
 
 class Header extends Component {
   logout = () => {
-    auth.clearAppStorage();
     this.props.history.push('/');
+    auth.clearAppStorage();
   }
 
   render() {

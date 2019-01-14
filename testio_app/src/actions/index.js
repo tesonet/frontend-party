@@ -3,6 +3,10 @@ export const authorize = (username, password) => ({
   payload: { username, password }
 });
 
+export const authorizeSuccess = () => ({
+  type: "AUTH_SUCCESS",
+});
+
 export const fetchServers = () => ({
   type: "FETCH_SERVERS_LIST_BEGIN",
 });

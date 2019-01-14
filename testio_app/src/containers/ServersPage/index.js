@@ -16,7 +16,6 @@ class ServersPage extends Component {
   }
 
   render() {
-    console.log(this.props.loading);
     if (this.props.loading) {
           return <LoadingBackground component={LoadingIndicator} />;
      }
@@ -52,10 +51,10 @@ ServersPage.propTypes= {
 
 
 const mapStateToProps = state => {
-    return {
-        serversList: state.serversList,
-        loading: state.loading,
-    };
+  return {
+      serversList: state.serversList,
+      loading: state.loading,
+  };
 }
 
 const mapDispatchToProps = dispatch => {

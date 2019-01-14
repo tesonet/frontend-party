@@ -1,5 +1,6 @@
 const initialState = {
     loading: false,
+    auth_success:false,
     serversList: [],
     password: '',
     username: '',
@@ -12,6 +13,12 @@ case "AUTH_REQUEST":
     ...state,
     password: action.payLoad.password,
     username: action.payLoad.username,
+    auth_success: false,
+  }
+case "AUTH_SUCCESS":
+  return {
+    ...state,
+    auth_success: true,
   }
 case "FETCH_SERVERS_LIST_BEGIN":
   return {

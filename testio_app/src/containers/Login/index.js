@@ -27,11 +27,19 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.submit(this.state.username, this.state.password);
+  }
+
+
+  handleSuccessAuth = () => {
     this.props.history.push("/servers");
   }
 
   render() {
      const { username, password } = this.state;
+
+     if(this.props.auth_success){
+        this.handleSuccessAuth();
+     }
 
     return (
       <div className='login-container row justify-content-center align-items-center'>
@@ -68,11 +76,13 @@ class Login extends Component {
 
 Login.propTypes= {
  submit:PropTypes.func.isRequired,
+ auth_success: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
    username: state.username,
    password: state.password,
+   auth_success: state.auth_success,
 })
 
 const mapDispatchToProps = dispatch => {

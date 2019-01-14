@@ -17,7 +17,7 @@ const ServerItem = ({name, distance}) => {
 
 ServerItem.propTypes = {
   name: PropTypes.string,
-  distance: PropTypes.number,
+  distance: PropTypes.string,
 }
 
 export default ServerItem;

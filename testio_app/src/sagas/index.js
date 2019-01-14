@@ -1,8 +1,7 @@
 import { put, takeLatest, all, call } from 'redux-saga/effects';
-import { push } from 'react-router-redux';
 import request from '../utils/request';
 import auth from '../utils/auth';
-import { fetchServersSuccess } from '../actions';
+import { fetchServersSuccess, authorizeSuccess } from '../actions';
 
 function* requestAuth(action) {
 try {
@@ -13,7 +12,7 @@ try {
 
         if(response.token){
             yield all([call(auth.setToken, response.token)]);
-            yield put(push('/servers'));
+            yield put(authorizeSuccess());
         }
     }catch (error) {
         console.log(error);
