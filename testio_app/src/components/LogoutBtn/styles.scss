@@ -1,0 +1,21 @@
+  .logout {
+    &-container {
+      text-align: right;
+    }
+
+    &-logo-container {
+      display: inline-block;
+      margin-right: 5px;
+      position: relative;
+      top: 2px;
+    }
+
+    &-btn {
+      margin-top: 42px;
+      font-weight: 300;
+
+      &:hover {
+        background-color: #99cc33;
+      }
+    }
+  }
