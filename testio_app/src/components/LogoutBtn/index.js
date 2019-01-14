@@ -12,7 +12,7 @@ const LogoutBtn = ({logout}) => {
                 svg
               </object>
             </div>
-            Log Out
+            Logout
           </button>
         </div>
      </div>

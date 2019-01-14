@@ -5,7 +5,7 @@ const initialState = {
     username: '',
 };
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
 case "AUTH_REQUEST":
   return {
