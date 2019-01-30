@@ -1,0 +1,30 @@
+.login {
+  display: flex !important;
+  flex-direction: row;
+  position: relative;
+  background-color: $dblue;
+
+  &::before {
+    content: '';
+    z-index: 0;
+    opacity: 0.2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    pointer-events: none;
+    background-image: url(../images/login-bg.jpg);
+    @include bgCover;
+  }
+
+  &__wrap {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+}
