@@ -72,6 +72,17 @@ module.exports = (env) => ({
           }
         ]
       },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[hash].[ext]',
+            },
+          }
+        ]
+      }
     ]
   },
   output: {
