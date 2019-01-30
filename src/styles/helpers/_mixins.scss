@@ -1,0 +1,74 @@
+@mixin bgCover() {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin bgContain() {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@mixin clearfix() {
+  &:after, &:before {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@function em($target, $context: $basepx) {
+  @if $target == 0 {
+    @return 0
+  }
+
+  @return $target / $context + 0em;
+}
+
+@mixin fontSrc($name) {
+  src: url("../fonts/#{$name}.eot");
+  src: url("../fonts/#{$name}.eot?#iefix") format('embedded-opentype'), url("../fonts/#{$name}.woff2") format('woff2'), url("../fonts/#{$name}.woff") format('woff'), url("../fonts/#{$name}.ttf") format('truetype');
+}
+
+@mixin placeholder {
+  :-moz-placeholder {
+    @content
+  }
+
+  ::-moz-placeholder {
+    @content
+  }
+
+  :-ms-input-placeholder {
+    @content
+  }
+
+  ::-webkit-input-placeholder {
+    @content
+  }
+}
