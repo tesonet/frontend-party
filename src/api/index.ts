@@ -21,3 +21,22 @@ export async function apiLogin(loginData: ILoginValues): Promise<any> {
 
   return response;
 }
+
+export async function apiGetServers(): Promise<any> {
+  const config: AxiosRequestConfig = {
+    method: 'get',
+    url: `${api}/v1/servers`,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: localStorage.getItem('apitoken')
+    }
+  };
+
+  const response: AxiosResponse | AxiosError = await axios(config).then((resp: AxiosResponse) => {
+    return resp;
+  }).catch((resp: AxiosError) => {
+    return resp;
+  });
+
+  return response;
+}

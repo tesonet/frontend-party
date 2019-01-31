@@ -32,3 +32,12 @@ export interface IIconProps extends IClassName {
 export interface IAppState {
   isAuth: boolean;
 }
+
+export interface IServer {
+  name: string;
+  distance: number;
+}
+
+export interface IServersTableState {
+  servers: IServer[];
+}
