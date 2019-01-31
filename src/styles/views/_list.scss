@@ -31,41 +31,4 @@
   &__logo {
     width: 115px;
   }
-
-  &__logout {
-    padding: 10px 10px 10px 38px;
-    border: 0;
-    background: transparent;
-    color: $blue;
-    font-size: 14px;
-    line-height: 16px;
-    cursor: pointer;
-    position: relative;
-
-    svg {
-      width: 16px;
-      height: 16px;
-      top: 10px;
-      left: 10px;
-      position: absolute;
-
-      path {
-        fill: currentColor;
-      }
-    }
-
-    &:hover {
-      color: $green2;
-    }
-
-    &:active {
-      color: $dgreen;
-    }
-
-    &:active, &:focus {
-      box-shadow: none;
-      border: 0;
-      outline: 0;
-    }
-  }
 }
