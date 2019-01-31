@@ -1,22 +1,33 @@
 import * as React from 'react';
-
-interface ITextInputProps {
-  value: string;
-  type: string;
-  className?: string;
-  placeholder?: string;
-  icon?: any;
-}
+import { ITextInputProps } from '../../interfaces';
 
 class TextInput extends React.Component<ITextInputProps> {
+  private TextInput = React.createRef<any>();
+
+  constructor(props: ITextInputProps) {
+    super(props);
+    this.passValues = this.passValues.bind(this);
+  }
+
   public render() {
-    const { value, type, icon, placeholder, className } = this.props;
+    const { value, name, type, icon, placeholder, className } = this.props;
     return (
       <div className={`form-group ${className}`}>
         { icon ? icon : ''}
-        <input className="form-control" type={type} value={value} placeholder={placeholder ? placeholder : ''}/>
+        <input
+          ref={this.TextInput}
+          className="form-control"
+          name={name}
+          type={type}
+          value={value}placeholder={placeholder ? placeholder : ''}
+          onChange={this.passValues}
+        />
       </div>
     );
+  }
+
+  private passValues() {
+    this.props.onChange(this.TextInput.current.value, this.props.name);
   }
 }
 

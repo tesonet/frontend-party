@@ -1,9 +1,5 @@
 import * as React from 'react';
-
-interface IIconProps {
-  className?: string;
-  type: string;
-}
+import { IIconProps } from '../../interfaces';
 
 class Icon extends React.Component<IIconProps> {
   public render() {

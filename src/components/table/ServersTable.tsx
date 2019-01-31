@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { IClassName } from '../../interfaces';
 
 const servers: any[] = Array(100).fill('').map(() => {
   return {
@@ -7,11 +8,7 @@ const servers: any[] = Array(100).fill('').map(() => {
   };
 });
 
-interface IServersTableProps {
-  className?: string;
-}
-
-class ServersTable extends React.Component<IServersTableProps> {
+class ServersTable extends React.Component<IClassName> {
   public render() {
     const { className } = this.props;
 

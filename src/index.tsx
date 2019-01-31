@@ -2,13 +2,14 @@ import './styles/styles.scss';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './components/App';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import history from './utils/history';
 
 const app: HTMLElement = document.querySelector('#app');
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Router history={history}>
     <App/>
-  </BrowserRouter>,
+  </Router>,
   app
 );

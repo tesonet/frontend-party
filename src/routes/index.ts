@@ -7,12 +7,14 @@ const routes = [
     exact: true,
     name: 'Login',
     path: '/login',
+    secured: false
   },
   {
     component: List,
     exact: true,
     name: 'List',
     path: '/list',
+    secured: true
   },
 ];
 

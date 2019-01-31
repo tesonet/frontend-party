@@ -1,9 +1,5 @@
 import * as React from 'react';
-
-interface ILogoProps {
-  className?: string;
-  light?: boolean;
-}
+import { ILogoProps } from '../../interfaces';
 
 class Logo extends React.Component<ILogoProps> {
   public render() {

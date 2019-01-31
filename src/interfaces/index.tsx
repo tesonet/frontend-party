@@ -1,0 +1,34 @@
+export interface ILoginValues {
+  username: string;
+  password: string;
+}
+
+export interface ILoginState {
+  formData: FormData;
+  values: ILoginValues;
+}
+
+export interface IClassName {
+  className?: string;
+}
+
+export interface ITextInputProps extends IClassName {
+  value: string;
+  type: string;
+  name: string;
+  onChange: (value: any, name: string) => void;
+  placeholder?: string;
+  icon?: any;
+}
+
+export interface ILogoProps extends IClassName {
+  light?: boolean;
+}
+
+export interface IIconProps extends IClassName {
+  type: string;
+}
+
+export interface IAppState {
+  isAuth: boolean;
+}
