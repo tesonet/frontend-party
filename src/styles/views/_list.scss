@@ -1,0 +1,71 @@
+.list {
+  padding-top: 167px;
+
+  &__table {
+    margin: 0;
+
+    .table__head {
+      position: fixed;
+      top: 110px;
+      left: 0;
+      width: 100%;
+
+      .table__row {
+        border-bottom: 1px solid $bgray;
+      }
+    }
+  }
+
+  &__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 110px;
+  }
+
+  &__logo {
+    width: 115px;
+  }
+
+  &__logout {
+    padding: 10px 10px 10px 38px;
+    border: 0;
+    background: transparent;
+    color: $blue;
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
+    position: relative;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      top: 10px;
+      left: 10px;
+      position: absolute;
+
+      path {
+        fill: currentColor;
+      }
+    }
+
+    &:hover {
+      color: $green2;
+    }
+
+    &:active {
+      color: $dgreen;
+    }
+
+    &:active, &:focus {
+      box-shadow: none;
+      border: 0;
+      outline: 0;
+    }
+  }
+}

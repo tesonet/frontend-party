@@ -1,0 +1,29 @@
+.table {
+  &__head {
+    background-color: $dwhite;
+  }
+
+  &__td {
+    color: $lblack;
+    letter-spacing: 0.025em;
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  &__th {
+    color: $dgray;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid $bgray;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+}
