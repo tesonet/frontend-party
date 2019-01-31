@@ -21,7 +21,7 @@ class ServersTable extends React.Component<IClassName, IServersTableState> {
         { servers.map((server: IServer, i: number) => (
           <div className="table__row container-fluid" key={i}>
             <div className="table__td">{server.name}</div>
-            <div className="table__td">{server.distance}</div>
+            <div className="table__td">{server.distance} km</div>
           </div>
         )) }
       </div>
