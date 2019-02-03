@@ -1,0 +1,68 @@
+.servers {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: $color-grey;
+        padding: 2rem;
+        color: $color-text-light;
+        border-top: $border-grey;
+        border-bottom: $border-grey;
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 0 1.5rem;
+        }
+
+        &--left,
+        &--right {
+            display: flex;
+            align-items: center;
+
+            @media only screen and (max-width: $bp-small) {
+                width: 100%;
+                justify-content: space-between;
+                margin: 1rem;
+            }
+        }
+    }
+
+    &__sort {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        text-transform: uppercase;
+        font-size: $font-medium;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-left: 1.5rem;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+
+        &:not(:last-child) {
+            border-bottom: $border-grey;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        &--data {
+            color: $color-text;
+            font-size: $font-large;
+            font-weight: 400;
+
+            @media only screen and (max-width: $bp-small) {
+                padding: 0.5rem;
+            }
+        }
+    }
+}

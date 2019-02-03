@@ -1,0 +1,46 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo--container {
+        max-width: 12rem;
+        margin: 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 0.5rem;
+        }
+    }
+
+    &__logo {
+        width: 100%;
+    }
+
+    &__links {
+        margin: 2rem;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        color: $color-secondary;
+        font-size: $font-medium;
+        text-decoration: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        &:hover,
+        &:active,
+        &:focus {
+            outline: none;
+            text-decoration: underline;
+        }
+    }
+
+    &__icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,26 @@
+// COLORS
+$color-primary: #9fd533;
+$color-primary-hover: #86b300;
+$color-secondary: #2f3254;
+
+$color-white: #fff;
+$color-grey: #f5f5f5;
+$color-overlay: #0b0f27;
+
+$color-text: #666;
+$color-text-light: #999;
+
+$color-error: #dd2c00;
+
+// FONTS
+$font-heading: 3.4rem;
+$font-large: 1.7rem;
+$font-medium: 1.5rem;
+$font-small: 1.3rem;
+
+// BORDERS
+$border-grey: 1px solid darken($color-grey, 10%);
+
+// BREAKPOINTS
+$bp-medium: 40em; // 640px
+$bp-small: 21em; // 336px

@@ -1,43 +1,18 @@
-# Senior frontend developer task
+## Available Scripts
 
-If you found this task it means we are looking for you!
+To start the application in development mode - in the project directory run:
 
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
+### `npm install`
 
-## Few simple steps
+To install the dependencies
 
-1. Fork this repo
-2. Do your best
-3. Prepare a pull request and let us know that you are done
+### `npm start`
 
-## Few simple requirements
-### Design
-* Design should be recreated as closely as possible.
-* Design must be responsive.
-* Use [bootstrap css](http://getbootstrap.com/css/)
-* Use a CSS pre-processor (SCSS preferred) or CSS-in-JS library (styled-components preferred)
+To start the application<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.<br>
+The page will reload if you make edits.
 
-### App
-* Use ReactJS
-* This must be a single page application. Use React Router for frontend routing
-* Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass Content-Type):
+### `npm run build`
 
-```
-{"username": "tesonet", "password": "partyanimal"}
-```
-
-* Save the newly-created token to the local storage
-* Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers , order the results by `distance` and `name`.
-* Implement logout
-
-### Miscellaneous
-* Your app must work on all modern browsers and IE11+
-* Use JS bundler (Webpack preferred)
-* Use npm scripts or gulp for running tasks
-* Use a unit testing library (Jest preferred)
-* Do not commit the build
-
-## Few tips
-* Structure! WE LOVE STRUCTURE!
-* Maybe You have an idea how it should interact with users? Do it! Its on you!
-* Have fun!
+To builds the application for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.

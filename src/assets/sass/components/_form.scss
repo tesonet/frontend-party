@@ -1,0 +1,69 @@
+.form {
+    &__block {
+        margin-bottom: 2rem;
+    }
+
+    &__input-container {
+        position: relative;
+    }
+
+    &__icon {
+        width: 4rem;
+        height: 4rem;
+        padding: 1.2rem;
+        margin-left: 0.8rem;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+    }
+
+    &__input {
+        display: block;
+        width: 100%;
+        padding: 1.5rem 1.5rem 1.5rem 5rem;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: $font-medium;
+        color: $color-text-light;
+
+        &:focus {
+            outline: none;
+            border: 2px solid $color-primary;
+        }
+    }
+
+    &__button {
+        display: block;
+        width: 100%;
+        border: none;
+        padding: 1.5rem;
+        border-radius: 6px;
+        background: $color-primary;
+        color: #fff;
+        text-align: center;
+        font-size: $font-medium;
+        font-weight: 600;
+        transition: background 0.2s ease-in;
+        cursor: pointer;
+
+        &:hover,
+        &:active,
+        &:focus {
+            outline: none;
+            background: $color-primary-hover;
+        }
+    }
+
+    &__error {
+        background: rgba(#fff, 0.2);
+        color: $color-error;
+        font-size: $font-small;
+        font-weight: 400;
+        padding: 0.5rem;
+        margin: 1px 0;
+        border-radius: 6px;
+    }
+}

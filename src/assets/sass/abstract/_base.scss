@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+*,
+*::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 56.25%; // 9px
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 50%; // 8px
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1;
+    color: $color-text;
+    background: $color-white;
+}
+
+ul {
+    list-style: none;
+}
+
+::selection {
+    background: $color-primary;
+    color: #fff;
+}

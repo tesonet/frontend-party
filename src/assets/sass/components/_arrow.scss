@@ -1,0 +1,22 @@
+.arrow {
+    display: inline-block;
+    border-style: solid;
+    border-color: inherit;
+    border-width: 0 2px 2px 0;
+    padding: 4px;
+    margin: 1px;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &--asc {
+        transform: rotate(45deg);
+    }
+
+    &--desc {
+        transform: rotate(-135deg);
+    }
+
+    &:hover {
+        border-color: #000;
+    }
+}
