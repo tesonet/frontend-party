@@ -14,5 +14,5 @@ The page will reload if you make edits.
 
 ### `npm run build`
 
-To builds the application for production to the `build` folder.<br>
+Builds the application for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
