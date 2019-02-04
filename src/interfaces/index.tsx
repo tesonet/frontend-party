@@ -1,11 +1,6 @@
-export interface ILoginValues {
+export interface ILoginState {
   username: string;
   password: string;
-}
-
-export interface ILoginState {
-  formData: FormData;
-  values: ILoginValues;
 }
 
 export interface IClassName {
