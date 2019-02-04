@@ -45,9 +45,9 @@ class App extends React.Component<any, IAppState> {
 
   private redirectRender() {
     if (!!localStorage.getItem('apitoken')) {
-      return <Redirect to={"/list"} />;
+      return <Redirect to={'/list'} />;
     }
-    return <Redirect to={"/login"} />;
+    return <Redirect to={'/login'} />;
   }
 }
 
