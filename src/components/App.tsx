@@ -7,6 +7,7 @@ class App extends React.Component<any, IAppState> {
   constructor(props: any) {
     super(props);
 
+    this.redirectRender = this.redirectRender.bind(this);
     this.routeRender = this.routeRender.bind(this);
   }
 
@@ -20,9 +21,12 @@ class App extends React.Component<any, IAppState> {
       />
     ));
 
+    console.log(Routes);
+
     return (
       <Switch>
         {Routes}
+        <Route component={this.redirectRender} />
       </Switch>
     );
   }
@@ -37,6 +41,13 @@ class App extends React.Component<any, IAppState> {
     }
 
     return <C {...props} {...rest}/>;
+  }
+
+  private redirectRender() {
+    if (!!localStorage.getItem('apitoken')) {
+      return <Redirect to={"/list"} />;
+    }
+    return <Redirect to={"/login"} />;
   }
 }
 
