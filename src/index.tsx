@@ -5,6 +5,8 @@ import App from './components/App';
 import { Router } from 'react-router-dom';
 import history from './utils/history';
 
+// @ts-ignore
+const Promise: any = Promise ? Promise : require('es6-promise-promise');
 const app: HTMLElement = document.querySelector('#app');
 
 ReactDOM.render(
