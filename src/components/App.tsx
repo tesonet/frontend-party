@@ -21,8 +21,6 @@ class App extends React.Component<any, IAppState> {
       />
     ));
 
-    console.log(Routes);
-
     return (
       <Switch>
         {Routes}
