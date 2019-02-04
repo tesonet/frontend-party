@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
-import { ILoginValues } from '../interfaces';
+import { ILoginState } from '../interfaces';
 
 const api: string = 'http://playground.tesonet.lt';
 
-export async function apiLogin(loginData: ILoginValues): Promise<any> {
+export async function apiLogin(loginData: ILoginState): Promise<any> {
   const config: AxiosRequestConfig = {
     method: 'post',
     url: `${api}/v1/tokens`,
