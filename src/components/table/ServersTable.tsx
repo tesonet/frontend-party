@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IClassName, IServersTableState, IServer } from '../../interfaces';
 import logout from '../../utils/logout';
 import { apiGetServers } from '../../api';
+import sorting from '../../utils/sorting';
 
 class ServersTable extends React.Component<IClassName, IServersTableState> {
   constructor(props: IClassName) {
@@ -56,20 +57,23 @@ class ServersTable extends React.Component<IClassName, IServersTableState> {
       alert(`Error ${response.response.status}: ${response.response.data.message}`);
       logout();
     } else {
-      this.setState({
-        servers: response.data.sort((a: IServer, b: IServer) => {
-          const an: string = a.name.toUpperCase();
-          const bn: string = b.name.toUpperCase();
-
-          return (an < bn) ? -1 : (an > bn) ? 1 : 0;
-        }).sort((a: IServer, b: IServer) => {
-          const ad: number = a.distance;
-          const bd: number = b.distance;
-
-          return (ad < bd) ? -1 : (ad > bd) ? 1 : 0;
-        })
-      });
+      this.sortServers(response.data);
     }
+  }
+
+  private sortServers(servers: IServer[]) {
+    sorting({
+      array: servers,
+      param: 'name',
+      alphabetical: true
+    });
+
+    sorting({
+      array: servers,
+      param: 'distance',
+    });
+
+    this.setState({ servers });
   }
 }
 

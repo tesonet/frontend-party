@@ -46,3 +46,9 @@ export interface IRoute {
   path: string;
   secured: boolean;
 }
+
+export interface ISortingOptions {
+  array: any[];
+  param?: string;
+  alphabetical?: boolean;
+}
