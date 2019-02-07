@@ -1,28 +1,20 @@
-import { ReactNode } from 'react';
+import { ReactNode, HTMLProps } from 'react';
 
 export interface ILoginState {
   username: string;
   password: string;
 }
 
-export interface IClassName {
-  className?: string;
-}
-
-export interface ITextInputProps extends IClassName {
-  value: string;
-  type: string;
-  name: string;
-  onChange: (value: any, name: string) => void;
-  placeholder?: string;
+export interface ITextInputProps extends HTMLProps<HTMLInputElement> {
+  onChanged: (value: any, name: string) => void;
   icon?: any;
 }
 
-export interface ILogoProps extends IClassName {
+export interface ILogoProps extends HTMLProps<HTMLElement> {
   light?: boolean;
 }
 
-export interface IIconProps extends IClassName {
+export interface IIconProps extends HTMLProps<HTMLElement> {
   type: string;
 }
 

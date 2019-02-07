@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { IClassName, IServersTableState, IServer } from '../../interfaces';
+import { IServersTableState, IServer } from '../../interfaces';
 import logout from '../../utils/logout';
 import { apiGetServers } from '../../api';
 import sorting from '../../utils/sorting';
 
-class ServersTable extends React.Component<IClassName, IServersTableState> {
-  constructor(props: IClassName) {
+class ServersTable extends React.Component<React.HTMLProps<HTMLElement>, IServersTableState> {
+  constructor(props: React.HTMLProps<HTMLElement>) {
     super(props);
 
     this.state = {

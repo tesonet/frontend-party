@@ -27,7 +27,7 @@ class TextInput extends React.Component<ITextInputProps> {
   }
 
   private passValues() {
-    this.props.onChange(this.TextInput.current.value, this.props.name);
+    this.props.onChanged(this.TextInput.current.value, this.props.name);
   }
 }
 

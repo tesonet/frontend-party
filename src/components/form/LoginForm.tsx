@@ -30,7 +30,7 @@ class LoginForm extends React.Component<any, ILoginState> {
             type="text"
             name="username"
             value={username}
-            onChange={this.formChange}
+            onChanged={this.formChange}
             placeholder="Username"
             icon={<Icon className="form__icon" type="user"/>}
           />
@@ -39,7 +39,7 @@ class LoginForm extends React.Component<any, ILoginState> {
             type="password"
             name="password"
             value={password}
-            onChange={this.formChange}
+            onChanged={this.formChange}
             placeholder="Password"
             icon={<Icon className="form__icon" type="lock"/>}
           />
