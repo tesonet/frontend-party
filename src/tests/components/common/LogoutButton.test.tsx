@@ -1,6 +1,7 @@
 import * as React from 'react';
 import LogoutButton from '../../../components/common/LogoutButton';
 import { shallow } from 'enzyme';
+import '../../../utils/mocalStorage';
 
 describe('LogoutButton component', () => {
   it('Outputs children', () => {

@@ -3,6 +3,7 @@ import LoginForm from '../../../components/form/LoginForm';
 import { shallow, mount } from 'enzyme';
 import history from '../../../utils/history';
 import { ILoginState } from '../../../interfaces';
+import '../../../utils/mocalStorage';
 
 describe('LoginForm component', () => {
   it('Sets localStorage item if logged in successfully', async () => {

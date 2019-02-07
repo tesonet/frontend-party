@@ -1,6 +1,7 @@
 import * as React from 'react';
 import TextInput from '../../../components/form/TextInput';
 import { shallow, mount } from 'enzyme';
+import '../../../utils/mocalStorage';
 
 describe('TextInput component', () => {
   it('On change returns and changed value and input name from props', () => {
@@ -16,7 +17,7 @@ describe('TextInput component', () => {
       value={inputVal}
       type="text"
       name="test"
-      onChange={onChange}
+      onChanged={onChange}
     />);
 
     const input = wrapper.find('input');
@@ -32,7 +33,7 @@ describe('TextInput component', () => {
       value=""
       type="text"
       name="test"
-      onChange={() => {}}
+      onChanged={() => {}}
     />);
 
     expect(wrapper.find('input[name="test"][type="text"]')).toBeDefined();

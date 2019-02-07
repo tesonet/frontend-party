@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 import { IServersTableState } from '../../../interfaces';
 import logout from '../../../utils/logout';
 import history from '../../../utils/history';
+import '../../../utils/mocalStorage';
 
 const login = async () => {
   const wrapper = shallow(<LoginForm/>);
