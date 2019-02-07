@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface ILoginState {
   username: string;
   password: string;
@@ -35,4 +37,12 @@ export interface IServer {
 
 export interface IServersTableState {
   servers: IServer[];
+}
+
+export interface IRoute {
+  component: ReactNode;
+  exact: boolean;
+  name: string;
+  path: string;
+  secured: boolean;
 }

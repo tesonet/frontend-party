@@ -1,7 +1,8 @@
 import Login from '../views/Login';
 import List from '../views/List';
+import { IRoute } from '../interfaces';
 
-const routes = [
+const routes: IRoute[] = [
   {
     component: Login,
     exact: true,
