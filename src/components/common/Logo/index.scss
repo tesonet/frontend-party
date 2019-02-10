@@ -1,9 +1,9 @@
 .logo {
-  background-image: url(../images/logo-dark.png);
+  background-image: url(../../../images/logo-dark.png);
   @include bgContain;
 
   &--light {
-    background-image: url(../images/logo-light.png);
+    background-image: url(../../../images/logo-light.png);
   }
 
   &::before {

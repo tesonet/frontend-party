@@ -1,7 +1,8 @@
 import * as React from 'react';
-import Logo from '../components/common/Logo';
-import LogoutButton from '../components/common/LogoutButton';
-import ServersTable from '../components/table/ServersTable';
+import Logo from '../../components/common/Logo';
+import LogoutButton from '../../components/common/LogoutButton';
+import ServersTable from '../../components/table/ServersTable';
+import './index.scss';
 
 class List extends React.Component {
   public render() {

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import LoginForm from '../components/form/LoginForm';
+import LoginForm from '../../components/form/LoginForm';
+import './index.scss';
 
 class Login extends React.Component {
   public render() {

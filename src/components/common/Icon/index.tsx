@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { IIconProps } from '../../interfaces';
+import { IIconProps } from '../../../interfaces';
+import './index.scss';
 
 class Icon extends React.Component<IIconProps> {
   public render() {

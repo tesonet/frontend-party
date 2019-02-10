@@ -2,13 +2,13 @@
   @include bgContain;
 
   &--user {
-    background-image: url(../images/user.svg);
+    background-image: url(../../../images/user.svg);
     width: 14px;
     height: 18px;
   }
 
   &--lock {
-    background-image: url(../images/lock.svg);
+    background-image: url(../../../images/lock.svg);
     width: 14px;
     height: 18px;
   }

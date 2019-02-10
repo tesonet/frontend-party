@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { ILogoProps } from '../../interfaces';
+import { ILogoProps } from '../../../interfaces';
+import './index.scss';
 
 class Logo extends React.Component<ILogoProps> {
   public render() {
