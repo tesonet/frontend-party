@@ -27,3 +27,16 @@
     padding-bottom: 13px;
   }
 }
+
+.list__table {
+  .table__head {
+    position: fixed;
+    top: 110px;
+    left: 0;
+    width: 100%;
+
+    .table__row {
+      border-bottom: 1px solid $bgray;
+    }
+  }
+}

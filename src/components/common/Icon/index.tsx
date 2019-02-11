@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { IIconProps } from '../../../interfaces';
+// @ts-ignore
+import * as style from './index.scss';
 import classnames from 'classnames';
-import './index.scss';
 
 class Icon extends React.Component<IIconProps> {
   public render() {
     const { type, className } = this.props;
-    const classes: string = classnames('icon', `icon--${type}`, {
+
+    const classes: string = classnames(style.icon, style[`icon--${type}`], {
       [`${className}`]: !!className
     });
 

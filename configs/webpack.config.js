@@ -46,13 +46,21 @@ module.exports = (env) => ({
         }
       },
       {
-        test: /\.(scss|sass|css)?$/,
+        test: /\.(scss|sass)?$/,
+        exclude: /node_modules/,
         use: [
-          'style-loader',
+          {
+            loader: 'style-loader',
+            options: {
+              singleton: true
+            }
+          },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              modules: true,
+              localIdentName: 'tio_[hash:base64:4]'
             },
           },
           {
@@ -68,7 +76,35 @@ module.exports = (env) => ({
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              data: `@import './src/styles/styles.scss';`
+              data: `
+                @import './src/styles/helpers/_mixins.scss';
+                @import './src/styles/helpers/_variables.scss';
+              `
+            },
+          }
+        ]
+      },
+      {
+        test: /\.(css)?$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './configs'
+              }
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              data: `
+                @import './node_modules/bootstrap/scss/bootstrap.scss';
+                @import './node_modules/reset-css/sass/_reset.scss';
+                @import './src/styles/styles.scss';
+              `
             },
           }
         ]

@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { ILogoProps } from '../../../interfaces';
+// @ts-ignore
+import * as style from './index.scss';
 import classnames from 'classnames';
-import './index.scss';
 
 class Logo extends React.Component<ILogoProps> {
   public render() {
     const { light, className } = this.props;
-    const classes: string = classnames('logo', {
-      'logo--light': !!light,
+    const classes: string = classnames(style.logo, {
+      [`${style['logo--light']}`]: !!light,
       [`${className}`]: !!className
     });
 

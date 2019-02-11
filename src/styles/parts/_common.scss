@@ -1,7 +1,7 @@
 body {
   background-color: $white;
   color: $black;
-  font-family: $font;
-  font-weight: 300;
-  font-size: $basepx;
+  font-family: $font !important;
+  font-weight: 300 !important;
+  font-size: $basepx !important;
 }
