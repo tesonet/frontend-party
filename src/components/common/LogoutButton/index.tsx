@@ -1,5 +1,6 @@
 import * as React from 'react';
 import logout from '../../../utils/logout';
+import classnames from 'classnames';
 import './index.scss';
 
 // tslint:disable-next-line
@@ -8,10 +9,14 @@ const logoutIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="1
 class LogoutButton extends React.Component<React.HTMLProps<HTMLElement>> {
   public render() {
     const { children, className } = this.props;
+    const classes: string = classnames('logout-button', {
+      [`${className}`]: !!className
+    });
+
     return (
       <button
         type="button"
-        className={`logout-button ${className ? className : ''}`}
+        className={classes}
         onClick={logout}
       >{logoutIcon}{children}</button>
     );

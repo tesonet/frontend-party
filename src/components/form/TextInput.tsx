@@ -19,7 +19,8 @@ class TextInput extends React.Component<ITextInputProps> {
           className="form-control"
           name={name}
           type={type}
-          value={value}placeholder={placeholder ? placeholder : ''}
+          value={value}
+          placeholder={placeholder ? placeholder : ''}
           onChange={this.passValues}
         />
       </div>
