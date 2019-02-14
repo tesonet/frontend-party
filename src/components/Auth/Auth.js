@@ -1,63 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
+import PropTypes from 'prop-types';
+import Input from '../UI/Input';
+import Button from '../UI/Button';
 import * as actions from '../../store/actions/index';
-import AlertMessage from '../AlertMessage/AlertMessage';
-import Spinner from '../Spinner/Spinner';
+import AlertMessage from '../UI/AlertMessage';
+import Spinner from '../UI/Spinner/Spinner';
 
-export class Auth extends Component {
+const Auth = props => {
 
-    constructor(props) {
-        super(props);
-        this.state = {name: '', password: ''};  
-        this.usernameChange = this.usernameChange.bind(this);
-        this.passwordChange = this.passwordChange.bind(this);
-    }       
-      
-    usernameChange(event) {
-        this.setState({name: event.target.value});
+    const [name, setName ] = useState('');
+    const [password, setPassword ] = useState('');
+
+    const usernameChange = (event) => {
+        setName(event.target.value);
     }
 
-    passwordChange(event) {
-        this.setState({password: event.target.value});
+    const passwordChange = (event) => {
+        setPassword(event.target.value);
     }
 
-    authStart = (event) => {
+    const authStart = (event) => {
         event.preventDefault();
-        this.props.onAuth(this.state.name, this.state.password);      
+        props.onAuth(name, password);      
     };
 
-    render() {
-        let errorMessage = null;
-        if (this.props.error) {      
-            errorMessage = <AlertMessage message={this.props.error.response ? this.props.error.response.data.message : null}/>;
+    let errorMessage = null;
+        if (props.error) {      
+            errorMessage = <AlertMessage message={props.error.response ? props.error.response.data.message : null}/>;
         }
 
         let authRedirect = null;
-        if (this.props.isAuth) {
-            authRedirect = <Redirect to="/logged"/>;
+        if (props.isAuth) {
+            authRedirect = <Redirect to="/servers"/>;
         }
 
         let form = 
-            (<form onSubmit={this.authStart}>
-            <Input type="text" placeholder="Username" className="login-box--input" id="username" icon="person"  value={this.state.name} changed={this.usernameChange}  />
-            <Input type="password" placeholder="Password" className="login-box--input" id="password" icon="lock" value={this.state.password} changed={this.passwordChange} />                   
-            <Button type="submit" title="Log In" disabled={!this.state.name || !this.state.password }/>
+            (<form onSubmit={authStart}>
+            <Input type="text" placeholder="Username" className="login-box--input" id="username" icon="person"  value={name} changed={usernameChange}  />
+            <Input type="password" placeholder="Password" className="login-box--input" id="password" icon="lock" value={password} changed={passwordChange} />                   
+            <Button type="submit" title="Log In" disabled={!name || !password }/>
             </form>); 
-        if (this.props.loading) {
+        if (props.loading) {
             form = <Spinner/>
         }
         
         return (
-            <>
+            <React.Fragment>
                 {authRedirect}
                 {errorMessage}
                 {form}
-            </>
+            </React.Fragment>
         );
-    }
 }
 
 const mapStateToProps = state => {
@@ -72,6 +67,12 @@ const mapDispatchToProps = dispatch => {
     return {
         onAuth: (email, password) => dispatch(actions.auth(email, password))
     };
+}
+
+Auth.propTypes = {
+    error: PropTypes.any,
+    isAuth: PropTypes.bool,
+    loading: PropTypes.bool
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

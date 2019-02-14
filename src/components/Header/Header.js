@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../Logo/Logo';
+import Logo from '../UI/Logo';
 
-const header = (props) => (
+const Header = (props) => (
     <div className="logged-header">
         <div className="row logged-header-top ">
             <div className="col-sm">
@@ -29,4 +29,4 @@ const header = (props) => (
     </div>
 );
 
-export default header;
+export default Header;

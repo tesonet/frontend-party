@@ -1,9 +1,9 @@
 import React from 'react';
 
-const alertMessage = (props) => (    
+const AlertMessage = (props) => (    
     <div className="row justify-content-center alert-message">
         <span>Something wrong. {props.message}</span>
     </div>
 );
 
-export default alertMessage;
+export default AlertMessage;

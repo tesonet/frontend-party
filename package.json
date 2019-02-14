@@ -8,11 +8,12 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "jquery": "^3.3.1",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.5",
     "react-test-renderer": "^16.7.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
@@ -23,9 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "fix-code": "prettier-eslint --write 'src/**/*.{js,jsx}' ",
-    "compile:sass": "node-sass src/assets/sass/main.scss src/assets/css/main.css -w --output-style expanded ",
-    "prefix": "postcss --use autoprefixer -b \"last 10 versions\" src/assets/css/main.css -o src/assets/css/main.prefix.css",
-    "compress:css": "node-sass src/assets/css/main.prefix.css src/style.css --output-style compressed"
+    "compile:sass": "node-sass src/assets/sass/main.scss src/assets/css/main.css -w --output-style expanded "
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,7 +36,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "autoprefixer": "^9.3.1",
     "node-sass": "^4.10.0",
     "postcss-cli": "^6.0.1",
     "prettier-eslint": "^8.8.2",

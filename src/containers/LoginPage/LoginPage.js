@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import Logo from '../../components/Logo/Logo';
+import React from 'react';
+import Logo from '../../components/UI/Logo';
 import Auth from '../../components/Auth/Auth';
+import './LoginPage.scss';
 
-class LoginPage extends Component {
-  
-    render () {
+const LoginPage = props => {
         return (           
             <section className="login">           
                 <div className="container login-box">
@@ -16,8 +15,7 @@ class LoginPage extends Component {
                     <Auth/>   
                 </div>
             </section>                       
-        );
-    } 
+        );  
 }
 
 export default LoginPage;

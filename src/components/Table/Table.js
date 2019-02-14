@@ -1,43 +1,42 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import Spinner from '../../components/Spinner/Spinner';
+import PropTypes from 'prop-types';
+import Spinner from '../UI/Spinner/Spinner';
 import TableItem from './TableItem/TableItem';
-import AlertMessage from '../AlertMessage/AlertMessage';
+import AlertMessage from '../UI/AlertMessage';
+import './Table.scss';
 
+const Table = props => {
+  
+    let results = null;
+    let screenResult = <Spinner />;
+    if (!props.loading && props.results !== null && props.error == null ) {
 
-class Table extends Component {
+        results = props.results.map(( rslt, index) => 
+            <TableItem 
+            key={index}
+            titleName={rslt.name} 
+            titleDistance={rslt.distance}
+            />);
 
-    render () {
-        let results = null;
-        let screenResult = <Spinner />;
-        if (!this.props.loading && this.props.results !== null && this.props.error == null ) {
+        screenResult = (
+        <table className="table table-hover">
+            <tbody className="table-results">
+                {results} 
+            </tbody>                   
+        </table>);
+                
+    } else if (!props.loading) {
+        screenResult = <AlertMessage/>;
+        } else {
+            screenResult = <Spinner />;
+        }
 
-            results = this.props.results.map(( rslt, index) => 
-                <TableItem 
-                key={index}
-                titleName={rslt.name} 
-                titleDistance={rslt.distance}
-                />);
-    
-            screenResult = (
-            <table className="table table-hover">
-                <tbody className="table-results">
-                    {results} 
-                </tbody>                   
-            </table>);
-                    
-        } else if (!this.props.loading) {
-            screenResult = <AlertMessage/>;
-            } else {
-                screenResult = <Spinner />;
-            }
-
-        return (
-            <div className="logged-table">
-                {screenResult}
-            </div>
-        );
-    }
+    return (
+        <div className="logged-table">
+            {screenResult}
+        </div>
+    );
 } 
 
 const mapStateToProps = state => {
@@ -46,6 +45,12 @@ const mapStateToProps = state => {
         loading: state.results.loading,
         error: state.results.error
     };
+}
+
+Table.propTypes = {
+    error: PropTypes.string,
+    results: PropTypes.array,
+    loading: PropTypes.bool
 }
 
 export default connect(mapStateToProps)(Table);
