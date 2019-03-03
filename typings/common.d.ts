@@ -1,0 +1,6 @@
+// Not to have to import Lodash entirely:
+interface Dictionary<T> {
+  [index: string]: T;
+}
+declare module "*.svg"; // could be improved to export a React component...
+declare module "*.png"; // could be improved to export a React component...
