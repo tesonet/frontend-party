@@ -38,12 +38,12 @@ export const ServerListComponent = (props: RouteComponentProps) => {
 
   useEffect(effectHandler, []);
   return (
-    <div className={css(commonStyles.container as any)}>
+    <div className={css(commonStyles.container)}>
       <div className={css(serverListStyles.pageHeader)}>
         <div className={css(serverListStyles.darkLogo)} />
 
         <Button
-          className={css(serverListStyles.logoutButton as any)}
+          className={css(serverListStyles.logoutButton)}
           variant="light"
           onClick={() => {
             localStorage.removeItem("accessToken");
@@ -58,7 +58,7 @@ export const ServerListComponent = (props: RouteComponentProps) => {
         </Button>
       </div>
       <div className={css(serverListStyles.listContainer)}>
-        <Scrollbars style={{ paddingLeft: "10px" }}>
+        <Scrollbars>
           <Table>
             <thead className={css(serverListStyles.tableHeader)}>
               <tr>

@@ -17,7 +17,7 @@ const LoginComponent = (props: RouteComponentProps) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const submitHandler = (event: any) => {
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!username) {
       return setErrorMessage("Username can not be empty");
@@ -38,7 +38,7 @@ const LoginComponent = (props: RouteComponentProps) => {
       .catch(error => setErrorMessage(error.response.data.message));
   };
   return (
-    <div className={css(commonStyles.container as any, loginStyles.wrapper)}>
+    <div className={css(commonStyles.container, loginStyles.wrapper)}>
       <div className={css(loginStyles.formContainer)}>
         <div className={css(loginStyles.whiteLogo)} />
         <div
@@ -63,7 +63,7 @@ const LoginComponent = (props: RouteComponentProps) => {
               className={css(loginStyles.formControl, loginStyles.input)}
               value={username}
               onChange={(e: any) => {
-                setUsername(e.target.value);
+                setUsername(e.currentTarget.value);
                 setErrorMessage("");
               }}
             />
@@ -90,7 +90,7 @@ const LoginComponent = (props: RouteComponentProps) => {
           </InputGroup>
           <Button
             type="submit"
-            className={css(loginStyles.formControl, loginStyles.button as any)}
+            className={css(loginStyles.formControl, loginStyles.button)}
             variant="success"
           >
             Log In
