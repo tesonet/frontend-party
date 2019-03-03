@@ -1,0 +1,16 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* avoid page with jump when scrollbar */
+html { 
+  margin-left: calc(100vw - 100%);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;  
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0;
+}
