@@ -1,5 +1,5 @@
-import bg from "./login-bg.png";
-import logo from "./logo-white.png";
+import bg from "../../images/login-bg.png";
+import logo from "../../images/logo-white.png";
 
 export const loginStyles = {
   wrapper: {

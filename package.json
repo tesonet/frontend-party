@@ -72,7 +72,7 @@
       "tsx"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|css|scss)$": "<rootDir>/util/fileMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|css|scss)$": "<rootDir>/src/utils/fileMock.js"
     },
     "modulePaths": [
       "<rootDir>/src/"
@@ -84,8 +84,8 @@
       "\\.(js|jsx)$": "babel-jest",
       "\\.(ts|tsx)$": "babel-jest"
     },
-    "setupFiles": [
-      "<rootDir>/util/setupTests.ts"
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/utils/setupTests.ts"
     ],
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",

@@ -16,25 +16,27 @@ interface IServer {
   distance: number;
 }
 
+const sortByDistAndName = (a: IServer, b: IServer) => {
+  if (a.distance === b.distance) {
+    return a.name < b.name ? -1 : 1;
+  }
+  return a.distance - b.distance;
+};
+
 export const ServerListComponent = (props: RouteComponentProps) => {
   const [list, setList] = useState<IServer[]>([]);
-  useEffect(() => {
+  const effectHandler = () => {
     axios.defaults.headers.common["Authorization"] = localStorage.getItem(
       "accessToken"
     );
     axios
       .get(`${TESONET_BASE_URL}${SERVER_LIST_URI}`)
       .then((response: { data: IServer[] }) => {
-        setList(
-          response.data.sort((a, b) => {
-            if (a.distance === b.distance) {
-              return a.name < b.name ? -1 : 1;
-            }
-            return a.distance - b.distance;
-          })
-        );
+        setList(response.data.sort(sortByDistAndName));
       });
-  }, []);
+  };
+
+  useEffect(effectHandler, []);
   return (
     <div className={css(commonStyles.container as any)}>
       <div className={css(serverListStyles.pageHeader)}>

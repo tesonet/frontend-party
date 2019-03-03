@@ -1,4 +1,4 @@
-import logo from "./logo-dark.png";
+import logo from "../../images/logo-dark.png";
 
 export const serverListStyles = {
   pageHeader: {
@@ -15,9 +15,6 @@ export const serverListStyles = {
   },
   serverColumn: {
     width: "100%"
-  },
-  tableBlockComponent: {
-    display: "block"
   },
   logoutButton: {
     backgroundColor: "#fff",
