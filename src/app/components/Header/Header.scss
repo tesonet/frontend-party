@@ -1,0 +1,32 @@
+$color_logout: #2f3254;
+$color_logout_hover: #99cc33;
+$centrify: (
+  display: flex,
+  justify-content: space-between,
+  align-items: center
+);
+
+@mixin center_items($display, $justify-content, $align-items) {
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+.header-style {
+  @include center_items($centrify...);
+  height: 100px;
+  padding: 0 1em;
+}
+
+.logout-btn {
+  @include center_items($centrify...);
+  min-width: 60px;
+  font-size: 13px;
+  color: $color_logout;
+  cursor: pointer;
+
+  &:hover {
+    color: $color_logout_hover;
+    fill: $color_logout_hover;
+  }
+}

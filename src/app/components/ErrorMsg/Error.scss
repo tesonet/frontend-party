@@ -1,0 +1,81 @@
+$error_color: #dd5a5a;
+$error_color_text: #f9f9f9;
+
+@mixin errorAnimation($time) {
+  -webkit-animation: fade-in $time ease-in forwards;
+  -moz-animation: fade-in $time ease-in forwards;
+  -ms-animation: fade-in $time ease-in forwards;
+  -o-animation: fade-in $time ease-in forwards;
+  animation: fade-in $time ease-in forwards;
+}
+
+@mixin errorAnimationTransformation() {
+  0% {
+    top: -30px;
+    opacity: 0.1;
+  }
+  15% {
+    top: -20px;
+    opacity: 0.2;
+  }
+  30% {
+    top: -10px;
+    opacity: 0.4;
+  }
+  50% {
+    top: 0;
+    opacity: 0.6;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+.error-exit {
+  position: absolute;
+  top: 0.8em;
+  right: 1.5em;
+  cursor: pointer;
+}
+
+.error-hidden {
+  display: none;
+}
+
+.error-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.8em 0 0.5em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $error_color_text;
+  background: $error_color;
+
+  @include errorAnimation(0.3s);
+}
+
+@keyframes fade-in {
+  @include errorAnimationTransformation();
+}
+
+@-webkit-keyframes fade-in {
+  @include errorAnimationTransformation();
+}
+
+@-moz-keyframes fade-in {
+  @include errorAnimationTransformation();
+}
+
+@-ms-keyframes fade-in {
+  @include errorAnimationTransformation();
+}
+
+@-o-keyframes fade-in {
+  @include errorAnimationTransformation();
+}

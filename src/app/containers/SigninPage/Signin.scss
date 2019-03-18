@@ -1,0 +1,89 @@
+//colors
+$white: #fff;
+$color_grey_bg: rgba(14, 18, 44, 0.8);
+$color_input_text: #424242;
+$color_input_text_focus: rgb(227, 238, 218);
+$color_input_text_ph: #9e9d9d;
+$color_button: #9fd533;
+$color_button_hover: #86b300;
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: calc(100vh + 200px);
+  min-width: calc(100vw + 100px);
+
+  /* Set up proportionate scaling */
+  width: 100vw;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: -200px;
+  left: -100px;
+  z-index: -99;
+}
+
+div.signin-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $color_grey_bg;
+}
+
+.centrify-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testio-logo {
+  width: 245px;
+  height: auto;
+  margin-bottom: 70px;
+}
+
+.input-form,
+.login-btn {
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.input-form {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 15px;
+  padding-left: 50px;
+  padding-top: 5px;
+  color: $color_input_text;
+  font-size: 14px;
+  &:focus {
+    background-color: $color_input_text_focus;
+  }
+  &::placeholder {
+    color: $color_input_text_ph;
+  }
+  &::placeholder:focus {
+    color: #ccc;
+  }
+}
+
+.login-btn {
+  width: 350px;
+  height: 55px;
+  font-weight: bold;
+  color: $white;
+  background-color: $color_button;
+  &:hover {
+    background-color: $color_button_hover;
+  }
+}
+
+.input-ico {
+  position: absolute;
+  width: 14px;
+  height: 16px;
+  margin: 21px 24px;
+}

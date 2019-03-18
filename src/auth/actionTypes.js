@@ -1,0 +1,4 @@
+export const AUTH_REQUEST = `AUTH.AUTH_REQUEST`;
+export const AUTH_SUCCESS = `AUTH.AUTH_SUCCESS`;
+export const AUTH_FAILURE = `AUTH.AUTH_FAILURE`;
+export const LOG_OUT = `AUTH.LOG_OUT`;

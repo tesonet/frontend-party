@@ -1,0 +1,48 @@
+$color_bubbles_background: white;
+
+@mixin bubbleAnimation($time) {
+  -webkit-animation: pulse $time infinite;
+  -moz-animation: pulse $time infinite;
+  -ms-animation: pulse $time infinite;
+  -o-animation: pulse $time infinite;
+  animation: pulse $time infinite;
+}
+
+@mixin bubbleAnimationDelay($time) {
+  -webkit-animation-delay: $time;
+  -moz-animation-delay: $time;
+  -ms-animation-delay: $time;
+  -o-animation-delay: $time;
+  animation-delay: $time;
+}
+
+.bubbles_container {
+  margin: auto;
+  width: 250px;
+  height: 100px;
+}
+
+.bubbles {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin: 18px 6px;
+
+  border-radius: 100%;
+  background-color: $color_bubbles_background;
+  opacity: 0;
+}
+
+.bubble_1 {
+  @include bubbleAnimation(0.9s);
+}
+
+.bubble_2 {
+  @include bubbleAnimation(0.9s);
+  @include bubbleAnimationDelay(0.15s);
+}
+
+.bubble_3 {
+  @include bubbleAnimation(0.9s);
+  @include bubbleAnimationDelay(0.3s);
+}
