@@ -1,3 +1,16 @@
+## Scripts
+
+### Install required dependencies
+```
+npm install
+```
+
+### Run the project or tests, or build
+```
+npm start || npm run test || npm run build
+```
+
+
 # Senior frontend developer task
 
 If you found this task it means we are looking for you!
