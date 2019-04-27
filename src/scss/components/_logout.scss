@@ -1,0 +1,28 @@
+.logout{
+  border: 1px solid #0015ff;
+  // float: right;
+  position: relative;
+  padding: 0 10px 0 35px;
+  transition: $transitions border-color;
+  &:hover{
+    border-color: #99cc33;
+    cursor: pointer;
+  }
+  &__ico{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 9px;
+    z-index: 1;
+    margin: auto 0;
+    pointer-events: none;
+  }
+  &__text{
+    font-size: 14px;
+    line-height: 31px;
+    letter-spacing: .025em;
+    display: block;
+  }
+}

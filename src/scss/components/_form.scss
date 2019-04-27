@@ -1,0 +1,54 @@
+.form{
+  &__row{
+    position: relative;
+    margin-bottom: 20px;
+  }
+  &__input{
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: .025em;
+    color: #b2b2b2;
+    background-color: #fff;
+    width: 100%;
+    padding: 13px 13px 13px 53px;
+    border-radius: 5px;
+    transition: $transitions color;
+    &:focus{
+      color: #999;
+      outline: none;
+      @include placeholder(){
+        color: #999;
+      }
+    }
+  }
+  &__ico{
+    width: 14px;
+    position: absolute;
+    top: 0;
+    left: 25px;
+    bottom: 0;
+    z-index: 1;
+    margin: auto 0;
+    pointer-events: none;
+    &--username{
+      height: 16px;
+    }
+    &--password{
+      height: 18px;
+    }
+  }
+  &__submit{
+    font-family: $roboto-bold;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: .025em;
+    color: #fff;
+    background-color: #9fd533;
+    width: 100%;
+    border-radius: 5px;
+    transition: $transitions background-color;
+    &:hover{
+      background-color: #86b300;
+    }
+  }
+}

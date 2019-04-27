@@ -73,7 +73,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff2?|ttf|otf|eot|svg)$/,
+        test: /\.(woff2?|ttf|otf|eot)$/,
         exclude: /node_modules/,
         loader: 'file-loader',
         options: {
@@ -89,7 +89,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(svg)$/,
+        test: /\.svg$/,
         exclude: /node_modules/,
         loader: 'file-loader',
         options: {

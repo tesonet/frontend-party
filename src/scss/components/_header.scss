@@ -1,0 +1,12 @@
+.header{
+  height: 115px;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  @include mobile{
+    height: 80px;
+  }
+  &__logo{
+    width: 115px;
+  }
+}
