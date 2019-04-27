@@ -1,0 +1,38 @@
+@mixin placeholder() {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and ( max-width: 767px ) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and ( max-width: 1000px ) {
+    @content;
+  }
+}
+
+@mixin max($maxWidth) {
+  @media only screen and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin min($minWidth) {
+  @media only screen and (min-width: $minWidth) {
+    @content;
+  }
+}

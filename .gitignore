@@ -1,0 +1,22 @@
+# app
+/dist
+
+# Visual Studio Code
+.settings/
+.vscode/
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+logs
+*.log
+npm-debug.log*
