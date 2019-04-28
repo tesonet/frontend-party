@@ -9,7 +9,7 @@ const loginBackground = require('../images/background.jpg') as string;
 const logo = require('../images/logo.png') as string;
 
 class LoginPage extends React.Component {
-  componentWillMount(){
+  componentWillMount() {
     History.push('/login');
   }
 

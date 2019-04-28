@@ -10,22 +10,22 @@ import { api } from '../api';
 const icoUsername = require('../svg/ico-username.svg') as string;
 const icoLock = require('../svg/ico-lock.svg') as string;
 
-interface ILoginState {
+interface ILoginStates {
   username?: string;
   password?: string;
 }
 
 interface ILoginProps {}
 
-class LoginForm extends React.Component<ILoginProps, ILoginState> {
-
-  public state = {
-    username: 'tesonet',
-    password: 'partyanimal',
-  };
+class LoginForm extends React.Component<ILoginProps, ILoginStates> {
 
   constructor(props: ILoginProps) {
     super(props);
+
+    this.state = {
+      username: 'tesonet',
+      password: 'partyanimal',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
