@@ -23,8 +23,8 @@ class LoginForm extends React.Component<ILoginProps, ILoginStates> {
     super(props);
 
     this.state = {
-      username: 'tesonet',
-      password: 'partyanimal',
+      username: '',
+      password: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
