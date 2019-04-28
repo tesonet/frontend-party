@@ -3,7 +3,7 @@ import './scss/style.scss';
 // react and react dependencies
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 // pages
 import LoginPage from './pages/LoginPage';
 import ListPage from './pages/ListPage';
@@ -15,12 +15,16 @@ export default class App extends React.Component {
   constructor(props: any) {
     super(props);
   }
+
   render() {
     return (
       <Router history={History}>
+        <Switch>
           <Route exact path="/" component={LoginPage} />
-          <Route exact path="/login" component={LoginPage} />
+          <Route path="/login" component={LoginPage} />
           <PrivateRoute path="/list" component={ListPage} />
+          <Route component={LoginPage} />
+        </Switch>
       </Router>
     );
   }

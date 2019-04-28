@@ -4,9 +4,29 @@
   "description": "If you found this task it means we are looking for you!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch",
     "dev": "webpack-dev-server --config ./configs/webpack.config.js",
     "build": "webpack --config ./configs/webpack.config.js --mode=production"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/configs/test-setup.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/configs/test-mock.js",
+      "\\.(css|less)$": "<rootDir>/configs/test-mock.js"
+    },
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/configs/test-preprocessor.js"
+    },
+    "testMatch": [
+      "**/tests/*.(ts|tsx)"
+    ]
   },
   "repository": {
     "type": "git",
@@ -22,15 +42,21 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "@types/jest": "^24.0.11",
     "@types/node": "^11.13.8",
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.2",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "autoprefixer": "^9.5.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
     "file-loader": "^3.0.1",
+    "jest": "^24.7.1",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.12.0",
     "postcss": "^7.0.14",
@@ -39,6 +65,7 @@
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-loader": "^3.5.4",
