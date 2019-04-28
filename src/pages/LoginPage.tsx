@@ -12,7 +12,6 @@ class LoginPage extends React.Component {
   componentWillMount() {
     History.push('/login');
   }
-
   render() {
     return (
       <div className="login" style={{ backgroundImage: `url(${loginBackground})` }}>

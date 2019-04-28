@@ -5,18 +5,14 @@ import History from '../helpers/History';
 
 const icoLogout = require('../svg/ico-logout.svg') as string;
 
-interface ILogoutStates {}
-
-interface ILogoutProps {}
-
-class Logout extends React.Component<ILogoutProps, ILogoutStates> {
-  constructor(props: ILogoutProps){
+class Logout extends React.Component {
+  constructor(props: any) {
     super(props);
 
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleLogout(){
+  handleLogout() {
     localStorage.removeItem('authToken');
     History.push('/login');
   }

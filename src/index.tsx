@@ -1,4 +1,3 @@
-
 // styles
 import './scss/style.scss';
 // react and react dependencies
@@ -16,7 +15,6 @@ export default class App extends React.Component {
   constructor(props: any) {
     super(props);
   }
-
   render() {
     return (
       <Router history={History}>
