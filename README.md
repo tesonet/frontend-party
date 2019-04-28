@@ -1,6 +1,6 @@
 ### Setup localhost
-clone repo
-$ cd senior-frontend-party
+clone repo  
+$ cd senior-frontend-party  
 $ npm install
 
 ### run dev
