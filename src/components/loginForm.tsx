@@ -1,8 +1,8 @@
 // react and react dependencies
 import * as React from 'react';
 
-const icoUsername = require("../svg/ico-username.svg") as string;
-const icoLock = require("../svg/ico-lock.svg") as string;
+const icoUsername = require('../svg/ico-username.svg') as string;
+const icoLock = require('../svg/ico-lock.svg') as string;
 
 class LoginForm extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class LoginForm extends React.Component {
         </div>
         <button type="submit" className="form__submit">Log In</button>
       </form>
-    )
+    );
   }
 }
 
