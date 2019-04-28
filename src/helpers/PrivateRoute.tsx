@@ -8,7 +8,6 @@ interface PrivateRouteProps extends RouteProps {
 
 export const PrivateRoute = (props: PrivateRouteProps) => {
   const { component: Component, ...rest } = props;
-
   return (
       <Route
           {...rest}

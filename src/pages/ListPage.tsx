@@ -5,6 +5,9 @@ import InnerHeader from '../components/InnerHeader';
 import List from '../components/List';
 
 class ListPage extends React.Component {
+  constructor(props: any) {
+    super(props);
+  }
 
   render() {
     return (

@@ -7,15 +7,18 @@
     font-size: 16px;
     line-height: 30px;
     letter-spacing: .025em;
-    color: #b2b2b2;
+    color: #999;
     background-color: #fff;
     width: 100%;
     padding: 13px 13px 13px 53px;
     border-radius: 5px;
     transition: $transitions color;
+    @include placeholder(){
+      color: #b2b2b2
+    }
     &:focus{
-      color: #999;
       outline: none;
+      color: #999;
       @include placeholder(){
         color: #999;
       }
