@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render component correctly 1`] = `
+<BrowserRouter>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      key="/"
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="/login"
+      path="/login"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/list"
+    />
+    <Route
+      component={[Function]}
+      path="*"
+    />
+  </Switch>
+</BrowserRouter>
+`;

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component should render component correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th
+        className="table-header false"
+        key="name"
+        onClick={[Function]}
+      >
+        <span
+          className="table-header-sort"
+        >
+          SERVER
+        </span>
+      </th>
+      <th
+        className="table-header text-right"
+        key="distance"
+        onClick={[Function]}
+      >
+        <span
+          className="table-header-sort"
+        >
+          DISTANCE
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="table-body"
+  />
+</table>
+`;

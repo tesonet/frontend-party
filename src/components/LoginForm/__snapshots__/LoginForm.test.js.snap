@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Form should render component correctly 1`] = `
+<form
+  className="login-form"
+  onSubmit={[Function]}
+>
+  <div
+    className="form-group"
+  >
+    <img
+      alt="username"
+      className="login-icon"
+      src={null}
+    />
+    <input
+      className="form-control login-username "
+      onChange={[Function]}
+      placeholder="Username"
+      required={true}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="form-group"
+  >
+    <img
+      alt="password"
+      className="login-icon"
+      src={null}
+    />
+    <input
+      className="form-control login-password "
+      onChange={[Function]}
+      placeholder="Password"
+      required={true}
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    className="btn btn-primary btn-block login-button"
+    onSubmit={[Function]}
+    type="submit"
+  >
+    Log In
+  </button>
+</form>
+`;

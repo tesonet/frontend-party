@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login page should render page correctly 1`] = `
+<div
+  className="login-container"
+>
+  <div
+    className="form-container"
+  >
+    <img
+      alt="Logo"
+      className="login-logo"
+      src={null}
+    />
+    <LoginForm
+      error={false}
+      submit={[Function]}
+    />
+  </div>
+</div>
+`;

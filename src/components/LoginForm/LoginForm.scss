@@ -1,0 +1,41 @@
+.login-form {
+  min-width: 400px;
+
+  input {
+    background-color: #fff !important;
+    &:focus {
+      color: #999 !important;
+    }
+  }
+
+}
+
+.login-button {
+    background-color: #9fd533 !important;
+    border-color: #65873d !important;
+    &:hover {
+        background-color: #86b300 !important;
+      }
+}
+
+.login-username {
+  padding-left: 35px;
+}
+
+.login-password {
+  padding-left: 35px;
+}
+
+.login-icon {
+  position: relative;
+  top: 30px;
+  left: 10px;
+}
+
+.form-invalid {
+  border-color: red;
+}
+
+.form-group {
+  margin-top: -20px;
+}

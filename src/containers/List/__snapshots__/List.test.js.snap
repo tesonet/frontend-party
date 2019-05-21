@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List page should render page correctly 1`] = `
+<div>
+  <div
+    className="list-header"
+  >
+    <img
+      alt="Logo"
+      className="list-logo"
+      src={null}
+    />
+    <button
+      className="list-logout"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Logout"
+        className="list-logout-icon"
+        src={null}
+      />
+      Logout
+    </button>
+  </div>
+  <Table
+    servers={Array []}
+  />
+</div>
+`;

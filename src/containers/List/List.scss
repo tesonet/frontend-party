@@ -1,0 +1,23 @@
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 10px;
+}
+
+.list-logo {
+    height: 25px;
+}
+
+.list-logout {
+    background-color: #fff !important;
+    border: 1px solid #fff;
+    transition: border-color 0.1s linear;
+    
+    .list-logout-icon {
+        margin-right: 5px;
+    }
+
+    &:hover {
+        border-color: #99cc33;
+    }
+}
