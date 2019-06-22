@@ -16,7 +16,7 @@ const justifyContent = {
 };
 
 const Row: React.ComponentType<PropsT> = styled.div`
-    margin-top: ${props => props.space ? '48px' : '24px'};
+    margin-top: ${props => props.withSpace ? '60px' : '20px'};
     
     display: ${props => props.align ? 'flex' : 'block'};
     justify-content: ${props => justifyContent[props.align]};

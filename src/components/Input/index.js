@@ -3,10 +3,13 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import Icon from 'components/Icon';
+import Icon, {
+    type IconNameT,
+} from 'components/Icon';
+
 
 type PropsT = {
-    icon?: string
+    icon?: ?IconNameT
 };
 
 const InputComponent = ({
@@ -28,6 +31,10 @@ const InputComponent = ({
         />
     </Wrapper>
 );
+
+InputComponent.defaultProps = {
+    icon: null,
+};
 
 const Wrapper = styled.label`
     position: relative;
@@ -71,4 +78,6 @@ const IconWrapper = styled.label`
 `;
 
 
-export default React.forwardRef(InputComponent);
+export default React.memo<PropsT>(
+    React.forwardRef<PropsT, HTMLLabelElement>(InputComponent),
+);

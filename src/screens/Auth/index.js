@@ -20,10 +20,14 @@ const Auth = () => {
     return (
         <Page>
             <Body>
-                <Row align="center">
+                <Row
+                    align="center"
+                >
                     <Logo />
                 </Row>
-                <Row>
+                <Row
+                    withSpace
+                >
                     <form
                         onSubmit={handleSubmit(handleFormSubmit)}
                     >
