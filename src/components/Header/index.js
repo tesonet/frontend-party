@@ -1,6 +1,11 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { navigate } from '@reach/router';
+
+import authActions from 'store/auth/actions';
+import routes from 'routes';
 
 import Logo from 'components/Logo';
 import Action from 'components/Action';
@@ -10,24 +15,35 @@ import {
 } from 'components/Columns';
 
 
-const Header = () => (
-    <HeaderComponent>
-        <Columns
-            align="center"
-        >
-            <Col>
-                <Logo isSmall />
-            </Col>
-            <Col isNarrow>
-                <Action
-                    icon="logout"
-                >
-                    Logout
-                </Action>
-            </Col>
-        </Columns>
-    </HeaderComponent>
-);
+type PropsT = {};
+
+const Header = () => {
+    const dispatch = useDispatch();
+    const handleLogoutClick = React.useCallback(() => {
+        dispatch(authActions.creators.logout());
+        navigate(routes.auth);
+    }, []);
+
+    return (
+        <HeaderComponent>
+            <Columns
+                align="center"
+            >
+                <Col>
+                    <Logo isSmall />
+                </Col>
+                <Col isNarrow>
+                    <Action
+                        icon="logout"
+                        onClick={handleLogoutClick}
+                    >
+                        Logout
+                    </Action>
+                </Col>
+            </Columns>
+        </HeaderComponent>
+    );
+};
 
 const HeaderComponent = styled.header`
     min-height: 112px;
@@ -35,4 +51,4 @@ const HeaderComponent = styled.header`
     display: flex;
 `;
 
-export default Header;
+export default React.memo<PropsT>(Header);

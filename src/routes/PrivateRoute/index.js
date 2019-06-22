@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Redirect } from '@reach/router';
+import { useSelector } from 'react-redux';
 
 
 type PropsT = {
@@ -11,9 +12,9 @@ const PrivateRoute = ({
     component: Component,
     ...props
 }: PropsT) => {
-    const isAuth = false;
+    const auth = useSelector(state => state.auth);
 
-    if (isAuth) {
+    if (auth.token) {
         return (
             <Component
                 {...props}
