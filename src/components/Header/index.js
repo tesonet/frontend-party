@@ -36,6 +36,7 @@ const Header = () => {
                     <Action
                         icon="logout"
                         onClick={handleLogoutClick}
+                        data-test="action/logout"
                     >
                         Logout
                     </Action>

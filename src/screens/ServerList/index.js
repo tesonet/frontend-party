@@ -41,6 +41,7 @@ const ServerList = () => {
                 <List
                     as={Scrollable}
                     header={serverListHeader}
+                    data-test="serverList"
                 >
                     {servers.servers.map(({
                         id,
