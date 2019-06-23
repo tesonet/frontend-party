@@ -27,7 +27,7 @@ const Auth = () => {
     const { register, handleSubmit } = useForm();
     const handleFormSubmit = React.useCallback((form) => {
         dispatch(authActions.creators.getToken(form));
-    }, []);
+    }, [dispatch]);
 
     React.useEffect(() => {
         if (auth.token) {

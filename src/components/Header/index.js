@@ -22,7 +22,7 @@ const Header = () => {
     const handleLogoutClick = React.useCallback(() => {
         dispatch(authActions.creators.logout());
         navigate(routes.auth);
-    }, []);
+    }, [dispatch]);
 
     return (
         <HeaderComponent>

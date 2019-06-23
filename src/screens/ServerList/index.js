@@ -27,7 +27,7 @@ const ServerList = () => {
     const servers: ServerListReducerT = useSelector(state => state.servers);
     React.useEffect(() => {
         dispatch(serverActions.creators.getServerList());
-    }, []);
+    }, [dispatch]);
 
     return (
         <Screen fullHeight>
