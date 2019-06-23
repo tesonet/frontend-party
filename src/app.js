@@ -12,7 +12,7 @@ import PrivateRoute from 'routes/PrivateRoute';
 
 import Auth from 'screens/Auth';
 import ServerList from 'screens/ServerList';
-
+import NotFound from 'screens/NotFound';
 
 const App = () => (
     <Provider store={store}>
@@ -22,6 +22,7 @@ const App = () => (
                 path={routes.home}
                 component={ServerList}
             />
+            <NotFound default />
         </Router>
     </Provider>
 );
