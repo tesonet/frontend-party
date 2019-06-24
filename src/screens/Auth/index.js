@@ -16,6 +16,7 @@ import Row from 'components/Row';
 import Button from 'components/Button';
 import Input from 'components/Input';
 import Spinner from 'components/Spinner';
+import Message from 'components/Message';
 
 
 import pageBg from './images/bg.jpg';
@@ -26,8 +27,16 @@ const Auth = () => {
     const dispatch = useDispatch();
     const auth: AuthReducerT = useSelector(state => state.auth);
     const { register, handleSubmit } = useForm();
-    const handleFormSubmit = React.useCallback((form) => {
-        dispatch(authActions.creators.getToken(form));
+    const [message, setMessage] = React.useState('');
+    const handleMessageClear = React.useCallback(() => {
+        setMessage('')
+    }, [setMessage]);
+    const handleFormSubmit = React.useCallback(async (form) => {
+        const res = await dispatch(authActions.creators.getToken(form));
+
+        if (res.message) {
+            setMessage(res.message);
+        }
     }, [dispatch]);
 
     React.useEffect(() => {
@@ -73,6 +82,15 @@ const Auth = () => {
                                 ref={register}
                             />
                         </Row>
+                        {!!message && (
+                            <Row>
+                                <Message
+                                    onClose={handleMessageClear}
+                                >
+                                    {message}
+                                </Message>
+                            </Row>
+                        )}
                         <Row
                             align="center"
                         >
