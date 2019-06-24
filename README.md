@@ -14,7 +14,7 @@ To build production code run npm/yarn run build:prod
 To build dev code run npm/yarn run build:dev
 To check production build run npm/yarn run start (default URL - localhost:3000)
 
-#FAQ
+# FAQ
 
 - To sort items click on header name (SERVER or DISTANCE)
 - Login username should be at least 2 chars long, password - 6 chars.
