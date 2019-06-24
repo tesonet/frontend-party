@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-confusing-arrow */
 // @flow
 import * as React from 'react';
@@ -31,10 +32,6 @@ const InputComponent = ({
         />
     </Wrapper>
 );
-
-InputComponent.defaultProps = {
-    icon: null,
-};
 
 const Wrapper = styled.label`
     position: relative;
