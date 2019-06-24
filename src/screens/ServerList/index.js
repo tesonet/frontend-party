@@ -30,7 +30,10 @@ const ServerList = () => {
     }, [dispatch]);
 
     return (
-        <Screen fullHeight>
+        <Screen
+            fullHeight
+            title="Server List"
+        >
             {servers.isGetServersInProcessing ? (
                 <Center>
                     <Spinner

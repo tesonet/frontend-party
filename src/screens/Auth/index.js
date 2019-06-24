@@ -10,6 +10,7 @@ import routes from 'routes';
 
 import { type AuthReducerT } from 'store/auth';
 
+import Screen from 'components/Screen';
 import Logo from 'components/Logo';
 import Row from 'components/Row';
 import Button from 'components/Button';
@@ -36,7 +37,10 @@ const Auth = () => {
     }, [auth.token]);
 
     return (
-        <Page>
+        <AuthScreen
+            title="Login"
+            fullHeight
+        >
             <Body>
                 <Row
                     align="center"
@@ -86,17 +90,15 @@ const Auth = () => {
                     </form>
                 </Row>
             </Body>
-        </Page>
+        </AuthScreen>
     );
 };
 
 
-const Page = styled.div`
+const AuthScreen = styled(Screen)`
     width: 100vw;
-    min-height: 100vh;
     background: #34394e url(${pageBg}) no-repeat;
     background-size: cover;
-    display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;

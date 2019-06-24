@@ -6,7 +6,10 @@ import Center from 'components/Center';
 
 
 const NotFound = () => (
-    <Screen fullHeight>
+    <Screen
+        title="Page Not Found"
+        fullHeight
+    >
         <Center>
             <strong>Page Not Found</strong>
         </Center>
