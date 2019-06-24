@@ -1,0 +1,7 @@
+node_modules/
+public/
+.env.production
+.env.development
+.idea/
+.DS_Store
+src/.DS_Store

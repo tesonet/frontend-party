@@ -1,0 +1,159 @@
+#server-list {
+
+  .spinner {
+    top: 50%;
+    left: 50%;
+  }
+
+  .server-list-header {
+    height: 112px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+
+    .testio-logo {
+      width: 115px;
+      height: 30px;
+    }
+
+    .logout-button {
+      width: 70px;
+      height: 30px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+
+      &:hover {
+
+        .logout-text {
+          color: $frog-acid-green;
+        }
+
+        svg {
+          path {
+            fill: $frog-acid-green;
+          }
+        }
+      }
+
+      .logout-icon {
+        width: 18px;
+        height: 20px;
+        transform: rotate(180deg);
+      }
+      .logout-text {
+        font-family: $roboto-font;
+        font-size: 14px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: 0.35px;
+        color: $logout-dark-blue;
+        text-decoration: none;
+      }
+    }
+
+  }
+
+  .server-list-table {
+
+    .table-header {
+
+      .table-header-title {
+        font-family: $roboto-font;
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: $table-header-dark-gray;
+      }
+
+      .header-right, .header-left {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        height: 25px;
+        cursor: pointer;
+        user-select: none;
+
+        .header-right-sorting-icon {
+          display: none;
+          width: 20px;
+          height: 25px;
+          margin: 0 5px;
+
+          &.asc, &.desc {
+            display: block;
+            background-size: 15px 20px;
+            background-repeat: no-repeat;
+            background-position: top 2px center;
+          }
+
+          &.asc {
+            background-image: url('../../images/sort-up.png');
+          }
+
+          &.desc {
+            background-image: url('../../images/sort-down.png');
+          }
+
+        }
+      }
+    }
+
+    .table-header.table-row {
+      background-color: $light-gray;
+      border-bottom: 1px solid $shade-of-gray-1;
+      border-top: 1px solid $shade-of-gray-1;
+    }
+
+    .table-row {
+      height: 60px;
+      padding: 0 15px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $light-gray;
+
+      .table-row-name, .table-row-distance {
+        font-family: $roboto-font;
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: 0.4px;
+        color: $table-row-medium-gray;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .table-row-name {
+        width: calc(65% - 20px);
+        margin-right: 20px
+      }
+
+      .table-row-distance {
+        width: 35%;
+        text-align: right;
+      }
+
+    }
+  }
+
+  .server-list-load-fail {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    font-family: Roboto, Arial, sans-serif;
+    color: $load-fail-text-color;
+    padding: 0 20px;
+  }
+
+}

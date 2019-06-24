@@ -1,0 +1,39 @@
+$spinner-size: 60px;
+$spinner-border-size: 2px;
+
+.spinner,
+.spinner:after {
+  position: absolute;
+  box-sizing: border-box;
+  //top: calc(50% - 30px);
+  //left: calc(50% - 30px);
+}
+
+.spinner {
+  width: $spinner-size;
+  height: $spinner-size;
+  display: block;
+  color: $frog-acid-green;
+
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border: $spinner-border-size solid currentColor;
+    border-bottom-color: transparent;
+    border-radius: 100%;
+    background: transparent;
+
+    animation: ball-clip-rotate .75s linear infinite;
+  }
+}
+
+@keyframes ball-clip-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

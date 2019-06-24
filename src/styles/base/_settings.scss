@@ -1,0 +1,30 @@
+// Colors
+
+$logout-dark-blue: #2F3254;
+$light-gray: #F5F5F5;
+$frog-acid-green: #99CC33;
+$button-frog-green: #9FD533;
+$button-hover-frog-green: #86B300;
+$table-header-dark-gray: #999999;
+$table-row-medium-gray: #666666;
+$load-fail-text-color: #EC4141;
+$shade-of-gray-1: #E6E6E6;
+$shade-of-gray-2: #B3B3B3;
+$input-error-shadow-color-main: #FF0000;
+$input-error-shadow-color-second: #B71C1C;
+$input-error-background-color: #FFEAEA;
+$login-background-logo: #0B0F27;
+
+//Fonts
+
+@font-face {
+  font-family: 'Roboto';
+  font-display: fallback;
+  src: url('../../fonts/RobotoRegular.woff2') format('woff2');
+}
+
+$roboto-font: Roboto, Arial, sans-serif;
+
+//ETC
+
+$input-border-radius: 4px;

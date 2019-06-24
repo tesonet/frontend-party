@@ -1,3 +1,24 @@
+# Development Environment
+
+- Node v10.15.3
+- Yarn v1.17.0
+- npm v6.4.1
+
+If errors are thrown while installing npm packages, please refer to my environment's versions. If it doesn't help contact me.
+My npm package's versions might be outdated.
+
+# NPM Commands
+
+To run dev-server use npm/yarn run dev-server (default URL - localhost:8080)
+To build production code run npm/yarn run build:prod
+To build dev code run npm/yarn run build:dev
+To check production build run npm/yarn run start (default URL - localhost:3000)
+
+#FAQ
+
+- To sort items click on header name (SERVER or DISTANCE)
+- Login username should be at least 2 chars long, password - 6 chars.
+
 # Tesonet FrontEnd developer task
 
 ## Basic instructions

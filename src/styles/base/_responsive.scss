@@ -1,0 +1,41 @@
+@media (max-width: 690px) {
+
+  html {
+    font-size: 55%;
+
+    #app .login-form-wrapper {
+      @media only screen and (max-width: 380px) {
+
+        .login-form {
+          width: 100%;
+
+          .input-wrapper, .button-wrapper {
+            width: 100%;
+
+          }
+
+          .input-wrapper {
+
+            .icon, .form-input {
+              border-radius: 0;
+            }
+
+            .form-input {
+              width: 100%;
+            }
+
+          }
+
+          .button-wrapper {
+            .login-form-button {
+              width: 100%;
+              border-radius: 0;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+}

@@ -1,0 +1,152 @@
+#login {
+
+  background: url('../../images/login-background-image.png') no-repeat;
+  background-size: cover;
+  background-color: $login-background-logo;
+  background-blend-mode: screen;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  .login-form-wrapper {
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .login-form-teso-logo {
+      background: url('../../images/testio-logo-white.png') no-repeat center center;
+      width: 246px;
+      display: block;
+      height: 64px;
+      margin-bottom: 70px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+
+      .login-username-field, .login-password-field {
+        width: 310px;
+        height: 50px;
+        border: none;
+        border-bottom-right-radius: $input-border-radius;
+        border-top-right-radius: $input-border-radius;
+        padding: 0 5px;
+      }
+
+      .input-wrapper {
+
+        display: flex;
+        flex-flow: row nowrap;
+        margin-bottom: 20px;
+
+        &.validation-failed {
+          animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+          box-shadow: 0 0 15px 5px $input-error-shadow-color-main, inset 0 0 20px 8px $input-error-shadow-color-second;
+
+          > .form-input {
+            background-color: $input-error-background-color;
+          }
+
+          > .icon {
+            background-color: $input-error-background-color;
+          }
+
+        }
+
+        .icon {
+          padding: 10px;
+          width: 50px;
+          display: block;
+          text-align: center;
+          border-bottom-left-radius: $input-border-radius;
+          border-top-left-radius: $input-border-radius;
+          background-color: white;
+          background-size: 15px 15px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-position-y: 16px;
+
+          &.user-icon {
+            background-image: url('../../images/man-user.png');
+          }
+
+          &.lock-icon {
+            background-image: url('../../images/lock.png');
+          }
+
+        }
+
+        .form-input {
+
+          &::placeholder {
+            padding-left: 2px;
+            color: $shade-of-gray-2;
+            font-family: $roboto-font;
+            font-size: 17px;
+            font-weight: 300;
+            opacity: 1;
+            letter-spacing: 0.4px;
+          }
+        }
+        .form-input[type='text'], .form-input[type='password'] {
+          color: $table-header-dark-gray;
+          opacity: 1;
+          font-family: $roboto-font;
+          font-size: 17px;
+          font-weight: 300;
+          letter-spacing: 0.4px;
+        }
+
+      }
+
+      .button-wrapper {
+
+        position: relative;
+        display: block;
+
+        .login-form-button {
+          height: 50px;
+          width: 360px;
+          background-color: $button-frog-green;
+          border-radius: 4px;
+          padding: 0 5px;
+          border: none;
+          font-family: $roboto-font;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0.4px;
+          color: white;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $button-hover-frog-green;
+          }
+
+        }
+
+        & > .login-form-button + .spinner {
+          width: 30px;
+          height: 30px;
+          color: white;
+          top: 10px;
+          right: 10px;
+        }
+
+      }
+
+    }
+
+  }
+}
+
