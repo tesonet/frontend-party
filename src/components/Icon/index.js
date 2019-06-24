@@ -18,7 +18,13 @@ const icons = {
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" clipRule="evenodd" d="M6 16h9c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1H6c-.6 0-1 .4-1 1v3h2V2h7v12H7v-2H5v3c0 .6.4 1 1 1zM0 8l4-4v3h6v2H4v3L0 8z" fill="currentColor" />
         </svg>
-    )
+    ),
+    close: (
+        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor" />
+            <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+    ),
 };
 
 export type IconNameT = $Keys<typeof icons>;
@@ -49,6 +55,7 @@ Icon.defaultProps = {
 };
 
 const IconContainer = styled.div`
+    cursor: ${props => props.onClick ? 'pointer' : 'default'}
     svg {
         width: 100%;
         height: 100%;
