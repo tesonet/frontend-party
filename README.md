@@ -9,10 +9,10 @@ My npm package's versions might be outdated.
 
 # NPM Commands
 
-To run dev-server use npm/yarn run dev-server (default URL - localhost:8080)
-To build production code run npm/yarn run build:prod
-To build dev code run npm/yarn run build:dev
-To check production build run npm/yarn run start (default URL - localhost:3000)
+- To run dev-server use npm/yarn run dev-server (default URL - localhost:8080)
+- To build production code run npm/yarn run build:prod
+- To build dev code run npm/yarn run build:dev
+- To check production build run npm/yarn run start (default URL - localhost:3000)
 
 # FAQ
 
