@@ -4,12 +4,12 @@ import express from 'express';
 const PORT = process.env.PORT || 5000;
 const pathname = path.resolve(`${__dirname}/../client/build`);
 
-console.log({ pathname });
+// console.log({ pathname });
 
 const start = (pid) => {
   const app = express();
   app.use('/', express.static(pathname));
-  app.listen(PORT, () => console.log(`Listening on port: ${PORT} pid: ${pid}`));
+  app.listen(PORT, () => console.log(`listening pid: [${pid}] on port: ${PORT}`));
 };
 
 if (!module.parent) start(process.pid);

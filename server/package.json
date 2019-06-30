@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx babel-node index.js "
+    "start": "npx babel-node index.js",
+    "start:cluster": "npx babel-node cluster.js"
   },
   "author": "",
   "license": "ISC",
