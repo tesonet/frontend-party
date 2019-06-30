@@ -4,7 +4,10 @@
   "description": "script-runner",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:client": "npm run start --prefix client/",
+    "start:server": "npm run start --prefix server/",
+    "build:client": "npm run build --prefix client/"
   },
   "author": "",
   "license": "ISC"
