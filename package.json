@@ -4,12 +4,20 @@
   "description": "script-runner",
   "private": true,
   "scripts": {
+    "preinstall": "npm i --prefix client/ && npm i --prefix server/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:client": "npm run start --prefix client/",
     "start:server": "npm run start --prefix server/",
     "build:client": "npm run build --prefix client/",
-    "start:cluster": "npm run start:cluster --prefix server/"
+    "start:cluster": "npm run start:cluster --prefix server/",
+
+    "build:app": "webpack --mode=production"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.0.3",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5"
+  }
 }

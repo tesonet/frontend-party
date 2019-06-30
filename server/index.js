@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 
 const PORT = process.env.PORT || 5000;
-const pathname = path.resolve(`${__dirname}/../client/build`);
+const pathname = path.resolve(`${__dirname}/../client`);
 
 // console.log({ pathname });
 
