@@ -1,9 +1,15 @@
-const signIn = () => {
+const loggedIn = () => {
   return {
-    type: 'TOGGLE',
-    payload: 'payload'
+    type: 'LOGGED_IN',
+    payload: ''
   }
 };
 
-export default { signIn };
-export { signIn };
+const loggedOut = () => {
+  return {
+    type: 'LOGGED_OUT',
+    payload: ''
+  }
+};
+
+export default { loggedIn, loggedOut };

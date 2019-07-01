@@ -1,0 +1,19 @@
+@import '../scss/colors';
+
+.Background {
+  text-align: center;
+  min-height: 100vh;
+  background-color: $background-color;
+  overflow: auto;
+
+  .cover {
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: .2;
+    position: absolute;
+  }
+}

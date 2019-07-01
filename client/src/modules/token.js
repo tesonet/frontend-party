@@ -1,3 +1,5 @@
+const storage = window.localStorage;
+
 class Token {
   constructor() {
     this.user = this.find();
@@ -8,15 +10,18 @@ class Token {
   };
 
   find = () => {
-
+    const json = storage.getItem(`tesonet`);
+    const data = JSON.parse(json);
+    return data;
   };
 
-  save = () => {
-
+  save = (username, token) => {
+    const data = JSON.stringify({ username, token });
+    storage.setItem('tesonet', data);
   };
 
   remove = () => {
-
+    storage.removeItem('tesonet');
   };
 }
 
