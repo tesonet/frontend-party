@@ -1,0 +1,15 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.Panel {
+  @include flex-space-between-row;
+  background-color: $panel-grey;
+  color: $text-grey-light;
+  font-size: 14px;
+  border-bottom: 1px solid $border-color-grey;
+
+  span {
+    padding: 16px;
+    text-transform: uppercase;
+  }
+}

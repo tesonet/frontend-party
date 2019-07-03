@@ -1,0 +1,14 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.Servers {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .headers {}
+
+  .List {
+    overflow: auto;
+  }
+}

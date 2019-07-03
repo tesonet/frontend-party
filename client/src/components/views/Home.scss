@@ -1,0 +1,11 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.Home {
+  @include flex-center-column;
+  background-color: $background-color;
+
+  img{
+    margin-bottom: 24px;
+  }
+}

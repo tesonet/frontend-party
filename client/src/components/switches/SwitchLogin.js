@@ -1,14 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import Background from '../Background';
-
-const Login = () => {
-  return (
-    <Background>
-      <h3>Login</h3>
-    </Background>
-  )
-}
+import Login from '../views/Login';
 
 const SwitchLogin = () => {
   return (

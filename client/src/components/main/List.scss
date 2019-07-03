@@ -1,0 +1,17 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.List {
+  -webkit-overflow-scrolling: touch;
+
+  .item {
+    @include flex-space-between-row;
+    color: $text-grey-dark;
+    border-bottom: 1px solid $border-color-grey;
+    font-weight: 300;
+
+    span {
+      padding: 16px;
+    }
+  }
+}

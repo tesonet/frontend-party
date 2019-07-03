@@ -1,0 +1,42 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.LoginForm {
+  @include flex-center-column;
+
+  .container {
+    background-color: rgba(255, 255, 255, .1);
+    width: 360px;
+
+    img {
+      margin-bottom: 68px;
+    }
+
+    input {
+      width: 100%;
+      padding: 20px 16px 20px 64px;
+    }
+
+    button {
+      width: 100%;
+      padding: 20px 16px;
+      font-weight: bold;
+    }
+
+    .InputText,
+    .button {
+      position: relative;
+      margin-top: 18px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .LoginForm {
+    .container {
+      width: 90%;
+    }
+  }
+}

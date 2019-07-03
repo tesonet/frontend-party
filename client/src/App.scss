@@ -1,26 +1,10 @@
-.App {
-  text-align: center;
-}
+@import './scss/colors';
+@import './scss/mixins';
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -33,13 +17,25 @@
   }
 }
 
-button {
-  border: none;
+button,
+input,
+a {
+  @include transition-200;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
   outline: none;
-  padding: 6px 12px;
+  border: none;
+  border-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   font-family: inherit;
-  font-size: 14px;
+  border-radius: 0;
+}
 
+button,
+a {
   &:hover {
     cursor: pointer;
   }
@@ -52,6 +48,10 @@ a {
   display: inline-block;
 }
 
+input {
+  box-sizing: border-box;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -60,5 +60,17 @@ ul {
 
 li {
   display: inline-block;
-  padding: 4px 8px;
+}
+
+.button-green {
+  padding: 8px 16px;
+  color: #999;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff;
+  background-color: $button-background-color;
+
+  &:hover {
+    background-color: $button-background-color-hover;
+  }
 }

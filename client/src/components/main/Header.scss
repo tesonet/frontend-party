@@ -1,0 +1,37 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.Header {
+  @include flex-space-between-row;
+  background-color: #ccc;
+
+  img {
+    padding: 40px 16px;
+    @include transition-200;
+  }
+
+  .ActionButton button {
+    color: $button-color-blue;
+    padding: 16px;
+
+    &:hover {
+      color: $button-color-hover;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) and (orientation:portrait) {
+  .Header {
+    img {
+      padding: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) and (orientation:landscape) {
+  .Header {
+    img {
+      padding: 16px;
+    }
+  }
+}

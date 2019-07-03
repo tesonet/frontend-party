@@ -1,23 +1,14 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-
-const Root = () => {
-  return <h3>Root</h3>;
-}
-const Public = () => {
-  return <h3>Public</h3>;
-}
-const Servers = () => {
-  return <h3>Servers</h3>;
-}
+import Servers from '../views/Servers';
+import Home from '../views/Home';
 
 const SwitchUser = () => {
   return (
     <Switch>
-      <Route path="/" exact component={Root} />
-      <Route path="/public" component={Public} />
+      <Route path="/" exact component={Home} />
       <Route path="/servers" component={Servers} />
-      <Route render={() => <Redirect to="/" />} />
+      <Route render={() => <Redirect to="/servers" />} />
     </Switch>
   )
 }
