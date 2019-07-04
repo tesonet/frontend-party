@@ -1,6 +1,7 @@
-const loggedIn = () => {
+const loggedIn = (user) => {
   return {
-    type: 'LOGGED_IN'
+    type: 'LOGGED_IN',
+    payload: user
   }
 };
 
@@ -22,18 +23,25 @@ const logOut = () => {
   }
 };
 
-const userName = (payload = null) => {
+const username = (payload = null) => {
   return {
     type: 'USER_NAME',
     payload: payload
   }
 };
 
-const userPassword = (payload = null) => {
+const password = (payload = null) => {
   return {
     type: 'USER_PASSWORD',
     payload: payload
   }
 };
 
-export default { loggedIn, loggedOut, logIn, logOut, userName, userPassword };
+const loginError = (bool) => {
+  return {
+    type: 'LOG_IN_ERROR',
+    payload: bool
+  }
+};
+
+export default { loggedIn, loggedOut, logIn, logOut, username, password, loginError };

@@ -3,10 +3,10 @@
 
 .Header {
   @include flex-space-between-row;
-  background-color: #ccc;
+  border-bottom: 1px solid $border-color-grey;
 
   img {
-    padding: 40px 16px;
+    padding: 36px 16px;
     @include transition-200;
   }
 
@@ -21,14 +21,6 @@
 }
 
 @media only screen and (max-width: 480px) and (orientation:portrait) {
-  .Header {
-    img {
-      padding: 16px;
-    }
-  }
-}
-
-@media only screen and (max-width: 960px) and (orientation:landscape) {
   .Header {
     img {
       padding: 16px;

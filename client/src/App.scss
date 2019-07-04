@@ -7,16 +7,6 @@
   pointer-events: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 button,
 input,
 a {
@@ -72,5 +62,32 @@ li {
 
   &:hover {
     background-color: $button-background-color-hover;
+  }
+}
+
+.shake {
+  animation: shake 400ms linear;
+  pointer-events: none;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-4px);
+  }
+
+  25% {
+    transform: translateX(2px);
+  }
+
+  50% {
+    transform: translateX(-1px);
+  }
+
+  75% {
+    transform: translateX(1px);
+  }
+
+  100% {
+    transform: translateX(0px);
   }
 }

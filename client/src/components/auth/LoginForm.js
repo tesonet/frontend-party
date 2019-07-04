@@ -11,17 +11,23 @@ class LoginForm extends React.Component {
   sumbit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    this.props.dispatch(auth.logIn());
+    const { dispatch, username, password } = this.props;
+
+    if (!username || !password) {
+      dispatch(auth.loginError(true));
+      return setTimeout(() => dispatch(auth.loginError(false)), 400);
+    }
+    dispatch(auth.logIn());
   }
 
   render() {
     return (
       <div className="LoginForm">
-        <div className="container">
+        <div className={this.props.shake ? 'container shake' : 'container'}>
           <img src={logo} alt="logo" />
           <form onSubmit={this.sumbit}>
-            <InputText action={auth.userName} options={{ type: 'text', placeholder: 'Username', icon: iconProfile }} />
-            <InputText action={auth.userPassword} options={{ type: 'password', placeholder: 'Password', icon: iconLock }} />
+            <InputText action={auth.username} options={{ type: 'text', placeholder: 'Username', icon: iconProfile }} />
+            <InputText action={auth.password} options={{ type: 'password', placeholder: 'Password', icon: iconLock }} />
             <div className="button">
               <button className="button-green">Log in</button>
             </div>
@@ -32,4 +38,12 @@ class LoginForm extends React.Component {
   }
 }
 
-export default connect()(LoginForm);
+function mapStateToProps(state) {
+  return {
+    username: state['login:username'],
+    password: state['login:password'],
+    shake: state['login:error']
+  }
+}
+
+export default connect(mapStateToProps)(LoginForm);

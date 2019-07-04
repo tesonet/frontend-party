@@ -13,7 +13,7 @@ class InputText extends React.Component {
     return (
       <div className="InputText">
         <div className="icon" style={{ backgroundImage: `url(${icon})` }}></div>
-        <input type={type} placeholder={placeholder} onChange={this.action} />
+        <input type={type} onChange={this.action} placeholder={placeholder} spellCheck="false" />
       </div>
     )
   }

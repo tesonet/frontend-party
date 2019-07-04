@@ -1,33 +1,66 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import filter from '../../modules/filter';
+import net from '../../modules/net';
+import list from '../../store/actions/list';
+import sort from '../../store/actions/sort';
 import './List.scss';
-import sort from '../../modules/sort';
 
-const data = [];
-
-const ListView = () => {
-  const state = useSelector(state => state.sort);
-  let list = [];
-
-  switch (state) {
-    case 'SORT_NAME': list = sort.string(data, 'name'); break;
-    case 'SORT_DISTANCE': list = sort.number(data, 'distance'); break;
+class ListView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.items = [];
+    this.list = [];
   }
 
-  const items = list.map((item, index) => {
-    return (
-      <li className="item" key={index}>
-        <span>{item.name}</span>
-        <span>{item.distance}</span>
-      </li>
-    )
-  });
+  componentDidMount() {
+    const { dispatch, user } = this.props;
+    const token = user.token;
+    (async () => {
+      const data = await net.servers(token);
+      this.list = data.list;
+      dispatch(list.servers(this.list));
+    })();
+  }
 
-  return (
-    <div className="List">
-      <ul>{items}</ul>
-    </div>
-  )
+  componentWillUnmount() {
+    const { dispatch } = this.props;
+    dispatch(list.servers([]));
+    dispatch(sort.servers());
+  }
+
+  render() {
+    switch (this.props.sort) {
+      case 'SORT_NAME': filter.string(this.list, 'name'); break;
+      case 'SORT_DISTANCE': filter.number(this.list, 'distance'); break;
+      default: break;
+    }
+
+    this.items = this.list.map((item, index) => {
+      return (
+        <li className="item" key={index}>
+          <span>{item.name}</span>
+          <span>{item.distance}</span>
+        </li>
+      )
+    });
+
+    return (
+      <div className="List">
+        <ul>
+          {this.items}
+        </ul>
+      </div>
+    )
+  }
 };
 
-export default ListView;
+function mapStateToProps(state) {
+  return {
+    sort: state['sort:servers'],
+    list: state['list:servers'],
+    user: state.user
+  };
+}
+
+export default connect(mapStateToProps)(ListView);

@@ -4,7 +4,8 @@ import './ActionButton.scss';
 
 class ActionButton extends React.Component {
   action = (e) => {
-    if (typeof this.props.action === 'function') this.props.dispatch(this.props.action());
+    const { action, dispatch} = this.props;
+    if (typeof action === 'function') dispatch(action());
   }
 
   render() {

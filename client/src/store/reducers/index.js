@@ -1,13 +1,16 @@
 import auth from './auth';
 import sort from './sort';
+import list from './list';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  isLogged: auth.isLogged,
-  userName: auth.userName,
-  userPassword: auth.userPassword,
+  user: auth.user,
   activity: auth.activity,
-  sort: sort.servers
+  'login:username': auth.LoginUserName,
+  'login:password': auth.LoginUserPassword,
+  'login:error': auth.LoginError,
+  'sort:servers': sort.servers,
+  'list:servers': list.servers
 });
 
 export default rootReducer;

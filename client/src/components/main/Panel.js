@@ -1,6 +1,5 @@
 import React from 'react';
 import ActionButton from './ActionButton';
-import { connect } from 'react-redux';
 import sort from '../../store/actions/sort';
 import './Panel.scss';
 
@@ -13,4 +12,4 @@ const Panel = () => {
   )
 }
 
-export default connect()(Panel);
+export default Panel;

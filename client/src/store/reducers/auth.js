@@ -1,9 +1,10 @@
-const isLogged = (state = false, action) => {
+const user = (state = {}, action) => {
   switch (action.type) {
     case 'LOGGED_IN':
-      return true;
+      action.payload.isLogged = true;
+      return action.payload;
     case 'LOGGED_OUT':
-      return false;
+      return {};
     default:
       return state;
   }
@@ -16,11 +17,11 @@ const activity = (state = null, action) => {
     case 'LOG_OUT':
       return action.type;
     default:
-      return state;
+      return null;
   }
 };
 
-const userName = (state = '', action) => {
+const LoginUserName = (state = '', action) => {
   switch (action.type) {
     case 'USER_NAME':
       state = action.payload;
@@ -30,7 +31,7 @@ const userName = (state = '', action) => {
   }
 };
 
-const userPassword = (state = '', action) => {
+const LoginUserPassword = (state = '', action) => {
   switch (action.type) {
     case 'USER_PASSWORD':
       state = action.payload;
@@ -40,4 +41,13 @@ const userPassword = (state = '', action) => {
   }
 };
 
-export default { isLogged, activity, userName, userPassword };
+const LoginError = (state = false, action) => {
+  switch (action.type) {
+    case 'LOG_IN_ERROR':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export default { user, activity, LoginUserName, LoginUserPassword, LoginError };
