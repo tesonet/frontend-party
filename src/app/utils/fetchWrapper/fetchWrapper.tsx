@@ -1,3 +1,4 @@
+import fetch from 'cross-fetch';
 import { promisify } from '../promisify/promisify';
 import { FAKE_DATA } from './FAKE_DATA';
 
