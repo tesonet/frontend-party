@@ -1,0 +1,20 @@
+.logout {
+  height: 30px;
+  border: unset;
+  border-radius: 5px;
+  background: white;
+  color: #9b99a0;
+}
+.logout:hover {
+  border: unset;
+  background: #99cc33;
+  color: white;
+}
+.logout > img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}

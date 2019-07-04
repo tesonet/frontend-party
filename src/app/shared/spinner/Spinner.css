@@ -1,0 +1,40 @@
+.spinner-overlay {
+  background: white;
+  opacity: 0.75;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.spinner-icon-container {
+  display: inline-block;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  z-index: 99999;
+}
+
+.spinner-icon {
+  box-sizing: border-box;
+  border: 2px solid #34312F;
+  border-top: 2px solid #eeb259;
+  border-bottom: 2px solid #eeb259;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  animation: spin 1s linear infinite;
+  float: left;
+  /* margin-top: 3px; */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
