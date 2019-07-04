@@ -1,1 +1,11 @@
-console.log('webpack-entry');
+const banner =
+`
+   _
+ _|_  ._   _   ._   _|_   _   ._    _|
+  |   |   (_)  | |   |_  (/_  | |  (_|
+
+ ._    _.  ._  _|_
+ |_)  (_|  |    |_  \/
+ |                  /
+`;
+console.log(banner);

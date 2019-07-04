@@ -6,7 +6,7 @@
   "scripts": {
     "preinstall": "npm i --prefix server/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run start:cluster --prefix server/"
+    "start": "node main.js && npm run start:cluster --prefix server/"
   },
   "author": "",
   "license": "ISC"
