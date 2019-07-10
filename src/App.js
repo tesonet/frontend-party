@@ -6,8 +6,12 @@ import ServerList from "./components/ServerList";
 import Logout from "./components/Logout";
 import { connect } from "react-redux";
 
-const ProtectedRoute = ({ isAllowed, ...props }) =>
-  localStorage.getItem('token') ? <Route {...props} /> : <Redirect to="/login" />;
+const ProtectedRoute = ({ ...props }) =>
+  localStorage.getItem("token") ? (
+    <Route {...props} />
+  ) : (
+    <Redirect to="/login" />
+  );
 
 const App = props => {
   return (
@@ -16,12 +20,7 @@ const App = props => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/" render={() => <Redirect to="/login" />} />
-        <ProtectedRoute
-          isAllowed={props.isAuthenticated}
-          exact
-          path="/server-list"
-          component={ServerList}
-        />
+        <ProtectedRoute exact path="/server-list" component={ServerList} />
       </Switch>
     </div>
   );
