@@ -15,6 +15,7 @@ const App = props => {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/logout" component={Logout} />
+        <Route exact path="/" render={() => <Redirect to="/login" />} />
         <ProtectedRoute
           isAllowed={props.isAuthenticated}
           exact
