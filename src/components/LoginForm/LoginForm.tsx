@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Dispatch } from 'redux';
-import Input from '../Input/Input';
-import { Breakpoints, Icons } from '../../common/constants';
+import { Sizes, Icons } from '../../common/constants';
 import { actions as authActions } from '../../ducks/auth.duck';
 import { RootState } from '../../root.reducer';
 import formStateValidator, { maxLength, required } from '../../utils/validator';
-import screens from '../../utils/screens';
+import { screens } from '../../utils/helpers';
+import FormButton from '../FormButton/FormButton';
+import FormInput from '../FormInput/FormInput';
 
 const Form = styled.form`
     width: 100%;
@@ -16,24 +17,18 @@ const Form = styled.form`
         margin-bottom: 19px;
     }
 
-    ${screens[Breakpoints.XS]`
+    ${screens[Sizes.XS]`
         & > *:not(:last-child) {
             margin-bottom: 10px;
         }
         
         svg {
-            left: 17px;
             width: 10px;
-        }
-        
-        input, input[type='submit'] {
-            padding: 10px 40px;
-            font-size: 12px;
         }
     `}
 `;
 
-const ErrorMessage = styled.div`
+const FormError = styled.div`
     position: relative;
     background-color: ${({ theme }) => theme.colors.danger};
     padding: 8px 10px;
@@ -42,7 +37,7 @@ const ErrorMessage = styled.div`
     color: ${({ theme }) => theme.colors.light};
     font-weight: 700;
 
-    ${screens[Breakpoints.XS]`
+    ${screens[Sizes.XS]`
         font-size: 12px;
     `}
 `;
@@ -56,10 +51,8 @@ const Arrow = styled.div`
     border-top: 10px solid ${({ theme }) => theme.colors.danger};
     transform: translateY(100%);
 
-    ${screens[Breakpoints.XS]`
-        border-left-width: 5px;
-        border-right-width: 5px;
-        border-top-width: 5px;
+    ${screens[Sizes.XS]`
+        border-width: 5px;
     `}
 `;
 
@@ -119,12 +112,12 @@ const LoginForm = ({ loading, errorMessage, login }: StateProps & DispatchProps)
     return (
         <Form onSubmit={handleSubmit}>
             {errorMessage && (
-                <ErrorMessage>
+                <FormError>
                     {errorMessage}
                     <Arrow />
-                </ErrorMessage>
+                </FormError>
             )}
-            <Input
+            <FormInput
                 icon={Icons.USER}
                 name="username"
                 value={values.username}
@@ -132,7 +125,7 @@ const LoginForm = ({ loading, errorMessage, login }: StateProps & DispatchProps)
                 onChange={handleChange}
                 error={errors.username}
             />
-            <Input
+            <FormInput
                 icon={Icons.LOCK}
                 name="password"
                 value={values.password}
@@ -141,7 +134,7 @@ const LoginForm = ({ loading, errorMessage, login }: StateProps & DispatchProps)
                 onChange={handleChange}
                 error={errors.password}
             />
-            <Input type="submit" value="Log In" loading={loading} />
+            <FormButton type="submit" value="Log In" loading={loading} />
         </Form>
     );
 };

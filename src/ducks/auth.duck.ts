@@ -4,6 +4,7 @@ import * as authService from '../services/auth.service';
 import { SERVER_ERROR_MESSAGES } from '../common/constants';
 
 const LOGIN = 'app/auth/LOGIN';
+const LOGOUT = 'app/auth/LOGOUT';
 
 export type AuthState = {
     token: string | null;
@@ -19,6 +20,11 @@ export const defaultState: AuthState = {
 
 const reducer = (state: AuthState = defaultState, action: Action) => {
     switch (action.type) {
+        case LOGOUT: {
+            return {
+                ...defaultState,
+            };
+        }
         case `${LOGIN}_${ActionType.Pending}`: {
             return {
                 ...state,
@@ -62,6 +68,17 @@ const login = ({ username, password }: LoginProps): any => ({
     payload: authService.login(username, password),
 });
 
+const logout = () => ({
+    type: LOGOUT,
+});
+
+const isAuthenticated = (state: AuthState): boolean => !!state.token;
+
 export const actions = {
     login,
+    logout,
+};
+
+export const selectors = {
+    isAuthenticated,
 };

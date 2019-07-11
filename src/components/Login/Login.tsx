@@ -3,27 +3,18 @@ import styled from 'styled-components';
 import backgroundImage from '../../static/background.jpg';
 import logoLight from '../../static/logo-light.png';
 import LoginForm from '../LoginForm/LoginForm';
-import screens from '../../utils/screens';
-import { Breakpoints } from '../../common/constants';
+import { screens } from '../../utils/helpers';
+import { Sizes } from '../../common/constants';
+import Card from '../Styled/Card';
+import Page from '../Styled/Page';
 
-const Page = styled.div`
-    display: flex;
-    min-height: 100vh;
+const LoginPage = styled(Page)`
     background: url(${backgroundImage}) no-repeat 30% 50%;
     background-size: cover;
-    align-items: center;
-    justify-content: center;
 `;
 
-const Card = styled.div`
-    display: flex;
+const LoginCard = styled(Card)`
     width: 360px;
-    flex-direction: column;
-    align-items: center;
-
-    ${screens[Breakpoints.XS]`
-        width: 80%;
-    `}
 `;
 
 const Logo = styled.img`
@@ -31,19 +22,19 @@ const Logo = styled.img`
     height: auto;
     margin: 0 0 70px;
 
-    ${screens[Breakpoints.XS]`
+    ${screens[Sizes.XS]`
         margin: 0 0 35px;
         max-width: 60%;
     `}
 `;
 
-const LoginPage = () => (
-    <Page>
-        <Card>
+const Login = () => (
+    <LoginPage>
+        <LoginCard>
             <Logo src={logoLight} />
             <LoginForm />
-        </Card>
-    </Page>
+        </LoginCard>
+    </LoginPage>
 );
 
-export default LoginPage;
+export default Login;

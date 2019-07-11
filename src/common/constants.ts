@@ -4,7 +4,7 @@ export enum Icons {
     LOGOUT = 'LOGOUT',
 }
 
-export enum Breakpoints {
+export enum Sizes {
     XS = 'XS',
     SM = 'SM',
     MD = 'MD',
@@ -13,11 +13,11 @@ export enum Breakpoints {
 }
 
 export const BREAKPOINTS = {
-    [Breakpoints.XS]: '480px',
-    [Breakpoints.SM]: '768px',
-    [Breakpoints.MD]: '992px',
-    [Breakpoints.LG]: '1200px',
-    [Breakpoints.XL]: '1400px',
+    [Sizes.XS]: '480px',
+    [Sizes.SM]: '768px',
+    [Sizes.MD]: '992px',
+    [Sizes.LG]: '1200px',
+    [Sizes.XL]: '1400px',
 };
 
 export const SERVER_ERROR_MESSAGES = {

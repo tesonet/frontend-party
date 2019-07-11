@@ -1,51 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import LoginPage from '../LoginPage/LoginPage';
-
-const theme = {
-    colors: {
-        primary: '#9fd533',
-        muted: '#b3b3b3',
-        light: '#fff',
-        danger: '#d6564f',
-        hovered: {
-            primary: '#86b300',
-        },
-    },
-};
-
-const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Roboto:300,700&display=swap');
-    
-    html {
-      box-sizing: border-box;
-    }
-    
-    *, *:before, *:after {
-      box-sizing: inherit;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Roboto', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    
-    input, button {
-        border: 0;
-        outline: 0;
-        letter-spacing: 0.4px;
-    }
-    
-    button {
-        font-family: 'Roboto', sans-serif;
-        cursor: pointer;
-    }
-`;
+import { ThemeProvider } from 'styled-components';
+import PrivateRoute from '../Routes/PrivateRoute';
+import LoginRoute from '../Routes/LoginRoute';
+import ServerListPage from '../ServerListPage/ServerListPage';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import Login from '../Login/Login';
+import theme from '../../theme';
+import GlobalStyle from '../Styled/GlobalStyle';
 
 type Props = {
     store: any;
@@ -55,7 +19,13 @@ const Root = ({ store }: Props) => (
     <Provider store={store}>
         <GlobalStyle />
         <ThemeProvider theme={theme}>
-            <LoginPage />
+            <BrowserRouter>
+                <Switch>
+                    <LoginRoute exact path="/login" component={Login} />
+                    <PrivateRoute exact path="/" component={ServerListPage} />
+                    <PrivateRoute component={NotFoundPage} />
+                </Switch>
+            </BrowserRouter>
         </ThemeProvider>
     </Provider>
 );
