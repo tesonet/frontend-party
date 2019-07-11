@@ -23,10 +23,10 @@ const GlobalStyle = createGlobalStyle`
         border: 0;
         outline: 0;
         letter-spacing: 0.4px;
+        font-family: 'Roboto', sans-serif;
     }
     
     button {
-        font-family: 'Roboto', sans-serif;
         cursor: pointer;
     }
     
