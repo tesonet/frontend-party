@@ -1,0 +1,22 @@
+
+{
+  "presets": ["@babel/react", "@babel/env"],
+  "plugins": [
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        [
+          "transform-react-remove-prop-types",
+          {
+            "mode": "remove",
+            "ignoreFilenames": ["node_modules"]
+          }
+        ]
+      ]
+    }
+  }
+}
