@@ -21,6 +21,7 @@ module.exports = {
         es6: true,
         browser: true,
         node: true,
+        jest: true,
     },
     rules: {
         'no-unused-vars': 'off',
@@ -30,5 +31,14 @@ module.exports = {
         'arrow-body-style': ['error', 'as-needed'],
         'prettier/prettier': ['error', { parser: 'typescript' }],
         'import/prefer-default-export': 'off',
+        'import/no-extraneous-dependencies': [
+            'error',
+            {
+                'devDependencies': [
+                    '**/*.spec.ts',
+                    '**/*.spec.tsx'
+                ]
+            }
+        ],
     },
 };
