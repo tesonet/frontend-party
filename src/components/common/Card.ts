@@ -9,9 +9,9 @@ const Card = styled.div`
     flex-direction: column;
     max-width: 95%;
 
-    ${screens[Sizes.XS]`
+    @media ${screens[Sizes.XS]} {
         max-width: 80%;
-    `}
+    }
 `;
 
 export default Card;

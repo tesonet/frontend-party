@@ -5,8 +5,8 @@ import logoLight from '../../static/logo-light.png';
 import LoginForm from '../LoginForm/LoginForm';
 import { screens } from '../../utils/helpers';
 import { Sizes } from '../../common/constants';
-import Card from '../Styled/Card';
-import Page from '../Styled/Page';
+import Card from '../common/Card';
+import Page from '../common/Page';
 
 const LoginPage = styled(Page)`
     background: url(${backgroundImage}) no-repeat 30% 50%;
@@ -22,10 +22,10 @@ const Logo = styled.img`
     height: auto;
     margin: 0 0 70px;
 
-    ${screens[Sizes.XS]`
+    @media ${screens[Sizes.XS]} {
         margin: 0 0 35px;
         max-width: 60%;
-    `}
+    }
 `;
 
 const Login = () => (

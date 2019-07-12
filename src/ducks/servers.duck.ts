@@ -5,6 +5,7 @@ import { Action } from '../common/types';
 import * as serversService from '../services/servers.service';
 import { AuthState } from './auth.duck';
 import { sortBy } from '../utils/helpers';
+import { SERVER_ERROR_MESSAGES } from '../common/constants';
 
 const FETCH = 'app/servers/FETCH';
 const SET_SORT = 'app/servers/SET_SORT';
@@ -23,14 +24,14 @@ export type ServersState = {
     serverList: ServerListType[];
     sortParams: SortType;
     loading: boolean;
-    error: boolean;
+    errorMessage: string | null;
 };
 
 const defaultState: ServersState = {
     serverList: [],
     sortParams: {},
     loading: false,
-    error: false,
+    errorMessage: null,
 };
 
 const reducer = (state: ServersState = defaultState, action: Action) => {
@@ -39,6 +40,7 @@ const reducer = (state: ServersState = defaultState, action: Action) => {
             return {
                 ...state,
                 loading: true,
+                errorMessage: null,
             };
         }
         case `${FETCH}_${ActionType.Fulfilled}`: {
@@ -52,7 +54,7 @@ const reducer = (state: ServersState = defaultState, action: Action) => {
             return {
                 ...state,
                 loading: false,
-                error: true,
+                errorMessage: SERVER_ERROR_MESSAGES.UNKNOWN,
             };
         }
         case SET_SORT: {

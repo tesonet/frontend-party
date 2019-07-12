@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Sizes } from '../../common/constants';
+import { colors } from '../../theme';
 
 type Props = {
     size: Sizes;
@@ -14,7 +15,7 @@ const Spinner = styled.div<Props>`
     margin: auto;
     border: solid rgba(0, 0, 0, 0.05);
     font-size: 10px;
-    border-left-color: ${({ theme }) => theme.colors.primary};
+    border-left-color: ${colors.green1};
     transform: translateZ(0);
     animation: loader-animation 1.1s infinite linear;
 

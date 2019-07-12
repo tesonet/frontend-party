@@ -1,21 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
+import Button from '../common/Button';
 import { screens } from '../../utils/helpers';
 import { Sizes } from '../../common/constants';
-import Card from '../Styled/Card';
-import Page from '../Styled/Page';
+import Card from '../common/Card';
+import Page from '../common/Page';
 
 const Text = styled.div`
     text-align: center;
     font-size: 20px;
     margin-bottom: 20px;
 
-    ${screens[Sizes.XS]`
+    @media ${screens[Sizes.XS]} {
         font-size: 15px;
         margin-bottom: 15px;
-    `}
+    }
 `;
 
 const NotFoundPage = () => (

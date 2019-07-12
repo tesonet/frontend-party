@@ -13,11 +13,11 @@ export enum Sizes {
 }
 
 export const BREAKPOINTS = {
-    [Sizes.XS]: '480px',
-    [Sizes.SM]: '768px',
-    [Sizes.MD]: '992px',
-    [Sizes.LG]: '1200px',
-    [Sizes.XL]: '1400px',
+    [Sizes.XS]: '576px',
+    [Sizes.SM]: '576px',
+    [Sizes.MD]: '768px',
+    [Sizes.LG]: '992px',
+    [Sizes.XL]: '1200px',
 };
 
 export const SERVER_ERROR_MESSAGES = {

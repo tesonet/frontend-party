@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Icons, Sizes } from '../../common/constants';
-import Icon from '../Icon/Icon';
+import Icon from './Icon';
 import { screens } from '../../utils/helpers';
+import { colors } from '../../theme';
 
 type InputProps = {
-    readonly loading?: number;
+    readonly loading?: boolean;
 };
 
 const InputContainer = styled.div`
@@ -13,50 +14,50 @@ const InputContainer = styled.div`
     align-items: center;
     width: 100%;
     padding: 20px 25px;
-    background-color: #fff;
+    background: ${colors.light1};
     border-radius: 5px;
-    color: #999;
+    color: ${colors.grey2};
     cursor: text;
 
     svg {
         margin-right: 15px;
     }
 
-    ${screens[Sizes.XS]`
+    @media ${screens[Sizes.XS]} {
         padding: 13px 18px;
-    `}
+    }
 `;
 
 const FormInput = styled.input<InputProps>`
     flex-grow: 1;
     font-size: 16px;
 
-    ${screens[Sizes.XS]`
+    @media ${screens[Sizes.XS]} {
         font-size: 12px;
-    `}
+    }
 
     ::placeholder {
-        color: ${({ theme }) => theme.colors.muted};
+        color: ${colors.grey1};
         opacity: 1;
     }
 
     :-ms-input-placeholder {
-        color: ${({ theme }) => theme.colors.muted};
+        color: ${colors.grey1};
     }
 
     ::-ms-input-placeholder {
-        color: ${({ theme }) => theme.colors.muted};
+        color: ${colors.grey1};
     }
 `;
 
 const Error = styled.div`
     font-size: 12px;
-    color: ${({ theme }) => theme.colors.light};
+    color: ${colors.light1};
     padding: 5px 5px 0;
 
-    ${screens[Sizes.XS]`
+    @media ${screens[Sizes.XS]} {
         font-size: 10px;
-    `}
+    }
 `;
 
 type Props = {
@@ -77,7 +78,7 @@ export default ({ icon, error, loading, ...rest }: Props) => {
         <div>
             <InputContainer onClick={() => inputElem.current && inputElem.current.focus()}>
                 {icon && <Icon icon={icon} />}
-                <FormInput ref={inputElem} loading={loading ? 1 : 0} {...rest} />
+                <FormInput ref={inputElem} loading {...rest} />
             </InputContainer>
             {error && <Error>{error}</Error>}
         </div>
