@@ -1,0 +1,34 @@
+{
+  "name": "super-duper-task-for-tesonet",
+  "version": "1.0.0",
+  "description": "some awesome description about this cool app!",
+  "scripts": {
+    "lint": "eslint app/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/budaman/frontend-party.git"
+  },
+  "author": "budaman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/budaman/frontend-party/issues"
+  },
+  "homepage": "https://github.com/budaman/frontend-party#readme",
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "eslint": "5.4.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "4.0.0",
+    "eslint-import-resolver-webpack": "0.11.0",
+    "eslint-plugin-gettext": "1.1.0",
+    "eslint-plugin-graphql": "3.0.3",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-lodash": "5.1.0",
+    "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-react-hooks": "1.4.0",
+    "prettier": "^1.18.2",
+  }
+}
