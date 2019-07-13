@@ -27,7 +27,7 @@ export type ServersState = {
     errorMessage: string | null;
 };
 
-const defaultState: ServersState = {
+export const defaultState: ServersState = {
     serverList: [],
     sortParams: {},
     loading: false,

@@ -5,7 +5,7 @@ import { Dispatch } from 'redux';
 import { Sizes, Icons } from '../../common/constants';
 import { actions as authActions } from '../../ducks/auth.duck';
 import { RootState } from '../../root.reducer';
-import formStateValidator, { maxLength, required } from '../../utils/validator';
+import formStateValidator, { ErrorType, maxLength, required } from '../../utils/validator';
 import { screens } from '../../utils/helpers';
 import FormButton from '../common/FormButton';
 import FormInput from '../common/FormInput';
@@ -66,11 +66,6 @@ type DispatchProps = {
     login: typeof authActions.login;
 };
 
-type ErrorsType = {
-    username?: string;
-    password?: string;
-};
-
 const validate = formStateValidator({
     username: [required, maxLength(30)],
     password: [required],
@@ -82,7 +77,7 @@ const LoginForm = ({ loading, errorMessage, login }: StateProps & DispatchProps)
         password: '',
     });
 
-    const [errors, setErrors] = useState({} as ErrorsType);
+    const [errors, setErrors] = useState<ErrorType>({});
     const [shouldSubmit, setShouldSubmit] = useState(false);
 
     useEffect(() => {

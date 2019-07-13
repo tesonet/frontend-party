@@ -5,10 +5,6 @@ import Icon from './Icon';
 import { screens } from '../../utils/helpers';
 import { colors } from '../../theme';
 
-type InputProps = {
-    readonly loading?: boolean;
-};
-
 const InputContainer = styled.div`
     display: flex;
     align-items: center;
@@ -28,7 +24,7 @@ const InputContainer = styled.div`
     }
 `;
 
-const FormInput = styled.input<InputProps>`
+const FormInput = styled.input`
     flex-grow: 1;
     font-size: 16px;
 
@@ -76,11 +72,14 @@ export default ({ icon, error, loading, ...rest }: Props) => {
 
     return (
         <div>
-            <InputContainer onClick={() => inputElem.current && inputElem.current.focus()}>
-                {icon && <Icon icon={icon} />}
-                <FormInput ref={inputElem} loading {...rest} />
+            <InputContainer
+                data-testid="input-container"
+                onClick={() => inputElem.current && inputElem.current.focus()}
+            >
+                {icon && <Icon data-testid="icon" icon={icon} />}
+                <FormInput data-testid="input" ref={inputElem} {...rest} />
             </InputContainer>
-            {error && <Error>{error}</Error>}
+            {error && <Error data-testid="error">{error}</Error>}
         </div>
     );
 };

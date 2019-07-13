@@ -99,14 +99,16 @@ const ServerList = ({ actions, loading, errorMessage, servers }: DispatchProps &
             </ListHeader>
             <ListBody>
                 {errorMessage && (
-                    <ListErrorCard>
+                    <ListErrorCard data-testid="error">
                         {errorMessage}
-                        <Button onClick={() => actions.fetchServers()}>Reload</Button>
+                        <Button data-testid="reload-button" onClick={() => actions.fetchServers()}>
+                            Reload
+                        </Button>
                     </ListErrorCard>
                 )}
-                {loading && <ListSpinner size={Sizes.LG} />}
+                {loading && <ListSpinner data-testid="spinner" size={Sizes.LG} />}
                 {servers.map(({ name, distance }) => (
-                    <ListItem key={`${name}_${distance}`}>
+                    <ListItem data-testid="list-item" key={`${name}_${distance}`}>
                         <ListText>{name}</ListText>
                         <ListText>{distance}</ListText>
                     </ListItem>

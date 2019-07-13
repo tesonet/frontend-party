@@ -6,7 +6,7 @@ import { screens } from '../../utils/helpers';
 import { colors } from '../../theme';
 
 type InputProps = {
-    readonly loading?: boolean;
+    readonly loading?: number;
 };
 
 const InputContainer = styled.div`
@@ -40,12 +40,12 @@ const ButtonSpinner = styled(Spinner)`
 
 type Props = {
     value?: string;
-    loading: boolean;
+    loading?: boolean;
 };
 
 export default ({ loading, ...rest }: Props) => (
     <InputContainer>
-        <Input data-testid="input" type="submit" loading {...rest} />
+        <Input data-testid="input" type="submit" loading={loading ? 0 : 1} {...rest} />
         {loading && <ButtonSpinner data-testid="spinner" size={Sizes.XS} />}
     </InputContainer>
 );

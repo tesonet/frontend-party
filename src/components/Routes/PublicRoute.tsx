@@ -12,7 +12,7 @@ type StateProps = {
     isAuthenticated: boolean;
 };
 
-const LoginRoute = ({ component: Component, isAuthenticated, ...rest }: Props & StateProps) => (
+const PublicRoute = ({ component: Component, isAuthenticated, ...rest }: Props & StateProps) => (
     <Route {...rest} render={props => (isAuthenticated ? <Redirect to="/" /> : <Component {...props} />)} />
 );
 
@@ -20,4 +20,4 @@ const mapStateToProps = (state: RootState): StateProps => ({
     isAuthenticated: authSelectors.isAuthenticated(state.session),
 });
 
-export default connect(mapStateToProps)(LoginRoute);
+export default connect(mapStateToProps)(PublicRoute);

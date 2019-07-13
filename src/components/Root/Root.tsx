@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 import PrivateRoute from '../Routes/PrivateRoute';
-import LoginRoute from '../Routes/LoginRoute';
+import PublicRoute from '../Routes/PublicRoute';
 import ServerListPage from '../Servers/Servers';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Login from '../Login/Login';
@@ -18,7 +18,7 @@ const Root = ({ store }: Props) => (
         <GlobalStyle />
         <BrowserRouter>
             <Switch>
-                <LoginRoute exact path="/login" component={Login} />
+                <PublicRoute exact path="/login" component={Login} />
                 <PrivateRoute exact path="/" component={ServerListPage} />
                 <PrivateRoute component={NotFoundPage} />
             </Switch>

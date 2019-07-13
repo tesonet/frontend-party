@@ -64,17 +64,17 @@ type DispatchProps = {
 };
 
 const SortLabel = ({ actions, label, sortParams, sortKey }: Props & StateProps & DispatchProps) => (
-    <SortLabelContainer onClick={() => actions.setSortParams(sortKey)}>
+    <SortLabelContainer data-testid="container" onClick={() => actions.setSortParams(sortKey)}>
         {label}
         {sortParams && sortParams.key === sortKey ? (
             <SortLabelArrows>
-                <ArrowUp active={sortParams.order === 'asc'} />
-                <ArrowDown active={sortParams.order === 'desc'} />
+                <ArrowUp data-testid="arrow-up" active={sortParams.order === 'asc'} />
+                <ArrowDown data-testid="arrow-down" active={sortParams.order === 'desc'} />
             </SortLabelArrows>
         ) : (
             <SortLabelArrows>
-                <ArrowUp />
-                <ArrowDown />
+                <ArrowUp data-testid="arrow-up" />
+                <ArrowDown data-testid="arrow-down" />
             </SortLabelArrows>
         )}
     </SortLabelContainer>
