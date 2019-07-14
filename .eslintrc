@@ -1,27 +1,26 @@
 {
   "plugins": ["react", "lodash", "react-hooks", "gettext"],
   "rules": {
-      "max-len": ["error", 120],
-      "no-console": 1,
-      "react/jsx-indent": [2, 4],
-      "react/jsx-indent-props": [2, 4],
-      "react/jsx-filename-extension": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "lodash/import-scope": [2, "member"],
-      "import/prefer-default-export": "off",
-      "gettext/no-variable-string": "error",
-      "gettext/required-positional-markers-for-multiple-variables": "off",
+    "max-len": ["error", 120],
+    "no-console": 1,
+    "react/jsx-indent-props": [2, 4],
+    "react/jsx-filename-extension": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "lodash/import-scope": [2, "member"],
+    "import/prefer-default-export": "off",
+    "gettext/no-variable-string": "error",
+    "gettext/required-positional-markers-for-multiple-variables": "off"
   },
   "env": {
-      "node": true,
-      "browser": true,
-      "es6": true
+    "node": true,
+    "browser": true,
+    "es6": true
   },
   "parser": "babel-eslint",
   "parserOptions": {
-      "sourceType": "module",
-      "ecmaVersion": 2018
+    "sourceType": "module",
+    "ecmaVersion": 2018
   },
-  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/react", "prettier"],
+  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/react"]
 }
