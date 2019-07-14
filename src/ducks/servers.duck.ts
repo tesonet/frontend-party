@@ -10,7 +10,7 @@ import { SERVER_ERROR_MESSAGES } from '../common/constants';
 const FETCH = 'app/servers/FETCH';
 const SET_SORT = 'app/servers/SET_SORT';
 
-export type SortType = {
+export type SortParamsType = {
     key?: string;
     order?: string;
 };
@@ -22,7 +22,7 @@ type ServerListType = {
 
 export type ServersState = {
     serverList: ServerListType[];
-    sortParams: SortType;
+    sortParams: SortParamsType;
     loading: boolean;
     errorMessage: string | null;
 };
@@ -70,13 +70,13 @@ const reducer = (state: ServersState = defaultState, action: Action) => {
 
 export default reducer;
 
-export const serverListSelector = state => (state.servers && state.servers.serverList) || [];
-export const sortSelector = state => state.servers && state.servers.sortParams;
+const serverListSelector = (state): ServerListType[] => (state.servers && state.servers.serverList) || [];
+const sortSelector = (state): SortParamsType => state.servers && state.servers.sortParams;
 
-export const getSortedServers = createSelector(
+const getSortedServers = createSelector(
     serverListSelector,
     sortSelector,
-    (servers, sort) => {
+    (servers, sort): ServerListType[] => {
         if (!sort) {
             return servers;
         }

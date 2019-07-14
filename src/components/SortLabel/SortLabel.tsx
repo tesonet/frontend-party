@@ -2,7 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { bindActionCreators } from 'redux';
-import { actions as serverActions, selectors as serverSelectors, SortType } from '../../ducks/servers.duck';
+import {
+    actions as serverActions,
+    selectors as serverSelectors,
+    SortParamsType,
+} from '../../ducks/servers.duck';
 import { Sizes } from '../../common/constants';
 import { screens } from '../../utils/helpers';
 import { RootState } from '../../root.reducer';
@@ -54,7 +58,7 @@ type Props = {
 };
 
 type StateProps = {
-    sortParams: SortType;
+    sortParams: SortParamsType;
 };
 
 type DispatchProps = {
