@@ -7,6 +7,8 @@ import rootReducer from "../_reducers";
 
 import App from "./App";
 
+import "./index.css";
+
 const middlewareThunk = applyMiddleware(thunkMiddleware);
 
 const store = createStore(rootReducer, undefined, middlewareThunk);

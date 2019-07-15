@@ -1,0 +1,20 @@
+.backgroundImg {
+  position: absolute;
+  left: 0;
+  background-image: url("../../assets/background-image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0.2;
+  height: 100%;
+  width: 100%;
+}
+
+.backgroundColor {
+  position: absolute;
+  left: 0;
+  background-color: #0b0f27;
+  height: 100%;
+  width: 100%;
+}

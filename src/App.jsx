@@ -1,5 +1,11 @@
 import React from "react";
 
-const App = () => <h1>starting point</h1>;
+import Login from "./login";
+
+const App = () => (
+  <div>
+    <Login />
+  </div>
+);
 
 export default App;

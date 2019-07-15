@@ -16,11 +16,18 @@ module.exports = merge(base, {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
-      },
-      {
-        test: /\.(sass|scss)$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },
+          "postcss-loader"
+        ]
       },
       {
         test: /\.(svg|png|jpg|jpeg|gif|mp3|ico)$/,
