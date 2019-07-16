@@ -1,4 +1,10 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+
 .backgroundImg {
+  z-index: -1;
   position: absolute;
   left: 0;
   background-image: url("../../assets/background-image.png");
@@ -12,6 +18,7 @@
 }
 
 .backgroundColor {
+  z-index: -2;
   position: absolute;
   left: 0;
   background-color: #0b0f27;
