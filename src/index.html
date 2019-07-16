@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Teso App</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        .preloader {
+            position: fixed;
+            z-index: -1;
+            left: 50%;
+            top: 50%;
+            width: 32px;
+            height: 32px;
+            margin: -20px -20px;
+            border-color: transparent #758f9c #758f9c #758f9c;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 50%;
+            animation: preloader 0.6s linear infinite;
+            cursor: default;
+            user-select: none;
+        }
+
+        @keyframes preloader {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            background-color: #e7e9ec;
+        }
+    </style>
+</head>
+
+<body>
+    <%
+    print(
+        `<div id="root"><span class="preloader" /></div>`,
+
+        ...htmlWebpackPlugin.files.css.map(file => `<link href="${file}" rel="stylesheet" />`),
+
+        ...htmlWebpackPlugin.files.js.map(file => `<script src="${file}"></script>`),
+
+
+    );
+%>
+    <script></script>
+</body>
+
+</html>

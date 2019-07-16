@@ -1,0 +1,73 @@
+.default {
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline:none;
+
+    color: white;
+    background-color: #9fd533;
+    border: 1px solid #9fd533;
+
+    &:focus, &:hover {
+        background-color: #86b300;
+    }
+
+    &:active {
+        color: #86b300;
+    }
+
+    &.disabled {
+        color: gray;
+    }
+}
+
+.transparent:extend(.default) {
+    border: 1px solid transparent;
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: transparent;
+    color: #2f3254;
+
+    &:hover, &:focus, &:active {
+        border-color: #2f3254;
+        color: #2f3254;
+    }
+}
+
+.size-small {
+    width: 140px;
+    height: 48px;
+}
+
+.size-normal {
+    width: 300px;
+    height: 48px;
+}
+
+.loading-container {
+    position: relative;
+}
+
+.loading {
+    display: none;
+}
+
+.loadingOverlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    justify-content: center;
+}

@@ -1,0 +1,45 @@
+.small {
+    cursor: default;
+    user-select: none;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        box-sizing: border-box;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border-top-color: transparent;
+        border-style: solid;
+        border-width: 2px;
+        animation: loader 0.6s linear infinite;
+        margin: 0;
+    }
+}
+
+.medium:extend(.small all) {
+    &:before {
+        width: 27px;
+        height: 27px;
+    }
+}
+
+.large:extend(.small all) {
+    &:before {
+        width: 39px;
+        height: 39px;
+    }
+}
+
+@keyframes loader {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
