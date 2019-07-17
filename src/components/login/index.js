@@ -1,6 +1,6 @@
 import React from "react";
 
-import testioLogo from "../../assets/testio.png";
+import testioLogo from "../../../assets/testio.png";
 import Background from "../background";
 
 import styles from "./styles.css";

@@ -2,21 +2,23 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import thunkMiddleware from "redux-thunk";
+import thunk from "redux-thunk";
 import rootReducer from "../_reducers";
+import initStorageClient from "./utils/local-storage-client";
 
-import App from "./App";
+import Routes from "./components/Routes";
 
 import "./index.css";
 
-const middlewareThunk = applyMiddleware(thunkMiddleware);
+const middlewareThunk = applyMiddleware(
+  thunk.withExtraArgument({ storageClient: initStorageClient() })
+);
 
 const store = createStore(rootReducer, undefined, middlewareThunk);
 
 render(
   <Provider store={store}>
-    <App />
+    <Routes />
   </Provider>,
-
   document.getElementById("root")
 );

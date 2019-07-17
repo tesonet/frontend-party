@@ -37,12 +37,12 @@
 }
 
 .userInput {
-  background: url("../../assets/user.svg") no-repeat scroll 25px 20px;
+  background: url("../../../assets/user.svg") no-repeat scroll 25px 20px;
   background-color: #ffff;
 }
 
 .passwordInput {
-  background: url("../../assets/password.svg") no-repeat scroll 25px 20px;
+  background: url("../../../assets/password.svg") no-repeat scroll 25px 20px;
   background-color: #ffff;
 }
 
