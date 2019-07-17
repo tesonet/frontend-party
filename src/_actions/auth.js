@@ -1,5 +1,5 @@
 import { getAuthToken } from "../services/auth";
-import { AUTH_USER } from ".";
+import { AUTH_USER, LOGOUT } from ".";
 
 export const submitLoginForm = (username, password) => async (
   dispatch,
@@ -11,4 +11,9 @@ export const submitLoginForm = (username, password) => async (
     storageClient.set("token", token);
     dispatch({ type: AUTH_USER });
   }
+};
+
+export const logoutAction = () => (dispatch, getState, { storageClient }) => {
+  storageClient.remove("token");
+  dispatch({ type: LOGOUT });
 };

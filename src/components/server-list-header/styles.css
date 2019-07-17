@@ -1,0 +1,46 @@
+.container {
+  width: 100vw;
+  height: 114px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 30px;
+  width: 130px;
+  margin: 42px 0 42px 15px;
+  flex: 1;
+}
+
+.logoutContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  flex: 10;
+}
+
+.button {
+  width: 90px;
+  height: 30px;
+  margin-right: 20px;
+  padding: 0 10px 0 30px;
+  color: #2f3254;
+  background: url("../../../assets/logout.svg") no-repeat scroll 10px;
+  background-color: Transparent;
+  outline:none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 300; 
+  letter-spacing: 0.35px;
+  line-height: 30px;
+}
+
+.passwordInput {
+  background-color: #ffff;
+}
+
+.button:hover {
+  background-color: #99cc33;
+}

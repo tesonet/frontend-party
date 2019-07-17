@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
-import testioLogo from "../../../assets/testio.png";
+import ServerListHeader from "../server-list-header";
 
 import styles from "./styles.css";
 
@@ -9,7 +9,11 @@ const ServerList = ({ getServerListAction, serverList }) => {
   useEffect(() => {
     getServerListAction();
   }, [getServerListAction]);
-  return <div className={styles.container}>server List component</div>;
+  return (
+    <div className={styles.container}>
+      <ServerListHeader />
+    </div>
+  );
 };
 
 ServerList.propTypes = {
