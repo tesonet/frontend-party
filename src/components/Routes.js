@@ -9,13 +9,11 @@ import NotFound from "./not-found";
 
 const Routes = () => (
   <HashRouter basename="/">
-    <div>
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/server-list" exact component={PrivateRoute(ServerList)} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/" exact component={Login} />
+      <Route path="/server-list" exact component={PrivateRoute(ServerList)} />
+      <Route component={NotFound} />
+    </Switch>
   </HashRouter>
 );
 

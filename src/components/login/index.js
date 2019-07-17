@@ -4,7 +4,7 @@ import { submitLoginForm } from "../../_actions/auth";
 import Login from "./login";
 
 const mapStateToProps = state => ({
-  authenticated: state.authReducer
+  authenticated: state.authReducer.authenticated
 });
 
 const mapDispatchToProps = {

@@ -1,5 +1,17 @@
-import React from "react";
+import { connect } from "react-redux";
+import { getServerListAction } from "../../_actions/server-list";
 
-const ServerList = () => <h1>server List component</h1>;
+import ServerList from "./ServerList";
 
-export default ServerList;
+const mapStateToProps = state => ({
+  serverList: state.serverListReducer.serverList
+});
+
+const mapDispatchToProps = {
+  getServerListAction
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ServerList);
