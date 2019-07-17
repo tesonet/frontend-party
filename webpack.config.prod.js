@@ -24,16 +24,6 @@ module.exports = merge(base, {
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
       },
       {
-        // sass/scss loader to load sass-scss style files
-        test: /\.(sass|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-          "sass-loader"
-        ]
-      },
-      {
         // copies image files to assets folder in destination folder - build
         test: /\.(svg|png|jpg|jpeg|gif|mp3|ico)$/,
         use: [

@@ -1,5 +1,3 @@
-const DotenvPlugin = require("dotenv-webpack");
-
 module.exports = {
   entry: "./src/index.js",
   module: {
@@ -10,7 +8,7 @@ module.exports = {
         include: /src/,
         loader: "eslint-loader",
         options: {
-          emitWarning: process.env.NODE_ENV !== "production"
+          emitWarning: true
         }
       },
       {
@@ -24,8 +22,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [new DotenvPlugin()],
-
   resolve: {
     extensions: [".js", ".json", ".jsx"]
   }

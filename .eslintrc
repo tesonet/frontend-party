@@ -1,15 +1,34 @@
 {
-  "plugins": ["react", "lodash", "react-hooks", "gettext"],
+  "plugins": [
+    "react",
+    "lodash",
+    "react-hooks",
+    "gettext"
+  ],
   "rules": {
-    "max-len": ["error", 120],
+    "max-len": [
+      "error",
+      120
+    ],
     "no-console": 1,
     "react/jsx-filename-extension": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "lodash/import-scope": [2, "member"],
+    "lodash/import-scope": [
+      2,
+      "member"
+    ],
     "import/prefer-default-export": "off",
     "gettext/no-variable-string": "error",
-    "gettext/required-positional-markers-for-multiple-variables": "off"
+    "gettext/required-positional-markers-for-multiple-variables": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
   },
   "env": {
     "node": true,
@@ -21,5 +40,9 @@
     "sourceType": "module",
     "ecmaVersion": 2018
   },
-  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/react"]
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ]
 }
