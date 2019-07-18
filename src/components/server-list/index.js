@@ -1,5 +1,9 @@
 import { connect } from "react-redux";
-import { getServerListAction } from "../../_actions/server-list";
+import {
+  getServerListAction,
+  orderByName,
+  orderByDistance
+} from "../../_actions/server-list";
 
 import ServerList from "./ServerList";
 
@@ -8,7 +12,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getServerListAction
+  getServerListAction,
+  orderByName,
+  orderByDistance
 };
 
 export default connect(

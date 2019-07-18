@@ -17,6 +17,14 @@
   overflow: scroll;
 }
 
+.loaderContainer {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .text {
   color: #666666;
   font-size: 14px;
@@ -26,7 +34,11 @@
   margin: 0 16px 0 16px;
 }
 
-.tableHeaderText {
+.filterButton {
   color: #999999;
   text-transform: uppercase;
+  background-color: Transparent;
+  outline:none;
+  border: none;
+  cursor: pointer;
 }

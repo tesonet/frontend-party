@@ -1,5 +1,5 @@
 import { getServerList } from "../services/server-list";
-import { SERVER_LIST } from ".";
+import { SERVER_LIST, ORDER_TYPE_NAME, ORDER_TYPE_DISTANCE } from ".";
 
 export const getServerListAction = () => async (
   dispatch,
@@ -9,6 +9,19 @@ export const getServerListAction = () => async (
   const token = storageClient.get("token");
   const data = await getServerList(token);
   if (data) {
-    dispatch({ type: SERVER_LIST, payload: data });
+    return dispatch({ type: SERVER_LIST, payload: data });
   }
+  return dispatch({ type: SERVER_LIST, payload: [] });
+};
+
+export const orderByName = () => {
+  return {
+    type: ORDER_TYPE_NAME
+  };
+};
+
+export const orderByDistance = () => {
+  return {
+    type: ORDER_TYPE_DISTANCE
+  };
 };
