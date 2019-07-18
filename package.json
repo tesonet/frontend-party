@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "some awesome description about this cool app!",
   "scripts": {
-    "lint": "eslint app/app.js",
+    "lint": "eslint src/index.js",
     "start": "webpack-dev-server --config webpack.config.dev.js --open",
     "build": "webpack --config webpack.config.prod.js"
   },

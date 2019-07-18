@@ -62,3 +62,10 @@
 .submit:hover {
   background-color: #86b300;
 }
+
+.alertMessage {
+  margin-top: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}

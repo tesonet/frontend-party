@@ -1,5 +1,5 @@
 import { getServerList } from "../services/server-list";
-import { SERVER_LIST, ORDER_TYPE_NAME, ORDER_TYPE_DISTANCE } from ".";
+import { SERVER_LIST, ORDER_BY_NAME, ORDER_BY_DISTANCE } from ".";
 
 export const getServerListAction = () => async (
   dispatch,
@@ -16,12 +16,12 @@ export const getServerListAction = () => async (
 
 export const orderByName = () => {
   return {
-    type: ORDER_TYPE_NAME
+    type: ORDER_BY_NAME
   };
 };
 
 export const orderByDistance = () => {
   return {
-    type: ORDER_TYPE_DISTANCE
+    type: ORDER_BY_DISTANCE
   };
 };

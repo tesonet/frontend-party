@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserWeppackPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const postcssSafeParser = require("postcss-safe-parser");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const merge = require("webpack-merge");
 const base = require("./webpack.config.base");
 
@@ -19,13 +19,11 @@ module.exports = merge(base, {
   module: {
     rules: [
       {
-        // css-loader
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
       },
       {
-        // copies image files to assets folder in destination folder - build
-        test: /\.(svg|png|jpg|jpeg|gif|mp3|ico)$/,
+        test: /\.(svg|png)$/,
         use: [
           {
             loader: "file-loader",

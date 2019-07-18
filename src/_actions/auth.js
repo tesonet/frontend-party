@@ -10,7 +10,9 @@ export const submitLoginForm = (username, password) => async (
   if (token) {
     storageClient.set("token", token);
     dispatch({ type: AUTH_USER });
+    return { allertMessage: "" };
   }
+  return { allertMessage: "Incorrect username or password" };
 };
 
 export const logoutAction = () => (dispatch, getState, { storageClient }) => {

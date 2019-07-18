@@ -1,4 +1,4 @@
-import { SERVER_LIST, ORDER_TYPE_NAME, ORDER_TYPE_DISTANCE } from "../_actions";
+import { SERVER_LIST, ORDER_BY_NAME, ORDER_BY_DISTANCE } from "../_actions";
 
 export default (
   state = {
@@ -15,7 +15,7 @@ export default (
         ...state,
         serverList: { filterType: "", data: action.payload }
       };
-    case ORDER_TYPE_NAME: {
+    case ORDER_BY_NAME: {
       const sorted = state.serverList.data.sort((a, b) => {
         if (a.name < b.name) {
           return -1;
@@ -27,7 +27,7 @@ export default (
       });
       return { ...state, serverList: { filterType: "byName", data: sorted } };
     }
-    case ORDER_TYPE_DISTANCE: {
+    case ORDER_BY_DISTANCE: {
       const sorted = state.serverList.data.sort((a, b) => {
         if (a.distance < b.distance) {
           return -1;
