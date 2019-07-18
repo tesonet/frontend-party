@@ -10,14 +10,12 @@
   height: 30px;
   width: 130px;
   margin: 42px 0 42px 15px;
-  flex: 1;
 }
 
 .logoutContainer {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  flex: 10;
 }
 
 .button {
