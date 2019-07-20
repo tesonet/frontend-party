@@ -7,6 +7,7 @@ const rootReducer = (state, action) => {
       const isLoggedIn = validateLoginAttempt(action.payload);
     default:
       console.log("default");
+      break;
   }
 };
 

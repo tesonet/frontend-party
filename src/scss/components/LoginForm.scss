@@ -1,0 +1,73 @@
+.LoginForm {
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 360px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  &__figure {
+    margin-bottom: 70px;
+  }
+
+  &__input-username,
+  &__input-password {
+    margin-bottom: 20px;
+
+    input {
+      background-position: 25px 20px;
+      background-repeat: no-repeat;
+      background-size: 14px 16px;
+      border: 0;
+      border-radius: 5px;
+      box-sizing: border-box;
+      color: $c__gray_b;
+      font-weight: 300;
+      letter-spacing: 0.4px;
+      line-height: 30px;
+      padding: 13px 10px 13px 54px;
+      transition: color 0.2s ease;
+      width: 100%;
+
+      &:focus {
+        color: $c__gray_9;
+      }
+    }
+  }
+
+  &__input-username {
+    input {
+      background-image: url('../assets/icons/IconUsername.svg');
+    }
+  }
+
+  &__input-password {
+    input {
+      background-image: url('../assets/icons/IconPassword.svg');
+    }
+  }
+
+  input[type="submit"] {
+    background-color: $c__green_9;
+    border-radius: 5px;
+    border: 0;
+    color: $c__white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    line-height: 30px;
+    padding: 13px 0;
+    transition: background-color 0.2s ease;
+    width: 100%;
+
+    &:hover {
+      background-color: #86b300;
+    }
+  }
+
+}

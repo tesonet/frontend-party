@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 //Components.
+import FormErrors from "../FormErrors/FormErrors";
 import ImageProxy from "../ImageProxy/ImageProxy";
 
 //Constants.
@@ -10,9 +12,10 @@ import { API_URL } from "../../constants/api";
 //Images.
 import testioImgPath from "../../assets/icons/logo.svg";
 
-const LoginForm = () => {
+const LoginForm = ({ history }) => {
   const [username, setUsername] = useState("");
   const [psw, setPsw] = useState("");
+  const [errors, setErrors] = useState("");
   const dispatch = useDispatch();
 
   const handleUsernameChange = e => {
@@ -33,17 +36,30 @@ const LoginForm = () => {
       }),
       method: "POST"
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          setErrors(response.statusText);
+        }
+      })
       .then(data => {
         dispatch({ type: "login", payload: { data } });
-      });
+        history.push("/");
+      })
+      .catch(err => {});
   };
 
   return (
-    <React.Fragment>
-      <ImageProxy src={testioImgPath} alt="testio" />
+    <div className="LoginForm__wrapper">
+      <ImageProxy
+        className="LoginForm__figure"
+        src={testioImgPath}
+        alt="testio"
+      />
+      {errors && <FormErrors>{errors}</FormErrors>}
       <form className="LoginForm" onSubmit={handleSubmit}>
-        <div className="LoginForm__input">
+        <div className="LoginForm__input-username">
           <input
             type="text"
             placeholder="Username"
@@ -51,7 +67,7 @@ const LoginForm = () => {
             onChange={handleUsernameChange}
           />
         </div>
-        <div className="LoginForm__input">
+        <div className="LoginForm__input-password">
           <input
             type="password"
             placeholder="Password"
@@ -61,8 +77,8 @@ const LoginForm = () => {
         </div>
         <input type="submit" value="Log In" />
       </form>
-    </React.Fragment>
+    </div>
   );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

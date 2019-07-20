@@ -1,1 +1,8 @@
-@import '../components/App/App.scss';
+@import './base';
+@import './colors';
+@import './fonts';
+
+//Components
+@import './components/App';
+@import './components/FormErrors';
+@import './components/LoginForm';
