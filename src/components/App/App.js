@@ -7,12 +7,11 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ServerList from "../ServerList/ServerList";
 
 const App = () => {
-  const isLoggedIn = localStorage.getItem("loggedIn");
-
+  const isLoggedIn = localStorage.getItem("userToken");
   return (
     <Router>
       <div className="App">
-        <Route path="/login" component={LoginForm} />
+        {isLoggedIn !== true && <Route path="/login" component={LoginForm} />}
         <PrivateRoute
           isLoggedIn={!!isLoggedIn}
           path="/"

@@ -37,7 +37,7 @@ const LoginForm = ({ history }) => {
   };
 
   const handleLoginAttempt = () => {
-    fetch(API_URL, {
+    fetch(API_URL + "/tokens", {
       headers: { "content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify({
         username: username,
@@ -53,8 +53,8 @@ const LoginForm = ({ history }) => {
         }
       })
       .then(data => {
-        dispatch({ type: "login", payload: { data } });
         history.push("/");
+        dispatch({ type: "login", payload: { data } });
       })
       .catch(err => {});
   };
