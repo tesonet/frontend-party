@@ -53,8 +53,10 @@ const LoginForm = ({ history }) => {
         }
       })
       .then(data => {
-        history.push("/");
         dispatch({ type: "login", payload: { data } });
+      })
+      .then(() => {
+        history.push("/");
       })
       .catch(err => {});
   };

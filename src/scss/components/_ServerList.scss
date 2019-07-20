@@ -1,0 +1,83 @@
+.ServerList {
+  background-color: $c__white;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    padding: 40px 20px 40px 15px;
+  }
+
+  &__figure {
+    max-width: 115px;
+  }
+
+  &__actions {
+    margin-left: auto;
+  }
+
+  &__logout {
+    align-items: center;
+    display: flex;
+
+    a {
+      color: #2f3254;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.35px;
+      line-height: 30px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $c_green-9c;
+      }
+    }
+  }
+
+  &__logout-icon {
+    background-image: url('../assets/icons/IconLogout.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
+  }
+
+  &__legend {
+    background-color: $c__gray-f;
+    color: $c__gray-9;
+    font-family: "Roboto Light";
+    font-size: 14px;
+    font-weight: 300;
+    display: flex;
+    letter-spacing: 1.4px;
+    line-height: 30px;
+    padding: 18px 15px 10px 14px;
+    text-transform: uppercase;
+  }
+
+  &__distance {
+    margin-left: auto;
+  }
+
+  &__item {
+    border-bottom: 1px solid $c__gray-e;
+    display: flex;
+    align-items: center;
+    padding: 14px 15px;
+  }
+
+  &__item-name,
+  &__item-distance {
+    color: $c__gray-6;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    line-height: 30px;
+  }
+
+  &__item-distance {
+    margin-left: auto;
+  }
+}

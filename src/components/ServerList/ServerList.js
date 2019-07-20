@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 //Components.
 import ImageProxy from "../ImageProxy/ImageProxy";
+import Logout from "../Logout/Logout";
 
 //Constants.
 import { API_URL } from "../../constants/api";
 
 //Images.
-import testioImgPath from "../../assets/icons/logo.svg";
+import testioImgPath from "../../assets/images/logo-color.png";
 
 const ServerList = () => {
   const [servers, setServers] = useState([]);
@@ -43,15 +43,20 @@ const ServerList = () => {
         <div className="ServerList__actions">
           <div className="ServerList__logout">
             <div className="ServerList__logout-icon" />
-            <Link to="/">Logout</Link>
+            <Logout />
           </div>
         </div>
       </div>
       <div className="ServerList__list">
+        <div className="ServerList__legend">
+          <div className="ServerList__server">Server</div>
+          <div className="ServerList__distance">Distance</div>
+        </div>
         {Object.keys(servers).map(i => {
           return (
-            <div key={i}>
-              <p>{servers[i].name}</p>
+            <div className="ServerList__item" key={i}>
+              <p className="ServerList__item-name">{servers[i].name}</p>
+              <p className="ServerList__item-distance">{servers[i].distance}</p>
             </div>
           );
         })}

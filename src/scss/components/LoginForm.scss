@@ -25,7 +25,7 @@
       border: 0;
       border-radius: 5px;
       box-sizing: border-box;
-      color: $c__gray_b;
+      color: $c__gray-b;
       font-weight: 300;
       letter-spacing: 0.4px;
       line-height: 30px;
@@ -36,7 +36,7 @@
       }
 
       &:focus {
-        color: $c__gray_9;
+        color: $c__gray-9;
       }
     }
   }
@@ -54,7 +54,7 @@
   }
 
   input[type="submit"] {
-    background-color: $c__green_9;
+    background-color: $c__green-9;
     border-radius: 5px;
     border: 0;
     color: $c__white;
