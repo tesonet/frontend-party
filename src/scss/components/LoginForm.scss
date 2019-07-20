@@ -31,7 +31,9 @@
       line-height: 30px;
       padding: 13px 10px 13px 54px;
       transition: color 0.2s ease;
-      width: 100%;
+      @media only screen and (min-width: $screen-mobile) {
+        width: 100%;
+      }
 
       &:focus {
         color: $c__gray_9;
@@ -61,9 +63,13 @@
     font-weight: 700;
     letter-spacing: 0.4px;
     line-height: 30px;
+    max-width: 240px;
     padding: 13px 0;
     transition: background-color 0.2s ease;
     width: 100%;
+    @media only screen and (min-width: $screen-mobile) {
+      max-width: none;
+    }
 
     &:hover {
       background-color: #86b300;

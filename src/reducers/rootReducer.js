@@ -1,13 +1,13 @@
-//Helper functions
-import { validateLoginAttempt } from "../helpers/validateLoginAttempt";
+const initialState = {};
 
-const rootReducer = (state, action) => {
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "login":
-      const isLoggedIn = validateLoginAttempt(action.payload);
+    case "login": {
+      localStorage.setItem("loggedIn", true);
+      return { ...state, userToken: action.payload.data.token };
+    }
     default:
-      console.log("default");
-      break;
+      return state;
   }
 };
 

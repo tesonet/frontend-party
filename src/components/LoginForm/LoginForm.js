@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 //Components.
@@ -28,6 +28,15 @@ const LoginForm = ({ history }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (username.length === 0 || psw.length === 0) {
+      setErrors("Please fill both fields");
+      return;
+    } else {
+      handleLoginAttempt();
+    }
+  };
+
+  const handleLoginAttempt = () => {
     fetch(API_URL, {
       headers: { "content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify({

@@ -8,6 +8,7 @@ import rootReducer from "./reducers/rootReducer";
 import App from "./components/App/App";
 
 //Styling.
+import "normalize.css";
 import "./scss/_main.scss";
 
 const store = createStore(rootReducer);
