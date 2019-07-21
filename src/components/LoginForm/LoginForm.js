@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
 //Components.
 import FormErrors from "../FormErrors/FormErrors";
@@ -100,9 +99,7 @@ const LoginForm = props => {
   );
 };
 
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(LoginForm)
-);
+export default connect(
+  null,
+  mapDispatchToProps
+)(LoginForm);

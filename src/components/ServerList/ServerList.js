@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
 
 //Components.
 import ImageProxy from "../ImageProxy/ImageProxy";
@@ -11,13 +10,7 @@ import { API_URL } from "../../constants/api";
 //Images.
 import testioImgPath from "../../assets/images/logo-color.png";
 
-const mapStateToProps = state => {
-  return {
-    userToken: state
-  };
-};
-
-const ServerList = ({ userToken }) => {
+const ServerList = () => {
   const [servers, setServers] = useState([]);
 
   useEffect(() => {
@@ -68,4 +61,4 @@ const ServerList = ({ userToken }) => {
     </div>
   );
 };
-export default connect(mapStateToProps)(ServerList);
+export default ServerList;
