@@ -1,10 +1,14 @@
-const initialState = {};
+const initialState = {
+  userToken: ""
+};
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case "login": {
-      localStorage.setItem("userToken", action.payload.data.token);
-      return { ...state, userToken: action.payload.data.token };
+      return Object.assign({}, state, { userToken: action.payload });
+    }
+    case "logout": {
+      return { ...state, userToken: null };
     }
     default:
       return state;

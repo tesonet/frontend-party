@@ -1,25 +1,31 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import PropTypes from "prop-types";
+import { createBrowserHistory as createHistory } from "history";
 
-//Components
+//Components.
 import LoginForm from "../LoginForm/LoginForm";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ServerList from "../ServerList/ServerList";
 
-const App = () => {
-  const isLoggedIn = localStorage.getItem("userToken");
+const App = ({ store }) => {
+  const history = createHistory();
+
   return (
-    <Router>
-      <div className="App">
-        {isLoggedIn !== true && <Route path="/login" component={LoginForm} />}
-        <PrivateRoute
-          isLoggedIn={!!isLoggedIn}
-          path="/"
-          component={ServerList}
-        />
-      </div>
+    <Router history={history}>
+      <Provider store={store}>
+        <div className="App">
+          <Route path="/login" component={LoginForm} />
+          <PrivateRoute exact path="/" component={ServerList} />
+        </div>
+      </Provider>
     </Router>
   );
+};
+
+App.propTypes = {
+  store: PropTypes.object.isRequired
 };
 
 export default App;

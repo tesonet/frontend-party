@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 //Components.
@@ -12,11 +12,18 @@ import { API_URL } from "../../constants/api";
 //Images.
 import testioImgPath from "../../assets/icons/logo.svg";
 
-const LoginForm = ({ history }) => {
+const mapDispatchToProps = dispatch => {
+  return {
+    saveUserToken: token => {
+      dispatch({ type: "login", payload: token });
+    }
+  };
+};
+
+const LoginForm = props => {
   const [username, setUsername] = useState("");
   const [psw, setPsw] = useState("");
   const [errors, setErrors] = useState("");
-  const dispatch = useDispatch();
 
   const handleUsernameChange = e => {
     setUsername(e.target.value);
@@ -53,10 +60,11 @@ const LoginForm = ({ history }) => {
         }
       })
       .then(data => {
-        dispatch({ type: "login", payload: { data } });
+        props.saveUserToken(data.token);
+        localStorage.setItem("userToken", data.token);
       })
       .then(() => {
-        history.push("/");
+        props.history.push("/");
       })
       .catch(err => {});
   };
@@ -92,4 +100,9 @@ const LoginForm = ({ history }) => {
   );
 };
 
-export default withRouter(LoginForm);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(LoginForm)
+);

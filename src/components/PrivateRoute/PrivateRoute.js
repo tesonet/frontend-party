@@ -1,12 +1,25 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) => {
+const mapStateToProps = state => {
+  return {
+    userToken: state.userToken
+  };
+};
+
+const PrivateRoute = ({ userToken, component: Component, ...rest }) => {
+  //Utilize localStorage in case of browser reload.
+  try {
+    if (userToken.length <= 0) {
+      userToken = localStorage.getItem("userToken");
+    }
+  } catch (e) {}
   return (
     <Route
       {...rest}
       render={props =>
-        isLoggedIn === true ? (
+        !!userToken === true ? (
           <Component {...props} />
         ) : (
           <Redirect to={{ pathname: "/login" }} />
@@ -16,4 +29,4 @@ const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) => {
   );
 };
 
-export default PrivateRoute;
+export default connect(mapStateToProps)(PrivateRoute);
