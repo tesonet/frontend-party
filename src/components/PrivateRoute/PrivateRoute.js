@@ -4,7 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 
 const mapStateToProps = state => {
   return {
-    userToken: state.userToken
+    userToken: state.userReducer.userToken
   };
 };
 
