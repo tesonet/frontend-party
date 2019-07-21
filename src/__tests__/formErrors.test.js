@@ -13,8 +13,8 @@ it("renders correctly string error", () => {
 
 it("renders correctly array of strings", () => {
   const errorMock = {
-    1: "Username is required",
-    2: "Password is required"
+    0: "Username is required",
+    1: "Password is required"
   };
 
   const tree = renderer.create(<FormErrors>{errorMock}</FormErrors>).toJSON();
