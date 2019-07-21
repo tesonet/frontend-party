@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly array of strings 1`] = `
+<ul
+  className="FormErrors"
+>
+  <li>
+    <p>
+      Username is required
+    </p>
+  </li>
+  <li>
+    <p>
+      Password is required
+    </p>
+  </li>
+</ul>
+`;
+
+exports[`renders correctly string error 1`] = `
+<div
+  className="FormErrors"
+>
+  <p>
+    "This is string error"
+  </p>
+</div>
+`;

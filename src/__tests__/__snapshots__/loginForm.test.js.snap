@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="LoginForm__wrapper"
+>
+  <img
+    alt="testio"
+    className="ImageProxy LoginForm__figure"
+    src="logo.svg"
+  />
+  <img
+    alt="loader"
+    className="ImageProxy LoginForm__loader"
+    src="loader.svg"
+  />
+  
+  <form
+    className="LoginForm"
+    onSubmit={[Function]}
+  >
+    <div
+      className="LoginForm__input-username"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Username"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="LoginForm__input-password"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+    </div>
+    <input
+      type="submit"
+      value="Log In"
+    />
+  </form>
+</div>
+`;

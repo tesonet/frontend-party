@@ -25,7 +25,7 @@ const FormErrors = ({ children }) => {
 };
 
 FormErrors.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 export default FormErrors;
