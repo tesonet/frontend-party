@@ -10,6 +10,7 @@ import { API_URL } from "../../constants/api";
 
 //Images.
 import testioImgPath from "../../assets/icons/logo.svg";
+import loader from "../../assets/icons/loader.svg";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -42,7 +43,13 @@ const LoginForm = props => {
     }
   };
 
+  const toggleLoader = () => {
+    const loader = document.querySelector(".LoginForm__loader");
+    loader.classList.toggle('active');
+  };
+
   const handleLoginAttempt = () => {
+    toggleLoader();
     fetch(API_URL + "/tokens", {
       headers: { "content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify({
@@ -52,6 +59,7 @@ const LoginForm = props => {
       method: "POST"
     })
       .then(response => {
+        toggleLoader();
         if (response.ok) {
           return response.json();
         } else {
@@ -75,6 +83,7 @@ const LoginForm = props => {
         src={testioImgPath}
         alt="testio"
       />
+      <ImageProxy className="LoginForm__loader" src={loader} alt="loader" />
       {errors && <FormErrors>{errors}</FormErrors>}
       <form className="LoginForm" onSubmit={handleSubmit}>
         <div className="LoginForm__input-username">

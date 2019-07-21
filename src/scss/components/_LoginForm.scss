@@ -76,4 +76,19 @@
     }
   }
 
+  &__loader {
+    display: none;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 85px;
+
+
+    &.active {
+      display: block;
+    }
+  }
+
 }

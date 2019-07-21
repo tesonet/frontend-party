@@ -32,6 +32,21 @@ const ServerList = () => {
       .then(data => setServers(data));
   };
 
+  const handleOrdering = e => {
+    let sortBy = e.target.innerText.toLowerCase();
+    if (sortBy === "server") {
+      sortBy = "name";
+    }
+
+    const breweries = [...servers].sort((a, b) => {
+      if (a[sortBy] < b[sortBy]) return -1;
+      if (a[sortBy] > b[sortBy]) return 1;
+      return 0;
+    });
+
+    setServers(breweries);
+  };
+
   return (
     <div className="ServerList">
       <div className="ServerList__header">
@@ -46,8 +61,12 @@ const ServerList = () => {
       </div>
       <div className="ServerList__list">
         <div className="ServerList__legend">
-          <div className="ServerList__server">Server</div>
-          <div className="ServerList__distance">Distance</div>
+          <div className="ServerList__server" onClick={handleOrdering}>
+            Server
+          </div>
+          <div className="ServerList__distance" onClick={handleOrdering}>
+            Distance
+          </div>
         </div>
         {Object.keys(servers).map(i => {
           return (
