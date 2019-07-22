@@ -45,7 +45,7 @@ const LoginForm = props => {
 
   const toggleLoader = () => {
     const loader = document.querySelector(".LoginForm__loader");
-    loader.classList.toggle('active');
+    loader.classList.toggle("active");
   };
 
   const handleLoginAttempt = () => {
