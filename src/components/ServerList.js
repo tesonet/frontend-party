@@ -21,6 +21,7 @@ class ServerList extends Component {
 
         this.logout = this.logout.bind(this);  
         this.serverSortOnClick = this.serverSortOnClick.bind(this);   
+        this.filterName = this.filterName.bind(this);
     }
 
     componentDidMount(){
@@ -137,6 +138,15 @@ class ServerList extends Component {
         }
 
     }
+    
+    filterName(e) {
+        var s = e.currentTarget.value;
+
+        if (!this.state.servers_copy) this.state.servers_copy = this.state.servers;
+        
+        var serversFiltered = this.state.servers_copy.filter((server)=>server.name.indexOf(s) > -1)
+        this.setState({ servers: serversFiltered});
+    }
 
     render() {
         const redirect  = this.state.redirect;
@@ -160,6 +170,8 @@ class ServerList extends Component {
                 </div>
 
                 {this.state.loading ? <Alert type="neutral" message="Loading... Please wait." /> : ''}
+
+                {!this.state.loading ? <div><input placeholder="Filter results..." type="text" name="filter" onChange={this.filterName} /></div> : '' }
 
                 <SmartTable sort={this.serverSortOnClick} rows={this.getRows()} cols={this.getCols()} />         
             </BEM>
