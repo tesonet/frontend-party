@@ -1,0 +1,27 @@
+@import "configuration/variables";
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin:0px;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.overlay--branded {
+    background-color: $branded-blue;
+    opacity: 0.8;
+}
+
+#party-animal-app {
+    height: 100%;
+}

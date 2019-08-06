@@ -1,0 +1,59 @@
+.btn {
+  padding: 12px 12px 12px 12px;
+  border-radius: 5px;
+  border: none; }
+
+.alert .alert__message {
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px; }
+  .alert .alert__message--danger {
+    color: white;
+    background-color: red; }
+  .alert .alert__message--success {
+    color: white;
+    background-color: greenyellow; }
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; }
+
+.btn--logout {
+  background-image: url(/assets/images/logout.png);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px;
+  background-color: white;
+  color: #0b0f27;
+  padding-left: 48px; }
+  .btn--logout:hover {
+    background-image: url(/assets/images/logout-hover.png);
+    color: #99cc33;
+    cursor: pointer; }
+
+.table {
+  width: 100%;
+  color: #666666;
+  margin-top: 30px; }
+
+.table__cell {
+  flex: 1; }
+  .table__cell--distance {
+    text-align: right; }
+
+.table__cell--sort {
+  cursor: pointer; }
+
+.table__row {
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  padding: 10px; }
+  .table__row:hover {
+    background-color: #f5f5f5; }
+  .table__row--header {
+    background-color: #f5f5f5;
+    color: #999999;
+    text-transform: uppercase; }
+
+/*# sourceMappingURL=server-list.css.map */

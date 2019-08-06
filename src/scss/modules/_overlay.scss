@@ -1,0 +1,69 @@
+/* Default, Black */
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.overlay--50 {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
+.overlay--75 {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Red */
+
+.overlay--red {
+    background-color: rgba(255, 0, 0, 0.25);
+}
+
+.overlay--red-50 {
+    background-color: rgba(255, 0, 0, 0.50);
+}
+
+.overlay--red-75 {
+    background-color: rgba(255, 0, 0, 0.75);
+}
+
+/* Green */
+
+.overlay--green {
+    background-color: rgba(0, 255, 0, 0.25);
+}
+
+.overlay--green-50 {
+    background-color: rgba(0, 255, 0, 0.50);
+}
+
+.overlay--green-75 {
+    background-color: rgba(0, 255, 0, 0.75);
+}
+
+/* Blue */
+
+.overlay--blue {
+    background-color: rgba(0, 0, 255, 0.25);
+}
+
+.overlay--blue-50 {
+    background-color: rgba(0, 0, 255, 0.50);
+}
+
+.overlay--blue-75 {
+    background-color: rgba(0, 0, 255, 0.75);
+}
+
+/* White */
+
+.overlay--white {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.overlay--white-50 {
+    background-color: rgba(255, 255, 255, 0.55);
+}
+
+.overlay--white-75 {
+    background-color: rgba(255, 255, 255, 0.75);
+}

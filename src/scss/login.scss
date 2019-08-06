@@ -1,0 +1,108 @@
+@import "configuration/variables";
+@import "mixins/responsive";
+@import "modules/btn";
+@import "modules/overlay";
+@import "modules/alert";
+
+.login-page {
+    background:url(#{$assetPath}/images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;   
+}
+
+.login-page,
+.login-page__wrapper,
+.login-page__container {
+    height: 100%;
+}
+
+.login-box {
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+    position: relative;
+
+    .login-box__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%
+    }
+
+    .login-box__container {
+        display: flex;
+        flex-direction: column;
+    
+        @include for-size(tablet-portrait-up ) {
+            width: 50%;
+        }
+    
+        @include for-size(tablet-landscape-up ) {
+            width: 40%;
+        }
+    
+        @include for-size(desktop-up ) {
+            width: 30%;
+        }
+    
+        @include for-size(big-desktop-up) {
+            width: 30%;
+        }
+    }
+
+    .login-box__header {
+        text-align: center;
+    }
+
+    .login-box__form {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .login-box__input {
+        color: $input-text;
+    
+        background-repeat: no-repeat;
+    
+        margin-bottom: 12px;
+        padding: 12px 12px 12px 48px;
+        border-radius: 5px;
+        border:none;
+    
+    
+        &:focus, &:active {
+            color: $input-text-active;
+        }
+    
+        &--username {
+            background-image: url(#{$assetPath}/images/icon_login_username.png);
+            background-position: 10px center;
+        }
+    
+        &--password {
+            background-image: url(#{$assetPath}/images/icon_login_password.png);
+            background-position: 10px center;
+        }
+    }
+}
+
+// Login button
+
+.login-box__button {
+    @extend .btn;
+
+    background-color: $button-background;
+
+    border: none;
+    border-radius: 5px;
+    padding: 12px 12px 12px 12px;
+    color: white;
+    
+    &:hover {
+        background-color: $button-background-hover;
+    }
+}

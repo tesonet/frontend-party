@@ -1,0 +1,40 @@
+{
+  "name": "frontend-party",
+  "version": "1.0.0",
+  "description": "## Basic instructions",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beinoriusju/frontend-party.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beinoriusju/frontend-party/issues"
+  },
+  "homepage": "https://github.com/beinoriusju/frontend-party#readme",
+  "dependencies": {
+    "react": "",
+    "react-router-dom": ""
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.0.4",
+    "babel-cli": "",
+    "babel-core": "",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "",
+    "babel-preset-react": "",
+    "css-loader": "^3.1.0",
+    "html-webpack-plugin": "",
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack": "",
+    "webpack-cli": "",
+    "webpack-dev-server": ""
+  }
+}

@@ -1,0 +1,14 @@
+.alert {
+     //
+     .alert__message {
+        padding: 5px; border-radius: 5px; margin-bottom: 5px;
+
+        &--danger {
+            color: white; background-color: red;
+        }
+
+        &--success {
+            color: white; background-color: greenyellow;
+        }
+     }
+}

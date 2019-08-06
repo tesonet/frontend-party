@@ -1,0 +1,61 @@
+@import "configuration/variables";
+@import "modules/btn";
+@import "modules/alert";
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn--logout {
+    background-image: url(#{$assetPath}/images/logout.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+    background-color: white;
+
+    color: $branded-blue;
+    padding-left: 48px;
+
+    &:hover {
+        background-image: url(#{$assetPath}/images/logout-hover.png);
+        color: $branded-green;
+        cursor: pointer;
+    }
+}
+
+.table {
+    width: 100%;
+    color: $table-text;
+
+    margin-top: 30px;
+}
+
+.table__cell {
+    flex: 1;
+
+    &--distance {
+        text-align: right;
+    }
+}
+
+.table__cell--sort {
+    cursor: pointer;
+}
+
+.table__row {
+    border-bottom: 1px solid $table-border;
+    display: flex;
+    padding: 10px;
+
+    &:hover {
+        background-color: $table-background;
+    }
+
+    &--header {
+        background-color: $table-background;
+        color: $table-header-text;
+        text-transform: uppercase;
+    }
+}
