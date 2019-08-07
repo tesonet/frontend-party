@@ -1,0 +1,47 @@
+{
+    "extends": [
+        "tslint-immutable"
+    ],
+    "rules": {
+        "no-var-keyword": true,
+        "no-parameter-reassignment": true,
+        "typedef": false,
+        "readonly-keyword": false,
+        "readonly-array": false,
+        "no-let": false,
+        "no-array-mutation": true,
+        "no-use-before-declare": true,
+        "radix": true,
+        "switch-default": true,
+        "triple-equals": [
+            true,
+            "allow-undefined-check",
+            "allow-null-check"
+        ],
+        "eofline": false,
+        "indent": [
+            true,
+            "tabs"
+        ],
+        "max-line-length": [
+            true,
+            250
+        ],
+        "no-trailing-whitespace": true,
+        "trailing-comma": [
+            true,
+            {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        ],
+        "jsdoc-format": true,
+        "no-consecutive-blank-lines": [
+            true
+        ],
+        "semicolon": [
+            true,
+            "always"
+        ]
+    }
+}
