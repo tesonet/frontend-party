@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300:700&display=swap");
+@import "routerTransitions";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font;
+  font-size: 100%;
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+div[id="app"] {
+  height: 100%;
+}

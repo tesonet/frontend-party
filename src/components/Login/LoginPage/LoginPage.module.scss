@@ -1,0 +1,31 @@
+.loginContainer {
+  background-color: #19223c;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 20px;
+  height: 100%;
+  display: grid;
+  & > * {
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+:global(.webp) {
+  .loginContainer {
+    background-image: url("images/loginScreenBg.webp");
+  }
+}
+:global(.no-webp) {
+  .loginContainer {
+    background-image: url("images/loginScreenBg.jpg");
+  }
+}
+
+:global(.no-cssgrid) {
+  .loginContainer {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,7 @@
+module.exports = {
+  options: ["setClasses"],
+  "feature-detects": [
+    "test/css/cssgrid",
+    "test/img/webp"
+  ]
+};

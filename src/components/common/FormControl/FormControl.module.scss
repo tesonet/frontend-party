@@ -1,0 +1,63 @@
+.form {
+  &__control {
+    position: relative;
+    margin-bottom: 20px;
+    input {
+      padding: 0 20px 0 55px;
+      width: 100%;
+      border: none;
+      border-radius: $radius;
+      min-height: 56px;
+      font-size: 1em;
+      outline: none;
+      font-weight: inherit;
+    }
+    &:active,
+    &:focus {
+      background-color: #999;
+      color: #ccc;
+    }
+    &::placeholder {
+      color: #b2b2b2;
+    }
+    &:before {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+    }
+
+    &--user:before {
+      content: url("images/user.svg");
+    }
+    &--pass:before {
+      content: url("images/lock.svg");
+    }
+    &--error input {
+      border: 1px solid $error;
+      box-shadow: 0 0px 5px $error;
+    }
+    &__error {
+      background-color: $error;
+      display: block;
+      padding: 10px;
+      font-size: 0.8em;
+      border-radius: 3px;
+      margin-top: 12px;
+      color: #fff;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        margin-left: -10px;
+        width: 0;
+        height: 0;
+        border-bottom: 10px solid $error;
+        border-left: 10px solid transparent;
+        border-top: 0;
+        border-right: 10px solid transparent;
+      }
+    }
+  }
+}

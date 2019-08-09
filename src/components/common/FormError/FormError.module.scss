@@ -1,0 +1,9 @@
+.form__error {
+  background-color: $error;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: $radius;
+  a {
+    color: inherit;
+  }
+}

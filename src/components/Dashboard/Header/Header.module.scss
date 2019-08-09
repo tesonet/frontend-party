@@ -1,0 +1,40 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 20px;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  top: 0;
+  height: $navbarHeight;
+  & > * {
+    align-self: center;
+  }
+  &__logo {
+    margin: 0;
+  }
+  &__action {
+    text-align: right;
+    &__logout {
+      background: url("images/logout.svg") no-repeat left center;
+      display: inline-block;
+      padding-left: 30px;
+      border: 0;
+      outline: 0;
+      color: #2f3254;
+      font-size: 0.85em;
+      cursor: pointer;
+      &:hover {
+        filter: brightness(0);
+      }
+    }
+  }
+}
+
+:global(.no-cssgrid) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+}

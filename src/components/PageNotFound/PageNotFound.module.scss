@@ -1,0 +1,21 @@
+.PageNotFound {
+  background-color: #fff;
+  padding: 20px;
+  height: 100%;
+  display: grid;
+  text-align: center;
+  & > * {
+    justify-self: center;
+    align-self: center;
+  }
+  strong {
+    display: block;
+    margin: 40px 0;
+    font-size: 2em;
+  }
+  a {
+    color: $primary;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

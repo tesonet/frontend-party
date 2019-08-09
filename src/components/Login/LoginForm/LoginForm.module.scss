@@ -1,0 +1,22 @@
+.login {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  img {
+    margin-bottom: 40px;
+  }
+  footer {
+    margin-top: 30px;
+    color: #fff;
+    opacity: 0.3;
+    pointer-events: none;
+    a {
+      color: inherit;
+      display: inline-block;
+      padding: 0 10px;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

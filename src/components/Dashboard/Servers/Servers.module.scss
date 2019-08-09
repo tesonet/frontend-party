@@ -1,0 +1,29 @@
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: $navbarHeight;
+  thead {
+    background: #f5f5f5;
+  }
+  tr {
+    border-bottom: 1px solid #e6e6e6;
+    & > * {
+      padding: 15px 20px;
+    }
+  }
+  th {
+    color: #999999;
+    font-size: 0.85em;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  &__name {
+    text-align: left;
+  }
+  &__distance {
+    text-align: right;
+  }
+  &__loading {
+    text-align: center;
+  }
+}
