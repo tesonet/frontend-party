@@ -15,7 +15,11 @@ export const loginUser = (user: string, password: string) => (
     fd.append("password", password);
 
     axios
-        .post(tokenUrl, fd)
+        .post(tokenUrl, fd, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
         .then((res) => {
             const token = _get(res, "data.token", "");
             const loginStore = store.getState().auth;

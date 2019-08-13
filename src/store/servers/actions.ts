@@ -12,11 +12,12 @@ export const getServersList: any = () => (dispatch: any) => {
             .get(serversUrl, {
                 headers: {
                     Authorization: "Bearer " + token,
+                    "Content-Type": "application/json",
                 },
             })
             .then((res) => {
                 const payload = _get(res, "data", []);
-                
+
                 dispatch({
                     type: SET_SERVERS_LIST,
                     payload,
