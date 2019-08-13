@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getServersList } from "../store/servers/actions";
 import { logout } from "../store/login/actions";
-import { ServerItem } from "../store/servers/types";
+import { ServerItem, ServersState } from "../store/servers/types";
 import ListItem from "./ListItem";
 const testioLogo = require("../images/darkLogo.svg");
 const logoutIcon = require("../images/logouticon.svg");
@@ -12,7 +12,7 @@ interface AppState {
     server: ServerItem;
     getServersList: () => void;
     logout: () => void;
-    serversState: any; // fix it
+    serversState: ServersState;
 }
 
 class App extends React.Component<AppState, {}> {
