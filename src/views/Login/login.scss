@@ -1,0 +1,27 @@
+
+.app-login {
+    width: 100%;
+    height: 100%;
+    background: #0b0f27 url("../../images/img.png") no-repeat fixed center;
+    
+    &-container {
+        display: flex;
+        flex-direction: column;
+        width: 363px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    
+        @media (max-width: 719px) {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 16px;
+        }
+    
+        &_image {
+            margin-bottom: 69px;
+        }
+    }
+    
+}
