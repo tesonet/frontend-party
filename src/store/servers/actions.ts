@@ -12,7 +12,7 @@ export const getServersList: any = () => (dispatch: any) => {
             .get(serversUrl, {
                 headers: {
                     Authorization: "Bearer " + token,
-                    "Content-Type": "application/json",
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
                 },
             })
             .then((res) => {

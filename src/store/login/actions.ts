@@ -17,7 +17,7 @@ export const loginUser = (user: string, password: string) => (
     axios
         .post(tokenUrl, fd, {
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
             },
         })
         .then((res) => {
