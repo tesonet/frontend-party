@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import _get from "lodash/get";
 import "./login.scss";
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
@@ -16,6 +17,7 @@ interface LoginViewState {
     loginUser: (name: string, password: string) => void;
     username: string;
     password: string;
+    error: boolean;
 }
 
 class Login extends Component<LoginViewState> {
@@ -47,6 +49,8 @@ class Login extends Component<LoginViewState> {
     };
 
     render() {
+        const { error } = this.props;
+        
         return (
             <div className="app-login" onKeyDown={this.onEnterPress}>
                 <div className="app-login-container">
@@ -70,6 +74,7 @@ class Login extends Component<LoginViewState> {
                         onChange={this.handleChange}
                     />
                     <Button text="Log in" onClick={this.submit} />
+                    {error && <p className="app-login-container_error">Invalid Username or Password</p>}
                 </div>
             </div>
         );
@@ -78,6 +83,7 @@ class Login extends Component<LoginViewState> {
 
 const mapStateToProps = (state: { auth: LoginState }) => ({
     auth: state.auth.authenticated,
+    error: state.auth.error
 });
 
 export default connect(

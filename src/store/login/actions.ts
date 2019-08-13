@@ -1,7 +1,8 @@
 import axios from "axios";
 import _get from "lodash/get";
 import history from "../../routes/history";
-import { LOGIN, LOGOUT } from "./types";
+import store from "../index";
+import { LOGIN, LOGOUT, LOGIN_ERROR, CLEAR_LOGIN_ERROR } from "./types";
 
 const tokenUrl = "http://playground.tesonet.lt/v1/tokens";
 
@@ -13,17 +14,34 @@ export const loginUser = (user: string, password: string) => (
     fd.append("username", user);
     fd.append("password", password);
 
-    axios.post(tokenUrl, fd).then((res) => {
-        const token = _get(res, "data.token", "");
+    axios
+        .post(tokenUrl, fd)
+        .then((res) => {
+            const token = _get(res, "data.token", "");
+            const loginStore = store.getState().auth;
 
-        if (token) {
-            localStorage.setItem("authToken", token);
+            if (token) {
+                localStorage.setItem("authToken", token);
+                dispatch({
+                    type: LOGIN,
+                });
+                if (loginStore.error) {
+                    dispatch({
+                        type: CLEAR_LOGIN_ERROR,
+                    });
+                }
+                history.push("/");
+            } else {
+                dispatch({
+                    type: LOGIN_ERROR,
+                });
+            }
+        })
+        .catch(() => {
             dispatch({
-                type: LOGIN,
+                type: LOGIN_ERROR,
             });
-            history.push("/");
-        }
-    });
+        });
 };
 
 export const logout = () => (dispatch: any) => {
