@@ -18,7 +18,7 @@ interface LoginViewState {
     password: string;
 }
 
-class Login extends Component<LoginViewState>{
+class Login extends Component<LoginViewState> {
     state = {
         username: "",
         password: "",
@@ -40,9 +40,15 @@ class Login extends Component<LoginViewState>{
         }
     };
 
+    onEnterPress = (e: React.KeyboardEvent) => {
+        if (e.keyCode === 13) {
+            this.submit();
+        }
+    };
+
     render() {
         return (
-            <div className="app-login">
+            <div className="app-login" onKeyDown={this.onEnterPress}>
                 <div className="app-login-container">
                     <img
                         className="app-login-container_image"
@@ -70,7 +76,7 @@ class Login extends Component<LoginViewState>{
     }
 }
 
-const mapStateToProps = (state: {auth: LoginState}) => ({
+const mapStateToProps = (state: { auth: LoginState }) => ({
     auth: state.auth.authenticated,
 });
 
