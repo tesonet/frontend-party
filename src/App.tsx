@@ -1,8 +1,10 @@
 import React from 'react';
 
+import LoginPage from './components/LoginPage';
+
 const App: React.FC = () => (
-  <div className="App">
-    <p>Hello World</p>
+  <div>
+    <LoginPage />
   </div>
 );
 
