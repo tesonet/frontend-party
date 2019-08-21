@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Your custom CSS here */
+
+.background-img {
+  background-image: url('../assets/action-beach-fun.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
