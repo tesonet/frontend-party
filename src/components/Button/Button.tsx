@@ -1,10 +1,12 @@
 import React from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { IProps } from './Button.interface';
 
-const Button: React.FC<IProps> = props => {
+const Button: React.FC<IProps & RouteComponentProps> = props => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    props.history.push('/server');
   };
   return (
     <button
@@ -16,4 +18,4 @@ const Button: React.FC<IProps> = props => {
   );
 };
 
-export default Button;
+export default withRouter(Button);
