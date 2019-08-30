@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
 import React from 'react';
-import { StaticRouter } from 'react-router';
 
 import Branding from './Branding';
 import { IProps } from './Branding.interface';
