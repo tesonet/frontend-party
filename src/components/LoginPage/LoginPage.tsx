@@ -1,14 +1,13 @@
 import React from 'react';
 
 import Form from '../Form';
+import Branding from '../Branding';
 
 const LoginPage: React.FC = () => {
   return (
     <div className="background-img h-screen flex justify-center items-center">
       <div>
-        <div className={'text-6xl font-extrabold'}>
-          testio<span className={'text-brand-main'}>.</span>
-        </div>
+        <Branding textColor={'text-white'} />
         <Form />
       </div>
     </div>
