@@ -1,0 +1,42 @@
+$input-height: 56px;
+
+.form {
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+
+    &__icon {
+      position: absolute;
+      align-items: center;
+      width: 17px;
+      line-height: $input-height;
+      top: 0;
+      left: 24px;
+      z-index: 2;
+      display: block;
+    }
+
+    .form-control {
+      padding-right: 24px;
+      padding-left: 54px;
+      height: $input-height;
+      width: 359px;
+      letter-spacing: 0.4px;
+      color: #999;
+
+      &--error {
+        border-color: red;
+      }
+
+      &__label {
+        &--error {
+          color: red;
+        }
+      }
+
+      &::placeholder {
+        color: #B3B3B3;
+      }
+    }
+  }
+}

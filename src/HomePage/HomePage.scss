@@ -1,0 +1,25 @@
+.header {
+  padding: 32px 15px;
+
+  .btn {
+    &--logout {
+      letter-spacing: 0.35px;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 30px;
+      color: #2F3254;
+
+      & > svg {
+        margin-right: 10px;
+        transition: fill .15s ease-in-out;
+      }
+
+      &:hover {
+        color: #99cc33;
+        svg {
+          fill: #99cc33!important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.button {
+  height: 58px;
+  color: white;
+  border-radius: .25rem;
+  border: 0;
+  letter-spacing: 0.4px;
+  font-weight: bold;
+
+  &--success {
+    background: #9FD533 !important;
+
+    &:hover {
+      background: #86b300 !important;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: #86b300!important;
+  }
+}

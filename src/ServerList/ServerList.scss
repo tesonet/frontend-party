@@ -1,0 +1,35 @@
+.table.server-list {
+  th, td {
+    font-weight: 300;
+    line-height: 30px;
+  }
+
+  thead {
+    background: #F5F5F5;
+    text-transform: uppercase;
+
+
+    th {
+      color: #999999;
+      letter-spacing: 1.4px;
+      font-size: 14px;
+      padding: 19px 15px;
+      border-color: #E6E6E6;
+      border-width: 1px;
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background: rgba(230, 230, 230, .2);
+        cursor: pointer;
+      }
+      td {
+        font-size: 16px;
+        letter-spacing: 0.4px;
+        color: #666666;
+      }
+    }
+  }
+}
