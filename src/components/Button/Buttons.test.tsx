@@ -4,7 +4,6 @@ import React from 'react';
 
 import Button from './Button';
 import { IProps } from './Button.interface';
-import { StaticRouter } from 'react-router';
 
 const createProps = (props: IProps) => ({
   ...props,
@@ -13,12 +12,9 @@ const createProps = (props: IProps) => ({
 describe('Button', (): void => {
   it('renders text', (): void => {
     const text = 'click me';
-    const props = createProps({ text });
-    const { getByText } = render(
-      <StaticRouter>
-        <Button {...props} />
-      </StaticRouter>
-    );
+    const onClick = jest.fn();
+    const props = createProps({ text, onClick });
+    const { getByText } = render(<Button {...props} />);
     expect(getByText(text)).toBeVisible();
   });
 });

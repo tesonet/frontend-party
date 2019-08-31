@@ -8,20 +8,23 @@ const Table: React.FC = () => {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const request: Promise<AxiosResponse> = axios.get('http://playground.tesonet.lt/v1/servers', {
-      headers: {
-        Authorization: '',
-      },
-    });
-
-    request
-      .then(res => {
-        setServers(res.data);
-        setError(null);
-      })
-      .catch(err => {
-        setError(err);
+    const token = localStorage.getItem('token');
+    if (token) {
+      const request: Promise<AxiosResponse> = axios.get('http://playground.tesonet.lt/v1/servers', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
+
+      request
+        .then(res => {
+          setServers(res.data);
+          setError(null);
+        })
+        .catch(err => {
+          setError(err);
+        });
+    }
   }, []);
 
   return (
