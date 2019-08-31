@@ -1,0 +1,1 @@
+export const FETCH_SERVERS = 'FETCH_SERVERS';

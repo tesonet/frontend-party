@@ -3,7 +3,7 @@ import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
-import {localStorageKey} from "../../constants/auth.constants";
+import {userService} from "../../services/auth.service";
 
 interface StateInterface {
     username?: string;
@@ -29,37 +29,22 @@ class LoginForm extends Component<any, StateInterface> {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    login = async (body: { username: string, password: string }) => {
+    login = async (username: string, password: string) => {
         this.setState({
             submitted: true,
             isLoading: true
         });
 
-        const response = await fetch('http://playground.tesonet.lt/v1/tokens', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body)
-        });
-
-        const data = await response.json();
-
-        if (data) {
-            // Successful login
-            if (data.token) {
-                console.log(data.token);
-                localStorage.setItem(localStorageKey, data.token);
+        userService.login(username, password).then((success: boolean) => {
+            if (success) {
                 this.props.history.push('/');
-            } else if (data.message) {
-                console.log(data.message);
+            } else {
                 this.setState({
                     invalid: true,
                     isLoading: false
                 })
             }
-        }
+        });
     };
 
     submitFormHandler = async (event: any) => {
@@ -71,7 +56,7 @@ class LoginForm extends Component<any, StateInterface> {
         });
 
         if (username && password) {
-            this.login({username, password});
+            this.login(username, password);
         }
     };
 

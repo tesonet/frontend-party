@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import SignInPage from "./SignInPage/SignInPage";
-import HomePage from "./HomePage/HomePage";
-import GenericNotFound from "./GenericNotFound/GenericNotFound";
+import SignInPage from "./routes/LoginPage/LoginPage";
+import HomePage from "./routes/HomePage/HomePage";
+import GenericNotFound from "./routes/GenericNotFound/GenericNotFound";
 import {localStorageKey} from "./constants/auth.constants";
 
 // @ts-ignore
