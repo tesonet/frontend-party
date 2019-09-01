@@ -14,7 +14,7 @@ const ServerList: React.FC<RouteComponentProps> = props => {
   if (!token) props.history.replace('/');
 
   return (
-    <div>
+    <React.Fragment>
       <div className={'flex justify-between items-center my-5 mx-4'}>
         <Branding textColor={'text-black'} />
         <Button
@@ -24,7 +24,7 @@ const ServerList: React.FC<RouteComponentProps> = props => {
         />
       </div>
       <Table />
-    </div>
+    </React.Fragment>
   );
 };
 
