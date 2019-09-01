@@ -28,22 +28,28 @@ const Table: React.FC = () => {
   }, []);
 
   return (
-    <table className={'table-auto w-full'}>
+    <table className={'w-full'}>
       <tbody>
-        <tr className={'border-solid'}>
-          <th align={'left'}>SERVER</th>
-          <th align={'right'}>DISTANCE</th>
+        <tr className={'border-solid bg-gray-200 h-16'}>
+          <th align={'left'}>
+            <span className={'mx-4'}>SERVER</span>
+          </th>
+          <th align={'right'}>
+            <span className={'mx-4'}>DISTANCE</span>
+          </th>
         </tr>
         {error ? <h1>Error: {error.message}</h1> : null}
         {servers.map(server => (
           <tr
             key={`${server.name}${server.distance}`}
-            className={'border-solid border-2 border-gray-300 text-gray-600'}
+            className={'border-solid border-t-2 border-gray-300 text-gray-600'}
           >
             <td align={'left'} className={'py-3'}>
-              {server.name}
+              <span className={'mx-4'}>{server.name}</span>
             </td>
-            <td align={'right'}>{server.distance} km</td>
+            <td align={'right'}>
+              <span className={'mx-4'}>{server.distance} km </span>
+            </td>
           </tr>
         ))}
       </tbody>
