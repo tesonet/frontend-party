@@ -5,7 +5,7 @@ import Branding from '../Branding';
 
 const LoginPage: React.FC = () => {
   return (
-    <div className="background-img h-screen flex justify-center items-center">
+    <div className={'background-img h-screen flex justify-center items-center'}>
       <div>
         <Branding textColor={'text-white'} />
         <Form />

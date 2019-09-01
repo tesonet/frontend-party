@@ -2,7 +2,7 @@ import React from 'react';
 import { IProps } from './Button.interface';
 
 const Button: React.FC<IProps> = props => {
-  const { classes = '', text } = props;
+  const { classes = '', text, disabled = false } = props;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = (e: any) => {
@@ -11,7 +11,11 @@ const Button: React.FC<IProps> = props => {
   };
 
   return (
-    <button onClick={handleSubmit} className={`hover:bg-brand-hover px-4 p-2 ${classes}`}>
+    <button
+      onClick={handleSubmit}
+      className={`hover:bg-brand-hover px-4 p-2 ${classes}`}
+      disabled={disabled}
+    >
       {text}
     </button>
   );
