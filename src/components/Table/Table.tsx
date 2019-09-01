@@ -41,9 +41,11 @@ const Table: React.FC = () => {
             className={'border-solid border-t-2 border-gray-300 text-gray-600'}
           >
             <td align={'left'} className={'py-3'}>
-              {server.name}
+              <span className={'mx-4'}>{server.name}</span>
             </td>
-            <td align={'right'}>{server.distance} km</td>
+            <td align={'right'}>
+              <span className={'mx-4'}>{server.distance} km </span>
+            </td>
           </tr>
         ))}
       </tbody>
