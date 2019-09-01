@@ -28,7 +28,7 @@ const Table: React.FC = () => {
   }, []);
 
   return (
-    <table className={'table-auto w-full'}>
+    <table className={'w-full'}>
       <tbody>
         <tr className={'border-solid'}>
           <th align={'left'}>SERVER</th>
@@ -38,7 +38,7 @@ const Table: React.FC = () => {
         {servers.map(server => (
           <tr
             key={`${server.name}${server.distance}`}
-            className={'border-solid border-2 border-gray-300 text-gray-600'}
+            className={'border-solid border-t-2 border-gray-300 text-gray-600'}
           >
             <td align={'left'} className={'py-3'}>
               {server.name}
