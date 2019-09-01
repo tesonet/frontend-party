@@ -9,6 +9,7 @@ const Button: React.FC<{
     isLoading?: boolean
 }> = (props) => {
     const {buttonStyle, extraClasses, type, isLoading, title} = props;
+
     return (
         <button className={`button button--${buttonStyle} ${extraClasses}`}
                 type={type}

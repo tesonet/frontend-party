@@ -3,11 +3,11 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import SignInPage from "./routes/LoginPage/LoginPage";
 import HomePage from "./routes/HomePage/HomePage";
 import ErrorPage from "./routes/ErrorPage/ErrorPage";
-import {localStorageKey} from "./constants/auth.constants";
+import {LOCAL_STORAGE_TOKEN_KEY} from "./constants/auth.constants";
 
 // @ts-ignore
 const LoggedInRoute = ({ component: Component, ...rest }) => {
-    const token = localStorage.getItem(localStorageKey);
+    const token = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
 
     return (
         <Route {...rest} render={(props) => (
@@ -20,7 +20,7 @@ const LoggedInRoute = ({ component: Component, ...rest }) => {
 
 // @ts-ignore
 const SignInRoute = ({ component: Component, ...rest }) => {
-    const token = localStorage.getItem(localStorageKey);
+    const token = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
 
     return (
         <Route {...rest} render={(props) => (
@@ -34,6 +34,7 @@ const SignInRoute = ({ component: Component, ...rest }) => {
 
 const App = () => (
     <div className="app-routes">
+        <b>{process.env.REACT_APP_API_URL}</b>
         <Switch>
             <SignInRoute exact path="/sign-in" component={SignInPage}/>
             <LoggedInRoute exact path="/" component={HomePage}/>

@@ -1,2 +1,1 @@
-export const localStorageKey = 'jwtToken';
-
+export const LOCAL_STORAGE_TOKEN_KEY = 'jwtToken';

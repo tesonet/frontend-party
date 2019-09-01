@@ -20,17 +20,15 @@ const InputField: React.FC<{
                    onChange={onChange}
                    value={value}
             />
-            { !!children ?
+            { !!children &&
                 <span className="form-group__icon">
                     {children}
                 </span>
-                : null
             }
-            { error ?
+            { error &&
                 <label className="form-control__label form-control__label--error">
                     {error}
                 </label>
-                : null
             }
         </div>
     );

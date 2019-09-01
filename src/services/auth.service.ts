@@ -1,7 +1,7 @@
-import {localStorageKey} from "../constants/auth.constants";
+import {LOCAL_STORAGE_TOKEN_KEY} from "../constants/auth.constants";
 
 function login(username: string, password: string): Promise<boolean> {
-    return new Promise<boolean>(resolve => fetch('http://playground.tesonet.lt/v1/tokens', {
+    return new Promise<boolean>(resolve => fetch(`${process.env.REACT_APP_API_URL}tokens`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -16,7 +16,7 @@ function login(username: string, password: string): Promise<boolean> {
                 if (data) {
                     // Successful login
                     if (data.token) {
-                        localStorage.setItem(localStorageKey, data.token);
+                        localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, data.token);
                         resolve(true);
                     } else if (data.message) {
                         resolve(false);
@@ -28,9 +28,9 @@ function login(username: string, password: string): Promise<boolean> {
 }
 
 function logout(): Promise<void> {
-    const token = localStorage.getItem(localStorageKey);
+    const token = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
     if (token) {
-        localStorage.removeItem(localStorageKey);
+        localStorage.removeItem(LOCAL_STORAGE_TOKEN_KEY);
     }
     return new Promise<void>(resolve => resolve());
 }

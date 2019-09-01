@@ -1,3 +1,5 @@
+@import "../../assets/styles/variables";
+
 .header {
   padding: 42px 15px 30px 15px;
 
@@ -7,7 +9,7 @@
       font-weight: 300;
       font-size: 14px;
       line-height: 30px;
-      color: #2F3254;
+      color: $link-color;
 
       & > svg {
         margin-right: 10px;
@@ -15,9 +17,10 @@
       }
 
       &:hover {
-        color: #99cc33;
+        color: $green-color;
+
         svg {
-          fill: #99cc33!important;
+          fill: $green-color !important;
         }
       }
     }

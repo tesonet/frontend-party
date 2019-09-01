@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import "./LoginPage.scss";
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 const LoginPage: React.FC = () => {
     return (

@@ -1,10 +1,10 @@
 import {CLEAR_SERVERS, FETCH_SERVERS} from "./index";
-import {localStorageKey} from "../constants/auth.constants";
+import {LOCAL_STORAGE_TOKEN_KEY} from "../constants/auth.constants";
 
 export const fetchServers = () => (dispatch: any) => {
-    const token = localStorage.getItem(localStorageKey);
+    const token = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
 
-    fetch('http://playground.tesonet.lt/v1/servers', {
+    fetch(`${process.env.REACT_APP_API_URL}servers`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -12,6 +12,13 @@ export const fetchServers = () => (dispatch: any) => {
             'Authorization': `Bearer ${token}`,
         }
     }).then(res => res.json())
+        .catch(error => {
+            dispatch({
+                type: FETCH_SERVERS,
+                payload: [],
+                isLoading: false
+            })
+        })
         .then(servers => dispatch({
             type: FETCH_SERVERS,
             payload: servers,

@@ -14,14 +14,10 @@ interface StateInterface {
 }
 
 class LoginForm extends Component<any, StateInterface> {
-    //@TODO: Remove username and password init values
     state: StateInterface = {
         submitted: false,
         invalid: false,
         isLoading: false,
-
-        username: 'tesonet',
-        password: 'partyanimal'
     };
 
     constructor(props: any) {

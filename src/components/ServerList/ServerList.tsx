@@ -17,25 +17,44 @@ class ServerList extends Component<any, any> {
     createList() {
         const servers: ServerInterface[] = this.props.servers;
 
-        if (servers && !Array.isArray(servers)) {
-            return (<tr>
-                <td>No servers found</td>
-            </tr>)
+        if (this.props.isLoading) {
+            return (
+                <tr>
+                    <td>
+                        <div className="d-flex justify-content-center">
+                            <div className="spinner-border" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            )
         }
+
+        if (((servers && !servers.length) || !servers)) {
+            return (
+                <tr>
+                    <td>No servers found</td>
+                </tr>)
+        }
+
         return servers.sort((a, b) => {
             return a.distance - b.distance || +a.name - +b.name;
         }).map((server, i) => {
             return (
                 <tr key={i}>
-                    <td scope="row">{server.name}</td>
-                    <td className="text-right">{server.distance} km</td>
+                    <td>
+                        <span>{server.name}</span>
+                    </td>
+                    <td className="text-right">
+                        <span>{server.distance} km</span>
+                    </td>
                 </tr>
             )
         });
     }
 
     render() {
-        const isLoading = this.props.isLoading;
         return (
             <div>
                 <table className="table server-list">
@@ -50,14 +69,7 @@ class ServerList extends Component<any, any> {
                     {this.createList()}
                     </tbody>
                 </table>
-                {isLoading ?
-                    <div className="d-flex justify-content-center">
-                        <div className="spinner-border" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </div>
-                    </div>
-                    : null
-                }
+
             </div>
         );
     }

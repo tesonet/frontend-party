@@ -1,14 +1,34 @@
+@import "../../assets/styles/variables";
+
 .table.server-list {
+  margin-bottom: 0;
+
+  thead, tbody, td, th {
+    display: block;
+  }
+
+  tr {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100vw;
+  }
+
   th, td {
     font-weight: 300;
     line-height: 30px;
+    float: left;
+    border: 0;
+    border-bottom: 1px solid $border-grey-color;
+    white-space: nowrap;
+
+    &:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-grow: 1;
+    }
   }
 
   thead {
-    background: #F5F5F5;
-    text-transform: uppercase;
-
-
     th {
       color: #999999;
       letter-spacing: 1.4px;
@@ -16,21 +36,29 @@
       padding: 18px 14px 10px 14px;
       border-color: #E6E6E6;
       border-width: 1px;
+      background: #F5F5F5;
+      text-transform: uppercase;
+      border-top: 1px solid $border-grey-color;
     }
   }
 
   tbody {
-    tr {
-      &:hover {
-        background: rgba(230, 230, 230, .2);
-        cursor: pointer;
-      }
-      td {
-        height: 58px;
-        padding: 15px 15px 9px;
-        font-size: 16px;
-        letter-spacing: 0.4px;
-        color: #666666;
+    height: calc(100vh - 176px);
+    overflow-y: auto;
+    width: 100%;
+
+    td {
+      height: 58px;
+      padding: 15px 15px 9px;
+      font-size: 16px;
+      letter-spacing: 0.4px;
+      color: #666666;
+
+      span {
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
     }
   }
