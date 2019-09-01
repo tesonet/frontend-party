@@ -15,7 +15,7 @@ const ServerList: React.FC<RouteComponentProps> = props => {
 
   return (
     <div>
-      <div className={'flex justify-between items-center my-5'}>
+      <div className={'flex justify-between items-center my-5 mx-4'}>
         <Branding textColor={'text-black'} />
         <Button
           text={'Logout'}

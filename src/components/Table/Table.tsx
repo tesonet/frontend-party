@@ -30,7 +30,7 @@ const Table: React.FC = () => {
   return (
     <table className={'w-full'}>
       <tbody>
-        <tr className={'border-solid'}>
+        <tr className={'border-solid bg-gray-200 h-16'}>
           <th align={'left'}>SERVER</th>
           <th align={'right'}>DISTANCE</th>
         </tr>

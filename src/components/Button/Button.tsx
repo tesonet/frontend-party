@@ -11,7 +11,7 @@ const Button: React.FC<IProps> = props => {
   };
 
   return (
-    <button onClick={handleSubmit} className={`hover:bg-brand-hover font-bold px-4 p-2 ${classes}`}>
+    <button onClick={handleSubmit} className={`hover:bg-brand-hover px-4 p-2 ${classes}`}>
       {text}
     </button>
   );

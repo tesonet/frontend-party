@@ -51,7 +51,7 @@ const Form: React.FC<RouteComponentProps> = props => {
       <Button
         text="Log In"
         onClick={handleLogin}
-        classes={'rounded text-white bg-brand-main w-full hover:bg-brand-hover-1'}
+        classes={'rounded text-white bg-brand-main w-full hover:bg-brand-hover-1 font-bold'}
       />
     </form>
   );
