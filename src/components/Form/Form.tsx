@@ -48,7 +48,11 @@ const Form: React.FC<RouteComponentProps> = props => {
     <form action="submit" className={'w-full max-w-sm'}>
       <Input placeholder={'Username'} type={'text'} onChange={onInputChange} value={username} />
       <Input placeholder={'Password'} type={'password'} onChange={onInputChange} value={password} />
-      <Button text="Log In" onClick={handleLogin} />
+      <Button
+        text="Log In"
+        onClick={handleLogin}
+        classes={'rounded text-white bg-brand-main w-full hover:bg-brand-hover-1'}
+      />
     </form>
   );
 };

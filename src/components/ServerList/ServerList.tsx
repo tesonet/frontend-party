@@ -15,13 +15,15 @@ const ServerList: React.FC<RouteComponentProps> = props => {
 
   return (
     <div>
-      <div className={'flex justify-between'}>
+      <div className={'flex justify-between items-center my-5'}>
         <Branding textColor={'text-black'} />
-        <Button text={'Logout'} onClick={handleLogout} />
+        <Button
+          text={'Logout'}
+          onClick={handleLogout}
+          classes={'text-black border-solid border-2 border-blue-700'}
+        />
       </div>
-      <div>
-        <Table />
-      </div>
+      <Table />
     </div>
   );
 };
