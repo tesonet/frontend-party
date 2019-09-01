@@ -39,6 +39,29 @@ const Table: React.FC = () => {
     }
   }, []);
 
+  /**
+   * Sorting could be extracted to a 'util' function
+   * lodash lib could be used too - but it is rather heavy
+   */
+  const sort = (type: string) => {
+    if (servers.length < 2) return;
+    const copyServers = [...servers];
+    switch (type) {
+      case 'name':
+        copyServers.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+        break;
+      case 'distance':
+        copyServers.sort((a, b) =>
+          a.distance > b.distance ? 1 : b.distance > a.distance ? -1 : 0
+        );
+        break;
+      default:
+        console.warn('invalid sorting property');
+        break;
+    }
+    setServers(copyServers);
+  };
+
   return (
     <React.Fragment>
       {error && !isFetching ? <h1>Error: {error.message}</h1> : null}
@@ -47,10 +70,14 @@ const Table: React.FC = () => {
         <tbody>
           <tr className={'border-solid bg-gray-200 h-16'}>
             <th align={'left'}>
-              <span className={'mx-4'}>SERVER</span>
+              <span className={'mx-4'} onClick={() => sort('name')}>
+                SERVER
+              </span>
             </th>
             <th align={'right'}>
-              <span className={'mx-4'}>DISTANCE</span>
+              <span className={'mx-4'} onClick={() => sort('distance')}>
+                DISTANCE
+              </span>
             </th>
           </tr>
           {servers.map(server => (
