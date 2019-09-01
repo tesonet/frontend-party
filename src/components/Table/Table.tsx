@@ -3,6 +3,11 @@ import React, { useEffect, useState } from 'react';
 
 import { IAPIResponse } from './Table.interface';
 
+/**
+ * Table to dipslay the data fetch from the api
+ * Could be turned into scrollable table with fixed header
+ */
+
 const Table: React.FC = () => {
   const [servers, setServers] = useState<IAPIResponse[]>([]);
   const [error, setError] = useState<Error | null>(null);
