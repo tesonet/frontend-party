@@ -31,8 +31,12 @@ const Table: React.FC = () => {
     <table className={'w-full'}>
       <tbody>
         <tr className={'border-solid bg-gray-200 h-16'}>
-          <th align={'left'}>SERVER</th>
-          <th align={'right'}>DISTANCE</th>
+          <th align={'left'}>
+            <span className={'mx-4'}>SERVER</span>
+          </th>
+          <th align={'right'}>
+            <span className={'mx-4'}>DISTANCE</span>
+          </th>
         </tr>
         {error ? <h1>Error: {error.message}</h1> : null}
         {servers.map(server => (
