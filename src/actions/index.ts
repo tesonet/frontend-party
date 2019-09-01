@@ -1,1 +1,2 @@
 export const FETCH_SERVERS = 'FETCH_SERVERS';
+export const CLEAR_SERVERS = 'CLEAR_SERVERS';

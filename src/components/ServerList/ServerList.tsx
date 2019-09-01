@@ -27,8 +27,8 @@ class ServerList extends Component<any, any> {
         }).map((server, i) => {
             return (
                 <tr key={i}>
-                    <th scope="row">{server.name}</th>
-                    <th className="text-right">{server.distance} km</th>
+                    <td scope="row">{server.name}</td>
+                    <td className="text-right">{server.distance} km</td>
                 </tr>
             )
         });

@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import SignInPage from "./routes/LoginPage/LoginPage";
 import HomePage from "./routes/HomePage/HomePage";
-import GenericNotFound from "./routes/GenericNotFound/GenericNotFound";
+import ErrorPage from "./routes/ErrorPage/ErrorPage";
 import {localStorageKey} from "./constants/auth.constants";
 
 // @ts-ignore
@@ -37,7 +37,7 @@ const App = () => (
         <Switch>
             <SignInRoute exact path="/sign-in" component={SignInPage}/>
             <LoggedInRoute exact path="/" component={HomePage}/>
-            <Route component={GenericNotFound}/>
+            <Route component={ErrorPage}/>
         </Switch>
     </div>
 );

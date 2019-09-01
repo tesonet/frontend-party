@@ -3,7 +3,7 @@ import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
-import {userService} from "../../services/auth.service";
+import {authService} from "../../services/auth.service";
 
 interface StateInterface {
     username?: string;
@@ -35,7 +35,7 @@ class LoginForm extends Component<any, StateInterface> {
             isLoading: true
         });
 
-        userService.login(username, password).then((success: boolean) => {
+        authService.login(username, password).then((success: boolean) => {
             if (success) {
                 this.props.history.push('/');
             } else {

@@ -8,7 +8,7 @@ const LoginPage: React.FC = () => {
         <div className="main">
             <div className="container d-flex align-items-center justify-content-center h-100">
                 <div className="d-flex flex-column align-items-center">
-                    <div className="logo mb-5"/>
+                    <div className="logo"/>
                     <LoginForm/>
                 </div>
             </div>

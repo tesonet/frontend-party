@@ -27,6 +27,15 @@ function login(username: string, password: string): Promise<boolean> {
     );
 }
 
-export const userService = {
-    login
+function logout(): Promise<void> {
+    const token = localStorage.getItem(localStorageKey);
+    if (token) {
+        localStorage.removeItem(localStorageKey);
+    }
+    return new Promise<void>(resolve => resolve());
+}
+
+export const authService = {
+    login,
+    logout
 };

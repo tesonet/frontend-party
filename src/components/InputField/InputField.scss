@@ -24,6 +24,10 @@ $input-height: 56px;
       letter-spacing: 0.4px;
       color: #999;
 
+      @media only screen and (max-width: 576px) {
+        width: 100%;
+      }
+
       &--error {
         border-color: red;
       }

@@ -1,4 +1,4 @@
-import {FETCH_SERVERS} from "./index";
+import {CLEAR_SERVERS, FETCH_SERVERS} from "./index";
 import {localStorageKey} from "../constants/auth.constants";
 
 export const fetchServers = () => (dispatch: any) => {
@@ -17,4 +17,10 @@ export const fetchServers = () => (dispatch: any) => {
             payload: servers,
             isLoading: false
         }));
+};
+
+export const clearServers = () => (dispatch: any) => {
+    dispatch({
+        type: CLEAR_SERVERS
+    })
 };

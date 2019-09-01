@@ -15,7 +15,7 @@ const InputField: React.FC<{
         <div className="form-group">
             <input type={type}
                    name={name}
-                   className={`form-control ${extraClasses} ${error ? 'form-control--error' : ''}`}
+                   className={`form-control ${extraClasses || ''} ${error ? 'form-control--error' : ''} w-md-100`}
                    placeholder={placeholder}
                    onChange={onChange}
                    value={value}
