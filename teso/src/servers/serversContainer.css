@@ -1,0 +1,18 @@
+.servers__table {
+    color: #666666;
+    font-family: "Roboto Light";
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    line-height: 30px;
+}
+
+.servers__table__header {
+    text-transform: uppercase;
+    background-color: #f5f5f5;
+}
+
+.servers__table__row {
+    border-color: #f5f5f5;
+    border-bottom-width: 1px;
+}

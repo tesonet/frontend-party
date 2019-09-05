@@ -1,0 +1,8 @@
+.header__logout-button:hover {
+    background-color: #99cc33;
+    color: #ffffff;
+}
+
+.header__logout-button {
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+}
