@@ -6,10 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import { Router, Switch, Route } from 'react-router';
 import { getHistory } from './routing/history';
 
-function getBrowserHistory() {
-    return getHistory();
-}
-
 function renderAppliction(history: any) {
     ReactDOM.render(
             <Router history={history}>
@@ -22,7 +18,7 @@ function renderAppliction(history: any) {
 }
 
 function runApplication() {
-    const history = getBrowserHistory();
+    const history = getHistory();
     renderAppliction(history);
 }
 
