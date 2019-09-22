@@ -1,0 +1,21 @@
+@import "../../common/styles/mixins/media.queries.scss";
+
+.background {
+  width: 200px;
+  height: 200px;
+  display: block;
+
+  &::after {
+    content: "";
+    background: url(../../resources/svg/background.svg);
+    background-color: #0b0f27;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-position: center;
+    z-index: -1;
+  }
+}
