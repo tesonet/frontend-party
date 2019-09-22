@@ -1,0 +1,61 @@
+@import '../styles/colors.scss';
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 360px;
+  text-align: center;
+}
+
+.login__logo {
+  margin-bottom: 70px;
+}
+
+.login-form {
+  & > * {
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__username, &__password {
+    padding-left: 54px;
+    font-weight: 300;
+    background-repeat: no-repeat;
+    background-position: 25px 20px;
+    color: $darkgray;
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+
+  &__username {
+    background-image: url("../assets/images/icon-username.svg");
+  }
+
+  &__password {
+    background-image: url("../assets/images/icon-password.svg");
+  }
+
+  &__button {
+    background-color: $green;
+    font-weight: 700;
+    color: $white;
+
+    &:hover {
+      background-color: $darkgreen;
+    }
+  }
+}
