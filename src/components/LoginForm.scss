@@ -14,9 +14,9 @@
 }
 
 .login-form {
-  & > * {
+  &__input, &__button {
     width: 100%;
-    padding: 20px;
+    padding: 19px;
     margin: 10px 0;
     border: none;
     box-sizing: border-box;
@@ -29,11 +29,9 @@
     }
   }
 
-  &__username, &__password {
+  &__input {
     padding-left: 54px;
     font-weight: 300;
-    background-repeat: no-repeat;
-    background-position: 25px 20px;
     color: $darkgray;
 
     &::placeholder {
@@ -41,11 +39,19 @@
     }
   }
 
-  &__username {
+  &__username-icon, &__password-icon {
+    position: absolute;
+    padding: 10px;
+    margin: 27px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__username-icon {
     background-image: url("../assets/images/icon-username.svg");
   }
 
-  &__password {
+  &__password-icon {
     background-image: url("../assets/images/icon-password.svg");
   }
 

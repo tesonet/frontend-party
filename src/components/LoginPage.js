@@ -9,7 +9,7 @@ const LoginPage = () => {
         <div className="login-page">
             <LoginForm />
         </div>
-    )
+    );
 };
 
 export default LoginPage;
