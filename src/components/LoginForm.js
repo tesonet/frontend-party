@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import FormErrorMessage from './FormErrorMessage';
 import { loginUser as loginUserAction } from '../actions';
 import storage from '../utils/localStorage';
 import { AUTH_TOKEN_KEY } from '../constants/token';
@@ -13,7 +14,7 @@ class LoginForm extends React.Component {
     state = {
         username: '',
         password: '',
-        hasErrors: false
+        formErrors: { noUsername: false, noPassword: false }
     };
 
     componentDidMount() {
@@ -24,12 +25,6 @@ class LoginForm extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-
-        const { hasErrors, username, password } = this.state;
-
-        if (hasErrors && !!username && !!password) {
-            this.setState({ hasErrors: false });
-        }
     };
 
     handleSubmit = async event => {
@@ -37,8 +32,11 @@ class LoginForm extends React.Component {
         const { username, password } = this.state;
         event.preventDefault();
 
-        if (!username || !password) {
-            this.setState({ hasErrors: true });
+        await this.validateInputs(username, password);
+
+        const { formErrors } = this.state;
+
+        if (formErrors.noUsername || formErrors.noPassword) {
             return;
         }
 
@@ -53,17 +51,36 @@ class LoginForm extends React.Component {
         if (isAuthenticated) history.push('/');
     };
 
+    validateInputs = (username, password) => {
+        this.setState({
+            formErrors: {
+                noUsername: username.length === 0,
+                noPassword: password.length === 0
+            }
+        });
+    };
+
     render() {
-        const { username, password, hasErrors } = this.state;
+        const { username, password, formErrors } = this.state;
+        const { serverErrorType } = this.props;
+
+        const existingFormErrors = Object.keys(formErrors).filter(key => formErrors[key]);
+
+        const errors = (serverErrorType && [serverErrorType]) || existingFormErrors;
+
+        const hasErrors = errors && errors.length > 0;
+
         return (
             <div className="login">
                 <Logo className="login__logo" />
                 <form className="login-form" onSubmit={this.handleSubmit}>
-                    {hasErrors && <p>Error</p>}
+                    {hasErrors && <FormErrorMessage errors={errors} />}
                     <i className="login-form__username-icon" />
                     <input
                         name="username"
-                        className="login-form__input"
+                        className={`login-form__input ${(formErrors.noUsername ||
+                            serverErrorType) &&
+                            'login-form__input--error'}`}
                         type="text"
                         placeholder="Username"
                         value={username}
@@ -72,7 +89,9 @@ class LoginForm extends React.Component {
                     <i className="login-form__password-icon" />
                     <input
                         name="password"
-                        className="login-form__input"
+                        className={`login-form__input ${(formErrors.noPassword ||
+                            serverErrorType) &&
+                            'login-form__input--error'}`}
                         type="password"
                         placeholder="Password"
                         value={password}
@@ -85,9 +104,18 @@ class LoginForm extends React.Component {
     }
 }
 
+LoginForm.defaultProps = {
+    serverErrorType: null
+};
+
 LoginForm.propTypes = {
     loginUser: PropTypes.func.isRequired,
-    history: PropTypes.objectOf(PropTypes.any).isRequired
+    history: PropTypes.objectOf(PropTypes.any).isRequired,
+    serverErrorType: PropTypes.string
+};
+
+const mapStateToProps = state => {
+    return { serverErrorType: state.login.errorType };
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -95,6 +123,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(withRouter(LoginForm));
