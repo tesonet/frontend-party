@@ -2,7 +2,7 @@ import { decorate, observable, action } from 'mobx';
 import { getHistory } from './history';
 
 const history = getHistory();
-export const DEFAULT_ROUTE = '/log-in';
+export const DEFAULT_ROUTE = '/';
 
 class RouteStore {
     public currentRoute: string | null;

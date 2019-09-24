@@ -1,6 +1,11 @@
-import AuthenticationService from './authentication.service';
-import { runInAction, decorate, action, observable } from 'mobx';
 import routeStore from '../../routing/store';
+import {
+	action,
+	decorate,
+	observable,
+	runInAction
+	} from 'mobx';
+import { AuthenticationService } from './services/authentication.service';
 
 export interface ILoginData {
 	[index: string]: string;
@@ -21,22 +26,24 @@ export class AuthStore {
 		this.isLoggingIn = true;
 
 		this.isLoggedIn = await this.authService.login(loginData);
+
 		runInAction(() => {
 			this.isLoggingIn = this.authService.isUserLoggedIn();
 			console.log(this.authService.isUserLoggedIn());
-			if (this.isLoggedIn) {
-				routeStore.changeRoute('/servers')
-			}
 		});
+
+		if (this.isLoggedIn) {
+			routeStore.changeRoute('/')
+		}
 	}
 
-	public logOutUser = async () => {
+	public logOutUser = () => {
 		this.authService.logout();
 
-		runInAction(() => {
+
 			this.isLoggedIn = this.authService.isUserLoggedIn();
-			routeStore.changeRouteToDefault()
-		})
+			routeStore.changeRoute('/log-in');
+
 	}
 }
 

@@ -1,7 +1,8 @@
-import { LOCAL_STORAGE_TOKEN, API_URL } from '../../common/constants/auth.constant';
-import { ILoginData } from './store';
+import { API_URL } from '../../../common/constants/api.config';
+import { ILoginData } from '../store';
+import { LOCAL_STORAGE_TOKEN } from '../../../common/constants/auth.constant';
 
-class AuthenticationService {
+export class AuthenticationService {
 	public login(credentials: ILoginData): Promise<boolean> {
 		return new Promise<boolean>(resolve => fetch(
 			`${API_URL}tokens`,
@@ -23,17 +24,6 @@ class AuthenticationService {
 		);
 	}
 
-	public async logout() {
-		const token = await localStorage.getItem(LOCAL_STORAGE_TOKEN);
-		if (token) {
-			await localStorage.removeItem(LOCAL_STORAGE_TOKEN);
-		}
-	}
-
-	public isUserLoggedIn(): boolean {
-		return localStorage.getItem(LOCAL_STORAGE_TOKEN) ? true : false;
-	}
-
 	private setParams(credentials: ILoginData, method: string) {
 		const { username, password } = credentials;
 
@@ -50,9 +40,18 @@ class AuthenticationService {
 		}
 	}
 
+	public logout() {
+		const token = localStorage.getItem(LOCAL_STORAGE_TOKEN);
+		if (token) {
+			localStorage.removeItem(LOCAL_STORAGE_TOKEN);
+		}
+	}
+
 	private setLocalStorage(token: any) {
 		localStorage.setItem(LOCAL_STORAGE_TOKEN, token);
 	}
-}
 
-export default AuthenticationService;
+	public isUserLoggedIn(): boolean {
+		return localStorage.getItem(LOCAL_STORAGE_TOKEN) ? true : false;
+	}
+}
