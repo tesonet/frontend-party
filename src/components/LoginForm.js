@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -10,99 +10,91 @@ import { AUTH_TOKEN_KEY } from '../constants/token';
 import { ReactComponent as Logo } from '../assets/images/logo-testio.svg';
 import './LoginForm.scss';
 
-class LoginForm extends React.Component {
-    state = {
+const LoginForm = ({ loginUser, history, serverErrorType }) => {
+    const [inputValues, setInputValues] = useState({
         username: '',
-        password: '',
-        formErrors: { noUsername: false, noPassword: false }
-    };
+        password: ''
+    });
+    const [formErrors, setFormErrors] = useState({ noUsername: false, noPassword: false });
 
-    componentDidMount() {
-        this.checkAuthentication(AUTH_TOKEN_KEY);
-    }
-
-    handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    };
-
-    handleSubmit = async event => {
-        const { loginUser } = this.props;
-        const { username, password } = this.state;
-        event.preventDefault();
-
-        await this.validateInputs(username, password);
-
-        const { formErrors } = this.state;
-
-        if (formErrors.noUsername || formErrors.noPassword) {
-            return;
-        }
-
-        await loginUser({ username, password });
-        this.checkAuthentication(AUTH_TOKEN_KEY);
-    };
-
-    checkAuthentication = key => {
-        const { history } = this.props;
+    const checkAuthentication = key => {
         const isAuthenticated = !!storage.get(key);
 
         if (isAuthenticated) history.push('/');
     };
 
-    validateInputs = (username, password) => {
-        this.setState({
-            formErrors: {
-                noUsername: username.length === 0,
-                noPassword: password.length === 0
-            }
+    useEffect(() => {
+        checkAuthentication(AUTH_TOKEN_KEY);
+    }, []);
+
+    const validateInputs = () => {
+        const isUsernameEmpty = inputValues.username.length === 0;
+        const isPasswordEmpty = inputValues.password.length === 0;
+
+        setFormErrors({
+            noUsername: isUsernameEmpty,
+            noPassword: isPasswordEmpty
+        });
+
+        return isUsernameEmpty || isPasswordEmpty;
+    };
+
+    const handleChange = event => {
+        setInputValues({
+            ...inputValues,
+            [event.target.name]: event.target.value
         });
     };
 
-    render() {
-        const { username, password, formErrors } = this.state;
-        const { serverErrorType } = this.props;
+    const handleSubmit = async event => {
+        event.preventDefault();
 
-        const existingFormErrors = Object.keys(formErrors).filter(key => formErrors[key]);
+        const areEmptyInputs = validateInputs();
 
-        const errors = (serverErrorType && [serverErrorType]) || existingFormErrors;
+        if (areEmptyInputs) return;
 
-        const hasErrors = errors && errors.length > 0;
+        await loginUser({ inputValues });
+        checkAuthentication(AUTH_TOKEN_KEY);
+    };
 
-        return (
-            <div className="login">
-                <Logo className="login__logo" />
-                <form className="login-form" onSubmit={this.handleSubmit}>
-                    {hasErrors && <FormErrorMessage errors={errors} />}
-                    <i className="login-form__username-icon" />
-                    <input
-                        name="username"
-                        className={`login-form__input ${(formErrors.noUsername ||
-                            serverErrorType) &&
-                            'login-form__input--error'}`}
-                        type="text"
-                        placeholder="Username"
-                        value={username}
-                        onChange={this.handleChange}
-                    />
-                    <i className="login-form__password-icon" />
-                    <input
-                        name="password"
-                        className={`login-form__input ${(formErrors.noPassword ||
-                            serverErrorType) &&
-                            'login-form__input--error'}`}
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={this.handleChange}
-                    />
-                    <input className="login-form__button" type="submit" value="Log In" />
-                </form>
-            </div>
-        );
-    }
-}
+    const existingFormErrors = Object.keys(formErrors).filter(key => formErrors[key]);
+
+    const errors = (serverErrorType && [serverErrorType]) || existingFormErrors;
+
+    const hasErrors = errors && errors.length > 0;
+
+    return (
+        <div className="login">
+            <Logo className="login__logo" />
+            <form className="login-form" onSubmit={handleSubmit}>
+                {hasErrors && <FormErrorMessage errors={errors} />}
+                <i className="login-form__username-icon" />
+                <input
+                    name="username"
+                    className={`login-form__input ${(formErrors.noUsername || serverErrorType) &&
+                        'login-form__input--error'}`}
+                    type="text"
+                    placeholder="Username"
+                    value={inputValues.username}
+                    onChange={handleChange}
+                    maxLength="35"
+                />
+                <i className="login-form__password-icon" />
+                <input
+                    name="password"
+                    className={`login-form__input ${(formErrors.noPassword || serverErrorType) &&
+                        'login-form__input--error'}`}
+                    type="password"
+                    placeholder="Password"
+                    value={inputValues.password}
+                    onChange={handleChange}
+                    maxLength="35"
+                />
+                <input className="login-form__button" type="submit" value="Log In" />
+            </form>
+        </div>
+    );
+};
 
 LoginForm.defaultProps = {
     serverErrorType: null
