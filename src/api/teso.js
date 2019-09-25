@@ -6,6 +6,15 @@ export const getUserToken = user => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ...user })
+        body: JSON.stringify(user)
+    });
+};
+
+export const getServersList = userToken => {
+    return fetch(`${API_URL}/servers`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${userToken}`
+        }
     });
 };

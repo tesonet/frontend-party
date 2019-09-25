@@ -32,10 +32,10 @@
   &__input {
     padding-left: 54px;
     font-weight: 300;
-    color: $darkgray;
+    color: $dustygray;
 
     &::placeholder {
-      color: $gray;
+      color: $nobel;
     }
 
     &--error {
@@ -49,6 +49,7 @@
 
   &__username-icon, &__password-icon {
     position: absolute;
+    display: block;
     padding: 10px;
     margin: 27px 24px;
     background-repeat: no-repeat;
@@ -64,12 +65,20 @@
   }
 
   &__button {
-    background-color: $green;
+    background-color: $atlantis;
     font-weight: 700;
     color: $white;
 
     &:hover {
-      background-color: $darkgreen;
+      background-color: $limeade;
+    }
+  }
+
+  &__spinner {
+    height: 15px;
+
+    path {
+      fill: $mercury;
     }
   }
 }

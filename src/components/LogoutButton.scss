@@ -1,0 +1,25 @@
+@import '../styles/colors.scss';
+
+.logout-button {
+  display: flex;
+  font-weight: 300;
+  font-size: 14px;
+  color: $martinique;
+  background-color: transparent;
+  letter-spacing: 0.35px;
+  border: 1px solid $mercury;
+  padding: 7px 10px;
+  user-select: none;
+
+  &:hover {
+    background-color: $atlantis;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+}

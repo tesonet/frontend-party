@@ -1,0 +1,9 @@
+.page-header {
+  display: flex;
+  padding: 41px 15px;
+  min-width: 300px;
+
+  &__button {
+    margin-left: auto;
+  }
+}

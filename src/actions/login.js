@@ -8,12 +8,21 @@ const loginSuccess = payload => ({
     payload
 });
 
+const loginPending = () => ({
+    type: LOGIN_ACTION_TYPES.LOGIN_PENDING
+});
+
 const loginFail = payload => ({
     type: LOGIN_ACTION_TYPES.LOGIN_FAIL,
     payload
 });
 
+export const logoutUser = () => ({
+    type: LOGIN_ACTION_TYPES.LOGOUT
+});
+
 export const loginUser = user => async dispatch => {
+    dispatch(loginPending());
     const response = await getUserToken(user);
 
     if (response && response.ok) {

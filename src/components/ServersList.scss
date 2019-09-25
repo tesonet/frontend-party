@@ -1,0 +1,70 @@
+@import '../styles/colors.scss';
+
+.servers {
+  min-width: 300px;
+  width: 100%;
+  line-height: 58px;
+  font-weight: 300;
+  color: $dovegray;
+  letter-spacing: 0.4px;
+
+  &__header {
+    background-color: $wildsand;
+    border-top: 1px solid $mercury;
+    user-select: none;
+    color: $dustygray;
+    font-size: 14px;
+  }
+
+  &__header-row {
+    display: flex;
+    width: 100%;
+  }
+
+  &__server,
+  &__distance {
+    cursor: pointer;
+    font-weight: 300;
+    &:before,
+    &:after {
+      border: 4px solid transparent;
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &:before {
+      border-bottom-color: $dovegray;
+      margin-top: 18px;
+      float: right;
+    }
+    &:after {
+      border-top-color: $dovegray;
+      margin: 7px -8px 0 10px;
+    }
+  }
+
+  &__header,
+  &__item {
+    display: flex;
+    padding: 0 15px;
+    border-bottom: 1px solid $mercury;
+  }
+
+  &__item-distance,
+  &__distance {
+    margin-left: auto;
+    float: right;
+  }
+
+  &__spinner {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+
+    path {
+      fill: $mercury;
+    }
+  }
+}
+
