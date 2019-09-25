@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import storage from '../utils/localStorage';
-import { AUTH_TOKEN_KEY } from '../constants/token';
-import { serversList as serversListAction } from '../actions/servers';
-import ServersErrorMessage from './ServersErrorMessage';
-import { ReactComponent as Spinner } from '../assets/images/spinner.svg';
+import storage from '../../utils/localStorage';
+import { AUTH_TOKEN_KEY } from '../../constants/token';
+import { serversList as serversListAction } from '../../actions/servers';
+import ServersErrorMessage from '../ServersErrorMessage/ServersErrorMessage';
+import { ReactComponent as Spinner } from '../../assets/images/spinner.svg';
 import './ServersList.scss';
 
 const ServersList = ({ fetchList, serversList, loading, serverErrorType }) => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { FORM_ERROR_MESSAGES, SERVER_ERROR_MESSAGES } from '../constants/messages';
-import { SERVER_ERROR_TYPES } from '../constants/types';
+import { FORM_ERROR_MESSAGES, SERVER_ERROR_MESSAGES } from '../../constants/messages';
+import { SERVER_ERROR_TYPES } from '../../constants/types';
 import './FormErrorMessage.scss';
 
 const serverErrorsMap = {

@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import FormErrorMessage from './FormErrorMessage';
-import { loginUser as loginUserAction } from '../actions/login';
-import storage from '../utils/localStorage';
-import { AUTH_TOKEN_KEY } from '../constants/token';
-import { ReactComponent as Logo } from '../assets/images/logo-testio-light.svg';
-import { ReactComponent as Spinner } from '../assets/images/spinner.svg';
+import FormErrorMessage from '../FormErrorMessage/FormErrorMessage';
+import { loginUser as loginUserAction } from '../../actions/login';
+import storage from '../../utils/localStorage';
+import { AUTH_TOKEN_KEY } from '../../constants/token';
+import { ReactComponent as Logo } from '../../assets/images/logo-testio-light.svg';
+import { ReactComponent as Spinner } from '../../assets/images/spinner.svg';
 import './LoginForm.scss';
 
 const LoginForm = ({ loginUser, history, loading, serverErrorType }) => {

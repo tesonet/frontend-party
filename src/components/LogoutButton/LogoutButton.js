@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { logoutUser as logoutUserAction } from '../actions/login';
-import storage from '../utils/localStorage';
-import { AUTH_TOKEN_KEY } from '../constants/token';
-import { ReactComponent as Icon } from '../assets/images/logout.svg';
+import { logoutUser as logoutUserAction } from '../../actions/login';
+import storage from '../../utils/localStorage';
+import { AUTH_TOKEN_KEY } from '../../constants/token';
+import { ReactComponent as Icon } from '../../assets/images/logout.svg';
 import './LogoutButton.scss';
 
 const LogoutButton = ({ className, history, logoutUser }) => {
