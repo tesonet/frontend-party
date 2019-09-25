@@ -10,6 +10,7 @@
   border: 1px solid $mercury;
   padding: 7px 10px;
   user-select: none;
+  cursor: pointer;
 
   &:hover {
     background-color: $atlantis;

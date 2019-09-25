@@ -2,7 +2,7 @@ import React from 'react';
 
 import ServersList from './ServersList';
 import LogoutButton from './LogoutButton';
-import { ReactComponent as Logo } from '../assets/images/logo-testio-small.svg';
+import { ReactComponent as Logo } from '../assets/images/logo-testio-dark.svg';
 import './ServersListPage.scss';
 
 const ServersListPage = () => {
