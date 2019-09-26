@@ -1,6 +1,6 @@
 import { SERVER_FETCH_ACTION_TYPES } from '../constants/types';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
     serversList: [],
     loading: false,
     errorType: ''

@@ -6,7 +6,6 @@ import ServersListPage from '../ServersListPage/ServersListPage';
 import PublicRoute from '../Routes/PublicRoute';
 import PrivateRoute from '../Routes/PrivateRoute';
 import Page404 from '../Page404/Page404';
-
 import './App.scss';
 
 const App = () => {

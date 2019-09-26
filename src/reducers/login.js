@@ -1,6 +1,6 @@
 import { LOGIN_ACTION_TYPES } from '../constants/types';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
     userToken: '',
     loading: false,
     errorType: ''

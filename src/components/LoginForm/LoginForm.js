@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import FormErrorMessage from '../FormErrorMessage/FormErrorMessage';
@@ -11,7 +10,7 @@ import { ReactComponent as Logo } from '../../assets/images/logo-testio-light.sv
 import { ReactComponent as Spinner } from '../../assets/images/spinner.svg';
 import './LoginForm.scss';
 
-const LoginForm = ({ loginUser, history, loading, serverErrorType }) => {
+const LoginForm = ({ loginUser, loading, serverErrorType }) => {
     const [inputValues, setInputValues] = useState({
         username: '',
         password: ''
@@ -21,7 +20,7 @@ const LoginForm = ({ loginUser, history, loading, serverErrorType }) => {
     const checkAuthentication = key => {
         const isAuthenticated = !!storage.get(key);
 
-        if (isAuthenticated) history.push('/');
+        if (isAuthenticated) window.location.reload();
     };
 
     const validateInputs = () => {
@@ -45,13 +44,16 @@ const LoginForm = ({ loginUser, history, loading, serverErrorType }) => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-
         const areEmptyInputs = validateInputs();
 
         if (areEmptyInputs) return;
 
-        await loginUser(inputValues);
-        checkAuthentication(AUTH_TOKEN_KEY);
+        try {
+            await loginUser(inputValues);
+            checkAuthentication(AUTH_TOKEN_KEY);
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     const existingFormErrors = Object.keys(formErrors).filter(key => formErrors[key]);
@@ -97,7 +99,6 @@ const LoginForm = ({ loginUser, history, loading, serverErrorType }) => {
 
 LoginForm.propTypes = {
     loginUser: PropTypes.func.isRequired,
-    history: PropTypes.objectOf(PropTypes.any).isRequired,
     loading: PropTypes.bool.isRequired,
     serverErrorType: PropTypes.string
 };
@@ -117,4 +118,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withRouter(LoginForm));
+)(LoginForm);
