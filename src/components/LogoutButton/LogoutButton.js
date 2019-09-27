@@ -11,7 +11,7 @@ import './LogoutButton.scss';
 const LogoutButton = ({ history, className, logoutUser }) => {
     const logout = () => {
         logoutUser();
-        storage.set(AUTH_TOKEN_KEY, '');
+        storage.remove(AUTH_TOKEN_KEY);
         history.push('/login');
     };
 
