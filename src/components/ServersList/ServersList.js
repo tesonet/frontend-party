@@ -42,42 +42,35 @@ const ServersList = ({ fetchList, serversList, loading, serverErrorType }) => {
     };
 
     return (
-        <>
-            <table className="servers">
-                <thead className="servers__header">
-                    <tr className="servers__header-row">
-                        <th className="servers__server" onClick={() => handleSort('name')}>
-                            SERVER
-                        </th>
-                        <th className="servers__distance" onClick={() => handleSort('distance')}>
-                            DISTANCE
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            {!!serverErrorType && (
-                                <ServersErrorMessage errors={[serverErrorType]} />
-                            )}
-                            {loading && <Spinner className="servers__spinner" />}
-                        </td>
-                    </tr>
-                    {servers &&
-                        servers.map(server => {
-                            return (
-                                <tr
-                                    className="servers__item"
-                                    key={`${server.name}-${server.distance}`}
-                                >
-                                    <td className="servers__item-name">{server.name}</td>
-                                    <td className="servers__item-distance">{`${server.distance} km`}</td>
-                                </tr>
-                            );
-                        })}
-                </tbody>
-            </table>
-        </>
+        <table className="servers">
+            <thead className="servers__header">
+                <tr className="servers__header-row">
+                    <th className="servers__server" onClick={() => handleSort('name')}>
+                        SERVER
+                    </th>
+                    <th className="servers__distance" onClick={() => handleSort('distance')}>
+                        DISTANCE
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {!!serverErrorType && <ServersErrorMessage errors={[serverErrorType]} />}
+                        {loading && <Spinner className="servers__spinner" />}
+                    </td>
+                </tr>
+                {servers &&
+                    servers.map(server => {
+                        return (
+                            <tr className="servers__item" key={`${server.name}-${server.distance}`}>
+                                <td className="servers__item-name">{server.name}</td>
+                                <td className="servers__item-distance">{`${server.distance} km`}</td>
+                            </tr>
+                        );
+                    })}
+            </tbody>
+        </table>
     );
 };
 
