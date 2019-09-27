@@ -8,11 +8,11 @@ import { AUTH_TOKEN_KEY } from '../../constants/token';
 import { ReactComponent as Icon } from '../../assets/images/logout.svg';
 import './LogoutButton.scss';
 
-const LogoutButton = ({ className, logoutUser }) => {
+const LogoutButton = ({ history, className, logoutUser }) => {
     const logout = () => {
         logoutUser();
         storage.set(AUTH_TOKEN_KEY, '');
-        window.location.reload();
+        history.push('/login');
     };
 
     return (
@@ -29,12 +29,13 @@ LogoutButton.defaultProps = {
 
 LogoutButton.propTypes = {
     className: PropTypes.string,
-    logoutUser: PropTypes.func.isRequired
+    logoutUser: PropTypes.func.isRequired,
+    history: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
-const mapDispatchToProps = dispatch => ({
-    logoutUser: () => dispatch(logoutUserAction())
-});
+const mapDispatchToProps = {
+    logoutUser: () => logoutUserAction()
+};
 
 export default connect(
     null,

@@ -10,8 +10,3 @@ export const SERVER_FETCH_ACTION_TYPES = {
     FETCH_PENDING: 'FETCH_PENDING',
     FETCH_FAIL: 'FETCH_FAIL'
 };
-
-export const SERVER_ERROR_TYPES = {
-    INVALID_CREDENTIALS: 'invalidCredentials',
-    UNKNOWN: 'unknown'
-};

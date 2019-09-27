@@ -1,18 +1,19 @@
-import { SERVER_FETCH_ACTION_TYPES, SERVER_ERROR_TYPES } from '../constants/types';
+import { SERVER_FETCH_ACTION_TYPES } from '../constants/actionTypes';
+import { SERVER_ERROR_TYPES } from '../constants/serverErrorTypes';
 import { getServersList } from '../api/teso';
 
-const serversFetchSuccess = payload => ({
+const serversFetchSuccess = servers => ({
     type: SERVER_FETCH_ACTION_TYPES.FETCH_SUCCESS,
-    payload
+    payload: { servers }
 });
 
 const serversFetchPending = () => ({
     type: SERVER_FETCH_ACTION_TYPES.FETCH_PENDING
 });
 
-const serversFetchFail = payload => ({
+const serversFetchFail = error => ({
     type: SERVER_FETCH_ACTION_TYPES.FETCH_FAIL,
-    payload
+    payload: { error }
 });
 
 export const serversList = userToken => async dispatch => {

@@ -13,7 +13,11 @@ const ServersList = ({ fetchList, serversList, loading, serverErrorType }) => {
     const [sortType, setSortType] = useState('asc');
 
     useEffect(() => {
-        fetchList(storage.get(AUTH_TOKEN_KEY));
+        try {
+            fetchList(storage.get(AUTH_TOKEN_KEY));
+        } catch (e) {
+            console.log(e);
+        }
     }, [fetchList]);
 
     const [servers, setServers] = useState([]);
@@ -22,10 +26,7 @@ const ServersList = ({ fetchList, serversList, loading, serverErrorType }) => {
         setServers(serversList);
     }, [serversList]);
 
-    const handleSort = event => {
-        const innerHTML = event.target.innerHTML.toLowerCase();
-        const sortKey = innerHTML === 'server' ? 'name' : innerHTML;
-
+    const handleSort = sortKey => {
         const sortedServers = [...servers].sort((a, b) =>
             a[sortKey] > b[sortKey] ? 1 : b[sortKey] > a[sortKey] ? -1 : 0
         );
@@ -45,10 +46,10 @@ const ServersList = ({ fetchList, serversList, loading, serverErrorType }) => {
             <table className="servers">
                 <thead className="servers__header">
                     <tr className="servers__header-row">
-                        <th className="servers__server" onClick={handleSort}>
+                        <th className="servers__server" onClick={() => handleSort('name')}>
                             SERVER
                         </th>
-                        <th className="servers__distance" onClick={handleSort}>
+                        <th className="servers__distance" onClick={() => handleSort('distance')}>
                             DISTANCE
                         </th>
                     </tr>
@@ -94,17 +95,15 @@ ServersList.defaultProps = {
     serverErrorType: ''
 };
 
-const mapStateToProps = state => {
-    return {
-        serversList: state.servers.serversList,
-        loading: state.servers.loading,
-        serverErrorType: state.servers.errorType
-    };
-};
-
-const mapDispatchToProps = dispatch => ({
-    fetchList: userToken => dispatch(serversListAction(userToken))
+const mapStateToProps = state => ({
+    serversList: state.servers.serversList,
+    loading: state.servers.loading,
+    serverErrorType: state.servers.errorType
 });
+
+const mapDispatchToProps = {
+    fetchList: userToken => serversListAction(userToken)
+};
 
 export default connect(
     mapStateToProps,

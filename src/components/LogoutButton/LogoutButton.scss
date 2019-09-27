@@ -1,26 +1,26 @@
 @import '../../styles/colors';
 
 .logout-button {
-  display: flex;
-  font-weight: 300;
-  font-size: 14px;
-  color: $martinique;
-  background-color: transparent;
-  letter-spacing: 0.35px;
-  border: 1px solid $mercury;
-  padding: 7px 10px;
-  user-select: none;
-  cursor: pointer;
+    display: flex;
+    font-weight: 300;
+    font-size: 14px;
+    color: $martinique;
+    background-color: transparent;
+    letter-spacing: 0.35px;
+    border: 1px solid $mercury;
+    padding: 7px 10px;
+    user-select: none;
+    cursor: pointer;
 
-  &:hover {
-    background-color: $atlantis;
-  }
+    &:hover {
+        background-color: $atlantis;
+    }
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 
-  &__icon {
-    margin-right: 10px;
-  }
+    &__icon {
+        margin-right: 10px;
+    }
 }

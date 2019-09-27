@@ -1,15 +1,15 @@
 @import '../../styles/mixins';
 
 .page-header {
-  display: flex;
-  padding: 41px 15px;
-  min-width: 300px;
+    display: flex;
+    padding: 41px 15px;
+    min-width: 300px;
 
-  @include xs {
-    padding: 31px 15px;
-  }
+    @include xs {
+        padding: 31px 15px;
+    }
 
-  &__button {
-    margin-left: auto;
-  }
+    &__button {
+        margin-left: auto;
+    }
 }

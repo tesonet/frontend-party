@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import image from '../../assets/images/cat.png';
@@ -26,4 +25,4 @@ Page404.propTypes = {
     history: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
-export default withRouter(Page404);
+export default Page404;

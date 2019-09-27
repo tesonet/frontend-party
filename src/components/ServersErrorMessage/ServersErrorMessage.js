@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { SERVER_ERROR_MESSAGES } from '../../constants/messages';
-import { SERVER_ERROR_TYPES } from '../../constants/types';
+import { SERVER_ERROR_TYPES } from '../../constants/serverErrorTypes';
 import './ServersErrorMessage.scss';
 
 const serverErrorsMap = {

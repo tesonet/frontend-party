@@ -1,0 +1,4 @@
+export const FORM_ERROR_TYPES = {
+    NO_USERNAME: 'NO_USERNAME',
+    NO_PASSWORD: 'NO_PASSWORD'
+};

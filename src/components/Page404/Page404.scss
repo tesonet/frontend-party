@@ -1,40 +1,42 @@
 @import '../../styles/colors';
 
 .page {
-  position: absolute;
-  top: 0;
-  bottom: 30%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 370px;
-  height: 100px;
-  text-align: center;
-  color: $dustygray;
+    position: absolute;
+    top: 0;
+    bottom: 30%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 370px;
+    height: 100px;
+    text-align: center;
+    color: $dustygray;
 
-  &__header{
-    color: $dovegray;
-  }
+    &__header {
+        color: $dovegray;
+    }
 
-  &__image {
-    height: 300px;
-  }
+    &__image {
+        height: 300px;
+    }
 
-  &__button {
-      font-weight: 300;
-      color: $dovegray;
-      background-color: transparent;
-      border: 1px solid $mercury;
-      padding: 7px 10px;
-      user-select: none;
-      cursor: pointer;
+    &__button {
+        display: block;
+        margin: 0 auto;
+        font-weight: 300;
+        color: $dovegray;
+        background-color: transparent;
+        border: 1px solid $mercury;
+        padding: 7px 10px;
+        user-select: none;
+        cursor: pointer;
 
-      &:hover {
-        background-color: $atlantis;
-      }
+        &:hover {
+            background-color: $atlantis;
+        }
 
-      &:focus {
-        outline: none;
-      }
-  }
+        &:focus {
+            outline: none;
+        }
+    }
 }

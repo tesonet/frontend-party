@@ -12,12 +12,14 @@ describe('Login Form', () => {
     let wrapper;
     let store;
     let tokenFetchSpy;
+    let historyMock;
     const mockStore = configureMockStore([thunk]);
 
     beforeAll(() => {
+        historyMock = { push: jest.fn() };
         tokenFetchSpy = jest.spyOn(apis, 'getUserToken').mockResolvedValue({});
         store = mockStore({ login: { ...INITIAL_STATE } });
-        wrapper = mount(<LoginForm store={store} />);
+        wrapper = mount(<LoginForm history={historyMock} store={store} />);
     });
 
     afterEach(() => {

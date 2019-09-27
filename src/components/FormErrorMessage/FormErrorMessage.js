@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { FORM_ERROR_MESSAGES, SERVER_ERROR_MESSAGES } from '../../constants/messages';
-import { SERVER_ERROR_TYPES } from '../../constants/types';
+import { SERVER_ERROR_TYPES } from '../../constants/serverErrorTypes';
+import { FORM_ERROR_TYPES } from '../../constants/formErrorTypes';
 import './FormErrorMessage.scss';
 
 const serverErrorsMap = {
@@ -15,13 +16,14 @@ const getErrorMessage = errors => {
 
     if (serverError) return serverErrorsMap[serverError];
 
-    if (errors.includes('noUsername') && errors.includes('noPassword')) {
+    const noUsername = errors.includes(FORM_ERROR_TYPES.NO_USERNAME);
+    const noPassword = errors.includes(FORM_ERROR_TYPES.NO_PASSWORD);
+
+    if (noUsername && noPassword) {
         return FORM_ERROR_MESSAGES.NO_CREDENTIALS;
     }
 
-    return errors.includes('noUsername')
-        ? FORM_ERROR_MESSAGES.NO_USERNAME
-        : FORM_ERROR_MESSAGES.NO_PASSWORD;
+    return noUsername ? FORM_ERROR_MESSAGES.NO_USERNAME : FORM_ERROR_MESSAGES.NO_PASSWORD;
 };
 
 const FormErrorMessage = ({ errors }) => {

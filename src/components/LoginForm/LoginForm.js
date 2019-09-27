@@ -6,31 +6,32 @@ import FormErrorMessage from '../FormErrorMessage/FormErrorMessage';
 import { loginUser as loginUserAction } from '../../actions/login';
 import storage from '../../utils/localStorage';
 import { AUTH_TOKEN_KEY } from '../../constants/token';
+import { FORM_ERROR_TYPES } from '../../constants/formErrorTypes';
 import { ReactComponent as Logo } from '../../assets/images/logo-testio-light.svg';
 import { ReactComponent as Spinner } from '../../assets/images/spinner.svg';
 import './LoginForm.scss';
 
-const LoginForm = ({ loginUser, loading, serverErrorType }) => {
+const LoginForm = ({ history, loginUser, loading, serverErrorType }) => {
     const [inputValues, setInputValues] = useState({
         username: '',
         password: ''
     });
-    const [formErrors, setFormErrors] = useState({ noUsername: false, noPassword: false });
+    const [formErrors, setFormErrors] = useState([]);
 
     const checkAuthentication = key => {
         const isAuthenticated = !!storage.get(key);
 
-        if (isAuthenticated) window.location.reload();
+        if (isAuthenticated) history.push('/');
     };
 
     const validateInputs = () => {
         const isUsernameEmpty = inputValues.username.length === 0;
         const isPasswordEmpty = inputValues.password.length === 0;
 
-        setFormErrors({
-            noUsername: isUsernameEmpty,
-            noPassword: isPasswordEmpty
-        });
+        setFormErrors([
+            ...(isUsernameEmpty ? [FORM_ERROR_TYPES.NO_USERNAME] : []),
+            ...(isPasswordEmpty ? [FORM_ERROR_TYPES.NO_PASSWORD] : [])
+        ]);
 
         return isUsernameEmpty || isPasswordEmpty;
     };
@@ -56,10 +57,7 @@ const LoginForm = ({ loginUser, loading, serverErrorType }) => {
         }
     };
 
-    const existingFormErrors = Object.keys(formErrors).filter(key => formErrors[key]);
-
-    const errors = (serverErrorType && [serverErrorType]) || existingFormErrors;
-
+    const errors = (!!serverErrorType && [serverErrorType]) || formErrors;
     const hasErrors = errors && errors.length > 0;
 
     return (
@@ -70,8 +68,11 @@ const LoginForm = ({ loginUser, loading, serverErrorType }) => {
                 <i className="login-form__username-icon" />
                 <input
                     name="username"
-                    className={`login-form__input${(formErrors.noUsername || serverErrorType) &&
-                        ' login-form__input--error'}`}
+                    className={`login-form__input${
+                        errors.includes(FORM_ERROR_TYPES.NO_USERNAME) || !!serverErrorType
+                            ? ' login-form__input--error'
+                            : ''
+                    }`}
                     type="text"
                     placeholder="Username"
                     value={inputValues.username}
@@ -81,15 +82,18 @@ const LoginForm = ({ loginUser, loading, serverErrorType }) => {
                 <i className="login-form__password-icon" />
                 <input
                     name="password"
-                    className={`login-form__input${(formErrors.noPassword || serverErrorType) &&
-                        ' login-form__input--error'}`}
+                    className={`login-form__input${
+                        errors.includes(FORM_ERROR_TYPES.NO_PASSWORD) || !!serverErrorType
+                            ? ' login-form__input--error'
+                            : ''
+                    }`}
                     type="password"
                     placeholder="Password"
                     value={inputValues.password}
                     onChange={handleChange}
                     maxLength="35"
                 />
-                <button className="login-form__button" type="submit">
+                <button className="login-form__button" type="submit" disabled={loading}>
                     {loading ? <Spinner className="login-form__spinner" /> : 'Log In'}
                 </button>
             </form>
@@ -98,22 +102,24 @@ const LoginForm = ({ loginUser, loading, serverErrorType }) => {
 };
 
 LoginForm.propTypes = {
+    history: PropTypes.objectOf(PropTypes.any).isRequired,
     loginUser: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     serverErrorType: PropTypes.string
 };
 
 LoginForm.defaultProps = {
-    serverErrorType: ''
+    serverErrorType: null
 };
 
-const mapStateToProps = state => {
-    return { serverErrorType: state.login.errorType, loading: state.login.loading };
-};
-
-const mapDispatchToProps = dispatch => ({
-    loginUser: userInfo => dispatch(loginUserAction(userInfo))
+const mapStateToProps = state => ({
+    serverErrorType: state.login.errorType,
+    loading: state.login.loading
 });
+
+const mapDispatchToProps = {
+    loginUser: userInfo => loginUserAction(userInfo)
+};
 
 export default connect(
     mapStateToProps,

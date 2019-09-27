@@ -1,20 +1,21 @@
-import { LOGIN_ACTION_TYPES, SERVER_ERROR_TYPES } from '../constants/types';
+import { LOGIN_ACTION_TYPES } from '../constants/actionTypes';
+import { SERVER_ERROR_TYPES } from '../constants/serverErrorTypes';
 import { getUserToken } from '../api/teso';
 import storage from '../utils/localStorage';
 import { AUTH_TOKEN_KEY } from '../constants/token';
 
-const loginSuccess = payload => ({
+const loginSuccess = token => ({
     type: LOGIN_ACTION_TYPES.LOGIN_SUCCESS,
-    payload
+    payload: { token }
 });
 
 const loginPending = () => ({
     type: LOGIN_ACTION_TYPES.LOGIN_PENDING
 });
 
-const loginFail = payload => ({
+const loginFail = error => ({
     type: LOGIN_ACTION_TYPES.LOGIN_FAIL,
-    payload
+    payload: { error }
 });
 
 export const logoutUser = () => ({

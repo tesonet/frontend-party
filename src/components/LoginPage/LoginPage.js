@@ -4,10 +4,10 @@ import LoginForm from '../LoginForm/LoginForm';
 
 import './LoginPage.scss';
 
-const LoginPage = () => {
+const LoginPage = props => {
     return (
         <div className="login-page">
-            <LoginForm />
+            <LoginForm {...props} />
         </div>
     );
 };

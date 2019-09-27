@@ -2,93 +2,95 @@
 @import '../../styles/mixins';
 
 .login {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 360px;
-  text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 360px;
+    text-align: center;
 
-  @include xs {
-    width: 100%;
-  }
+    @include xs {
+        width: 100%;
+    }
 }
 
 .login__logo {
-  margin-bottom: 70px;
+    margin-bottom: 70px;
 
-  @include xs {
-    height: 50px;
-  }
+    @include xs {
+        height: 50px;
+    }
 }
 
 .login-form {
-  &__input, &__button {
-    width: 100%;
-    padding: 19px;
-    margin: 10px 0;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 5px;
-    font-size: 16px;
-    letter-spacing: 0.4px;
+    &__input,
+    &__button {
+        width: 100%;
+        padding: 19px;
+        margin: 10px 0;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 16px;
+        letter-spacing: 0.4px;
 
-    &:focus {
-      outline: none;
-    }
-  }
-
-  &__input {
-    padding-left: 54px;
-    font-weight: 300;
-    color: $dustygray;
-
-    &::placeholder {
-      color: $nobel;
+        &:focus {
+            outline: none;
+        }
     }
 
-    &--error {
-      border: 1px solid $red;
+    &__input {
+        padding-left: 54px;
+        font-weight: 300;
+        color: $dustygray;
 
-      &::placeholder {
-        color: $red;
-      }
+        &::placeholder {
+            color: $nobel;
+        }
+
+        &--error {
+            border: 1px solid $red;
+
+            &::placeholder {
+                color: $red;
+            }
+        }
     }
-  }
 
-  &__username-icon, &__password-icon {
-    position: absolute;
-    display: block;
-    padding: 10px;
-    margin: 27px 24px;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  &__username-icon {
-    background-image: url("../../assets/images/icon-username.svg");
-  }
-
-  &__password-icon {
-    background-image: url("../../assets/images/icon-password.svg");
-  }
-
-  &__button {
-    background-color: $atlantis;
-    font-weight: 700;
-    color: $white;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $limeade;
+    &__username-icon,
+    &__password-icon {
+        position: absolute;
+        display: block;
+        padding: 10px;
+        margin: 27px 24px;
+        background-repeat: no-repeat;
+        background-position: center;
     }
-  }
 
-  &__spinner {
-    height: 15px;
-
-    path {
-      fill: $mercury;
+    &__username-icon {
+        background-image: url('../../assets/images/icon-username.svg');
     }
-  }
+
+    &__password-icon {
+        background-image: url('../../assets/images/icon-password.svg');
+    }
+
+    &__button {
+        background-color: $atlantis;
+        font-weight: 700;
+        color: $white;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $limeade;
+        }
+    }
+
+    &__spinner {
+        height: 15px;
+
+        path {
+            fill: $mercury;
+        }
+    }
 }

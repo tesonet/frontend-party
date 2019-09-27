@@ -5,12 +5,12 @@ import LogoutButton from '../LogoutButton/LogoutButton';
 import { ReactComponent as Logo } from '../../assets/images/logo-testio-dark.svg';
 import './ServersListPage.scss';
 
-const ServersListPage = () => {
+const ServersListPage = props => {
     return (
         <>
             <div className="page-header">
                 <Logo className="page-header__logo" />
-                <LogoutButton className="page-header__button" />
+                <LogoutButton {...props} className="page-header__button" />
             </div>
             <ServersList />
         </>

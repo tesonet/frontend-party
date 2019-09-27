@@ -22,8 +22,6 @@ describe('Servers List', () => {
 
     beforeEach(() => {
         serversFetchSpy = jest.spyOn(apis, 'getServersList').mockResolvedValue({});
-        store = mockStore({ servers: { ...INITIAL_STATE } });
-        wrapper = mount(<ServersList store={store} />);
     });
 
     afterEach(() => {
@@ -32,6 +30,9 @@ describe('Servers List', () => {
 
     describe('on component load', () => {
         it('should call api to retrieve servers', () => {
+            store = mockStore({ servers: { ...INITIAL_STATE } });
+            wrapper = mount(<ServersList store={store} />);
+
             expect(serversFetchSpy).toHaveBeenCalledTimes(1);
         });
     });
