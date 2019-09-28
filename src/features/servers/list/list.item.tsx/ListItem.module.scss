@@ -1,0 +1,22 @@
+@import "../../../../common/styles/colors";
+
+.tableRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 0 1.5rem;
+
+	height: 5.8rem;
+
+	border-top: 1px solid $c-mercury;
+
+	color: $c-dove-gray;
+
+	> span {
+		font-size: 1.6rem;
+		font-weight: 300;
+		letter-spacing: 0.04rem;
+		line-height: 3rem;
+	}
+}

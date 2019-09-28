@@ -1,6 +1,6 @@
 import { ServersService } from './services/servers.service';
 import { runInAction, decorate, observable, action } from 'mobx';
-
+import * as _ from 'lodash';
 export interface IServerRecord {
 	name: string;
 	distance: number;
@@ -23,7 +23,7 @@ export class ServerListStore {
 
 		runInAction(() => {
 			this.isFetchingServers = false;
-			this.servers = results;
+			this.servers = _.sortBy(results, ['distance', 'name']);
 		});
 	};
 }

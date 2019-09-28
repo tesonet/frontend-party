@@ -1,8 +1,8 @@
 import React from 'react';
 import { action, decorate } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import Input from '../../../common/form/input/input';
-import Button from '../../../common/form/button/button';
+import Input from '../../../common/components/form/input/input';
+import Button from '../../../common/components/form/button/button';
 import LoginIcon from '../../../resources/svg/username-icon.svg';
 import PasswordIcon from '../../../resources/svg/password-icon.svg';
 import { ILoginData, AuthStore } from '../../authentication/store';

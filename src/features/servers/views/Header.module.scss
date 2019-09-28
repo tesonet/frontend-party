@@ -1,0 +1,36 @@
+@import "../../../common/styles/colors";
+
+.container {
+	height: 10.1rem;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 0 1.5rem;
+}
+
+.logOut {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:hover {
+		cursor: pointer;
+		color: $c-atlantis;
+	}
+
+	color: $c-martinique;
+
+	span {
+		font-size: 1.4rem;
+		font-weight: 300;
+		letter-spacing: 0.35px;
+		line-height: 3rem;
+	}
+}
+
+.logOutLogo {
+	margin-right: 1rem;
+	color: tomato;
+}

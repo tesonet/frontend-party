@@ -1,0 +1,26 @@
+@import '../../../common/styles/colors';
+
+$loader-dimensions: 3.6rem;
+
+.loader {
+	width: $loader-dimensions;
+	height: $loader-dimensions;
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: $loader-dimensions;
+		height: $loader-dimensions;
+		border-radius: 50%;
+		border: 0.2rem solid $c-silver;
+		border-top-color: $c-dove-gray;
+		box-sizing: border-box;
+		animation: rotate 0.6s linear infinite;
+	}
+}
+
+@keyframes rotate {
+	to {
+		transform: rotate(360deg);
+	}
+}
