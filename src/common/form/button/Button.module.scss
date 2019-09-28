@@ -2,11 +2,17 @@
 	background-color: #9fd533;
 	color: #fff;
 
-	border-radius: 2px;
-	border: 0;
+	border-radius: 0.3rem;
+	border: none;
 
 	width: 100%;
-	height: 56px;
+	height: 5.6rem;
+
+	font-size: 1.6rem;
+	font-weight: 700;
+
+	letter-spacing: 0.4px;
+	line-height: 30px;
 
 	&:hover {
 		background-color: #86b300;

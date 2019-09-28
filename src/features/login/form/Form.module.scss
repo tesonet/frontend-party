@@ -1,0 +1,19 @@
+.form {
+	width: 360px;
+
+	&:not(last-child) {
+		margin-bottom: 10px;
+	}
+
+	> div {
+        position: relative;
+        margin-bottom: 2rem;
+	}
+}
+
+.icon {
+	position: absolute;
+	top: 2rem;
+	left: 2rem;
+}
+

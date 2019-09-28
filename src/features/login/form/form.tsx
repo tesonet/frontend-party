@@ -6,6 +6,8 @@ import Button from '../../../common/form/button/button';
 import LoginIcon from '../../../resources/svg/username-icon.svg';
 import PasswordIcon from '../../../resources/svg/password-icon.svg';
 import { ILoginData, AuthStore } from '../../authentication/store';
+import { SvgImage } from '../../../common/icon';
+import styles from './Form.module.scss';
 
 interface IProps {
     onSubmit?: (e: any) => void;
@@ -29,22 +31,22 @@ const LoginForm = observer(class LoginForm extends React.Component<IProps> {
         const { isLoggingIn } = this.props.authStore!;
 
         return (
-            <form onSubmit={this.handleSubmit} noValidate>
+            <form onSubmit={this.handleSubmit} className={styles.form} noValidate>
                 <Input
                     placeholder="Username"
                     type="text"
                     name="username"
                     onChange={this.handleChange}
                 >
-                    <img src={LoginIcon} height={16} width={16}></img>
-                </Input>
+                    <SvgImage path={LoginIcon} className={styles.icon}/>
+                </Input >
                 <Input
                     placeholder="Password"
                     type="password"
                     name="password"
                     onChange={this.handleChange}
                 >
-                    <img src={PasswordIcon} height={16} width={16}></img>
+                    <SvgImage path={PasswordIcon} className={styles.icon}/>
                 </Input>
                 <Button type="submit" disabled={isLoggingIn}>
                     Log In

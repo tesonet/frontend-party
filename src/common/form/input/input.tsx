@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Input.module.scss';
 
 interface IProps {
     value?: string;
@@ -14,6 +15,7 @@ const Input: React.FC<IProps> = (props: IProps) => {
     return (
         <div>
             <input
+                className={styles.input}
                 type={props.type}
                 name={props.name}
                 value={props.value}

@@ -1,9 +1,12 @@
 @import "../../common/styles/mixins/media.queries.scss";
 
 .background {
-	width: 200px;
-	height: 200px;
-	display: block;
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	display: flex;
 
 	&::after {
 		content: "";
@@ -18,4 +21,8 @@
 		background-position: center;
 		z-index: -1;
 	}
+}
+
+.logo {
+	margin-bottom: 70px;
 }

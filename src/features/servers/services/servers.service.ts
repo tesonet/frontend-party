@@ -6,10 +6,7 @@ export class ServersService {
         const token = localStorage.getItem(LOCAL_STORAGE_TOKEN);
 
         return fetch(`${API_URL}servers`, this.setParams(token))
-            .then(res => res.json())
-            // .catch(error => {
-            //     console.log(error);
-            // });
+            .then(res => res.json());
     };
 
     private setParams(token: any) {

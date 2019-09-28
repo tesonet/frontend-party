@@ -9,8 +9,9 @@ import ServerList from './list/server.list';
 const ServerPage = observer(class ServerPage extends React.Component {
 	public componentDidMount() {
 		if (!authStore.isLoggedIn) {
-			routeStore.changeRoute('/log-in')
+			return routeStore.changeRoute('/log-in')
 		}
+		serverListStore.fethcServers();
 	}
 
 	public render() {

@@ -29,7 +29,6 @@ export class AuthStore {
 
 		runInAction(() => {
 			this.isLoggingIn = this.authService.isUserLoggedIn();
-			console.log(this.authService.isUserLoggedIn());
 		});
 
 		if (this.isLoggedIn) {

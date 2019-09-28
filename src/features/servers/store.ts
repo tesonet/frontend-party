@@ -7,12 +7,12 @@ export interface IServerRecord {
 }
 
 export class ServerListStore {
-	public servers: IServerRecord[] | null;
+	public servers: IServerRecord[];
 	public isFetchingServers: boolean;
 	private serversService: ServersService;
 
 	constructor() {
-		this.servers = null;
+		this.servers = [];
 		this.serversService = new ServersService();
 		this.isFetchingServers = false;
 	}
