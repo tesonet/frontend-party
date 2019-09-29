@@ -1,0 +1,23 @@
+.logout-button {
+    background-image: url("resources/logout-icon.svg");
+    background-color: #fff;
+    background-position: initial; 
+    background-repeat: no-repeat; 
+    background-size: auto; 
+    background-position-x: 1rem;
+    background-position-y: center;  
+    padding-left: 4rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    outline: none;
+    border: 0rem;
+    border-radius: 1rem;
+    font-size: 1.6rem;    
+    letter-spacing: 0.01rem;
+}
+
+.logout-button:hover {
+    background-color: #99cc33;
+    cursor: pointer;
+}

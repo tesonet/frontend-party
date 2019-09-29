@@ -1,0 +1,19 @@
+.header-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 3rem;
+}
+
+.logo {
+    flex-grow: 1;
+    margin-left: 3rem;
+}
+
+.logout-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3rem;
+}

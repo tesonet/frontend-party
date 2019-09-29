@@ -1,0 +1,18 @@
+/* App wide styles */
+html { 
+    font-size: 62.5%;     
+} 
+body { 
+    font-size: 14px; 
+    font-size: 1.4rem;
+    margin: 0px; 
+} 
+h1   
+{     
+    font-size: 24px; 
+    font-size: 2.4rem; 
+} 
+input, textarea, select, h1, button, div {    
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1rem;
+}

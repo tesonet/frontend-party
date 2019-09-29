@@ -1,0 +1,68 @@
+.login-container {
+    background-image: url("resources/login-background.webp") ;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-color: #0b0f27;
+    /* Flexbox props */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-input {
+    font-size: 1.6rem;
+    height: 5.6rem;
+    max-width: 30rem;
+    min-width: 20rem;
+    border-width: 0rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding-left: 6rem;
+    padding-right: 2rem;   
+    background-position: initial; 
+    background-repeat: no-repeat; 
+    background-size: auto; 
+    background-position-x: 3rem;
+    background-position-y: center;   
+    margin-top: 2rem;
+}
+
+.login-input::placeholder {
+    color: #b3b3b3;
+}
+
+.login-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.3rem #86b300;
+}
+
+.username {
+    background-image: url("resources/user-icon.svg");    
+    margin-top: 8rem;
+}
+
+.password {
+    background-image: url("resources/password-icon.svg");   
+}
+
+.submit {
+    padding: 0rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #9fd533;
+    box-shadow: none !important;
+    max-width: 30rem;
+    min-width: 28rem;
+}
+
+.submit:hover {
+    background-color: #86b300;
+    cursor: pointer;
+}
+
+.submit:focus {
+    background-color: #9fd533;
+}
