@@ -52,6 +52,6 @@ export class AuthenticationService {
 	}
 
 	public isUserLoggedIn(): boolean {
-		return localStorage.getItem(LOCAL_STORAGE_TOKEN) ? true : false;
+		return !!localStorage.getItem(LOCAL_STORAGE_TOKEN);
 	}
 }

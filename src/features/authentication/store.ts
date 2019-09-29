@@ -12,15 +12,9 @@ export interface ILoginData {
 }
 
 export class AuthStore {
-	public isLoggingIn: boolean;
-	public isLoggedIn: boolean;
-	private authService: AuthenticationService;
-
-	constructor() {
-		this.isLoggingIn = false;
-		this.authService = new AuthenticationService();
-		this.isLoggedIn = this.authService.isUserLoggedIn();
-	}
+	public isLoggingIn: boolean = false;
+	private authService: AuthenticationService = new AuthenticationService();
+	public isLoggedIn: boolean = this.authService.isUserLoggedIn();
 
 	public loginUser = async (loginData: ILoginData) => {
 		this.isLoggingIn = true;
