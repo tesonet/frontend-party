@@ -1,5 +1,4 @@
-import { LOCAL_STORAGE_TOKEN } from '../../../common/constants/auth.constant';
-import { API_URL } from '../../../common/constants/api.config';
+import { API_URL, LOCAL_STORAGE_TOKEN } from '../../../common/constants/api.config';
 
 export class ServersService {
     public async get(): Promise<any> {

@@ -1,6 +1,5 @@
-import { API_URL } from '../../../common/constants/api.config';
+import { API_URL, LOCAL_STORAGE_TOKEN } from '../../../common/constants/api.config';
 import { ILoginData } from '../store';
-import { LOCAL_STORAGE_TOKEN } from '../../../common/constants/auth.constant';
 
 export class AuthenticationService {
 	public login(credentials: ILoginData): Promise<boolean> {
