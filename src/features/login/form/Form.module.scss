@@ -1,19 +1,20 @@
 @import "../../../common/styles/mixins/media.queries";
+@import "../../../common/styles/colors";
 
 .form {
-    width: 36rem;
+	width: 36rem;
 
-    @include breakPoint(small) {
-        width: 30rem;
-    }
+	@include breakPoint(small) {
+		width: 30rem;
+	}
 
 	&:not(last-child) {
 		margin-bottom: 1rem;
 	}
 
 	> div {
-        position: relative;
-        margin-bottom: 2rem;
+		position: relative;
+		margin-bottom: 2rem;
 	}
 }
 
@@ -23,3 +24,11 @@
 	left: 2rem;
 }
 
+.button {
+	background-color: $c-atlantis;
+	color: $c-white;
+
+	&:hover {
+		background-color: $c-atlantis-dark;
+	}
+}

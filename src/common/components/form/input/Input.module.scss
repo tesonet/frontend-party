@@ -1,3 +1,5 @@
+@import '../../../../common/styles/colors';
+
 .input {
 	width: 100%;
 	height: 5.6rem;
@@ -7,10 +9,10 @@
 
 	font-size: 1.6rem;
 
-    color: #999;
+    color: $c-dusty-gray;
 
 	&::placeholder {
-		color: #b3b3b3;
+		color: $c-nobel;
 	}
 
 	&:focus {

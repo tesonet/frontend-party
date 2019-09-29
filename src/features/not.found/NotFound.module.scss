@@ -1,0 +1,29 @@
+@import "../../common/styles/colors";
+
+.container {
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	color: $c-dove-gray;
+
+	& span {
+		font-size: 2.4rem;
+	}
+}
+
+.button {
+	width: 20rem;
+
+	margin-top: 2rem;
+
+	color: $c-white;
+	background-color: $c-martinique;
+
+	&:hover {
+		background-color: $c-haiti
+	}
+}

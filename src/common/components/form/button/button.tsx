@@ -5,12 +5,18 @@ interface IProps {
     children?: string;
     type?: any;
     disabled?: boolean;
-    onClick?:(e: any) => void;
+    onClick?: (e: any) => void;
+    className?: string;
 }
 
 const Button = (props: IProps) => {
-    return(
-        <button type={props.type} className={styles.button} disabled={props.disabled} onClick={props.onClick}>
+    return (
+        <button
+            type={props.type}
+            className={`${styles.button} ${props.className || ''}`}
+            disabled={props.disabled}
+            onClick={props.onClick}
+        >
             {props.children}
         </button>
     )

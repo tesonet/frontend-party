@@ -6440,10 +6440,10 @@ mobx-react@^6.1.3:
   dependencies:
     mobx-react-lite "1.4.0"
 
-mobx@^5.13.0:
-  version "5.13.0"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.13.0.tgz#0fd68f10aa5ff2d146a4ed9e145b53337cfbca59"
-  integrity sha512-eSAntMSMNj0PFL705rgv+aB/z1RjNqDnFEpBe18yQVreXTWiVgIrmBUXzjnJfuba+eo4eAk6zi+/gXQkSUea8A==
+mobx@^4.13.1:
+  version "4.13.1"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-4.13.1.tgz#317c35f255f0ae343efa261458177da0e0637792"
+  integrity sha512-glng63xknZ/uUfK1sLLA7TTSncPe60YkmBcPXxgNkcF4gCHMVLvcxEvIY410FR47UBr4iQXep+Sk0hqbLP6ObQ==
 
 move-concurrently@^1.0.1:
   version "1.0.1"

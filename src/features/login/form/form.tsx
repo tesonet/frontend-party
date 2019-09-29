@@ -48,7 +48,7 @@ const LoginForm = observer(class LoginForm extends React.Component<IProps> {
                 >
                     <SvgImage path={PasswordIcon} className={styles.icon}/>
                 </Input>
-                <Button type="submit" disabled={isLoggingIn}>
+                <Button type="submit" disabled={isLoggingIn} className={styles.button}>
                     Log In
                 </Button>
             </form>

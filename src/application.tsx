@@ -1,18 +1,16 @@
 import React from 'react';
-import { match as IMatch, Switch, Route } from 'react-router';
+import { Switch, Route } from 'react-router';
 import LogInPage from './features/login/login.page';
 import ServerPage from './features/servers/server.page';
+import { NotFoundPage } from './features/not.found/not.found.page';
 
-interface IProps {
-	match: IMatch<any>;
-}
-
-class Application extends React.Component<IProps> {
+class Application extends React.Component {
 	public render() {
 		return (
 			<Switch>
 				<Route exact path="/log-in" component={LogInPage} />
 				<Route exact path="/" component={ServerPage} />
+				<Route component={NotFoundPage}/>
 			</Switch>
 		);
 	}
