@@ -28,11 +28,10 @@
 .server-name {
     display: flex;
     justify-content: flex-start;
-    width: 50%;
+    flex-grow: 1;
 }
 
 .server-distance {
     display: flex;
     justify-content: flex-end;
-    width: 50%;
 }

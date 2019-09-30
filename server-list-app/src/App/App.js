@@ -6,7 +6,7 @@ import Login from "../Login/Login.js"
 import Main from "../Main/Main.js"
 import ServerList from "../ServerList/ServerList.js"
 import PageNotFound from "../PageNotFound/PageNotFound.js"
-import RouteAuthentication from "../RouteAuthentication/RouteAuthentication.js"
+import AuthenticatedRoute from "../AuthenticatedRoute/AuthenticatedRoute.js"
 
 
 class App extends Component {
@@ -15,15 +15,9 @@ class App extends Component {
       <div className="app">
         <HashRouter>
           <Switch>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/">
-              <RouteAuthentication component={<Main><ServerList /></Main>} />
-            </Route>
-            <Route>
-              <PageNotFound />
-            </Route>
+            <Route exact path="/login" component={Login} />
+            <AuthenticatedRoute exact path="/" component={<Main><ServerList /></Main>} />
+            <Route component={PageNotFound} />
           </Switch>
         </HashRouter>
       </div>
