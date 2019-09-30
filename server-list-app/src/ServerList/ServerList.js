@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import "./ServerList.css";
 import ServerListAPI from "./ServerListAPI.js"
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 
 class ServerList extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { serverList: [] };       
+        this.state = { 
+            serverList: [],
+            isLoading: false
+        };       
     }
 
     retrieveServerList() {
+        this.setState({isLoading: true});
         ServerListAPI.retrieveServerList().then(serverList => {
-            this.setState({ serverList: serverList })
+            this.setState({isLoading: false, serverList: serverList })
         });
     }
 
@@ -43,6 +48,7 @@ class ServerList extends Component {
                     <div className="server-distance">DISTANCE</div>
                 </div>
                 {serverLines}
+                <LoadingSpinner isLoading={this.state.isLoading} />
             </div>
         );
     }
