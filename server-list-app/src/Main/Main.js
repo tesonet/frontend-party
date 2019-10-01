@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Main.css";
-import Header from "../Header/Header.js"
+import Header from "../Header/Header"
 
 class Main extends Component {
   constructor(props) {

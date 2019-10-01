@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./ServerList.css";
-import ServerListAPI from "./ServerListAPI.js"
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
+import ServerListAPI from "./ServerListAPI"
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 class ServerList extends Component {
     constructor(props) {

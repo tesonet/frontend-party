@@ -1,4 +1,4 @@
-import APIUrls from "./APIUrls.js"
+import APIUrls from "./APIUrls"
 import fetch from "cross-fetch"
 
 class AuthenticationAPI {

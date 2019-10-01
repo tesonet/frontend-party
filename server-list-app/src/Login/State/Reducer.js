@@ -1,4 +1,4 @@
-import { LoginActionTypes } from "./Actions.js"
+import { LoginActionTypes } from "./Actions"
 
 const initialState = {
   username: "",

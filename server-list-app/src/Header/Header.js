@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Header.css";
-import Logout from "../Logout/Logout.js"
+import Logout from "../Logout/Logout"
 
 class Header extends Component {
   constructor(props) {

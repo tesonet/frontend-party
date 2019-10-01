@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Login from "../Login/Login.js"
-import Main from "../Main/Main.js"
-import ServerList from "../ServerList/ServerList.js"
-import PageNotFound from "../PageNotFound/PageNotFound.js"
-import AuthenticatedRoute from "../AuthenticatedRoute/AuthenticatedRoute.js"
+import Login from "../Login/Login"
+import Main from "../Main/Main"
+import ServerList from "../ServerList/ServerList"
+import PageNotFound from "../PageNotFound/PageNotFound"
+import AuthenticatedRoute from "../AuthenticatedRoute/AuthenticatedRoute"
 
 
 class App extends Component {

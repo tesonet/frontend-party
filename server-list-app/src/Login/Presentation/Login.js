@@ -1,21 +1,11 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import "./Login.css";
-import AuthenticationError from "../../AuthenticationError/AuthenticationError.js";
-import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner.js";
-import Authentication from "../../Utils/Authentication.js"
+import AuthenticationError from "../../AuthenticationError/AuthenticationError";
+import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 class LoginPresentation extends Component {
   constructor(props) {
-    super(props);
-
-    this.state = {
-      username: "",
-      password: "",
-      isLoading: false,
-      token: "",
-      authenticationError: ""
-    };
+    super(props);    
 
     this.onUsernameChange = this.onUsernameChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
@@ -24,23 +14,15 @@ class LoginPresentation extends Component {
   }
 
   onUsernameChange(event) {
-    this.setState({ username: event.target.value });
+    this.props.onUsernameChange(event.target.value);
   }
 
   onPasswordChange(event) {
-    this.setState({ password: event.target.value });
+    this.props.onPasswordChange(event.target.value);
   }
 
   onSubmit() {
-    this.setState({ isLoading: true });
-    Authentication.retrieveToken(this.state.username, this.state.password).then(token => {
-      if (token === "") {
-        this.setState({ isLoading: false, authenticationError: "Authentication error, password or username may be incorrect, please try again." });
-      } else {
-        Authentication.storeToken(token);
-        this.setState({ isLoading: false, token: token, authenticationError: "" });
-      }
-    });
+    this.props.onSubmit();    
   }
 
   onKeyDown(event) {
@@ -64,22 +46,17 @@ class LoginPresentation extends Component {
   }
 
   render() {
-    const isAuthenticated = Authentication.isAuthenticated();
-
-    if (isAuthenticated) {
-      return (
-        <Redirect to="/" />
-      );
-    }
-
+    
+    const { username, password, isLoading, authenticationError } = this.props;
+    
     return (
       <div className="login-container">
         <img src={require("../resources/logo-testio.webp")} />
-        <input type="text" className="login-input username" value={this.state.username} onChange={this.onUsernameChange} placeholder="Username" />
-        <input type="password" className="login-input password" value={this.state.password} onChange={this.onPasswordChange} placeholder="Password" />
+        <input type="text" className="login-input username" value={username} onChange={this.onUsernameChange} placeholder="Username" />
+        <input type="password" className="login-input password" value={password} onChange={this.onPasswordChange} placeholder="Password" />
         <button className="login-input submit" onClick={this.onSubmit}>Log In</button>
-        <LoadingSpinner isLoading={this.state.isLoading} />
-        <AuthenticationError error={this.state.authenticationError} />
+        <LoadingSpinner isLoading={isLoading} />
+        <AuthenticationError error={authenticationError} />
       </div>
     );
   }

@@ -1,5 +1,5 @@
-import Authentication from "../Utils/Authentication.js"
-import APIUrls from "../Utils/APIUrls.js"
+import Authentication from "../Utils/Authentication"
+import APIUrls from "../Utils/APIUrls"
 
 class ServerListAPI {
 

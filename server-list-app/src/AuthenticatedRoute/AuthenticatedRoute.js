@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Route } from "react-router-dom";
-import Authentication from "../Utils/Authentication.js"
+import Authentication from "../Utils/Authentication"
 
 export class AuthenticatedRoute extends Component {
     constructor(props) {

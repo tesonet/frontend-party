@@ -1,4 +1,4 @@
-import AuthenticationAPI from "./AuthenticationAPI.js"
+import AuthenticationAPI from "./AuthenticationAPI"
 
 class Authentication {
     static retrieveToken(username, password) {

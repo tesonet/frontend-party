@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./Logout.css";
-import Authentication from "../Utils/Authentication.js"
+import Authentication from "../Utils/Authentication"
 
 class Logout extends Component {
   constructor(props) {
