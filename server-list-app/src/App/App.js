@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { hot } from "react-hot-loader";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Login from "../Login/Login.js"
@@ -25,4 +24,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(App);
+export default App;
