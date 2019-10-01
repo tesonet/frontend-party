@@ -1,29 +1,29 @@
-import { API_URL, LOCAL_STORAGE_TOKEN } from '../../../common/constants/api.config';
+import { API_URL, LOCAL_STORAGE_TOKEN } from 'common/constants/api.config';
 import { ILoginData } from '../store';
 
 export class AuthenticationService {
-	public login(credentials: ILoginData): Promise<boolean> {
-		return new Promise<boolean>(resolve => fetch(
-			`${API_URL}tokens`,
-			this.setParams(credentials, 'POST')
-		)
-			.then(response => response.json())
-			.then(data => {
-				if (!data) {
-					resolve(false)
-				}
-				if (data.token) {
-					this.setLocalStorage(data.token);
-					resolve(true);
+	public async login(credentials: ILoginData): Promise<void> {
+		const response = await fetch(`${API_URL}tokens`, this.getFetchParams(credentials, 'POST'));
 
-				} else if (data.message) {
-					resolve(false);
-				}
-			})
-		);
+		console.log(1);
+		if (!response.ok) {
+			const { message } = await response.json().catch(e => e);
+			console.log(message);
+			throw new Error(`Login failed: ${message}`);
+		}
+
+		const { token } = await response.json().catch(e => e);
+		console.log(token);
+
+		if (!token) {
+			console.log(2);
+			throw new Error('No token')
+		}
+
+		this.storeToken(token)
 	}
 
-	private setParams(credentials: ILoginData, method: string) {
+	private getFetchParams(credentials: ILoginData, method: string) {
 		const { username, password } = credentials;
 
 		return {
@@ -46,7 +46,7 @@ export class AuthenticationService {
 		}
 	}
 
-	private setLocalStorage(token: any) {
+	private storeToken(token: any) {
 		localStorage.setItem(LOCAL_STORAGE_TOKEN, token);
 	}
 

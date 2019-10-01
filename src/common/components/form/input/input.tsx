@@ -11,7 +11,7 @@ interface IProps {
     onChange?: (e: any) => void;
 }
 
-const Input: React.FC<IProps> = (props: IProps) => {
+export const Input: React.FC<IProps> = (props: IProps) => {
     return (
         <div>
             <input
@@ -28,5 +28,3 @@ const Input: React.FC<IProps> = (props: IProps) => {
 
     )
 }
-
-export default Input;

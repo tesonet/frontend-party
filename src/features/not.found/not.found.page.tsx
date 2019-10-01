@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './NotFound.module.scss';
-import Button from 'common/components/form/button/button';
-import routeStore from 'routing/store';
+import { Button } from 'common/components/form/button/button';
+import { routeStore } from 'routing/store';
 
 export const NotFoundPage: React.FC = () => {
     return (

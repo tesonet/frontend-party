@@ -1,12 +1,12 @@
 import React from 'react';
-import { IServerRecord } from '../../store';
 import styles from './ListItem.module.scss';
+import { IServerRecord } from '../../store';
 
 interface IProps {
     server: IServerRecord;
 }
 
-const ListItem: React.FC<IProps> = (props: IProps) => {
+export const ListItem: React.FC<IProps> = (props: IProps) => {
     return (
         <div className={styles.tableRow}>
             <span>{props.server.name}</span>
@@ -14,5 +14,3 @@ const ListItem: React.FC<IProps> = (props: IProps) => {
         </div>
     );
 };
-
-export default ListItem;

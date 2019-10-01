@@ -1,4 +1,4 @@
-import { decorate, observable, action } from 'mobx';
+import { action, decorate, observable } from 'mobx';
 import { getHistory } from './history';
 
 const history = getHistory();
@@ -27,5 +27,4 @@ decorate(RouteStore, {
 
 })
 
-const routeStore = new RouteStore()
-export default routeStore;
+export const routeStore = new RouteStore()

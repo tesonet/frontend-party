@@ -3,7 +3,7 @@ import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Application from './application';
+import { Application } from './application';
 import * as serviceWorker from './serviceWorker';
 import { Router, Switch, Route } from 'react-router';
 import { getHistory } from './routing/history';

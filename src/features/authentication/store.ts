@@ -1,32 +1,36 @@
-import routeStore from '../../routing/store';
 import {
 	action,
 	decorate,
 	observable,
 	runInAction
-	} from 'mobx';
+} from 'mobx';
 import { AuthenticationService } from './services/authentication.service';
+import { routeStore } from 'routing/store';
 
 export interface ILoginData {
 	[index: string]: string;
 }
 
 export class AuthStore {
-	public isLoggingIn: boolean = false;
 	private authService: AuthenticationService = new AuthenticationService();
 	public isLoggedIn: boolean = this.authService.isUserLoggedIn();
 
 	public loginUser = async (loginData: ILoginData) => {
-		this.isLoggingIn = true;
+		this.isLoggedIn = false
 
-		this.isLoggedIn = await this.authService.login(loginData);
+		try {
+			const lel = await this.authService.login(loginData);
+			console.log(lel);
+			runInAction(() => {
+				this.isLoggedIn = this.authService.isUserLoggedIn();
+			});
 
-		runInAction(() => {
-			this.isLoggingIn = this.authService.isUserLoggedIn();
-		});
-
-		if (this.isLoggedIn) {
-			routeStore.changeRoute('/')
+			if (this.isLoggedIn) {
+				routeStore.changeRoute('/')
+			}
+		} catch(e) {
+			this.isLoggedIn = false;
+			throw new Error('wait wat');
 		}
 	}
 
@@ -40,13 +44,10 @@ export class AuthStore {
 	}
 }
 
-
 decorate(AuthStore, {
 	loginUser: action,
-	isLoggingIn: observable,
 	isLoggedIn: observable,
 	logOutUser: action
 })
 
-const authStore = new AuthStore();
-export default authStore;
+export const authStore = new AuthStore();

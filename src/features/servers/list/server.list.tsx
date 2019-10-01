@@ -1,9 +1,9 @@
-import ListItem from './list.item.tsx/list.item';
 import React from 'react';
-import { observer, inject } from 'mobx-react';
-import { ServerListStore } from '../store';
 import styles from './ServerList.module.scss';
-import Loader from '../../../common/components/loader/loader';
+import { inject, observer } from 'mobx-react';
+import { ListItem } from './list.item.tsx/list.item';
+import { Loader } from 'common/components/loader/loader';
+import { ServerListStore } from '../store';
 
 interface IProps {
     serverListStore?: ServerListStore;

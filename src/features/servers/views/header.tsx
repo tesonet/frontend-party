@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { SvgImage } from '../../../common/icon';
-import darkLogo from '../../../resources/svg/logo-dark.svg';
-import logoutIcon from '../../../resources/svg/logout-icon.svg';
+import { SvgImage } from 'common/icon';
+import darkLogo from 'resources/svg/logo-dark.svg';
+import logoutIcon from 'resources/svg/logout-icon.svg';
 import { observer } from 'mobx-react';
 
 interface IProps {

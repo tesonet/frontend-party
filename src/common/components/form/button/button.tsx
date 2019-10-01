@@ -9,7 +9,7 @@ interface IProps {
     className?: string;
 }
 
-const Button = (props: IProps) => {
+export const Button = (props: IProps) => {
     return (
         <button
             type={props.type}
@@ -19,7 +19,5 @@ const Button = (props: IProps) => {
         >
             {props.children}
         </button>
-    )
-}
-
-export default Button;
+    );
+};

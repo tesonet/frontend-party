@@ -1,10 +1,10 @@
 import React from 'react';
-import { Switch, Route } from 'react-router';
-import LogInPage from './features/login/login.page';
-import ServerPage from './features/servers/server.page';
-import { NotFoundPage } from './features/not.found/not.found.page';
+import { LogInPage } from 'features/login/login.page';
+import { NotFoundPage } from 'features/not.found/not.found.page';
+import { Route, Switch } from 'react-router';
+import { ServerPage } from 'features/servers/server.page';
 
-class Application extends React.Component {
+export class Application extends React.Component {
 	public render() {
 		return (
 			<Switch>
@@ -15,5 +15,3 @@ class Application extends React.Component {
 		);
 	}
 }
-
-export default Application;

@@ -1,21 +1,20 @@
+import LoginIcon from 'resources/svg/username-icon.svg';
+import PasswordIcon from 'resources/svg/password-icon.svg';
 import React from 'react';
-import { action, decorate } from 'mobx';
-import { observer, inject } from 'mobx-react';
-import Input from '../../../common/components/form/input/input';
-import Button from '../../../common/components/form/button/button';
-import LoginIcon from '../../../resources/svg/username-icon.svg';
-import PasswordIcon from '../../../resources/svg/password-icon.svg';
-import { ILoginData, AuthStore } from '../../authentication/store';
-import { SvgImage } from '../../../common/icon';
 import styles from './Form.module.scss';
+import { action, decorate } from 'mobx';
+import { authStore, ILoginData } from '../../authentication/store';
+import { Button } from 'common/components/form/button/button';
+import { observer } from 'mobx-react';
+import { Input } from 'common/components/form/input/input';
+import { SvgImage } from 'common/icon';
 
 interface IProps {
     onSubmit?: (e: any) => void;
     value?: string;
-    authStore?: AuthStore;
 }
 
-const LoginForm = observer(class LoginForm extends React.Component<IProps> {
+export const LoginForm = observer(class LoginForm extends React.Component<IProps> {
     private loginData: ILoginData;
 
     constructor(props: IProps) {
@@ -28,8 +27,6 @@ const LoginForm = observer(class LoginForm extends React.Component<IProps> {
     }
 
     public render() {
-        const { isLoggingIn } = this.props.authStore!;
-
         return (
             <form onSubmit={this.handleSubmit} className={styles.form} noValidate>
                 <Input
@@ -48,7 +45,7 @@ const LoginForm = observer(class LoginForm extends React.Component<IProps> {
                 >
                     <SvgImage path={PasswordIcon} className={styles.icon}/>
                 </Input>
-                <Button type="submit" disabled={isLoggingIn} className={styles.button}>
+                <Button type="submit" className={styles.button}>
                     Log In
                 </Button>
             </form>
@@ -57,7 +54,7 @@ const LoginForm = observer(class LoginForm extends React.Component<IProps> {
 
     handleSubmit = (event: any) => {
         event.preventDefault();
-        this.props.authStore!.loginUser(this.loginData)
+        authStore.loginUser(this.loginData)
     }
 
     handleChange = (event: any) => {
@@ -70,6 +67,4 @@ decorate(LoginForm, {
     handleSubmit: action,
     handleChange: action
 });
-
-export default inject('authStore')(LoginForm);
 

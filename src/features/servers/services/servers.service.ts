@@ -1,14 +1,16 @@
-import { API_URL, LOCAL_STORAGE_TOKEN } from '../../../common/constants/api.config';
+import { API_URL, LOCAL_STORAGE_TOKEN } from 'common/constants/api.config';
+import { IServerRecord } from '../store';
 
 export class ServersService {
-    public async get(): Promise<any> {
-        const token = localStorage.getItem(LOCAL_STORAGE_TOKEN);
+    public async get(): Promise<IServerRecord[]> {
+        const token = await localStorage.getItem(LOCAL_STORAGE_TOKEN);
+        console.log(token);
+        const response = await fetch(`${API_URL}servers`, this.getFetchParams(token));
 
-        return fetch(`${API_URL}servers`, this.setParams(token))
-            .then(res => res.json());
+        return response.json();
     };
 
-    private setParams(token: any) {
+    private getFetchParams(token: any) {
         return {
             method: 'GET',
             headers: {

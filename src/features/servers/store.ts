@@ -1,6 +1,11 @@
-import { ServersService } from './services/servers.service';
-import { runInAction, decorate, observable, action } from 'mobx';
 import * as _ from 'lodash';
+import {
+	action,
+	decorate,
+	observable,
+	runInAction
+} from 'mobx';
+import { ServersService } from './services/servers.service';
 export interface IServerRecord {
 	name: string;
 	distance: number;
@@ -33,5 +38,4 @@ decorate(ServerListStore, {
 	fethcServers: action
 })
 
-const serverListStore = new ServerListStore();
-export default serverListStore;
+export const serverListStore = new ServerListStore();
