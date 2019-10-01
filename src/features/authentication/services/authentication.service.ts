@@ -8,15 +8,12 @@ export class AuthenticationService {
 		console.log(1);
 		if (!response.ok) {
 			const { message } = await response.json().catch(e => e);
-			console.log(message);
 			throw new Error(`Login failed: ${message}`);
 		}
 
 		const { token } = await response.json().catch(e => e);
-		console.log(token);
 
 		if (!token) {
-			console.log(2);
 			throw new Error('No token')
 		}
 
