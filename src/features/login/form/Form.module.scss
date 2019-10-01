@@ -32,3 +32,18 @@
 		background-color: $c-atlantis-dark;
 	}
 }
+
+.loginError {
+	background-color: $c-white;
+	color: $c-valencia;
+
+	font-size: 1.4rem;
+
+	border-radius: 0.3rem;
+
+	padding-left: 2rem;
+
+	height: 3rem;
+	vertical-align: middle;
+	line-height: 3rem;
+}

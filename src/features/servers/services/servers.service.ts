@@ -4,7 +4,7 @@ import { IServerRecord } from '../store';
 export class ServersService {
     public async get(): Promise<IServerRecord[]> {
         const token = await localStorage.getItem(LOCAL_STORAGE_TOKEN);
-        console.log(token);
+        
         const response = await fetch(`${API_URL}servers`, this.getFetchParams(token));
 
         return response.json();

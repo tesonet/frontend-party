@@ -1,0 +1,67 @@
+{
+    "extends": "tslint:recommended",
+    "rules": {
+        "indent": [
+            true,
+            "tabs"
+        ],
+        "no-console": [
+            true,
+            "error",
+            "log"
+        ],
+        "curly": true,
+        "semicolon": [
+            true,
+            "always",
+            "ignore-interfaces"
+        ],
+        "quotemark": [
+            true,
+            "single",
+            "jsx-double"
+        ],
+        "trailing-comma": [
+            false
+        ],
+        "whitespace": true,
+        "no-trailing-whitespace": true,
+        "ordered-imports": [
+            false
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "allow-pascal-case"
+        ],
+        "class-name": true,
+        "triple-equals": [
+            true,
+            "allow-null-check",
+            "allow-undefined-check"
+        ],
+        "prefer-template": true,
+        "arrow-parens": true,
+        "prefer-const": [
+            true,
+            {
+                "destructuring": "all"
+            }
+        ],
+        "jsdoc-format": true,
+        "no-duplicate-imports": true,
+        "no-duplicate-variable": true,
+        "no-unused-expression": [
+            true,
+            "allow-fast-null-checks"
+        ],
+        "no-misused-new": true,
+        "no-invalid-template-strings": true,
+        "no-shadowed-variable": true,
+        "eofline": true,
+        "no-string-literal": false,
+        "object-literal-sort-keys": false,
+        "forin": false,
+        "no-var-requires": false
+    }
+}

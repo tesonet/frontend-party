@@ -28,14 +28,15 @@ export class ServerListStore {
 
 		runInAction(() => {
 			this.isFetchingServers = false;
-			this.servers = _.sortBy(results, ['distance', 'name']);
+			this.servers = _.sortBy(results, ['name']);
 		});
-	};
+	}
 }
 
 decorate(ServerListStore, {
 	servers: observable,
-	fethcServers: action
-})
+	fethcServers: action,
+	isFetchingServers: observable
+});
 
 export const serverListStore = new ServerListStore();

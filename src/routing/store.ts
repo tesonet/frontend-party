@@ -5,26 +5,26 @@ const history = getHistory();
 export const DEFAULT_ROUTE = '/';
 
 class RouteStore {
-    public currentRoute: string | null;
+	public currentRoute: string | null;
 
-    constructor() {
-        this.currentRoute = null;
-    }
+	constructor() {
+		this.currentRoute = null;
+	}
 
-    public changeRoute = (newRoute: string) => {
-        this.currentRoute = newRoute;
-        history.push(newRoute);
-    }
+	public changeRoute = (newRoute: string) => {
+		this.currentRoute = newRoute;
+		history.push(newRoute);
+	}
 
-    public changeRouteToDefault = () => {
-        this.changeRoute(DEFAULT_ROUTE);
-    }
+	public changeRouteToDefault = () => {
+		this.changeRoute(DEFAULT_ROUTE);
+	}
 }
 
 decorate(RouteStore, {
-    currentRoute: observable,
-    changeRoute: action,
+	currentRoute: observable,
+	changeRoute: action,
 
-})
+});
 
-export const routeStore = new RouteStore()
+export const routeStore = new RouteStore();

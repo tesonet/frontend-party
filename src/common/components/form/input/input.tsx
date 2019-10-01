@@ -5,7 +5,7 @@ interface IProps {
     value?: string;
     type: string;
     name: string;
-    isValid?: boolean;
+    shouldEmphasize?: boolean;
     children?: React.ReactElement;
     placeholder?: string;
     onChange?: (e: any) => void;
@@ -19,7 +19,7 @@ export const Input: React.FC<IProps> = (props: IProps) => {
                 type={props.type}
                 name={props.name}
                 value={props.value}
-                data-emphasized={props.isValid}
+                data-emphasized={props.shouldEmphasize}
                 onChange={props.onChange}
                 placeholder={props.placeholder}
             />

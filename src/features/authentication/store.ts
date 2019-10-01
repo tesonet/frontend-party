@@ -14,13 +14,13 @@ export interface ILoginData {
 export class AuthStore {
 	private authService: AuthenticationService = new AuthenticationService();
 	public isLoggedIn: boolean = this.authService.isUserLoggedIn();
+	public loginHasFailed: boolean = false;
 
 	public loginUser = async (loginData: ILoginData) => {
 		this.isLoggedIn = false
 
 		try {
-			const lel = await this.authService.login(loginData);
-			console.log(lel);
+			await this.authService.login(loginData);
 			runInAction(() => {
 				this.isLoggedIn = this.authService.isUserLoggedIn();
 			});
@@ -30,7 +30,7 @@ export class AuthStore {
 			}
 		} catch(e) {
 			this.isLoggedIn = false;
-			throw new Error('wait wat');
+			this.loginHasFailed = true;
 		}
 	}
 
@@ -42,12 +42,18 @@ export class AuthStore {
 			routeStore.changeRoute('/log-in');
 
 	}
+
+	public resetValidation = () => {
+		this.loginHasFailed = false;
+	}
 }
 
 decorate(AuthStore, {
 	loginUser: action,
 	isLoggedIn: observable,
-	logOutUser: action
+	logOutUser: action,
+	loginHasFailed: observable,
+	resetValidation: action
 })
 
 export const authStore = new AuthStore();

@@ -5,13 +5,12 @@ export class AuthenticationService {
 	public async login(credentials: ILoginData): Promise<void> {
 		const response = await fetch(`${API_URL}tokens`, this.getFetchParams(credentials, 'POST'));
 
-		console.log(1);
 		if (!response.ok) {
-			const { message } = await response.json().catch(e => e);
+			const { message } = await response.json().catch(e=>e);
 			throw new Error(`Login failed: ${message}`);
 		}
 
-		const { token } = await response.json().catch(e => e);
+		const { token } = await response.json();
 
 		if (!token) {
 			throw new Error('No token')

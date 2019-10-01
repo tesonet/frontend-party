@@ -2,56 +2,30 @@
 
 ## Basic instructions
 
-1. Fork this repo
-1. Grab design files from [here](https://www.dropbox.com/sh/ql709t4h1ksl8jn/AACaARTQ9wUkpRNj07w2uHRka?dl=0).
-   If you don't have Sketch or Photoshop, there are always free options to preview design:
-   - [Avocode](https://avocode.com/) - just import `.sketch` file
-   - [Zeplin](https://zeplin.io/) - just import `.sketch` file
-   - [Figma](https://www.figma.com/) - just import `.sketch` file
-1. Do your best with the task 💪
-1. Prepare a pull request and let us know that you are done (feel free to add comment a about the task)
+1. Clone this repository
+2. Change directory to `testio`
+3. run `yarn start`
+4. Use `yarn lint` for linting.
+5. `yarn clean` to delete build and node_modules and install them again.
+6. TODO: Add Husky pre commit hooks for real project. 
 
-## Requirements
+## Comments
 
-### Design
+Application was created using CRA, TypeScript and MobX.
+Event though it was asked to show off the skills of webpack
+and make it 'enterprisey' I could not resist to try and push CRA boundaries
+without ejecting it so I know what I can and cannot do in future personal projects. Unfortunatelly I had to downgrade to MobX version 4 due to the fact that I cant not use decorators (which is cleaner) without ejecting. This lead me to quite some public methods and properties just to decorate them, which is not nice.
 
-- Design should be recreated as per provided design file. We aren't talking about pixel perfect, we know there are gazillion screen sizes these days, just follow best UI/UX patterns, don't invent new icons, colors or spacing and you're all good! 👍
-- Design must be mobile-firendly and responsive.
-- Use `SVG`'s where possible
-- For `CSS` you can use whatever you need and feel comfortable with (vanilla `CSS` is an option too), but we strongly recommend these:
-  - pre-processor ([`SCSS`](https://sass-lang.com/))
-  - [`CSS-in-JS`](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js) library ([`styled-components`](https://www.styled-components.com/), [`JSS`](https://cssinjs.org/), [`emotion`](https://github.com/emotion-js/emotion), [`aphrodite`](https://github.com/Khan/aphrodite))
-  - [`BEM`](http://getbem.com/introduction/) methodology
+I have intentionally chosen not to go BEM way since I have used CSS modules with SCSS syntax. This means that every component will have its own style definition module. BEM in itself is not bad. It's just a different, quite viable option.
 
-### App
+I did not implement the sorting, unfortunatelly, again - time, so I just sorted them by name upon fetching.
 
-- Use ES6+ features where applicable
-- Use [`react.js`](https://reactjs.org/)
-- Use state management solution ([`redux`](https://redux.js.org/) preferably). We know it is possible to do without, but we are curious - can you do with?
-- This must be a single page application. Use routing library([`react-router-dom`](https://www.npmjs.com/package/react-router-dom) or [`@reach/router`](https://reach.tech/router))
-- Implement login by sending an authorization request (`POST`) to <http://playground.tesonet.lt/v1/tokens> to generate a token (don't forget to pass `Content-Type`):
+## Production
 
-```json
-{ "username": "tesonet", "password": "partyanimal" }
-```
+I have also tinkered a bit with Netlify. There is a 'production version' continously deployed to (testio.netlify.com) when something is pushed to this repository. But you guys have to use HTTPS instead of HTTP for requests.
 
-- Use browser storage solution to persist token between sessions
-- Use the token to retrieve the server list from <http://playground.tesonet.lt/v1/servers,>
-- Order the results of servers list by `distance` and `name`.
-- Implement logout (don't forget about the token in the storage)
-- Your app must work on all modern browsers and IE11+ 🐢🤷
+## Feedback about the task
 
-### Bonus
-
-- It is all good to use [`create-react-app`](https://github.com/facebook/create-react-app) as a starter, but if you have time and want showcase your skill - use JS bundler ([`Webpack`](https://webpack.js.org/) preferred) 📦📦📦
-- We highly recommend following `TDD` patterns and showcasing your skills at writing tests(`unit`, `integration`, `e2e` - all are good)
-- Use [`npm scripts`](https://docs.npmjs.com/misc/scripts) for running tasks, i.e. for development, clening build or etc.
-- Do validation of login fields and provide user friendly error messages if needed **#UXmatters**
-- Indicate loading state for the user whenever requests are in action and user might not understand they needs to wait
-
-## Few tips
-
-- Imagine this as a production level product at scale 😉
-- Structure! With great structure, comes great reusability!
-- Maybe You have an idea that is not in the task? Do it! It's on you!
-- Have fun! 🎉🎉🎉
+* Nicest one so far. It realy tests the 'real' abilities on the field, instead of throwing a bunch of algorithms, fibonachi etc.
+* Missed the sorting icons of some kind for server table headers - so for the ones that actually implement it - it would be a nice to have.
+* Requests over HTTPS so it would be possible to use the app hosted in Netlify or Surge

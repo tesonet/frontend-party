@@ -10,9 +10,9 @@ interface IProps {
 }
 
 const ServerList: React.FC<IProps> = observer((props: IProps) => {
-    const { servers } = props.serverListStore!;
+    const { isFetchingServers } = props.serverListStore!;
 
-    if (servers.length === 0) {
+    if (isFetchingServers) {
         return (
             <div className={styles.loader}>
                 <Loader />
