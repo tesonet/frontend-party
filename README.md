@@ -7,7 +7,7 @@
 3. run `yarn start`
 4. Use `yarn lint` for linting.
 5. `yarn clean` to delete build and node_modules and install them again.
-6. TODO: Add Husky pre commit hooks for real project. 
+6. TODO: Add Husky pre commit hooks for real project.
 
 ## Comments
 
