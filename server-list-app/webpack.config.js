@@ -14,13 +14,13 @@ module.exports = {
         options: { presets: ["@babel/env"] }
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-         test: /\.(png|svg|jpg|gif|webp)$/,
-         use: ["file-loader"]
-       }
+        test: /\.(png|svg|jpg|gif|webp)$/,
+        use: ["file-loader"]
+      }
     ]
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },

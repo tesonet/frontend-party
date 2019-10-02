@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Header.css";
+import "./Header.scss";
 import Logout from "../Logout/Logout"
 
 class Header extends Component {

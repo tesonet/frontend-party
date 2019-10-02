@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./AuthenticationError.css";
+import "./AuthenticationError.scss";
 
 class AuthenticationError extends Component {
     constructor(props) {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Login.css";
+import "./Login.scss";
 import AuthenticationError from "../../AuthenticationError/AuthenticationError";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 

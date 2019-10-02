@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App/App";
-import "./index.css";
+import "./index.scss";
 import "babel-polyfill";
 import reducers from "./reducers";
 import { Provider } from "react-redux";

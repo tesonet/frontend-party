@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./LoadingSpinner.css";
+import "./LoadingSpinner.scss";
 
 class LoadingSpinner extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ServerList.css";
+import "./ServerList.scss";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 class ServerListPresentation extends Component {

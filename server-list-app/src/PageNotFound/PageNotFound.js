@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./PageNotFound.css";
+import "./PageNotFound.scss";
 import { withRouter } from "react-router-dom";
 
 class PageNotFound extends Component {
