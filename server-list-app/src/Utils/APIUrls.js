@@ -1,6 +1,7 @@
 class APIUrls {
-    static TokenUrl = "http://playground.tesonet.lt/v1/tokens";
-    static ServerListUrl = "http://playground.tesonet.lt/v1/servers";
+    static BaseUrl = "http://playground.tesonet.lt/v1/";
+    static TokenUrl = APIUrls.BaseUrl + "tokens";
+    static ServerListUrl = APIUrls.BaseUrl + "servers";
 }
 
 export default APIUrls;

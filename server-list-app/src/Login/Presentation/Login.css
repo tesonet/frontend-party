@@ -1,5 +1,5 @@
 .login-container {
-    background-image: url("../resources/login-background.webp") ;
+    background-image: url("./resources/login-background.webp") ;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -40,12 +40,12 @@
 }
 
 .username {
-    background-image: url("../resources/user-icon.svg");    
+    background-image: url("./resources/user-icon.svg");    
     margin-top: 8rem;
 }
 
 .password {
-    background-image: url("../resources/password-icon.svg");   
+    background-image: url("./resources/password-icon.svg");   
 }
 
 .submit {

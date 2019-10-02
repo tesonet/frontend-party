@@ -1,10 +1,4 @@
-import AuthenticationAPI from "./AuthenticationAPI"
-
 class Authentication {
-    static retrieveToken(username, password) {
-      return AuthenticationAPI.retrieveToken(username, password);
-    }
-
     static storeToken(tokenObj) {
       window.localStorage.setItem("authToken", tokenObj ? tokenObj.token : null);
     }

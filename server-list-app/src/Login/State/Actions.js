@@ -1,11 +1,12 @@
-
+import TokenAPI from "../../Utils/TokenAPI";
+import Authentication from "../../Utils/Authentication";
 
 export class LoginActionTypes {
-  static USERNAME_CHANGE = Symbol();
-  static PASSWORD_CHANGE = Symbol();
-  static LOADING_IN_PROGRESS = Symbol();
-  static AUTHENTICATION_ERROR = Symbol();
-  static AUTHENTICATION_SUCCESS = Symbol();
+  static USERNAME_CHANGE = Symbol("USERNAME_CHANGE");
+  static PASSWORD_CHANGE = Symbol("PASSWORD_CHANGE");
+  static LOADING_IN_PROGRESS = Symbol("LOADING_IN_PROGRESS");
+  static AUTHENTICATION_ERROR = Symbol("AUTHENTICATION_ERROR");
+  static AUTHENTICATION_SUCCESS = Symbol("AUTHENTICATION_SUCCESS");
 }
 
 export class LoginActions {
@@ -20,14 +21,14 @@ export class LoginActions {
   static setPassword(value) {
     return {
       type: LoginActionTypes.PASSWORD_CHANGE,
-      username: value
+      password: value
     };
   }
 
   static setLoadingInProgress() {
     return {
       type: LoginActionTypes.LOADING_IN_PROGRESS,
-      value: true
+      isLoading: true
     };
   }
 
@@ -52,7 +53,7 @@ export class LoginActions {
     return (dispatch, getState) => {
       dispatch(LoginActions.setLoadingInProgress());
       const state = getState();
-      return Authentication.retrieveToken(state.Login.username, state.login.password).then(token => {
+      return TokenAPI.retrieveToken(state.Login.username, state.Login.password).then(token => {
         if (token === "") {
           dispatch(LoginActions.setAuthenticationFailure("Authentication error, password or username may be incorrect, please try again."));
         } else {

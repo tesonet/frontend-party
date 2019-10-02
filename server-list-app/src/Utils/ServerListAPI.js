@@ -1,5 +1,6 @@
-import Authentication from "../Utils/Authentication"
-import APIUrls from "../Utils/APIUrls"
+import Authentication from "./Authentication"
+import APIUrls from "./APIUrls"
+import fetch from "cross-fetch"
 
 class ServerListAPI {
 

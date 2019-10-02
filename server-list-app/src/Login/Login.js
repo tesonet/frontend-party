@@ -3,27 +3,11 @@ import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
 import LoginPresentation from "./Presentation/Login"
 import Authentication from "../Utils/Authentication"
-import LoginActions, {LoginActionTypes} from "./State/Actions"
+import LoginActions from "./State/Actions"
 
 class LoginContainer extends Component {
     constructor(props) {
         super(props);
-
-        this.onUsernameChange = this.onUsernameChange.bind(this);
-        this.onPasswordChange = this.onPasswordChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-    }
-
-    onUsernameChange(username) {
-        this.props.dispatch(LoginActions.setUsername(username));
-    }
-
-    onPasswordChange(password) {
-        this.props.dispatch(LoginActions.setPassword(password));
-    }
-
-    onSubmit() {
-        this.props.dispatch(LoginActions.performAuthentication());    
     }
 
     render() {
@@ -36,33 +20,39 @@ class LoginContainer extends Component {
         }
 
         return (
-            <LoginPresentation 
-            username={this.props.username} 
-            password={this.props.password} 
-            isLoading={this.props.isLoading} 
-            authenticationError={this.props.authenticationError} 
-            onUsernameChange={this.onUsernameChange} 
-            onPasswordChange={this.onPasswordChange} 
-            onSubmit={this.onSubmit} 
+            <LoginPresentation
+                username={this.props.username}
+                password={this.props.password}
+                isLoading={this.props.isLoading}
+                authenticationError={this.props.authenticationError}
+                onUsernameChange={this.props.onUsernameChange}
+                onPasswordChange={this.props.onPasswordChange}
+                onSubmit={this.props.onSubmit}
             />
         );
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
-        username: state.Login.username, 
-        password: state.Login.password, 
-        isLoading: state.Login.isLOading, 
+        username: state.Login.username,
+        password: state.Login.password,
+        isLoading: state.Login.isLoading,
         authenticationError: state.Login.authenticationError
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        onUsernameChange: ownProps.onUsernameChange,
-        onPasswordChange: ownProps.onPasswordChange,
-        onSubmit: ownProps.onSubmit
+        onUsernameChange: (username) => {
+            dispatch(LoginActions.setUsername(username));
+        },
+        onPasswordChange: (password) => {
+            dispatch(LoginActions.setPassword(password));
+        },
+        onSubmit: () => {
+            dispatch(LoginActions.performAuthentication());
+        }
     }
 }
 

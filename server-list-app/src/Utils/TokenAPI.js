@@ -1,7 +1,7 @@
 import APIUrls from "./APIUrls"
 import fetch from "cross-fetch"
 
-class AuthenticationAPI {
+class TokenAPI {
   
   static retrieveToken(username, password) {
     const url = APIUrls.TokenUrl;
@@ -27,4 +27,4 @@ class AuthenticationAPI {
 
 }
 
-export default AuthenticationAPI;
+export default TokenAPI;
