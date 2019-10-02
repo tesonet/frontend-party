@@ -51,7 +51,7 @@ class LoginPresentation extends Component {
     
     return (
       <div className="login-container">
-        <img src={require("./resources/logo-testio.webp")} />
+        <img src={require("./resources/logo-testio.png")} />
         <input type="text" className="login-input username" value={username} onChange={this.onUsernameChange} placeholder="Username" />
         <input type="password" className="login-input password" value={password} onChange={this.onPasswordChange} placeholder="Password" />
         <button className="login-input submit" onClick={this.onSubmit}>Log In</button>

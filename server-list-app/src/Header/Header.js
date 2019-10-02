@@ -11,7 +11,7 @@ class Header extends Component {
       return (
           <div className="header-container">
               <div className="logo">
-              <img src={require("./resources/logo-testio.webp")} />
+              <img src={require("./resources/logo-testio.png")} />
               </div>
               <div className="logout-container">
                   <Logout />                
