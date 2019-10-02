@@ -1,3 +1,13 @@
+# Comments on implementation progress
+
+-Was fun for sure to learn react and redux, later took unexpected effort to get my head around
+-Next time would implement Typescript from the start, didn't use "propTypes" either
+-Test's left for next time as well
+
+Didn't use "create react app" boilerplate.
+
+Cheers!
+
 # Tesonet FrontEnd developer task
 
 ## Basic instructions
