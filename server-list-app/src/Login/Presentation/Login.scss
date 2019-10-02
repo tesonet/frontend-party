@@ -1,3 +1,5 @@
+@import "../../constants.scss";
+
 .login-container {
     background-image: url("./resources/login-background.webp") ;
     background-position: center; 
@@ -28,15 +30,15 @@
     background-position-x: 3rem;
     background-position-y: center;   
     margin-top: 2rem;
-}
 
-.login-input::placeholder {
-    color: #b3b3b3;
-}
+    &::placeholder{
+        color: #b3b3b3;
+    }
 
-.login-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.3rem #86b300;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.3rem $button-collor-hoverred;
+    }
 }
 
 .username {
@@ -52,17 +54,17 @@
     padding: 0rem;
     font-weight: 700;
     color: #ffffff;
-    background-color: #9fd533;
+    background-color: $button-collor;
     box-shadow: none !important;
     max-width: 30rem;
     min-width: 28rem;
-}
 
-.submit:hover {
-    background-color: #86b300;
-    cursor: pointer;
-}
+    &:hover {
+        background-color: $button-collor-hoverred;
+        cursor: pointer;
+    }
 
-.submit:focus {
-    background-color: #9fd533;
+    &:focus {
+        background-color: $button-collor-hoverred;
+    }
 }

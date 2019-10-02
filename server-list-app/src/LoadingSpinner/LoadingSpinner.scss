@@ -1,3 +1,5 @@
+@import "../constants.scss";
+
 .spinner-container {
     position: absolute;
     width: 100%;
@@ -23,7 +25,7 @@
     border-width: 0.5rem;
     width: 5rem;
     height: 5rem;
-    border-color: #9fd533 transparent #9fd533 #9fd533;
+    border-color: $button-collor transparent $button-collor $button-collor;
     top: 50%;
     left: 50%;
 }

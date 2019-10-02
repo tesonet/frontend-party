@@ -1,9 +1,11 @@
+@import "../constants.scss";
+
 .error-message {
     font-size: 1.6rem;
     height: 5.6rem;
     max-width: 70rem;
     border-width: 0rem;
-    background-color: #da6e6e;
+    background-color: $error-message-color;
     border-radius: 1rem;
     letter-spacing: 0.1rem;    
     margin-top: 2rem;

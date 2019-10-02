@@ -1,3 +1,5 @@
+@import "../constants.scss";
+
 .page-not-found-container {
     display: flex;
     flex-direction: column;
@@ -8,13 +10,14 @@
 
 .error-404 {
     font-size: 19rem;
-    color: #99cc33;
+    color: $button-collor;
     font-weight: 700;
 }
 
 .message-404 {
     font-size: 5rem;
-    color: #99cc33;
+    color: $button-collor;
+    text-align: center;
 }
 
 .back-to-home-page-button {
@@ -31,9 +34,9 @@
     color: #ffffff;
     font-weight: 700;
     margin-top: 5rem;
-}
 
-.back-to-home-page-button:hover {
-    background-color: #99cc33;
-    cursor: pointer;
+    &:hover {
+        background-color: $button-collor-hoverred;
+        cursor: pointer;
+    }
 }
