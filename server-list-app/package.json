@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules\\.bin\\webpack-dev-server --mode development"
+    "start": "node_modules\\.bin\\webpack-dev-server --open --config webpack.dev.js",
+    "build": "node_modules\\.bin\\webpack --config webpack.prod.js" 
   },
   "author": "",
   "license": "ISC",
@@ -24,7 +25,8 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
+    "webpack-dev-server": "^3.8.1",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
