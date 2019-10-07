@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist/client",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noEmit": true,
+    "noEmitHelpers": true,
+    "strictNullChecks": false,
+    "alwaysStrict": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "importHelpers": true,
+    "typeRoots": ["./node_modules/@types/", "./src/types/"],
+    "lib": ["es6", "es2017.object", "es2017", "dom"],
+    "types": ["react", "node", "mocha"],
+    "paths": {
+      "*": ["src/*"],
+      "@modules/*": ["src/modules/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
+      "@redux/*": ["src/redux/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

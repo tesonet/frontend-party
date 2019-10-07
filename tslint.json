@@ -1,0 +1,30 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rules": {
+    "interface-name": [true, "never-prefix"],
+    "object-literal-sort-keys": false,
+    "member-access": [false],
+    "object-literal-shorthand": true,
+    "array-type": [false],
+    "ban-types": [
+      true,
+      ["Object"],
+      ["Boolean"],
+      ["Number"],
+      ["String"],
+      ["Symbol"]
+    ],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "lowercase-last",
+        "named-imports-order": "lowercase-last",
+        "grouped-imports": true
+      }
+    ],
+    "jsx-no-lambda": false,
+    "interface-over-type-literal": false,
+    "no-empty-interface": false
+  }
+}
