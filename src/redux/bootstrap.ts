@@ -1,6 +1,6 @@
 import { routerMiddleware } from 'connected-react-router';
 import { History } from 'history';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 
 import { createDependencies } from './dependencies';
 import { createEpicsContext } from './epics';
@@ -12,7 +12,7 @@ const initializeStore = (history: History) => {
   const { rootEpics, epicMiddleware } = createEpicsContext(epicsDependencies);
   const store = createStore(
     rootReducer,
-    compose(applyMiddleware(routerMiddleware(history), ...[epicMiddleware])),
+    applyMiddleware(routerMiddleware(history), ...[epicMiddleware]),
   );
   epicMiddleware.run(rootEpics);
 
