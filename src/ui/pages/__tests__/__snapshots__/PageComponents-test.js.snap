@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page UI components Dashboard pages Dashboard Home page component renders correctly 1`] = `
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/dashboard"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/dashboard/servers"
+  />
+  <Route
+    component={[Function]}
+    path="/dashboard"
+  />
+</Switch>
+`;
+
+exports[`Page UI components Dashboard pages Dashboard Servers page component renders correctly 1`] = `
+<div>
+  <h1>
+    Servers
+  </h1>
+</div>
+`;
+
+exports[`Page UI components Home page component renders correctly 1`] = `
+<Redirect
+  push={true}
+  to="/dashboard"
+/>
+`;
+
+exports[`Page UI components Login page component renders correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`Page UI components NotFound page container component renders correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

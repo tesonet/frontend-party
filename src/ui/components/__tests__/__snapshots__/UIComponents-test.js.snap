@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI Components Icon component renders correctly 1`] = `
+<div
+  className="container_8nvalb"
+  style={
+    Object {
+      "height": "19px",
+      "width": "17px",
+    }
+  }
+>
+  <img
+    alt="attention"
+    className="image_190hxbq"
+    src="test-file-stub"
+  />
+</div>
+`;
+
+exports[`UI Components Login form component renders correctly 1`] = `
+<div
+  className="container_1es69me"
+>
+  <form
+    className="form_167occy"
+    onSubmit={[Function]}
+  >
+    <div
+      className="inputWrapper_1wn0680"
+    >
+      <div
+        className="iconWrapper_17iirxi"
+      >
+        <Index
+          name="user"
+          style={
+            Object {
+              "height": "19px",
+              "width": "17px",
+            }
+          }
+        />
+      </div>
+      <input
+        className="input_xb9f6r-o_O-formText_ggyguu"
+        name="username"
+        onFocus={[Function]}
+        placeholder="Username"
+        type="text"
+      />
+    </div>
+    <div
+      className="inputWrapper_1wn0680"
+    >
+      <div
+        className="iconWrapper_17iirxi"
+      >
+        <Index
+          name="password"
+          style={
+            Object {
+              "height": "19px",
+              "width": "17px",
+            }
+          }
+        />
+      </div>
+      <input
+        className="input_xb9f6r-o_O-formText_ggyguu"
+        name="password"
+        onFocus={[Function]}
+        placeholder="Password"
+        type="password"
+      />
+    </div>
+    <div
+      className="inputWrapper_1wn0680"
+    >
+      <button
+        className="submitButton_15v5db7-o_O-formText_ggyguu"
+        name="submit"
+        type="submit"
+      >
+        Log In
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`UI Components Logo container component renders correctly 1`] = `
+<div
+  className="container_1sh6hn"
+>
+  <img
+    alt="Testio."
+    className="image_1pknxbh"
+    src="test-file-stub"
+  />
+</div>
+`;
+
+exports[`UI Components Spin component renders correctly 1`] = `
+<div
+  className="lds-dual-ring"
+/>
+`;

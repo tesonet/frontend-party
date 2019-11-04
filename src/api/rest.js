@@ -8,10 +8,9 @@ import {
  * @param method
  * @param url
  * @param token
- * @param params
  * @returns {Promise<{error, result}>}
  */
-const restWrapper = async (method, url = '', token, params = {}) => {
+const restWrapper = async (method, url = '', token, params) => {
     const requestUrl = `${API_URL}${url}`;
     try {
         const response = await fetch(requestUrl, {
@@ -21,7 +20,7 @@ const restWrapper = async (method, url = '', token, params = {}) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
             },
-            body: JSON.stringify(params),
+            body: params ? JSON.stringify(params) : undefined,
         });
         if (response.status === 200) {
             return { result: await response.json() };
@@ -50,15 +49,15 @@ const login = async ({ username, password }) => {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
-
             },
             body: JSON.stringify({ username, password })
         });
 
         if (response.status === 200) {
-            return await response.json();
+            return { result: await response.json() };
+        } else if (response.status === 401) {
+            return { error: 'unauthorized' };
         } else {
-            console.log('Unauthorized');
             return { error: await response.json() };
         }
     } catch (e) {

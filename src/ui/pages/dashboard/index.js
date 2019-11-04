@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 // Pages
 import Servers from './servers';
 import DashboardHome from './home';
-import NotFound from '../404';
+import NotFound from '../notFound';
 
 export default class Dashboard extends React.Component {
     render() {

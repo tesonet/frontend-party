@@ -8,7 +8,7 @@ import {
 export default class Home extends React.Component {
     render() {
         return (
-            <Redirect to={'/login'}/>
+            <Redirect to={'/dashboard'} push/>
         );
     }
 }

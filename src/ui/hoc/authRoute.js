@@ -35,7 +35,6 @@ class AuthRoute extends React.Component {
                     ) : (
                         <Route {...this.props} />
                     )}
-                }
             </>
         );
     }

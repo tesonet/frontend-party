@@ -40,19 +40,17 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                            localsConvention: 'camelCase',
-                            sourceMap: true
-                        }
+                use: ['style-loader', 'css-loader' ]
+            },
+            {
+                test: /\.(png|jp(e*)g|svg)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8000, // Convert images < 8kb to base64 strings
+                        name: 'images/[hash]-[name].[ext]'
                     }
-                ]
+                }]
             }
         ]
     }

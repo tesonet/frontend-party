@@ -2,13 +2,22 @@ import React from 'react';
 
 // React router
 import {
-    Redirect,
+    withRouter,
 } from 'react-router-dom';
 
-export default class DashboardHome extends React.Component {
+/**
+ * Since we are thinking to scale this application in the future
+ * I'm creating this home page for dashboard which redirects to servers for now
+ */
+class DashboardHome extends React.Component {
     render() {
-        return (
-            <Redirect to={'/dashboard/servers'}/>
-        )
+        return null;
+    }
+
+    componentDidMount() {
+        const { history } = this.props;
+        history.replace('/dashboard/servers')
     }
 }
+
+export default withRouter(DashboardHome);

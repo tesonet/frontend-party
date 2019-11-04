@@ -9,25 +9,28 @@ import {
 
 // Redux
 import { Provider } from 'react-redux';
-import store from '../redux/store';
+import store from '/redux/store';
 
 // Redux Actions Creators
 import {
     setUser,
-} from '../redux/actions';
+} from '/redux/actions';
 
 // Lookups
 import {
     getUserWithToken,
-} from '../api/lookups';
+} from '/api/lookups';
 
 // Hoc
-import AuthRoute from './hoc/authRoute';
+import AuthRoute from '/ui/hoc/authRoute';
+
+// Global Styles
+import '../assets/css/globalStyles.css';
 
 // Pages
 import Home from './pages/home';
 import Login from './pages/login';
-import NotFound from './pages/404';
+import NotFound from './pages/notFound';
 import Dashboard from './pages/dashboard';
 
 class App extends React.Component {
@@ -35,14 +38,12 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <BrowserRouter>
-                    <div>
-                        <Switch>
-                            <Route exact path='/login' component={Login}/>
-                            <AuthRoute path='/dashboard' component={Dashboard}/>
-                            <Route exact path='/' component={Home}/>
-                            <Route path='/' component={NotFound}/>
-                        </Switch>
-                    </div>
+                    <Switch>
+                        <Route exact path='/login' component={Login}/>
+                        <AuthRoute path='/dashboard' component={Dashboard}/>
+                        <Route exact path='/' component={Home}/>
+                        <Route path='/' component={NotFound}/>
+                    </Switch>
                 </BrowserRouter>
             </Provider>
         );

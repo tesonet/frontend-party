@@ -20,7 +20,8 @@ const getUserWithToken = async () => {
         if (error) {
             return null;
         } else {
-            return result;
+            // Since We don't gave validate user API End point I'm returning hardcoded value "token"
+            return { token };
         }
     } else {
         return null;
