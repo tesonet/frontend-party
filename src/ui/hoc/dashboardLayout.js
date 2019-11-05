@@ -21,7 +21,6 @@ const DashboardLayout = (PageComponent) => {
 
 export default DashboardLayout;
 
-
 const styles = StyleSheet.create({
     dashboard: {
         width: '100%',

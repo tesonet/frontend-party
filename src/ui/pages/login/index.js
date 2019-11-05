@@ -53,10 +53,10 @@ class LoginPage extends React.Component {
 
         const { updateUserState, history } = this.props;
 
-        //Login User
+        // Login User
         const user = await login({ username, password });
 
-        // Update Redux User State
+        // Update Global User's State
         updateUserState({ user });
 
         this.setState({ loading: false }, () => {

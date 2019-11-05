@@ -4,7 +4,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 /**
- * Redirecting to login
+ * Redirecting to dashboard
  */
 class Home extends React.Component {
     render() {

@@ -1,9 +1,14 @@
 const styles = require('./styles.css');
 
+// Icons
 import errorIcon from '/assets/images/icons/cross.svg';
 import defaultIcon from '/assets/images/icons/default.svg';
 import successIcon from '/assets/images/icons/success.svg';
 import attentionIcon from '/assets/images/icons/attention.svg';
+
+/**
+ * Generates Flash message by displaying message to user
+ */
 
 const message = (function constructor() {
     const component = {

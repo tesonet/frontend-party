@@ -41,7 +41,10 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path='/login' component={Login}/>
                         <AuthRoute path='/dashboard' component={Dashboard}/>
-                        {/*Using AuthRoute for root route just to avoid code duplication since we are not actually using this page*/}
+                        {/*
+                            Using AuthRoute here for root url
+                            just to avoid code duplication since we are not actually using this page
+                        */}
                         <AuthRoute exact path='/' component={Home}/>
                         <Route path='/' component={NotFound}/>
                     </Switch>

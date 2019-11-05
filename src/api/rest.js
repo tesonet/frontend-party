@@ -68,7 +68,7 @@ const login = async ({ username, password }) => {
 
 const REST = {
     login,
-    validateUser: restWrapper.bind(this, 'GET', '/v1/servers'), // because validate user URL is not provided, using same url as to get servers
+    validateUser: restWrapper.bind(this, 'GET', '/v1/servers'), // since validate user's token Rest endpoint is not provided, using same url as to get servers to validate token
     getServers: restWrapper.bind(this, 'GET', '/v1/servers'),
 };
 
