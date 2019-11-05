@@ -10,9 +10,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 // Redux Actions Creators
-import {
-    setUser,
-} from '/redux/actions';
+import { setUser } from '/redux/actions';
 
 // Aphrodite
 import { css, StyleSheet } from 'aphrodite';
@@ -36,13 +34,15 @@ class LoginPage extends React.Component {
         const { loading } = this.state;
         return (
             <div className={css(styles.container)}>
-                <LogoContainer/>
-                <LoginForm
-                    {...{
-                        loading,
-                        onLogin: this.handleLogin,
-                    }}
-                />
+                <div className={css(styles.formWrapper)}>
+                    <LogoContainer/>
+                    <LoginForm
+                        {...{
+                            loading,
+                            onLogin: this.handleLogin,
+                        }}
+                    />
+                </div>
             </div>
         );
     }
@@ -85,12 +85,19 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        flex: '1 1 0%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
+        overflow: 'hidden',
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
+    },
+    formWrapper: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '100%',
+        maxWidth: '363px',
+        '@media (max-width: 400px)': {
+            width: '90%'
+        },
     }
 });

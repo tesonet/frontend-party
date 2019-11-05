@@ -1,14 +1,20 @@
 import React from 'react';
 
 // React router
-import {
-    Redirect,
-} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default class Home extends React.Component {
+/**
+ * Redirecting to login
+ */
+class Home extends React.Component {
     render() {
-        return (
-            <Redirect to={'/dashboard'} push/>
-        );
+        return null;
+    }
+
+    componentDidMount() {
+        const { history } = this.props;
+        history.replace('/dashboard')
     }
 }
+
+export default withRouter(Home)

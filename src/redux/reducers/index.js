@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import {
     SET_USER,
+    REMOVE_USER,
 } from '../actions';
 
 function userState(
@@ -14,6 +15,10 @@ function userState(
         case SET_USER :
             return {
                 user: action.user,
+            };
+        case REMOVE_USER :
+            return {
+                user: null,
             };
         default:
             return state;

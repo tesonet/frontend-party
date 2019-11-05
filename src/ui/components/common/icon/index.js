@@ -8,11 +8,15 @@ import { css, StyleSheet } from 'aphrodite';
 import userIcon from '/assets/images/icons/user_icon.svg';
 import passwordIcon from '/assets/images/icons/password_icon.svg';
 import attentionIcon from '/assets/images/icons/attention.svg';
+import logoutIcon from '/assets/images/icons/logout-icon.svg';
+import logoutActiveIcon from '/assets/images/icons/logout-icon-active.svg';
 
 const images = {
     user: userIcon,
     password: passwordIcon,
     attention: attentionIcon,
+    logout: logoutIcon,
+    logoutActive: logoutActiveIcon,
 };
 
 export default class Index extends React.PureComponent {
@@ -25,13 +29,13 @@ export default class Index extends React.PureComponent {
 
     static propTypes = {
         name: PropTypes.string.isRequired,
-        styles: PropTypes.object,
+        style: PropTypes.object,
     };
 
     render() {
         const { name, style } = this.props;
         return (
-            <div  className={css(styles.container)} style={style}>
+            <div  className={style ? '' : css(styles.container)} style={style}>
                 <img
                     src={images[name]}
                     alt={name}

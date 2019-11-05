@@ -2,7 +2,7 @@
 
 exports[`UI Components Icon component renders correctly 1`] = `
 <div
-  className="container_8nvalb"
+  className=""
   style={
     Object {
       "height": "19px",
@@ -19,79 +19,75 @@ exports[`UI Components Icon component renders correctly 1`] = `
 `;
 
 exports[`UI Components Login form component renders correctly 1`] = `
-<div
-  className="container_1es69me"
+<form
+  className=""
+  onSubmit={[Function]}
 >
-  <form
-    className="form_167occy"
-    onSubmit={[Function]}
+  <div
+    className="inputWrapper_ebxu7m"
   >
     <div
-      className="inputWrapper_1wn0680"
+      className="iconWrapper_17iirxi"
     >
-      <div
-        className="iconWrapper_17iirxi"
-      >
-        <Index
-          name="user"
-          style={
-            Object {
-              "height": "19px",
-              "width": "17px",
-            }
+      <Index
+        name="user"
+        style={
+          Object {
+            "height": "19px",
+            "width": "17px",
           }
-        />
-      </div>
-      <input
-        className="input_xb9f6r-o_O-formText_ggyguu"
-        name="username"
-        onFocus={[Function]}
-        placeholder="Username"
-        type="text"
+        }
       />
     </div>
+    <input
+      className="input_1wh6aqi-o_O-formText_ggyguu"
+      name="username"
+      onFocus={[Function]}
+      placeholder="Username"
+      type="text"
+    />
+  </div>
+  <div
+    className="inputWrapper_ebxu7m"
+  >
     <div
-      className="inputWrapper_1wn0680"
+      className="iconWrapper_17iirxi"
     >
-      <div
-        className="iconWrapper_17iirxi"
-      >
-        <Index
-          name="password"
-          style={
-            Object {
-              "height": "19px",
-              "width": "17px",
-            }
-          }
-        />
-      </div>
-      <input
-        className="input_xb9f6r-o_O-formText_ggyguu"
+      <Index
         name="password"
-        onFocus={[Function]}
-        placeholder="Password"
-        type="password"
+        style={
+          Object {
+            "height": "19px",
+            "width": "17px",
+          }
+        }
       />
     </div>
-    <div
-      className="inputWrapper_1wn0680"
+    <input
+      className="input_1wh6aqi-o_O-formText_ggyguu"
+      name="password"
+      onFocus={[Function]}
+      placeholder="Password"
+      type="password"
+    />
+  </div>
+  <div
+    className="inputWrapper_ebxu7m"
+  >
+    <button
+      className="submitButton_15v5db7-o_O-formText_ggyguu"
+      name="submit"
+      type="submit"
     >
-      <button
-        className="submitButton_15v5db7-o_O-formText_ggyguu"
-        name="submit"
-        type="submit"
-      >
-        Log In
-      </button>
-    </div>
-  </form>
-</div>
+      Log In
+    </button>
+  </div>
+</form>
 `;
 
 exports[`UI Components Logo container component renders correctly 1`] = `
 <div
-  className="container_1sh6hn"
+  className="container_1vg9bv0"
 >
   <img
     alt="Testio."
@@ -101,8 +97,84 @@ exports[`UI Components Logo container component renders correctly 1`] = `
 </div>
 `;
 
+exports[`UI Components Servers List Item component renders correctly 1`] = `
+<div
+  className="container_izy9jc"
+>
+  <div
+    className="textContainer_ovz5au-o_O-textLeft_4fgp8a"
+  >
+    <h3
+      className="text_1s0zdaf"
+    />
+  </div>
+  <div
+    className="textContainer_ovz5au-o_O-textRight_deghhp"
+  >
+    <h3
+      className="text_1s0zdaf"
+    >
+      undefined km
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`UI Components ServersList component renders correctly 1`] = `
+<div
+  className="container_190hxbq"
+>
+  <ServersListHeader
+    activeSort="name"
+    changeServersSort={[Function]}
+  />
+  <ServersListItem
+    distance={650}
+    key="Germany #810"
+    name="Germany #81"
+  />
+  <ServersListItem
+    distance={210}
+    key="Lithuania #701"
+    name="Lithuania #70"
+  />
+  <ServersListItem
+    distance={498}
+    key="United States #982"
+    name="United States #98"
+  />
+</div>
+`;
+
+exports[`UI Components ServersListHeader component renders correctly 1`] = `
+<div
+  className="container_1my5rsq"
+>
+  <div
+    className="headerTitleContainer_ovz5au-o_O-headerTitleLeft_4fgp8a"
+  >
+    <h3
+      className="headerText_1twnfzb-o_O-active_u5j6yl"
+      onClick={[Function]}
+    >
+      SERVER
+    </h3>
+  </div>
+  <div
+    className="headerTitleContainer_ovz5au-o_O-headerTitleRight_deghhp"
+  >
+    <h3
+      className="headerText_1twnfzb"
+      onClick={[Function]}
+    >
+      DISTANCE
+    </h3>
+  </div>
+</div>
+`;
+
 exports[`UI Components Spin component renders correctly 1`] = `
 <div
-  className="lds-dual-ring"
+  className="lds-dual-ring small white"
 />
 `;

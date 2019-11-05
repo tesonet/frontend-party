@@ -2,9 +2,7 @@
 import REST from './rest';
 
 // Utils
-import {
-    getLocalUserToken,
-} from '../lib/utils';
+import { getLocalUserToken, } from '/lib/utils';
 
 /**
  * Get User from Rest by token
@@ -28,6 +26,23 @@ const getUserWithToken = async () => {
     }
 };
 
+
+const getServers = async () => {
+    const token = getLocalUserToken();
+    if (token) {
+        const { error, result } = await REST.getServers(token);
+        if (error) {
+            return null;
+        } else {
+            return result;
+        }
+    } else {
+        return null;
+    }
+
+};
+
 export {
     getUserWithToken,
+    getServers,
 };

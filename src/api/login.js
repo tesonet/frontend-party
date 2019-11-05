@@ -7,6 +7,12 @@ import { setLocalUserToken } from '/lib/utils';
 // Components
 import message from '/ui/components/common/message';
 
+/**
+ * Login function to handle user authentication, user tokens and user messages
+ * @param username
+ * @param password
+ * @returns {Promise<null | {user}>}
+ */
 const login = async ({ username, password }) => {
     const { error, result } = await REST.login({ username, password });
     if (error) {

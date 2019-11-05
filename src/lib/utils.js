@@ -8,15 +8,15 @@ const getLocalUserToken = () => {
 
 /**
  * Handle save user token by saving to browser's local storage
- * @param token
+ * @param token -> String
  */
 const setLocalUserToken = (token) => {
     return localStorage.setItem('userToken', token);
 };
 /**
  * Utils Function to validate input params by defined scenarios
- * @param username
- * @param password
+ * @param username -> String
+ * @param password -> String
  */
 const validateLoginInputParams = ({ username, password }) => {
     const errors = {};
@@ -40,8 +40,19 @@ const validateLoginInputParams = ({ username, password }) => {
     return Object.keys(errors).length ? errors : null;
 };
 
+/**
+ * Utils function to sort array of objects by provided criteria
+ * @param array -> Array
+ * @param orderBy -> String
+ * @returns {*}
+ */
+const sortArrayBy = (array, orderBy) => {
+    return array.sort((a, b) => a[orderBy] > b[orderBy] ? 1 : -1);
+};
+
 export {
     getLocalUserToken,
     setLocalUserToken,
     validateLoginInputParams,
+    sortArrayBy,
 }

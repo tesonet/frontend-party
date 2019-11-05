@@ -1,21 +1,3 @@
-.lds-dual-ring {
-    display: flex;
-    width: 58px;
-    height: 58px;
-    align-items: center;
-    justify-content: center;
-}
-.lds-dual-ring:after {
-    content: " ";
-    display: block;
-    width: 20px;
-    height: 20px;
-    margin: 1px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    border-color: #fff transparent #fff transparent;
-    animation: lds-dual-ring 1.2s linear infinite;
-}
 @keyframes lds-dual-ring {
     0% {
         transform: rotate(0deg);
@@ -23,4 +5,63 @@
     100% {
         transform: rotate(360deg);
     }
+}
+.lds-dual-ring {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    margin: 1px;
+    border-radius: 50%;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+/* Small spinner styles */
+.lds-dual-ring.small {
+    width: 58px;
+    height: 58px;
+}
+
+.lds-dual-ring.small:after {
+    width: 20px;
+    height: 20px;
+    border: 5px solid;
+}
+/*Normal spinner styles */
+.lds-dual-ring.normal {
+    width: 60px;
+    height: 60px;
+}
+
+.lds-dual-ring.normal:after {
+    width: 30px;
+    height: 30px;
+    border: 8px solid;
+}
+
+/* large spinner styles */
+.lds-dual-ring.large {
+    width: 100px;
+    height: 100px;
+}
+
+.lds-dual-ring.large:after {
+    width: 65px;
+    height: 65px;
+    border: 15px solid;
+}
+
+/* Spinner color*/
+.lds-dual-ring.grey:after {
+    border-color: #d8d8d8 transparent #d8d8d8 transparent;
+}
+
+.lds-dual-ring.black:after {
+    border-color: #000 transparent #000 transparent;
+}
+
+.lds-dual-ring.white:after {
+    border-color: #fff transparent #fff transparent;
 }

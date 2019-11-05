@@ -26,12 +26,7 @@ const styles = StyleSheet.create({
         width: '100%',
         maxWidth: '363px',
         height: '133px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        '@media (max-width: 400px)': {
-            width: '90%'
-        },
+        textAlign: 'center',
     },
     image: {
         width: '100%',

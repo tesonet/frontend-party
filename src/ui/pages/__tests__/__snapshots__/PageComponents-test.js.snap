@@ -20,18 +20,18 @@ exports[`Page UI components Dashboard pages Dashboard Home page component render
 `;
 
 exports[`Page UI components Dashboard pages Dashboard Servers page component renders correctly 1`] = `
-<div>
-  <h1>
-    Servers
-  </h1>
+<div
+  className="dashboard_190hxbq"
+>
+  <withRouter(Connect(DashboardHeader)) />
+  <Servers />
 </div>
 `;
 
 exports[`Page UI components Home page component renders correctly 1`] = `
-<Redirect
-  push={true}
-  to="/dashboard"
-/>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`Page UI components Login page component renders correctly 1`] = `

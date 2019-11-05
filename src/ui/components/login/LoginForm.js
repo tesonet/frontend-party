@@ -26,51 +26,49 @@ export default class LoginForm extends React.PureComponent {
         const { loading } = this.props;
         const { validationErrors } = this.state;
         return (
-            <div className={css(styles.container)}>
-                <form
-                    onSubmit={this.handleLogin}
-                    className={css(styles.form)}
-                >
-                    <div className={css(styles.inputWrapper)}>
-                        <div className={css(styles.iconWrapper)}>
-                            <Icon name={validationErrors['username'] ? 'attention' : 'user'}/>
-                        </div>
-                        <input
-                            ref={this.username}
-                            className={css(styles.input, styles.formText, validationErrors['username'] && styles.inputError)}
-                            type='text'
-                            name='username'
-                            placeholder='Username'
-                            onFocus={this.handleOnFocus}
-                        />
+            <form
+                onSubmit={this.handleLogin}
+                className={css(styles.form)}
+            >
+                <div className={css(styles.inputWrapper)}>
+                    <div className={css(styles.iconWrapper)}>
+                        <Icon name={validationErrors['username'] ? 'attention' : 'user'}/>
                     </div>
-                    <div className={css(styles.inputWrapper)}>
-                        <div className={css(styles.iconWrapper)}>
-                            <Icon name={validationErrors['password'] ? 'attention' : 'password'}/>
-                        </div>
-                        <input
-                            ref={this.password}
-                            className={css(styles.input, styles.formText, validationErrors['password'] && styles.inputError)}
-                            type='password'
-                            name='password'
-                            placeholder='Password'
-                            onFocus={this.handleOnFocus}
-                        />
+                    <input
+                        ref={this.username}
+                        className={css(styles.input, styles.formText, validationErrors['username'] && styles.inputError)}
+                        type='text'
+                        name='username'
+                        placeholder='Username'
+                        onFocus={this.handleOnFocus}
+                    />
+                </div>
+                <div className={css(styles.inputWrapper)}>
+                    <div className={css(styles.iconWrapper)}>
+                        <Icon name={validationErrors['password'] ? 'attention' : 'password'}/>
                     </div>
-                    <div className={css(styles.inputWrapper)}>
-                        <button
-                            className={css(styles.submitButton, styles.formText)}
-                            type="submit"
-                            name="submit"
-                        >
-                            Log In
-                            {loading && (
-                                <Spin/>
-                            )}
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    <input
+                        ref={this.password}
+                        className={css(styles.input, styles.formText, validationErrors['password'] && styles.inputError)}
+                        type='password'
+                        name='password'
+                        placeholder='Password'
+                        onFocus={this.handleOnFocus}
+                    />
+                </div>
+                <div className={css(styles.inputWrapper)}>
+                    <button
+                        className={css(styles.submitButton, styles.formText)}
+                        type="submit"
+                        name="submit"
+                    >
+                        Log In
+                        {loading && (
+                            <Spin/>
+                        )}
+                    </button>
+                </div>
+            </form>
         );
     }
 
@@ -106,29 +104,14 @@ export default class LoginForm extends React.PureComponent {
                 });
             });
         } else {
-            //this.setState({ validationErrors: {} });
             onLogin({ username, password });
         }
     };
 }
 
 const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        maxWidth: '363px',
-        display: 'flex',
-        '@media (max-width: 400px)': {
-            width: '90%'
-        }
-    },
-    form: {
-        flex: '1 1 0%',
-        display: 'flex',
-        flexDirection: 'column',
-    },
     inputWrapper: {
         position: 'relative',
-        display: 'table',
         marginBottom: '18px',
     },
     formText: {
@@ -137,7 +120,6 @@ const styles = StyleSheet.create({
         letterSpacing: '0.4px',
     },
     input: {
-        display: 'table-cell',
         width: '100%',
         height: '56px',
         padding: '0 15px 0 55px',
@@ -185,7 +167,4 @@ const styles = StyleSheet.create({
         top: '17px',
         left: '25px',
     },
-    image: {
-        animation: 'loadingCircle 1s infinite linear',
-    }
 });
