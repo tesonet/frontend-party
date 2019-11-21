@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from 'components/Login/Login';
+import LoginForm from 'containers/LoginForm/LoginForm';
 import { makeStyles, Grid, Paper } from '@material-ui/core';
 import background from 'assets/img/home-background.svg';
 import logo from 'assets/img/logo.svg';
@@ -33,7 +33,7 @@ const Home = () => {
         </Grid>
         <Grid item>
           <Paper className={classes.paper}>
-            <Login />
+            <LoginForm />
           </Paper>
         </Grid>
       </Grid>
