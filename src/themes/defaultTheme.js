@@ -19,6 +19,13 @@ const defaultTheme = {
       autoComplete: 'off',
     },
   },
+  overrides: {
+    MuiButton: {
+      containedPrimary: {
+        color: 'white'
+      }
+    }
+  }
 };
 
 export default createMuiTheme(defaultTheme);

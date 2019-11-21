@@ -17,24 +17,18 @@ const useStyle = makeStyles((theme) => ({
   logo: {
     margin: theme.spacing(0, 0, 4, 0),
   },
-  paper: {
-    padding: theme.spacing(3),
-    maxWidth: 360,
-  },
 }));
 
 const Home = () => {
   const classes = useStyle();
   return (
     <div className={classes.root}>
-      <Grid spacing={3} container direction="column" justify="center" alignItems="center">
+      <Grid spacing={3} container direction="column" justify="center" alignItems="center"  className={classes.wrapper}>
         <Grid item>
           <img src={logo} alt="" className={classes.logo} />
         </Grid>
         <Grid item>
-          <Paper className={classes.paper}>
-            <LoginForm />
-          </Paper>
+          <LoginForm />
         </Grid>
       </Grid>
     </div>

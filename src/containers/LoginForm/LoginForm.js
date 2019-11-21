@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Grid, InputAdornment } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import { object, string } from 'yup';
-import { Person, Lock } from '@material-ui/icons';
+import { Lock, Person } from '@material-ui/icons';
 import { connect } from 'react-redux';
 import { FIELD_LABELS, FIELDS, INITIAL_VALUES } from './constants';
 import FormTextField from '../../components/FormTextField/FormTextField';
@@ -13,7 +13,7 @@ const validationSchema = object()
     [FIELDS.USERNAME]: string()
       .required('Enter an email'),
     [FIELDS.PASSWORD]: string()
-      .required('Enter a password'),
+      .required('Enter a password')
   });
 
 
@@ -31,7 +31,7 @@ const LoginForm = (props) => {
     >
       {
         (formikProps) => (
-          <Form>
+          <Form style={{ maxWidth: 360 }}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <FormTextField
@@ -42,7 +42,7 @@ const LoginForm = (props) => {
                       <InputAdornment position="start">
                         <Person />
                       </InputAdornment>
-                    ),
+                    )
                   }}
                 />
               </Grid>
@@ -55,7 +55,7 @@ const LoginForm = (props) => {
                       <InputAdornment position="start">
                         <Lock />
                       </InputAdornment>
-                    ),
+                    )
                   }}
                 />
               </Grid>
@@ -73,7 +73,7 @@ const LoginForm = (props) => {
 };
 
 const mapDispatchToProps = ({
-  authorize,
+  authorize
 });
 
 export default connect(null, mapDispatchToProps)(LoginForm);
