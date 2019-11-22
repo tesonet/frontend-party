@@ -1,13 +1,17 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { initTokenStorage } from 'store/modules/authentication/actions';
 import { getStoredAuthToken } from 'store/modules/authentication/helpers';
 import PATHS from 'shared/constants/PATHS';
 
-const requireAuth = (WrappedComponent) => {
-  class RequireAuth extends React.Component {
+const requireAuth = (WrappedComponent: React.ComponentType<any>): React.ComponentType<any> => {
+  interface Props {
+    isAuthenticated: boolean,
+    history: History,
+  }
+
+  class RequireAuth extends React.Component<any> {
     componentDidMount() {
       this.handleAuthentication();
     }
@@ -34,7 +38,7 @@ const requireAuth = (WrappedComponent) => {
     }
   }
 
-  const mapStateToProps = (state) => ({
+  const mapStateToProps = (state: any) => ({
     isAuthenticated: !!state.authentication.token,
   });
 
@@ -42,10 +46,7 @@ const requireAuth = (WrappedComponent) => {
     initTokenStorage,
   };
 
-  return compose(
-    withRouter,
-    connect(mapStateToProps, mapDispatchToProps),
-  )(RequireAuth);
+  return withRouter(connect(mapStateToProps, mapDispatchToProps)(RequireAuth));
 };
 
 export default requireAuth;

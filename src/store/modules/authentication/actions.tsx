@@ -1,6 +1,6 @@
 import * as AUTHENTICATION_ACTION_TYPES from './constants';
 
-export const init = (username, password) => ({
+export const init = (username: string, password: string) => ({
   type: AUTHENTICATION_ACTION_TYPES.INIT,
   username,
   password,
@@ -10,12 +10,12 @@ export const initLogout = () => ({
   type: AUTHENTICATION_ACTION_TYPES.INIT_LOGOUT,
 });
 
-export const initTokenStorage = (token) => ({
+export const initTokenStorage = (token: string) => ({
   type: AUTHENTICATION_ACTION_TYPES.INIT_TOKEN_STORAGE,
   token,
 });
 
-export const setToken = (token) => ({
+export const setToken = (token: string) => ({
   type: AUTHENTICATION_ACTION_TYPES.SET_TOKEN,
   token,
 });

@@ -10,6 +10,7 @@ export const history = createBrowserHistory();
 const connectedRouterMiddleware = routerMiddleware(history);
 const sagaMiddleware = createSagaMiddleware();
 
+// @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = [
   connectedRouterMiddleware,

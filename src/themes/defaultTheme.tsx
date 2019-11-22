@@ -28,4 +28,5 @@ const defaultTheme = {
   },
 };
 
+// @ts-ignore
 export default createMuiTheme(defaultTheme);

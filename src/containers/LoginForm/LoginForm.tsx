@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Button, Grid, InputAdornment, makeStyles,
 } from '@material-ui/core';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikValues } from 'formik';
 import { object, string } from 'yup';
 import { Lock, Person } from '@material-ui/icons';
 import { connect } from 'react-redux';
@@ -24,10 +24,14 @@ const useStyle = makeStyles(({
   },
 }));
 
-const LoginForm = (props) => {
+interface Props {
+  authorize: (username: string, password: string) => void
+}
+
+const LoginForm = (props: Props) => {
   const classes = useStyle();
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: FormikValues) => {
     const { [FIELDS.USERNAME]: username, [FIELDS.PASSWORD]: password } = values;
     props.authorize(username, password);
   };

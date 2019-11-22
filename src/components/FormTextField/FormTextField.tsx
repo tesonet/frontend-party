@@ -2,10 +2,10 @@ import { TextField } from '@material-ui/core';
 import { useField } from 'formik';
 import React from 'react';
 
-const FormTextField = (props) => {
+const FormTextField = (props: any) => {
   const [field, meta] = useField(props);
   return (
-    <TextField {...field} {...props} error={!!meta.touched && !!meta.error} />
+    <TextField {...field} {...props} error={meta.touched && !!meta.error} />
   );
 };
 
