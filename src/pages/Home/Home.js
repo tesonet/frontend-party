@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from 'containers/LoginForm/LoginForm';
-import { makeStyles, Grid, Paper } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 import background from 'assets/img/home-background.svg';
 import logo from 'assets/img/logo.svg';
 
@@ -23,7 +23,7 @@ const Home = () => {
   const classes = useStyle();
   return (
     <div className={classes.root}>
-      <Grid spacing={3} container direction="column" justify="center" alignItems="center"  className={classes.wrapper}>
+      <Grid spacing={3} container direction="column" justify="center" alignItems="center">
         <Grid item>
           <img src={logo} alt="" className={classes.logo} />
         </Grid>

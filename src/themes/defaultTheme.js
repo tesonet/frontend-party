@@ -22,10 +22,10 @@ const defaultTheme = {
   overrides: {
     MuiButton: {
       containedPrimary: {
-        color: 'white'
-      }
-    }
-  }
+        color: 'white',
+      },
+    },
+  },
 };
 
 export default createMuiTheme(defaultTheme);

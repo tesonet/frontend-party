@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, Grid, InputAdornment } from '@material-ui/core';
+import {
+  Button, Grid, InputAdornment, makeStyles,
+} from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import { object, string } from 'yup';
 import { Lock, Person } from '@material-ui/icons';
@@ -13,11 +15,18 @@ const validationSchema = object()
     [FIELDS.USERNAME]: string()
       .required('Enter an email'),
     [FIELDS.PASSWORD]: string()
-      .required('Enter a password')
+      .required('Enter a password'),
   });
 
+const useStyle = makeStyles(({
+  root: {
+    maxWidth: 360,
+  },
+}));
 
 const LoginForm = (props) => {
+  const classes = useStyle();
+
   const handleSubmit = async (values) => {
     const { [FIELDS.USERNAME]: username, [FIELDS.PASSWORD]: password } = values;
     props.authorize(username, password);
@@ -31,7 +40,7 @@ const LoginForm = (props) => {
     >
       {
         (formikProps) => (
-          <Form style={{ maxWidth: 360 }}>
+          <Form className={classes.root}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <FormTextField
@@ -42,7 +51,7 @@ const LoginForm = (props) => {
                       <InputAdornment position="start">
                         <Person />
                       </InputAdornment>
-                    )
+                    ),
                   }}
                 />
               </Grid>
@@ -55,7 +64,7 @@ const LoginForm = (props) => {
                       <InputAdornment position="start">
                         <Lock />
                       </InputAdornment>
-                    )
+                    ),
                   }}
                 />
               </Grid>
@@ -73,7 +82,7 @@ const LoginForm = (props) => {
 };
 
 const mapDispatchToProps = ({
-  authorize
+  authorize,
 });
 
 export default connect(null, mapDispatchToProps)(LoginForm);

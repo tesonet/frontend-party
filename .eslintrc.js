@@ -23,7 +23,7 @@ module.exports = {
   ],
   rules: {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-props-no-spreading": [1, { "exceptions": ["WrappedComponent", "Component"] }],
+    "react/jsx-props-no-spreading": [0],
     "react/prop-types": [0],
     "import/prefer-default-export": [0]
   },

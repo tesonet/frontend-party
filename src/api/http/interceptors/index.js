@@ -1,5 +1,5 @@
 export const mapApiResponse = (response) => ({
-  response: response.data
+  response: response.data,
 });
 
 export const mapApiError = (error) => {
@@ -7,7 +7,7 @@ export const mapApiError = (error) => {
   return ({
     error: {
       status,
-      message: message || statusText
-    }
+      message: message || statusText,
+    },
   });
 };
