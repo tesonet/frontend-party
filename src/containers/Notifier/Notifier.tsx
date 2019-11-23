@@ -70,4 +70,5 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = ({
   onClose: clearCurrent,
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Notifier);
