@@ -5,6 +5,7 @@ import defaultTheme from 'themes/defaultTheme';
 import { CssBaseline } from '@material-ui/core';
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
+import Notifier from 'containers/Notifier/Notifier';
 import store, { history } from './store';
 
 const generateClassName = createGenerateClassName({
@@ -17,6 +18,7 @@ const App = () => (
       <ThemeProvider theme={defaultTheme}>
         <StylesProvider generateClassName={generateClassName}>
           <CssBaseline />
+          <Notifier />
           <Routes />
         </StylesProvider>
       </ThemeProvider>

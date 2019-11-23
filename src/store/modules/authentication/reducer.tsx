@@ -17,6 +17,7 @@ const setToken = (state: State, token: string) => ({
   ...state,
   token,
 });
+
 const authentication = (state: State = DEFAULT_STATE, action: Action) => {
   switch (action.type) {
     case AUTHENTICATION_ACTION_TYPES.SET_TOKEN:

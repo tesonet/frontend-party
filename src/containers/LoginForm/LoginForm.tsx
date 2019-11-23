@@ -6,9 +6,9 @@ import { Form, Formik, FormikValues } from 'formik';
 import { object, string } from 'yup';
 import { Lock, Person } from '@material-ui/icons';
 import { connect } from 'react-redux';
+import FormTextField from 'components/FormTextField/FormTextField';
+import { init as authorize } from 'store/modules/authentication/actions';
 import { FIELD_LABELS, FIELDS, INITIAL_VALUES } from './constants';
-import FormTextField from '../../components/FormTextField/FormTextField';
-import { init as authorize } from '../../store/modules/authentication/actions';
 
 const validationSchema = object()
   .shape({

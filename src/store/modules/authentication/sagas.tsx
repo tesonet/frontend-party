@@ -8,6 +8,7 @@ import { reset as resetAppState } from 'store/rootReducer/actions';
 import * as AUTHENTICATION_ACTION_TYPES from 'store/modules/authentication/constants';
 import * as helpers from './helpers';
 import * as actions from './actions';
+import * as notificationActions from '../notification/actions';
 
 export function* authorize() {
   while (true) {
@@ -31,6 +32,13 @@ export function* authorizeSuccess() {
   }
 }
 
+export function* authorizeFailure() {
+  while (true) {
+    yield take(AUTHENTICATION_ACTION_TYPES.AUTH_FAILURE);
+    yield put(notificationActions.setCurrent('Incorrect username or password.'));
+  }
+}
+
 export function* logout() {
   while (true) {
     yield take(AUTHENTICATION_ACTION_TYPES.INIT_LOGOUT);
@@ -50,6 +58,7 @@ export function* setToken() {
 const authenticationSagas = [
   fork(authorize),
   fork(authorizeSuccess),
+  fork(authorizeFailure),
   fork(setToken),
   fork(logout),
 ];
