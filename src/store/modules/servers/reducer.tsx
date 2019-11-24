@@ -6,12 +6,12 @@ export const DEFAULT_STATE = {
 };
 
 interface Action {
-  type: string,
-  all: Servers,
+  type: string;
+  all: Servers;
 }
 
 export interface State {
-  all: Servers | null
+  all: Servers | null;
 }
 
 const setAll = (state: State, all: Servers) => ({

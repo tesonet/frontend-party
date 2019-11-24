@@ -14,8 +14,8 @@ const useStyle = makeStyles((theme: Theme) => ({
 }));
 
 interface Props {
-  message: NotificationMessage | null,
-  onClose: () => void,
+  message: NotificationMessage | null;
+  onClose: () => void;
 }
 
 const Notifier = (props: Props) => {

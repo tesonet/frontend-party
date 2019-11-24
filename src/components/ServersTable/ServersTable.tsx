@@ -5,7 +5,7 @@ import React from 'react';
 import { Servers } from 'store/modules/servers/types';
 
 interface Props {
-  servers: Servers
+  servers: Servers;
 }
 
 const ServersTable = ({ servers }: Props) => (

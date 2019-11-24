@@ -6,12 +6,12 @@ export const DEFAULT_STATE = {
 };
 
 export interface State {
-  token: Token | null
+  token: Token | null;
 }
 
 interface Action {
-  type: string,
-  token: Token,
+  type: string;
+  token: Token;
 }
 
 const setToken = (state: State, token: string) => ({

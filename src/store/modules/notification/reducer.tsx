@@ -6,12 +6,12 @@ export const DEFAULT_STATE = {
 };
 
 interface Action {
-  type: string,
-  current: NotificationMessage,
+  type: string;
+  current: NotificationMessage;
 }
 
 export interface State {
-  current: NotificationMessage | null
+  current: NotificationMessage | null;
 }
 
 const setCurrent = (state: State, current: NotificationMessage) => ({

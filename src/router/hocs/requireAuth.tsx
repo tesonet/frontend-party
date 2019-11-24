@@ -4,14 +4,18 @@ import { withRouter } from 'react-router-dom';
 import { initTokenStorage } from 'store/modules/authentication/actions';
 import { getStoredAuthToken } from 'store/modules/authentication/helpers';
 import PATHS from 'shared/constants/PATHS';
+import { LocationState } from 'history';
+import { Token } from 'store/modules/authentication/types';
 
-const requireAuth = (WrappedComponent: React.ComponentType<any>): React.ComponentType<any> => {
+const requireAuth = (WrappedComponent: React.ComponentType): React.ComponentType => {
+
   interface Props {
-    isAuthenticated: boolean,
-    history: History,
+    isAuthenticated: boolean;
+    history: LocationState;
+    initTokenStorage: (token: Token) => void;
   }
 
-  class RequireAuth extends React.Component<any> {
+  class RequireAuth extends React.Component<Props> {
     componentDidMount() {
       this.handleAuthentication();
     }
