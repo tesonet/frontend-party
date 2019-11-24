@@ -24,11 +24,17 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
     "react/jsx-props-no-spreading": [0],
-    "import/prefer-default-export": [0],
-    "no-unused-vars": [0]
   },
+  "overrides": [
+    {
+      "files": ["*.jsx", "*.tsx"],
+      "rules": {
+        "no-unused-vars": [0]
+      }
+    }
+  ],
   settings: {
     "import/resolver": {
       "node": {
