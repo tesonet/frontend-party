@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Grid, InputAdornment, makeStyles,
+  Button, Grid, InputAdornment, makeStyles, CircularProgress,
 } from '@material-ui/core';
 import { Form, Formik, FormikValues } from 'formik';
 import { object, string } from 'yup';
@@ -78,7 +78,11 @@ const LoginForm = (props: Props) => {
               </Grid>
               <Grid item xs={12}>
                 <Button disabled={!formikProps.isValid || isLoading} type="submit" size="large" fullWidth>
-                  Log In
+                  {
+                    isLoading ? (
+                      <CircularProgress size={26} />
+                    ) : 'Log In'
+                  }
                 </Button>
               </Grid>
             </Grid>
