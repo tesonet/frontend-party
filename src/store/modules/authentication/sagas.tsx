@@ -10,7 +10,7 @@ import * as helpers from './helpers';
 import * as actions from './actions';
 import * as notificationActions from '../notification/actions';
 
-export function* authorize() {
+function* authorize() {
   while (true) {
     const { username, password } = yield take(AUTHENTICATION_ACTION_TYPES.INIT);
     yield put(actions.authRequest());
@@ -25,21 +25,21 @@ export function* authorize() {
   }
 }
 
-export function* authorizeSuccess() {
+function* authorizeSuccess() {
   while (true) {
     yield take(AUTHENTICATION_ACTION_TYPES.AUTH_SUCCESS);
     yield put(push(PATHS.SERVERS));
   }
 }
 
-export function* authorizeFailure() {
+function* authorizeFailure() {
   while (true) {
     yield take(AUTHENTICATION_ACTION_TYPES.AUTH_FAILURE);
     yield put(notificationActions.setCurrent('Incorrect username or password.'));
   }
 }
 
-export function* logout() {
+function* logout() {
   while (true) {
     yield take(AUTHENTICATION_ACTION_TYPES.INIT_LOGOUT);
     yield call(helpers.resetLocalStorage);
@@ -47,7 +47,7 @@ export function* logout() {
   }
 }
 
-export function* setToken() {
+function* setToken() {
   while (true) {
     const { token } = yield take(AUTHENTICATION_ACTION_TYPES.INIT_TOKEN_STORAGE);
     yield call(helpers.setAuthTokenToLocalStorage, token);

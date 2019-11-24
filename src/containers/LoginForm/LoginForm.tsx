@@ -7,8 +7,10 @@ import { object, string } from 'yup';
 import { Lock, Person } from '@material-ui/icons';
 import { connect } from 'react-redux';
 import FormTextField from 'components/FormTextField/FormTextField';
-import { init as authorize } from 'store/modules/authentication/actions';
+import { init } from 'store/modules/authentication/actions';
 import { FIELD_LABELS, FIELDS, INITIAL_VALUES } from './constants';
+import { createLoadingSelector } from '../../store/modules/loading/selectors';
+import * as AUTHENTICATION_ACTION_TYPES from '../../store/modules/authentication/constants';
 
 const validationSchema = object()
   .shape({
@@ -25,15 +27,17 @@ const useStyle = makeStyles(({
 }));
 
 interface Props {
-  authorize: (username: string, password: string) => void
+  authorize: (username: string, password: string) => void,
+  isLoading: boolean;
 }
 
 const LoginForm = (props: Props) => {
   const classes = useStyle();
+  const { authorize, isLoading } = props;
 
   const handleSubmit = async (values: FormikValues) => {
     const { [FIELDS.USERNAME]: username, [FIELDS.PASSWORD]: password } = values;
-    props.authorize(username, password);
+    authorize(username, password);
   };
 
   return (
@@ -73,7 +77,7 @@ const LoginForm = (props: Props) => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button disabled={!formikProps.isValid} type="submit" size="large" fullWidth>
+                <Button disabled={!formikProps.isValid || isLoading} type="submit" size="large" fullWidth>
                   Log In
                 </Button>
               </Grid>
@@ -85,8 +89,16 @@ const LoginForm = (props: Props) => {
   );
 };
 
-const mapDispatchToProps = ({
-  authorize,
+const loadingSelector = createLoadingSelector([
+  AUTHENTICATION_ACTION_TYPES.AUTH_REQUEST,
+]);
+
+const mapStateToProps = (state: any) => ({
+  isLoading: loadingSelector(state),
 });
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+const mapDispatchToProps = ({
+  authorize: init,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

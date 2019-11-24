@@ -1,0 +1,8 @@
+const NAMESPACE = 'SERVERS';
+
+export const GET_ALL = `${NAMESPACE}/GET_ALL`;
+export const SET_ALL = `${NAMESPACE}/SET_ALL`;
+export const CLEAR_ALL = `${NAMESPACE}/CLEAR_ALL`;
+export const GET_ALL_REQUEST = `${NAMESPACE}/GET_ALL_REQUEST`;
+export const GET_ALL_SUCCESS = `${NAMESPACE}/GET_ALL_SUCCESS`;
+export const GET_ALL_FAILURE = `${NAMESPACE}/GET_ALL_FAILURE`;

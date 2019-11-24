@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { mapApiError, mapApiResponse } from './interceptors';
+import { addAuthHeaderIfTokenAvailable, mapApiError, mapApiResponse } from './interceptors';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
@@ -10,6 +10,7 @@ const instance = axios.create({
   },
 });
 
+instance.interceptors.request.use(addAuthHeaderIfTokenAvailable);
 instance.interceptors.response.use(mapApiResponse, mapApiError);
 
 export default instance;

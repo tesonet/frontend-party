@@ -1,4 +1,5 @@
-import { AxiosResponse } from 'axios';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import store from 'store';
 
 export const mapApiResponse = (response: AxiosResponse): any => ({
   response: response && response.data,
@@ -12,4 +13,13 @@ export const mapApiError = (error: any) : any => {
       message: message || statusText,
     },
   });
+};
+
+export const addAuthHeaderIfTokenAvailable = (request: AxiosRequestConfig) => {
+  const state = store.getState();
+  const { token } = state.authentication;
+  if (token) {
+    request.headers.common.Authorization = token;
+  }
+  return request;
 };
