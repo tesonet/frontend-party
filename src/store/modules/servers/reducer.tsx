@@ -1,19 +1,20 @@
 import * as SERVERS_ACTION_TYPES from './constants';
+import { ServersType } from './types';
 
 export const DEFAULT_STATE = {
   all: null,
 };
 
 interface State {
-  all: [] | null
+  all: ServersType | null
 }
 
 interface Action {
   type: string,
-  all: [],
+  all: ServersType,
 }
 
-const setAll = (state: State, all: []) => ({
+const setAll = (state: State, all: ServersType) => ({
   ...state,
   all,
 });
