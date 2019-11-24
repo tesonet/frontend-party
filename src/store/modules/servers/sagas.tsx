@@ -1,5 +1,5 @@
 import {
-  fork, put, take, call,
+  call, fork, put, take,
 } from 'redux-saga/effects';
 import api from 'api';
 import * as SERVERS_ACTIONS_TYPES from './constants';

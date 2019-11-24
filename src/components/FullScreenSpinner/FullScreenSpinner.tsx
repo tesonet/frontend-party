@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  CircularProgress, Grid, makeStyles, Typography,
+  CircularProgress, Grid, makeStyles, Theme, Typography,
 } from '@material-ui/core';
 
-const useStyle = makeStyles((theme: any) => ({
+const useStyle = makeStyles((theme: Theme) => ({
   root: {
     height: '100vh',
     minHeight: 'max-content',
@@ -28,12 +28,12 @@ const FullScreenSpinner = ({ message }: any) => {
           <CircularProgress />
         </Grid>
         {
-                    message && (
-                    <Grid item>
-                      <Typography variant="h6">{message}</Typography>
-                    </Grid>
-                    )
-                }
+          message && (
+            <Grid item>
+              <Typography variant="h6">{message}</Typography>
+            </Grid>
+          )
+        }
       </Grid>
     </div>
   );

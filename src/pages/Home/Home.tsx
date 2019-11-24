@@ -1,10 +1,10 @@
 import React from 'react';
 import LoginForm from 'containers/LoginForm/LoginForm';
-import { makeStyles, Grid } from '@material-ui/core';
+import { Grid, makeStyles, Theme } from '@material-ui/core';
 import background from 'assets/img/home-background.svg';
 import logo from 'assets/img/logo.svg';
 
-const useStyle = makeStyles((theme) => ({
+const useStyle = makeStyles((theme: Theme) => ({
   root: {
     height: '100vh',
     minHeight: 'max-content',

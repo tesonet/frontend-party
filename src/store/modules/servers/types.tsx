@@ -5,4 +5,4 @@ export type Server = {
 
 export type Servers = [
   Server
-];
+  ];

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Grid, InputAdornment, makeStyles, CircularProgress,
+  Button, CircularProgress, Grid, InputAdornment, makeStyles,
 } from '@material-ui/core';
 import { Form, Formik, FormikValues } from 'formik';
 import { object, string } from 'yup';
@@ -8,9 +8,9 @@ import { Lock, Person } from '@material-ui/icons';
 import { connect } from 'react-redux';
 import FormTextField from 'components/FormTextField/FormTextField';
 import { init } from 'store/modules/authentication/actions';
+import { createLoadingSelector } from 'store/modules/loading/selectors';
+import * as AUTHENTICATION_ACTION_TYPES from 'store/modules/authentication/constants';
 import { FIELD_LABELS, FIELDS, INITIAL_VALUES } from './constants';
-import { createLoadingSelector } from '../../store/modules/loading/selectors';
-import * as AUTHENTICATION_ACTION_TYPES from '../../store/modules/authentication/constants';
 
 const validationSchema = object()
   .shape({

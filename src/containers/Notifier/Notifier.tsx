@@ -1,13 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { connect } from 'react-redux';
-import { clearCurrent } from '../../store/modules/notification/actions';
-import { NotificationMessage } from '../../store/modules/notification/types';
+import { clearCurrent } from 'store/modules/notification/actions';
+import { NotificationMessage } from 'store/modules/notification/types';
 
-const useStyles = makeStyles((theme) => ({
+const useStyle = makeStyles((theme: Theme) => ({
   close: {
     padding: theme.spacing(0.5),
   },
@@ -21,7 +21,7 @@ interface Props {
 const Notifier = (props: Props) => {
   const { message, onClose } = props;
 
-  const classes = useStyles();
+  const classes = useStyle();
 
   const handleClose = (event: any, reason: string) => {
     if (reason === 'clickaway') {
