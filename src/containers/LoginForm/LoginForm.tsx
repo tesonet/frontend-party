@@ -14,9 +14,9 @@ import * as AUTHENTICATION_ACTION_TYPES from '../../store/modules/authentication
 
 const validationSchema = object()
   .shape({
-    [FIELDS.USERNAME]: string()
+    [FIELDS.USERNAME]: string().trim()
       .required('Enter an email'),
-    [FIELDS.PASSWORD]: string()
+    [FIELDS.PASSWORD]: string().trim()
       .required('Enter a password'),
   });
 

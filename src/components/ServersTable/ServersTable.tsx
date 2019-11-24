@@ -22,11 +22,11 @@ const ServersTable = ({ servers }: Props) => (
     </TableHead>
     <TableBody>
       {
-        servers.map((server) => (
-          <TableRow key={`${server.name}${server.distance}`}>
-            <TableCell>{server.name}</TableCell>
+        servers.map(({ name, distance }) => (
+          <TableRow key={`${name}${distance}`}>
+            <TableCell>{name}</TableCell>
             <TableCell align="right">
-              {server.distance}
+              {distance}
               {' '}
               km
             </TableCell>
