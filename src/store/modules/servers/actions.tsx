@@ -1,5 +1,5 @@
 import * as SERVERS_ACTION_TYPES from './constants';
-import { ServersType } from './types';
+import { Servers } from './types';
 
 export const getAll = () => ({
   type: SERVERS_ACTION_TYPES.GET_ALL,
@@ -17,7 +17,7 @@ export const getAllFailure = () => ({
   type: SERVERS_ACTION_TYPES.GET_ALL_FAILURE,
 });
 
-export const setAll = (all: ServersType) => ({
+export const setAll = (all: Servers) => ({
   type: SERVERS_ACTION_TYPES.SET_ALL,
   all,
 });

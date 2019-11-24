@@ -1,30 +1,26 @@
 import * as SERVERS_ACTION_TYPES from './constants';
-import { ServersType } from './types';
+import { Servers } from './types';
 
 export const DEFAULT_STATE = {
   all: null,
 };
 
-interface State {
-  all: ServersType | null
-}
-
 interface Action {
   type: string,
-  all: ServersType,
+  all: Servers,
 }
 
-const setAll = (state: State, all: ServersType) => ({
+const setAll = (state: any, all: Servers) => ({
   ...state,
   all,
 });
 
-const clearAll = (state: State) => ({
+const clearAll = (state: any) => ({
   ...state,
   all: null,
 });
 
-const servers = (state: State = DEFAULT_STATE, action: Action) => {
+const servers = (state: any = DEFAULT_STATE, action: Action) => {
   switch (action.type) {
     case SERVERS_ACTION_TYPES.SET_ALL:
       return setAll(state, action.all);

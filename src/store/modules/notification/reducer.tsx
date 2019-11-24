@@ -1,10 +1,16 @@
 import * as NOTIFICATION_ACTION_TYPES from './constants';
+import { NotificationMessage } from './types';
 
 export const DEFAULT_STATE = {
   current: null,
 };
 
-const setCurrent = (state: any, current: any) => ({
+interface Action {
+  type: string,
+  current: NotificationMessage,
+}
+
+const setCurrent = (state: any, current: NotificationMessage) => ({
   ...state,
   current,
 });
@@ -14,7 +20,7 @@ const clearCurrent = (state: any) => ({
   current: null,
 });
 
-const notification = (state: any = DEFAULT_STATE, action: any) => {
+const notification = (state: any = DEFAULT_STATE, action: Action) => {
   switch (action.type) {
     case NOTIFICATION_ACTION_TYPES.SET_CURRENT:
       return setCurrent(state, action.current);

@@ -1,8 +1,8 @@
-export type ServerType = {
+export type Server = {
   name: string
   distance: number
 }
 
-export type ServersType = [
-  ServerType
+export type Servers = [
+  Server
 ];

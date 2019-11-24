@@ -8,7 +8,7 @@ import * as SERVERS_ACTION_TYPES from 'store/modules/servers/constants';
 import { createLoadingSelector } from 'store/modules/loading/selectors';
 import FullScreenSpinner from '../../components/FullScreenSpinner/FullScreenSpinner';
 import ServersTable from '../../components/ServersTable/ServersTable';
-import { ServersType } from '../../store/modules/servers/types';
+import { Servers as ServersType } from '../../store/modules/servers/types';
 
 interface Props {
   logout: () => void;

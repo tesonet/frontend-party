@@ -1,6 +1,7 @@
 import * as NOTIFICATION_ACTION_TYPES from './constants';
+import { NotificationMessage } from './types';
 
-export const setCurrent = (current: any) => ({
+export const setCurrent = (current: NotificationMessage) => ({
   type: NOTIFICATION_ACTION_TYPES.SET_CURRENT,
   current,
 });

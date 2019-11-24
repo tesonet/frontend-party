@@ -2,10 +2,10 @@ import {
   Table, TableBody, TableCell, TableHead, TableRow,
 } from '@material-ui/core';
 import React from 'react';
-import { ServersType } from '../../store/modules/servers/types';
+import { Servers } from '../../store/modules/servers/types';
 
 interface Props {
-  servers: ServersType
+  servers: Servers
 }
 
 const ServersTable = ({ servers }: Props) => (

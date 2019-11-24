@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { connect } from 'react-redux';
 import { clearCurrent } from '../../store/modules/notification/actions';
+import { NotificationMessage } from '../../store/modules/notification/types';
 
 const useStyles = makeStyles((theme) => ({
   close: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface Props {
-  message: string | null,
+  message: NotificationMessage | null,
   onClose: () => void,
 }
 
