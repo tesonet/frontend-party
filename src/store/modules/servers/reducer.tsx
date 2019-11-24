@@ -10,17 +10,21 @@ interface Action {
   all: Servers,
 }
 
-const setAll = (state: any, all: Servers) => ({
+export interface State {
+  all: Servers | null
+}
+
+const setAll = (state: State, all: Servers) => ({
   ...state,
   all,
 });
 
-const clearAll = (state: any) => ({
+const clearAll = (state: State) => ({
   ...state,
   all: null,
 });
 
-const servers = (state: any = DEFAULT_STATE, action: Action) => {
+const servers = (state: State = DEFAULT_STATE, action: Action) => {
   switch (action.type) {
     case SERVERS_ACTION_TYPES.SET_ALL:
       return setAll(state, action.all);

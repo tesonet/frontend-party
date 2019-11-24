@@ -5,17 +5,21 @@ export const DEFAULT_STATE = {
   token: null,
 };
 
+export interface State {
+  token: Token | null
+}
+
 interface Action {
   type: string,
   token: Token,
 }
 
-const setToken = (state: any, token: string) => ({
+const setToken = (state: State, token: string) => ({
   ...state,
   token,
 });
 
-const authentication = (state: any = DEFAULT_STATE, action: Action) => {
+const authentication = (state: State = DEFAULT_STATE, action: Action) => {
   switch (action.type) {
     case AUTHENTICATION_ACTION_TYPES.SET_TOKEN:
       return setToken(state, action.token);

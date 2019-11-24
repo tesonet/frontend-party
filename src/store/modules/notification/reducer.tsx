@@ -10,17 +10,21 @@ interface Action {
   current: NotificationMessage,
 }
 
-const setCurrent = (state: any, current: NotificationMessage) => ({
+export interface State {
+  current: NotificationMessage | null
+}
+
+const setCurrent = (state: State, current: NotificationMessage) => ({
   ...state,
   current,
 });
 
-const clearCurrent = (state: any) => ({
+const clearCurrent = (state: State) => ({
   ...state,
   current: null,
 });
 
-const notification = (state: any = DEFAULT_STATE, action: Action) => {
+const notification = (state: State = DEFAULT_STATE, action: Action) => {
   switch (action.type) {
     case NOTIFICATION_ACTION_TYPES.SET_CURRENT:
       return setCurrent(state, action.current);
