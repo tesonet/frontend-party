@@ -11,7 +11,7 @@ const useStyle = makeStyles((theme: Theme) => ({
     padding: theme.spacing(4),
     display: 'flex',
     backgroundImage: `url(${background})`,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     backgroundSize: 'cover',
   },
   logo: {
