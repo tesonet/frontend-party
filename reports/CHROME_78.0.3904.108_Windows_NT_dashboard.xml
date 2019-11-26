@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="3">
+
+  <testsuite name="dashboard"
+    errors="0" failures="0" hostname="" id="" package="dashboard" skipped="0"
+    tests="3" time="2.242" timestamp="">
+  
+    <testcase name="Check title" classname="dashboard" time="1.749" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Check if server list exist" classname="dashboard" time="0.2870" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Logout" classname="dashboard" time="0.2060" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="testOne"
+    errors="0" failures="0" hostname="" id="" package="testOne" skipped="0"
+    tests="1" time="8.129" timestamp="">
+  
+    <testcase name="Searching nightwatch in youtube" classname="testOne" time="8.129" assertions="0">
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>
