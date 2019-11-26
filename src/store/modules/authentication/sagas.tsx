@@ -12,12 +12,12 @@ import * as notificationActions from '../notification/actions';
 
 function* authorize() {
   while (true) {
-    const { username, password } = yield take(AUTHENTICATION_ACTION_TYPES.INIT);
+    const { payload: { username, password } } = yield take(AUTHENTICATION_ACTION_TYPES.INIT);
     yield put(actions.authRequest());
     const { response, error } = yield call(api.user.authorize, username, password);
     if (!error) {
       const { token } = response;
-      yield put(actions.initTokenStorage(token));
+      yield put(actions.initTokenStorage({ token }));
       yield put(actions.authSuccess());
     } else {
       yield put(actions.authFailure());
@@ -35,7 +35,9 @@ function* authorizeSuccess() {
 function* authorizeFailure() {
   while (true) {
     yield take(AUTHENTICATION_ACTION_TYPES.AUTH_FAILURE);
-    yield put(notificationActions.setCurrent('Incorrect username or password.'));
+    yield put(notificationActions.setMessage({
+      message: 'Incorrect username or password.',
+    }));
   }
 }
 
@@ -49,9 +51,9 @@ function* logout() {
 
 function* setToken() {
   while (true) {
-    const { token } = yield take(AUTHENTICATION_ACTION_TYPES.INIT_TOKEN_STORAGE);
+    const { payload: { token } } = yield take(AUTHENTICATION_ACTION_TYPES.INIT_TOKEN_STORAGE);
     yield call(helpers.setAuthTokenToLocalStorage, token);
-    yield put(actions.setToken(token));
+    yield put(actions.setToken({ token }));
   }
 }
 

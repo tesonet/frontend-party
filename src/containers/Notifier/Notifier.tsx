@@ -4,8 +4,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { connect } from 'react-redux';
-import { clearCurrent } from 'store/modules/notification/actions';
-import { NotificationMessage } from 'store/modules/notification/types';
+import { clearMessage } from 'store/modules/notification/actions';
 
 const useStyle = makeStyles((theme: Theme) => ({
   close: {
@@ -14,7 +13,7 @@ const useStyle = makeStyles((theme: Theme) => ({
 }));
 
 type Props = {
-  message: NotificationMessage | null;
+  message: string | null;
   onClose: () => void;
 }
 
@@ -65,11 +64,11 @@ const Notifier = (props: Props) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  message: state.notification.current,
+  message: state.notification.message,
 });
 
 const mapDispatchToProps = ({
-  onClose: clearCurrent,
+  onClose: clearMessage,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notifier);

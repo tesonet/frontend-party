@@ -1,34 +1,16 @@
+import { createAction } from 'redux-actions';
 import * as AUTHENTICATION_ACTION_TYPES from './constants';
-import { Token } from './types';
 
-export const init = (username: string, password: string) => ({
-  type: AUTHENTICATION_ACTION_TYPES.INIT,
-  username,
-  password,
-});
+export const init = createAction(AUTHENTICATION_ACTION_TYPES.INIT);
 
-export const initLogout = () => ({
-  type: AUTHENTICATION_ACTION_TYPES.INIT_LOGOUT,
-});
+export const initLogout = createAction(AUTHENTICATION_ACTION_TYPES.INIT_LOGOUT);
 
-export const initTokenStorage = (token: Token) => ({
-  type: AUTHENTICATION_ACTION_TYPES.INIT_TOKEN_STORAGE,
-  token,
-});
+export const initTokenStorage = createAction(AUTHENTICATION_ACTION_TYPES.INIT_TOKEN_STORAGE);
 
-export const setToken = (token: Token) => ({
-  type: AUTHENTICATION_ACTION_TYPES.SET_TOKEN,
-  token,
-});
+export const setToken = createAction(AUTHENTICATION_ACTION_TYPES.SET_TOKEN);
 
-export const authRequest = () => ({
-  type: AUTHENTICATION_ACTION_TYPES.AUTH_REQUEST,
-});
+export const authRequest = createAction(AUTHENTICATION_ACTION_TYPES.AUTH_REQUEST);
 
-export const authSuccess = () => ({
-  type: AUTHENTICATION_ACTION_TYPES.AUTH_SUCCESS,
-});
+export const authSuccess = createAction(AUTHENTICATION_ACTION_TYPES.AUTH_SUCCESS);
 
-export const authFailure = () => ({
-  type: AUTHENTICATION_ACTION_TYPES.AUTH_FAILURE,
-});
+export const authFailure = createAction(AUTHENTICATION_ACTION_TYPES.AUTH_FAILURE);

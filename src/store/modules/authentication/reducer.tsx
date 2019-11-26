@@ -1,31 +1,21 @@
+import { handleActions } from 'redux-actions';
 import * as AUTHENTICATION_ACTION_TYPES from './constants';
-import { Token } from './types';
 
-export const DEFAULT_STATE = {
+type DefaultState = {
+  token: null
+}
+
+export const DEFAULT_STATE: DefaultState = {
   token: null,
 };
 
-export type State = {
-  token: Token | null;
-}
+const reducer = handleActions({
+  [AUTHENTICATION_ACTION_TYPES.SET_TOKEN]: (state, { payload: { token } }) => ({
+    ...state,
+    token,
+  }),
+},
+DEFAULT_STATE);
 
-type Action = {
-  type: string;
-  token: Token;
-}
 
-const setToken = (state: State, token: string) => ({
-  ...state,
-  token,
-});
-
-const authentication = (state: State = DEFAULT_STATE, action: Action) => {
-  switch (action.type) {
-    case AUTHENTICATION_ACTION_TYPES.SET_TOKEN:
-      return setToken(state, action.token);
-    default:
-      return state;
-  }
-};
-
-export default authentication;
+export default reducer;

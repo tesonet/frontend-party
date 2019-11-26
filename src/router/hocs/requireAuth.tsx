@@ -5,13 +5,12 @@ import { initTokenStorage } from 'store/modules/authentication/actions';
 import { getStoredAuthToken } from 'store/modules/authentication/helpers';
 import PATHS from 'shared/constants/PATHS';
 import { LocationState } from 'history';
-import { Token } from 'store/modules/authentication/types';
 
 const requireAuth = (WrappedComponent: React.ComponentType): React.ComponentType => {
   type Props = {
     isAuthenticated: boolean;
     history: LocationState;
-    initTokenStorage: (token: Token) => void;
+    initTokenStorage: (payload: {token: string}) => void;
   }
 
   class RequireAuth extends React.Component<Props> {
@@ -26,12 +25,12 @@ const requireAuth = (WrappedComponent: React.ComponentType): React.ComponentType
     handleAuthentication() {
       const { isAuthenticated, history, initTokenStorage: initStorage } = this.props;
       if (!isAuthenticated) {
-        const storedToken = getStoredAuthToken();
-        if (!storedToken) {
+        const token = getStoredAuthToken();
+        if (!token) {
           history.push(PATHS.HOME);
           return;
         }
-        initStorage(storedToken);
+        initStorage({ token });
       }
     }
 

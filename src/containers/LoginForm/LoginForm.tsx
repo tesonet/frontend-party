@@ -27,7 +27,9 @@ const useStyle = makeStyles(({
 }));
 
 type Props = {
-  authorize: (username: string, password: string) => void;
+  authorize: (payload: {
+    username: string, password: string
+  }) => void;
   isLoading: boolean;
 }
 
@@ -37,7 +39,9 @@ const LoginForm = (props: Props) => {
 
   const handleSubmit = async (values: FormikValues) => {
     const { [FIELDS.USERNAME]: username, [FIELDS.PASSWORD]: password } = values;
-    authorize(username, password);
+    authorize({
+      username, password,
+    });
   };
 
   return (

@@ -12,7 +12,7 @@ function* getAll() {
     const { response, error } = yield call(api.servers.get);
 
     if (!error) {
-      yield put(actions.setAll(response));
+      yield put(actions.setAll({ all: response }));
       yield put(actions.getAllSuccess());
     } else {
       yield put(actions.getAllFailure());
