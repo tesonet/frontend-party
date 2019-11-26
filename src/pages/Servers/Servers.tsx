@@ -51,11 +51,9 @@ const Servers = (props: Props) => {
   );
 };
 
-
 const loadingSelector = createLoadingSelector([
   SERVERS_ACTION_TYPES.GET_ALL_REQUEST,
 ]);
-
 
 const mapStateToProps = (state: any) => ({
   servers: state.servers.all,

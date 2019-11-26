@@ -17,5 +17,4 @@ const reducer = handleActions({
 },
 DEFAULT_STATE);
 
-
 export default reducer;
