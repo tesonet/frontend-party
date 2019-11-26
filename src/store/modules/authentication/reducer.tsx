@@ -5,11 +5,11 @@ export const DEFAULT_STATE = {
   token: null,
 };
 
-export interface State {
+export type State = {
   token: Token | null;
 }
 
-interface Action {
+type Action = {
   type: string;
   token: Token;
 }

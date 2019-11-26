@@ -26,8 +26,8 @@ const useStyle = makeStyles(({
   },
 }));
 
-interface Props {
-  authorize: (username: string, password: string) => void,
+type Props = {
+  authorize: (username: string, password: string) => void;
   isLoading: boolean;
 }
 

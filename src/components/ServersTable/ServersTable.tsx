@@ -4,7 +4,7 @@ import {
 import React from 'react';
 import { Servers } from 'store/modules/servers/types';
 
-interface Props {
+type Props = {
   servers: Servers;
 }
 

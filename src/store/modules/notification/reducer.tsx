@@ -5,12 +5,12 @@ export const DEFAULT_STATE = {
   current: null,
 };
 
-interface Action {
+type Action = {
   type: string;
   current: NotificationMessage;
 }
 
-export interface State {
+export type State = {
   current: NotificationMessage | null;
 }
 

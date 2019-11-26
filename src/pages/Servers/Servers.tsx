@@ -11,7 +11,7 @@ import ServersTable from 'components/ServersTable/ServersTable';
 import { Servers as ServersType } from 'store/modules/servers/types';
 import Header from 'containers/Header/Header';
 
-interface Props {
+type Props = {
   getServers: () => void;
   servers: ServersType;
   isLoading: boolean;

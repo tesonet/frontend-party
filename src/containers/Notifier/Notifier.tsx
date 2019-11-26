@@ -13,7 +13,7 @@ const useStyle = makeStyles((theme: Theme) => ({
   },
 }));
 
-interface Props {
+type Props = {
   message: NotificationMessage | null;
   onClose: () => void;
 }

@@ -8,7 +8,7 @@ import { LocationState } from 'history';
 import { Token } from 'store/modules/authentication/types';
 
 const requireAuth = (WrappedComponent: React.ComponentType): React.ComponentType => {
-  interface Props {
+  type Props = {
     isAuthenticated: boolean;
     history: LocationState;
     initTokenStorage: (token: Token) => void;

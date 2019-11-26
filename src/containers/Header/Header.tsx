@@ -9,7 +9,7 @@ import logo from 'assets/img/logo.svg';
 import { Link } from 'react-router-dom';
 import PATHS from 'shared/constants/PATHS';
 
-interface Props {
+type Props = {
   onClick: () => void;
 }
 

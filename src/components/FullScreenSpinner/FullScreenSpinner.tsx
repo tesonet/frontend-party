@@ -3,7 +3,7 @@ import {
   CircularProgress, Grid, makeStyles, Theme, Typography,
 } from '@material-ui/core';
 
-interface Props {
+type Props = {
   message?: string
 }
 

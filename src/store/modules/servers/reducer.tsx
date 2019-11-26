@@ -5,12 +5,12 @@ export const DEFAULT_STATE = {
   all: null,
 };
 
-interface Action {
+type Action = {
   type: string;
   all: Servers;
 }
 
-export interface State {
+export type State = {
   all: Servers | null;
 }
 
