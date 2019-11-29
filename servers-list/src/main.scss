@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+// Colors
+$input-color: #B3B3B3;
+$border-color: #E6E6E6;
+$border-alert: #D32F2F;
+
+// Parameters
+$border-radius: 5px;
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+input:focus{
+    outline: none;
+}
+
+.background {
+    background-color: #0B0F27;
+    width: 100%;
+    height: 100vh;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-image: url('./media/background.svg');
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: 1;
+}
+ 
+.logo {
+    position: relative;
+    height: 64px;
+    width: 246px;
+    margin: auto;
+    padding: 230px 0 69px;
+    z-index: 2;
+}
+
+.loginForm {
+    width: 360px;
+    margin: auto;
+}
+
+.loginForm__wrapper {
+    position: relative;
+    background-color: #FFF;
+    height: 56px;
+    width: 360px;
+    margin-bottom: 20px;
+    border-radius: $border-radius;
+    z-index: 2;
+}
+.loginForm__wrapper--alert{
+    position: relative;
+    background-color: #FFF;
+    height: 56px;
+    width: 360px;
+    margin-bottom: 20px;
+    border-radius: $border-radius;
+    z-index: 2;
+    border: 2px solid $border-alert
+}
+
+.loginForm__loginIcon {
+    padding-left: 25px;
+}
+
+.loginForm__disable {
+    display: none;
+}
+
+.loginForm__alert-icon {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    width: 20px;
+}
+
+.loginForm__input {
+    padding: 0 0 0 15px;
+    margin-top: 1px;
+    width: 306px;
+    height: 55px;
+    color: #999;
+    font-size: 1em;
+    border: none;
+    border-radius: $border-radius;
+}
+
+::placeholder {
+    color: $input-color;
+    font-weight: 300;
+}
+
+.loginForm__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    text-transform: capitalize;
+    background-color: #9FD533;
+    font-size: 1em;
+    font-weight: 700;
+    height: 56px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.loginForm__button:hover {
+    background-color: #86b300;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 113px;
+}
+
+.header__logo {
+    margin-left: 15px;
+    width: 115px;
+}
+
+.header__logout {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    right: 15px;
+    width: 92px;
+    height: 32px;
+    font-size: 1em;
+    font-weight: 300;
+    text-transform: capitalize;
+    border: 1px solid #0015FF;
+    cursor: pointer;
+}
+
+.header__logout:hover {
+    background-color: #99cc33;
+}
+
+.header__logout img {
+    margin-right: 12px;
+    width: 16px;
+}
+
+.header__logout span {
+    padding-top: 8px;
+}
+
+.block-header {
+    display: flex;
+    align-items: center;
+    height: 58px;
+    background-color: #F5F5F5;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    text-transform: uppercase;
+    color: #999999;
+    font-weight: 300;
+}
+
+.block-header span:first-child {
+    margin-left: 15px;
+}
+
+.block-header span:last-child {
+    position: absolute;
+    right: 15px;
+}
+
+.data-list {
+    display: flex;
+    align-items: center;
+    height: 57px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid $border-color;
+    text-transform: uppercase;
+    color: #666666;
+    font-weight: 300;
+}
+
+.data-list span:first-child {
+    margin-left: 15px;
+}
+
+.data-list span:last-child {
+    position: absolute;
+    right: 15px;
+}
