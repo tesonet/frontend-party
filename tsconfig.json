@@ -1,29 +1,29 @@
 {
-    "compilerOptions": {
-        "module": "es2015",
-        "target": "es5",
-        "lib": [
-            "esnext",
-            "es6",
-            "dom"
-        ],
-        "jsx": "react",
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "noImplicitAny": true,
-        "noUnusedLocals": true,
-        "preserveConstEnums": true,
-        "removeComments": true,
-        "strictNullChecks": true,
-        "outDir": "build/dist",
-        "sourceMap": true
-    },
-    "include": [
-        "src/**/*"
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "lib": [
+      "esnext",
+      "es6",
+      "dom"
     ],
-    "exclude": [
-        "build",
-        "node_modules",
-        "**/*.spec.ts"
-    ]
+    "jsx": "react",
+    "outDir": "build/dist",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "strictNullChecks": true,
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }
