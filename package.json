@@ -6,7 +6,15 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      "@babel/preset-react",
+      {
+        "targets": {
+          "browsers": [
+            "last 1 version",
+            "ie >= 11"
+          ]
+        }
+      }
     ]
   },
   "scripts": {
@@ -17,6 +25,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.7.0",
     "@material-ui/icons": "^4.5.1",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.12",
@@ -46,9 +55,5 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
-  },
-  "browserlist": [
-    ">0.25%",
-    "IE11"
-  ]
+  }
 }
