@@ -1,0 +1,60 @@
+@mixin commonTextProperties() {
+  font-size     : 1rem;
+  line-height   : 2rem;
+  letter-spacing: 0.4px;
+}
+
+.loginForm {
+  display       : flex;
+  flex-direction: column;
+
+
+  &__group {
+    position: relative;
+
+    &-input {
+      height       : 3.6rem;
+      width        : 100%;
+      border       : none;
+      border-radius: 0.3rem;
+      padding      : 0 2rem 0 3.6rem;
+      color        : #999;
+      box-sizing   : border-box;
+      @include commonTextProperties();
+
+      &::placeholder {
+        color: #B3B3B3;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      left    : 1.6rem;
+      top     : 1.2rem;
+    }
+  }
+
+  &__error {
+    font-size : 12px;
+    min-height: 1.5em;
+    color     : lightpink;
+  }
+
+  &__button {
+    height          : 3.6rem;
+    width           : 100%;
+    border          : none;
+    border-radius   : 0.3rem;
+    text-align      : center;
+    background-color: #9FD533;
+    transition      : background-color cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.2s;
+    cursor          : pointer;
+    color           : white;
+    font-weight     : 600;
+    @include commonTextProperties();
+
+    &:hover {
+      background-color: #86b300;
+    }
+  }
+}

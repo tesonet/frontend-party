@@ -1,0 +1,23 @@
+.login {
+  height         : 100%;
+  width          : 100%;
+  display        : flex;
+  align-items    : center;
+  background     : url('/static/images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding        : 0 2em;
+
+  &__container {
+    width: 100%;
+
+    &-centered {
+      display: block;
+      margin : 0 auto;
+    }
+  }
+
+  &__logo {
+    display: block;
+    margin : 0 auto 4rem;
+  }
+}
