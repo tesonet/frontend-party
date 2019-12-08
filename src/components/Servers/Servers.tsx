@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, DispatchProp } from 'react-redux';
-import { AppState } from '../../redux/store';
+import { AppState } from '../../redux/configureStore';
 import { apiCall } from '../../helpers/apiCall';
 import { Server } from '../../redux/containers/servers/serversReducer';
 import { ServersActions } from '../../redux/containers/servers/serversActions';
@@ -21,7 +21,7 @@ const ServersComponent: React.SFC<StateProps & DispatchProp> = ({ servers, loadi
     } catch (ex) {
       dispatch(ServersActions.getServersError(ex));
     }
-};
+  };
 
   useEffect(() => {
     if (servers.length === 0 && !loading && !error) {
@@ -34,7 +34,13 @@ const ServersComponent: React.SFC<StateProps & DispatchProp> = ({ servers, loadi
     <div className="servers">
       <div className="servers__nav">
         <img src="/static/images/dark-logo.svg" />
-        <button onClick={() => dispatch(AuthActions.logout())}>Logout</button>
+        <button
+          className="servers__nav-logout"
+          onClick={() => dispatch(AuthActions.logout())}
+        >
+          <img src="/static/images/logout.svg" />
+          Logout
+        </button>
       </div>
 
       <div className="servers__header">

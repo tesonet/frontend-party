@@ -1,4 +1,4 @@
-import { action, ActionType } from '../../actions';
+import { action, ActionType } from '../../createActions';
 
 export enum AuthActionTypes {
   login = 'LOGIN',

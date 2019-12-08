@@ -10,7 +10,19 @@ interface Props {
 
 const ServerList: React.SFC<Props> = ({ servers, loading, error }) => {
   if (loading) {
-    return <h1>LOADING...</h1>;
+    return (
+      <div className="servers__list-loading">
+        <h1>L O A D I N G ...</h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="servers__list-error">
+        <h1>Whoops... :( Something went wrong - please try refreshing your page!</h1>
+      </div>
+    );
   }
 
   return (

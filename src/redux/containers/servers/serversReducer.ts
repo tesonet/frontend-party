@@ -20,11 +20,22 @@ const initialState: ServersState = {
 export const serversReducer = (state = initialState, action: ServersActions): ServersState => {
   switch (action.type) {
     case ServersActionTypes.getServers:
-      return { ...state, loading: true };
+      return { 
+        ...state,
+         loading: true
+         };
     case ServersActionTypes.getServersError:
-      return { ...state, loading: false, error: action.payload.error };
+      return { 
+        ...state,
+         loading: false,
+          error: action.payload.error
+         };
     case ServersActionTypes.getServersSuccess:
-      return { ...state, loading: false, servers: action.payload.servers };
+      return { 
+        ...state,
+         loading: false,
+          servers: action.payload.servers 
+        };
     default:
       return state;
   }

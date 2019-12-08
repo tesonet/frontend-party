@@ -4,7 +4,7 @@ import { Credentials } from '../../redux/containers/auth/authReducer';
 
 import './LoginForm.scss';
 import { connect } from 'react-redux';
-import { AppState } from '../../redux/store';
+import { AppState } from '../../redux/configureStore';
 
 interface Props {
   touched: FormikTouched<Credentials>;

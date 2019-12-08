@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { push } from 'connected-react-router';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import LoginForm from './LoginForm';
+import { AppState } from '../../redux/configureStore';
 import { Credentials } from '../../redux/containers/auth/authReducer';
 import { AuthActions } from '../../redux/containers/auth/authActions';
 import { apiCall } from '../../helpers/apiCall';
@@ -21,7 +22,15 @@ const credentialValidation = Yup.object().shape({
     .min(8, 'Password must consist of at least 8 characters')
 });
 
-const LoginComponent: React.FC<DispatchProp> = ({ dispatch }) => {
+type StateProps = ReturnType<typeof mapStateToProps>;
+
+const LoginComponent: React.FC<StateProps & DispatchProp> = ({ loggedIn, dispatch }) => {
+  useEffect(() => {
+    if (loggedIn) {
+      dispatch(push('/servers'));
+    }
+  }, [loggedIn])
+
   const handleLogin = async (data: Credentials) => {
     try {
       dispatch(AuthActions.login());
@@ -32,7 +41,6 @@ const LoginComponent: React.FC<DispatchProp> = ({ dispatch }) => {
       }, dispatch);
 
       dispatch(AuthActions.loginSuccess(res.token));
-      dispatch(push('/servers'));
     } catch (ex) {
       dispatch(AuthActions.loginError(ex));
     }
@@ -58,5 +66,7 @@ const LoginComponent: React.FC<DispatchProp> = ({ dispatch }) => {
   );
 };
 
-const Login = connect()(LoginComponent);
+const mapStateToProps = (state: AppState) => ({ loggedIn: state.auth.loggedIn });
+
+const Login = connect(mapStateToProps)(LoginComponent);
 export default Login;

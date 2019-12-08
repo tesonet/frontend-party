@@ -1,4 +1,4 @@
-import { action, ActionType } from '../../actions';
+import { action, ActionType } from '../../createActions';
 import { Server } from './serversReducer';
 
 export enum ServersActionTypes {

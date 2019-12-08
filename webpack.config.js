@@ -1,11 +1,15 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: {
+    app: ['./src/index.tsx'],
+    vendor: ['react', 'react-dom'],
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/'
   },
   devServer: {
@@ -29,7 +33,6 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json']
   },
-  mode: 'development',
   serve: {
     assetsPublicPath: '/',
     assetsSubDirectory: 'static'
@@ -37,6 +40,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'static', to: 'static' }
+    ])
   ]
 }

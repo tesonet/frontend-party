@@ -6,7 +6,7 @@ import {
   RouteComponentProps
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { AppState } from '../../redux/store';
+import { AppState } from '../../redux/configureStore';
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 

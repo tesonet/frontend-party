@@ -2,13 +2,14 @@
   display        : flex;
   justify-content: space-between;
   align-items    : center;
-  padding        : 0 1em;
+  padding        : 0 1rem;
   border-bottom  : 1px solid #E6E6E6;
   box-sizing     : border-box;
 }
 
-$navHeight : 112px;
-$rowHeight : 60px;
+$navHeight        : 112px;
+$rowHeight        : 60px;
+$serversListHeight: calc(100vh - #{$navHeight + $rowHeight});
 
 .servers {
   width : 100%;
@@ -18,24 +19,60 @@ $rowHeight : 60px;
     @include commonRowProperties();
     border-top: none;
     height    : $navHeight;
+
+    &-logout {
+      background-color: transparent;
+      border          : none;
+      outline         : none;
+      color           : #2F3254;
+      height          : 2rem;
+      font-size       : 14px;
+      padding         : 4px 12px;
+      transition      : background-color cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.2s;
+      border-radius   : 0.3rem;
+
+      > img {
+        margin-right  : 0.5rem;
+        vertical-align: top;
+      }
+
+      &:hover {
+        background-color: #99cc33;
+        cursor          : pointer;
+      }
+    }
   }
 
   &__header {
     @include commonRowProperties();
     height          : $rowHeight;
     background-color: #F5F5F5;
+    color           : #999999;
   }
 
   &__list {
-    max-height: calc(100vh - #{$navHeight + $rowHeight});
+    max-height: $serversListHeight;
 
     &-item {
       @include commonRowProperties();
       height: $rowHeight;
+      color : #666666;
 
       &:last-child {
         border-bottom: none;
       }
+    }
+
+    &-loading,
+    &-error {
+      height         : $serversListHeight;
+      display        : flex;
+      align-items    : center;
+      justify-content: center;
+      text-align     : center;
+      box-sizing     : border-box;
+      padding        : 15vw;
+      color          : #666666;
     }
   }
 }

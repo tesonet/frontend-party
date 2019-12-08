@@ -35,10 +35,9 @@
   }
 
   &__error {
-    padding-top: 0.2rem;
-    font-size  : 0.8rem;
-    min-height : 2rem;
-    color      : lightpink;
+    font-size : 12px;
+    min-height: 1.5em;
+    color     : lightpink;
   }
 
   &__button {

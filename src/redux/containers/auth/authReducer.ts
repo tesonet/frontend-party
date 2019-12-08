@@ -30,7 +30,8 @@ export const authReducer = (state = initialState, action: AuthActions): AuthStat
       return {
         ...state,
         loading: false,
-        loggedIn: true
+        loggedIn: true,
+        error: null
       };
     case AuthActionTypes.loginError:
       return {
@@ -43,7 +44,6 @@ export const authReducer = (state = initialState, action: AuthActions): AuthStat
       localStorage.removeItem(TOKEN_KEY);
       return {
         ...state,
-        loading: false,
         loggedIn: false
       };
     default:
