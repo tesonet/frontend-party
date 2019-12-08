@@ -5,7 +5,10 @@ import {
   RouteProps,
   RouteComponentProps
 } from 'react-router-dom';
-import { isLoggedIn } from '../../auth/authentication';
+import { connect } from 'react-redux';
+import { AppState } from '../../redux/store';
+
+type StateProps = ReturnType<typeof mapStateToProps>;
 
 interface PrivateRouteProps extends RouteProps {
   component:
@@ -13,9 +16,9 @@ interface PrivateRouteProps extends RouteProps {
   | React.ComponentType<any>;
 }
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, ...rest }) => {
+const PrivateRouteComponent: React.FC<PrivateRouteProps & StateProps> = ({ component: Component, loggedIn, loading, ...rest }) => {
   const handleRender = (routeProps: RouteComponentProps) => {
-    if (isLoggedIn()) {
+    if (loggedIn && !loading) {
       return <Component {...routeProps} />;
     }
 
@@ -25,4 +28,10 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, ...re
   return <Route {...rest} render={handleRender} />;
 };
 
+const mapStateToProps = (state: AppState) => ({ 
+  loggedIn: state.auth.loggedIn,
+  loading: state.auth.loading
+ });
+
+const PrivateRoute = connect(mapStateToProps)(PrivateRouteComponent);
 export default PrivateRoute;

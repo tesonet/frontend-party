@@ -1,7 +1,12 @@
 import React from 'react';
+import { connect, DispatchProp } from 'react-redux';
+import { push } from 'connected-react-router';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import LoginForm from './LoginForm';
+import { Credentials } from '../../redux/containers/auth/authReducer';
+import { AuthActions } from '../../redux/containers/auth/authActions';
+import { apiCall } from '../../helpers/apiCall';
 
 import './Login.scss';
 
@@ -16,28 +21,42 @@ const credentialValidation = Yup.object().shape({
     .min(8, 'Password must consist of at least 8 characters')
 });
 
-export interface Credentials {
-  username: string;
-  password: string;
-}
+const LoginComponent: React.FC<DispatchProp> = ({ dispatch }) => {
+  const handleLogin = async (data: Credentials) => {
+    try {
+      dispatch(AuthActions.login());
+      const res = await apiCall<{ token: string }>({
+        url: 'http://playground.tesonet.lt/v1/tokens',
+        method: 'POST',
+        data
+      }, dispatch);
 
-const Login: React.FC = () => (
-  <div className="login">
-    <div className="login__container pure-g">
-      <div className="login__container-centered pure-u-1 pure-u-md-1-3">
-        <img className="login__logo" src="/static/images/white-logo.svg" />
-        <Formik<Credentials>
-          onSubmit={() => console.log('LOGIN')}
-          initialValues={{ username: '', password: '' }}
-          validationSchema={credentialValidation}
-          validateOnBlur={true}
-          validateOnChange={true}
-        >
-          {props => <LoginForm {...props} />}
-        </Formik>
+      dispatch(AuthActions.loginSuccess(res.token));
+      dispatch(push('/servers'));
+    } catch (ex) {
+      dispatch(AuthActions.loginError(ex));
+    }
+  }
+
+  return (
+    <div className="login">
+      <div className="login__container pure-g">
+        <div className="login__container-centered pure-u-1 pure-u-md-1-3">
+          <img className="login__logo" src="/static/images/white-logo.svg" />
+          <Formik<Credentials>
+            onSubmit={handleLogin}
+            initialValues={{ username: '', password: '' }}
+            validationSchema={credentialValidation}
+            validateOnBlur={true}
+            validateOnChange={true}
+          >
+            {props => <LoginForm {...props} />}
+          </Formik>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
+const Login = connect()(LoginComponent);
 export default Login;

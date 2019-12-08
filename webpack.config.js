@@ -10,7 +10,8 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    disableHostCheck: true
+    disableHostCheck: true,
+    hot: true
   },
   module: {
     rules: [

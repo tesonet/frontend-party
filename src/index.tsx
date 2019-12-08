@@ -1,29 +1,25 @@
 import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import Login from './components/Login/Login';
-import Page404 from './components/ErrorPages/Page404';
-import PrivateRoute from './components/Routes/PrivateRoute';
-import ServerList from './components/ServerList/ServerList';
+import { createBrowserHistory } from 'history';
+import { Provider } from 'react-redux';
+import { configureStore } from './redux/store';
+import App from './App';
 
 import 'simplebar/dist/simplebar.min.css';
 import './index.scss';
 
-const App: React.FC = () => (
-  <div id="app">
-    <div className="content">
-      <Router>
-        <Switch>
-          <Route exact path={['/', '/login']} component={Login} />
-          <Switch>
-            <PrivateRoute path='/servers' component={ServerList} />
-            <Route><Page404 /></Route>
-          </Switch>
-        </Switch>
-      </Router>
-    </div>
-  </div>
+const history = createBrowserHistory();
+const store = configureStore(history);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App history={history} />
+  </Provider>,
+  document.getElementById('root')
 );
 
-ReactDOM.render(<App />, document.getElementById('root'));
+declare var module: any;
+if (module.hot) {
+  module.hot.accept();
+}
