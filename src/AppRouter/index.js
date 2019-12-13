@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 
-import { Login, Servers } from "../pages";
-
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { Login, Servers } from '../pages';
 
 function ReactRouter() {
   return (
