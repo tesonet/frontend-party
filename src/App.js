@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import AppRouter from "./AppRouter";
+import AppRouter from './AppRouter';
 
-import "./style.css";
+import './style.css';
 
 function App() {
   return (
