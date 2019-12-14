@@ -15,10 +15,11 @@ export const Login = () => {
 
   const {token, setToken} = useToken();
 
-  const [username, setUsername] = useState('tesonet');
-  const [password, setPassword] = useState('partyanimal');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   if (token) {
     return <Redirect to={routes.servers} />
@@ -40,8 +41,14 @@ export const Login = () => {
         method: 'POST',
         mode: 'cors',
       });
-      const { token } = await response.json();
-      setToken(token);
+      console.log(response);
+      if (response.ok) {
+        const { token } = await response.json();
+        setToken(token);
+      } else {
+        setError('Authorization error. Check your credentials.')
+      }
+
     } catch (ex) {
       console.log(ex);
     } finally {
@@ -49,8 +56,8 @@ export const Login = () => {
     }
   };
 
-  const usernameClassNames = classNames('form-row', {invalid: submitted && !isValidField(username)});
-  const passwordClassNames = classNames('form-row', {invalid: submitted && !isValidField(password)});
+  const usernameClassNames = classNames('form-row', {invalid: error || (submitted && !isValidField(username))});
+  const passwordClassNames = classNames('form-row', {invalid: error || (submitted && !isValidField(password))});
 
   return (
     <div className="App login">
@@ -61,12 +68,16 @@ export const Login = () => {
           className="login-form"
           disabled={loading}
         >
+          {error && <div className="error">{error}</div>}
           <div className={usernameClassNames}>
             <img src={usernameLogo} alt="logo" />
             <input
               type="text"
               value={username}
-              onChange={e => {setUsername(e.target.value)}}
+              onChange={e => {
+                setError('');
+                setUsername(e.target.value);
+              }}
             />
           </div>
           <div className={passwordClassNames}>
@@ -74,14 +85,17 @@ export const Login = () => {
             <input
               type="password"
               value={password}
-              onChange={e => {setPassword(e.target.value)}}
+              onChange={e => {
+                setError('');
+                setPassword(e.target.value);
+              }}
             />
           </div>
           <button
             disabled={loading}
             onClick={handleLogin}
             className="submit-button"
-            >{!loading ? 'Login' : 'loading...'}
+            >{loading ? 'Loading...' : 'Login'}
           </button>
         </form>
       </header>

@@ -65,3 +65,7 @@ input:focus {
 .submit-button:focus {
   outline: none;
 }
+
+.error {
+  padding-bottom: 10px;
+}
