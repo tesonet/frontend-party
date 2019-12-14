@@ -1,32 +1,13 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import logo from '../img/logo-testio.svg';
 import routes from '../routes';
-import { userActions } from '../reducers/current-user';
+import useToken from '../hooks/use-token';
 
 export const Login = () => {
-  const localStorageKey = 'my-token-key';
 
-  const dispatch = useDispatch();
-
-  useEffect(()=>{
-    const loadedToken = window.localStorage.getItem(localStorageKey);
-    if (loadedToken) {
-      dispatch({ type: userActions.setToken, payload: loadedToken });
-    }
-  }, [dispatch]);
-
-  const token = useSelector(state => state.currentUser.token);
-
-  const login = useCallback(
-    (token) => {
-      dispatch({ type: userActions.setToken, payload: token });
-      window.localStorage.setItem(localStorageKey, token);
-    },
-    [dispatch]
-  );
+  const [token, setToken] = useToken();
 
   const [username, setUsername] = useState('tesonet');
   const [password, setPassword] = useState('partyanimal');
@@ -52,7 +33,7 @@ export const Login = () => {
         mode: 'cors',
       });
       const { token } = await response.json();
-      login(token);
+      setToken(token);
 
     } catch (ex) {
       console.log(ex)
