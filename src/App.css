@@ -1,3 +1,17 @@
+.login {
+  background: url(./img/background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  background-color: #0b0f27;
+}
+
+
 .App {
   text-align: center;
 }
@@ -8,7 +22,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
