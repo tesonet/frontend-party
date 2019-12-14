@@ -1,6 +1,7 @@
 export const serverListActions = {
   setServers: 'set-servers',
   sortServers: 'sort-servers',
+  resetServers: 'reset-servers',
 };
 
 const initialState = {servers: [], sortField: 'name', order: 1};
@@ -22,6 +23,10 @@ const serverList = (state = initialState, action) => {
         ...newState,
         servers: sort(newState)
       }
+    case serverListActions.resetServers:
+      return {
+        ...initialState
+      };
     default:
       return state;
   }

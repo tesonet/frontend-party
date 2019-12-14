@@ -19,8 +19,8 @@ function App() {
   return (
     <Router>
       <Switch>
-          <Route path={routes.login} component={Login} />
-          <Route path={routes.servers} component={Servers}/>
+        <Route path={routes.login} component={Login} />
+        <Route path={routes.servers} component={Servers}/>
       </Switch>
       <Redirect from="/" to={routes.login} />
     </Router>

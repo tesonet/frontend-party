@@ -7,7 +7,7 @@ import useToken from '../hooks/use-token';
 
 export const Login = () => {
 
-  const [token, setToken] = useToken();
+  const {token, setToken} = useToken();
 
   const [username, setUsername] = useState('tesonet');
   const [password, setPassword] = useState('partyanimal');

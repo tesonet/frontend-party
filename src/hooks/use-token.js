@@ -2,6 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { userActions } from '../reducers/current-user';
+import { serverListActions } from '../reducers/server-list';
 
 const localStorageKey = 'my-token-key';
 
@@ -25,5 +26,14 @@ export default () => {
     [dispatch]
   );
 
-  return [token, setToken];
+  const resetToken = useCallback(
+    () => {
+      dispatch({ type: userActions.logout });
+      dispatch({type: serverListActions.resetServers});
+      window.localStorage.removeItem(localStorageKey);
+    },
+    [dispatch]
+  )
+
+  return {token, setToken, resetToken};
 }
