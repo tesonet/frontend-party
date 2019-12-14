@@ -1,4 +1,4 @@
-import {useEffect, useCallback} from 'react';
+import {useEffect, useCallback, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import useToken from '../hooks/use-token';
@@ -15,6 +15,8 @@ export default () => {
     },
     [dispatch]
   );
+
+  const [serversLoading, setServersLoading] = useState(true);
 
   const sortServers = useCallback(
     order => {
@@ -36,10 +38,11 @@ export default () => {
       if (response.ok) {
         setServers(await response.json());
       }
+      setServersLoading(false);
     };
     fetchServers();
 
   }, [token, setServers]);
 
-  return {servers, sortServers};
+  return {servers, sortServers, serversLoading};
 };

@@ -10,7 +10,7 @@ import logo from '../img/logo-testio-list.svg';
 
 export const Servers = () => {
   const {token, resetToken} = useToken();
-  const {servers, sortServers} = useServers();
+  const {servers, sortServers, serversLoading} = useServers();
 
   if (!token) {
     return <Redirect to={routes.login} />
@@ -23,7 +23,9 @@ export const Servers = () => {
        <button onClick={()=>{resetToken()}} className="logout-button">Logout</button>
       </div>
 
-      <table className="servers-table">
+      {serversLoading && <div className="servers-loading">Servers Data Loading...</div>}
+
+      {!serversLoading && <table className="servers-table">
         <thead>
           <tr>
             <th onClick={() => sortServers('name')} className="name-column">Server</th>
@@ -38,7 +40,7 @@ export const Servers = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table>}
     </div>
   );
 }
