@@ -3,7 +3,7 @@ export const serverListActions = {
   sortServers: 'sort-servers',
 };
 
-const initialState = {servers: [], sortField: 'name', order: 1}
+const initialState = {servers: [], sortField: 'name', order: 1};
 
 const serverList = (state = initialState, action) => {
   switch(action.type) {
