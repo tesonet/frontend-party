@@ -5,10 +5,14 @@ import './App.css';
 
 function App() {
 
+  const localStorageKey = 'my-token-key';
+
   const [username, setUsername] = useState('tesonet');
   const [password, setPassword] = useState('partyanimal');
   const [submitted, setSubmitted] = useState(false);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState( window.localStorage.getItem(localStorageKey) || '');
+
+ ;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +31,7 @@ function App() {
       });
       const {token} = await response.json();
       setToken(token);
-      console.log(token);
+      window.localStorage.setItem(localStorageKey, token);
 
     } catch (ex) {
       console.log(ex)
