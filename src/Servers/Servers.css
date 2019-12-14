@@ -1,3 +1,43 @@
 .servers-list {
   background-color: white;
 }
+
+.list-logo {
+  width: 115px;
+  height: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 42px 15px;
+}
+
+.logout-button-text {
+  width: 74px;
+  height: 30px;
+  color: #2f3254;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.35px;
+  line-height: 30px;
+  text-transform: uppercase;
+  background-color: white;
+}
+
+.servers-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+thead th:nth-child(1) {
+  width: 50%;
+  text-align: left;
+}
+
+thead th:nth-child(2),
+tbody td:nth-child(2) {
+  width: 50%;
+  text-align: right;
+}

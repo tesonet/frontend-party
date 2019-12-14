@@ -6,6 +6,7 @@ import useServers from '../hooks/use-servers';
 import routes from '../routes';
 
 import './Servers.css';
+import logo from '../img/logo-testio-list.svg';
 
 export const Servers = () => {
   const {token, resetToken} = useToken();
@@ -17,18 +18,26 @@ export const Servers = () => {
 
   return (
     <div className="servers-list">
-      <button onClick={()=>{resetToken()}}>Logout</button>
-      <table>
-        <tr>
-          <th onClick={() => sortServers('name')}>Server</th>
-          <th onClick={() => sortServers('distance')}>Distance</th>
-        </tr>
+      <div className="header">
+       <img src={logo} className="list-logo" alt="logo" />
+       <button onClick={()=>{resetToken()}} className="logout-button">Logout</button>
+      </div>
+
+      <table className="servers-table">
+        <thead>
+          <tr>
+            <th onClick={() => sortServers('name')} className="name-column">Server</th>
+            <th onClick={() => sortServers('distance')}>Distance</th>
+          </tr>
+        </thead>
+        <tbody>
           {servers.map(({ name, distance }, key)=>(
             <tr key={key}>
               <td>{name}</td>
               <td>{distance}</td>
             </tr>
           ))}
+        </tbody>
       </table>
     </div>
   );
