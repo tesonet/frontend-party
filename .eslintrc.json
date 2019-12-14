@@ -1,6 +1,7 @@
 {
   "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": ["prettier", "react-hooks", "react"],
+  "ignorePatterns": ["*.config.js", "node_modules/"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -13,13 +14,11 @@
     "react/jsx-props-no-spreading": 0,
     "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
     "import/no-named-as-default": [0],
+    "import/extensions": [0],
+    "import/no-unresolved": [0],
     "import/prefer-default-export": [0],
     "no-underscore-dangle": [0],
     "no-plusplus": [0],
-    "quotes": [
-      "error",
-      "single",
-      { "avoidEscape": true, "allowTemplateLiterals": false }
-    ]
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }]
   }
 }

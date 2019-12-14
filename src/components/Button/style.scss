@@ -1,0 +1,7 @@
+.button {
+  @apply rounded py-2 bg-green text-white;
+  &:active,
+  &:hover {
+    @apply bg-green-darker;
+  }
+}

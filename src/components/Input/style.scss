@@ -1,0 +1,15 @@
+.input {
+  @apply p-2 w-full rounded;
+  &:focus {
+    color: #999;
+  }
+}
+
+.input__icon {
+  @apply bg-left bg-no-repeat pl-8;
+  background-position-x: 10px;
+}
+
+.input__error {
+  @apply text-center text-sm text-red-500;
+}

@@ -1,14 +1,16 @@
 import React from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch } from 'react-router-dom';
 
 import { Login, Servers } from '../pages';
+import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivateRoute';
 
 function ReactRouter() {
   return (
     <HashRouter>
       <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/servers" component={Servers} />
+        <PublicRoute path="/" exact component={Login} />
+        <PrivateRoute path="/servers" component={Servers} />
       </Switch>
     </HashRouter>
   );
