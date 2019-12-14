@@ -23,16 +23,23 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   },
   devServer: {
     compress: true,
     port: 8000,
-    https: true,
   },
   optimization: {
     minimize: true,
