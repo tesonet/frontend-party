@@ -15,6 +15,10 @@
   border-radius: 6px;
 }
 
+.form-row.invalid {
+  border: 2px solid #fd0000;
+}
+
 .form-row img {
   margin-right: 15px;
   margin-left: 25px;
