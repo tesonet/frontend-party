@@ -3,23 +3,35 @@ export const serverListActions = {
   sortServers: 'sort-servers',
 };
 
-const serverList = (state = {servers: []}, action) => {
+const initialState = {servers: [], sortField: 'name', order: 1}
+
+const serverList = (state = initialState, action) => {
   switch(action.type) {
     case serverListActions.setServers:
       return {
-        ...state,
-        servers: [...action.payload]
+        ...initialState,
+        servers: sort({...initialState, servers: action.payload})
       };
     case serverListActions.sortServers:
-      const sortByType = sortByFieldName(action.payload)
-      return {
+      const newState = {
         ...state,
-        servers: [...state.servers.sort(sortByType)]
+        sortField: action.payload,
+        order: action.payload === state.sortField ? -state.order : initialState.order
+      };
+      return {
+        ...newState,
+        servers: sort(newState)
       }
     default:
       return state;
   }
 };
+
+function sort({servers, sortField, order}) {
+  const sortByType = sortByFieldName(sortField);
+  const sorted = [...servers.sort(sortByType)];
+  return order > 0 ? sorted : sorted.reverse();
+}
 
 function parseNumber(v) {
   return parseInt(v, 10);
