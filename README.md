@@ -45,7 +45,7 @@
 
 - It is all good to use [`create-react-app`](https://github.com/facebook/create-react-app) as a starter, but if you have time and want showcase your skill - use JS bundler ([`Webpack`](https://webpack.js.org/) preferred) 📦📦📦
 - We highly recommend following `TDD` patterns and showcasing your skills at writing tests(`unit`, `integration`, `e2e` - all are good)
-- Use [`npm scripts`](https://docs.npmjs.com/misc/scripts) for running tasks, i.e. for development, clening build or etc.
+- Use [`npm scripts`](https://docs.npmjs.com/misc/scripts) for running tasks, i.e. for development, cleaning build or etc.
 - Do validation of login fields and provide user friendly error messages if needed **#UXmatters**
 - Indicate loading state for the user whenever requests are in action and user might not understand they needs to wait
 
