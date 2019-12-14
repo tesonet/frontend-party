@@ -5,16 +5,33 @@ import './App.css';
 
 function App() {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('tesonet');
+  const [password, setPassword] = useState('partyanimal');
+  const [submitted, setSubmitted] = useState(false);
+  const [token, setToken] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const handleLogin = (e) => {
-    console.log(username, password);
-    console.log(e);
+  const handleLogin = async (e) => {
+    setSubmitted(true);
+    try {
+      const response = await fetch('http://playground.tesonet.lt/v1/tokens', {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({username, password}),
+        method: 'POST',
+        mode: 'cors',
+      });
+      const {token} = await response.json();
+      setToken(token);
+      console.log(token);
+
+    } catch (ex) {
+      console.log(ex)
+    }
   }
 
   return (
