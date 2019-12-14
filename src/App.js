@@ -12,8 +12,6 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [token, setToken] = useState( window.localStorage.getItem(localStorageKey) || '');
 
- ;
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };
