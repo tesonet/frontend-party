@@ -22,6 +22,7 @@ function App() {
           <Route path={routes.login} component={Login} />
           <Route path={routes.servers} component={Servers}/>
       </Switch>
+      <Redirect from="/" to={routes.login} />
     </Router>
   );
 }

@@ -1,7 +1,11 @@
+export const userActions = {
+  setToken: 'set-token'
+};
+
 const currentUser = (state = {}, action) => {
   console.log(state, action);
   switch(action.type){
-      case "set-token":
+      case userActions.setToken:
           return {
               ...state,
               token: action.payload,
@@ -16,6 +20,6 @@ const currentUser = (state = {}, action) => {
       default:
           return state
   }
-}
+};
 
 export default currentUser;
