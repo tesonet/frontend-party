@@ -17,7 +17,6 @@
   width: 74px;
   height: 30px;
   color: #2f3254;
-  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
   letter-spacing: 0.35px;
@@ -29,15 +28,34 @@
 .servers-table {
   table-layout: fixed;
   width: 100%;
+  border: 1px solid #e6e6e6;
 }
 
-thead th:nth-child(1) {
+thead {
+  background-color: #f5f5f5;
+  color: #999999;
+  text-transform: uppercase;
+}
+
+thead, tr {
+  height: 45px;
+}
+
+thead th:nth-child(1),
+tbody td:nth-child(1) {
   width: 50%;
   text-align: left;
+  padding-left: 15px;
 }
 
 thead th:nth-child(2),
 tbody td:nth-child(2) {
   width: 50%;
   text-align: right;
+  padding-right: 15px;
+}
+
+tbody td {
+  border-bottom: 1px solid #e6e6e6;
+  color: #666666;
 }
