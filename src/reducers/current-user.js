@@ -1,24 +1,23 @@
 export const userActions = {
-  setToken: 'set-token'
+  setToken: 'set-token',
 };
 
 const currentUser = (state = {}, action) => {
-  console.log(state, action);
-  switch(action.type){
-      case userActions.setToken:
-          return {
-              ...state,
-              token: action.payload,
-              loggedIn: true
-          }
-      case "LOG_OUT":
-          return {
-              ...state,
-              user: {},
-              loggedIn: false
-          }
-      default:
-          return state
+  switch(action.type) {
+    case userActions.setToken:
+      return {
+        ...state,
+        token: action.payload,
+        loggedIn: true
+      }
+    case "LOG_OUT":
+      return {
+        ...state,
+        user: {},
+        loggedIn: false
+      }
+    default:
+      return state
   }
 };
 
