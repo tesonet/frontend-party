@@ -1,0 +1,6 @@
+.error {
+  @apply w-full border border-red-700 bg-red-200 text-center mb-4 rounded-lg py-2;
+  .error__message {
+    @apply text-red-700;
+  }
+}
