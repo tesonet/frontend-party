@@ -22,4 +22,17 @@
       }
     }
   }
+
+  .servers__content {
+    .servers__content-list {
+      @apply border-l border-r border-gray-100;
+      .server_content-header {
+        @apply bg-gray-100 text-gray-200;
+      }
+      li {
+        @apply flex justify-between items-center border-b border-gray-100 text-gray-300 p-2;
+        border-color: #f5f5f5;
+      }
+    }
+  }
 }
