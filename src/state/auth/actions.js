@@ -4,7 +4,7 @@ import * as types from './actionTypes';
 
 export const authenticate = (username, password) => ({
   [RSAA]: {
-    endpoint: 'http://playground.tesonet.lt/v1/tokens',
+    endpoint: '/tokens',
     method: 'POST',
     body: JSON.stringify({
       username,

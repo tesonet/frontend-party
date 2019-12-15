@@ -12,6 +12,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@babel/preset-env": "^7.7.5",
+    "@tshio/redux-api-endpoint-middleware": "^2.0.1",
     "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
