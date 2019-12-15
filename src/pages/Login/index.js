@@ -34,8 +34,8 @@ function Login() {
       <Form
         onSubmit={({ name, password }) => dispatch(auth.actions.authenticate(name, password))}
         initialValues={{
-          name: '',
-          password: '',
+          name: null,
+          password: null,
         }}
         render={({ handleSubmit }) => (
           <>
