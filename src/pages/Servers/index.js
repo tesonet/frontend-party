@@ -48,7 +48,7 @@ function Servers() {
       <div className="servers__content">
         {error && <ErrorMessage message={error} />}
         <ul className="servers__content-list">
-          <li className="server_content-header">
+          <li className="server__content-header">
             <button
               onClick={() => setDisplayedServers([...serversData.sort(compareByName)])}
               type="button"
