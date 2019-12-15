@@ -10,7 +10,7 @@ const initialState = {
   order: 1,
 };
 
-const serverList = (state = initialState, action) => {
+const serverList = (state = initialState, action = {}) => {
   switch(action.type) {
     case serverListActions.setServers:
       return {
