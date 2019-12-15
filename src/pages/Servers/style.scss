@@ -1,0 +1,25 @@
+.servers {
+  @apply mx-auto;
+  .servers__header {
+    @apply flex justify-between items-center;
+    h1 {
+      @apply text-white text-3xl my-4 text-center;
+      color: #2f3254;
+      mark {
+        @apply bg-transparent text-green;
+      }
+    }
+
+    .servers__header-logout {
+      @apply border py-1 px-2;
+      border-color: #0015ff;
+
+      &:hover {
+        border-color: #99cc33;
+      }
+      img {
+        @apply inline mr-1;
+      }
+    }
+  }
+}
