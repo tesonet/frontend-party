@@ -7,13 +7,13 @@
   );
 
   .login__header {
-    @apply text-white text-5xl mb-10 text-center;
+    @apply text-white text-5xl font-bold mb-10 text-center;
     mark {
       @apply bg-transparent text-green;
     }
   }
 
   .login__form {
-    @apply flex flex-col justify-center w-64;
+    @apply flex flex-col justify-center;
   }
 }

@@ -16,15 +16,10 @@ module.exports = {
       white: '#fff',
 
       gray: {
-        100: '#f7fafc',
-        200: '#edf2f7',
-        300: '#e2e8f0',
-        400: '#cbd5e0',
-        500: '#a0aec0',
-        600: '#718096',
-        700: '#4a5568',
-        800: '#2d3748',
-        900: '#1a202c',
+        100: '#f5f5f5',
+        200: '#E6E6E6',
+        300: '#999999',
+        400: '#666666',
       },
       red: {
         100: '#fff5f5',
@@ -61,6 +56,7 @@ module.exports = {
       },
       green: '#9FD533',
       'green-darker': '#86b300',
+      lime: '99cc33',
       teal: {
         100: '#e6fffa',
         200: '#b2f5ea',
@@ -73,6 +69,7 @@ module.exports = {
         900: '#234e52',
       },
       blue: {
+        dark: '#2F3254',
         100: '#ebf8ff',
         200: '#bee3f8',
         300: '#90cdf4',
@@ -137,6 +134,7 @@ module.exports = {
       '48': '12rem',
       '56': '14rem',
       '64': '16rem',
+      '72': '18rem',
     },
     backgroundColor: theme => theme('colors'),
     backgroundPosition: {
@@ -211,20 +209,7 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
-      sans: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
+      sans: ['Roboto'],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
     },
