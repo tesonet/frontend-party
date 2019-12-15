@@ -31,7 +31,7 @@ function Login() {
         }}
         render={({ handleSubmit }) => (
           <>
-            <form className="login__form" onSubmit={handleSubmit}>
+            <form className="login__form md:w-72 w-64" onSubmit={handleSubmit}>
               <Field
                 validate={val => {
                   if (validation.isRequired(val)) return null;
@@ -55,7 +55,7 @@ function Login() {
                 component={Input}
                 icon={lockIcon}
               />
-              <Button type="submit" className="mt-4" text="Log In" />
+              <Button type="submit" className="mt-4 font-bold" text="Log In" />
             </form>
           </>
         )}

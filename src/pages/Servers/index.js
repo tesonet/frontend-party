@@ -24,11 +24,11 @@ function Servers() {
       setDisplayedServers(serversData);
     }
   }, [serversData, dispatch, displayedServers]);
-  console.log(displayedServers);
+
   return (
     <div className="servers container">
       {isFetching && <Loader />}
-      <div className="servers__header">
+      <div className="servers__header px-2 md:px-4">
         <h1>
           testio<mark>.</mark>
         </h1>

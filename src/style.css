@@ -1,3 +1,7 @@
+* {
+  @apply font-sans;
+}
+
 @tailwind base;
 
 @tailwind components;
