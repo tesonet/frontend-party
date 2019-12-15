@@ -5,7 +5,7 @@ test('initially should contain empty servers array', () =>{
 });
 
 test('"set-servers" should load servers ordered by name initially', () => {
-  expect(serverList(undefined, {
+  const newState = serverList(undefined, {
     type: 'set-servers',
     payload: [
       {
@@ -15,11 +15,13 @@ test('"set-servers" should load servers ordered by name initially', () => {
         name: 'aName'
       }
     ]
-  }).servers[0].name).toBe('aName');
+  });
+  expect(newState.servers[0].name).toBe('aName');
+  expect(newState.servers[1].name).toBe('zName');
 });
 
 test('"sort-servers" should sort server list by passed column', () => {
-  expect(serverList({
+  const newState = serverList({
     servers: [
       {
         name: 'aName',
@@ -33,11 +35,13 @@ test('"sort-servers" should sort server list by passed column', () => {
   }, {
     type: 'sort-servers',
     payload: 'distance'
-  }).servers[0].distance).toBe(1);
+  });
+  expect(newState.servers[0].distance).toBe(1);
+  expect(newState.servers[1].distance).toBe(9999);
 });
 
 test('next call to "sort-servers" with the same column name should toggle sort direction', () => {
-  expect(serverList({
+  const newState = serverList({
     servers: [
       {
         name: 'aName',
@@ -52,13 +56,15 @@ test('next call to "sort-servers" with the same column name should toggle sort d
     order: 1,
   }, {
     type: 'sort-servers',
-    payload: 'distance'
-  }).servers[0].name).toBe('zName');
+    payload: 'name'
+  });
+  expect(newState.servers[0].name).toBe('zName');
+  expect(newState.servers[1].name).toBe('aName');
 });
 
 test('"reset-servers" should empty server list', () => {
   expect(serverList({
-    servers: [{}]
+    servers: [{}, {}]
   }, {
     type: 'reset-servers'
   }).servers).toStrictEqual([]);
