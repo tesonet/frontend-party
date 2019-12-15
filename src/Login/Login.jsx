@@ -78,6 +78,7 @@ export const Login = () => {
           <div className={usernameClassNames}>
             <img src={usernameLogo} alt="logo" />
             <input
+              autoFocus="autofocus"
               type="text"
               value={username}
               onChange={e => {
