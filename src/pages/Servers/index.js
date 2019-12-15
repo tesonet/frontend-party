@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { auth, servers } from '~/state';
-import { Loader } from '~/components';
+import { Loader, ErrorMessage } from '~/components';
 
 import logoutIcon from '<assets>/icons/logout.svg';
 
@@ -13,9 +13,13 @@ const compareByDistance = ({ distance: a }, { distance: b }) => (a > b ? 1 : -1)
 
 function Servers() {
   const dispatch = useDispatch();
+
   const serversData = useSelector(servers.selectors.getServersData);
   const isFetching = useSelector(servers.selectors.isFetching);
+  const error = useSelector(servers.selectors.getError);
+
   const [displayedServers, setDisplayedServers] = useState([]);
+
   useEffect(() => {
     if (!serversData) {
       dispatch(servers.actions.requestServers());
@@ -42,8 +46,9 @@ function Servers() {
         </button>
       </div>
       <div className="servers__content">
+        {error && <ErrorMessage message={error} />}
         <ul className="servers__content-list">
-          <li className="server_content-header">
+          <li className="server__content-header">
             <button
               onClick={() => setDisplayedServers([...serversData.sort(compareByName)])}
               type="button"
