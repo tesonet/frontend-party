@@ -10,7 +10,7 @@ export default () => next => action => {
     [RSAA]: {
       ...action[RSAA],
       headers: {
-        ...action.headers,
+        ...action[RSAA].headers,
         'Content-Type': 'application/json',
       },
     },
