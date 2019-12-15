@@ -38,6 +38,7 @@
   table-layout: fixed;
   width: 100%;
   border: 1px solid #e6e6e6;
+  border-spacing: unset;
 }
 
 thead {
