@@ -13,3 +13,5 @@ export const authenticate = (username, password) => ({
     types: [types.AUTHENTICATE, types.AUTHENTICATE_SUCCESS, types.AUTHENTICATE_FAILURE],
   },
 });
+
+export const logout = () => ({ type: types.LOGOUT });

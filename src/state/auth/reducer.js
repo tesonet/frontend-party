@@ -23,6 +23,10 @@ const reducer = (state = DEFAULT_AUTH_STATE, { type, payload }) => {
         ...DEFAULT_AUTH_STATE,
         error: payload,
       };
+    case types.LOGOUT:
+      return {
+        ...DEFAULT_AUTH_STATE,
+      };
     default:
       return state;
   }
