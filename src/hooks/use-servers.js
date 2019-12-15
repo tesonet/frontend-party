@@ -1,4 +1,4 @@
-import {useEffect, useCallback, useState} from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import useToken from '../hooks/use-token';
@@ -11,7 +11,10 @@ export default () => {
   const servers = useSelector(state => state.serverList.servers);
   const setServers = useCallback(
     (servers) => {
-      dispatch({ type: serverListActions.setServers, payload: servers });
+      dispatch({
+        type: serverListActions.setServers,
+        payload: servers,
+      });
     },
     [dispatch]
   );
@@ -20,14 +23,18 @@ export default () => {
 
   const sortServers = useCallback(
     order => {
-      dispatch({type: serverListActions.sortServers, payload: order});
+      dispatch({
+        type: serverListActions.sortServers,
+        payload: order,
+      });
     },
     [dispatch]
   );
 
   useEffect( () => {
     const fetchServers = async () => {
-      const response = await fetch('http://playground.tesonet.lt/v1/servers', {
+      const response = await fetch(
+        'http://playground.tesonet.lt/v1/servers', {
         headers: {
           Authorization: `${token}`,
           'Content-Type': 'application/json'

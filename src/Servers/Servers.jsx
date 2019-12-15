@@ -20,16 +20,24 @@ export const Servers = () => {
     <div className="servers-list">
       <div className="header">
        <img src={logo} className="list-logo" alt="logo" />
-       <button onClick={()=>{resetToken()}} className="logout-button">Logout</button>
+       <button
+        onClick={()=>{resetToken()}}
+        className="logout-button"
+      >Logout</button>
       </div>
 
-      {serversLoading && <div className="servers-loading">Servers Data Loading...</div>}
+      {serversLoading && <div className="servers-loading">Loading servers info...</div>}
 
       {!serversLoading && <table className="servers-table">
         <thead>
           <tr>
-            <th onClick={() => sortServers('name')} className="name-column">Server</th>
-            <th onClick={() => sortServers('distance')}>Distance</th>
+            <th
+              onClick={() => sortServers('name')}
+              className="name-column"
+            >Server</th>
+            <th
+              onClick={() => sortServers('distance')}
+            >Distance</th>
           </tr>
         </thead>
         <tbody>

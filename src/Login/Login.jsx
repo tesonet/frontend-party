@@ -33,7 +33,8 @@ export const Login = () => {
     setSubmitted(true);
     setLoading(true);
     try {
-      const response = await fetch('http://playground.tesonet.lt/v1/tokens', {
+      const response = await fetch(
+        'http://playground.tesonet.lt/v1/tokens', {
         headers: {
           'Content-Type': 'application/json'
         },
@@ -41,23 +42,28 @@ export const Login = () => {
         method: 'POST',
         mode: 'cors',
       });
-      console.log(response);
       if (response.ok) {
         const { token } = await response.json();
         setToken(token);
       } else {
         setError('Authorization error. Check your credentials.')
       }
-
     } catch (ex) {
+      setError('Unknown error. Try again later.')
       console.log(ex);
     } finally {
       setLoading(false);
     }
   };
 
-  const usernameClassNames = classNames('form-row', {invalid: error || (submitted && !isValidField(username))});
-  const passwordClassNames = classNames('form-row', {invalid: error || (submitted && !isValidField(password))});
+  const usernameClassNames = classNames(
+    'form-row', {
+      invalid: error || (submitted && !isValidField(username))
+    });
+  const passwordClassNames = classNames(
+    'form-row', {
+      invalid: error || (submitted && !isValidField(password))
+    });
 
   return (
     <div className="App login">

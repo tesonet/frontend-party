@@ -12,7 +12,10 @@ export default () => {
   useEffect(() => {
     const loadedToken = window.localStorage.getItem(localStorageKey);
     if (loadedToken) {
-      dispatch({ type: userActions.setToken, payload: loadedToken });
+      dispatch({
+        type: userActions.setToken,
+        payload: loadedToken,
+      });
     }
   }, [dispatch]);
 
@@ -20,7 +23,10 @@ export default () => {
 
   const setToken = useCallback(
     (token) => {
-      dispatch({ type: userActions.setToken, payload: token });
+      dispatch({
+        type: userActions.setToken,
+        payload: token,
+      });
       window.localStorage.setItem(localStorageKey, token);
     },
     [dispatch]
@@ -29,11 +35,11 @@ export default () => {
   const resetToken = useCallback(
     () => {
       dispatch({ type: userActions.logout });
-      dispatch({type: serverListActions.resetServers});
+      dispatch({ type: serverListActions.resetServers });
       window.localStorage.removeItem(localStorageKey);
     },
     [dispatch]
-  )
+  );
 
   return {token, setToken, resetToken};
 }
