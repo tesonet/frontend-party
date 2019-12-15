@@ -13,11 +13,6 @@
     }
   }
 
-  .login__loader {
-    @apply h-full w-full absolute flex justify-center items-center;
-    background-color: rgba(0, 0, 20, 0.5);
-  }
-
   .login__form {
     @apply flex flex-col justify-center w-64;
   }

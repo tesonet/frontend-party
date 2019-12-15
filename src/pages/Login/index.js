@@ -12,21 +12,13 @@ import { auth } from '~/state';
 
 import './style.scss';
 
-function Loading() {
-  return (
-    <div className="login__loader">
-      <Loader />
-    </div>
-  );
-}
-
 function Login() {
   const dispatch = useDispatch();
   const authError = useSelector(auth.selectors.getError);
   const isFetching = useSelector(auth.selectors.isFetching);
   return (
     <div className="login">
-      {isFetching && <Loading />}
+      {isFetching && <Loader />}
       <h1 className="login__header">
         testio<mark>.</mark>
       </h1>
