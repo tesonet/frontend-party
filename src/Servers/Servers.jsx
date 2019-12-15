@@ -7,6 +7,7 @@ import routes from '../routes';
 
 import './Servers.css';
 import logo from '../img/logo-testio-list.svg';
+import logoutIcon from '../img/logout-icon.svg';
 
 export const Servers = () => {
   const {token, resetToken} = useToken();
@@ -23,7 +24,10 @@ export const Servers = () => {
        <button
         onClick={()=>{resetToken()}}
         className="logout-button"
-      >Logout</button>
+        >
+          <img src={logoutIcon} alt="logout icon"/>
+          <span className="logout-button-text">Logout</span>
+        </button>
       </div>
 
       {serversLoading && <div className="servers-loading">Loading servers info...</div>}

@@ -13,16 +13,25 @@
   padding: 42px 15px;
 }
 
-.logout-button-text {
-  width: 74px;
-  height: 30px;
+.logout-button {
+  display: flex;
+  background-color: white;
+  border: none;
+  align-items: center;
+  cursor: pointer;
   color: #2f3254;
+}
+
+.logout-button-text {
   font-size: 14px;
   font-weight: 300;
   letter-spacing: 0.35px;
   line-height: 30px;
-  text-transform: uppercase;
-  background-color: white;
+  padding-left: 10px;
+}
+
+.logout-button:hover {
+  color: #99cc33;
 }
 
 .servers-table {

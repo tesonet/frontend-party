@@ -1,6 +1,6 @@
 import serverList from './server-list';
 
-test('initially should contain empty servers array', () =>{
+test('initially should contain empty servers array', () => {
   expect(serverList().servers).toStrictEqual([]);
 });
 
