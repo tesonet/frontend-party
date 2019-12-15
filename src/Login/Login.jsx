@@ -85,6 +85,7 @@ export const Login = () => {
                 setError('');
                 setUsername(e.target.value);
               }}
+              className="username-input"
             />
           </div>
           <div className={passwordClassNames}>
@@ -96,6 +97,7 @@ export const Login = () => {
                 setError('');
                 setPassword(e.target.value);
               }}
+              className="password-input"
             />
           </div>
           <button
