@@ -9,3 +9,7 @@
 
 - yarn build
 - windows users should remove 'yarn clean' command from package.json
+
+### Testing
+
+- yarn test

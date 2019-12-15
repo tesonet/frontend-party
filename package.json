@@ -6,7 +6,9 @@
   "scripts": {
     "develop": "NODE_ENV=development webpack-dev-server --config=webpack.config.js --mode development --open --hot",
     "build": "yarn clean && NODE_ENV=production webpack --config=webpack.config.js --mode production",
-    "clean": "rm -rf ./public"
+    "clean": "rm -rf ./public",
+    "test": "jest",
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
     "@babel/core": "^7.7.5",
@@ -32,7 +34,9 @@
     "file-loader": "^5.0.2",
     "final-form": "^4.18.6",
     "html-webpack-plugin": "^3.2.0",
+    "isomorphic-fetch": "^2.2.1",
     "mini-css-extract-plugin": "^0.8.0",
+    "nock": "^11.7.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-nested": "^4.2.1",
@@ -47,6 +51,7 @@
     "redux": "^4.0.4",
     "redux-api-middleware": "^3.0.1",
     "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4",
     "redux-persist": "^6.0.0",
     "style-loader": "^1.0.1",
     "tailwindcss": "^1.1.4",
@@ -57,6 +62,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.7.4",
+    "jest": "^24.9.0",
     "webpack-cli": "^3.3.10"
   }
 }

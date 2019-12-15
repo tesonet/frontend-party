@@ -1,7 +1,8 @@
 {
+  "parser": "babel-eslint",
   "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": ["prettier", "react-hooks", "react"],
-  "ignorePatterns": ["*.config.js", "node_modules/"],
+  "ignorePatterns": ["*.config.js", "node_modules/", "*.test.js"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
