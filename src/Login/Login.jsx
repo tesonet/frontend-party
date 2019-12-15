@@ -73,6 +73,7 @@ export const Login = () => {
           onSubmit={handleSubmit}
           className="login-form"
           disabled={loading}
+          data-hook="login-form"
         >
           {error && <div className="error">{error}</div>}
           <div className={usernameClassNames}>
@@ -85,7 +86,7 @@ export const Login = () => {
                 setError('');
                 setUsername(e.target.value);
               }}
-              className="username-input"
+              data-hook="username-input"
             />
           </div>
           <div className={passwordClassNames}>
@@ -97,7 +98,7 @@ export const Login = () => {
                 setError('');
                 setPassword(e.target.value);
               }}
-              className="password-input"
+              data-hook="password-input"
             />
           </div>
           <button

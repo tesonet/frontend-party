@@ -24,6 +24,7 @@ export const Servers = () => {
        <button
         onClick={()=>{resetToken()}}
         className="logout-button"
+        data-hook="logout-button"
         >
           <img src={logoutIcon} alt="logout icon"/>
           <span className="logout-button-text">Logout</span>
@@ -38,9 +39,11 @@ export const Servers = () => {
             <th
               onClick={() => sortServers('name')}
               className="name-column"
+              data-hook="name-column-header"
             >Server</th>
             <th
               onClick={() => sortServers('distance')}
+              data-hook="distance-column-header"
             >Distance</th>
           </tr>
         </thead>
