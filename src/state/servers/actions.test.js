@@ -9,7 +9,7 @@ import appStore from '../store';
 
 const mockStore = configureMockStore(middlewares);
 
-describe('authentication', () => {
+describe('servers', () => {
   const servers = [
     { name: 'first', distance: 400 },
     { name: 'second', distance: 123 },
@@ -26,7 +26,7 @@ describe('authentication', () => {
     expect(getServersData(store.getState())).toEqual(servers);
   });
 
-  it('should dispatch AUTHENTICATE when authenticate is called and then follow with AUTHENTICATE_SUCCESS', () => {
+  it('should dispatch REQUEST_SERVERS when requestServers is called and then follow with REQUEST_SERVERS_SUCCESS', () => {
     const store = mockStore({});
 
     nock('http://playground.tesonet.lt/v1')
