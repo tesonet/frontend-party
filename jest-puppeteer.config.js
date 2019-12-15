@@ -6,6 +6,6 @@ module.exports = {
     debug: true,
   },
   launch: {
-    headless: false
+    headless: true
   },
 }
