@@ -3,7 +3,7 @@
   .servers__header {
     @apply flex justify-between items-center font-bold;
     h1 {
-      @apply text-white text-3xl my-4 text-center;
+      @apply text-white text-4xl my-8 text-center;
       color: #2f3254;
       mark {
         @apply bg-transparent text-green;
@@ -11,11 +11,11 @@
     }
 
     .servers__header-logout {
-      @apply border py-1 px-2;
+      @apply border py-1 px-2 text-blue-dark;
       border-color: #0015ff;
 
       &:hover {
-        border-color: #99cc33;
+        @apply border-lime;
       }
       img {
         @apply inline mr-1;
@@ -25,13 +25,12 @@
 
   .servers__content {
     .servers__content-list {
-      @apply border-l border-r border-gray-100;
+      @apply border-l border-r border-gray-200;
       .server_content-header {
-        @apply bg-gray-100 text-gray-200;
+        @apply bg-gray-100 text-gray-300 border-t border-gray-200;
       }
       li {
-        @apply flex justify-between items-center border-b border-gray-100 text-gray-300 p-4;
-        border-color: #f5f5f5;
+        @apply flex justify-between items-center border-b border-gray-200 text-gray-400 p-4;
       }
     }
   }
