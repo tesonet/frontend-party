@@ -6,7 +6,6 @@ export const authenticate = (username, password) => ({
   [RSAA]: {
     endpoint: 'http://playground.tesonet.lt/v1/tokens',
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       username,
       password,
