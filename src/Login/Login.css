@@ -68,4 +68,5 @@ input:focus {
 
 .error {
   padding-bottom: 10px;
+  max-width: 359px;
 }
