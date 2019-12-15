@@ -8,3 +8,4 @@
 ### Build project
 
 - yarn build
+- windows users should remove 'yarn clean' command from package.json

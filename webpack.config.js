@@ -12,7 +12,7 @@ const paths = {
 module.exports = {
   entry: path.join(paths.SRC, 'index.js'),
   output: {
-    path: path.PUBLIC,
+    path: paths.PUBLIC,
     filename: '[name].js',
   },
   module: {
