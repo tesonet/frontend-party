@@ -1,3 +1,5 @@
+import '@babel/polyfill';
+import 'fetch-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
