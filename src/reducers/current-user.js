@@ -7,7 +7,7 @@ const initialState = {
   token: undefined,
 };
 
-const currentUser = (state = initialState, action) => {
+const currentUser = (state = initialState, action = {}) => {
   switch(action.type) {
     case userActions.setToken:
       return {
