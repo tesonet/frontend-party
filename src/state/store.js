@@ -20,7 +20,12 @@ const rootReducer = combineReducers({
   [servers.constants.NAME]: servers.reducer,
 });
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middleware)));
+const store = createStore(
+  rootReducer,
+  process.env.NODE_ENV === 'development'
+    ? composeWithDevTools(applyMiddleware(...middleware))
+    : applyMiddleware(...middleware)
+);
 
 export default {
   store,
