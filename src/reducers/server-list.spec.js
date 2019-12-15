@@ -16,19 +16,24 @@ test('"set-servers" should load servers ordered by name initially', () => {
       }
     ]
   });
-  expect(newState.servers[0].name).toBe('aName');
-  expect(newState.servers[1].name).toBe('zName');
+  expect(newState).toStrictEqual({
+    servers: [{
+      name: 'aName'
+    }, {
+      name: 'zName'
+    }],
+    order: 1,
+    sortField: 'name'
+  });
 });
 
 test('"sort-servers" should sort server list by passed column', () => {
   const newState = serverList({
     servers: [
       {
-        name: 'aName',
         distance: 9999,
       },
       {
-        name: 'zName',
         distance: 1,
       }
     ]
@@ -36,8 +41,18 @@ test('"sort-servers" should sort server list by passed column', () => {
     type: 'sort-servers',
     payload: 'distance'
   });
-  expect(newState.servers[0].distance).toBe(1);
-  expect(newState.servers[1].distance).toBe(9999);
+  expect(newState).toStrictEqual({
+    servers: [
+      {
+        distance: 1
+      },
+      {
+        distance: 9999
+      }
+    ],
+    order: 1,
+    sortField: 'distance'
+  });
 });
 
 test('next call to "sort-servers" with the same column name should toggle sort direction', () => {
@@ -45,11 +60,9 @@ test('next call to "sort-servers" with the same column name should toggle sort d
     servers: [
       {
         name: 'aName',
-        distance: 9999,
       },
       {
         name: 'zName',
-        distance: 1,
       }
     ],
     sortField: 'name',
@@ -58,8 +71,17 @@ test('next call to "sort-servers" with the same column name should toggle sort d
     type: 'sort-servers',
     payload: 'name'
   });
-  expect(newState.servers[0].name).toBe('zName');
-  expect(newState.servers[1].name).toBe('aName');
+  expect(newState).toStrictEqual({
+    servers: [
+      {
+        name: 'zName'
+      },{
+        name: 'aName'
+      }
+    ],
+    order: -1,
+    sortField: 'name'
+  });
 });
 
 test('"reset-servers" should empty server list', () => {
