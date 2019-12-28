@@ -1,0 +1,42 @@
+{
+  "name": "frontend-party",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.17.0",
+    "html-webpack-plugin": "^4.0.0-beta.11",
+    "react-hot-loader": "^4.12.10",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.2.1",
+    "css-loader": "^3.4.0",
+    "file-loader": "^5.0.2",
+    "formik": "^2.0.8",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.1.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "style-loader": "^1.1.2",
+    "styled-components": "^4.4.1",
+    "svg-url-loader": "^3.0.3",
+    "url-loader": "^3.0.0"
+  }
+}
