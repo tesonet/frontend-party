@@ -1,18 +1,20 @@
 import { API_URL } from '../constants';
 
-export const getUserToken = user =>
-  fetch(`${API_URL}/tokens`, {
+export const getUserToken = (user) => fetch(
+  `${API_URL}/tokens`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(user)
-  });
+    body: JSON.stringify(user),
+  },
+);
 
-export const getServersList = userToken =>
-  fetch(`${API_URL}/servers`, {
+export const getServersList = (userToken) => fetch(
+  `${API_URL}/servers`, {
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${userToken}`
-    }
-  });
+      Authorization: `Bearer ${userToken}`,
+    },
+  },
+);

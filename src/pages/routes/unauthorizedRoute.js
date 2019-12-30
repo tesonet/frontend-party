@@ -2,12 +2,10 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const UnauthorizedRoute = ({ component: Component, ...props }) => (
+const UnauthorizedRoute = ({ component: Component, ...rest }) => (
   <Route
-    {...props}
-    render={props =>
-      localStorage.getItem('token') ? <Redirect to="/servers" /> : <Component {...props} />
-    }
+    {...rest}
+    render={(props) => (localStorage.getItem('token') ? <Redirect to="/servers" /> : <Component {...props} />)}
   />
 );
 

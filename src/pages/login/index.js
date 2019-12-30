@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledBackground, StyledContent, Logo } from './styles';
-import LoginForm from './loginForm'
+import LoginForm from './loginForm';
 
 const Login = () => (
   <StyledBackground>
@@ -9,6 +9,6 @@ const Login = () => (
       <LoginForm />
     </StyledContent>
   </StyledBackground>
-  );
+);
 
 export default Login;
