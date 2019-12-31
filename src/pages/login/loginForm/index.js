@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { getUserToken } from '../../../server/api/tesonetApi';
@@ -52,6 +53,12 @@ const LoginForm = ({ history }) => {
       </Formik>
     </div>
   );
+};
+
+LoginForm.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default withRouter(LoginForm);

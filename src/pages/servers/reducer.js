@@ -10,7 +10,7 @@ const reducer = (state = initialState, action = {}) => {
     case actionTypes.FETCH_SERVERS:
       return {
         ...state,
-        servers: action.payload,
+        servers: action.payload.servers,
       };
     case actionTypes.SORT_LIST:
       return {

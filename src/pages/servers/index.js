@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { orderBy } from 'lodash';
@@ -9,35 +9,39 @@ import { fetchServers } from './actions';
 import MEASUREMENT from './constants';
 import { TOKEN } from '../../server/constants';
 
-const Servers = ({ servers, getServers, sort }) => {
+const Servers = ({ servers, getServers }) => {
   useEffect(() => {
     getServers(localStorage.getItem(TOKEN));
   }, []);
 
-  const renderRows = () => {
-    const list = orderBy(servers, [sort]);
+  const [sorting, setSorting] = useState('');
+  const [direction, setDirection] = useState('asc');
+  const sortedServers = orderBy(servers, [sorting], [direction]);
 
-    return list.map((item, index) => (
+  const renderRows = () => sortedServers
+    .map((item, index) => (
       <TableRow
         index={index}
         rowData={item}
         measurement={MEASUREMENT}
       />
     ));
-  };
 
   return (
     <>
       <Header />
-      <TableHeader />
-      {renderRows(sort)}
+      <TableHeader
+        handleSort={setSorting}
+        direction={direction}
+        handleDirection={setDirection}
+      />
+      {renderRows()}
     </>
   );
 };
 
 Servers.defaultProps = {
   servers: [],
-  sort: null,
 };
 
 Servers.propTypes = {
@@ -47,13 +51,11 @@ Servers.propTypes = {
       distance: PropTypes.number,
     }),
   ),
-  sort: PropTypes.string,
   getServers: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  servers: state.servers.servers.servers,
-  sort: state.servers.sort,
+  servers: state.servers.servers,
 });
 
 const mapDispatchToProps = {

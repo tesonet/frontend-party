@@ -1,15 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { StyledTableHeader, StyledKey } from './styles';
-import { sortList } from '../actions';
 
-const handleClick = (sort) => sortList(sort);
+const TableHeader = ({ handleSort, handleDirection, direction }) => {
+  const setSorting = (value) => {
+    handleSort(value);
+    handleDirection(direction === 'desc' ? 'asc' : 'desc');
+  };
 
-const TableHeader = () => (
-  <StyledTableHeader>
-    <StyledKey onClick={sortList('name')}>Server</StyledKey>
-    <StyledKey onClick={sortList('distance')}>Distance</StyledKey>
-  </StyledTableHeader>
-);
+  return (
+    <StyledTableHeader>
+      <StyledKey onClick={() => setSorting('name')}>Server</StyledKey>
+      <StyledKey onClick={() => setSorting('distance')}>Distance</StyledKey>
+    </StyledTableHeader>
+  );
+};
+
+TableHeader.propTypes = {
+  handleSort: PropTypes.func.isRequired,
+  handleDirection: PropTypes.func.isRequired,
+  direction: PropTypes.string.isRequired,
+};
 
 export default connect()(TableHeader);
