@@ -6,14 +6,21 @@ const fetchSuccess = (servers) => ({
   payload: { servers },
 });
 
+const sortList = (type) => ({
+  type: actionTypes.SORT_LIST,
+  payload: { type },
+});
+
 const fetchServers = (token) => async (dispatch) => {
   const response = await getServersList(token);
 
   if (response && response.ok) {
     const data = await response.json();
-    console.log(data);
     dispatch(fetchSuccess(data));
   }
 };
 
-export default fetchServers;
+export {
+  fetchServers,
+  sortList,
+};

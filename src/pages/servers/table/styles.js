@@ -4,7 +4,10 @@ import colors from '../../../theme';
 export const StyledTableRow = styled.div`
   border: 1px solid ${colors.lightGray};
   justify-content: space-between;
+  align-items: center;
   display: flex;
+  height: 44px;
+  opacity: 0.6;
   padding: 0 15px;
 `;
 
@@ -14,10 +17,10 @@ export const StyledTableHeader = styled.div`
   color: #999999;
   background-color: #f5f5f5;
   height: 61px;
-  width: 100%;
   border: 1px solid ${colors.lightGray};
   border-spacing: unset;
   align-items: center;
+  padding: 0 15px;
   div {
     text-transform: uppercase;
     font-size: 14px;
@@ -29,6 +32,7 @@ export const StyledTableHeader = styled.div`
 `;
 
 export const StyledName = styled.div`
+
 `;
 
 export const StyledDistance = styled.div`

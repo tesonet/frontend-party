@@ -52,6 +52,6 @@ const LoginForm = ({ history }) => {
       </Formik>
     </div>
   );
-}
+};
 
 export default withRouter(LoginForm);
