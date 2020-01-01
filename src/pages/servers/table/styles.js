@@ -14,8 +14,8 @@ export const StyledTableRow = styled.div`
 export const StyledTableHeader = styled.div`
   justify-content: space-between;
   display: flex;
-  color: #999999;
-  background-color: #f5f5f5;
+  color: ${colors.mediumGray};
+  background-color: ${colors.white};
   height: 61px;
   border: 1px solid ${colors.lightGray};
   border-spacing: unset;
@@ -29,13 +29,6 @@ export const StyledTableHeader = styled.div`
     }
     cursor: pointer;
   }
-`;
-
-export const StyledName = styled.div`
-
-`;
-
-export const StyledDistance = styled.div`
 `;
 
 export const StyledKey = styled.div`

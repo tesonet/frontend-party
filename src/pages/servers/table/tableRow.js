@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   StyledTableRow,
-  StyledName,
-  StyledDistance,
 } from './styles';
 
 const TableRow = ({ rowData, measurement }) => (
   <StyledTableRow>
-    <StyledName>{rowData.name}</StyledName>
-    <StyledDistance>{rowData.distance} {measurement}</StyledDistance>
+    <div>{rowData.name}</div>
+    <div>{rowData.distance} {measurement}</div>
   </StyledTableRow>
 );
 

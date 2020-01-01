@@ -8,9 +8,9 @@ export const StyledContainer = styled.div`
   background-color: ${colors.white};
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 20px;
+  margin-top: 20px;
   border: 2px solid ${colors.white};
-  border-radius: 6px;
+  border-radius: 6px; 
 `;
 
 export const StyledInput = styled(Field)`
@@ -40,11 +40,11 @@ export const StyledButton = styled.button`
   background-color: ${colors.lime};
   font-size: 16px;
   font-weight: 700;
+  margin-top: 20px;
   letter-spacing: 0.4px;
   line-height: 30px;
   color: ${colors.white};
   border: 2px solid ${colors.lime};
-  margin: 0;
   overflow: visible;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -53,6 +53,19 @@ export const StyledButton = styled.button`
   width: 100%;
 `;
 
+const messageStyles = {
+  height: '20px',
+  backgroundColor: colors.red,
+  color: colors.white,
+  justifyContent: 'center',
+  display: 'flex',
+  borderRadius: '6px',
+};
+
 export const StyledMessage = styled(ErrorMessage)`
-  color: red;
+  ${messageStyles}
+`;
+
+export const AuthMessage = styled.div`
+  ${messageStyles}
 `;

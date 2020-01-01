@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { StyledTableHeader, StyledKey } from './styles';
 
 const TableHeader = ({ handleSort, handleDirection, direction }) => {
@@ -23,4 +22,4 @@ TableHeader.propTypes = {
   direction: PropTypes.string.isRequired,
 };
 
-export default connect()(TableHeader);
+export default TableHeader;

@@ -6,11 +6,6 @@ const fetchSuccess = (servers) => ({
   payload: { servers },
 });
 
-const sortList = (type) => ({
-  type: actionTypes.SORT_LIST,
-  payload: { type },
-});
-
 const fetchServers = (token) => async (dispatch) => {
   const response = await getServersList(token);
 
@@ -22,5 +17,4 @@ const fetchServers = (token) => async (dispatch) => {
 
 export {
   fetchServers,
-  sortList,
 };

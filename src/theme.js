@@ -7,6 +7,7 @@ const colors = {
   lime: '#9fd533',
   green: '#99cc33',
   lightGray: '#e6e6e6',
+  red: '#E65846',
 };
 
 export default colors;

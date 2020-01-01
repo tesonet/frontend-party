@@ -3,6 +3,7 @@ import * as actionTypes from './actionTypes';
 const initialState = {
   token: undefined,
   loading: false,
+  error: {},
 
 };
 
@@ -18,6 +19,12 @@ const auth = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: true,
+      };
+    case actionTypes.ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
       };
     case actionTypes.LOGOUT:
       return {

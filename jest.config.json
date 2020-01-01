@@ -1,0 +1,7 @@
+{
+  "testRegex": "((\\.|/*.)(test))\\.js?$",
+  "setupFilesAfterEnv": ["<rootDir>/src/initTests.js"],
+  "moduleNameMapper": {
+    ".+\\.(svg|png|jpg)$": "identity-obj-proxy"
+  }
+}
