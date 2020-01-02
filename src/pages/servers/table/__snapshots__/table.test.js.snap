@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`table header should match snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`table row should match snapshot 1`] = `ShallowWrapper {}`;
