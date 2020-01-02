@@ -4,39 +4,28 @@ import { withRouter } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import {
-  loading as loadingAction,
-  setError as errorAction,
-} from '../actions';
-import { getUserToken } from '../../../server/api/tesonetApi';
+  Loader,
+  StyledLoaderContainer,
+} from '../../../common/loader';
+import { login as loginAction } from '../actions';
 import iconUsername from '../../../assets/icon-username.svg';
 import iconPassword from '../../../assets/icon-password.svg';
 import { StyledButton, AuthMessage } from './styles';
 import FormField from './formField';
 import { validationSchema } from './validationSchema';
-import errorMessages from './errorMessages';
 
-const LoginForm = ({ history, serverError, error }) => {
+const LoginForm = ({
+  error,
+  login,
+  loading,
+}) => {
   const errorMessage = error && error.message;
-
-  const handleSubmit = async (values) => {
-    const response = await getUserToken(values);
-    if (response && response.ok) {
-      const data = await response.json();
-      localStorage.setItem('token', data.token);
-      history.push('/servers');
-    } else if (response && response.status === 401) {
-      serverError(errorMessages.WRONG_CREDENTIALS);
-    } else {
-      serverError(errorMessages.ERROR);
-    }
-  };
-
   return (
     <div>
       <Formik
         initialValues={{ username: '', password: '' }}
         validationSchema={validationSchema}
-        onSubmit={handleSubmit}
+        onSubmit={login}
       >
         {({ isSubmitting }) => (
           <Form>
@@ -54,7 +43,13 @@ const LoginForm = ({ history, serverError, error }) => {
               placeholder="Password"
             />
             <StyledButton type="submit" disabled={isSubmitting}>
-              Log In
+              {loading
+                ? (
+                  <StyledLoaderContainer>
+                    <Loader />
+                  </StyledLoaderContainer>
+                )
+                : 'Log In'}
             </StyledButton>
           </Form>
         )}
@@ -76,7 +71,8 @@ LoginForm.propTypes = {
   error: PropTypes.shape({
     message: PropTypes.string,
   }),
-  serverError: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  login: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -85,8 +81,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  loading: () => loadingAction(),
-  serverError: (message) => errorAction(message),
+  login: (values) => loginAction(values),
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm));

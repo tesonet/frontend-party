@@ -1,19 +1,22 @@
 import React from 'react';
-import { Switch, BrowserRouter } from 'react-router-dom';
+import { Switch, Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import GlobalStyle from './styles';
 import Login from './pages/login';
 import Servers from './pages/servers';
-import { AuthorizedRoute, UnauthorizedRoute } from './pages/routes';
+import { AuthorizedRoute, UnauthorizedRoute } from './routes';
+
+export const history = createBrowserHistory();
 
 const App = () => (
   <>
     <GlobalStyle />
-    <BrowserRouter>
+    <Router history={history}>
       <Switch>
-        <UnauthorizedRoute path="/" exact component={Login} />
         <AuthorizedRoute path="/servers" component={Servers} />
+        <UnauthorizedRoute path="/" component={Login} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   </>
 );
 

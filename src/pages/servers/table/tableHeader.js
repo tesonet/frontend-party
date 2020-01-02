@@ -10,8 +10,16 @@ const TableHeader = ({ handleSort, handleDirection, direction }) => {
 
   return (
     <StyledTableHeader>
-      <StyledKey onClick={() => setSorting('name')}>Server</StyledKey>
-      <StyledKey onClick={() => setSorting('distance')}>Distance</StyledKey>
+      <StyledKey
+        onClick={() => setSorting('name')}
+      >
+        Server
+      </StyledKey>
+      <StyledKey
+        onClick={() => setSorting('distance')}
+      >
+        Distance
+      </StyledKey>
     </StyledTableHeader>
   );
 };

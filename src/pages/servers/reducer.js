@@ -2,7 +2,8 @@ import * as actionTypes from './actionTypes';
 
 const initialState = {
   servers: [],
-  sort: null,
+  loading: false,
+  error: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -12,10 +13,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         servers: action.payload.servers,
       };
-    case actionTypes.SORT_LIST:
+    case actionTypes.LOADING:
       return {
         ...state,
-        sort: action.payload,
+        loading: true,
+      };
+    case actionTypes.FETCH_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
       };
     default:
       return state;

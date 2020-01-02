@@ -17,12 +17,10 @@ TableRow.defaultProps = {
 };
 
 TableRow.propTypes = {
-  rowData: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      distance: PropTypes.number,
-    }),
-  ),
+  rowData: PropTypes.shape({
+    name: PropTypes.string,
+    distance: PropTypes.number,
+  }),
   measurement: PropTypes.string,
 };
 

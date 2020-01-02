@@ -12,7 +12,7 @@ const AuthorizedRoute = ({ component: Component, ...rest }) => (
 );
 
 AuthorizedRoute.propTypes = {
-  component: PropTypes.func.isRequired,
+  component: PropTypes.shape({}).isRequired,
 };
 
 export default AuthorizedRoute;

@@ -25,6 +25,7 @@
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/jsx-props-no-spreading": "off",
+        "import/no-cycle": "off",
         "react/jsx-one-expression-per-line": "off"
     }
 }

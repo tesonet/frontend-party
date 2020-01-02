@@ -1,9 +1,9 @@
 import * as actionTypes from './actionTypes';
 
 const initialState = {
-  token: undefined,
+  token: null,
   loading: false,
-  error: {},
+  error: null,
 
 };
 
@@ -20,7 +20,7 @@ const auth = (state = initialState, action = {}) => {
         ...state,
         loading: true,
       };
-    case actionTypes.ERROR:
+    case actionTypes.SET_ERROR:
       return {
         ...state,
         error: action.payload,

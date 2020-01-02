@@ -5,11 +5,12 @@ import { orderBy } from 'lodash';
 import Header from '../../common/header';
 import TableHeader from './table/tableHeader';
 import TableRow from './table/tableRow';
-import { fetchServers } from './actions';
+import { fetchServers, loading as serversLoading } from './actions';
 import MEASUREMENT from './constants';
 import { TOKEN } from '../../server/constants';
+import { Loader, StyledLoaderContainer } from '../../common/loader';
 
-const Servers = ({ servers, getServers }) => {
+const Servers = ({ servers, getServers, loading }) => {
   useEffect(() => {
     getServers(localStorage.getItem(TOKEN));
   }, []);
@@ -22,6 +23,7 @@ const Servers = ({ servers, getServers }) => {
     .map((item, index) => (
       <TableRow
         index={index}
+        key={index.toString()}
         rowData={item}
         measurement={MEASUREMENT}
       />
@@ -35,7 +37,13 @@ const Servers = ({ servers, getServers }) => {
         direction={direction}
         handleDirection={setDirection}
       />
-      {renderRows()}
+      {loading
+        ? renderRows()
+        : (
+          <StyledLoaderContainer>
+            <Loader />
+          </StyledLoaderContainer>
+        )}
     </>
   );
 };
@@ -52,14 +60,17 @@ Servers.propTypes = {
     }),
   ),
   getServers: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   servers: state.servers.servers,
+  loading: state.servers.loading,
 });
 
 const mapDispatchToProps = {
   getServers: (token) => fetchServers(token),
+  setLoading: () => serversLoading(),
 };
 
 export default connect(
