@@ -22,31 +22,34 @@ module.exports = {
             {
                 test: /\.(j|t)s(x)?$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        cacheDirectory: true,
-                        babelrc: false,
-                        presets: [
-                            [
-                                "@babel/preset-env",
-                                {
-                                    "targets": {
-                                        "browsers": [
-                                            "last 2 versions",
-                                            "ie 11"
-                                        ]
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            cacheDirectory: true,
+                            babelrc: false,
+                            presets: [
+                                [
+                                    "@babel/preset-env",
+                                    {
+                                        "targets": {
+                                            "browsers": [
+                                                "last 2 versions",
+                                                "ie 11"
+                                            ]
+                                        }
                                     }
-                                }
+                                ],
+                                '@babel/preset-typescript',
+                                '@babel/preset-react',
                             ],
-                            '@babel/preset-typescript',
-                            '@babel/preset-react',
-                        ],
-                        plugins: [
-                            'react-hot-loader/babel',
-                        ],
+                            plugins: [
+                                'react-hot-loader/babel',
+                            ],
+                        },
                     },
-                },
+                    "eslint-loader"
+                ],
             },
         ],
     },
