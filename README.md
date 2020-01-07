@@ -1,6 +1,6 @@
 # Tesonet FrontEnd developer task
 
-### Juozas Masiliunas
+### Juozas Masiliūnas
 
 ### Design
 
