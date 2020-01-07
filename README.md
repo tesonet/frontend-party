@@ -1,5 +1,7 @@
 # Tesonet FrontEnd developer task
 
+### Juozas Masiliunas
+
 ### Design
 
 Used styled components + styled system
