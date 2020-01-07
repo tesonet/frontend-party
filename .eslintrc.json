@@ -1,5 +1,9 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
   "settings": {
     "import/resolver": {
       "node": {
@@ -8,25 +12,12 @@
     }
   },
   "plugins": ["prettier"],
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true
   },
   "rules": {
-    "prettier/prettier": ["error"],
-    "react/jsx-filename-extension": [
-      1,
-      { "extensions": [".js", ".jsx", ".tsx"] }
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ]
+    "prettier/prettier": ["error"]
   }
 }

@@ -5,8 +5,9 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "module": "commonjs",
-    "target": "es5",
+    "target": "ES5",
     "jsx": "react"
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "includes": ["./typings/**/*.d.ts"]
 }
