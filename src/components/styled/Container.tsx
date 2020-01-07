@@ -14,7 +14,8 @@ const Container: AnyStyledComponent = styled.div`
   ${opacity}
   ${color}
   ${position}
-  max-width: 1560px;
+  max-width: 1920px;
+  margin: 0 auto;
 `;
 
 export default Container;

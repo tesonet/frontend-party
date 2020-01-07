@@ -8,6 +8,7 @@ import {
   position,
   zIndex,
   overflow,
+  space,
 } from 'styled-system';
 
 const Box: AnyStyledComponent = styled.div`
@@ -18,6 +19,7 @@ const Box: AnyStyledComponent = styled.div`
   ${position}
   ${zIndex}
   ${overflow}
+  ${space}
 `;
 
 export default Box;

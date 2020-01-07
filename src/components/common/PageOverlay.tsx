@@ -14,8 +14,10 @@ export default function PageOverlay({
     <Box
       backgroundColor={backgroundColor}
       backgroundSize="cover"
-      width="100vw"
-      height="100vh"
+      top={'0px'}
+      bottom={'0px'}
+      left={'0px'}
+      right={'0px'}
       opacity={opacity}
       position="fixed"
       zIndex={-1}

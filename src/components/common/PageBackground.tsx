@@ -15,9 +15,11 @@ export default function PageBackground({
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
-      width="100vw"
-      height="100vh"
       position="fixed"
+      top={'0px'}
+      bottom={'0px'}
+      left={'0px'}
+      right={'0px'}
       zIndex={-1}
     />
   );

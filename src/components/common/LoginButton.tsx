@@ -15,6 +15,7 @@ export default function LoginButton(props: React.ReactNode) {
       width="100%"
       backgroundColor="#9fd533"
       color="#fff"
+      type="submit"
     >
       Log In
     </LoginButtonStyled>
