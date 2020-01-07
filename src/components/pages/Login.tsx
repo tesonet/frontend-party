@@ -12,6 +12,7 @@ import { Redirect } from 'react-router-dom';
 import LoginButton from '../common/LoginButton';
 import ErrorBox from '../common/ErrorBox';
 import useAuth from '../utils/useAuth';
+import validateForm from '../../helpers/validateForm';
 
 const LoginContainer = styled(Box)`
   display: flex;
@@ -31,16 +32,47 @@ const Logo = styled(LogoSVG)`
   margin: 0 auto 70px auto;
 `;
 
+function isEmpty(obj: any) {
+  return Object.keys(obj).length === 0 && obj.constructor === Object;
+}
+
+function getInputErrors(name: string, failedValidations: any) {
+  if (failedValidations[name]) {
+    return <ErrorBox mb={2}>{failedValidations[name][0]}</ErrorBox>;
+  } else {
+    return false;
+  }
+}
+
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const [failedInputs, setFailedInputs] = useState({});
+
+  const validationData = [
+    {
+      value: username,
+      name: 'username',
+      validationOptions: ['required'],
+    },
+    {
+      value: password,
+      name: 'password',
+      validationOptions: ['required'],
+    },
+  ];
+
   const { getToken, authenticated, error } = useAuth();
-  console.log(error);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    getToken(username, password);
+    const failedValidation = validateForm(validationData);
+    if (isEmpty(failedValidation)) {
+      getToken(username, password);
+    } else {
+      setFailedInputs(failedValidation);
+    }
   };
 
   if (authenticated) {
@@ -62,6 +94,7 @@ export default function Login() {
             name="username"
             width="100%"
           />
+          {getInputErrors('username', failedInputs)}
           <InputWithIcon
             iconSrc={userSVG}
             mb={2}
@@ -71,6 +104,7 @@ export default function Login() {
             type="password"
             width="100%"
           />
+          {getInputErrors('password', failedInputs)}
           <LoginButton />
           {error && (
             <ErrorBox mt={2}>{'Something went wrong...'}</ErrorBox>
