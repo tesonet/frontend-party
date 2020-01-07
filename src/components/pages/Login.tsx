@@ -8,6 +8,8 @@ import { ReactComponent as LogoSVG } from '../../assets/logotype-testio_.svg';
 import lockSVG from '../../assets/ico-lock.svg';
 import InputWithIcon from '../common/InputWithIcon';
 import userSVG from '../../assets/ico-username.svg';
+import { Redirect } from 'react-router-dom';
+import LoginButton from '../common/LoginButton';
 
 const LoginContainer = styled(Box)`
   display: flex;
@@ -28,6 +30,10 @@ const Logo = styled(LogoSVG)`
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  let auth = false;
+  if (auth) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <LoginContainer>
@@ -35,20 +41,24 @@ export default function Login() {
       <PageOverlay backgroundColor="#000000" opacity={0.8} />
       <LoginBox maxWidth={{ _: '90%', sm: '90%', md: '360px' }}>
         <Logo alt="Tesonet app" />
-        <InputWithIcon
-          iconSrc={lockSVG}
-          mb={2}
-          onChange={(e: any) => setUsername(e.target.value)}
-          value={username}
-          width="100%"
-        />
-        <InputWithIcon
-          iconSrc={userSVG}
-          onChange={(e: any) => setPassword(e.target.value)}
-          value={password}
-          type="password"
-          width="100%"
-        />
+        <form noValidate>
+          <InputWithIcon
+            iconSrc={lockSVG}
+            mb={2}
+            onChange={(e: any) => setUsername(e.target.value)}
+            value={username}
+            width="100%"
+          />
+          <InputWithIcon
+            iconSrc={userSVG}
+            mb={2}
+            onChange={(e: any) => setPassword(e.target.value)}
+            value={password}
+            type="password"
+            width="100%"
+          />
+          <LoginButton />
+        </form>
       </LoginBox>
     </LoginContainer>
   );

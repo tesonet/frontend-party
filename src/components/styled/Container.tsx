@@ -6,18 +6,15 @@ import {
   opacity,
   color,
   position,
-  zIndex,
-  overflow,
 } from 'styled-system';
 
-const Box: AnyStyledComponent = styled.div`
+const Container: AnyStyledComponent = styled.div`
   ${background}
   ${layout}
   ${opacity}
   ${color}
   ${position}
-  ${zIndex}
-  ${overflow}
+  max-width: 1560px;
 `;
 
-export default Box;
+export default Container;
