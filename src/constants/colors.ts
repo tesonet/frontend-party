@@ -10,5 +10,6 @@ enum Colors {
   green500 = "#9FD533",
   green400 = "#99cc33",
   darkBlue = "#2F3254",
+  error = "#b82623",
 }
 export default Colors;

@@ -29,7 +29,7 @@ export const login = dispatch => async values => {
     dispatch(loggedIn(token));
     await navigate("/");
   } catch (error) {
-    dispatch(loginFailed(error));
+    dispatch(loginFailed(`Login failed, user not found or password was incorrect`));
     throw new Error(error)
   }
 };

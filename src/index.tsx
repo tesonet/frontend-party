@@ -100,6 +100,13 @@ const Button = styled.button`
     background-color: ${Colors.green600};
   }
 `;
+const Error = styled.div`
+  color: ${Colors.error};
+  background: white;
+  border-radius: 4px;
+  padding: 8px 16px;
+  border: 2px solid ${Colors.error};
+`;
 
 const StyledForm = styled(Form)`
   width: 100%;
@@ -107,6 +114,7 @@ const StyledForm = styled(Form)`
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const error = useSelector((state: State) => state.login.error);
 
   return (
     <>
@@ -134,6 +142,7 @@ const LoginForm = () => {
             <Button type="submit">
               {!isSubmitting ? `Log In` : `Loading...`}
             </Button>
+            {error && <Error>{error}</Error>}
           </StyledForm>
         )}
       </Formik>
@@ -227,6 +236,10 @@ const TextButton = styled.button`
   cursor: pointer;
   padding: 0;
 `;
+const Loading = styled.div`
+  padding: 20px;
+  width: 100%;
+`;
 
 const Row = ({ name, distance }: ServerInterface) => {
   return (
@@ -237,7 +250,13 @@ const Row = ({ name, distance }: ServerInterface) => {
   );
 };
 
-enum SortDirection {
+enum SortDirectionName {
+  Unordered = "",
+  Descending = "A-Z",
+  Ascending = "Z-A"
+}
+
+enum SortDirectionDistance {
   Unordered = "",
   Descending = "Descending",
   Ascending = "Ascending"
@@ -245,41 +264,74 @@ enum SortDirection {
 
 const Servers: React.FC<RouteComponentProps> = () => {
   const dispatch = useDispatch();
-  const [order, setOrder] = useState(SortDirection.Unordered);
+  const [orderName, setNameOrder] = useState(SortDirectionName.Unordered);
+  const [orderDistance, setDistanceOrder] = useState(
+    SortDirectionDistance.Unordered
+  );
   useEffect(() => {
     fetchServers(dispatch);
   }, []);
   const servers = useSelector((state: State) => state.servers);
 
-  const onOrderChange = () => {
-    if (order === SortDirection.Unordered) {
-      return setOrder(SortDirection.Descending);
+  const onNameOrderChange = () => {
+    if (orderDistance) {
+      setDistanceOrder(SortDirectionDistance.Unordered);
     }
-    if (order === SortDirection.Descending) {
-      return setOrder(SortDirection.Ascending);
+    if (orderName === SortDirectionName.Unordered) {
+      return setNameOrder(SortDirectionName.Descending);
     }
-    return setOrder(SortDirection.Unordered);
+    if (orderName === SortDirectionName.Descending) {
+      return setNameOrder(SortDirectionName.Ascending);
+    }
+    return setNameOrder(SortDirectionName.Unordered);
   };
 
-  const orderedServers =
-    order === SortDirection.Unordered
-      ? servers
-      : servers
-          .concat()
-          .sort((a, b) =>
-            order === SortDirection.Descending
-              ? b.distance - a.distance
-              : a.distance - b.distance
-          );
+  const onDistanceOrderChange = () => {
+    if (orderName) {
+      setNameOrder(SortDirectionName.Unordered);
+    }
+    if (orderDistance === SortDirectionDistance.Unordered) {
+      return setDistanceOrder(SortDirectionDistance.Descending);
+    }
+    if (orderDistance === SortDirectionDistance.Descending) {
+      return setDistanceOrder(SortDirectionDistance.Ascending);
+    }
+    return setDistanceOrder(SortDirectionDistance.Unordered);
+  };
+
+  let orderedServers = servers;
+  if (orderName !== SortDirectionName.Unordered) {
+    orderedServers = servers.concat().sort((a, b) => {
+      if (a.name < b.name) {
+        return orderName === SortDirectionName.Descending ? -1 : 1;
+      }
+      if (a.name > b.name) {
+        return orderName === SortDirectionName.Descending ? 1 : -1;
+      }
+      return 0;
+    });
+  }
+  if (orderDistance !== SortDirectionDistance.Unordered) {
+    orderedServers = servers
+      .concat()
+      .sort((a, b) =>
+        orderDistance === SortDirectionDistance.Descending
+          ? b.distance - a.distance
+          : a.distance - b.distance
+      );
+  }
 
   return (
     <>
       <StyledHeader>
-        <TextButton type="button">Servers</TextButton>
-        <TextButton onClick={onOrderChange} type="button">
-          Distance {order}
+        <TextButton onClick={onNameOrderChange} type="button">
+          Servers {orderName}
+        </TextButton>
+        <TextButton onClick={onDistanceOrderChange} type="button">
+          Distance {orderDistance}
         </TextButton>
       </StyledHeader>
+      {!orderedServers.length && <Loading>Loading...</Loading>}
       {orderedServers.map(server => (
         <Row {...server} key={`${server.name}_${server.distance}`} />
       ))}

@@ -34,6 +34,7 @@ function login(state: State = defaultState, action: Actions) {
     case ActionTypes.LoggingIn:
       return {
         ...state,
+        error: undefined,
         loading: true
       };
     case ActionTypes.LoggedOut:
