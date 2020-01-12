@@ -1,5 +1,5 @@
-import LoginPage from "./Login";
+import LoginPage from "./login";
 
 export {
-    LoginPage
+    LoginPage,
 }
