@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider, useDispatch } from "react-redux";
+import { createStore } from "redux";
 import styled from "@emotion/styled";
 import GlobalStyle from "./constants/globalStyle";
 import background from "./assets/background.png";
@@ -10,6 +12,8 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Icon, { Icons } from "./assets/icons";
 import Colors from "./constants/colors";
+import Reducers from "./reducers";
+import { login } from "./actions/loginActions";
 
 const Root = styled.div`
   display: flex;
@@ -99,6 +103,8 @@ const StyledForm = styled(Form)`
 `;
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <Formik
@@ -111,7 +117,7 @@ const LoginForm = () => {
           password: Yup.string().required("Required")
         })}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values, setSubmitting);
+          login(dispatch)(values);
         }}
       >
         <StyledForm>
@@ -232,16 +238,20 @@ const Servers: React.FC<RouteComponentProps> = () => {
   );
 };
 
+const store = createStore(Reducers);
+
 const App = () => {
   return (
     <>
       <GlobalStyle />
+      <Provider store={store}>
         <Router component={Root}>
           <Login path="/login" />
           <Header path="/">
             <Servers path="/" />
           </Header>
         </Router>
+      </Provider>
     </>
   );
 };

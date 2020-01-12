@@ -8,6 +8,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": false,
     "noUnusedLocals": true,
+//    "allowJs": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
     "suppressImplicitAnyIndexErrors": true,
@@ -19,6 +20,6 @@
       "@components/*": ["src/components/*"]
     }
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "publc"],
   "includes": ["src/typings/imports.d.ts"]
 }
