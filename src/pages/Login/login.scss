@@ -1,0 +1,23 @@
+@import "../../styles/base/variables";
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    background-image: url("./background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;   
+}
+
+.inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: $white;
+}
+
+
+
