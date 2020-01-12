@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { Provider, useDispatch } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { createStore } from "redux";
 import styled from "@emotion/styled";
 import GlobalStyle from "./constants/globalStyle";
@@ -12,8 +12,10 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Icon, { Icons } from "./assets/icons";
 import Colors from "./constants/colors";
-import Reducers from "./reducers";
-import { login } from "./actions/loginActions";
+import ReduxState, { State } from "./reducers";
+import { login, logout } from "./actions/loginActions";
+import { fetchServers } from "./actions/serverActions";
+import { ServerInterface } from "./reducers/serverReducer";
 
 const Root = styled.div`
   display: flex;
@@ -27,15 +29,16 @@ const Background = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
+  padding: 28px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 `;
 
 const LoginWrapper = styled.div`
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  width: 360px;
+  max-width: 360px;
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -116,21 +119,23 @@ const LoginForm = () => {
           username: Yup.string().required("Required"),
           password: Yup.string().required("Required")
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          login(dispatch)(values);
-        }}
+        onSubmit={values => login(dispatch)(values)}
       >
-        <StyledForm>
-          <InputWrapper>
-            <PositionedIcon type={Icons.user} />
-            <Input name="username" placeholder="Username" />
-          </InputWrapper>
-          <InputWrapper>
-            <PositionedIcon type={Icons.password} />
-            <Input type="password" name="password" placeholder="Password" />
-          </InputWrapper>
-          <Button type="submit">Log In</Button>
-        </StyledForm>
+        {({ isSubmitting }) => (
+          <StyledForm>
+            <InputWrapper>
+              <PositionedIcon type={Icons.user} />
+              <Input name="username" placeholder="Username" />
+            </InputWrapper>
+            <InputWrapper>
+              <PositionedIcon type={Icons.password} />
+              <Input type="password" name="password" placeholder="Password" />
+            </InputWrapper>
+            <Button type="submit">
+              {!isSubmitting ? `Log In` : `Loading...`}
+            </Button>
+          </StyledForm>
+        )}
       </Formik>
     </>
   );
@@ -180,11 +185,12 @@ const LogoutWrapper = styled.div`
 `;
 
 const Header: React.FC<RouteComponentProps> = ({ children }) => {
+  const dispatch = useDispatch();
   return (
     <>
       <Wrapper>
         <Logo2 src={logo2} />
-        <LogoutWrapper>
+        <LogoutWrapper onClick={() => logout(dispatch)}>
           <StyledIcon type={Icons.logout} />
           Logout
         </LogoutWrapper>
@@ -213,32 +219,75 @@ const StyledHeader = styled(StyledRow)`
   border-top: 1px solid ${Colors.gray400};
   color: ${Colors.gray700};
 `;
+const TextButton = styled.button`
+  font: inherit;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+`;
 
-const Row = () => {
+const Row = ({ name, distance }: ServerInterface) => {
   return (
     <StyledRow>
-      <div>Canada</div>
-      <div>404040kms</div>
+      <div>{name}</div>
+      <div>{distance} km</div>
     </StyledRow>
   );
 };
 
+enum SortDirection {
+  Unordered = "",
+  Descending = "Descending",
+  Ascending = "Ascending"
+}
+
 const Servers: React.FC<RouteComponentProps> = () => {
+  const dispatch = useDispatch();
+  const [order, setOrder] = useState(SortDirection.Unordered);
+  useEffect(() => {
+    fetchServers(dispatch);
+  }, []);
+  const servers = useSelector((state: State) => state.servers);
+
+  const onOrderChange = () => {
+    if (order === SortDirection.Unordered) {
+      return setOrder(SortDirection.Descending);
+    }
+    if (order === SortDirection.Descending) {
+      return setOrder(SortDirection.Ascending);
+    }
+    return setOrder(SortDirection.Unordered);
+  };
+
+  const orderedServers =
+    order === SortDirection.Unordered
+      ? servers
+      : servers
+          .concat()
+          .sort((a, b) =>
+            order === SortDirection.Descending
+              ? b.distance - a.distance
+              : a.distance - b.distance
+          );
+
   return (
     <>
       <StyledHeader>
-        <div>Servers</div>
-        <div>Distance</div>
+        <TextButton type="button">Servers</TextButton>
+        <TextButton onClick={onOrderChange} type="button">
+          Distance {order}
+        </TextButton>
       </StyledHeader>
-      <Row />
-      <Row />
-      <Row />
-      <Row />
+      {orderedServers.map(server => (
+        <Row {...server} key={`${server.name}_${server.distance}`} />
+      ))}
     </>
   );
 };
 
-const store = createStore(Reducers);
+const store = createStore(ReduxState);
 
 const App = () => {
   return (

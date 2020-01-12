@@ -1,14 +1,15 @@
 import ActionTypes from "../constants/actionTypes";
 import {
   loggedIn,
+  loggedOut,
   loggingIn,
-  loginFailed,
-  logout
+  loginFailed
 } from "../actions/loginActions";
 
-type Actions = ReturnType<
-  typeof loggedIn | typeof loginFailed | typeof loggingIn | typeof logout
->;
+type Actions =
+  | ReturnType<typeof loggedIn | typeof loginFailed>
+  | typeof loggingIn
+  | typeof loggedOut;
 
 interface State {
   token?: string;
@@ -35,7 +36,7 @@ function login(state: State = defaultState, action: Actions) {
         ...state,
         loading: true
       };
-    case ActionTypes.Logout:
+    case ActionTypes.LoggedOut:
       return defaultState;
     case ActionTypes.LoginFailed:
       return { ...state, error: action.error, loggingIn: false };

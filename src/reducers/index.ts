@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
 import login from "./loginReducer";
+import servers from './serverReducer';
 
-const Reducers = combineReducers({ login });
+const ReduxState = combineReducers({ login, servers });
 
-export default Reducers;
+export type State = ReturnType<typeof ReduxState>
+
+export default ReduxState;

@@ -2,7 +2,8 @@ enum ActionTypes {
   LoggingIn = "LoggingIn",
   LoggedIn = "LoggedIn",
   LoginFailed = "LoginFailed",
-  Logout = "Logout"
+  LoggedOut = "LoggedOut",
+  ServersLoaded = "ServersLoaded"
 }
 
 export default ActionTypes;
