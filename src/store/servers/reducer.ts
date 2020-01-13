@@ -1,4 +1,4 @@
-import { Actions, Server } from "./actions";
+import { Actions, Server, ActionTypes } from "./actions";
 
 export interface ServersState {
   servers: Server[] | null;
@@ -13,6 +13,16 @@ export const serversReducer = (
   action: Actions
 ): ServersState => {
   switch (action.type) {
+    case ActionTypes.FETCH_SERVERS_REQUEST:
+      return {
+        ...state,
+        servers: null
+      };
+    case ActionTypes.FETCH_SERVERS_SUCCESS:
+      return {
+        ...state,
+        servers: action.payload
+      };
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import App from "./../components/App/App";
+import App from "../components/App/App";
 import { MemoryRouter } from "react-router-dom";
 import { FetchMock } from "jest-fetch-mock/types";
 import { act } from "react-dom/test-utils";
@@ -44,8 +44,8 @@ describe("Integration: Log In", () => {
       </MemoryRouter>
     );
 
-    const usernameField = wrapper.find('input[name="username"]');
-    const passwordField = wrapper.find('input[name="password"]');
+    const usernameField = wrapper.find('input[data-test="username-field"]');
+    const passwordField = wrapper.find('input[data-test="password-field"]');
     const loginButton = wrapper.find('button[children="Log In"]');
 
     expect(usernameField).toHaveLength(1);

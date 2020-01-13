@@ -32,10 +32,16 @@ const Login: React.FC = () => {
   ) : (
     <div>
       Login
-      <input name="username" onChange={handleChange} value={values.username} />
+      <input
+        name="username"
+        onChange={handleChange}
+        value={values.username}
+        data-test="username-field"
+      />
       <input
         name="password"
         type="password"
+        data-test="password-field"
         onChange={handleChange}
         value={values.password}
       />
