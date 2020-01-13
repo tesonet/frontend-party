@@ -2,7 +2,6 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import Login from "./Login";
-import { Redirect } from "react-router";
 
 const mockDispatch = jest.fn();
 const mockSelector = jest.fn();

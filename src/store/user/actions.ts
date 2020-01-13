@@ -1,8 +1,6 @@
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import { UserState } from "./reducer";
-import { Action, AnyAction } from "redux";
+import { AnyAction } from "redux";
 import { State } from "../store";
-
 export enum ActionTypes {
   LOG_IN_REQUEST = "LOG_IN_REQUEST",
   LOG_IN_SUCCESS = "LOG_IN_SUCCESS"
