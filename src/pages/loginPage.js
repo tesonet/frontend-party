@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { connect } from "react-redux";
+import { onInputChange } from "../actions/userActions/loginActions";
 import Logo from "../assets/svg/logo";
 import IconUsername from "../assets/svg/user.svg";
 import IconPassword from "../assets/svg/lock.svg";
 
-const LoginPage = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+const LoginPage = ({ onInputChange }) => {
 
     return (
         <div className="wrapper">
@@ -16,14 +15,18 @@ const LoginPage = () => {
                     <div className="login-form">
                         <div className="login-form--field">
                             <img src={IconUsername} alt=""/>
-                            <input 
+                            <input
+                                onChange={onInputChange} 
                                 type="text"
+                                name="username"
                                 placeholder="Username"/>
                         </div>
                         <div className="login-form--field">
                             <img src={IconPassword} alt=""/>
-                            <input 
+                            <input
+                                onChange={onInputChange} 
                                 type="Password"
+                                name="password"
                                 placeholder="Password"/>
                         </div>
                         <button>Log In</button>
@@ -34,4 +37,10 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+const mapStateToProps = state => state.login;
+
+const mapDispatchToProps = dispatch => ({
+    onInputChange: e => dispatch(onInputChange(e))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)

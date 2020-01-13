@@ -1,9 +1,8 @@
-const initialState = {
-    works: true
-}
+import { combineReducers } from "redux";
+import loginReducer from "./userReducers/loginReducer";
 
-export default (state = initialState, action) => {
-    switch (action.type) {
-        default: return state;
-    }
-}
+const rootReducer = combineReducers({
+    login: loginReducer
+})
+
+export default rootReducer;
