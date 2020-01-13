@@ -108,7 +108,11 @@ const LoginForm = () => {
               />
             </InputWrapper>
             <ErrorMessage name="password" component={Error} />
-            <Button type="submit" data-test-id="Login-Submit">
+            <Button
+              type="submit"
+              data-test-id="Login-Submit"
+              disabled={isSubmitting}
+            >
               {!isSubmitting ? `Log In` : `Loading...`}
             </Button>
             {error && <Error>{error}</Error>}

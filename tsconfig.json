@@ -8,7 +8,6 @@
     "noUnusedParameters": true,
     "noImplicitReturns": false,
     "noUnusedLocals": true,
-//    "allowJs": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
     "suppressImplicitAnyIndexErrors": true,
@@ -16,9 +15,9 @@
     "lib": ["es6", "es2017", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@state/*": ["src/state/*"],
       "@components/*": ["src/components/*"]
-    }
+    },
+    "sourceMap": true
   },
   "exclude": ["node_modules", "publc"],
   "includes": ["src/typings/imports.d.ts"]

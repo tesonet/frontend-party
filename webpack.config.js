@@ -1,17 +1,10 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const { WebpackPluginServe: Serve } = require("webpack-plugin-serve");
 
 module.exports = {
-  mode: "development",
-  devtool: "inline-source-map",
   entry: "./src/index.tsx",
-  output: {
-    filename: "[name].js",
-    publicPath: "/",
-    path: path.resolve(__dirname, "public")
-  },
+  devtool: "source-map",
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
     plugins: [
@@ -19,6 +12,10 @@ module.exports = {
         configFile: "./tsconfig.json"
       })
     ]
+  },
+  output: {
+    path: path.join(__dirname, "/public"),
+    filename: "bundle.min.js"
   },
   module: {
     rules: [
@@ -38,7 +35,7 @@ module.exports = {
           {
             loader: "url-loader",
             options: {
-              limit: 8000
+              limit: 8192,
             }
           }
         ]
@@ -57,15 +54,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
-    new Serve({
-      client: { silent: true },
-      liveReload: true,
-      historyFallback: true,
-      port: 3000,
-      open: false,
-      static: path.resolve(__dirname, "public")
+    new HtmlWebpackPlugin({
+      template: "./src/index.html"
     })
-  ],
-  watch: true
+  ]
 };
