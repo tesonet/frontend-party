@@ -45,7 +45,7 @@ const Header: React.FC<RouteComponentProps> = ({ children }) => {
     <>
       <Wrapper>
         <Logo2 src={logo2} />
-        <LogoutWrapper onClick={() => logout(dispatch)}>
+        <LogoutWrapper onClick={() => logout(dispatch)} data-test-id="Logout-Icon">
           <StyledIcon type={Icons.logout} />
           Logout
         </LogoutWrapper>

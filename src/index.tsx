@@ -9,7 +9,7 @@ import ReduxState from "./reducers";
 import Login from "@components/pages/Login";
 import Header from "@components/organisms/header";
 import Servers from "@components/pages/Servers";
-import PrivateRoute from "@components/hoc/PrivateRoute";
+import PrivateRoute from "@components/helpers/PrivateRoute";
 
 const Root = styled.div`
   display: flex;

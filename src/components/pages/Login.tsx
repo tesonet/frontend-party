@@ -24,7 +24,7 @@ const Background = styled(Center)`
 
 const LoginWrapper = styled(Center)`
   max-width: 360px;
-  flex: 1;
+  flex: 1 1 auto;
   flex-direction: column;
 `;
 

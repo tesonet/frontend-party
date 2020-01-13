@@ -2,6 +2,7 @@ import ActionTypes from "../constants/actionTypes";
 import Urls from "../constants/apis";
 import { get } from "../api";
 import { navigate } from "@reach/router";
+import ErrorMessages from '../constants/errorMessages';
 
 export const loggedIn = token => ({
   type: ActionTypes.LoggedIn as ActionTypes.LoggedIn,
@@ -31,10 +32,10 @@ export const login = dispatch => async values => {
   } catch (error) {
     if (error.message === "401") {
       dispatch(
-        loginFailed(`Login failed, user not found or password was incorrect`)
+        loginFailed(ErrorMessages.loginFailed)
       );
     } else {
-      dispatch(loginFailed(`Something went wrong`));
+      dispatch(loginFailed(ErrorMessages.somethingWrong));
     }
   }
 };
@@ -45,7 +46,7 @@ export const authedLogin = dispatch => token => {
 };
 
 export const logout = dispatch => {
-  localStorage.removeItem("token");
   dispatch(loggedOut);
   navigate("/login");
+  localStorage.removeItem("token");
 };

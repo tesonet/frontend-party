@@ -7,6 +7,7 @@ import { login } from "../../actions/loginActions";
 import Icon, { Icons } from "../../assets/icons";
 import styled from "@emotion/styled";
 import Colors from "../../constants/colors";
+import ErrorMessages from '../../constants/errorMessages';
 
 const InputWrapper = styled.label`
   position: relative;
@@ -82,8 +83,8 @@ const LoginForm = () => {
           password: ""
         }}
         validationSchema={Yup.object({
-          username: Yup.string().required("Required"),
-          password: Yup.string().required("Required")
+          username: Yup.string().required(ErrorMessages.required),
+          password: Yup.string().required(ErrorMessages.required)
         })}
         onSubmit={values => login(dispatch)(values)}
       >

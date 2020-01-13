@@ -6,6 +6,7 @@ import { State } from "../../reducers";
 import styled from "@emotion/styled";
 import Colors from "../../constants/colors";
 import { ServerInterface } from "../../reducers/serverReducer";
+import * as R from "ramda";
 
 const StyledRow = styled.div`
   height: 60px;
@@ -48,87 +49,79 @@ const Row = ({ name, distance }: ServerInterface) => {
   );
 };
 
-enum SortDirectionName {
-  Unordered = "",
-  Descending = "A-Z",
-  Ascending = "Z-A"
-}
-
-enum SortDirectionDistance {
+enum SortDirection {
   Unordered = "",
   Descending = "Descending",
   Ascending = "Ascending"
 }
 
+const orderNameMap = {
+  [SortDirection.Unordered]: "",
+  [SortDirection.Ascending]: "A-Z",
+  [SortDirection.Descending]: "Z-A"
+} as const;
+
+const orderDistanceMap = {
+  [SortDirection.Unordered]: "",
+  [SortDirection.Descending]: "Descending",
+  [SortDirection.Ascending]: "Ascending"
+} as const;
+
+type Columns = keyof ServerInterface;
+
+const sort = (direction: SortDirection, key: Columns) =>
+  R.sort(
+    (direction === SortDirection.Descending ? R.descend : R.ascend)(R.prop(key))
+  );
+
 const Servers: React.FC<RouteComponentProps> = () => {
   const dispatch = useDispatch();
-  const [orderName, setNameOrder] = useState(SortDirectionName.Unordered);
-  const [orderDistance, setDistanceOrder] = useState(
-    SortDirectionDistance.Unordered
+  const servers = useSelector((state: State) => state.servers);
+  const [orderDirection, setOrderDirection] = useState<SortDirection>(
+    SortDirection.Unordered
   );
+  const [orderBy, setOrderBy] = useState<Columns>();
   useEffect(() => {
     fetchServers(dispatch);
   }, []);
-  const servers = useSelector((state: State) => state.servers);
 
-  const onNameOrderChange = () => {
-    if (orderDistance) {
-      setDistanceOrder(SortDirectionDistance.Unordered);
+  const onOrderChange = (type: Columns) => {
+    switch (true) {
+      case type !== orderBy:
+        setOrderDirection(SortDirection.Ascending);
+        setOrderBy(type);
+        return;
+      case orderDirection === SortDirection.Unordered:
+        return setOrderDirection(SortDirection.Descending);
+      case orderDirection === SortDirection.Ascending:
+        return setOrderDirection(SortDirection.Descending);
+      default:
+        return setOrderDirection(SortDirection.Unordered);
     }
-    if (orderName === SortDirectionName.Unordered) {
-      return setNameOrder(SortDirectionName.Descending);
-    }
-    if (orderName === SortDirectionName.Descending) {
-      return setNameOrder(SortDirectionName.Ascending);
-    }
-    return setNameOrder(SortDirectionName.Unordered);
-  };
-
-  const onDistanceOrderChange = () => {
-    if (orderName) {
-      setNameOrder(SortDirectionName.Unordered);
-    }
-    if (orderDistance === SortDirectionDistance.Unordered) {
-      return setDistanceOrder(SortDirectionDistance.Descending);
-    }
-    if (orderDistance === SortDirectionDistance.Descending) {
-      return setDistanceOrder(SortDirectionDistance.Ascending);
-    }
-    return setDistanceOrder(SortDirectionDistance.Unordered);
   };
 
   let orderedServers = servers;
-  if (orderName !== SortDirectionName.Unordered) {
-    orderedServers = [
-      ...servers.sort((a, b) => {
-        if (a.name < b.name) {
-          return orderName === SortDirectionName.Descending ? -1 : 1;
-        }
-        if (a.name > b.name) {
-          return orderName === SortDirectionName.Descending ? 1 : -1;
-        }
-        return 0;
-      })
-    ];
-  }
-  if (orderDistance !== SortDirectionDistance.Unordered) {
-    orderedServers = [
-      ...servers.sort((a, b) =>
-        orderDistance === SortDirectionDistance.Descending
-          ? b.distance - a.distance
-          : a.distance - b.distance
-      )
-    ];
+  if (orderBy && orderDirection !== SortDirection.Unordered) {
+    orderedServers = sort(orderDirection, orderBy)(orderedServers);
   }
 
   return (
     <>
       <StyledHeader>
-        <TextButton onClick={onNameOrderChange} type="button" data-test-id="Sort-Name">
-          Servers {orderName}
+        <TextButton
+          onClick={() => onOrderChange("name")}
+          type="button"
+          data-test-id="Sort-Name"
+        >
+          Servers {orderBy === "name" ? orderNameMap[orderDirection] : ""}
         </TextButton>
-        <TextButton onClick={onDistanceOrderChange} type="button" data-test-id="Sort-Distance">
-          Distance {orderDistance}
+        <TextButton
+          onClick={() => onOrderChange("distance")}
+          type="button"
+          data-test-id="Sort-Distance"
+        >
+          Distance{" "}
+          {orderBy === "distance" ? orderDistanceMap[orderDirection] : ""}
         </TextButton>
       </StyledHeader>
       {!orderedServers.length && <Loading>Loading...</Loading>}
