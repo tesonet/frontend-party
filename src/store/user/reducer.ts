@@ -1,4 +1,4 @@
-import { Actions } from "./actions";
+import { Actions, ActionTypes } from "./actions";
 
 export interface UserState {
   token: string | null;
@@ -13,6 +13,16 @@ export const userReducer = (
   action: Actions
 ): UserState => {
   switch (action.type) {
+    case ActionTypes.LOG_IN_REQUEST:
+      return {
+        ...state,
+        token: null
+      };
+    case ActionTypes.LOG_IN_SUCCESS:
+      return {
+        ...state,
+        token: action.payload.token
+      };
     default:
       return state;
   }
