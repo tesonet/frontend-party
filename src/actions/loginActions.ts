@@ -29,9 +29,19 @@ export const login = dispatch => async values => {
     dispatch(loggedIn(token));
     await navigate("/");
   } catch (error) {
-    dispatch(loginFailed(`Login failed, user not found or password was incorrect`));
-    throw new Error(error)
+    if (error.message === "401") {
+      dispatch(
+        loginFailed(`Login failed, user not found or password was incorrect`)
+      );
+    } else {
+      dispatch(loginFailed(`Something went wrong`));
+    }
   }
+};
+
+export const authedLogin = dispatch => token => {
+  dispatch(loggedIn(token));
+  navigate("/");
 };
 
 export const logout = dispatch => {
