@@ -1,21 +1,21 @@
 import React from "react";
 import { mount } from "enzyme";
-import App from "../components/App/App";
+import App from "../src/components/App/App";
 import { MemoryRouter } from "react-router-dom";
 import { FetchMock } from "jest-fetch-mock/types";
 import { act } from "react-dom/test-utils";
-import Servers from "../components/Servers/Servers";
+import Servers from "../src/components/Servers/Servers";
 import { MockStoreEnhanced } from "redux-mock-store";
-import { State } from "../store/store";
+import { State } from "../src/store/store";
 import { Provider } from "react-redux";
 import thunk, { ThunkDispatch } from "redux-thunk";
-import { logIn } from "../store/user/actions";
+import { logIn } from "../src/store/user/actions";
 import { AnyAction } from "redux";
 import createMockStore from "redux-mock-store";
-import { LoginForm } from "../components/Login/Login.styles";
+import { LoginForm } from "../src/components/Login/Login.styles";
 
 const initialState: State = {
-  user: { token: null },
+  user: { token: null, isFetching: false, error: null },
   servers: { servers: null }
 };
 type DispatchExts = ThunkDispatch<State, undefined, AnyAction>;
@@ -78,7 +78,7 @@ describe("Integration: Log In", () => {
 
     return store.dispatch(logIn("test", "password")).then(() => {
       const actions = store.getActions();
-      expect(actions[0]).toEqual({
+      expect(actions[1]).toEqual({
         payload: { token: "testToken" },
         type: "LOG_IN_SUCCESS"
       });
@@ -94,7 +94,10 @@ describe("Integration: Log In", () => {
       </MemoryRouter>
     );
 
-    store = mockStore({ ...initialState, user: { token: "testToken" } });
+    store = mockStore({
+      ...initialState,
+      user: { token: "testToken", isFetching: false, error: null }
+    });
 
     expect(wrapper.find(Servers)).toHaveLength(1);
   });

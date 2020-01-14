@@ -13,6 +13,8 @@
   "include": [
     "./src/**/**/*",
     "jest-integration.config.js",
-    "src/typings/index.d.ts"
+    "src/typings/index.d.ts",
+    "__mocks__",
+    "__integration__"
   ]
 }

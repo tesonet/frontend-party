@@ -13,8 +13,8 @@ module.exports = {
   testURL: "http://localhost",
   transformIgnorePatterns: ["<rootDir>/node_modules/"],
   moduleNameMapper: {
-    "\\.(css|scss)$": "<rootDir>/src/__mocks__/styleMock.ts",
-    "\\.(jpg|png)$": "<rootDir>/src/__mocks__/imgMock.ts"
+    "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.ts",
+    "\\.(jpg|png)$": "<rootDir>/__mocks__/imgMock.ts"
   },
   verbose: false
 };

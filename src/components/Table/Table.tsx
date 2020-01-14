@@ -31,7 +31,7 @@ const TableHeaderContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Column = styled.div`
+export const Column = styled.div`
   padding: 1rem;
   cursor: default;
 `;
@@ -43,7 +43,7 @@ const Row = styled.div`
   border-bottom: 1px solid #e6e6e6;
 `;
 
-const TableHeader: React.FC<TableHeaderProps> = ({
+export const TableHeader: React.FC<TableHeaderProps> = ({
   columns,
   onHeaderClick
 }) => (
@@ -56,7 +56,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
   </TableHeaderContainer>
 );
 
-const TableBody = styled.div`
+export const TableBody = styled.div`
   flex: 1 1 auto;
   overflow-y: auto;
   height: 100px;

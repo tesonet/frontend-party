@@ -3,6 +3,7 @@ import { shallow, mount } from "enzyme";
 
 import Servers from "./Servers";
 import { useSelector } from "react-redux";
+import { Table } from "../Table/Table";
 
 jest.mock("react-redux", () => ({
   useSelector: jest.fn(),
@@ -22,27 +23,11 @@ describe("Servers", () => {
       { name: "two", distance: 50 }
     ]);
     const wrapper = shallow(<Servers />);
-    expect(wrapper.find('[data-test="server"]')).toHaveLength(2);
-
-    expect(
-      wrapper.find('[data-test="server-name"]').get(0).props.children
-    ).toEqual("one");
-
-    expect(
-      wrapper.find('[data-test="server-distance"]').get(0).props.children
-    ).toEqual(30);
-
-    expect(
-      wrapper.find('[data-test="server-name"]').get(1).props.children
-    ).toEqual("two");
-
-    expect(
-      wrapper.find('[data-test="server-distance"]').get(1).props.children
-    ).toEqual(50);
+    expect(wrapper.find(Table)).toHaveLength(1);
   });
 
   it("should render a logout button", () => {
     const wrapper = shallow(<Servers />);
-    expect(wrapper.find('button[data-test="logout"]')).toHaveLength(1);
+    expect(wrapper.find(`[data-test="logout"]`)).toHaveLength(1);
   });
 });
