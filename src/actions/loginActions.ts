@@ -1,7 +1,7 @@
+import { navigate } from "@reach/router";
 import ActionTypes from "../constants/actionTypes";
 import Urls from "../constants/apis";
 import { get } from "../api";
-import { navigate } from "@reach/router";
 import ErrorMessages from '../constants/errorMessages';
 
 export const loggedIn = token => ({

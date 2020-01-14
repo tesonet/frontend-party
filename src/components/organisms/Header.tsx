@@ -1,22 +1,25 @@
 import React from "react";
+import styled from "@emotion/styled";
 import { RouteComponentProps } from "@reach/router";
 import { useDispatch } from "react-redux";
 import logo2 from "../../assets/logo-testio-2.svg";
 import { logout } from "../../actions/loginActions";
 import Icon, { Icons } from "../../assets/icons";
-import styled from "@emotion/styled";
 import Colors from "../../constants/colors";
 
-const Wrapper = styled.div`
+const SpacedGrid = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 20px 10px 20px 0;
-  width: 100%;
-  height: 110px;
   align-items: center;
 `;
 
-const Logo2 = styled.img`
+const StyledWrapper = styled(SpacedGrid)`
+  padding: 20px 10px 20px 0;
+  width: 100%;
+  height: 110px;
+`;
+
+const StyledLogo = styled.img`
   width: 150px;
   height: 30px;
 `;
@@ -26,10 +29,7 @@ const StyledIcon = styled(Icon)`
   display: inline-block;
 `;
 
-const LogoutWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const StyledLogoutWrapper = styled(SpacedGrid)`
   padding: 10px;
   color: ${Colors.darkBlue};
   transition: color 300ms;
@@ -43,13 +43,16 @@ const Header: React.FC<RouteComponentProps> = ({ children }) => {
   const dispatch = useDispatch();
   return (
     <>
-      <Wrapper>
-        <Logo2 src={logo2} />
-        <LogoutWrapper onClick={() => logout(dispatch)} data-test-id="Logout-Icon">
+      <StyledWrapper>
+        <StyledLogo src={logo2} />
+        <StyledLogoutWrapper
+          onClick={() => logout(dispatch)}
+          data-test-id="Logout-Icon"
+        >
           <StyledIcon type={Icons.logout} />
           Logout
-        </LogoutWrapper>
-      </Wrapper>
+        </StyledLogoutWrapper>
+      </StyledWrapper>
       {children}
     </>
   );

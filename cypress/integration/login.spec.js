@@ -5,6 +5,13 @@ context("Actions", () => {
     cy.visit("localhost:3000");
   });
 
+  it("Shows error with wrong credentials", () => {
+    cy.get(`[data-test-id="Login-Name"]`).type("tess");
+    cy.get(`[data-test-id="Login-Password"]`).type("party");
+    cy.get(`[data-test-id="Login-Submit"]`).click();
+    cy.get(`[data-test-id="Error-Message"]`).should('exist')
+  });
+
   it("Can login", () => {
     cy.login();
     cy.url().should("eq", "http://localhost:3000/");

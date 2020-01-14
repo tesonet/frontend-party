@@ -10,6 +10,7 @@ import Login from "@components/pages/Login";
 import Header from "@components/organisms/header";
 import Servers from "@components/pages/Servers";
 import PrivateRoute from "@components/helpers/PrivateRoute";
+import NotFound from "@components/pages/NotFound";
 
 const Root = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ const App = () => {
             <PrivateRoute as={Servers} path="/" />
           </PrivateRoute>
           <Login path="/login" />
+          <NotFound default />
         </Router>
       </Provider>
     </>

@@ -1,15 +1,15 @@
 import React from "react";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { State } from "../../reducers";
 import { Field, Form, Formik, ErrorMessage } from "formik";
+import styled from "@emotion/styled";
+import { State } from "../../reducers";
 import { login } from "../../actions/loginActions";
 import Icon, { Icons } from "../../assets/icons";
-import styled from "@emotion/styled";
 import Colors from "../../constants/colors";
 import ErrorMessages from '../../constants/errorMessages';
 
-const InputWrapper = styled.label`
+const StyledWrapper = styled.label`
   position: relative;
   color: ${Colors.gray500};
   transition: color 300ms;
@@ -19,13 +19,12 @@ const InputWrapper = styled.label`
   }
 `;
 
-const Input = styled(Field)`
+const StyledInput = styled(Field)`
   border: none;
   font-size: 16px;
   padding: 20px 20px 20px 50px;
   border-radius: 4px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0 10px 0;
   width: 100%;
   color: ${Colors.gray700};
   transition: color 300ms;
@@ -37,14 +36,14 @@ const Input = styled(Field)`
   }
 `;
 
-const PositionedIcon = styled(Icon)`
+const StyledIcon = styled(Icon)`
   position: absolute;
   left: 20px;
   top: 50%;
   transform: translateY(-50%);
 `;
 
-const Button = styled.button`
+const StyledButton = styled.button`
   background-color: ${Colors.green500};
   margin: 10px 0 10px 0;
   color: white;
@@ -58,8 +57,11 @@ const Button = styled.button`
   &:hover {
     background-color: ${Colors.green600};
   }
+  &:disabled {
+    pointer-events: none;
+  }
 `;
-const Error = styled.div`
+const StyledError = styled.div`
   color: ${Colors.error};
   background: white;
   border-radius: 4px;
@@ -90,33 +92,33 @@ const LoginForm = () => {
       >
         {({ isSubmitting }) => (
           <StyledForm>
-            <InputWrapper>
-              <PositionedIcon type={Icons.user} />
-              <Input
+            <StyledWrapper>
+              <StyledIcon type={Icons.user} />
+              <StyledInput
                 data-test-id="Login-Name"
                 name="username"
                 placeholder="Username"
               />
-            </InputWrapper>
-            <ErrorMessage name="username" component={Error} />
-            <InputWrapper>
-              <PositionedIcon type={Icons.password} />
-              <Input
+            </StyledWrapper>
+            <ErrorMessage name="username" component={StyledError} />
+            <StyledWrapper>
+              <StyledIcon type={Icons.password} />
+              <StyledInput
                 data-test-id="Login-Password"
                 type="password"
                 name="password"
                 placeholder="Password"
               />
-            </InputWrapper>
-            <ErrorMessage name="password" component={Error} />
-            <Button
+            </StyledWrapper>
+            <ErrorMessage name="password" component={StyledError} />
+            <StyledButton
               type="submit"
               data-test-id="Login-Submit"
               disabled={isSubmitting}
             >
               {!isSubmitting ? `Log In` : `Loading...`}
-            </Button>
-            {error && <Error>{error}</Error>}
+            </StyledButton>
+            {error && <StyledError data-test-id="Error-Message">{error}</StyledError>}
           </StyledForm>
         )}
       </Formik>
