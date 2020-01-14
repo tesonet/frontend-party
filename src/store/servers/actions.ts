@@ -1,6 +1,7 @@
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { State } from "../store";
 import { AnyAction } from "redux";
+import { fetchServers } from "../../utils/api";
 
 export interface Server {
   name: string;
@@ -20,16 +21,6 @@ export type Actions =
   | { type: ActionTypes.FETCH_SERVERS_SUCCESS; payload: Server[] };
 
 type ThunkResult<R> = ThunkAction<R, State, undefined, Actions>;
-
-const fetchServers = (token: string): Promise<Response> => {
-  return fetch("http://playground.tesonet.lt/v1/servers", {
-    method: "GET",
-    headers: {
-      Authorization: token,
-      "Content-Type": "application/json"
-    }
-  }).then(response => response.json());
-};
 
 export const getServers = (token: string): ThunkResult<Promise<void>> => {
   return (dispatch: ThunkDispatch<State, void, AnyAction>) => {

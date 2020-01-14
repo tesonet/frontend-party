@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Server, getServers } from "../../store/servers/actions";
 import { State } from "../../store/store";
+import { logOut } from "../../store/user/actions";
 
 const Servers: React.FC = () => {
   const serverList = useSelector(({ servers }: State) =>
@@ -17,8 +18,15 @@ const Servers: React.FC = () => {
     }
   }, [token]);
 
+  const handleLogout = (): void => {
+    dispatch(logOut());
+  };
+
   return (
     <>
+      <button data-test="logout" onClick={handleLogout}>
+        Log Out
+      </button>
       <div>Servers</div>
       {serverList ? (
         <div data-test="servers">

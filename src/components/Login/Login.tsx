@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../store/store";
-import { logIn } from "../../store/user/actions";
+import { logIn, logInSuccess } from "../../store/user/actions";
 import { Redirect } from "react-router";
+import localStorageUtils from "../../utils/localStorage";
 
 interface Credentials {
   username: string;
@@ -26,6 +27,15 @@ const Login: React.FC = () => {
   const handleLogIn = (): void => {
     dispatch(logIn(values.username, values.password));
   };
+
+  useEffect(() => {
+    if (!token) {
+      const lsToken = localStorageUtils.getToken();
+      if (lsToken) {
+        dispatch(logInSuccess(lsToken));
+      }
+    }
+  }, [token]);
 
   return token ? (
     <Redirect to="/servers" />

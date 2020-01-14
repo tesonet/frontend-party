@@ -40,4 +40,9 @@ describe("Servers", () => {
       wrapper.find('[data-test="server-distance"]').get(1).props.children
     ).toEqual(50);
   });
+
+  it("should render a logout button", () => {
+    const wrapper = shallow(<Servers />);
+    expect(wrapper.find('button[data-test="logout"]')).toHaveLength(1);
+  });
 });

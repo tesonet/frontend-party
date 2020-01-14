@@ -23,6 +23,11 @@ export const userReducer = (
         ...state,
         token: action.payload.token
       };
+    case ActionTypes.LOG_OUT:
+      return {
+        ...state,
+        token: null
+      };
     default:
       return state;
   }

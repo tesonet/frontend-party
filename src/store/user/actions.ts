@@ -1,9 +1,12 @@
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { AnyAction } from "redux";
 import { State } from "../store";
+import { fetchToken } from "../../utils/api";
+import localStorageUtils from "./../../utils/localStorage";
 export enum ActionTypes {
   LOG_IN_REQUEST = "LOG_IN_REQUEST",
-  LOG_IN_SUCCESS = "LOG_IN_SUCCESS"
+  LOG_IN_SUCCESS = "LOG_IN_SUCCESS",
+  LOG_OUT = "LOG_OUT"
 }
 
 export type Actions =
@@ -14,18 +17,18 @@ export type Actions =
   | {
       type: ActionTypes.LOG_IN_SUCCESS;
       payload: { token: string };
-    };
+    }
+  | { type: ActionTypes.LOG_OUT };
 
 type ThunkResult<R> = ThunkAction<R, State, undefined, Actions>;
 
-const getToken = (username: string, password: string): Promise<Response> => {
-  return fetch("http://playground.tesonet.lt/v1/tokens", {
-    method: "POST",
-    body: JSON.stringify({ username, password }),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  }).then(response => response.json());
+export const logOut = (): AnyAction => {
+  localStorageUtils.destroyToken();
+  return { type: ActionTypes.LOG_OUT };
+};
+
+export const logInSuccess = (token: string): AnyAction => {
+  return { type: ActionTypes.LOG_IN_SUCCESS, payload: { token } };
 };
 
 export const logIn = (
@@ -33,8 +36,9 @@ export const logIn = (
   password: string
 ): ThunkResult<Promise<void>> => {
   return (dispatch: ThunkDispatch<State, void, AnyAction>) => {
-    return getToken(username, password).then(token => {
-      dispatch({ type: ActionTypes.LOG_IN_SUCCESS, payload: token });
+    return fetchToken(username, password).then(token => {
+      dispatch(logInSuccess(token));
+      localStorageUtils.setToken(token);
     });
   };
 };

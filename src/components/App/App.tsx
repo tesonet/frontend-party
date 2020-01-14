@@ -1,14 +1,31 @@
-import React from "react";
+import React, { ReactComponentElement, ReactElement } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  RouteProps
 } from "react-router-dom";
 import Login from "../Login/Login";
 import Servers from "../Servers/Servers";
-import { Provider } from "react-redux";
-import store from "../../store/store";
+import { Provider, useSelector } from "react-redux";
+import store, { State } from "../../store/store";
+
+const PrivateRoute: React.FC<RouteProps> = ({
+  component: Component,
+  ...rest
+}) => {
+  const token = useSelector(({ user }: State) => (user ? user.token : null));
+
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        token ? <Component {...props} /> : <Redirect to="/login" />
+      }
+    />
+  );
+};
 
 const App: React.FC = () => (
   <Router>
@@ -17,7 +34,7 @@ const App: React.FC = () => (
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/login" />} />
         <Route path="/login" component={Login} />
-        <Route path="/servers" component={Servers} />
+        <PrivateRoute path="/servers" component={Servers} />
       </Switch>
     </Provider>
   </Router>
