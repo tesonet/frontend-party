@@ -11,6 +11,8 @@ export const Header = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem;
+  flex-shrink: 0;
+  flex-basis: auto;
 `;
 
 export const ButtonText = styled.div`
