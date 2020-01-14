@@ -19,7 +19,7 @@ export const LoginContent = styled.div`
 `;
 
 export const LoginForm = styled(Form)`
-  margin-top: 4rem;
+  margin-top: 2.5rem;
 `;
 
 export default {

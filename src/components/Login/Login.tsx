@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../store/store";
-import { logIn, logInSuccess } from "../../store/user/actions";
+import {
+  logIn,
+  logInSuccess,
+  Errors,
+  logInError
+} from "../../store/user/actions";
 import { Redirect } from "react-router";
 import localStorageUtils from "../../utils/localStorage";
 
@@ -10,6 +15,7 @@ import TextField from "../TextField/TextField";
 import { Button } from "../Button/Button";
 import { FormField } from "../Form/Form";
 import Logo from "../Logo/Logo";
+import { ErrorBox } from "../Error/Error";
 
 interface Credentials {
   username: string;
@@ -23,6 +29,8 @@ const Login: React.FC = () => {
   });
   const dispatch = useDispatch();
   const token = useSelector(({ user }: State) => (user ? user.token : null));
+  const isFetching = useSelector(({ user }: State) => user.isFetching);
+  const error = useSelector(({ user }: State) => user.error);
 
   const handleChange = ({
     target
@@ -32,7 +40,13 @@ const Login: React.FC = () => {
 
   const handleLogIn = (e: React.FormEvent): void => {
     e.preventDefault();
-    dispatch(logIn(values.username, values.password));
+    if (!values.username) {
+      dispatch(logInError(Errors.USERNAME_EMPTY));
+    } else if (!values.password) {
+      dispatch(logInError(Errors.PASSWORD_EMPTY));
+    } else {
+      dispatch(logIn(values.username, values.password));
+    }
   };
 
   useEffect(() => {
@@ -51,6 +65,9 @@ const Login: React.FC = () => {
       <LoginContent>
         <Logo variation="light" align="center" />
         <LoginForm onSubmit={handleLogIn}>
+          <FormField>
+            <ErrorBox message={error} />
+          </FormField>
           <FormField>
             <TextField
               name="username"
@@ -73,7 +90,9 @@ const Login: React.FC = () => {
             />
           </FormField>
           <FormField>
-            <Button type="submit">Log In</Button>
+            <Button type="submit">
+              {!isFetching ? "Log In" : "Loading..."}
+            </Button>
           </FormField>
         </LoginForm>
       </LoginContent>
