@@ -49,7 +49,7 @@ const Login: React.FC = () => {
   ) : (
     <LoginContainer>
       <LoginContent>
-        <Logo />
+        <Logo variation="light" align="center" />
         <LoginForm onSubmit={handleLogIn}>
           <FormField>
             <TextField

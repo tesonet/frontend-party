@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 export const Button = styled.button`
@@ -12,3 +13,20 @@ export const Button = styled.button`
     background-color: #86b300;
   }
 `;
+
+const PlainButtonContainer = styled.button`
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid #99cc33;
+  }
+`;
+
+export const PlainButton: React.FC<React.HTMLProps<HTMLButtonElement> & {
+  children: React.ReactNode;
+}> = ({ children }) => {
+  return <PlainButtonContainer>{children}</PlainButtonContainer>;
+};

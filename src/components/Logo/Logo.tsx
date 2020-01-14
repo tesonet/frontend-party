@@ -1,14 +1,47 @@
 import React from "react";
-import logo from "../../assets/logo-login.png";
+import logoLight from "../../assets/logo-login.png";
+import logoDark from "../../assets/logo-servers.png";
 import styled from "styled-components";
 
-const LogoContainer = styled.div`
-  margin: 0 auto;
+interface LogoProps {
+  variation: "light" | "dark";
+  align: "center" | "left" | "right";
+}
+
+interface LogoContainerProps {
+  align: "left" | "center" | "right";
+}
+
+const LogoContainer = styled.div<LogoContainerProps>`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: ${props => {
+    switch (props.align) {
+      case "center":
+        return "space-around";
+      case "left":
+        return "flex-start";
+      case "right":
+        return "flex-end";
+    }
+  }};
 `;
 
-const Logo: React.FC = () => (
-  <LogoContainer>
-    <img src={logo} />
+const getLogo = (variation: string): string => {
+  switch (variation) {
+    case "light":
+      return logoLight;
+    case "dark":
+      return logoDark;
+    default:
+      break;
+  }
+};
+
+const Logo: React.FC<LogoProps> = ({ variation, align }) => (
+  <LogoContainer align={align}>
+    <img src={getLogo(variation)} />
   </LogoContainer>
 );
 

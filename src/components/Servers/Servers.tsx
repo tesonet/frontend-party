@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Server, getServers } from "../../store/servers/actions";
+import { getServers } from "../../store/servers/actions";
 import { State } from "../../store/store";
 import { logOut } from "../../store/user/actions";
+import { Table } from "../Table/Table";
+import { ServersContainer, Header, ButtonText } from "./Servers.style";
+import Logo from "../Logo/Logo";
+import { PlainButton } from "../Button/Button";
+import Icon from "../Icon/Icon";
 
 const Servers: React.FC = () => {
   const serverList = useSelector(({ servers }: State) =>
@@ -23,24 +28,16 @@ const Servers: React.FC = () => {
   };
 
   return (
-    <>
-      <button data-test="logout" onClick={handleLogout}>
-        Log Out
-      </button>
-      <div>Servers</div>
-      {serverList ? (
-        <div data-test="servers">
-          {serverList.map(({ name, distance }: Server) => (
-            <div key={name} data-test="server">
-              <span data-test="server-name">{name}</span>&nbsp;
-              <span data-test="server-distance">{distance}</span>
-            </div>
-          ))}
-        </div>
-      ) : (
-        "Loading..."
-      )}
-    </>
+    <ServersContainer>
+      <Header>
+        <Logo variation="dark" align="left" />
+        <PlainButton data-test="logout" onClick={handleLogout}>
+          <Icon name="exit" />
+          <ButtonText>Log Out</ButtonText>
+        </PlainButton>
+      </Header>
+      {serverList ? <Table data={serverList} /> : "Loading..."}
+    </ServersContainer>
   );
 };
 
