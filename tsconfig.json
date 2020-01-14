@@ -7,7 +7,12 @@
     "removeComments": true,
     "sourceMap": true,
     "target": "es5",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["node"]
   },
-  "include": ["./src/**/**/*", "jest-integration.config.js"]
+  "include": [
+    "./src/**/**/*",
+    "jest-integration.config.js",
+    "src/typings/index.d.ts"
+  ]
 }

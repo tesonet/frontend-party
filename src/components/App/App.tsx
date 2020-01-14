@@ -30,7 +30,6 @@ const PrivateRoute: React.FC<RouteProps> = ({
 const App: React.FC = () => (
   <Router>
     <Provider store={store}>
-      <div>Testio</div>
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/login" />} />
         <Route path="/login" component={Login} />

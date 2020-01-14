@@ -12,6 +12,7 @@ import thunk, { ThunkDispatch } from "redux-thunk";
 import { logIn } from "../store/user/actions";
 import { AnyAction } from "redux";
 import createMockStore from "redux-mock-store";
+import { LoginForm } from "../components/Login/Login.styles";
 
 const initialState: State = {
   user: { token: null },
@@ -61,7 +62,7 @@ describe("Integration: Log In", () => {
       });
     });
 
-    loginButton.simulate("click");
+    wrapper.find(LoginForm).simulate("submit");
 
     expect(fetch).toHaveBeenCalledWith(apiUrl, {
       body: '{"username":"test","password":"pw"}',
