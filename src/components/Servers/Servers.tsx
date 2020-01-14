@@ -36,7 +36,17 @@ const Servers: React.FC = () => {
           <ButtonText>Log Out</ButtonText>
         </PlainButton>
       </Header>
-      {serverList ? <Table data={serverList} /> : "Loading..."}
+      {serverList ? (
+        <Table
+          data={serverList}
+          columns={[
+            { key: "name", display: "SERVER" },
+            { key: "distance", display: "DISTANCE" }
+          ]}
+        />
+      ) : (
+        "Loading..."
+      )}
     </ServersContainer>
   );
 };

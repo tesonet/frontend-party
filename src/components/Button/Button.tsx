@@ -23,10 +23,10 @@ const PlainButtonContainer = styled.button`
   &:hover {
     border: 1px solid #99cc33;
   }
-`;
+` as React.FC<React.HTMLProps<HTMLButtonElement>>;
 
 export const PlainButton: React.FC<React.HTMLProps<HTMLButtonElement> & {
   children: React.ReactNode;
-}> = ({ children }) => {
-  return <PlainButtonContainer>{children}</PlainButtonContainer>;
+}> = ({ children, ...props }) => {
+  return <PlainButtonContainer {...props}>{children}</PlainButtonContainer>;
 };
