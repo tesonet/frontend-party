@@ -8,6 +8,7 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "test": "jest",
+    "build": "webpack --mode=production",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "test:integration": "jest --config jest-integration.config.js",
