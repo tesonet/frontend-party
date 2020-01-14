@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { onLoginSubmit } from "../thunks/userThunks/loginThunk";
 import { onInputChange } from "../actions/userActions/loginActions";
-import Logo from "../assets/svg/logo";
+import Logo from "../assets/svg/tesio-logo_xl.svg";
+import Spinner from "../assets/svg/spinner.svg";
 import IconUsername from "../assets/svg/user.svg";
 import IconPassword from "../assets/svg/lock.svg";
 
@@ -13,11 +14,14 @@ const LoginPage = ({ username, password, error, loading, history, onInputChange,
     onLogin({username, password}, history);
   }
 
+  console.log("error: " + error);
+  console.log("loading: " + loading);
+
   return (
     <div className="wrapper">
       <div className="gs-overlay gs-overlay--dark">
         <section className="inner">
-          <Logo />
+          <img src={Logo} alt="Testio Logo"/>
           <div className="login-form">
             <div className="login-form--field">
               <img src={IconUsername} alt="" />
@@ -37,7 +41,10 @@ const LoginPage = ({ username, password, error, loading, history, onInputChange,
                 placeholder="Password"
               />
             </div>
-            <button type="submit" onClick={handleSubmitClick}>Log In</button>
+            <button type="submit" onClick={handleSubmitClick} style={{display: "flex", justifyContent: "center"}} disabled={loading}>
+              {loading ? <img src={Spinner} style={{height: "100%", width: "16px"}} alt="Loading icon" /> : "Log In"}
+            </button>
+            {/* <p className="login-form__error">{error && error}</p> */}
           </div>
         </section>
       </div>

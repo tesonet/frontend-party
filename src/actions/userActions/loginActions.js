@@ -10,7 +10,7 @@ export const onInputChange = e => {
 
 export function onLoginLoading() {
   return {
-    type: types.LOGIN_FORM_VALIDATING
+    type: types.LOGIN_FORM_LOADING
   };
 }
 

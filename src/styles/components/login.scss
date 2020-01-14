@@ -39,6 +39,10 @@
             background-color: $hover-green;
         }
     }
+
+    &__error {
+        color: red;
+    }
 }
 
 .login-form--field {
