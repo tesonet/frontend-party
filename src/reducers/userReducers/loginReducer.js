@@ -9,8 +9,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.LOGIN_FORM_INPUT_CHANGE:
-      return { ...state, [action.name]: action.value };
     case types.LOGIN_FORM_LOADING:
       return { ...state, error: "", loading: true };
     case types.LOGIN_FORM_ERROR:

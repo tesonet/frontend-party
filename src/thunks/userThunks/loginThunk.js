@@ -2,7 +2,7 @@ import axios from "axios";
 import { authUser } from "../../actions/userActions/authAction";
 import { onLoginLoading, onLoginError, onLoginSuccess } from "../../actions/userActions/loginActions";
 import { setToLocalStorage } from "../../utils/localStorage";
-import { API_URL } from "../../constants/api";
+import { SERVER_URL } from "../../constants/api";
 import { HOME } from "../../constants/routes";
 
 export const onLoginSubmit = (user, history) => dispatch => {
@@ -17,24 +17,24 @@ export const onLoginSubmit = (user, history) => dispatch => {
         password: user.password
     }
 
-    axios.post(`${API_URL}/tokens`, loginJson)
+    axios.post(`${SERVER_URL}/tokens`, loginJson)
       .then(res => {
         dispatch(onLoginSuccess());
         dispatch(authUser(loginJson.username, res.data.token));
 
         setToLocalStorage("isAuth", true)
-        setToLocalStorage("user", `username: ${loginJson.username}`)
+        setToLocalStorage("user", JSON.stringify(loginJson.username))
         setToLocalStorage("authToken", `Bearer ${res.data.token}`);
 
         history.push(HOME);
       })
       .catch(err => {
-        
-        if (err.response.status === 401){
-          dispatch(onLoginError("Incorrect login details"))
-        } else {
-          dispatch(onLoginError("Something went wrong. Try again later"))
+        if(err.response) {
+          if (err.response.status && err.response.status === 401){
+            dispatch(onLoginError("Incorrect login details. Try again."))
+          } else {
+            dispatch(onLoginError("Something went wrong. Try again later"))
+          }
         }
-
       });
 }

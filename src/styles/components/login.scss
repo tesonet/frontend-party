@@ -41,44 +41,46 @@
     }
 
     &__error {
-        color: red;
-    }
-}
-
-.login-form--field {
-    display: flex;
-    width: 100%;
-    background-color: $white;
-    border: 1px solid transparent;
-    border-radius: 5px;
-
-    img {
-        padding: 1rem;
-    }
-
-    input {
-        padding: 1rem;
-        border: 0;
-        flex: 1;
-        outline: transparent;
+        margin-top: 0;
         font-size: 1rem;
-        letter-spacing: 0.5px;
-        font-family: "Roboto";
-        
-        &::placeholder {
-            color: #B3B3B3;
-            font-weight: 300;
+        height: 20px;
+    }
+
+    &__input-field {
+        display: flex;
+        width: 100%;
+        background-color: $white;
+        border: 1px solid transparent;
+        border-radius: 5px;
+
+        img {
+            padding: 1rem;
+        }
+
+        input {
+            padding: 1rem;
+            border: 0;
+            flex: 1;
+            outline: transparent;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            font-family: "Roboto";
+            
+            &::placeholder {
+                color: #B3B3B3;
+                font-weight: 300;
+            }
         }
     }
 }
 
-@media (min-width: 375px) {
+@media (min-width: $media-tiny) {
     .login-form {
         min-width: 20rem;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $media-tablet) {
     .login-form {
         min-width: 24rem;
     }
