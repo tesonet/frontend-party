@@ -1,9 +1,15 @@
 import React from "react";
 
-const ServersPage = () => {
+
+import { TableServerList, Navigation } from "../components";
+
+const ServersPage = ({ history }) => {
   return (
     <div>
-      <h1>Servers page</h1>
+      <Navigation history={history} />
+      <main>
+        <TableServerList/>
+      </main>
     </div>
   );
 };

@@ -1,0 +1,29 @@
+.nav {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 2rem 0.5rem;
+
+    &__logo {
+        grid-column: 1 / -1;
+    }
+
+    &__btn-logout {
+        grid-column-start: -1;
+        display: flex;
+        align-items: center;
+        font-weight: 300;
+        font-size: 14px;
+        border: 0;
+        background-color: transparent;
+        color: #2F3254;
+
+        .logout-icon {
+            margin-right: 0.5rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 2rem 1rem;
+    }
+
+}

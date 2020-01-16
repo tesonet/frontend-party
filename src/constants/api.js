@@ -1,1 +1,1 @@
- export const SERVER_URL = "http://playground.tesonet.lt/v1"
+export const SERVER_URL = "http://playground.tesonet.lt/v1";

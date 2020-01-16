@@ -7,13 +7,12 @@ const LoginPage = ({ history }) => {
     <div className="wrapper">
       <div className="gs-overlay gs-overlay--dark">
         <section className="inner">
-          <img src={Logo} alt="Testio Logo"/>
-          <LoginForm history={history}/>
+          <img src={Logo} alt="Testio Logo" />
+          <LoginForm history={history} />
         </section>
       </div>
     </div>
   );
 };
-
 
 export default LoginPage;

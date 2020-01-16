@@ -1,19 +1,21 @@
 import * as types from "../../actions/types";
 
 const initialState = {
+  serverList: [],
   error: "",
   loading: false
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.LOGIN_FORM_LOADING:
-      return { ...state, loading: true };
-    case types.LOGIN_FORM_ERROR:
+    case types.SERVER_LIST_FETCH:
+      return { ...state, serverList: [], error: "", loading: true };
+    case types.SERVER_LIST_FETCH_ERROR:
       return { ...state, error: action.error, loading: false };
-    case types.LOGIN_FORM_SUCCESS:
+    case types.SERVER_LIST_FETCH_SUCCESS:
       return {
         ...state,
+        serverList: action.serverList,
         error: "",
         loading: false
       };

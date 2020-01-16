@@ -102,3 +102,13 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   box-sizing: border-box;
   padding: 0;
 }
+
+/* List */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
