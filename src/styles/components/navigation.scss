@@ -15,10 +15,16 @@
         font-size: 14px;
         border: 0;
         background-color: transparent;
-        color: #2F3254;
+        color: #e6e6e6;
+        letter-spacing: 0.35px;
 
         .logout-icon {
             margin-right: 0.5rem;
+        }
+
+        &:hover {
+            background-color: #99cc33;
+        cursor: pointer;
         }
     }
 
