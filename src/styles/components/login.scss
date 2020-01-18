@@ -5,7 +5,7 @@
     background-image: url("../../assets/images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat; 
-    background-position: center;   
+    background-position: center;
 }
 
 .inner {
@@ -23,7 +23,7 @@
     display: grid;
     grid-gap: 1rem;
     min-width: 16rem;
-    font-family: "Roboto";
+
 
     button {
         min-width: 100%;
@@ -41,6 +41,7 @@
     }
 
     &__error {
+        font-family: $font-main;
         margin-top: 0;
         font-size: 1rem;
         height: 20px;
@@ -64,24 +65,24 @@
             outline: transparent;
             font-size: 1rem;
             letter-spacing: 0.5px;
-            font-family: "Roboto";
+            font-family: $font-main;
             
             &::placeholder {
-                color: #B3B3B3;
-                font-weight: 300;
+                color: $gray-300;
+                font-weight: $font-weight-light;
             }
         }
     }
-}
 
-@media (min-width: $media-tiny) {
-    .login-form {
+    @media (min-width: $media-tiny) {
         min-width: 20rem;
     }
-}
 
-@media (min-width: $media-tablet) {
-    .login-form {
+    @media (min-width: $media-tablet) {
         min-width: 24rem;
     }
 }
+
+
+
+

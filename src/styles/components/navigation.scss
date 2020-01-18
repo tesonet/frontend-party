@@ -1,30 +1,32 @@
 .nav {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 2rem 0.5rem;
 
-    &__logo {
-        grid-column: 1 / -1;
-    }
 
     &__btn-logout {
-        grid-column-start: -1;
+        font-family: $font-main;
         display: flex;
         align-items: center;
-        font-weight: 300;
-        font-size: 14px;
+        font-weight: $font-weight-light;
+        font-size: $font-sm;
         border: 0;
         background-color: transparent;
         color: #e6e6e6;
         letter-spacing: 0.35px;
+        padding: 0.5rem 1rem;
+        border: 1px solid transparent;
+        border-radius: 2px;
 
         .logout-icon {
             margin-right: 0.5rem;
         }
 
         &:hover {
-            background-color: #99cc33;
-        cursor: pointer;
+            border: 1px solid $hover-green;
+            color: $black;
+            cursor: pointer;
         }
     }
 

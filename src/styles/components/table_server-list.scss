@@ -9,18 +9,19 @@
             display: block;
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid #E6E6E6;
-            border-top: 1px solid #E6E6E6;
+            border-bottom: 1px solid $gray-200;
+            border-top: 1px solid $gray-200;
             
             th {
 
                 button {
+                    font-family: $font-main;
                     border: 0;
                     background: transparent;
                     letter-spacing: 1.4px;
-                    font-weight: 300;
-                    font-size: 14px;
-                    color: #999999;
+                    font-weight: $font-weight-light;
+                    font-size: $font-sm;
+                    color: $gray-900;
                     text-transform: uppercase;
                     display: flex;
                     align-items: center;
@@ -41,19 +42,33 @@
         display: block;
         height: calc(100vh - 160px);
         overflow: auto;
+        position: relative;
 
         tr {
             display: flex;
             justify-content: space-between;
             padding: 1rem 1rem;
-            border-bottom: 1px solid #e6e6e6;
+            border-bottom: 1px solid $gray-200;
 
             td {
-                color: #666666;
-                font-weight: 300;
-                font-size: 16px;
+                font-family: $font-main;
+                color: $gray-600;
+                font-weight: $font-weight-light;
+                font-size: $font-base;
                 letter-spacing: 0.4px;
+            }
+        }
 
+        &__loading {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            td {
+                margin: 0 auto;
             }
         }
     }

@@ -19,7 +19,13 @@ export const onServerListDataFetch = () => dispatch => {
     }
   })
     .then(res => {
-      dispatch(onServerListFetchSuccess(res.data))
+      dispatch(onServerListFetchSuccess(res.data));
     })
-    .catch(err => dispatch(onServerListFetchError("There was a problem with server. Try again later")))
+    .catch(err =>
+      dispatch(
+        onServerListFetchError(
+          "There was a problem with server. Try again later"
+        )
+      )
+    );
 };

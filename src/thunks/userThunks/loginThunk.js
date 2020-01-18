@@ -27,8 +27,12 @@ export const onLoginSubmit = (user, history) => dispatch => {
       dispatch(onLoginSuccess());
       dispatch(authUser(loginJson.username, res.data.token));
 
+      const userInfo = {
+        username: loginJson.username
+      };
+
       setToLocalStorage("isAuth", true);
-      setToLocalStorage("user", JSON.stringify(loginJson.username));
+      setToLocalStorage("user", JSON.stringify(userInfo));
       setToLocalStorage("authToken", `Bearer ${res.data.token}`);
 
       history.push(HOME);
