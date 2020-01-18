@@ -9,7 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.SERVER_LIST_FETCH:
-      return { ...state, serverList: [], error: "", loading: true };
+      return { ...state, loading: true };
     case types.SERVER_LIST_FETCH_ERROR:
       return { ...state, error: action.error, loading: false };
     case types.SERVER_LIST_FETCH_SUCCESS:

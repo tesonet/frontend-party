@@ -12,7 +12,7 @@ const Tr = ({ server }) => (
   </tr>
 );
 
-const TableServerList = ({ serverList, loading, handleFetch }) => {
+const TableServerList = ({ serverList, loading, error, handleFetch }) => {
   const [sortByName, setSortByName] = useState({
     isActive: false,
     asc: false
@@ -32,8 +32,8 @@ const TableServerList = ({ serverList, loading, handleFetch }) => {
       setSortByDistance({ isActive: true, asc: !sortByDistance.asc });
 
       sortByDistance.asc
-        ? (filteredList = sort(filteredList, "distance", "asc"))
-        : (filteredList = sort(filteredList, "distance", "desc"));
+        ? (filteredList = sort(filteredList, "distance", "desc"))
+        : (filteredList = sort(filteredList, "distance", "asc"));
     }
 
     if (pickedFilter === "filterByName") {
@@ -41,8 +41,8 @@ const TableServerList = ({ serverList, loading, handleFetch }) => {
       setSortByName({ isActive: true, asc: !sortByName.asc });
 
       sortByName.asc
-        ? (filteredList = sort(filteredList, "name", "asc"))
-        : (filteredList = sort(filteredList, "name", "desc"));
+        ? (filteredList = sort(filteredList, "name", "desc"))
+        : (filteredList = sort(filteredList, "name", "asc"));
     }
 
     e.preventDefault();
@@ -100,6 +100,7 @@ const TableServerList = ({ serverList, loading, handleFetch }) => {
             <Tr key={server.name + server.distance} server={server} />
           ))
         )}
+        {error !== "" && <tr><td>{error}</td></tr>}
       </tbody>
     </table>
   );

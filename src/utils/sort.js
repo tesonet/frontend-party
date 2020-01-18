@@ -7,7 +7,7 @@ export default (arr, property, type) => {
       : 0;
   });
 
-  type === "desc" && sortedArray.reverse();
+  type === "asc" && sortedArray.reverse();
 
   return sortedArray;
 };
