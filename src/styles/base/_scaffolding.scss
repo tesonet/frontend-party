@@ -1,0 +1,16 @@
+/* 
+    Styles with gs- are meant to be user for global styles
+*/
+
+/* Overlays*/
+.gs-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gs-overlay--dark {
+    background-color: rgba(0, 9, 34, 0.8);
+}
