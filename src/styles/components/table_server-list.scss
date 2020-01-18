@@ -9,15 +9,30 @@
             display: block;
             display: flex;
             justify-content: space-between;
+            border-bottom: 1px solid #E6E6E6;
+            border-top: 1px solid #E6E6E6;
             
             th {
-                letter-spacing: 1.4px;
-                font-weight: 300;
-                font-size: 14px;
-                color: #999999;
-                text-transform: uppercase;
-                border-bottom: 1px solid #E6E6E6;
-                border-top: 1px solid #E6E6E6;
+
+                button {
+                    border: 0;
+                    background: transparent;
+                    letter-spacing: 1.4px;
+                    font-weight: 300;
+                    font-size: 14px;
+                    color: #999999;
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    
+                    img {
+                        margin-left: 0.2rem;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }
@@ -42,13 +57,5 @@
             }
         }
     }
-
-    // @media (min-width: 768px) {
-    //     thead {
-    //         tr {
-    //             padding: 1 1rem;
-    //         }
-    //     }
-    // }
 }
 
