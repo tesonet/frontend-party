@@ -1,0 +1,37 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0.5rem;
+
+
+    &__btn-logout {
+        font-family: $font-main;
+        display: flex;
+        align-items: center;
+        font-weight: $font-weight-light;
+        font-size: $font-sm;
+        border: 0;
+        background-color: transparent;
+        color: #222222;
+        letter-spacing: 0.35px;
+        padding: 0.5rem 1rem;
+        border: 1px solid transparent;
+        border-radius: 2px;
+
+        .logout-icon {
+            margin-right: 0.5rem;
+        }
+
+        &:hover {
+            border: 1px solid $hover-green;
+            color: $black;
+            cursor: pointer;
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 2rem 1rem;
+    }
+
+}

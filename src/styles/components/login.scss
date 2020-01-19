@@ -1,0 +1,88 @@
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    background-image: url("../../assets/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: $white;
+}
+
+// Login form
+.login-form {
+    margin-top: 4rem;
+    display: grid;
+    grid-gap: 1rem;
+    min-width: 16rem;
+
+
+    button {
+        min-width: 100%;
+        background-color: $green;
+        border: 0;
+        border-radius: 5px;
+        padding: 1rem;
+        color: $white;
+        font-size: 1rem;
+        font-weight: 700;
+
+        &:hover {
+            background-color: $hover-green;
+        }
+    }
+
+    &__error {
+        font-family: $font-main;
+        margin-top: 0;
+        font-size: 1rem;
+        height: 20px;
+    }
+
+    &__input-field {
+        display: flex;
+        width: 100%;
+        background-color: $white;
+        border: 1px solid transparent;
+        border-radius: 5px;
+
+        img {
+            padding: 1rem;
+        }
+
+        input {
+            padding: 1rem;
+            border: 0;
+            flex: 1;
+            outline: transparent;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            font-family: $font-main;
+            
+            &::placeholder {
+                color: $gray-300;
+                font-weight: $font-weight-light;
+            }
+        }
+    }
+
+    @media (min-width: $media-tiny) {
+        min-width: 20rem;
+    }
+
+    @media (min-width: $media-tablet) {
+        min-width: 24rem;
+    }
+}
+
+
+
+
