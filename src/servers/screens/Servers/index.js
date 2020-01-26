@@ -2,11 +2,11 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {fetchServers} from '../../actions'
 import {logoutUser} from '../../../auth/actions'
+import {getServerList} from '../../selectors'
 
 export default () => {
   const dispatch = useDispatch()
-
-  const data = useSelector(state => state.servers.list)
+  const data = useSelector(getServerList)
 
   useEffect(() => {
     dispatch(fetchServers())

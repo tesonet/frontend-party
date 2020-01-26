@@ -3,21 +3,22 @@ import {of, empty} from 'rxjs'
 import {switchMap, catchError, distinctUntilChanged, map} from 'rxjs/operators'
 
 import combineEpics from '../../utils/combineEpics'
-import {loginUserFulfilled, loginUserFailed} from '../actions'
-import * as ActionTypes from '../types'
+import * as actionTypes from '../types'
+import * as actions from '../actions'
+import {getToken} from '../selectors'
 
 const loginUserEpic = (action$, state$, {api}) =>
   action$.pipe(
-    ofType(ActionTypes.LOGIN_PENDING),
+    ofType(actionTypes.LOGIN_PENDING),
     switchMap(action => {
       const {history, ...other} = action.payload
 
       return api.auth.login(other).pipe(
         switchMap(response => {
-          return of(loginUserFulfilled(response))
+          return of(actions.loginUserFulfilled(response))
         }),
         catchError(error => {
-          return of(loginUserFailed(error))
+          return of(actions.loginUserFailed(error))
         }),
       )
     }),
@@ -25,7 +26,7 @@ const loginUserEpic = (action$, state$, {api}) =>
 
 const logoutUserEpic = action$ =>
   action$.pipe(
-    ofType(ActionTypes.LOGIN_PENDING),
+    ofType(actionTypes.LOGOUT),
     switchMap(() => {
       return empty()
     }),
@@ -33,7 +34,7 @@ const logoutUserEpic = action$ =>
 
 const redirectUserEpic = (action$, state$, {history}) =>
   action$.pipe(
-    ofType(ActionTypes.LOGIN_SUCCESS),
+    ofType(actionTypes.LOGIN_SUCCESS),
     switchMap(() => {
       // get last location
       history.push('/')
@@ -44,7 +45,7 @@ const redirectUserEpic = (action$, state$, {history}) =>
 
 const setAuthTokenEpic = (action$, state$, {api}) =>
   state$.pipe(
-    map(state => state.auth.userToken),
+    map(getToken),
     distinctUntilChanged(),
     switchMap(token => {
       api.http.setAuthToken(token)
