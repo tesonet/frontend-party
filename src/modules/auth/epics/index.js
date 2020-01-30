@@ -6,8 +6,10 @@ import {
   distinctUntilChanged,
   map,
   delay,
+  retryWhen,
 } from 'rxjs/operators'
 import combineEpics from '../../../utils/combineEpics'
+import genericRetryStrategy from '../../../utils/genericRetryStrategy'
 import * as actionTypes from '../types'
 import * as actions from '../actions'
 import {getToken} from '../selectors'
@@ -17,13 +19,15 @@ const loginUserEpic = (action$, state$, {api}) =>
     ofType(actionTypes.LOGIN_PENDING),
     delay(1000), // for ux
     switchMap(action => {
-      const {history, ...other} = action.payload
-
-      return api.auth.login(other).pipe(
-        // TODO: retry strategy
+      return api.auth.login(action.payload).pipe(
         switchMap(response => {
           return of(actions.loginUserFulfilled(response))
         }),
+        retryWhen(
+          genericRetryStrategy({
+            excludedStatusCodes: [401],
+          }),
+        ),
         catchError(() => {
           return of(
             actions.loginUserFailed(
