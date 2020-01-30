@@ -1,15 +1,13 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
-import {persistReducer, persistStore} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
 import {createEpicMiddleware} from 'redux-observable'
 import {createBrowserHistory} from 'history'
-import authEpic from '../auth/epics'
-import authReducer from '../auth/reducer'
-import serversEpic from '../servers/epics'
-import serversReducer from '../servers/reducer'
+import authEpic from '../modules/auth/epics'
+import authReducer from '../modules/auth/reducer'
+import serversEpic from '../modules/servers/epics'
+import serversReducer from '../modules/servers/reducer'
 import * as api from '../api'
 import combineEpics from '../utils/combineEpics'
-import {name} from '../../package.json'
+import * as storage from './localStorage'
 
 const history = createBrowserHistory()
 
@@ -18,31 +16,24 @@ const rootReducer = combineReducers({
   servers: serversReducer,
 })
 
-const persistRootReducer = persistReducer(
-  {
-    key: `${name}:root`,
-    storage,
-  },
-  rootReducer,
-)
-
 const epicMiddleware = createEpicMiddleware({
   dependencies: {
     api,
     history,
+    storage,
   },
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export default () => {
+  const persistedState = storage.loadState()
   const store = createStore(
-    persistRootReducer,
+    rootReducer,
+    persistedState,
     composeEnhancers(applyMiddleware(epicMiddleware)),
   )
 
-  const persistor = persistStore(store)
-
   epicMiddleware.run(combineEpics(authEpic, serversEpic))
 
-  return {store, persistor, history}
+  return {store, history}
 }
