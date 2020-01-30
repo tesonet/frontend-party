@@ -113,7 +113,6 @@ export default () => {
         size="medium"
         type="submit"
         loading={isLoggingIn}
-        disabled
         fullWidth>
         Log In
       </Button>
