@@ -1,8 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, {keyframes} from 'styled-components'
+import {space, variant} from 'styled-system'
+import theme from '../styles/theme'
 
-const SIZE = 44
+const sizeVariant = variant({
+  prop: 'size',
+  variants: {
+    small: {
+      width: 10,
+      height: 10,
+    },
+    medium: {
+      width: 20,
+      height: 20,
+    },
+    large: {
+      width: 40,
+      height: 40,
+    },
+  },
+})
+
+const SVG_SIZE = 44
 
 const keyframesRotate = keyframes`
   100% {
@@ -29,7 +49,9 @@ const SpinnerWrapper = styled.div`
   width: 20px;
   height: 20px;
   animation: ${keyframesRotate} 1.4s ease-in-out infinite;
-  color: ${props => props.color};
+  color: ${props => props.fillColor};
+  ${space}
+  ${sizeVariant}
 `
 
 const Circle = styled.circle`
@@ -39,14 +61,14 @@ const Circle = styled.circle`
   stroke: currentColor;
 `
 
-const Spinner = ({color, thickness, ...other}) => {
+const Spinner = ({color, size, thickness, ...other}) => {
   return (
-    <SpinnerWrapper color={color} role="progressbar" {...other}>
-      <svg viewBox={`${SIZE / 2} ${SIZE / 2} ${SIZE} ${SIZE}`}>
+    <SpinnerWrapper fillColor={color} size={size} role="progressbar" {...other}>
+      <svg viewBox={`${SVG_SIZE / 2} ${SVG_SIZE / 2} ${SVG_SIZE} ${SVG_SIZE}`}>
         <Circle
-          cx={SIZE}
-          cy={SIZE}
-          r={(SIZE - thickness) / 2}
+          cx={SVG_SIZE}
+          cy={SVG_SIZE}
+          r={(SVG_SIZE - thickness) / 2}
           fill="none"
           strokeWidth={thickness}
         />
@@ -57,11 +79,13 @@ const Spinner = ({color, thickness, ...other}) => {
 
 Spinner.propTypes = {
   color: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   thickness: PropTypes.number,
 }
 
 Spinner.defaultProps = {
-  color: null,
+  color: theme.palette.primary.main,
+  size: 'medium',
   thickness: 4,
 }
 
