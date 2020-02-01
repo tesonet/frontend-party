@@ -1,21 +1,23 @@
 import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import PropTypes from 'prop-types'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 import styled from 'styled-components'
-import List from '../../../ui/List'
-import ListHeader from '../../../ui/ListHeader'
-import ListHeaderItem from '../../../ui/ListHeaderItem'
-import ListHeaderText from '../../../ui/ListHeaderText'
-import ListItem from '../../../ui/ListItem'
-import ListItemText from '../../../ui/ListItemText'
-import Icon from '../../../ui/Icon'
 import {
-  getSortedSeverList,
-  getServerSortParams,
-} from '../../../modules/servers/selectors'
-import {
-  fetchServers,
-  updateServersSortParams,
-} from '../../../modules/servers/actions'
+  List,
+  ListHeader,
+  ListHeaderItem,
+  ListHeaderText,
+  ListItem,
+  ListItemText,
+  Icon,
+  Spinner,
+  Button,
+  Alert,
+  Box,
+} from '../../../ui'
+import * as selectors from '../../../modules/servers/selectors'
+import * as serverActions from '../../../modules/servers/actions'
 
 const SortIcon = styled(Icon)`
   fill: currentColor;
@@ -43,16 +45,8 @@ const getSortDirection = (key, currentKey, order) => {
   return 'asc'
 }
 
-export default () => {
-  const dispatch = useDispatch()
-  const data = useSelector(getSortedSeverList)
-  const sortParams = useSelector(getServerSortParams)
-
+const ServerList = ({loading, error, items, sortParams, actions}) => {
   const {key: sortKey, order} = sortParams
-
-  useEffect(() => {
-    dispatch(fetchServers())
-  }, [dispatch])
 
   const handleRequestSort = property => {
     let sortDirection = getSortDirection(property, sortKey, order)
@@ -61,63 +55,129 @@ export default () => {
       sortDirection = sortDirection === 'asc' ? 'desc' : 'asc'
     }
 
-    dispatch(
-      updateServersSortParams({
-        key: property,
-        order: sortDirection,
-      }),
+    actions.updateServersSortParams({
+      key: property,
+      order: sortDirection,
+    })
+  }
+
+  useEffect(() => {
+    actions.fetchServers()
+  }, [actions])
+
+  const renderContent = () => {
+    return (
+      <List>
+        <ListHeader>
+          <SortableHeaderItem
+            onClick={() => {
+              handleRequestSort('name')
+            }}>
+            <ListHeaderText>
+              Server
+              <SortIcon
+                name="arrow-up"
+                ml={1}
+                direction={
+                  getSortDirection('name', sortKey, order) === 'desc'
+                    ? 'down'
+                    : 'up'
+                }
+                show={sortKey === 'name'}
+              />
+            </ListHeaderText>
+          </SortableHeaderItem>
+
+          <SortableHeaderItem
+            onClick={() => {
+              handleRequestSort('distance')
+            }}>
+            <ListHeaderText>
+              <SortIcon
+                name="arrow-up"
+                mr={1}
+                direction={
+                  getSortDirection('distance', sortKey, order) === 'desc'
+                    ? 'down'
+                    : 'up'
+                }
+                show={sortKey === 'distance'}
+              />
+              Distance
+            </ListHeaderText>
+          </SortableHeaderItem>
+        </ListHeader>
+        {items.map(item => {
+          return (
+            <ListItem key={`${item.name}-${item.distance}`}>
+              <ListItemText>{item.name}</ListItemText>
+              <ListItemText>{item.distance}</ListItemText>
+            </ListItem>
+          )
+        })}
+      </List>
     )
   }
 
-  return (
-    <List>
-      <ListHeader>
-        <SortableHeaderItem
-          onClick={() => {
-            handleRequestSort('name')
-          }}>
-          <ListHeaderText>
-            Server
-            <SortIcon
-              name="arrow-up"
-              ml={1}
-              direction={
-                getSortDirection('name', sortKey, order) === 'desc'
-                  ? 'down'
-                  : 'up'
-              }
-              show={sortKey === 'name'}
-            />
-          </ListHeaderText>
-        </SortableHeaderItem>
+  const renderError = () => {
+    return (
+      <Box maxWidth={300} p={3} mx="auto">
+        <Alert variant="danger" mb={2}>
+          {error?.response?.message || error?.message}
+        </Alert>
+        <Button fullWidth onClick={actions.fetchServers}>
+          Reload list
+        </Button>
+      </Box>
+    )
+  }
 
-        <SortableHeaderItem
-          onClick={() => {
-            handleRequestSort('distance')
-          }}>
-          <ListHeaderText>
-            <SortIcon
-              name="arrow-up"
-              mr={1}
-              direction={
-                getSortDirection('distance', sortKey, order) === 'desc'
-                  ? 'down'
-                  : 'up'
-              }
-              show={sortKey === 'distance'}
-            />
-            Distance
-          </ListHeaderText>
-        </SortableHeaderItem>
-      </ListHeader>
-      {data.map(item => {
-        return (
-          <ListItem key={`${item.name}-${item.distance}`}>
-            <ListItemText>{item.name}</ListItemText>
-            <ListItemText>{item.distance}</ListItemText>
-          </ListItem>
-        )
-      })}
-    </List>
-  )
+  if (loading) {
+    return <Spinner size="large" mt={3} mx="auto" />
+  }
+
+  if (error) {
+    return renderError()
+  }
+
+  return renderContent()
 }
+
+ServerList.propTypes = {
+  loading: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  error: PropTypes.object,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      distance: PropTypes.number,
+    }),
+  ),
+  sortParams: PropTypes.shape({
+    key: PropTypes.string,
+    order: PropTypes.oneOf(['asc', 'desc']),
+  }).isRequired,
+  actions: PropTypes.shape({
+    fetchServers: PropTypes.func,
+    updateServersSortParams: PropTypes.func,
+  }).isRequired,
+}
+
+ServerList.defaultProps = {
+  loading: false,
+  error: null,
+  items: [],
+}
+
+const mapStateToProps = state => ({
+  loading: selectors.getIsLoading(state),
+  error: selectors.getError(state),
+  items: selectors.getSortedSeverList(state),
+  sortParams: selectors.getServerSortParams(state),
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(serverActions, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ServerList)
