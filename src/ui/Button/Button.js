@@ -9,6 +9,15 @@ import {size as styleSize, type as styleType} from './buttonStyle'
 
 const BUTTON_TYPES = ['button', 'submit']
 
+const AbsoluteSpinner = styled(Spinner)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+`
+
 const ButtonBase = styled.button`
   ${theme.button}
   box-sizing: border-box;
@@ -39,6 +48,10 @@ const ButtonBase = styled.button`
     transition: fill 0.3s;
   }
 
+  ${AbsoluteSpinner} {
+    color: currentColor;
+  }
+
   &:disabled {
     opacity: 0.8;
   }
@@ -47,15 +60,6 @@ const ButtonBase = styled.button`
 const ButtonContent = styled.div`
   transition: opacity 0.3s ease;
   opacity: ${props => (props.hide ? 0 : 1)};
-`
-
-const AbsoluteSpinner = styled(Spinner)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
 `
 
 const Button = ({
