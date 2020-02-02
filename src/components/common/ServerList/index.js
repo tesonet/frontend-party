@@ -72,7 +72,8 @@ const ServerList = ({loading, error, items, sortParams, actions}) => {
           <SortableHeaderItem
             onClick={() => {
               handleRequestSort('name')
-            }}>
+            }}
+            data-test-id="server-list-header-name">
             <ListHeaderText>
               Server
               <SortIcon
@@ -91,7 +92,8 @@ const ServerList = ({loading, error, items, sortParams, actions}) => {
           <SortableHeaderItem
             onClick={() => {
               handleRequestSort('distance')
-            }}>
+            }}
+            data-test-id="server-list-header-distance">
             <ListHeaderText>
               <SortIcon
                 name="arrow-up"
@@ -109,7 +111,9 @@ const ServerList = ({loading, error, items, sortParams, actions}) => {
         </ListHeader>
         {items.map(item => {
           return (
-            <ListItem key={`${item.name}-${item.distance}`}>
+            <ListItem
+              key={`${item.name}-${item.distance}`}
+              data-test-id="servers-list-item">
               <ListItemText>{item.name}</ListItemText>
               <ListItemText>{item.distance}</ListItemText>
             </ListItem>

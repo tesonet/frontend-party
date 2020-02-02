@@ -104,7 +104,7 @@ export default () => {
         )
       })}
       {!!errorMessage && (
-        <Alert variant="danger" mb={3}>
+        <Alert data-test-id="login-error" variant="danger" mb={3}>
           {errorMessage}
         </Alert>
       )}

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {variant} from 'styled-system'
-import Box from '../Box'
+import {variant, space} from 'styled-system'
+// import Box from '../Box'
 import theme from '../styles/theme'
 
 const type = variant({
@@ -20,12 +20,13 @@ const type = variant({
   },
 })
 
-const Alert = styled(Box)`
+const Alert = styled.div`
   position: relative;
   padding: 0.75rem 1.25rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
   ${type}
+  ${space}
 `
 
 export default Alert

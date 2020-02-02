@@ -6,7 +6,7 @@ module.exports = {
     'prettier',
     'prettier/react',
   ],
-  plugins: ['jsx-a11y', 'prettier'],
+  plugins: ['jsx-a11y', 'prettier', 'cypress'],
   rules: {
     semi: 0,
     'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
@@ -23,5 +23,8 @@ module.exports = {
         devDependencies: ['.storybook/**', 'stories/**', '**/*.stories.js'],
       },
     ],
+  },
+  env: {
+    'cypress/globals': true,
   },
 }
