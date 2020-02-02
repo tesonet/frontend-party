@@ -1,4 +1,5 @@
-import _ from 'lodash'
+import merge from 'lodash/merge'
+import isPlainObject from 'lodash/isPlainObject'
 import {of, throwError} from 'rxjs'
 import {ajax} from 'rxjs/ajax'
 import {mergeMap, catchError} from 'rxjs/operators'
@@ -17,14 +18,14 @@ export default class {
     )
 
   get = (url, params, headers = {}) => {
-    const targetUrl = _.isPlainObject(params)
+    const targetUrl = isPlainObject(params)
       ? urljoin(url, `?${queryString.stringify(params)}`)
       : url
 
     return this.makeRequest({
       method: 'GET',
       url: targetUrl,
-      headers: _.merge({}, this.defaultHeaders, headers),
+      headers: merge({}, this.defaultHeaders, headers),
     })
   }
 
@@ -33,14 +34,14 @@ export default class {
       method: 'POST',
       url,
       body,
-      headers: _.merge({}, this.defaultHeaders, headers),
+      headers: merge({}, this.defaultHeaders, headers),
     })
 
   delete = (url, headers = {}) =>
     this.makeRequest({
       method: 'DELETE',
       url,
-      headers: _.merge({}, this.defaultHeaders, headers),
+      headers: merge({}, this.defaultHeaders, headers),
     })
 
   put = (url, body, headers) =>
@@ -48,7 +49,7 @@ export default class {
       method: 'PUT',
       url,
       body,
-      headers: _.merge({}, this.defaultHeaders, headers),
+      headers: merge({}, this.defaultHeaders, headers),
     })
 
   request = ({url, method = 'GET', body, headers = {}}) =>
@@ -56,7 +57,7 @@ export default class {
       method,
       url,
       body,
-      headers: _.merge({}, this.defaultHeaders, headers),
+      headers: merge({}, this.defaultHeaders, headers),
     })
 
   setAuthToken = token => {

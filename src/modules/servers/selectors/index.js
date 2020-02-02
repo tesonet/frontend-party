@@ -1,4 +1,4 @@
-import {orderBy} from 'lodash'
+import orderBy from 'lodash/orderBy'
 import {createSelector} from 'reselect'
 
 export const getServerList = state => state.servers.list
