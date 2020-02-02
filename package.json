@@ -84,7 +84,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "cy": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -162,6 +163,8 @@
     "@storybook/addon-links": "^5.3.9",
     "@storybook/addons": "^5.3.9",
     "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.9"
+    "@storybook/react": "^5.3.9",
+    "cypress": "^3.8.3",
+    "eslint-plugin-cypress": "^2.8.1"
   }
 }
