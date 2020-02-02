@@ -2,6 +2,16 @@ const defaultFontFamily = '"Roboto", "Helvetica", "Arial", sans-serif'
 
 // TODO: support theming
 const theme = {
+  breakpoints: {
+    keys: ['xs', 'sm', 'md', 'lg', 'xl'],
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
   typography: {
     fontFamily: defaultFontFamily,
     button: {
