@@ -7,7 +7,7 @@ const text = 'Log In'
 
 storiesOf('Button', module)
   .addDecorator(story => <Box p={5}>{story()}</Box>)
-  .add('variant contained', () => {
+  .add('contained', () => {
     return (
       <>
         <Box display="flex" alignItems="center" mb={2}>
@@ -57,7 +57,7 @@ storiesOf('Button', module)
       </>
     )
   })
-  .add('variant text', () => {
+  .add('text', () => {
     return (
       <>
         <Box display="flex" alignItems="center" mb={2}>

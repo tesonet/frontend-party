@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 import {variant, space} from 'styled-system'
-// import Box from '../Box'
 import theme from '../styles/theme'
 
 const type = variant({
   prop: 'variant',
   variants: {
+    primary: {
+      color: theme.palette.primary.contrastText,
+      bg: theme.palette.primary.main,
+      borderColor: theme.palette.primary.dark,
+    },
     success: {
       color: theme.palette.success.contrastText,
       bg: theme.palette.success.light,
@@ -21,6 +25,7 @@ const type = variant({
 })
 
 const Alert = styled.div`
+  ${theme.typography.body1}
   position: relative;
   padding: 0.75rem 1.25rem;
   border: 1px solid transparent;
@@ -28,5 +33,9 @@ const Alert = styled.div`
   ${type}
   ${space}
 `
+
+Alert.defaultProps = {
+  variant: 'primary',
+}
 
 export default Alert

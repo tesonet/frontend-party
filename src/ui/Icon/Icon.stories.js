@@ -7,7 +7,7 @@ import Icon from '.'
 storiesOf('Icon', module)
   .addDecorator(withKnobs)
   .addDecorator(story => <Box p={5}>{story()}</Box>)
-  .add('variants', () => {
+  .add('with color picker', () => {
     return (
       <>
         <Box display="flex" alignItems="center" mb={2}>

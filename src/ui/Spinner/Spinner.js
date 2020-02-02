@@ -8,8 +8,8 @@ const sizeVariant = variant({
   prop: 'size',
   variants: {
     small: {
-      width: 10,
-      height: 10,
+      width: 15,
+      height: 15,
     },
     medium: {
       width: 20,

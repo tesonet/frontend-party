@@ -6,9 +6,21 @@ const theme = {
     fontFamily: defaultFontFamily,
     button: {
       fontFamily: defaultFontFamily,
+      fontWeight: 700,
+      fontSize: '1rem',
+      lineHeight: 1.5,
     },
     input: {
       fontFamily: defaultFontFamily,
+      fontWeight: 300,
+      fontSize: '1rem',
+      lineHeight: 1.5,
+    },
+    body1: {
+      fontFamily: defaultFontFamily,
+      fontWeight: 300,
+      fontSize: '1rem',
+      lineHeight: 1.5,
     },
   },
   palette: {
@@ -32,7 +44,7 @@ const theme = {
       light: '#81c784',
       main: '#4caf50',
       dark: '#388e3c',
-      contrastText: 'rgba(0, 0, 0, 0.87)',
+      contrastText: '#fff',
     },
     error: {
       light: '#e57373',

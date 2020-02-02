@@ -34,7 +34,6 @@ storiesOf('Input', module)
       />
     )
   })
-  // .add('with error', () => <Input label="username" />)
   .add('disabled', () => {
     const [value, setValue] = useState('')
 

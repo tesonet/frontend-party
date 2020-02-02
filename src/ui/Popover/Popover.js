@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {variant as styledVariant} from 'styled-system'
+import {variant as styledVariant, space} from 'styled-system'
 import styled from 'styled-components'
 import theme from '../styles/theme'
 
@@ -66,10 +66,12 @@ const Triangle = styled.div`
 `
 
 const PopoverBase = styled.div`
+  ${theme.typography.body1}
   position: relative;
   border-radius: 5px;
   ${styledType}
   ${styledSize}
+  ${space}
 `
 
 const Popover = ({children, variant, size, ...other}) => {

@@ -7,17 +7,12 @@ const text = 'Alert dummy text'
 
 storiesOf('Alert', module)
   .addDecorator(story => <Box p={5}>{story()}</Box>)
-  .add('variants', () => {
-    return (
-      <>
-        <Box display="flex" alignItems="center" mb={2}>
-          <Alert variant="success" mr={2}>
-            {text}
-          </Alert>
-          <Alert variant="danger" mr={2}>
-            {text}
-          </Alert>
-        </Box>
-      </>
-    )
+  .add('primary', () => {
+    return <Alert variant="primary">{text}</Alert>
+  })
+  .add('success', () => {
+    return <Alert variant="success">{text}</Alert>
+  })
+  .add('danger', () => {
+    return <Alert variant="danger">{text}</Alert>
   })
