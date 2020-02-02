@@ -19,7 +19,7 @@ const AbsoluteSpinner = styled(Spinner)`
 `
 
 const ButtonBase = styled.button`
-  ${theme.button}
+  ${theme.typography.button}
   box-sizing: border-box;
   margin: 0;
   appearance: none;
