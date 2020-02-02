@@ -80,14 +80,15 @@ const InputBase = styled.input`
 
 const AbsolutePopover = styled(Popover)`
   position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translate3d(100%, -50%, 0) scale(0);
+  top: 100%;
+  right: 0;
+  transform: translateZ(0) scale(0);
   transition: transform 0.3s;
+  z-index: 100;
   ${props =>
     props.visible &&
     css`
-      transform: translate3d(100%, -50%, 0) scale(1);
+      transform: translateZ(0) scale(1);
     `}
 `
 
@@ -134,7 +135,11 @@ const Input = forwardRef(
         {error && (
           <IconWrapper align="right">
             <Icon name="alert" color={theme.palette.error.light} />
-            <AbsolutePopover visible={hover} variant="danger" size="small">
+            <AbsolutePopover
+              visible={hover}
+              variant="danger"
+              size="small"
+              placement="top">
               {helperText}
             </AbsolutePopover>
           </IconWrapper>

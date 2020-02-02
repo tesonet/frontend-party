@@ -53,16 +53,43 @@ const styledTriangleType = styledVariant({
   },
 })
 
+const styledTrianglePlacement = styledVariant({
+  prop: 'placement',
+  variants: {
+    top: {
+      top: 0,
+      right: '24px',
+      marginTop: '-9px',
+      transform: 'rotate(90deg)',
+    },
+    bottom: {
+      bottom: 0,
+      right: '24px',
+      marginBottom: '-9px',
+      transform: 'rotate(-90deg)',
+    },
+    left: {
+      top: '50%',
+      left: '-5px',
+      marginTop: '-6px',
+    },
+    right: {
+      top: '50%',
+      right: '-5px',
+      marginTop: '-6px',
+      transform: 'rotate(180deg)',
+    },
+  },
+})
+
 const Triangle = styled.div`
   width: 0;
   height: 0;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
   position: absolute;
-  top: 50%;
-  left: -5px;
-  margin-top: -6px;
   ${styledTriangleType}
+  ${styledTrianglePlacement}
 `
 
 const PopoverBase = styled.div`
@@ -74,11 +101,11 @@ const PopoverBase = styled.div`
   ${space}
 `
 
-const Popover = ({children, variant, size, ...other}) => {
+const Popover = ({children, variant, size, placement, ...other}) => {
   return (
     <PopoverBase variant={variant} size={size} {...other}>
       {children}
-      <Triangle variant={variant} />
+      <Triangle variant={variant} placement={placement} />
     </PopoverBase>
   )
 }
@@ -87,11 +114,13 @@ Popover.propTypes = {
   children: PropTypes.node.isRequired,
   variant: PropTypes.string,
   size: PropTypes.string,
+  placement: PropTypes.string,
 }
 
 Popover.defaultProps = {
   variant: 'info',
   size: 'medium',
+  placement: 'left',
 }
 
 export default Popover
