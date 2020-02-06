@@ -1,0 +1,18 @@
+.login-form {
+    min-width: 350px;
+}
+
+.form-input {
+    min-height: 50px;
+}
+
+button.submit-button {
+    background-color: #9fd533;
+    border-color: #65873d;
+    width: 100%;
+    min-height: 50px;
+
+    &:hover {
+        background-color: #86b300;
+    }
+}
