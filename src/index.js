@@ -7,5 +7,5 @@ class App extends React.Component {
   }
 }
 
-var rootElement = document.getElementById("root");
+const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
