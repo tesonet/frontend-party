@@ -1,0 +1,17 @@
+{
+  "name": "frontend-party",
+  "version": "1.0.0",
+  "description": "Tesonet Front-end developer task",
+  "private": true,
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js-tesonet-party/frontend-party.git"
+  },
+  "author": "Justas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/js-tesonet-party/frontend-party/issues"
+  },
+  "homepage": "https://github.com/js-tesonet-party/frontend-party#readme"
+}
