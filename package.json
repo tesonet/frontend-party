@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,13 +22,16 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
-    "babel-core": "^6.26.3",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-jest": "^23.7.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
+    "jest": "^25.1.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "1.19.1"
   },
