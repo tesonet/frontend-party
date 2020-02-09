@@ -2,6 +2,7 @@ import {
   LOGIN_REQUESTED,
   LOGIN_SUCCESSFUL,
   LOGIN_FAILED,
+  LOGIN_CLEAR_ERROR,
   LOGOUT
 } from "../actions/types";
 import { getFromLocalStorage } from "../utils/localStorage/localStorage";
@@ -35,6 +36,11 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         error: true
+      };
+    case LOGIN_CLEAR_ERROR:
+      return {
+        ...state,
+        error: false
       };
     case LOGOUT:
       return {

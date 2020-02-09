@@ -2,6 +2,7 @@ import {
   LOGIN_REQUESTED,
   LOGIN_SUCCESSFUL,
   LOGIN_FAILED,
+  LOGIN_CLEAR_ERROR,
   LOGOUT
 } from "./types";
 import fetchAuth from "../services/auth/auth";
@@ -21,6 +22,10 @@ export const loginSuccessful = token => ({
 
 export const loginFailed = () => ({
   type: LOGIN_FAILED
+});
+
+export const loginClearError = () => ({
+  type: LOGIN_CLEAR_ERROR
 });
 
 export const logout = () => ({
