@@ -1,35 +1,45 @@
 import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
+  LOGIN_REQUESTED,
+  LOGIN_SUCCESSFUL,
+  LOGIN_FAILED,
   LOGOUT
 } from "../actions/types";
+import { getFromLocalStorage } from "../utils/localStorage/localStorage";
+
+const loggedIn = getFromLocalStorage("token") ? true : false;
 
 const initialState = {
-  loggingIn: false,
-  loggedIn: false
+  isFetching: false,
+  loggedIn,
+  error: false,
+  token: null
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_REQUEST:
+    case LOGIN_REQUESTED:
       return {
-        loggedIn: false,
-        loggingIn: true
+        ...state,
+        error: false,
+        isFetching: true
       };
-    case LOGIN_SUCCESS:
+    case LOGIN_SUCCESSFUL:
       return {
-        loggingIn: false,
-        loggedIn: true
+        error: false,
+        isFetching: false,
+        loggedIn: true,
+        token: action.payload
       };
-    case LOGIN_FAILURE:
+    case LOGIN_FAILED:
       return {
-        loggingIn: false,
-        loggedIn: false
+        ...state,
+        isFetching: false,
+        error: true
       };
     case LOGOUT:
       return {
-        loggingIn: false,
+        ...state,
+        token: null,
         loggedIn: false
       };
     default:

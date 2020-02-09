@@ -1,27 +1,44 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "./types";
+import {
+  LOGIN_REQUESTED,
+  LOGIN_SUCCESSFUL,
+  LOGIN_FAILED,
+  LOGOUT
+} from "./types";
+import fetchAuth from "../services/auth/auth";
+import {
+  setToLocalStorage,
+  removeFromLocalStorage
+} from "../utils/localStorage/localStorage";
 
 export const loginRequested = () => ({
-  type: LOGIN_REQUEST
+  type: LOGIN_REQUESTED
 });
 
 export const loginSuccessful = token => ({
-  type: LOGIN_SUCCESS,
-  token
+  type: LOGIN_SUCCESSFUL,
+  payload: token
 });
 
-export const loginFailure = () => ({
-  type: LOGIN_FAILURE
+export const loginFailed = () => ({
+  type: LOGIN_FAILED
 });
 
 export const logout = () => ({
   type: LOGOUT
 });
 
-export const login = () => dispatch => {
+export const onLogin = user => async dispatch => {
   dispatch(loginRequested());
+  try {
+    const { token } = await fetchAuth(user);
+    setToLocalStorage("token", token);
+    dispatch(loginSuccessful(token));
+  } catch (err) {
+    dispatch(loginFailed());
+  }
+};
 
-  const mockAuth = new Promise(resolve => {
-    setTimeout(resolve, 200);
-  });
-  return mockAuth.then(() => dispatch(loginSuccessful()));
+export const onLogout = () => dispatch => {
+  removeFromLocalStorage("token");
+  dispatch(logout());
 };

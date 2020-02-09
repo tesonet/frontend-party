@@ -1,23 +1,34 @@
-const initialState = {};
-/**
- * This is a reducer, a pure function with (state, action) => state signature.
- * It describes how an action transforms the state into the next state.
- *
- * The shape of the state is up to you: it can be a primitive, an array, an object,
- * or even an Immutable.js data structure. The only important part is that you should
- * not mutate the state object, but return a new object if the state changes.
- *
- * In this example, we use a `switch` statement and strings, but you can use a helper that
- * follows a different convention (such as function maps) if it makes sense for your
- * project.
- */
+import {
+  SERVER_LIST_REQUESTED,
+  SERVER_LIST_RECEIVED,
+  SERVER_LIST_NOT_RECEIVED
+} from "../actions/types";
+
+const initialState = {
+  isFetching: false,
+  error: false,
+  data: []
+};
 
 const serversReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "LOG":
-      return state + 1;
-    case "DECREMENT":
-      return state - 1;
+    case SERVER_LIST_REQUESTED:
+      return {
+        ...state,
+        isFetching: true
+      };
+    case SERVER_LIST_RECEIVED:
+      return {
+        ...state,
+        isFetching: false,
+        data: action.payload
+      };
+    case SERVER_LIST_NOT_RECEIVED:
+      return {
+        ...state,
+        isFetching: false,
+        error: true
+      };
     default:
       return state;
   }
