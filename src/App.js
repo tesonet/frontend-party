@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const Login = lazy(() => import("./pages/Login/Login"));
-const Servers = lazy(() => import("./pages/Servers/Servers"));
+const Home = lazy(() => import("./pages/Home/Home"));
 const NoMatch = () => "Page not found";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route path="/login" component={Login} />
-          <PrivateRoute path="/servers" component={Servers} />
+          <PrivateRoute path="/" component={Home} />
           <Route path="*" component={NoMatch} />
         </Switch>
       </Suspense>

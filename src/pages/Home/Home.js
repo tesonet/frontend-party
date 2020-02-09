@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onLogout } from "../../actions/authActions";
 import { onFetchServerList } from "../../actions/serversActions";
 
-const Servers = () => {
+const Home = () => {
   const dispatch = useDispatch();
   const servers = useSelector(({ servers }) => servers.data);
 
@@ -26,4 +26,4 @@ const Servers = () => {
   );
 };
 
-export default Servers;
+export default Home;
