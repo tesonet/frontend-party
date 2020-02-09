@@ -5,7 +5,8 @@
       {
         "targets": {
           "ie": "11"
-        }
+        },
+        "useBuiltIns": "entry"
       }
     ],
     "@babel/preset-react"
