@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledSvg = styled.svg`
-  padding: ${props => props.padding};
-`;
-
 const Icon = props => {
   const {
     viewBox = "0 0 17 19",
@@ -20,5 +16,9 @@ const Icon = props => {
     </StyledSvg>
   );
 };
+
+const StyledSvg = styled.svg`
+  padding: ${props => props.padding};
+`;
 
 export default Icon;

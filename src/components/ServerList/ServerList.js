@@ -3,6 +3,34 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { onFetchServerList } from "../../actions/serversActions";
 
+const Home = () => {
+  const dispatch = useDispatch();
+  const servers = useSelector(({ servers }) => servers.data);
+
+  useEffect(() => {
+    dispatch(onFetchServerList());
+  }, []);
+
+  return (
+    <StyledTable>
+      <StyledTableHead>
+        <StyledTableRow>
+          <StyledHeaderCell>SERVER</StyledHeaderCell>
+          <StyledHeaderCell textAlign="right">DISTANCE</StyledHeaderCell>
+        </StyledTableRow>
+      </StyledTableHead>
+      <StyledTableBody>
+        {servers.map(server => (
+          <StyledTableRow key={server.name + server.distance}>
+            <StyleCell>{server.name}</StyleCell>
+            <StyleCell textAlign="right">{server.distance} km</StyleCell>
+          </StyledTableRow>
+        ))}
+      </StyledTableBody>
+    </StyledTable>
+  );
+};
+
 const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
@@ -28,7 +56,7 @@ const StyledHeaderCell = styled.th`
   color: #999999;
   letter-spacing: 1.4px;
   font-weight: 300;
-  text-align: ${({ alignRight }) => (alignRight ? "right" : "left")};
+  text-align: ${({ textAlign }) => textAlign || "left"};
 `;
 
 const StyleCell = styled.th`
@@ -36,39 +64,11 @@ const StyleCell = styled.th`
   color: #999999;
   letter-spacing: 1.4px;
   font-weight: 300;
-  text-align: ${({ alignRight }) => (alignRight ? "right" : "left")};
+  text-align: ${({ textAlign }) => textAlign || "left"};
 `;
 
 const StyledTableBody = styled.tbody`
   border-spacing: 105px;
 `;
-
-const Home = () => {
-  const dispatch = useDispatch();
-  const servers = useSelector(({ servers }) => servers.data);
-
-  useEffect(() => {
-    dispatch(onFetchServerList());
-  }, []);
-
-  return (
-    <StyledTable>
-      <StyledTableHead>
-        <StyledTableRow>
-          <StyledHeaderCell>SERVER</StyledHeaderCell>
-          <StyledHeaderCell alignRight>DISTANCE</StyledHeaderCell>
-        </StyledTableRow>
-      </StyledTableHead>
-      <StyledTableBody>
-        {servers.map(server => (
-          <StyledTableRow key={server.name + server.distance}>
-            <StyleCell>{server.name}</StyleCell>
-            <StyleCell alignRight>{server.distance} km</StyleCell>
-          </StyledTableRow>
-        ))}
-      </StyledTableBody>
-    </StyledTable>
-  );
-};
 
 export default Home;

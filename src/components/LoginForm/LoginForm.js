@@ -5,6 +5,53 @@ import styled from "styled-components";
 import { onLogin, loginClearError } from "../../actions/authActions";
 import UserIcon from "../Icons/User";
 import LockIcon from "../Icons/Lock";
+
+const LoginForm = () => {
+  const isFetching = useSelector(({ auth }) => auth.isFetching);
+  const authFetchError = useSelector(({ auth }) => auth.error);
+  const dispatch = useDispatch();
+  const iconPadding = "0 10px";
+
+  return (
+    <Formik
+      initialValues={{ username: "", password: "" }}
+      validate={values => {
+        // clear login fetch error
+        if (authFetchError) dispatch(loginClearError());
+        return validate(values);
+      }}
+      onSubmit={values => dispatch(onLogin(values))}
+    >
+      <StyledForm>
+        <StyledInputContainer>
+          <UserIcon padding={iconPadding} />
+          <StyledInputField
+            type="username"
+            name="username"
+            placeholder="Username"
+          />
+          <StyledErrorMessage name="username" component="div" />
+        </StyledInputContainer>
+        <StyledInputContainer>
+          <LockIcon padding={iconPadding} />
+          <StyledInputField
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+          <StyledErrorMessage name="password" component="div" />
+        </StyledInputContainer>
+        <StyledButton type="submit" disabled={isFetching}>
+          {isFetching ? "Loading..." : "Log In"}
+        </StyledButton>
+        <StyledAuthError>
+          {authFetchError && "Login failed. Please try again."}
+        </StyledAuthError>
+      </StyledForm>
+    </Formik>
+  );
+};
+
 const validate = values => {
   const errors = {};
   if (!values.username) {
@@ -77,51 +124,5 @@ const StyledAuthError = styled.div`
   color: #fff;
   text-align: center;
 `;
-
-const LoginForm = () => {
-  const isFetching = useSelector(({ auth }) => auth.isFetching);
-  const authError = useSelector(({ auth }) => auth.error);
-  const dispatch = useDispatch();
-  const iconPadding = "0 10px";
-
-  return (
-    <Formik
-      initialValues={{ username: "", password: "" }}
-      validate={values => {
-        // clear fetch error
-        if (authError) dispatch(loginClearError());
-        return validate(values);
-      }}
-      onSubmit={values => dispatch(onLogin(values))}
-    >
-      <StyledForm>
-        <StyledInputContainer>
-          <UserIcon padding={iconPadding} />
-          <StyledInputField
-            type="username"
-            name="username"
-            placeholder="Username"
-          />
-          <StyledErrorMessage name="username" component="div" />
-        </StyledInputContainer>
-        <StyledInputContainer>
-          <LockIcon padding={iconPadding} />
-          <StyledInputField
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
-          <StyledErrorMessage name="password" component="div" />
-        </StyledInputContainer>
-        <StyledButton type="submit" disabled={isFetching}>
-          {isFetching ? "Loading..." : "Log In"}
-        </StyledButton>
-        <StyledAuthError>
-          {authError && "Login failed. Please try again."}
-        </StyledAuthError>
-      </StyledForm>
-    </Formik>
-  );
-};
 
 export default LoginForm;

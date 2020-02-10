@@ -5,6 +5,21 @@ import LogoutIcon from "../Icons/Logout";
 import { onLogout } from "../../actions/authActions";
 import logoDark from "../../assets/png/logo-dark.png";
 
+const Home = () => {
+  const dispatch = useDispatch();
+  const logout = () => dispatch(onLogout());
+
+  return (
+    <StyledHeader>
+      <StyledLogo src={logoDark} />
+      <StyledButton onClick={logout}>
+        <LogoutIcon />
+        Log out
+      </StyledButton>
+    </StyledHeader>
+  );
+};
+
 const StyledHeader = styled.header`
   padding: 0 20px;
   display: flex;
@@ -35,20 +50,5 @@ const StyledButton = styled.button`
     background-color: #99cc33;
   }
 `;
-
-const Home = () => {
-  const dispatch = useDispatch();
-  const logout = () => dispatch(onLogout());
-
-  return (
-    <StyledHeader>
-      <StyledLogo src={logoDark} />
-      <StyledButton onClick={logout}>
-        <LogoutIcon />
-        Log out
-      </StyledButton>
-    </StyledHeader>
-  );
-};
 
 export default Home;
