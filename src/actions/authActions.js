@@ -14,10 +14,6 @@ export const loginFailed = () => ({
   type: types.LOGIN_FAILED
 });
 
-export const loginClearError = () => ({
-  type: types.LOGIN_CLEAR_ERROR
-});
-
 export const logout = () => ({
   type: types.LOGOUT
 });

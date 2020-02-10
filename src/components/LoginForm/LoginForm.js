@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
-import { onLogin, loginClearError } from "../../actions/authActions";
+import { onLogin } from "../../actions/authActions";
 import UserIcon from "../Icons/User";
 import LockIcon from "../Icons/Lock";
 import * as styles from "../../constants/styles";
@@ -15,22 +15,17 @@ const LoginForm = () => {
   return (
     <Formik
       initialValues={{ username: "", password: "" }}
-      validate={values => {
-        // clear login fetch error
-        if (authFetchError) dispatch(loginClearError());
-        return validate(values);
-      }}
       onSubmit={values => dispatch(onLogin(values))}
     >
-      <StyledForm>
+      <StyledForm autoComplete="off">
         <StyledInputContainer>
           <UserIcon padding="0 10px" />
           <StyledInputField
             type="username"
             name="username"
             placeholder="Username"
+            required
           />
-          <StyledErrorMessage name="username" component="div" />
         </StyledInputContainer>
         <StyledInputContainer>
           <LockIcon padding="0 10px" />
@@ -38,8 +33,8 @@ const LoginForm = () => {
             type="password"
             name="password"
             placeholder="Password"
+            required
           />
-          <StyledErrorMessage name="password" component="div" />
         </StyledInputContainer>
         <StyledButton type="submit" disabled={isFetching}>
           {isFetching ? "Loading..." : "Log In"}
@@ -50,17 +45,6 @@ const LoginForm = () => {
       </StyledForm>
     </Formik>
   );
-};
-
-const validate = values => {
-  const errors = {};
-  if (!values.username) {
-    errors.username = "Required field";
-  }
-  if (!values.password) {
-    errors.password = "Required field";
-  }
-  return errors;
 };
 
 const StyledForm = styled(Form)`
@@ -78,7 +62,7 @@ const StyledButton = styled.button`
   border-radius: 10px;
   background-color: ${styles.colors.green2};
   color: ${styles.colors.white};
-  ${styles.fontWeight.light}
+  ${styles.fontWeight.bold}
   font-size: 16px;
   transition: background-color 0.3s ease;
   &:hover {
@@ -113,9 +97,8 @@ const StyledInputContainer = styled.div`
 `;
 
 const StyledErrorMessage = styled(ErrorMessage)`
-  position: absolute;
   right: 10px;
-  color: ${styles.colors.white};
+  color: ${styles.colors.red};
 `;
 
 const StyledAuthError = styled.div`

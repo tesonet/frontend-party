@@ -30,11 +30,6 @@ const authReducer = (state = initialState, action) => {
         isFetching: false,
         error: true
       };
-    case types.LOGIN_CLEAR_ERROR:
-      return {
-        ...state,
-        error: false
-      };
     case types.LOGOUT:
       return {
         ...state,
