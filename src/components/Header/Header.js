@@ -41,6 +41,7 @@ const StyledButton = styled.button`
   padding: 0px 10px;
   border: none;
   border-radius: 5px;
+  background-color: ${styles.colors.white};
   color: ${styles.colors.blue};
   transition: background-color 0.3s ease;
   ${styles.letterSpacing.small}
