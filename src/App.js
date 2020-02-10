@@ -10,15 +10,13 @@ export const paths = {
   home: "/"
 };
 
-const App = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path={paths.login} component={Login} />
-        <PrivateRoute exact path={paths.home} component={Home} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-    </Router>
-  );
-};
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path={paths.login} component={Login} />
+      <PrivateRoute exact path={paths.home} component={Home} />
+      <Route path="*" component={NotFound} />
+    </Switch>
+  </Router>
+);
 export default App;
