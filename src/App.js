@@ -5,12 +5,17 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import NotFound from "./pages/NotFound/NotFound";
 
+export const paths = {
+  login: "/login",
+  home: "/"
+};
+
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/login" component={Login} />
-        <PrivateRoute exact path="/" component={Home} />
+        <Route exact path={paths.login} component={Login} />
+        <PrivateRoute exact path={paths.home} component={Home} />
         <Route path="*" component={NotFound} />
       </Switch>
     </Router>

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import background from "../../assets/png/background.png";
 import logoLight from "../../assets/png/logo-light.png";
+import paths from "../../App";
 
 const StyledBackground = styled.div`
   background: linear-gradient(rgba(11, 15, 39, 0.8), rgba(11, 15, 39, 0.8)),
@@ -34,7 +35,7 @@ const Login = () => {
   const loggedIn = useSelector(({ auth }) => auth.loggedIn);
 
   return loggedIn ? (
-    <Redirect to="/" />
+    <Redirect to={paths.home} />
   ) : (
     <StyledBackground>
       <StyledLoginContainer>
