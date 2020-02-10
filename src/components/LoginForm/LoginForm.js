@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import styled from "styled-components";
 import { onLogin } from "../../actions/authActions";
 import UserIcon from "../Icons/User";
@@ -94,11 +94,6 @@ const StyledInputContainer = styled.div`
   :focus-within {
     outline: auto 5px -webkit-focus-ring-color;
   }
-`;
-
-const StyledErrorMessage = styled(ErrorMessage)`
-  right: 10px;
-  color: ${styles.colors.red};
 `;
 
 const StyledAuthError = styled.div`
