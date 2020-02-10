@@ -7,7 +7,7 @@ import {
 } from "../actions/types";
 import { getFromLocalStorage } from "../utils/localStorage/localStorage";
 
-const loggedIn = getFromLocalStorage("token") ? true : false;
+const loggedIn = !!getFromLocalStorage("token");
 
 const initialState = {
   isFetching: false,

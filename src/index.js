@@ -1,6 +1,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import React, { Fragment } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { Normalize } from "styled-normalize";
@@ -17,12 +17,12 @@ const GlobalStyles = createGlobalStyle`
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
-  <Fragment>
+  <>
     <Normalize />
     <GlobalStyles />
     <Provider store={store}>
       <App />
     </Provider>
-  </Fragment>,
+  </>,
   rootElement
 );
