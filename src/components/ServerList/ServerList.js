@@ -1,27 +1,55 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { onFetchServerList } from "../../actions/serversActions";
+import {
+  getSortOrder,
+  sortByObjectStringProperty,
+  sortByObjectByNumberProperty
+} from "../../utils/sortUtils";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const servers = useSelector(({ servers }) => servers.data);
+  const serversData = useSelector(({ servers }) => servers.data);
+  const [servers, setServers] = useState([]);
+  const [sortOrder, setSortOrder] = useState({});
 
   useEffect(() => {
     dispatch(onFetchServerList());
   }, []);
+  useEffect(() => setServers(serversData), [serversData]);
+
+  const handleSort = type => {
+    const order = getSortOrder(sortOrder[type]);
+    const sorted =
+      type === "name"
+        ? sortByObjectStringProperty(servers, type, order)
+        : sortByObjectByNumberProperty(servers, type, order);
+
+    setSortOrder({
+      [type]: order
+    });
+    setServers([...sorted]);
+  };
 
   return (
     <StyledTable>
       <StyledTableHead>
         <StyledTableRow>
-          <StyledHeaderCell>SERVER</StyledHeaderCell>
-          <StyledHeaderCell textAlign="right">DISTANCE</StyledHeaderCell>
+          <StyledHeaderCell onClick={() => handleSort("name")}>
+            SERVER
+          </StyledHeaderCell>
+          <StyledHeaderCell
+            onClick={() => handleSort("distance")}
+            textAlign="right"
+          >
+            DISTANCE
+          </StyledHeaderCell>
         </StyledTableRow>
       </StyledTableHead>
       <StyledTableBody>
         {servers.map(server => (
-          <StyledTableRow key={server.name + server.distance}>
+          <StyledTableRow key={`${server.name}${server.distance}`}>
             <StyleCell>{server.name}</StyleCell>
             <StyleCell textAlign="right">{server.distance} km</StyleCell>
           </StyledTableRow>
