@@ -1,10 +1,4 @@
-import {
-  LOGIN_REQUESTED,
-  LOGIN_SUCCESSFUL,
-  LOGIN_FAILED,
-  LOGIN_CLEAR_ERROR,
-  LOGOUT
-} from "./types";
+import types from "../actions/types";
 import fetchAuth from "../services/auth/auth";
 import {
   setToLocalStorage,
@@ -12,24 +6,24 @@ import {
 } from "../utils/localStorage/localStorage";
 
 export const loginRequested = () => ({
-  type: LOGIN_REQUESTED
+  type: types.LOGIN_REQUESTED
 });
 
 export const loginSuccessful = token => ({
-  type: LOGIN_SUCCESSFUL,
-  payload: token
+  type: types.LOGIN_SUCCESSFUL,
+  token
 });
 
 export const loginFailed = () => ({
-  type: LOGIN_FAILED
+  type: types.LOGIN_FAILED
 });
 
 export const loginClearError = () => ({
-  type: LOGIN_CLEAR_ERROR
+  type: types.LOGIN_CLEAR_ERROR
 });
 
 export const logout = () => ({
-  type: LOGOUT
+  type: types.LOGOUT
 });
 
 export const onLogin = user => async dispatch => {

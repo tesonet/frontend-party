@@ -1,10 +1,4 @@
-import {
-  LOGIN_REQUESTED,
-  LOGIN_SUCCESSFUL,
-  LOGIN_FAILED,
-  LOGIN_CLEAR_ERROR,
-  LOGOUT
-} from "../actions/types";
+import types from "../actions/types";
 import { getFromLocalStorage } from "../utils/localStorage/localStorage";
 
 const loggedIn = !!getFromLocalStorage("token");
@@ -18,31 +12,31 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_REQUESTED:
+    case types.LOGIN_REQUESTED:
       return {
         ...state,
         error: false,
         isFetching: true
       };
-    case LOGIN_SUCCESSFUL:
+    case types.LOGIN_SUCCESSFUL:
       return {
         error: false,
         isFetching: false,
         loggedIn: true,
-        token: action.payload
+        token: action.token
       };
-    case LOGIN_FAILED:
+    case types.LOGIN_FAILED:
       return {
         ...state,
         isFetching: false,
         error: true
       };
-    case LOGIN_CLEAR_ERROR:
+    case types.LOGIN_CLEAR_ERROR:
       return {
         ...state,
         error: false
       };
-    case LOGOUT:
+    case types.LOGOUT:
       return {
         ...state,
         token: null,

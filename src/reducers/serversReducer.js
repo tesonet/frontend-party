@@ -1,8 +1,4 @@
-import {
-  SERVER_LIST_REQUESTED,
-  SERVER_LIST_RECEIVED,
-  SERVER_LIST_NOT_RECEIVED
-} from "../actions/types";
+import types from "../actions/types";
 
 const initialState = {
   isFetching: false,
@@ -12,18 +8,18 @@ const initialState = {
 
 const serversReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SERVER_LIST_REQUESTED:
+    case types.SERVER_LIST_REQUESTED:
       return {
         ...state,
         isFetching: true
       };
-    case SERVER_LIST_RECEIVED:
+    case types.SERVER_LIST_RECEIVED:
       return {
         ...state,
         isFetching: false,
         data: action.payload
       };
-    case SERVER_LIST_NOT_RECEIVED:
+    case types.SERVER_LIST_NOT_RECEIVED:
       return {
         ...state,
         isFetching: false,
