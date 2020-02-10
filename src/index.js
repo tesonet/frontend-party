@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import App from "./App";
-import GlobalStyles from "/GlobalStyles";
+import GlobalStyles from "./GlobalStyles";
 import store from "./store";
 
 const rootElement = document.getElementById("root");
