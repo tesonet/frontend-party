@@ -1,17 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import * as styles from "../../constants/styles";
 
 const NotFound = () => {
   return <StyledContainer>Whoops. Page not found.</StyledContainer>;
 };
 
 const StyledContainer = styled.div`
-  font-size: 40px;
-  font-weight: 300;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${styles.align.center};
+  ${styles.fontWeight.light};
   height: 100vh;
+  font-size: 40px;
 `;
 
 export default NotFound;

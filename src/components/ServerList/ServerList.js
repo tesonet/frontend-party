@@ -7,6 +7,7 @@ import {
   sortByObjectStringProperty,
   sortByObjectByNumberProperty
 } from "../../utils/sortUtils";
+import * as styles from "../../constants/styles";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -58,42 +59,46 @@ const Home = () => {
     </StyledTable>
   );
 };
-
 const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
 `;
 
 const StyledTableHead = styled.thead`
-  background-color: #f5f5f5;
-  border: none;
   height: 60px;
   width: 100%;
+  border: none;
+  background-color: ${styles.colors.grey1};
 `;
 
 const StyledTableRow = styled.tr`
   height: 60px;
-  color: #666666;
-
-  border: solid #e6e6e6 1px;
   padding: 5px 7px;
+  border: solid ${styles.colors.grey2} 1px;
+  color: ${styles.colors.grey6};
 `;
 
 const StyledHeaderCell = styled.th`
   padding: 0 24px;
   text-align: ${({ textAlign }) => textAlign || "left"};
   button {
-    color: #999999;
-    letter-spacing: 1.4px;
-    font-weight: 300;
+    border: none;
+    background-color: ${styles.colors.grey1};
+    color: ${styles.colors.grey6};
+    ${styles.letterSpacing.large}
+    ${styles.fontWeight.light}
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
 const StyleCell = styled.th`
   padding: 0 24px;
-  color: #999999;
-  letter-spacing: 1.4px;
-  font-weight: 300;
+  color: ${styles.colors.grey5};
+  ${styles.fontWeight.light}
+  ${styles.letterSpacing.large}
+  ${styles.fontWeight.light}
   text-align: ${({ textAlign }) => textAlign || "left"};
 `;
 
@@ -102,14 +107,12 @@ const StyledTableBody = styled.tbody`
 `;
 
 const StyledLoadingContainer = styled.div`
-  background-color: #f5f5f5;
-  color: #999999;
-  font-size: 40px;
-  font-weight: 300;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${styles.align.center}
   height: 100vh;
+  background-color: ${styles.colors.grey1};
+  color: ${styles.colors.grey5};
+  font-size: 40px;
+  ${styles.fontWeight.light}
 `;
 
 export default Home;

@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Icon = props => {
   const {
     viewBox = "0 0 17 19",
+    padding = "0",
     width = "17",
     height = "19",
     children,
@@ -11,7 +12,13 @@ const Icon = props => {
   } = props;
 
   return (
-    <StyledSvg viewBox={viewBox} width={width} height={height} {...rest}>
+    <StyledSvg
+      viewBox={viewBox}
+      width={width}
+      height={height}
+      padding={padding}
+      {...rest}
+    >
       {children}
     </StyledSvg>
   );

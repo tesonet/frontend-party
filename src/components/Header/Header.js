@@ -4,6 +4,7 @@ import styled from "styled-components";
 import LogoutIcon from "../Icons/Logout";
 import { onLogout } from "../../actions/authActions";
 import logoDark from "../../assets/png/logo-dark.png";
+import * as styles from "../../constants/styles";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -21,11 +22,10 @@ const Home = () => {
 };
 
 const StyledHeader = styled.header`
-  padding: 0 20px;
-  display: flex;
+  ${styles.align.vertical}
   justify-content: space-between;
-  align-items: center;
   height: 112px;
+  padding: 0 20px;
 `;
 
 const StyledLogo = styled.img`
@@ -34,17 +34,16 @@ const StyledLogo = styled.img`
 `;
 
 const StyledButton = styled.button`
-  display: flex;
-  align-items: center;
+  ${styles.align.vertical}
   justify-content: space-between;
-  padding: 0px 10px;
   height: 40px;
   width: 100px;
+  padding: 0px 10px;
   border: none;
   border-radius: 5px;
-  letter-spacing: 0.35px;
-  color: #2f3254;
+  color: ${styles.colors.blue};
   transition: background-color 0.3s ease;
+  ${styles.letterSpacing.small}
   &:hover {
     cursor: pointer;
     background-color: #99cc33;
