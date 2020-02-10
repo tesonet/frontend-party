@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
+    "prebuild": "rm -rf dist",
+    "build": "parcel build index.html",
     "start": "parcel index.html",
+    "deploy": "npm run build && surge --project dist --domain js-testio.surge.sh",
     "test": "jest"
   },
   "repository": {
@@ -35,7 +38,8 @@
     "eslint-plugin-react": "^7.18.3",
     "jest": "^25.1.0",
     "parcel-bundler": "^1.12.4",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "surge": "^0.21.3"
   },
   "dependencies": {
     "core-js": "^3.6.4",
