@@ -6,9 +6,9 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import background from "../../assets/png/background.png";
 import logoLight from "../../assets/png/logo-light.png";
 
-// TODO add overlay which works with IE11
 const StyledBackground = styled.div`
-  background: url(${background});
+  background: linear-gradient(rgba(11, 15, 39, 0.8), rgba(11, 15, 39, 0.8)),
+    url(${background});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
