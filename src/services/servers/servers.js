@@ -1,9 +1,7 @@
-import { getFromLocalStorage } from "../../utils/localStorage/localStorage";
-
 const url = "http://playground.tesonet.lt/v1/servers";
 
 const fetchServers = async () => {
-  const token = getFromLocalStorage("token");
+  const token = localStorage.getItem("token");
 
   const response = await fetch(url, {
     method: "GET",

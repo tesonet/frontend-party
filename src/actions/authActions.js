@@ -1,9 +1,5 @@
 import types from "../actions/types";
 import fetchAuth from "../services/auth/auth";
-import {
-  setToLocalStorage,
-  removeFromLocalStorage
-} from "../utils/localStorage/localStorage";
 
 export const loginRequested = () => ({
   type: types.LOGIN_REQUESTED
@@ -30,7 +26,7 @@ export const onLogin = user => async dispatch => {
   dispatch(loginRequested());
   try {
     const { token } = await fetchAuth(user);
-    setToLocalStorage("token", token);
+    localStorage.setItem("token", token);
     dispatch(loginSuccessful(token));
   } catch (err) {
     dispatch(loginFailed());
@@ -38,6 +34,6 @@ export const onLogin = user => async dispatch => {
 };
 
 export const onLogout = () => dispatch => {
-  removeFromLocalStorage("token");
+  localStorage.removeItem("token");
   dispatch(logout());
 };

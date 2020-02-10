@@ -1,7 +1,6 @@
 import types from "../actions/types";
-import { getFromLocalStorage } from "../utils/localStorage/localStorage";
 
-const loggedIn = !!getFromLocalStorage("token");
+const loggedIn = !!localStorage.getItem("token");
 
 const initialState = {
   isFetching: false,
