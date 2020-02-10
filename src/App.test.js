@@ -15,7 +15,10 @@ const mockedFetch = url => {
   const isAuthRequest = url.includes("tokens");
   const mockJson = isAuthRequest
     ? { token: "sometoken" }
-    : [{ name: "Lithuania", distance: "10" }];
+    : [
+        { name: "Lithuania", distance: 20 },
+        { name: "Latvia", distance: 10 }
+      ];
   return Promise.resolve({
     ok: true,
     json: () => Promise.resolve(mockJson)
@@ -63,15 +66,64 @@ describe("Testio", () => {
   });
 
   describe("when user is logged in", () => {
-    it("renders servers page when logged in", async () => {
+    beforeAll(() => {
       store.dispatch(loginSuccessful("sometoken"));
+    });
+
+    it("renders servers page", async () => {
       const { getByText } = render(Testio);
+
       await wait(() => getByText("Lithuania"));
+
       expect(getByText("Lithuania")).toBeInTheDocument();
+      expect(getByText("Latvia")).toBeInTheDocument();
+    });
+
+    it("sorts servers by distance", async () => {
+      let firstRow;
+      let secondRow;
+      const { getByText, getAllByTestId } = render(Testio);
+      await wait(() => getByText("DISTANCE"));
+      const distanceButton = getByText("DISTANCE");
+      const servers = getAllByTestId("server-distance");
+
+      firstRow = servers[0].textContent;
+      secondRow = servers[1].textContent;
+
+      expect(firstRow).toEqual("20 km");
+      expect(secondRow).toEqual("10 km");
+
+      click(distanceButton);
+
+      firstRow = getAllByTestId("server-distance")[0].textContent;
+      secondRow = getAllByTestId("server-distance")[1].textContent;
+      expect(firstRow).toEqual("10 km");
+      expect(secondRow).toEqual("20 km");
+    });
+
+    it("sorts servers by name", async () => {
+      let firstRow;
+      let secondRow;
+      const { getByText, getAllByTestId } = render(Testio);
+      await wait(() => getByText("SERVER"));
+      const serverButton = getByText("SERVER");
+      const servers = getAllByTestId("server-name");
+
+      firstRow = servers[0].textContent;
+      secondRow = servers[1].textContent;
+
+      expect(firstRow).toEqual("Lithuania");
+      expect(secondRow).toEqual("Latvia");
+
+      click(serverButton);
+
+      firstRow = getAllByTestId("server-name")[0].textContent;
+      secondRow = getAllByTestId("server-name")[1].textContent;
+      expect(firstRow).toEqual("Latvia");
+      expect(secondRow).toEqual("Lithuania");
     });
 
     it("logout works", async () => {
-      store.dispatch(loginSuccessful("sometoken"));
       const { getByText, getByPlaceholderText } = render(Testio);
       const logoutButton = getByText("Log out");
 

@@ -51,8 +51,10 @@ const Home = () => {
       <StyledTableBody>
         {servers.map(server => (
           <StyledTableRow key={`${server.name}${server.distance}`}>
-            <StyleCell>{server.name}</StyleCell>
-            <StyleCell textAlign="right">{server.distance} km</StyleCell>
+            <StyledCell data-testid="server-name">{server.name}</StyledCell>
+            <StyledCell data-testid="server-distance" extAlign="right">
+              {server.distance} km
+            </StyledCell>
           </StyledTableRow>
         ))}
       </StyledTableBody>
@@ -93,7 +95,7 @@ const StyledHeaderCell = styled.th`
   }
 `;
 
-const StyleCell = styled.th`
+const StyledCell = styled.th`
   padding: 0 24px;
   color: ${styles.colors.grey5};
   ${styles.fontWeight.light}
