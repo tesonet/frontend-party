@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 import { onLogin, loginClearError } from "../../actions/authActions";
-import User from "../Icons/User";
-import Lock from "../Icons/Lock";
-
+import UserIcon from "../Icons/User";
+import LockIcon from "../Icons/Lock";
 const validate = values => {
-  let errors = {};
+  const errors = {};
   if (!values.username) {
     errors.username = "Required field";
   }
@@ -46,7 +45,9 @@ const StyledInputField = styled(Field)`
   height: 58px;
   font-weight: 300;
   letter-spacing: 0.4px;
-
+  &:focus {
+    outline: none;
+  }
   ::placeholder {
     color: #b3b3b3;
     font-weight: 300;
@@ -55,14 +56,20 @@ const StyledInputField = styled(Field)`
 `;
 
 const StyledInputContainer = styled.div`
+  position: relative;
   background-color: #fff;
   border-radius: 10px;
   display: flex;
   align-items: center;
+  :focus-within {
+    outline: auto 5px -webkit-focus-ring-color;
+  }
 `;
 
 const StyledErrorMessage = styled(ErrorMessage)`
   color: #ff000094;
+  position: absolute;
+  right: 10px;
 `;
 
 const StyledAuthError = styled.div`
@@ -75,6 +82,7 @@ const LoginForm = () => {
   const isFetching = useSelector(({ auth }) => auth.isFetching);
   const authError = useSelector(({ auth }) => auth.error);
   const dispatch = useDispatch();
+  const iconPadding = "0 10px";
 
   return (
     <Formik
@@ -85,11 +93,10 @@ const LoginForm = () => {
         return validate(values);
       }}
       onSubmit={values => dispatch(onLogin(values))}
-      onBlur={(...args) => console.log(args)}
     >
       <StyledForm>
         <StyledInputContainer>
-          <User />
+          <UserIcon padding={iconPadding} />
           <StyledInputField
             type="username"
             name="username"
@@ -97,9 +104,8 @@ const LoginForm = () => {
           />
           <StyledErrorMessage name="username" component="div" />
         </StyledInputContainer>
-
         <StyledInputContainer>
-          <Lock />
+          <LockIcon padding={iconPadding} />
           <StyledInputField
             type="password"
             name="password"
