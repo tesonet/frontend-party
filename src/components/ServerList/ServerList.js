@@ -52,7 +52,7 @@ const Home = () => {
         {servers.map(server => (
           <StyledTableRow key={`${server.name}${server.distance}`}>
             <StyledCell data-testid="server-name">{server.name}</StyledCell>
-            <StyledCell data-testid="server-distance" extAlign="right">
+            <StyledCell data-testid="server-distance" textAlign="right">
               {server.distance} km
             </StyledCell>
           </StyledTableRow>

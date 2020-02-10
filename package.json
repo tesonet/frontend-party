@@ -8,7 +8,7 @@
     "prebuild": "rm -rf dist",
     "build": "parcel build index.html",
     "start": "parcel index.html",
-    "deploy": "npm run build && surge --project dist --domain js-testio.surge.sh",
+    "deploy": "npm run build && mv dist/index.html dist/200.html && surge --project dist --domain js-testio.surge.sh",
     "test": "jest"
   },
   "repository": {
