@@ -11,6 +11,7 @@ import {
 const Home = () => {
   const dispatch = useDispatch();
   const serversData = useSelector(({ servers }) => servers.data);
+  const isFetching = useSelector(({ servers }) => servers.isFetching);
   const [servers, setServers] = useState([]);
   const [sortOrder, setSortOrder] = useState({});
 
@@ -32,18 +33,17 @@ const Home = () => {
     setServers([...sorted]);
   };
 
-  return (
+  return isFetching ? (
+    <StyledLoadingContainer>Loading...</StyledLoadingContainer>
+  ) : (
     <StyledTable>
       <StyledTableHead>
         <StyledTableRow>
-          <StyledHeaderCell onClick={() => handleSort("name")}>
-            SERVER
+          <StyledHeaderCell>
+            <button onClick={() => handleSort("name")}>SERVER</button>
           </StyledHeaderCell>
-          <StyledHeaderCell
-            onClick={() => handleSort("distance")}
-            textAlign="right"
-          >
-            DISTANCE
+          <StyledHeaderCell textAlign="right">
+            <button onClick={() => handleSort("distance")}>DISTANCE</button>
           </StyledHeaderCell>
         </StyledTableRow>
       </StyledTableHead>
@@ -81,10 +81,12 @@ const StyledTableRow = styled.tr`
 
 const StyledHeaderCell = styled.th`
   padding: 0 24px;
-  color: #999999;
-  letter-spacing: 1.4px;
-  font-weight: 300;
   text-align: ${({ textAlign }) => textAlign || "left"};
+  button {
+    color: #999999;
+    letter-spacing: 1.4px;
+    font-weight: 300;
+  }
 `;
 
 const StyleCell = styled.th`
@@ -97,6 +99,17 @@ const StyleCell = styled.th`
 
 const StyledTableBody = styled.tbody`
   border-spacing: 105px;
+`;
+
+const StyledLoadingContainer = styled.div`
+  background-color: #f5f5f5;
+  color: #999999;
+  font-size: 40px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 `;
 
 export default Home;
