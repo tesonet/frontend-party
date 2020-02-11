@@ -72,7 +72,9 @@ const StyledButton = styled.button`
 `;
 
 const StyledInputField = styled(Field)`
+  flex-grow: 1;
   height: 58px;
+  margin-right: 10px;
   border: none;
   ${styles.fontWeight.light}
   ${styles.letterSpacing.small}

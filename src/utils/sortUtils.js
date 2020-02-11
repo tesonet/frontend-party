@@ -2,7 +2,7 @@ export const getSortOrder = currOrder =>
   !currOrder || currOrder === "desc" ? "asc" : "desc";
 
 export const sortByObjectStringProperty = (arr, property, order) =>
-  arr.sort((a, b) => {
+  [...arr].sort((a, b) => {
     const propertyA = a[property].toLowerCase();
     const propertyB = b[property].toLowerCase();
 
@@ -17,7 +17,7 @@ export const sortByObjectStringProperty = (arr, property, order) =>
   });
 
 export const sortByObjectByNumberProperty = (arr, property, order) =>
-  arr.sort((a, b) => {
+  [...arr].sort((a, b) => {
     return order === "asc"
       ? a[property] - b[property]
       : b[property] - a[property];

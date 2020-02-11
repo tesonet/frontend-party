@@ -23,7 +23,7 @@ const Home = () => {
 
   const handleSort = type => {
     const order = getSortOrder(sortOrder[type]);
-    const sorted =
+    const sortedServers =
       type === "name"
         ? sortByObjectStringProperty(servers, type, order)
         : sortByObjectByNumberProperty(servers, type, order);
@@ -31,7 +31,7 @@ const Home = () => {
     setSortOrder({
       [type]: order
     });
-    setServers([...sorted]);
+    setServers(sortedServers);
   };
 
   return isFetching ? (

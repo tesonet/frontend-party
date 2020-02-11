@@ -29,8 +29,7 @@ const click = el =>
   fireEvent(
     el,
     new MouseEvent("click", {
-      bubbles: true,
-      cancelable: true
+      bubbles: true
     })
   );
 
