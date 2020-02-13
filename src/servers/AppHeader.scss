@@ -1,0 +1,10 @@
+.AppHeader {
+  .logout-button {
+    border: 0;
+    background-color: transparent;
+
+    &:hover {
+      color: #99cc33;
+    }
+  }
+}

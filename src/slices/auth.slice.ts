@@ -22,9 +22,14 @@ const authSlice = createSlice({
       state.accessToken = '';
       state.error = action.payload.message;
     },
+    logout(state) {
+      state.loading = false;
+      state.accessToken = '';
+      state.error = '';
+    }
   },
 });
 
-export const { authPending, authSuccess, authError } = authSlice.actions;
+export const { authPending, authSuccess, authError, logout } = authSlice.actions;
 
 export default authSlice.reducer;

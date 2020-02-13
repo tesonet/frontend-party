@@ -1,13 +1,13 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import './LoginPage.scss';
-import LoginLogoImage from '../assets/logo-testio.svg';
+import LogoTestioLightImage from '../assets/logo-testio-light.svg';
 import UserImage from '../assets/user.svg';
 import PasswordImage from '../assets/password.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../store';
 import * as tesonetAPI from '../tesonetAPI';
-import { authSuccess, authPending, authError } from '../authSlice';
+import { authSuccess, authPending, authError } from '../slices/auth.slice';
 import { Redirect, useHistory } from 'react-router-dom';
 import { RootState } from '../rootReducer';
 
@@ -28,7 +28,7 @@ const LoginPage: React.FC = () => {
   return (
     <div className="LoginPage">
       <div>
-        <img src={LoginLogoImage} alt="Logo" />
+        <img src={LogoTestioLightImage} alt="Testio logo" />
       </div>
       <Formik
         initialValues={{ username: 'tesonet', password: 'partyanimal' }}
@@ -46,7 +46,6 @@ const LoginPage: React.FC = () => {
           dispatch(authPending());
           try {
             const { token } = await tesonetAPI.login(values);
-            localStorage.setItem('token', token);
             dispatch(authSuccess({ token }));
             history.push('/');
           } catch (e) {

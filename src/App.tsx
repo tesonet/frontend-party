@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import LoginPage from './login/LoginPage';
-import ServersPage from './ServersPage';
+import ServersPage from './servers/ServersPage';
 import { useSelector } from 'react-redux';
 import { RootState } from './rootReducer';
 import NotFoundPage from './NotFoundPage';
@@ -9,6 +9,9 @@ import NotFoundPage from './NotFoundPage';
 const App = () => {
   const { accessToken } = useSelector((state: RootState) => state.auth);
 
+  useEffect(() => {
+    localStorage.setItem('token', accessToken);
+  }, [accessToken]);
   return (
     <div>
       <Router>
