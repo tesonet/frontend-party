@@ -12,6 +12,7 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('token', accessToken);
   }, [accessToken]);
+
   return (
     <div>
       <Router>

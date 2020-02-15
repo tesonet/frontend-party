@@ -73,6 +73,9 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "transformIgnorePatterns": ["node_modules/(?!lodash-es/*)"]
+  },
   "devDependencies": {
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
