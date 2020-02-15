@@ -26,7 +26,7 @@ const authSlice = createSlice({
       state.loading = false;
       state.accessToken = '';
       state.error = '';
-    }
+    },
   },
 });
 
