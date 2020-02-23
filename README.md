@@ -1,7 +1,7 @@
-## Dev
+## Run dev
 
 `npm i && npm start`
 
-## Prod
+## Run build
 
 `npm run build && npx serve dist`
