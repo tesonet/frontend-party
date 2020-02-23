@@ -1,0 +1,52 @@
+.header {
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 112px;
+
+    .logo-holder {
+      position: relative;
+      width: 115px;
+
+      a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .button-logout {
+      cursor: pointer;
+      font-size: 14px;
+      color: #2f3254;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      transition: color 0.15s;
+
+      &:hover {
+        color: #99cc33;
+
+        svg path {
+          fill: #99cc33;
+        }
+      }
+
+      svg {
+        margin-right: 10px;
+
+        path {
+          transition: fill 0.15s;
+        }
+      }
+    }
+  }
+}

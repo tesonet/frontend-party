@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    [
+      "@babel/preset-react",
+      {
+        "targets": {
+          "browsers": ["last 1 version", "ie >= 11"]
+        }
+      }
+    ]
+  ],
+  "plugins": ["react-hot-loader/babel"]
+}

@@ -1,0 +1,32 @@
+.auth {
+  height: 100%;
+  background-size: cover;
+  background-position: left bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 20px;
+
+    .logo {
+      width: 246px;
+      height: auto;
+      display: block;
+      margin: 0 auto 70px;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  .auth-error {
+    background-color: #d82b55;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+}

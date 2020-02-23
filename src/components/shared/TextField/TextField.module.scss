@@ -1,0 +1,44 @@
+@import '../../../styles/mixins';
+
+.text-field {
+  position: relative;
+  margin-bottom: 20px;
+
+  &.with-icon {
+    input {
+      padding-left: 55px;
+    }
+  }
+
+  input {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    line-height: 1.4;
+    outline: none;
+    border: 0;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    padding: 18px 25px 16px;
+
+    @include placeholder {
+      opacity: 1;
+      color: #b3b3b3;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    width: 17px;
+    font-size: 0;
+    transform: translate(0, -50%);
+    pointer-events: none;
+
+    svg {
+      max-width: 100%;
+    }
+  }
+}
