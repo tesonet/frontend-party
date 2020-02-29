@@ -1,6 +1,11 @@
 import React from 'react';
-import { LoginBackground } from './components/loginBackground';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Login from './containers/Login/Login';
 
-const App = () => <LoginBackground />;
-
+const App = () => (
+  <Switch>
+    <Route path="/" exact component={Login} />
+    <Redirect to="/" />
+  </Switch>
+);
 export default App;
