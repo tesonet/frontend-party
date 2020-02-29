@@ -25,4 +25,9 @@ module.exports = {
       template: './src/index.html',
     }),
   ],
+  devServer: {
+    contentBase: './build',
+    port: 8080,
+    historyApiFallback: true,
+  },
 };
