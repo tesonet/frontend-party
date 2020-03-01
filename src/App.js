@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Login from './containers/Login/Login';
-import Home from './containers/Home/Home';
+import Home from './containers/Servers/Servers';
 import { checkAuth } from './store/thunk/auth';
 
 const App = () => {

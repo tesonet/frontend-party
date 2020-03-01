@@ -29,7 +29,7 @@ export const checkAuth = () => dispatch => {
   }
 };
 
-const signout = () => dispatch => {
+export const signout = () => dispatch => {
   localStorage.removeItem('token');
   localStorage.removeItem('expirationDate');
   dispatch(actions.logout());
