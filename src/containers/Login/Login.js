@@ -7,7 +7,7 @@ import LoginInput from '../../components/Login/LoginInput';
 import LoginButton from '../../components/Login/LoginButton';
 import PasswordIcon from '../../components/Icons/PasswordIcon';
 import UserIcon from '../../components/Icons/UserIcon';
-import { auth } from '../../store/requests/auth';
+import { auth } from '../../store/thunk/auth';
 
 const Login = () => {
   const [username, setUsername] = useState('');

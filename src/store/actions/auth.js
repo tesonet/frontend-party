@@ -13,3 +13,7 @@ export const authFail = err => ({
   type: actionTypes.AUTH_FAIL,
   err,
 });
+
+export const logout = () => ({
+  type: actionTypes.LOGOUT,
+});

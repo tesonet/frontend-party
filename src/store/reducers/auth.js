@@ -24,6 +24,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
       };
+    case actionTypes.LOGOUT:
+      return {
+        ...state,
+        token: null,
+      };
     default:
       return state;
   }
