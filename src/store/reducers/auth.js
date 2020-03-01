@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: 'error',
+        error: 'Incorrect username or password!',
       };
     case actionTypes.LOGOUT:
       return {

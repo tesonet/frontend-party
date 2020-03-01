@@ -16,8 +16,8 @@ import { sortByDistance } from '../../utility/sortByDistance';
 const Home = () => {
   const dispatch = useDispatch();
   const servers = useSelector(state => state.servers.servers);
-  const [nameSortType, setNameSortType] = useState('asce');
-  const [distanceSortType, setDistanceSortType] = useState('asce');
+  const [nameSortType, setNameSortType] = useState('');
+  const [distanceSortType, setDistanceSortType] = useState('');
 
   useEffect(() => {
     dispatch(fetchServers());
@@ -29,12 +29,14 @@ const Home = () => {
     const sortType = sortTypeHandler(nameSortType);
     sortByName(servers, sortType);
     setNameSortType(sortType);
+    setDistanceSortType('');
   };
 
   const sortByDistanceHandler = () => {
     const sortType = sortTypeHandler(distanceSortType);
     sortByDistance(servers, sortType);
     setDistanceSortType(sortType);
+    setNameSortType('');
   };
 
   return (
