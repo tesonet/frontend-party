@@ -20,4 +20,8 @@ export default styled.button`
     position: relative;
     top: 2px;
   }
+  @media (max-width: 400px) {
+    width: 90%;
+    margin: 0 auto;
+  }
 `;

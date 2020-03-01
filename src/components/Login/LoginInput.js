@@ -19,4 +19,8 @@ export default styled.input`
     letter-spacing: 0.4px;
     font-weight: 300;
   }
+  @media (max-width: 400px) {
+    width: calc(90% - 55px);
+    margin: 0 auto;
+  }
 `;

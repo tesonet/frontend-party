@@ -5,4 +5,7 @@ export default styled.form`
   flex-direction: column;
   margin: 0 auto;
   position: relative;
+  @media (max-width: 400px) {
+    width: 90%;
+  }
 `;

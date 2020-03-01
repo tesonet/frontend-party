@@ -7,6 +7,9 @@ const Icon = styled.svg`
   position: relative;
   top: -40px;
   left: 25px;
+  @media (max-width: 400px) {
+    left: 40px;
+  }
 `;
 
 const PasswordIcon = () => (
