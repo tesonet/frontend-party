@@ -1,0 +1,16 @@
+$body-bgcolor: rgb(173, 177, 168);
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: $body-bgcolor;
+}
+
+img {
+	width: 50px;
+}
