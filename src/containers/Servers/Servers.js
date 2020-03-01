@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ServersHeader from '../../components/Servers/ServersHeader';
 import ServersLogo from '../../components/Servers/ServersLogo';
@@ -10,14 +10,32 @@ import LogoutButton from '../../components/Servers/LogoutButton';
 import LogoutIcon from '../../components/Icons/LogoutIcon';
 import { fetchServers } from '../../store/thunk/servers';
 import { signout } from '../../store/thunk/auth';
+import { sortByName } from '../../utility/sortByName';
+import { sortByDistance } from '../../utility/sortByDistance';
 
 const Home = () => {
   const dispatch = useDispatch();
   const servers = useSelector(state => state.servers.servers);
+  const [nameSortType, setNameSortType] = useState('asce');
+  const [distanceSortType, setDistanceSortType] = useState('asce');
 
   useEffect(() => {
     dispatch(fetchServers());
   }, [dispatch]);
+
+  const sortTypeHandler = currentType => (currentType !== 'asce' ? 'asce' : 'desc');
+
+  const sortByNameHandler = () => {
+    const sortType = sortTypeHandler(nameSortType);
+    sortByName(servers, sortType);
+    setNameSortType(sortType);
+  };
+
+  const sortByDistanceHandler = () => {
+    const sortType = sortTypeHandler(distanceSortType);
+    sortByDistance(servers, sortType);
+    setDistanceSortType(sortType);
+  };
 
   return (
     <>
@@ -30,8 +48,8 @@ const Home = () => {
       </ServersHeader>
       <ServersTable>
         <ServersTableHead>
-          <ServersTableTittle>SERVER</ServersTableTittle>
-          <ServersTableTittle>DISTANCE</ServersTableTittle>
+          <ServersTableTittle onClick={sortByNameHandler}>SERVER</ServersTableTittle>
+          <ServersTableTittle onClick={sortByDistanceHandler}>DISTANCE</ServersTableTittle>
         </ServersTableHead>
         {servers.map(server => (
           <ServersTableItem key={`${server.name}${server.distance}`}>

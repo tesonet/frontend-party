@@ -10,6 +10,7 @@ export default styled.button`
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.4px;
+  cursor: pointer;
   &&:focus {
     outline: none;
   }

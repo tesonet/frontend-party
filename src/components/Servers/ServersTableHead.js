@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export default styled.div`
   background: #f5f5f5;
   height: 60px;
+  width: calc(100vw - 16px);
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,4 +15,6 @@ export default styled.div`
   font-weight: 300;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
+  position: sticky;
+  top: 0px;
 `;

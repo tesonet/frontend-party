@@ -24,14 +24,13 @@ export const checkAuth = () => dispatch => {
     dispatch(signout());
   } else {
     dispatch(actions.authSuccess(token));
-    dispatch(logoutTimeout(360000));
+    dispatch(logoutTimeout(3600000));
     saveToken(token);
   }
 };
 
 export const signout = () => dispatch => {
-  localStorage.removeItem('token');
-  localStorage.removeItem('expirationDate');
+  localStorage.clear();
   dispatch(actions.logout());
 };
 
