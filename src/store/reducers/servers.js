@@ -2,33 +2,28 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   loading: false,
-  token: null,
+  servers: [],
   error: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.AUTH_START:
+    case actionTypes.FETCH_SERVERS_START:
       return {
         ...state,
         loading: true,
       };
-    case actionTypes.AUTH_SUCCESS:
+    case actionTypes.FETCH_SERVERS_SUCCESS:
       return {
         ...state,
-        token: action.token,
         loading: false,
+        servers: action.servers,
       };
-    case actionTypes.AUTH_FAIL:
+    case actionTypes.FETCH_SERVERS_FAIL:
       return {
         ...state,
         loading: false,
         error: 'error',
-      };
-    case actionTypes.LOGOUT:
-      return {
-        ...state,
-        token: null,
       };
     default:
       return state;

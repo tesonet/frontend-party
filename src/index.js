@@ -5,13 +5,13 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import authReducer from './store/reducers/auth';
-import reducer from './store/reducers/rootReducer';
+import serversReducer from './store/reducers/servers';
 import App from './App';
 import GlobalStyle from './components/GlobalStyle/GlobalStyle';
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  root: reducer,
+  servers: serversReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
