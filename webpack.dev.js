@@ -7,7 +7,11 @@ module.exports = merge(config, {
     mode: 'development',
     output: {
         filename: 'main.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [new HtmlWebpackPlugin({
         template: './public/index.html'

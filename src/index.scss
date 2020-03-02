@@ -1,4 +1,4 @@
-$body-bgcolor: rgb(173, 177, 168);
+$mainFont: 'Roboto', sans-serif;
 
 *,
 *::before,
@@ -6,11 +6,11 @@ $body-bgcolor: rgb(173, 177, 168);
 	box-sizing: border-box;
 }
 
-body {
+body, html, #root, .App, .container {
 	margin: 0;
-	background-color: $body-bgcolor;
+	height: 100%;
 }
 
-img {
-	width: 50px;
+body, input, button {
+	font-family: $mainFont;
 }

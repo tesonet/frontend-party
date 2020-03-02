@@ -1,0 +1,29 @@
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 15px 35px;
+
+    img {
+        max-width: 105px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .logout {
+        text-decoration: none;
+        font-weight: 300;
+        color: #2f3254;
+        font-size: 0.875rem;
+        line-height: 2.1428;
+        letter-spacing: 0.025em;
+        padding: 5px;
+    }
+
+    .logout:hover {
+        background-color: #99cc33;
+    }
+}

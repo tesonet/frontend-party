@@ -1,5 +1,6 @@
-import { hello } from './components/auth/signIn';
-import './index.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import "./index.scss";
+import App from './App';
 
-hello();
-alert('Hello again!');
+ReactDOM.render(<App />, document.getElementById('root'));
