@@ -14,6 +14,7 @@ export default styled.button`
   margin-right: 30px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
   &&:focus {
     outline: none;

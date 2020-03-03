@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginBackground from '../../components/Login/LoginBackground';
 import LoginLogo from '../../components/Login/LoginLogo';
@@ -11,8 +11,6 @@ import PasswordIcon from '../../components/Icons/PasswordIcon';
 import UserIcon from '../../components/Icons/UserIcon';
 import Spinner from '../../components/Spinner/Spinner';
 import { auth } from '../../store/thunk/auth';
-
-const MemoLoginBackground = memo(LoginBackground);
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -31,7 +29,7 @@ const Login = () => {
   };
 
   return (
-    <MemoLoginBackground>
+    <LoginBackground>
       <LoginLogo />
       <LoginForm>
         <LoginInput
@@ -51,7 +49,7 @@ const Login = () => {
         </LoginButton>
         <LoginError>{loginError}</LoginError>
       </LoginForm>
-    </MemoLoginBackground>
+    </LoginBackground>
   );
 };
 
