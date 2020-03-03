@@ -18,6 +18,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         token: action.token,
         loading: false,
+        error: null,
       };
     case actionTypes.AUTH_FAIL:
       return {
@@ -29,6 +30,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         token: null,
+        error: null,
       };
     default:
       return state;

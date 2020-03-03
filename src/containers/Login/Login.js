@@ -9,6 +9,7 @@ import LoginError from '../../components/Login/LoginError';
 import LoginRequiredError from '../../components/Login/LoginRequiredError';
 import PasswordIcon from '../../components/Icons/PasswordIcon';
 import UserIcon from '../../components/Icons/UserIcon';
+import Spinner from '../../components/Spinner/Spinner';
 import { auth } from '../../store/thunk/auth';
 
 const MemoLoginBackground = memo(LoginBackground);
@@ -45,7 +46,9 @@ const Login = () => {
           onChange={e => setPassword(e.target.value)}></LoginInput>
         <PasswordIcon />
         <LoginRequiredError show={!password && isRequriedError}>Required</LoginRequiredError>
-        <LoginButton onClick={e => login(e)}>{loading ? 'Loading...' : 'Log In'}</LoginButton>
+        <LoginButton onClick={e => login(e)}>
+          {loading ? <Spinner size="20px" show={loading} /> : 'Log In'}
+        </LoginButton>
         <LoginError>{loginError}</LoginError>
       </LoginForm>
     </MemoLoginBackground>

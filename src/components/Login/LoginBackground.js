@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroundImg from '../../assets/png/background.png';
+import backgroundImg from '../../assets/png/background.jpg';
 
 export default styled.div`
   height: 100vh;
