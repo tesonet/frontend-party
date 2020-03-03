@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import bg from '../../images/bg-image.jpg';
 import "./sign-in.scss";
+import { connect } from 'react-redux';
+import { signIn } from '../../store/actions/authActions';
+import { Redirect } from 'react-router-dom';
 
 const bgStyle = {
     backgroundImage: `url(${bg})`
@@ -18,9 +21,12 @@ class SignIn extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.signIn(this.state);
   }
   render() {
+    const { authError, authToken } = this.props;
+    if (authToken !== null) return <Redirect to='/' />
+
     return (
         <div className="container">
             <div className="bg-cover" style={ bgStyle }></div>
@@ -40,6 +46,9 @@ class SignIn extends Component {
                     </div>
                     <div className="input-field">
                         <button className="btn">Log In</button>
+                        <div className="red-text">
+                          { authError ? <p>{ authError }</p> : null }
+                        </div>
                     </div>
                 </form>
             </div>
@@ -48,4 +57,17 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError,
+    authToken: state.auth.authToken
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (credentials) => dispatch(signIn(credentials))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
