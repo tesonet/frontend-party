@@ -28,6 +28,8 @@ const Login = () => {
     }
   };
 
+  const showReqError = credential => !credential && isRequriedError;
+
   return (
     <LoginBackground>
       <LoginLogo />
@@ -37,17 +39,17 @@ const Login = () => {
           type="text"
           onChange={e => setUsername(e.target.value)}></LoginInput>
         <UserIcon />
-        <LoginRequiredError show={!username && isRequriedError}>Required</LoginRequiredError>
+        {showReqError(username) && <LoginRequiredError>Required</LoginRequiredError>}
         <LoginInput
           placeholder="Password"
           type="password"
           onChange={e => setPassword(e.target.value)}></LoginInput>
         <PasswordIcon />
-        <LoginRequiredError show={!password && isRequriedError}>Required</LoginRequiredError>
+        {showReqError(password) && <LoginRequiredError>Required</LoginRequiredError>}
         <LoginButton onClick={e => login(e)}>
           {loading ? <Spinner size="20px" show={loading} /> : 'Log In'}
         </LoginButton>
-        <LoginError>{loginError}</LoginError>
+        {loginError && <LoginError>{loginError}</LoginError>}
       </LoginForm>
     </LoginBackground>
   );
