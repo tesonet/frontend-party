@@ -1,0 +1,56 @@
+{
+  "name": "frontend-party",
+  "version": "1.0.0",
+  "description": "testio",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production",
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raluzez/frontend-party.git"
+  },
+  "author": "Lukas Laurinavicius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raluzez/frontend-party/issues"
+  },
+  "homepage": "https://raluzez.github.io/frontend-party",
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.6.4",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "file-loader": "^5.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "redux-mock-store": "^1.5.4",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|png)$": "<rootDir>/src/tests/fileMock.js"
+    },
+    "setupFiles": [
+      "<rootDir>/src/tests/testSetup.js"
+    ]
+  }
+}
