@@ -1,0 +1,123 @@
+$bgColor: #0b0f27;
+$placeholderFont: #b2b2b2;
+
+.container {
+	position: relative;
+	display: flex;
+	align-items: center;
+
+	.bg-cover, .bg-overlay, .bg-overlay::before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.bg-cover {
+		background-position: center center;
+		background-color: $bgColor;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+        background-size: cover;
+	}
+
+	.bg-overlay::before {
+		content: "";
+		opacity: 0.8;
+		background-color: $bgColor;
+    }
+
+    .form-container {
+        position: relative;
+        width: 100%;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 350px;
+        padding: 15px;
+        margin: auto;
+    }
+
+    .input-flex {
+        display: flex;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 9px 0;
+    }
+
+    input, .btn, .icon {
+        font-size: 1rem;
+        line-height: 1.875;
+        letter-spacing: 0.025em;
+    }
+
+    input, .btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        outline: none;
+    }
+
+    input {
+        font-weight: 300;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: #999;
+    }
+
+    .red-text {
+        text-align: center;
+    }
+
+    .para-red {
+        color: red;
+        font-size: 0.75rem;
+    }
+
+    .icon {
+        padding: 10px 5px 10px 20px;
+        color: $placeholderFont;
+        background-color: #fff;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .icon img {
+        vertical-align: text-top;
+    }
+
+    .btn {
+        background-color: #9fd533;
+        font-weight: 700;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    input::placeholder {
+        color: $placeholderFont;
+    }
+
+    input:focus::placeholder {
+        color: #999;
+    }
+
+    .btn:hover {
+        background-color: #86b300;
+        cursor: pointer;
+    }
+    
+    .logo {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    img {
+        max-width: 220px;
+    }
+}
