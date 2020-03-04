@@ -11,6 +11,9 @@ export default styled.div`
   letter-spacing: 0.4px;
   font-weight: 300;
   border-bottom: 1px solid #e6e6e6;
+  @media (min-width: 1400px) {
+    font-size: 22px;
+  }
   @media (max-width: 450px) {
     font-size: 14px;
   }

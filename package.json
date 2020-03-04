@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/raluzez/frontend-party/issues"
   },
-  "homepage": "https://github.com/raluzez/frontend-party#readme",
+  "homepage": "https://raluzez.github.io/frontend-party",
   "devDependencies": {
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
@@ -49,6 +49,8 @@
     "moduleNameMapper": {
       "\\.(jpg|png)$": "<rootDir>/src/tests/fileMock.js"
     },
-    "setupFiles": ["<rootDir>/src/tests/testSetup.js"]
+    "setupFiles": [
+      "<rootDir>/src/tests/testSetup.js"
+    ]
   }
 }

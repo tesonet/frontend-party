@@ -16,6 +16,9 @@ export default styled.div`
   border-bottom: 1px solid #e6e6e6;
   position: sticky;
   top: 0px;
+  @media (min-width: 1400px) {
+    font-size: 22px;
+  }
   @media (max-width: 450px) {
     font-size: 14px;
   }
