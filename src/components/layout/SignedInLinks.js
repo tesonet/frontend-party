@@ -2,12 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
+import logout from '../../images/logout.svg';
 
 const SignedInLinks = (props) => {
   return (
     <div>
       <ul>
-        <li><a className="logout" onClick={props.signOut}>Log Out <i className="fas fa-sign-out-alt"></i></a></li>
+        <li><a className="logout" onClick={props.signOut}><img src={logout} alt="Logout icon" /> Log Out</a></li>
       </ul>
     </div>
   )

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import "./server-list.scss";
 import { connect } from 'react-redux';
+import sort from '../../images/sort.svg';
 
 class ServerList extends Component {
     state = {
@@ -18,6 +19,25 @@ class ServerList extends Component {
             })
     }
 
+    handleClick = (e) => {
+        const newState = this.state;
+        e.target.classList.toggle("asc");
+        if (e.target.id == 'name') {
+            newState.servers.sort((a, b) => {
+                let nameA = a.name.toUpperCase();
+                let nameB = b.name.toUpperCase();
+                return (e.target.className == 'asc') ? (nameA==nameB ? 0 : nameA < nameB ? -1 : 1) : (nameA==nameB ? 0 : nameA > nameB ? -1 : 1);
+            });
+        } else if (e.target.id == 'distance') {
+            newState.servers.sort((a, b) => {
+                return (e.target.className == 'asc') ? (a.distance - b.distance) : (b.distance - a.distance);
+            });
+        }
+        this.setState({
+            servers: newState.servers
+        })
+    }
+
     render() {
         const { servers } = this.state;
         const serverList = servers.length ? (
@@ -31,7 +51,7 @@ class ServerList extends Component {
             })
         ) : (
             <tr>
-                <td>Loading...</td>
+                <td>Loading servers...</td>
             </tr>
         )
 
@@ -40,8 +60,8 @@ class ServerList extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>SERVER</th>
-                            <th>DISTANCE</th>
+                            <th>SERVER <img src={sort} alt="Sort icon" id="name" onClick={this.handleClick} /></th>
+                            <th><img src={sort} alt="Sort icon" id="distance" onClick={this.handleClick} /> DISTANCE</th>
                         </tr>
                     </thead>
                     <tbody>

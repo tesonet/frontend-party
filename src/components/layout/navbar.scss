@@ -4,7 +4,7 @@
     align-items: center;
     padding: 50px 15px 35px;
 
-    img {
+    .logo-img {
         max-width: 105px;
     }
 
@@ -22,6 +22,10 @@
         letter-spacing: 0.025em;
         padding: 5px;
         cursor: pointer;
+    }
+
+    .logout img {
+        vertical-align: text-top;
     }
 
     .logout:hover {

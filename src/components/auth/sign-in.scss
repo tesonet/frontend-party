@@ -42,9 +42,12 @@ $placeholderFont: #b2b2b2;
         margin: auto;
     }
 
+    .input-flex {
+        display: flex;
+    }
+
     .input-field {
         width: 100%;
-        display: flex;
         padding: 9px 0;
     }
 
@@ -68,12 +71,25 @@ $placeholderFont: #b2b2b2;
         color: #999;
     }
 
+    .red-text {
+        text-align: center;
+    }
+
+    .para-red {
+        color: red;
+        font-size: 0.75rem;
+    }
+
     .icon {
         padding: 10px 5px 10px 20px;
         color: $placeholderFont;
         background-color: #fff;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
+    }
+
+    .icon img {
+        vertical-align: text-top;
     }
 
     .btn {

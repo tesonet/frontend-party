@@ -13,7 +13,11 @@ th {
     font-weight: 300;
     line-height: 2.1428;
     letter-spacing: 0.1em;
-    padding: 10px 15px;
+    padding: 12px 15px 9px;
+}
+
+th img:hover {
+    cursor: pointer;
 }
 
 td {
@@ -22,7 +26,7 @@ td {
     font-weight: 300;
     line-height: 1.875;
     letter-spacing: 0.025em;
-    padding: 10px 15px;
+    padding: 12px 15px 9px;
 }
 
 tr {

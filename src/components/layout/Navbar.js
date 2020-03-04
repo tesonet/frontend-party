@@ -7,7 +7,7 @@ const Navbar = (props) => {
     return (
         <nav className="nav-wrapper">
             <div className="nav-logo">
-                <Link to='/' className="brand-logo"><img src={require('../../images/testio-logo.png')} alt="logo"/></Link>
+                <Link to='/' className="brand-logo"><img className="logo-img" src={require('../../images/testio-logo.png')} alt="logo"/></Link>
             </div>
             <SignedInLinks />
         </nav>

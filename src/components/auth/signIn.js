@@ -4,6 +4,8 @@ import "./sign-in.scss";
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions';
 import { Redirect } from 'react-router-dom';
+import username from '../../images/username.svg';
+import password from '../../images/password.svg';
 
 const bgStyle = {
     backgroundImage: `url(${bg})`
@@ -36,18 +38,18 @@ class SignIn extends Component {
                     <img src={require('../../images/testio.png')} alt="logo"/>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="input-field">
-                        <i className="fas fa-user icon"></i>
+                    <div className="input-field input-flex">
+                        <span className="icon"><img src={username} alt="Username icon" /></span>
                         <input type="text" id='username' onChange={this.handleChange} placeholder="Username"/>
                     </div>
-                    <div className="input-field">
-                        <i className="fas fa-lock icon"></i>
+                    <div className="input-field input-flex">
+                        <span className="icon"><img src={password} alt="Password icon" /></span>
                         <input type="password" id='password' onChange={this.handleChange} placeholder="Password"/>
                     </div>
                     <div className="input-field">
                         <button className="btn">Log In</button>
                         <div className="red-text">
-                          { authError ? <p>{ authError }</p> : null }
+                          { authError ? <p className="para-red">{ authError }</p> : null }
                         </div>
                     </div>
                 </form>
