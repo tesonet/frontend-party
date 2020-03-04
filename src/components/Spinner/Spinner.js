@@ -22,6 +22,5 @@ export default styled.div`
   animation: ${animation} 1s ease-out infinite;
   width: ${props => props.size};
   height: ${props => props.size};
-  display: ${props => (props.show ? 'block' : 'none')};
   margin-top: ${props => (props.MTop ? props.MTop : 0)};
 `;

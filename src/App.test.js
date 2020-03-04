@@ -7,22 +7,10 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 const mockStore = configureMockStore([thunk]);
-const createStoreWithoutToken = () =>
-  mockStore({
-    auth: {
-      token: null,
-    },
-  });
+const store = { auth: { token: null } };
+const storeWithToken = { auth: { token: 1 }, servers: { servers: [] } };
 
-const createStoreWithToken = () =>
-  mockStore({
-    auth: {
-      token: 1,
-    },
-    servers: {
-      servers: [],
-    },
-  });
+const createStore = store => mockStore(store);
 
 const createComponent = store =>
   mount(
@@ -33,23 +21,23 @@ const createComponent = store =>
     </Provider>
   );
 
-describe('<App/>', () => {
+describe('<App/> Routes', () => {
   it('should have 1 Route when token equals null', () => {
-    const component = createComponent(createStoreWithoutToken());
+    const component = createComponent(createStore(store));
     const route = component.find('Route');
 
     expect(route).toHaveLength(1);
   });
 
   it('should have route with path "/" when token equals null', () => {
-    const component = createComponent(createStoreWithoutToken());
+    const component = createComponent(createStore(store));
     const route = component.find('Route[path="/"]');
 
     expect(route.exists()).toBeTruthy();
   });
 
   it('should have route with path "/home" when token not equals null', () => {
-    const component = createComponent(createStoreWithToken());
+    const component = createComponent(createStore(storeWithToken));
     const route = component.find('Route[path="/home"]');
 
     expect(route.exists()).toBeTruthy();

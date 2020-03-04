@@ -47,7 +47,7 @@ const Login = () => {
         <PasswordIcon />
         {showReqError(password) && <LoginRequiredError>Required</LoginRequiredError>}
         <LoginButton onClick={e => login(e)}>
-          {loading ? <Spinner size="20px" show={loading} /> : 'Log In'}
+          {loading ? <Spinner size="20px" /> : 'Log In'}
         </LoginButton>
         {loginError && <LoginError>{loginError}</LoginError>}
       </LoginForm>

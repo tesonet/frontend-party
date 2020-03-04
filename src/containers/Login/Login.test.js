@@ -25,7 +25,7 @@ const createComponent = store =>
   );
 
 describe('<Login/> Required errors', () => {
-  it('should have 0 <LoginRequiredError/> when component loaded', () => {
+  it('should have 0 <LoginRequiredError/> when component rendered', () => {
     const component = createComponent(createStore(state));
     const requiredError = component.find('LoginRequiredError');
 

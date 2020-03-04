@@ -54,10 +54,12 @@ const Home = () => {
       </ServersHeader>
       <ServersTable>
         <ServersTableHead>
-          <ServersTableTittle onClick={sortByNameHandler}>SERVER</ServersTableTittle>
+          <ServersTableTittle labas onClick={sortByNameHandler}>
+            SERVER
+          </ServersTableTittle>
           <ServersTableTittle onClick={sortByDistanceHandler}>DISTANCE</ServersTableTittle>
         </ServersTableHead>
-        <Spinner show={loading} size="60px" MTop="50px" />
+        {loading && <Spinner size="60px" MTop="50px" />}
         {error ? (
           <ServersError>{error}</ServersError>
         ) : (
