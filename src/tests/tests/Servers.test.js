@@ -3,10 +3,10 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
-import Servers from './Servers';
+import Servers from '../../containers/Servers/Servers';
 import { signout } from '../../store/thunk/auth';
-import { sortByName } from '../../utility/sortByName';
-import { sortByDistance } from '../../utility/sortByDistance';
+import { sortByName } from '../../utility/helpers/sortByName';
+import { sortByDistance } from '../../utility/helpers/sortByDistance';
 
 const mockStore = configureMockStore([thunk]);
 const fakeServers = [
@@ -24,11 +24,11 @@ jest.mock('../../store/thunk/auth', () => ({
   signout: jest.fn().mockReturnValue({ type: 'test' }),
 }));
 
-jest.mock('../../utility/sortByName', () => ({
+jest.mock('../../utility/helpers/sortByName', () => ({
   sortByName: jest.fn().mockReturnValue({ type: 'test' }),
 }));
 
-jest.mock('../../utility/sortByDistance', () => ({
+jest.mock('../../utility/helpers/sortByDistance', () => ({
   sortByDistance: jest.fn().mockReturnValue({ type: 'test' }),
 }));
 
@@ -115,10 +115,10 @@ describe('<Servers/> sort functions calls', () => {
 
     component.find('ServersTableTittle[children="DISTANCE"]').simulate('click');
 
-    expect(sortByName).toBeCalledWith(fakeServers, 'asce');
+    expect(sortByDistance).toBeCalledWith(fakeServers, 'asce');
 
     component.find('ServersTableTittle[children="DISTANCE"]').simulate('click');
 
-    expect(sortByName).toBeCalledWith(fakeServers, 'desc');
+    expect(sortByDistance).toBeCalledWith(fakeServers, 'desc');
   });
 });

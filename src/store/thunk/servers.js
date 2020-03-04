@@ -1,4 +1,4 @@
-import axios from './axios';
+import axios from '../../utility/axios';
 import * as actions from '../actions/servers';
 
 export const fetchServers = () => dispatch => {

@@ -1,6 +1,6 @@
-import axios from './axios';
+import axios from '../../utility/axios';
 import * as actions from '../actions/auth';
-import { saveToken } from '../../utility/saveToken';
+import { saveToken } from '../../utility/helpers/saveToken';
 
 export const auth = (username, password) => dispatch => {
   dispatch(actions.authStart());

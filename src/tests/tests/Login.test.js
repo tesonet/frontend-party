@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
-import Login from './Login';
+import Login from '../../containers/Login/Login';
 import { auth } from '../../store/thunk/auth';
 
 const mockStore = configureMockStore([thunk]);

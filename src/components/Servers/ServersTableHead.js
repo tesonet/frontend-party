@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export default styled.div`
   background: #f5f5f5;
   height: 60px;
-  width: calc(100vw - 16px);
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -17,4 +16,7 @@ export default styled.div`
   border-bottom: 1px solid #e6e6e6;
   position: sticky;
   top: 0px;
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 `;

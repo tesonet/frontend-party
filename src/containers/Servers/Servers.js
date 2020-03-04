@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ServersHeader from '../../components/Servers/ServersHeader';
-import ServersLogo from '../../components/Servers/ServersLogo';
-import ServersTable from '../../components/Servers/ServersTable';
-import ServersTableHead from '../../components/Servers/ServersTableHead';
-import ServersTableTittle from '../../components/Servers/ServersTableTittle';
-import ServersTableItem from '../../components/Servers/ServersTableItem';
-import ServersError from '../../components/Servers/ServersError';
-import LogoutButton from '../../components/Servers/LogoutButton';
-import LogoutIcon from '../../components/Icons/LogoutIcon';
+import { LogoutIcon } from '../../components/Icons';
 import { fetchServers } from '../../store/thunk/servers';
 import { signout } from '../../store/thunk/auth';
-import { sortByName } from '../../utility/sortByName';
-import { sortByDistance } from '../../utility/sortByDistance';
+import { sortByName } from '../../utility/helpers/sortByName';
+import { sortByDistance } from '../../utility/helpers/sortByDistance';
 import Spinner from '../../components/Spinner/Spinner';
+import {
+  ServersHeader,
+  ServersLogo,
+  ServersTable,
+  ServersTableHead,
+  ServersTableTittle,
+  ServersTableItem,
+  ServersError,
+  LogoutButton,
+} from '../../components/Servers';
 
 const Home = () => {
   const dispatch = useDispatch();

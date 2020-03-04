@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import App from '../../App';
 
 const mockStore = configureMockStore([thunk]);
 const store = { auth: { token: null } };

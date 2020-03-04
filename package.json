@@ -47,8 +47,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|png)$": "<rootDir>/src/fileMock.js"
+      "\\.(jpg|png)$": "<rootDir>/src/tests/fileMock.js"
     },
-    "setupFiles": ["<rootDir>/src/testSetup.js"]
+    "setupFiles": ["<rootDir>/src/tests/testSetup.js"]
   }
 }

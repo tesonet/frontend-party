@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import LoginBackground from '../../components/Login/LoginBackground';
-import LoginLogo from '../../components/Login/LoginLogo';
-import LoginForm from '../../components/Login/LoginForm';
-import LoginInput from '../../components/Login/LoginInput';
-import LoginButton from '../../components/Login/LoginButton';
-import LoginError from '../../components/Login/LoginError';
-import LoginRequiredError from '../../components/Login/LoginRequiredError';
-import PasswordIcon from '../../components/Icons/PasswordIcon';
-import UserIcon from '../../components/Icons/UserIcon';
 import Spinner from '../../components/Spinner/Spinner';
 import { auth } from '../../store/thunk/auth';
+import { PasswordIcon, UserIcon } from '../../components/Icons';
+import {
+  LoginBackground,
+  LoginLogo,
+  LoginForm,
+  LoginInput,
+  LoginButton,
+  LoginError,
+  LoginRequiredError,
+} from '../../components/Login';
 
 const Login = () => {
   const [username, setUsername] = useState('');
