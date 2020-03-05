@@ -1,5 +1,36 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
-const Login = () => <div>Login</div>
+import { Form, Field, Input } from 'components/FormElements';
+import { isRequired } from 'utils/validations';
 
-export default Login
+const Login = () => {
+  return (
+    <Form
+      form='loginForm'
+      onSubmit={values => {
+        /** @todo handle submit */
+      }}
+    >
+      <Field
+        name='userName'
+        placeholder='username'
+        component={Input.Text}
+        validate={isRequired}
+      />
+      <Field
+        name='userPassword'
+        placeholder='password'
+        component={Input.Text}
+        validate={isRequired}
+      />
+      <button type='submit'>Login</button>
+    </Form>
+  );
+};
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
