@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Page } from 'containers';
-import { LoadingIndicator } from 'components/LoadingElements';
 import { Table } from 'components/PageElements';
 
 import { actions as serversActions } from 'store/servers';
 
-const ServerList = ({ history }) => {
+const ServerList = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(state => state.servers.isLoading);
   const error = useSelector(state => state.servers.error);
@@ -18,23 +17,17 @@ const ServerList = ({ history }) => {
   }, []);
 
   return (
-    <Page withDashboard>
+    <Page withDashboard isLoading={isLoading}>
       {error ? (
         error
       ) : (
-        <div>
-          {isLoading ? (
-            <LoadingIndicator />
-          ) : (
-            <Table
-              headerItems={[
-                { name: 'SERVER', key: 'name' },
-                { name: 'DISTANCE', key: 'distance' }
-              ]}
-              items={servers.map(item => ({ key: item.name, ...item }))}
-            />
-          )}
-        </div>
+        <Table
+          headerItems={[
+            { name: 'SERVER', key: 'name' },
+            { name: 'DISTANCE', key: 'distance' }
+          ]}
+          items={servers.map(item => ({ key: item.name, ...item }))}
+        />
       )}
     </Page>
   );

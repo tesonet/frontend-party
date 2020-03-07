@@ -2,10 +2,14 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Page } from 'containers';
+import { Image } from 'components/PageElements';
 import { Form, Field, Input, Button } from 'components/FormElements';
-import { LoadingIndicator } from 'components/LoadingElements';
+import { BodyText } from 'components/Typography';
 import { actions as authActions } from 'store/authorize';
 import { isRequired } from 'utils/validations';
+import * as Icons from 'components/Icons';
+import logoLight from 'assets/logoLight.png';
+import background from 'assets/background.jpg';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
@@ -13,8 +17,12 @@ const Login = ({ history }) => {
   const error = useSelector(state => state.auth.error);
 
   return (
-    <Page center>
-      <div>logo</div>
+    <Page
+      center
+      isLoading={isLoading}
+      background={`linear-gradient(rgba(11,15,39, 0.8), rgba(11,15,39, 0.8)), url('${background}') no-repeat top center/cover`}
+    >
+      <Image width={246} src={logoLight} mb={70} />
       <Form
         form='loginForm'
         initialValues={{ username: 'tesonet', password: 'partyanimal' }}
@@ -25,22 +33,29 @@ const Login = ({ history }) => {
         <Field
           disabled={isLoading}
           name='username'
-          placeholder='username'
+          placeholder='Username'
           component={Input.Text}
           validate={isRequired}
+          icon={Icons.User}
+          wrapperProps={{ pb: 20 }}
         />
         <Field
           disabled={isLoading}
           name='password'
-          placeholder='password'
+          placeholder='Password'
           component={Input.Text}
           validate={isRequired}
+          icon={Icons.Password}
+          wrapperProps={{ pb: 20 }}
         />
-        {error && error}
-        <Button type='submit' disabled={isLoading}>
-          Login
+        <Button variant='primary' type='submit' disabled={isLoading}>
+          <BodyText fontWeight='bold'>Log in</BodyText>
         </Button>
-        {isLoading && <LoadingIndicator />}
+        {error && (
+          <BodyText mt={20} color='red' textAlign='center'>
+            {error}
+          </BodyText>
+        )}
       </Form>
     </Page>
   );

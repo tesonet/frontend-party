@@ -1,9 +1,32 @@
-import React from 'react';
+import styled from 'styled-components';
+import { variant } from 'styled-system';
 
-const Button = ({ onClick, disabled, type, children }) => (
-  <button onClick={onClick} disabled={disabled} type={type}>
-    {children}
-  </button>
-);
+const buttonVariants = {
+  variants: {
+    primary: {
+      padding: 20,
+      borderRadius: 5,
+      color: 'white',
+      backgroundColor: 'green',
+      '&:hover': {
+        backgroundColor: 'darkGreen'
+      }
+    },
+    text: {
+      padding: 12,
+      '&:hover': {
+        color: 'green'
+      }
+    }
+  }
+};
+
+const Button = styled('button')`
+  border: none;
+  background: none;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+
+  ${variant(buttonVariants)}
+`;
 
 export default Button;
