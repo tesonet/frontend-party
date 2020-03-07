@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Page } from 'containers';
 import { LoadingIndicator } from 'components/LoadingElements';
-import { actions as authActions } from 'store/authorize';
+import { Table } from 'components/PageElements';
+
 import { actions as serversActions } from 'store/servers';
 
 const ServerList = ({ history }) => {
@@ -16,20 +18,25 @@ const ServerList = ({ history }) => {
   }, []);
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          dispatch(authActions.logOut(history));
-        }}
-      >
-        Log out
-      </button>
+    <Page withDashboard>
       {error ? (
         error
       ) : (
-        <div>{isLoading ? <LoadingIndicator /> : JSON.stringify(servers)}</div>
+        <div>
+          {isLoading ? (
+            <LoadingIndicator />
+          ) : (
+            <Table
+              headerItems={[
+                { name: 'SERVER', key: 'name' },
+                { name: 'DISTANCE', key: 'distance' }
+              ]}
+              items={servers.map(item => ({ key: item.name, ...item }))}
+            />
+          )}
+        </div>
       )}
-    </div>
+    </Page>
   );
 };
 

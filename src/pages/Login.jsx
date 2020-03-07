@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Form, Field, Input } from 'components/FormElements';
+import { Page } from 'containers';
+import { Form, Field, Input, Button } from 'components/FormElements';
 import { LoadingIndicator } from 'components/LoadingElements';
 import { actions as authActions } from 'store/authorize';
 import { isRequired } from 'utils/validations';
@@ -12,8 +13,8 @@ const Login = ({ history }) => {
   const error = useSelector(state => state.auth.error);
 
   return (
-    <React.Fragment>
-      {isLoading && <LoadingIndicator />}
+    <Page center>
+      <div>logo</div>
       <Form
         form='loginForm'
         initialValues={{ username: 'tesonet', password: 'partyanimal' }}
@@ -36,11 +37,12 @@ const Login = ({ history }) => {
           validate={isRequired}
         />
         {error && error}
-        <button type='submit' disabled={isLoading}>
+        <Button type='submit' disabled={isLoading}>
           Login
-        </button>
+        </Button>
+        {isLoading && <LoadingIndicator />}
       </Form>
-    </React.Fragment>
+    </Page>
   );
 };
 

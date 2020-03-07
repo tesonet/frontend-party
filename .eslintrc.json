@@ -1,0 +1,29 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-multi-spaces": "error",
+    "object-curly-spacing": ["error", "always"],
+    "no-trailing-spaces": "error",
+    "quotes": [
+      "error",
+      "single",
+      { "avoidEscape": true, "allowTemplateLiterals": true }
+    ],
+    "eol-last": ["error", "always"],
+    "no-console": "error",
+    "no-dupe-keys": "error",
+    "switch-colon-spacing": "error",
+    "curly": "error",
+    "no-else-return": "error",
+    "no-empty": "error",
+    "no-extra-semi": "error",
+    "semi": [2, "always"]
+  }
+}
