@@ -1,6 +1,6 @@
-import Input from './Input';
+import InputComposer from './InputComposer';
 import { Text } from './Types';
 
-export default {
-  Text: Input(Text)
+export const Input = {
+  Text: InputComposer(Text)
 };
