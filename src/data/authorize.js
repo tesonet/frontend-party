@@ -1,12 +1,11 @@
-const login = input => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('token');
-      // reject("error error error");
-    }, 1000);
-  });
-};
+import API from './api';
 
-export default {
-  login
-};
+class AuthAPI extends API {
+  async login({ username, password }) {
+    const data = await this.post('tokens', { username, password });
+
+    return data.token;
+  }
+}
+
+export default AuthAPI;

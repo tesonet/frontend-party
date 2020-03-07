@@ -1,12 +1,16 @@
-const getServers = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([{ name: 'server 1' }]);
-      // reject("error error error");
-    }, 1000);
-  });
-};
+import API from './api';
 
-export default {
-  getServers
-};
+class ServersAPI extends API {
+  async getServers(token) {
+    const data = await this.get(
+      'servers',
+      {
+        Authorization: `Bearer ${token}`
+      }
+    );
+
+    return data;
+  }
+}
+
+export default ServersAPI;

@@ -7,7 +7,7 @@ const logIn = (values, history) => {
     dispatch({ type: types.BEFORE_AUTH });
 
     try {
-      const authToken = await authorizeAPI.login();
+      const authToken = await authorizeAPI.login(values);
       localStorage.setItem('token', authToken);
 
       dispatch({ type: types.AFTER_AUTH });

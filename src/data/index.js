@@ -1,2 +1,5 @@
-export { default as authorizeAPI } from './authorize';
-export { default as serversAPI } from './servers';
+import AuthorizeAPI from './authorize';
+import ServersAPI from './servers';
+
+export const authorizeAPI = new AuthorizeAPI();
+export const serversAPI = new ServersAPI();

@@ -16,20 +16,21 @@ const Login = ({ history }) => {
       {isLoading && <LoadingIndicator />}
       <Form
         form='loginForm'
+        initialValues={{ username: 'tesonet', password: 'partyanimal' }}
         onSubmit={values => {
           dispatch(authActions.logIn(values, history));
         }}
       >
         <Field
           disabled={isLoading}
-          name='userName'
+          name='username'
           placeholder='username'
           component={Input.Text}
           validate={isRequired}
         />
         <Field
           disabled={isLoading}
-          name='userPassword'
+          name='password'
           placeholder='password'
           component={Input.Text}
           validate={isRequired}
