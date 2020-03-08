@@ -6,6 +6,8 @@ import { Table } from 'components/PageElements';
 
 import { actions as serversActions } from 'store/servers';
 
+import { sortServerList } from './Servers.utils';
+
 const ServerList = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(state => state.servers.isLoading);
@@ -26,7 +28,11 @@ const ServerList = () => {
             { name: 'SERVER', key: 'name' },
             { name: 'DISTANCE', key: 'distance' }
           ]}
-          items={servers.map(item => ({ key: item.name, ...item }))}
+          items={servers.map(item => ({
+            key: `${item.name}-${item.distance}`,
+            ...item
+          }))}
+          sortingFunction={sortServerList}
         />
       )}
     </Page>

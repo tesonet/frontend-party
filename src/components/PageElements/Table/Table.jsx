@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { arrayOf, func, object } from 'prop-types';
 import styled from 'styled-components';
 
 import { Header } from './Header';
@@ -9,15 +10,40 @@ const TableWrapper = styled('div')`
   flex-direction: column;
 `;
 
+const propTypes = {
+  headerItems: arrayOf(object),
+  items: arrayOf(object),
+  sortingFunction: func
+};
+
 const defaultProps = {
+  headerItems: [],
   items: []
 };
 
-const Table = ({ headerItems, items }) => {
+const Table = ({ headerItems, items, sortingFunction }) => {
+  const [renderedItems, setRenderedItems] = useState(items);
+  const [sortBy, setSortBy] = useState();
+
+  useEffect(() => {
+    setRenderedItems(items);
+  }, [items]);
+
+  useEffect(() => {
+    if (sortBy && sortingFunction) {
+      setRenderedItems(sortingFunction(sortBy, items));
+    }
+  }, [sortBy]);
+
   return (
     <TableWrapper>
-      {Header && <Header items={headerItems} />}
-      {items.map(item => (
+      <Header
+        items={headerItems}
+        onSort={props => {
+          setSortBy(props);
+        }}
+      />
+      {renderedItems.map(item => (
         <Row key={item.key} {...item} />
       ))}
     </TableWrapper>
@@ -25,5 +51,6 @@ const Table = ({ headerItems, items }) => {
 };
 
 Table.defaultProps = defaultProps;
+Table.propTypes = propTypes;
 
 export default Table;
