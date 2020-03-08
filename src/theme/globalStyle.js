@@ -4,8 +4,6 @@ import { normalize } from 'styled-normalize';
 export default createGlobalStyle`
   ${normalize}
 
-  @import url('https://fonts.googleapis.com/css?family=Roboto');
-
   * {
     box-sizing: border-box;
   }

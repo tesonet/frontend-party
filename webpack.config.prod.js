@@ -1,9 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'source-map',
+  mode: 'production',
+  devtool: 'cheap-module-source-map',
   entry: ['@babel/polyfill', './src/index.jsx'],
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -27,10 +28,16 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    historyApiFallback: true
+  performance: {
+    hints: false
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: __dirname + '/public/index.html',
       filename: './index.html',
