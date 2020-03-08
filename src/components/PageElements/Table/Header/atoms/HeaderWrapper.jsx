@@ -1,13 +1,19 @@
-import styled from 'styled-components';
-import { space } from 'styled-system';
+import React from 'react';
 
-export default styled('div')`
-  display: flex;
-  justify-content: space-between;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  border-color: ${({ theme }) => theme.colors.grey};
+import { Box } from 'components/Core';
 
-  ${space}
-`;
+const HeaderWrapper = ({ children }) => (
+  <Box
+    p={20}
+    display='flex'
+    justifyContent='space-between'
+    borderTop='1px solid'
+    borderBottom='1px solid'
+    borderColor='grey'
+    backgroundColor='lightGrey'
+  >
+    {children}
+  </Box>
+);
+
+export default HeaderWrapper;

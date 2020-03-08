@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { arrayOf, func, object } from 'prop-types';
 
-import { HeaderWrapper, HeaderLabelWrapper, HeaderLabel } from './atoms';
+import { Box } from 'components/Core';
+
+import { HeaderWrapper, HeaderLabel } from './atoms';
 
 const propTypes = {
   onSort: func,
-  items: arrayOf(object),
+  items: arrayOf(object)
 };
 
 const defaultProps = {
@@ -28,7 +30,9 @@ const Header = ({ onSort, items }) => {
   return (
     <HeaderWrapper p={20}>
       {items.map(item => (
-        <HeaderLabelWrapper
+        <Box
+          display='flex'
+          flexDirection='row'
           key={item.key}
           onClick={() => {
             if (!sortKey) {
@@ -47,7 +51,7 @@ const Header = ({ onSort, items }) => {
             isSortedBy={sortKey === item.key}
             isDescending={sortDirection}
           />
-        </HeaderLabelWrapper>
+        </Box>
       ))}
     </HeaderWrapper>
   );

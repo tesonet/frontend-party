@@ -1,20 +1,22 @@
 import React from 'react';
 
-import { InputWrapper, InputIconWrapper, InputStyled } from './atoms';
+import { Box } from 'components/Core';
+
+import { InputIconWrapper, InputStyled } from './atoms';
 
 const defaultProps = {
   variant: 'default'
 };
 
 const Text = ({ input, icon: Icon, ...rest }) => (
-  <InputWrapper>
+  <Box position='relative'>
     {Icon && (
       <InputIconWrapper>
         <Icon color='grey' />
       </InputIconWrapper>
     )}
     <InputStyled hasIcon={!!Icon} {...input} {...rest} />
-  </InputWrapper>
+  </Box>
 );
 
 Text.defaultProps = defaultProps;

@@ -21,12 +21,10 @@ const buttonVariants = {
   }
 };
 
-const Button = styled('button')`
+export default styled('button')`
   border: none;
   background: none;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   ${variant(buttonVariants)}
 `;
-
-export default Button;

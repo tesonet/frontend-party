@@ -3,10 +3,11 @@ import { withRouter } from 'react-router';
 import { useDispatch } from 'react-redux';
 
 import { Dashboard } from 'components/PageElements';
-import { LoadingIndicator } from 'components/LoadingElements';
 import { actions as authActions } from 'store/authorize';
 
-import { PageWrapper, PageResponsiveContainer } from './atoms';
+import { Box } from 'components/Core';
+
+import { PageResponsiveContainer, LoadingIndicator } from './atoms';
 
 const Page = ({
   isLoading,
@@ -22,7 +23,13 @@ const Page = ({
   ]);
 
   return (
-    <PageWrapper {...rest}>
+    <Box
+      display='flex'
+      flex='1'
+      alignItems='center'
+      flexDirection='column'
+      {...rest}
+    >
       <PageResponsiveContainer
         alignItems={center && 'center'}
         justifyContent={center && 'center'}
@@ -31,7 +38,7 @@ const Page = ({
         {isLoading && <LoadingIndicator />}
         {children}
       </PageResponsiveContainer>
-    </PageWrapper>
+    </Box>
   );
 };
 

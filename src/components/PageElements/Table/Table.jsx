@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { arrayOf, func, object } from 'prop-types';
-import styled from 'styled-components';
+
+import { Box } from 'components/Core';
 
 import { Header } from './Header';
 import { Row } from './Row';
-
-const TableWrapper = styled('div')`
-  display: flex;
-  flex-direction: column;
-`;
 
 const propTypes = {
   headerItems: arrayOf(object),
@@ -36,7 +32,7 @@ const Table = ({ headerItems, items, sortingFunction }) => {
   }, [sortBy]);
 
   return (
-    <TableWrapper>
+    <Box>
       <Header
         items={headerItems}
         onSort={props => {
@@ -46,7 +42,7 @@ const Table = ({ headerItems, items, sortingFunction }) => {
       {renderedItems.map(item => (
         <Row key={item.key} {...item} />
       ))}
-    </TableWrapper>
+    </Box>
   );
 };
 
