@@ -1,8 +1,8 @@
+import {login} from '../../store/actions/userActions';
 import React, {FormEvent} from 'react';
-import {login, logout} from './store/actions/userActions';
 import {useDispatch} from 'react-redux';
 
-function App() {
+export function Login() {
 	const dispatch = useDispatch();
 
 	const submitForm = async (e: FormEvent) => {
@@ -10,7 +10,7 @@ function App() {
 		const formData = new FormData(e.target as HTMLFormElement);
 		const username = formData.get('username') as string;
 		const password = formData.get('password') as string;
-		await dispatch(login({username, password}));
+		dispatch(login({username, password}));
 	};
 
 	return (
@@ -20,9 +20,6 @@ function App() {
 				<input name='password' type='password'/>
 				<button type='submit'>Submit</button>
 			</form>
-			<button onClick={() => dispatch(logout())}>Logout</button>
 		</div>
 	);
 }
-
-export default App;

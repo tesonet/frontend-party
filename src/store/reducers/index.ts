@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import {serversReducer} from './serversReducer/serversReducer';
-import {UserActions} from './userReducer/enums';
+import {serversReducer} from './serversReducer';
+import {UserActions} from '../enums';
 
 const appReducer = combineReducers({
 	servers: serversReducer

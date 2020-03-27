@@ -1,26 +1,30 @@
-import {UserActions} from '../reducers/userReducer/enums';
+import {UserActions} from '../enums';
+import {TOKEN} from '../../utils/constants';
+import {routerHistory} from '../../index';
 
 interface ILoginProps {
 	username: string | null;
-	password: string| null;
+	password: string | null;
 }
 
 export function login({username, password}: ILoginProps) {
-	return async (dispatch: any) => {
+	return async () => {
 		const response = await fetch('http://playground.tesonet.lt/v1/tokens', {
 			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ username, password }),
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({username, password}),
 		});
-		if(response?.ok) {
+		if (response?.ok) {
 			const {token} = await response.json();
-			localStorage.setItem('user', token);
-			return dispatch({type: UserActions.LoginSuccess, payload: token});
+			await localStorage.setItem(TOKEN, token);
+			routerHistory.push('/');
+			return token;
 		}
 	};
 }
 
 export function logout() {
-	localStorage.removeItem('user');
-	return{type: UserActions.Logout};
+	localStorage.removeItem(TOKEN);
+	routerHistory.push('/login');
+	return {type: UserActions.Logout};
 }

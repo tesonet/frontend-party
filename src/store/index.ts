@@ -2,7 +2,7 @@ import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {IServersState} from './reducers/serversReducer/serversReducer';
+import {IServersState} from './reducers/serversReducer';
 
 export interface IReduxState {
 	servers: IServersState;
