@@ -10,6 +10,7 @@ $inputColor: #B3B3B3;
 .input {
   width: 100%;
   font-size: 1rem;
+  font-weight: 300;
   color: $inputColor;
   padding: 1.25rem 1rem 1.25rem 3rem;
   border: 0;
@@ -22,6 +23,7 @@ $inputColor: #B3B3B3;
 
   &::placeholder {
     color: $inputColor;
+    font-weight: 300;
   }
 
   &__adornment {
@@ -32,5 +34,23 @@ $inputColor: #B3B3B3;
     &--start {
       left: 0;
     }
+
+    &--end {
+      right: 0;
+    }
+  }
+
+  &--error {
+    margin-bottom: 0;
+    border: 2px solid $errorColor;
+  }
+
+  &__error {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: $errorColor;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
   }
 }

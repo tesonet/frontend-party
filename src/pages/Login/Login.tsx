@@ -1,6 +1,6 @@
 import {loginUser} from '../../store/actions/userActions';
 import React, {FormEvent} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {RouteComponentProps} from '@reach/router';
 import {Button} from '../../components/atoms/Button/Button';
 import {Input} from '../../components/atoms/Input/Input';
@@ -8,9 +8,11 @@ import styles from './Login.module.scss';
 import {ReactComponent as Logo} from '../../assets/logo.svg';
 import {ReactComponent as UserIcon} from '../../assets/user.svg';
 import {ReactComponent as LockIcon} from '../../assets/lock.svg';
+import {IReduxState} from '../../store';
 
 export function Login(props: RouteComponentProps) {
 	const dispatch = useDispatch();
+	const errors = useSelector((state: IReduxState) => state.errors);
 
 	const submitForm = async (e: FormEvent) => {
 		e.preventDefault();
@@ -42,6 +44,12 @@ export function Login(props: RouteComponentProps) {
 					/>
 					<Button text='Log in' type='submit'/>
 				</form>
+				{
+					errors.isLoginError &&
+					<span className={styles['login__error']}>
+						Username or password is incorrect.
+					</span>
+				}
 			</div>
 		</div>
 	);

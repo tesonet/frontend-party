@@ -7,5 +7,5 @@ export function loaderReducer(
 	if (action.type === SET_LOADING) {
 		return action.isLoading;
 	}
-	return false;
+	return state;
 }

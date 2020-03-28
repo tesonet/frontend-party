@@ -2,10 +2,12 @@ import {combineReducers} from 'redux';
 import {serversReducer} from './serversReducer';
 import {LOGOUT} from '../constants';
 import {loaderReducer} from './loaderReducer';
+import {errorsReducer} from './errorsReducer';
 
 const appReducer = combineReducers({
 	isLoading: loaderReducer,
-	servers: serversReducer
+	servers: serversReducer,
+	errors: errorsReducer,
 });
 
 const rootReducer = (state: any, action: any) => {
