@@ -1,0 +1,36 @@
+@import '../../../styles/variables';
+
+$focusColor: #999999;
+$inputColor: #B3B3B3;
+
+.input-wrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  font-size: 1rem;
+  color: $inputColor;
+  padding: 1.25rem 1rem 1.25rem 3rem;
+  border: 0;
+  border-radius: 4px;
+  margin-bottom: 1.125rem;
+
+  &:focus {
+    color: $focusColor;
+  }
+
+  &::placeholder {
+    color: $inputColor;
+  }
+
+  &__adornment {
+    position: absolute;
+    top: 0;
+    padding: 1.2rem 1rem 1.2rem 1rem;
+
+    &--start {
+      left: 0;
+    }
+  }
+}

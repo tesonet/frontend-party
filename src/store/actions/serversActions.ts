@@ -17,9 +17,8 @@ export function fetchServers() {
 		if (resp?.ok) {
 			const servers = await resp.json();
 			dispatch(setServers(servers));
-			return servers;
 		}
 		dispatch(setLoading(false));
-		return null;
+		return {};
 	};
 }

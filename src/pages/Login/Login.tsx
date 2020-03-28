@@ -2,6 +2,12 @@ import {loginUser} from '../../store/actions/userActions';
 import React, {FormEvent} from 'react';
 import {useDispatch} from 'react-redux';
 import {RouteComponentProps} from '@reach/router';
+import {Button} from '../../components/atoms/Button/Button';
+import {Input} from '../../components/atoms/Input/Input';
+import styles from './Login.module.scss';
+import {ReactComponent as Logo} from '../../assets/logo.svg';
+import {ReactComponent as UserIcon} from '../../assets/user.svg';
+import {ReactComponent as LockIcon} from '../../assets/lock.svg';
 
 export function Login(props: RouteComponentProps) {
 	const dispatch = useDispatch();
@@ -15,12 +21,28 @@ export function Login(props: RouteComponentProps) {
 	};
 
 	return (
-		<div>
-			<form onSubmit={submitForm}>
-				<input name='username' type='text'/>
-				<input name='password' type='password'/>
-				<button type='submit'>Submit</button>
-			</form>
+		<div className={styles['login']}>
+			<div className={styles['login__container']}>
+				<Logo className={styles['login__logo']}/>
+				<form
+					className={styles['login__form']}
+					onSubmit={submitForm}
+				>
+					<Input
+						type='text'
+						name='username'
+						placeholder='Username'
+						startAdornment={<UserIcon/>}
+					/>
+					<Input
+						type='password'
+						name='password'
+						placeholder='Password'
+						startAdornment={<LockIcon/>}
+					/>
+					<Button text='Log in' type='submit'/>
+				</form>
+			</div>
 		</div>
 	);
 }

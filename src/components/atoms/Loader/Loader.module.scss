@@ -1,0 +1,51 @@
+@import '../../../styles/variables';
+
+$ringDiameter: 3rem;
+$innerRingDiameter: 2rem;
+
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  &__ring {
+    position: absolute;
+    top: calc(50% - (#{$ringDiameter}/2));
+    left: calc(50% - (#{$ringDiameter}/2));
+    width: $ringDiameter;
+    height: $ringDiameter;
+    z-index: 1;
+
+    &:after {
+      content: "";
+      display: block;
+      width: $innerRingDiameter;
+      height: $innerRingDiameter;
+      margin: 0.5rem;
+      border-radius: 50%;
+      border: 0.25rem solid;
+      border-color: $primaryColor transparent $secondaryColor transparent;
+      animation: spin 1s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,21 @@
+@import '../../../styles/variables';
+
+.button {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  border: none;
+  box-shadow: none;
+  color: white;
+  background: $primaryColor;
+  padding: 1.25rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1.125rem;
+  transition: 250ms background linear;
+
+  &:hover {
+    background: $secondaryColor;
+  }
+}

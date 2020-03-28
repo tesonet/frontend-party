@@ -5,6 +5,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import {IServersState} from './reducers/serversReducer';
 
 export interface IReduxState {
+	isLoading: boolean;
 	servers: IServersState;
 }
 
