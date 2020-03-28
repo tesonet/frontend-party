@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {IReduxState} from '../../store';
 import {fetchServers} from '../../store/actions/serversActions';
-import {logout} from '../../store/actions/userActions';
+import {logoutUser} from '../../store/actions/userActions';
 
 export function ServersList() {
 	const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export function ServersList() {
 					<div key={idx}>{server?.name}</div>
 				))
 			}
-			<button onClick={() => dispatch(logout())}>
+			<button onClick={() => dispatch(logoutUser())}>
 				Logout
 			</button>
 		</React.Fragment>

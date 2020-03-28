@@ -1,8 +1,9 @@
-import {login} from '../../store/actions/userActions';
+import {loginUser} from '../../store/actions/userActions';
 import React, {FormEvent} from 'react';
 import {useDispatch} from 'react-redux';
+import {RouteComponentProps} from '@reach/router';
 
-export function Login() {
+export function Login(props: RouteComponentProps) {
 	const dispatch = useDispatch();
 
 	const submitForm = async (e: FormEvent) => {
@@ -10,7 +11,7 @@ export function Login() {
 		const formData = new FormData(e.target as HTMLFormElement);
 		const username = formData.get('username') as string;
 		const password = formData.get('password') as string;
-		dispatch(login({username, password}));
+		dispatch(loginUser({username, password}));
 	};
 
 	return (

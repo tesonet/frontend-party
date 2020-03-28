@@ -1,4 +1,4 @@
-import {ServerActions} from '../enums';
+import {SET_SERVERS} from '../constants';
 
 export type IServersState = Array<any>;
 
@@ -6,11 +6,8 @@ export function serversReducer(
 	state: IServersState = [],
 	action: { type: string, payload: any }
 ): IServersState {
-	if (action.type === ServerActions.SetServers) {
+	if (action.type === SET_SERVERS) {
 		return action.payload;
-	}
-	if (action.type === ServerActions.ClearServers) {
-		return [];
 	}
 	return state;
 }

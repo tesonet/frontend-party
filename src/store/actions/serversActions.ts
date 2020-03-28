@@ -1,24 +1,25 @@
 import {IServersState} from '../reducers/serversReducer';
-import {ServerActions} from '../enums';
-import {authHeader} from '../../utils/authHeader';
+import {SET_SERVERS} from '../constants';
+import {setLoading} from './loaderActions';
+import {httpFetchServers} from '../../utils/api';
 
 export function setServers(servers: IServersState) {
 	return {
-		type: ServerActions.SetServers,
+		type: SET_SERVERS,
 		payload: servers,
 	};
 }
 
 export function fetchServers() {
 	return async (dispatch: any) => {
-		const response = await fetch('http://playground.tesonet.lt/v1/servers', {
-			method: 'GET',
-			headers: authHeader()
-		});
-		if (response?.ok) {
-			const servers = await response.json();
+		dispatch(setLoading(true));
+		const resp = await httpFetchServers();
+		if (resp?.ok) {
+			const servers = await resp.json();
 			dispatch(setServers(servers));
 			return servers;
 		}
+		dispatch(setLoading(false));
+		return null;
 	};
 }

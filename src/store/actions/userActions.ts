@@ -1,30 +1,32 @@
-import {UserActions} from '../enums';
 import {TOKEN} from '../../utils/constants';
-import {routerHistory} from '../../index';
+import {navigate} from '@reach/router';
+import {LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT} from '../constants';
+import {setLoading} from './loaderActions';
+import {LOGIN, SERVERS} from '../../utils/routes';
+import {httpLoginUser, ILoginUserProps} from '../../utils/api';
 
-interface ILoginProps {
-	username: string | null;
-	password: string | null;
-}
-
-export function login({username, password}: ILoginProps) {
-	return async () => {
-		const response = await fetch('http://playground.tesonet.lt/v1/tokens', {
-			method: 'POST',
-			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({username, password}),
-		});
-		if (response?.ok) {
-			const {token} = await response.json();
-			await localStorage.setItem(TOKEN, token);
-			routerHistory.push('/');
-			return token;
+export function loginUser({username, password}: ILoginUserProps) {
+	return async (dispatch: any) => {
+		dispatch(setLoading(true));
+		const resp = await httpLoginUser({username, password});
+		if (resp?.ok) {
+			const {token} = await resp.json();
+			localStorage.setItem(TOKEN, token);
+			await navigate(SERVERS);
+			dispatch(setLoading(false));
+			return {type: LOGIN_SUCCESS};
 		}
+		dispatch(setLoading(false));
+		return {type: LOGIN_ERROR};
 	};
 }
 
-export function logout() {
-	localStorage.removeItem(TOKEN);
-	routerHistory.push('/login');
-	return {type: UserActions.Logout};
+export function logoutUser() {
+	return async (dispatch: any) => {
+		dispatch(setLoading(false));
+		localStorage.removeItem(TOKEN);
+		await navigate(LOGIN);
+		dispatch(setLoading(false));
+		return {type: LOGOUT};
+	};
 }
