@@ -1,0 +1,8 @@
+.servers-list {
+  > thead th,
+  > tbody td {
+    &:nth-child(2) {
+      text-align: right;
+    }
+  }
+}

@@ -1,6 +1,11 @@
 import {SET_SERVERS} from '../constants';
 
-export type IServersState = Array<any>;
+export interface IServerEntry {
+	name: string;
+	distance: string;
+}
+
+export type IServersState = Array<IServerEntry>;
 
 export function serversReducer(
 	state: IServersState = [],

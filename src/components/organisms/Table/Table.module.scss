@@ -1,0 +1,30 @@
+@import '../../../styles/variables';
+
+$tableHeaderColor: #999999;
+$tableHeaderBackgroundColor: #F5F5F5;
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+  text-align: left;
+
+  &__thead {
+    color: $tableHeaderColor;
+    background-color: $tableHeaderBackgroundColor;
+  }
+
+  &__header {
+    font-size: 0.875rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid $borderColor;
+  }
+
+  &__cell {
+    font-size: 1rem;
+    color: $textColor;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid $borderColor;
+  }
+}

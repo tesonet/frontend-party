@@ -1,5 +1,5 @@
 import React from 'react';
-import {Loader} from '../../components/atoms/Loader/Loader';
+import {Loader} from '../../components/molecules/Loader/Loader';
 import {IReduxState} from '../../store';
 import {Redirect, Router} from '@reach/router';
 import {PrivateRoute} from '../../components/molecules/PrivateRoute/PrivateRoute';
