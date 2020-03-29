@@ -1,0 +1,37 @@
+@import '../../../styles/variables';
+
+.text-button {
+  position: relative;
+  display: flex;
+  width: auto;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 300;
+  background: none;
+  border: 0;
+  color: $textColor;
+  transition: 250ms color linear;
+
+  &__text {
+    padding: 0.5rem 1rem;
+    order: 0;
+  }
+
+  &__adornment {
+    padding: 0.5rem 0.75rem;
+
+    &--start {
+      & + .text-button__text {
+        padding-left: 0;
+      }
+    }
+
+    &--end {
+      order: 1;
+
+      & + .text-button__text {
+        padding-right: 0;
+      }
+    }
+  }
+}

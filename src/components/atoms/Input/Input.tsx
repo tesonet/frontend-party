@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Input.module.scss';
 
-type Falsy = false | 0 | "" | null | undefined;
+type Falsy = false | 0 | '' | null | undefined;
 
 interface IInputProps {
 	type: string;
@@ -10,6 +10,7 @@ interface IInputProps {
 	endAdornment?: React.ReactNode;
 	placeholder?: string;
 	errorMessage?: string | Falsy;
+	inputStyles?: string;
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -32,9 +33,10 @@ export function Input(props: IInputProps) {
 				className={[
 					styles['input'],
 					props.errorMessage && styles['input--error'],
+					props.inputStyles,
 				].filter(Boolean).join(' ')}
 				placeholder={props.placeholder || ''}
-				onChange={props.onChange}
+				onChange={e => props.onChange && props.onChange(e)}
 			/>
 			{
 				props.errorMessage &&

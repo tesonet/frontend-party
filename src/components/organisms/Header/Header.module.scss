@@ -1,0 +1,26 @@
+@import '../../../styles/variables';
+
+$headerButtonColor: #2F3254;
+$headerButtonColorHover: #99cc33;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid $borderColor;
+
+  &__logout {
+    color: $headerButtonColor;
+    svg > path {
+      fill: $headerButtonColor;
+      transition: 250ms fill linear;
+    }
+    &:hover {
+      color: $headerButtonColorHover;
+      svg > path {
+        fill: $headerButtonColorHover;
+      }
+    }
+  }
+}

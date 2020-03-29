@@ -1,4 +1,4 @@
-import {authHeader} from './authHeader';
+import {authHeader} from './authentication';
 
 export function httpFetchServers() {
 	return fetch('http://playground.tesonet.lt/v1/servers', {
