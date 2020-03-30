@@ -6,7 +6,7 @@ export interface IErrorsState {
 
 export function errorsReducer(
 	state: IErrorsState = {},
-	action: { type: string, payload: Partial<IErrorsState> }
+	action: { type: string, payload?: Partial<IErrorsState> }
 ): IErrorsState {
 	if (action.type === SET_ERRORS) {
 		return {...state, ...action?.payload};

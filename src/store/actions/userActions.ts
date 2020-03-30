@@ -1,4 +1,4 @@
-import {TOKEN} from '../../utils/constants';
+import {LOCAL_STORAGE_TOKEN} from '../../utils/constants';
 import {navigate} from '@reach/router';
 import {LOGOUT} from '../constants';
 import {setLoading} from './loaderActions';
@@ -12,7 +12,7 @@ export function loginUser({username, password}: ILoginUserProps) {
 		const resp = await httpLoginUser({username, password});
 		if (resp.ok) {
 			const {token} = await resp.json();
-			localStorage.setItem(TOKEN, token);
+			localStorage.setItem(LOCAL_STORAGE_TOKEN, token);
 			await navigate(SERVERS);
 			dispatch(setLoading(false));
 			return dispatch(clearErrors());
@@ -24,8 +24,8 @@ export function loginUser({username, password}: ILoginUserProps) {
 
 export function logoutUser() {
 	return async (dispatch: any) => {
-		dispatch(setLoading(false));
-		localStorage.removeItem(TOKEN);
+		dispatch(setLoading(true));
+		localStorage.removeItem(LOCAL_STORAGE_TOKEN);
 		await navigate(LOGIN);
 		dispatch(setLoading(false));
 		return {type: LOGOUT};

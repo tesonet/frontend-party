@@ -1,12 +1,13 @@
-import {TOKEN} from './constants';
+import {LOCAL_STORAGE_TOKEN} from './constants';
 
 export function isLoggedIn() {
-	return localStorage.getItem(TOKEN) || false;
+	return !!localStorage.getItem(LOCAL_STORAGE_TOKEN) || false;
 }
 
 export function authHeader() {
-	const token = localStorage.getItem(TOKEN) || '';
+	const token = localStorage.getItem(LOCAL_STORAGE_TOKEN) || '';
+	console.log(token);
 	if (token) {
-		return {'Authorization': 'Bearer ' + token};
+		return {'Authorization': `Bearer ${token}`};
 	}
 }

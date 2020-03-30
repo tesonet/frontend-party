@@ -4,20 +4,7 @@ import {IReduxState} from '../../store';
 import {fetchServers} from '../../store/actions/serversActions';
 import {Table} from '../../components/organisms/Table/Table';
 import {compareByDistanceAndName, mapTableRows} from './utils';
-import styles from './ServerList.module.scss';
-
-const columns = [
-	{
-		key: 'serverName',
-		title: 'Server',
-		dataIndex: 'name',
-	},
-	{
-		key: 'serverDistance',
-		title: 'Distance',
-		dataIndex: 'distance',
-	}
-];
+import {serversListColumns} from './columnsConfig';
 
 export function ServersList() {
 	const dispatch = useDispatch();
@@ -33,9 +20,8 @@ export function ServersList() {
 
 	return (
 		<Table
-			columns={columns}
+			columns={serversListColumns}
 			data={servers}
-			tableStyles={styles['servers-list']}
 		/>
 	);
 }
