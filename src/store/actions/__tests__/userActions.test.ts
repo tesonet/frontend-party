@@ -60,12 +60,10 @@ describe('userActions.ts', () => {
 	describe('logoutUser', () => {
 		it('should call dispatch with correct action creators', async () => {
 			jest.spyOn(Object.getPrototypeOf(window.localStorage), 'removeItem');
-			const {dispatch, navigate} = setup();
-			const result = await logoutUser()(dispatch);
+			const {navigate} = setup();
+			const result = await logoutUser()();
 			expect(localStorage.removeItem).toHaveBeenCalledWith(LOCAL_STORAGE_TOKEN);
 			expect(navigate).toHaveBeenCalledWith(LOGIN);
-			expect(dispatch).toHaveBeenCalledWith({type: SET_LOADING, isLoading: true});
-			expect(dispatch).toHaveBeenCalledWith({type: SET_LOADING, isLoading: false});
 			expect(result).toEqual({type: LOGOUT});
 		})
 	});

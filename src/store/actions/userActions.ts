@@ -23,11 +23,9 @@ export function loginUser({username, password}: ILoginUserProps) {
 }
 
 export function logoutUser() {
-	return async (dispatch: any) => {
-		dispatch(setLoading(true));
+	return async () => {
 		localStorage.removeItem(LOCAL_STORAGE_TOKEN);
 		await navigate(LOGIN);
-		dispatch(setLoading(false));
 		return {type: LOGOUT};
 	};
 }
