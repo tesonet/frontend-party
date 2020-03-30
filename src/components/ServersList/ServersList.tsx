@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Servers: React.FC = () => {
+export const ServersList: React.FC = () => {
   return <div>This is Servers</div>;
 };

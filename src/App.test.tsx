@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import App from './App';
 import { Login } from './components/Login';
-import { Servers } from './components/Servers';
+import { ServersList } from './components/ServersList';
 
 const build = (path: string) => {
   return mount(
@@ -21,7 +21,7 @@ describe('App', () => {
     });
     it('Renders a servers page', () => {
       const wrapper = build('/servers');
-      expect(wrapper.find(Servers)).toHaveLength(1);
+      expect(wrapper.find(ServersList)).toHaveLength(1);
     });
   });
 });
