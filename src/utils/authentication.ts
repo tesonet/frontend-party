@@ -6,7 +6,6 @@ export function isLoggedIn() {
 
 export function authHeader() {
 	const token = localStorage.getItem(LOCAL_STORAGE_TOKEN) || '';
-	console.log(token);
 	if (token) {
 		return {'Authorization': `Bearer ${token}`};
 	}
