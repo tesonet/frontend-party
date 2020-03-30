@@ -3,7 +3,7 @@ import styles from './Table.module.scss';
 
 export type TAlignAttr = 'left' | 'center' | 'right' | 'justify' | 'char';
 
-interface IColumnProps {
+export interface IColumnProps {
 	key: string;
 	align?: TAlignAttr;
 	title: string;

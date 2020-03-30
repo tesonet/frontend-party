@@ -31,18 +31,24 @@ export function Login(props: RouteComponentProps) {
 					onSubmit={submitForm}
 				>
 					<Input
+						data-qa='usernameInput'
 						type='text'
 						name='username'
 						placeholder='Username'
 						startAdornment={<UserIcon/>}
 					/>
 					<Input
+						data-qa='passwordInput'
 						type='password'
 						name='password'
 						placeholder='Password'
 						startAdornment={<LockIcon/>}
 					/>
-					<Button text='Log in' type='submit'/>
+					<Button
+						data-qa='loginSubmitButton'
+						text='Log in'
+						type='submit'
+					/>
 				</form>
 				{
 					errors.isLoginError &&

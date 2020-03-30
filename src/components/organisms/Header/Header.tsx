@@ -11,9 +11,10 @@ export function Header() {
 
 	return (
 		<nav className={styles['header']}>
-			<LogoDark/>
+			<LogoDark className={'header__logo'} />
 			<menu className={styles['header__menu']}>
 				<TextButton
+					data-qa='logoutButton'
 					text='Logout'
 					startAdornment={<LogoutIcon/>}
 					onClick={() => dispatch(logoutUser())}

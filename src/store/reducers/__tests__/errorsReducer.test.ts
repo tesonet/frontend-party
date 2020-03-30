@@ -1,7 +1,6 @@
 import {errorsReducer} from '../errorsReducer';
 import {CLEAR_ERRORS, SET_ERRORS} from '../../constants';
 
-
 describe('errorsReducer.ts', () => {
 	it('should return default state', () => {
 		const defaultState = {isLoginError: true};

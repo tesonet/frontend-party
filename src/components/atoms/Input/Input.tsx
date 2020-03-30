@@ -3,7 +3,7 @@ import styles from './Input.module.scss';
 
 type Falsy = false | 0 | '' | null | undefined;
 
-interface IInputProps {
+export interface IInputProps {
 	type: string;
 	name?: string;
 	startAdornment?: React.ReactNode;
@@ -19,11 +19,14 @@ export function Input(props: IInputProps) {
 		<div className={styles['input-wrapper']}>
 			{
 				(props.startAdornment || props.endAdornment) &&
-                <span className={[
-					styles['input__adornment'],
-					props.startAdornment && styles['input__adornment--start'],
-					props.endAdornment && styles['input__adornment--end'],
-				].filter(Boolean).join(' ')}>
+                <span
+                    data-qa='inputAdornment'
+					className={[
+						styles['input__adornment'],
+						props.startAdornment && styles['input__adornment--start'],
+						props.endAdornment && styles['input__adornment--end'],
+					].filter(Boolean).join(' ')}
+				>
 					{props.startAdornment || props.endAdornment}
 				</span>
 			}
@@ -40,7 +43,10 @@ export function Input(props: IInputProps) {
 			/>
 			{
 				props.errorMessage &&
-                <span className={styles['input__error']}>
+                <span
+                    data-qa='errorMessage'
+                    className={styles['input__error']}
+                >
 					{props.errorMessage}
 				</span>
 			}

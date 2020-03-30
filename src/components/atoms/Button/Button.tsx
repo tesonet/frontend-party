@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Button.module.scss';
 
-interface IButtonProps {
+export interface IButtonProps {
 	text?: string;
 	type?: 'button' | 'submit' | 'reset' | undefined;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TextButton.module.scss';
 
-interface ITextButtonProps {
+export interface ITextButtonProps {
 	text: string;
 	startAdornment?: React.ReactNode;
 	endAdornment?: React.ReactNode;
@@ -21,15 +21,21 @@ export function TextButton(props: ITextButtonProps) {
 		>
 			{
 				(props.startAdornment || props.endAdornment) &&
-                <span className={[
-					styles['text-button__adornment'],
-					props.startAdornment && styles['text-button__adornment--start'],
-					props.endAdornment && styles['text-button__adornment--end'],
-				].filter(Boolean).join(' ')}>
+                <span
+					data-qa='textButtonAdornment'
+                    className={[
+						styles['text-button__adornment'],
+						props.startAdornment && styles['text-button__adornment--start'],
+						props.endAdornment && styles['text-button__adornment--end'],
+					].filter(Boolean).join(' ')}
+                >
 					{props.startAdornment || props.endAdornment}
 				</span>
 			}
-			<span className={styles['text-button__text']}>
+			<span
+				data-qa='textButtonText'
+				className={styles['text-button__text']}
+			>
 				{props.text}
 			</span>
 		</button>
