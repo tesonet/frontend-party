@@ -5,8 +5,13 @@ import styles from './Login.module.scss';
 
 export const Login: React.FC = () => {
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    
     event.preventDefault();
-    console.log('Submit');
+    const data = new FormData(event.target as HTMLFormElement);
+    const username = data.get('username');
+    const password = data.get('password');
+
+    console.log({ username, password });
   };
 
   return (
@@ -19,15 +24,19 @@ export const Login: React.FC = () => {
       >
         <input
           data-test="username"
+          name="username"
           className={cn(styles.input, styles.userName)}
           type="text"
           placeholder="Username"
+          required
         />
         <input
           data-test="password"
+          name="password"
           className={cn(styles.input, styles.password)}
-          type="text"
+          type="password"
           placeholder="Password"
+          required
         />
         <button
           data-test="submit-login"
