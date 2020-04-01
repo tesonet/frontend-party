@@ -3,7 +3,8 @@ import { getServersListRequest } from './actions';
 import { ServersList as Component } from './ServersList';
 
 const mapStateToProps = ({ serversList }: any) => ({
-  servers: serversList.servers
+  servers: serversList.servers,
+  isLoading: serversList.isLoading
 });
 
 const mapDispatchToProps = {

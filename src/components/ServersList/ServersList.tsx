@@ -2,16 +2,19 @@ import React from 'react';
 import { useEffect } from 'react';
 import styles from './ServersList.module.scss';
 import { Header } from '../common/Header';
+import { Loader } from '../common/Loader';
 import { Server } from './types';
 
 export interface Props {
   servers: Server[];
+  isLoading: boolean;
   getServersListRequest: () => void;
 }
 
 export const ServersList: React.FC<Props> = ({
   servers,
-  getServersListRequest
+  getServersListRequest,
+  isLoading
 }) => {
   useEffect(() => {
     getServersListRequest();
@@ -26,18 +29,25 @@ export const ServersList: React.FC<Props> = ({
   return (
     <div className={styles.container}>
       <Header />
+
       <div className={styles.servers}>
         {headerRow()}
-        {servers?.map((server, index) => (
-          <div
-            data-test="server-row"
-            key={`server-${index}`}
-            className={styles.row}
-          >
-            <span>{server.name}</span>
-            <span>{server.distance} km</span>
+        {isLoading ? (
+          <div className={styles.loaderWrapper}>
+            <Loader dataTest="loader" stroke={'black'} />
           </div>
-        ))}
+        ) : (
+          servers?.map((server, index) => (
+            <div
+              data-test="server-row"
+              key={`server-${index}`}
+              className={styles.row}
+            >
+              <span>{server.name}</span>
+              <span>{server.distance} km</span>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 import React from 'react';
 interface Props {
   dataTest: string;
+  stroke?: string;
 }
-export const Loader: React.FC<Props> = ({ dataTest }) => {
+export const Loader: React.FC<Props> = ({ dataTest, stroke }) => {
   return (
     <svg
       data-test={dataTest}
@@ -10,7 +11,7 @@ export const Loader: React.FC<Props> = ({ dataTest }) => {
       height="38"
       viewBox="0 0 38 38"
       xmlns="http://www.w3.org/2000/svg"
-      stroke="#fff"
+      stroke={stroke || '#fff'}
     >
       <g fill="none" fillRule="evenodd">
         <g transform="translate(1 1)" strokeWidth="2">
