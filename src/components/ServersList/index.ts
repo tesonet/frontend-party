@@ -1,1 +1,1 @@
-export { ServersList } from './ServersList';
+export { ServersList } from './container';

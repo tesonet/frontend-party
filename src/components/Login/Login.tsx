@@ -2,16 +2,25 @@ import React from 'react';
 import cn from 'classnames';
 import logo from './assets/logo-testio.png';
 import styles from './Login.module.scss';
+import { LoginCredentials } from './actions';
+import { Redirect } from 'react-router';
 
-export const Login: React.FC = () => {
+interface Props {
+  loginRequest: (payload: LoginCredentials) => void;
+  isLoggedIn: boolean;
+  error: string;
+}
+
+export const Login: React.FC<Props> = ({ loginRequest, error }) => {
+  if (localStorage.getItem('auth-token')) {
+    return <Redirect to={{ pathname: '/servers', state: { from: '/' } }} />;
+  }
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    
     event.preventDefault();
     const data = new FormData(event.target as HTMLFormElement);
-    const username = data.get('username');
-    const password = data.get('password');
-
-    console.log({ username, password });
+    const username = data.get('username') as string;
+    const password = data.get('password') as string;
+    loginRequest({ username, password });
   };
 
   return (
@@ -45,6 +54,7 @@ export const Login: React.FC = () => {
         >
           Log in
         </button>
+        <div className={styles.errorBox}>{error || null}</div>
       </form>
     </div>
   );

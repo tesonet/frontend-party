@@ -7,11 +7,14 @@ import { storeBuilder } from './redux/store';
 import './index.scss';
 
 const App: React.FC = () => {
+  console.log('Rendering app');
   return (
     <Provider store={storeBuilder()}>
       <BrowserRouter>
         <Switch>
-          <Route path="/servers" exact component={ServersList} />
+          {localStorage.getItem('auth-token') && (
+            <Route path="/servers" exact component={ServersList} />
+          )}
           <Route path="/" component={Login} />
         </Switch>
       </BrowserRouter>

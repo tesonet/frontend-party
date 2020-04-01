@@ -69,3 +69,11 @@
   color: white;
   cursor: pointer;
 }
+
+.errorBox {
+  @include box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: red;
+}
