@@ -1,17 +1,22 @@
 import React from 'react';
 import cn from 'classnames';
 import logo from './assets/logo-testio.png';
+import { Loader } from '../common/Loader';
 import styles from './Login.module.scss';
 import { LoginCredentials } from './actions';
 import { Redirect } from 'react-router';
 
-interface Props {
+export interface Props {
   loginRequest: (payload: LoginCredentials) => void;
-  isLoggedIn: boolean;
-  error: string;
+  error: string | null;
+  authLoading: boolean;
 }
 
-export const Login: React.FC<Props> = ({ loginRequest, error }) => {
+export const Login: React.FC<Props> = ({
+  loginRequest,
+  error,
+  authLoading
+}) => {
   if (localStorage.getItem('auth-token')) {
     return <Redirect to={{ pathname: '/servers', state: { from: '/' } }} />;
   }
@@ -37,6 +42,7 @@ export const Login: React.FC<Props> = ({ loginRequest, error }) => {
           className={cn(styles.input, styles.userName)}
           type="text"
           placeholder="Username"
+          disabled={authLoading}
           required
         />
         <input
@@ -45,16 +51,18 @@ export const Login: React.FC<Props> = ({ loginRequest, error }) => {
           className={cn(styles.input, styles.password)}
           type="password"
           placeholder="Password"
+          disabled={authLoading}
           required
         />
         <button
           data-test="submit-login"
           className={styles.button}
           type="submit"
+          disabled={authLoading}
         >
-          Log in
+          {authLoading ? <Loader dataTest="loader" /> : 'Log in'}
         </button>
-        <div className={styles.errorBox}>{error || null}</div>
+        <div data-test="error" className={styles.errorBox}>{error || null}</div>
       </form>
     </div>
   );

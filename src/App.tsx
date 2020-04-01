@@ -7,7 +7,6 @@ import { storeBuilder } from './redux/store';
 import './index.scss';
 
 const App: React.FC = () => {
-  console.log('Rendering app');
   return (
     <Provider store={storeBuilder()}>
       <BrowserRouter>

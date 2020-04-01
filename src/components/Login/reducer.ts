@@ -8,12 +8,13 @@ import { LoginActionTypes } from './actions';
 
 export interface LoginState {
   token?: string;
-  error?: string;
+  error: string | null;
   authLoading: boolean;
 }
 
 export const initialState: LoginState = {
-  authLoading: false
+  authLoading: false,
+  error: null
 };
 
 export const login = (
@@ -24,11 +25,13 @@ export const login = (
     case LOGIN_REQUEST:
       return {
         ...state,
+        error: null,
         authLoading: true
       };
     case LOGIN_SUCCESS:
       return {
-        authLoading: false,
+        error: null,
+        authLoading: false
       };
     case LOGIN_FAILURE:
       return {

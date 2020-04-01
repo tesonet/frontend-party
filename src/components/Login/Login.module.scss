@@ -34,6 +34,9 @@
   &::placeholder {
     color: #b3b3b3;
   }
+  &:disabled {
+    opacity: 0.8;
+  }
   color: #999;
   font-size: 16px;
   font-weight: 300;
@@ -62,6 +65,9 @@
   @include box;
   &:hover {
     background-color: #86b300;
+  }
+  &:disabled {
+    cursor: default;
   }
   background-color: #9fd533;
   font-size: 16px;
