@@ -37,6 +37,9 @@
   @include rowBase;
   font-size: 16px;
   color: #666666;
+  &:hover {
+    background-color: #f5f5f5;
+  }
 }
 
 .loaderWrapper {
