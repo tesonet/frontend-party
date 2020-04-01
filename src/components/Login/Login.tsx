@@ -5,6 +5,7 @@ import { Loader } from '../common/Loader';
 import styles from './Login.module.scss';
 import { LoginCredentials } from './actions';
 import { Redirect } from 'react-router';
+import { ROUTES } from '../../routes';
 
 export interface Props {
   loginRequest: (payload: LoginCredentials) => void;
@@ -18,7 +19,11 @@ export const Login: React.FC<Props> = ({
   authLoading
 }) => {
   if (localStorage.getItem('auth-token')) {
-    return <Redirect to={{ pathname: '/servers', state: { from: '/' } }} />;
+    return (
+      <Redirect
+        to={{ pathname: ROUTES.serversList, state: { from: ROUTES.login } }}
+      />
+    );
   }
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -62,7 +67,9 @@ export const Login: React.FC<Props> = ({
         >
           {authLoading ? <Loader dataTest="loader" /> : 'Log in'}
         </button>
-        <div data-test="error" className={styles.errorBox}>{error || null}</div>
+        <div data-test="error" className={styles.errorBox}>
+          {error || null}
+        </div>
       </form>
     </div>
   );
