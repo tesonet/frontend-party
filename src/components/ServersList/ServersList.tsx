@@ -26,6 +26,7 @@ export const ServersList: React.FC<Props> = ({
       <span>DISTANCE</span>
     </div>
   );
+
   return (
     <div className={styles.container}>
       <Header />
@@ -37,16 +38,19 @@ export const ServersList: React.FC<Props> = ({
             <Loader dataTest="loader" stroke={'black'} />
           </div>
         ) : (
-          servers?.map((server, index) => (
-            <div
-              data-test="server-row"
-              key={`server-${index}`}
-              className={styles.row}
-            >
-              <span>{server.name}</span>
-              <span>{server.distance} km</span>
-            </div>
-          ))
+          servers
+            .sort((a, b) => (a.distance > b.distance ? 1 : -1))
+            // .sort((a, b) => (a.name > b.name ? 1 : -1))
+            .map((server, index) => (
+              <div
+                data-test="server-row"
+                key={`server-${index}`}
+                className={styles.row}
+              >
+                <span>{server.name}</span>
+                <span>{server.distance} km</span>
+              </div>
+            ))
         )}
       </div>
     </div>

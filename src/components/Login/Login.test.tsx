@@ -16,10 +16,12 @@ describe('Login', () => {
       const loginForm = wrapper.find('[data-test="login-form"]');
       const userNameInput = wrapper.find('[data-test="username"]');
       const passwordInput = wrapper.find('[data-test="password"]');
+      const submitButton = wrapper.find('[data-test="submit-login"]');
       expect(logo).toHaveLength(1);
       expect(loginForm).toHaveLength(1);
       expect(userNameInput).toHaveLength(1);
       expect(passwordInput).toHaveLength(1);
+      expect(submitButton).toHaveLength(1);
     });
   });
   describe('Loading state', () => {

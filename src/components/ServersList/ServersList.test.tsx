@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import { ServersList, Props } from './ServersList';
 
 const defaultProps: Props = {
+  isLoading: false,
+  getServersListRequest: jest.fn(),
   servers: [
     {
       name: 'Lithuania #78',
@@ -28,7 +30,20 @@ const defaultProps: Props = {
 };
 
 describe('Servers list', () => {
-  describe('UI', () => {
+  describe('Loading state', () => {
+    const loadingProps = {
+      ...defaultProps,
+      isLoading: true,
+      servers: []
+    }
+    it('Contains correct components', () => {
+      const wrapper = shallow(<ServersList {...loadingProps} />);
+      const loader = wrapper.find('[dataTest="loader"]');
+      expect(loader).toHaveLength(1);
+    });
+  });
+
+  describe('Loaded state ', () => {
     it('Contains correct components', () => {
       const wrapper = shallow(<ServersList {...defaultProps} />);
       const serversHeader = wrapper.find('[data-test="servers-header"]');
