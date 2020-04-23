@@ -29,14 +29,14 @@
 - Use [`react.js`](https://reactjs.org/)
 - Use state management solution ([`redux`](https://redux.js.org/) preferably). We know it is possible to do without, but we are curious - can you do with?
 - This must be a single page application. Use routing library([`react-router-dom`](https://www.npmjs.com/package/react-router-dom) or [`@reach/router`](https://reach.tech/router))
-- Implement login by sending an authorization request (`POST`) to http://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass `Content-Type`):
+- Implement login by sending an authorization request (`POST`) to https://playground.tesonet.lt/v1/tokens to generate a token (don't forget to pass `Content-Type`):
 
 ```json
 { "username": "tesonet", "password": "partyanimal" }
 ```
 
 - Use browser storage solution to persist token between sessions
-- Use the token to retrieve the server list from http://playground.tesonet.lt/v1/servers,
+- Use the token to retrieve the server list from https://playground.tesonet.lt/v1/servers,
 - Order the results of servers list by `distance` and `name`.
 - Implement logout (don't forget about the token in the storage)
 - Your app must work on all modern browsers and IE11+ 🐢🤷
