@@ -3,7 +3,7 @@
 ## Basic instructions
 
 1. Fork this repo
-1. Grab design files from [here](https://www.dropbox.com/sh/ql709t4h1ksl8jn/AACaARTQ9wUkpRNj07w2uHRka?dl=0).  
+1. Grab design files from [here](https://www.dropbox.com/sh/ql709t4h1ksl8jn/AACaARTQ9wUkpRNj07w2uHRka?dl=0).
    If you don't have Sketch or Photoshop, there are always free options to preview design:
    - [Avocode](https://avocode.com/) - just import `.sketch` file
    - [Zeplin](https://zeplin.io/) - just import `.sketch` file
@@ -16,7 +16,7 @@
 ### Design
 
 - Design should be recreated as per provided design file. We aren't talking about pixel perfect, we know there are gazillion screen sizes these days, just follow best UI/UX patterns, don't invent new icons, colors or spacing and you're all good! 👍
-- Design must be mobile-firendly and responsive.
+- Design must be mobile-friendly and responsive.
 - Use `SVG`'s where possible
 - For `CSS` you can use whatever you need and feel comfortable with (vanilla `CSS` is an option too), but we strongly recommend these:
   - pre-processor ([`SCSS`](https://sass-lang.com/))
@@ -45,7 +45,7 @@
 
 - It is all good to use [`create-react-app`](https://github.com/facebook/create-react-app) as a starter, but if you have time and want showcase your skill - use JS bundler ([`Webpack`](https://webpack.js.org/) preferred) 📦📦📦
 - We highly recommend following `TDD` patterns and showcasing your skills at writing tests(`unit`, `integration`, `e2e` - all are good)
-- Use [`npm scripts`](https://docs.npmjs.com/misc/scripts) for running tasks, i.e. for development, clening build or etc.
+- Use [`npm scripts`](https://docs.npmjs.com/misc/scripts) for running tasks, i.e. for development, cleaning build or etc.
 - Do validation of login fields and provide user friendly error messages if needed **#UXmatters**
 - Indicate loading state for the user whenever requests are in action and user might not understand they needs to wait
 
