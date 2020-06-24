@@ -13,10 +13,6 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
       },
-      {
-        test: /\.scss?$/,
-        loader: ['style-loader', 'css-loader', 'sass-loader'],
-      },
     ],
   },
   plugins: [
