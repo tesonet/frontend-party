@@ -1,38 +1,36 @@
 import 'normalize.css'
-import Background from '../../../assets/img/login-page-background.png'
 import React from 'react'
 import Login from '../Login/Login'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
 } from 'react-router-dom'
 import { createUseStyles } from 'react-jss'
+import { Provider } from 'react-redux'
+import { Authentication } from '../../store/auth_reducers'
+import { configureStore } from '@reduxjs/toolkit'
+import thunk from 'redux-thunk'
+
+const store = configureStore({
+  reducer: Authentication,
+  middleware: [thunk],
+})
 
 const makeStyles = createUseStyles({
   app: {
     height: '100vh',
     position: 'relative',
-    background: [`url(${Background})`, 'no-repeat', 'center'],
-    backgroundSize: 'cover',
-  },
-  overlay: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'rgb(0,0,0,0.5)',
   },
 })
 
 function App() {
   const style = makeStyles()
+  console.log(store)
   return (
-    <div className={style.app}>
-      <div className={style.overlay}>
+    <Provider store={store}>
+      <div className={style.app}>
         <Router>
           <Switch>
             <Redirect exact from="/" to="/login" />
@@ -40,7 +38,7 @@ function App() {
           </Switch>
         </Router>
       </div>
-    </div>
+    </Provider>
   )
 }
 
