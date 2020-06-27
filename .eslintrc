@@ -1,0 +1,23 @@
+{
+    "parser": "babel-eslint",
+    "extends": "react",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "curly": ["error", "all"],
+        "max-len": ["error", { "code": 80, "ignoreUrls": true }],
+        "no-confusing-arrow": "error",
+        "no-tabs": "error",
+        "quotes": ["error", "backtick"],
+        "space-in-parens": 2,
+        "space-before-function-paren": 0,
+        "comma-dangle": ["error", "never"]
+    }
+}
