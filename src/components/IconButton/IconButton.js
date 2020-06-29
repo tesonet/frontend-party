@@ -29,7 +29,7 @@ const Icon = styled.img`
 const Label = styled.div`
     line-height: 16px;
 `;
-const IconButton = ({ icon, label, clickHandler }) => {
+const IconButton = ({ label, clickHandler }) => {
     return (
         <Button onClick={clickHandler}>
             <Icon src={LogoutIcon} />

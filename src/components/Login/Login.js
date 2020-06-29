@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import LoginForm from "../LoginForm/LoginForm";
+
 import { sendHttpRequest } from "../../utils/fetchApi";
 
 const LoginPage = styled.div`
@@ -9,6 +10,7 @@ const LoginPage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #0b0f27;
 `;
 
 const Login = ({ setTokenCookie, userHasAuthenticated }) => {
@@ -20,13 +22,12 @@ const Login = ({ setTokenCookie, userHasAuthenticated }) => {
             .then((response) => {
                 setTokenCookie(response.token);
                 userHasAuthenticated(true);
-                setIsLoading(false);
             })
             .catch((err) => {
                 console.log(err.message);
                 userHasAuthenticated(false);
-                setIsLoading(false);
             });
+        setIsLoading(false);
     };
 
     const handleSubmit = (e) => {
@@ -39,7 +40,7 @@ const Login = ({ setTokenCookie, userHasAuthenticated }) => {
     };
 
     return (
-        <LoginPage>
+        <LoginPage className="login-page">
             {!isLoading ? (
                 <LoginForm handleSubmit={handleSubmit} />
             ) : (
