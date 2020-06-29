@@ -1,6 +1,16 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
+import LoginForm from "../LoginForm/LoginForm";
 import { sendHttpRequest } from "../../utils/fetchApi";
+
+const LoginPage = styled.div`
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 const Login = ({ setTokenCookie, userHasAuthenticated }) => {
     const [isLoading, setIsLoading] = useState(false);
 
@@ -28,24 +38,14 @@ const Login = ({ setTokenCookie, userHasAuthenticated }) => {
         sendData(body);
     };
 
-    return isLoading ? (
-        <div>please wait...</div>
-    ) : (
-        <form className="testio-form" onSubmit={handleSubmit}>
-            <input
-                name="username"
-                type="text"
-                placeholder="Username"
-                maxLength={32}
-            />
-            <input
-                name="password"
-                type="password"
-                placeholder="Password"
-                maxLength={32}
-            />
-            <input type="submit" value="Submit" />
-        </form>
+    return (
+        <LoginPage>
+            {!isLoading ? (
+                <LoginForm handleSubmit={handleSubmit} />
+            ) : (
+                <div>please wait...</div>
+            )}
+        </LoginPage>
     );
 };
 

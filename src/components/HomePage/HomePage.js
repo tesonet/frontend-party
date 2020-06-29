@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { getHttpRequest } from "../../utils/fetchApi";
+import { multipleSort } from "../../utils/helpers";
+import ServerList from "../ServerList/ServerList";
+import HomePageHeader from "../HomePageHeader/HomePageHeader";
 
-const HomePage = ({ token }) => {
+const HomePage = ({ token, handleLogout }) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
         getHttpRequest(`https://playground.tesonet.lt/v1/servers`, token).then(
             (response) => {
                 const ordered = response.sort((a, b) => {
-                    return a.distance - b.distance;
+                    return (
+                        multipleSort(a.distance, b.distance) ||
+                        multipleSort(a.name, b.name)
+                    );
                 });
                 setData(ordered);
             }
@@ -17,13 +23,8 @@ const HomePage = ({ token }) => {
     }, []);
     return (
         <div>
-            Welcome to the homepage!
-            <div>Server</div>
-            <div>
-                {data.map((element, i) => {
-                    return <div key={i}>{i}-number</div>;
-                })}
-            </div>
+            <HomePageHeader handleLogout={handleLogout} />
+            <ServerList data={data} />
         </div>
     );
 };
@@ -31,5 +32,6 @@ const HomePage = ({ token }) => {
 export default HomePage;
 
 HomePage.propTypes = {
-    token: PropTypes.string
+    token: PropTypes.string,
+    handleLogout: PropTypes.func
 };

@@ -7,8 +7,8 @@ import HomePage from "../HomePage/HomePage";
 
 const App = () => {
     const [cookies, setCookie, removeCookie] = useCookies([`tes0`]);
-
     const [isAuthenticated, userHasAuthenticated] = useState(cookies[`tes0`]);
+
     const setTokenCookie = (token) => {
         setCookie(`tes0`, token, { path: `/` });
         userHasAuthenticated(true);
@@ -23,10 +23,14 @@ const App = () => {
         <Switch>
             {isAuthenticated ? (
                 <>
-                    <button onClick={handleLogOut}>Click here to logout</button>
                     <Route
                         path="/"
-                        render={() => <HomePage token={cookies[`tes0`]} />}
+                        render={() => (
+                            <HomePage
+                                handleLogout={handleLogOut}
+                                token={cookies[`tes0`]}
+                            />
+                        )}
                     />
                 </>
             ) : (

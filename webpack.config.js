@@ -4,7 +4,7 @@ module.exports = {
     devtool: `inline-source-map`,
     entry: `./src/index.js`,
     output: {
-        path: `${__dirname}'/dist'`,
+        path: `${__dirname}/dist'`,
         publicPath: `/`,
         filename: `bundle.js`
     },
@@ -18,6 +18,17 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.(png|jp(e*)g|svg|gif)$/,
+                use: [
+                    {
+                        loader: `file-loader`,
+                        options: {
+                            name: `images/[hash]-[name].[ext]`
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
