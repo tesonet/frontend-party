@@ -1,6 +1,6 @@
 {
-    "semi": true,
-    "tabWidth": 4,
-    "quotes": ["error", "single", { "avoidEscape": true }],
-    "trailingComma": "none"
+  "semi": true,
+  "tabWidth": 2,
+  "quotes": ["error", "single", { "avoidEscape": true }],
+  "trailingComma": "none"
 }

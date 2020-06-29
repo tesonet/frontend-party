@@ -6,49 +6,47 @@ import { useCookies } from "react-cookie";
 import HomePage from "../HomePage/HomePage";
 
 const App = () => {
-    const [cookies, setCookie, removeCookie] = useCookies([`tes0`]);
-    const [isAuthenticated, userHasAuthenticated] = useState(cookies[`tes0`]);
+  const [cookies, setCookie, removeCookie] = useCookies([`tes0`]);
+  const [isAuthenticated, userHasAuthenticated] = useState(cookies[`tes0`]);
 
-    const setTokenCookie = (token) => {
-        setCookie(`tes0`, token, { path: `/` });
-        userHasAuthenticated(true);
-    };
+  const setTokenCookie = (token) => {
+    setCookie(`tes0`, token, { path: `/` });
+    userHasAuthenticated(true);
+  };
 
-    const handleLogOut = () => {
-        removeCookie(`tes0`);
-        userHasAuthenticated(false);
-    };
+  const handleLogOut = () => {
+    removeCookie(`tes0`);
+    userHasAuthenticated(false);
+  };
+  debugger;
 
-    return (
-        <Switch>
-            {isAuthenticated ? (
-                <>
-                    <Route
-                        path="/"
-                        render={() => (
-                            <HomePage
-                                handleLogout={handleLogOut}
-                                token={cookies[`tes0`]}
-                            />
-                        )}
-                    />
-                </>
-            ) : (
-                <>
-                    <Route
-                        path="/"
-                        render={() => (
-                            <Login
-                                setTokenCookie={setTokenCookie}
-                                cookies={cookies}
-                                userHasAuthenticated={userHasAuthenticated}
-                            />
-                        )}
-                    />
-                </>
+  return (
+    <Switch>
+      {isAuthenticated ? (
+        <>
+          <Route
+            path="/"
+            render={() => (
+              <HomePage handleLogout={handleLogOut} token={cookies[`tes0`]} />
             )}
-        </Switch>
-    );
+          />
+        </>
+      ) : (
+        <>
+          <Route
+            path="/"
+            render={() => (
+              <Login
+                setTokenCookie={setTokenCookie}
+                cookies={cookies}
+                userHasAuthenticated={userHasAuthenticated}
+              />
+            )}
+          />
+        </>
+      )}
+    </Switch>
+  );
 };
 
 export default withCookies(App);

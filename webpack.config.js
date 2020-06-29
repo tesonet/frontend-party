@@ -1,57 +1,57 @@
 const HtmlWebPackPlugin = require(`html-webpack-plugin`);
 
 module.exports = {
-    devtool: `inline-source-map`,
-    entry: `./src/index.js`,
-    output: {
-        path: `${__dirname}/dist'`,
-        publicPath: `/`,
-        filename: `bundle.js`
-    },
-    devServer: {
-        historyApiFallback: true
-    },
-    performance: {
-        hints: false,
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(png|jp(e*)g|svg|gif)$/,
-                use: [
-                    {
-                        loader: `file-loader`,
-                        options: {
-                            name: `images/[hash]-[name].[ext]`
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: [`babel-loader`, `eslint-loader`]
-            },
-            {
-                test: /\.html$/,
-                use: [
-                    {
-                        loader: `html-loader`
-                    }
-                ]
-            },
-            {
-                test: /\.s[ac]ss$/i,
-                use: [`style-loader`, `css-loader`, `sass-loader`]
+  devtool: `inline-source-map`,
+  entry: `./src/index.js`,
+  output: {
+    path: `${__dirname}/dist'`,
+    publicPath: `/`,
+    filename: `bundle.js`
+  },
+  devServer: {
+    historyApiFallback: true
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: `file-loader`,
+            options: {
+              name: `images/[hash]-[name].[ext]`
             }
+          }
         ]
-    },
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: `./src/index.html`,
-            filename: `./index.html`
-        })
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [`babel-loader`, `eslint-loader`]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: `html-loader`
+          }
+        ]
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [`style-loader`, `css-loader`, `sass-loader`]
+      }
     ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: `./src/index.html`,
+      filename: `./index.html`
+    })
+  ]
 };

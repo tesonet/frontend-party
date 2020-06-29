@@ -5,31 +5,27 @@ import SiteLogo from "../../images/logotype-testio.png";
 import IconButton from "../IconButton/IconButton";
 
 const Header = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding: 42px 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 42px 15px;
 `;
 
 const Logo = styled.img`
-    width: 115px;
-    height: 30px;
+  width: 115px;
+  height: 30px;
 `;
 
 const HomePageHeader = ({ handleLogout }) => {
-    return (
-        <Header>
-            <Logo src={SiteLogo} alt="testio" />
-            <IconButton
-                clickHandler={handleLogout}
-                icon="icon"
-                label="Logout"
-            />
-        </Header>
-    );
+  return (
+    <Header>
+      <Logo src={SiteLogo} alt="testio" />
+      <IconButton clickHandler={handleLogout} icon="icon" label="Logout" />
+    </Header>
+  );
 };
 
 export default HomePageHeader;
 
 HomePageHeader.propTypes = {
-    handleLogout: PropTypes.func
+  handleLogout: PropTypes.func
 };

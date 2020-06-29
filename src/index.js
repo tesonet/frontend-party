@@ -7,10 +7,10 @@ import { CookiesProvider } from "react-cookie";
 import "./main.scss";
 
 ReactDOM.render(
-    <CookiesProvider>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </CookiesProvider>,
-    document.getElementById(`root`)
+  <CookiesProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </CookiesProvider>,
+  document.getElementById(`root`)
 );
