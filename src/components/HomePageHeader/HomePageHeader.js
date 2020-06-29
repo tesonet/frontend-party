@@ -31,6 +31,5 @@ const HomePageHeader = ({ handleLogout }) => {
 export default HomePageHeader;
 
 HomePageHeader.propTypes = {
-    children: PropTypes.element.isRequired,
     handleLogout: PropTypes.func
 };

@@ -5,9 +5,13 @@ import PasswordIcon from "../../images/lock.svg";
 import PropTypes from "prop-types";
 
 const StyledForm = styled.form`
-    min-width: 360px;
+    width: 360px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 992px) {
+        width: 70%;
+    }
 `;
 
 const InputContainer = styled.div`
