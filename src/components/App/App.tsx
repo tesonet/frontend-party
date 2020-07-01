@@ -1,6 +1,7 @@
 import 'normalize.css'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Login from '../Login/Login'
+import Servers from '../Servers/Servers'
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,38 +9,51 @@ import {
   Redirect,
 } from 'react-router-dom'
 import { createUseStyles } from 'react-jss'
-import { Provider } from 'react-redux'
-import { Authentication } from '../../store/auth_reducers'
-import { configureStore } from '@reduxjs/toolkit'
-import thunk from 'redux-thunk'
-
-const store = configureStore({
-  reducer: Authentication,
-  middleware: [thunk],
-})
+import styleConsts from '../../styles'
+import { useDispatch, connect } from 'react-redux'
+import { userLoggedIn } from '../../store/auth_actions'
 
 const makeStyles = createUseStyles({
   app: {
     height: '100vh',
     position: 'relative',
+    fontFamily: "'Roboto', sans-serif",
+    fontSize: styleConsts.fontSize,
+    '& *': {
+      boxSizing: 'border-box',
+    },
+    '& .mb': {
+      marginBottom: styleConsts.marginBottom,
+    },
+    '& .mr': {
+      marginRight: styleConsts.marginRight,
+    },
   },
 })
 
 function App() {
   const style = makeStyles()
-  console.log(store)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const token: string | undefined = window.localStorage.getItem('token')
+    console.log(dispatch)
+
+    if (token) {
+      dispatch(userLoggedIn(token))
+    }
+  }, [])
+
   return (
-    <Provider store={store}>
-      <div className={style.app}>
-        <Router>
-          <Switch>
-            <Redirect exact from="/" to="/login" />
-            <Route exact path="/login" component={Login} />
-          </Switch>
-        </Router>
-      </div>
-    </Provider>
+    <div className={style.app}>
+      <Router>
+        <Switch>
+          <Redirect exact from="/" to="/login" />
+          <Route exact path="/login" component={Login} />
+          <Route path="/servers" component={Servers}></Route>
+        </Switch>
+      </Router>
+    </div>
   )
 }
 
-export default App
+export default connect()(App)

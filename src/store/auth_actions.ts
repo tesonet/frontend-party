@@ -1,5 +1,6 @@
 import { REQUEST_LOGIN, LOGGED_IN, ERROR, LOG_OUT } from './auth_constants'
 import { authLogin } from '../service/auth_service'
+import { Dispatch } from 'react'
 
 function requestLogIn(): { type: REQUEST_LOGIN } {
   return {
@@ -7,7 +8,9 @@ function requestLogIn(): { type: REQUEST_LOGIN } {
   }
 }
 
-function userLoggedIn(token: string): { type: LOGGED_IN; token: string } {
+export function userLoggedIn(
+  token: string
+): { type: LOGGED_IN; token: string } {
   return {
     type: 'LOGGED_IN',
     token,
@@ -27,17 +30,21 @@ function userLogout(): { type: LOG_OUT } {
   }
 }
 
-export function logIn(username: string, password: string) {
-  return function (dispatch) {
-    dispatch(requestLogIn())
-    return authLogin(username, password)
-      .then((res) => dispatch(userLoggedIn(res.data.token)))
-      .catch((err) => dispatch(userLoginError(err)))
-  }
+export const logIn = (username: string, password: string, dispatch) => {
+  dispatch(requestLogIn())
+  return authLogin(username, password)
+    .then(res => {
+      dispatch(userLoggedIn(res.data.token))
+      return 'success'
+    })
+    .catch(err => {
+      dispatch(userLoginError(err))
+      return 'error'
+    })
 }
 
 export function logOut() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(userLogout())
   }
 }

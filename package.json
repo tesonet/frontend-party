@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/levandovsky/frontend-party#readme",
   "devDependencies": {
+    "@svgr/webpack": "^5.4.0",
     "html-webpack-plugin": "^4.3.0",
     "react-test-renderer": "^16.13.1",
     "ts-loader": "^7.0.5",
@@ -43,6 +44,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "style-loader": "^1.2.1",
+    "svg-url-loader": "^6.0.0",
     "typescript": "^3.9.5",
     "webpack-dev-server": "^3.11.0"
   }
