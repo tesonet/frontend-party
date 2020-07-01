@@ -1,9 +1,9 @@
 import { AuthActions } from './auth_constants'
-interface AuthState {
+export interface AuthState {
   loading: boolean
   loggedIn: boolean
-  error: Error
-  token: string
+  error: Error | null
+  token: string | null
 }
 export const initialState: AuthState = {
   loggedIn: false,
@@ -27,15 +27,17 @@ export function Authentication(state = initialState, action: AuthActions) {
         loggedIn: true,
         error: null,
         loading: false,
-        token: action.token,
+        token: action.token ? action.token : null,
       }
-      window.localStorage.setItem('token', action.token)
+      if (action.token) {
+        window.localStorage.setItem('token', action.token)
+      }
 
       return Object.assign({}, state, loggedInState)
     case 'ERROR':
       const errorState: AuthState = {
         loggedIn: false,
-        error: action.err,
+        error: action.err ? action.err : null,
         loading: false,
         token: null,
       }

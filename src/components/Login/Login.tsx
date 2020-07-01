@@ -1,32 +1,31 @@
-import React, { useState } from 'react'
-import { createUseStyles } from 'react-jss'
+import React, { useState, FormEvent, ChangeEvent } from 'react'
 import UsernameIcon from '../../../assets/icons/username.svg'
 import LockIcon from '../../../assets/icons/lock.svg'
 import logo from '../../../assets/logo/logo_testio.png'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { logIn } from '../../store/auth_actions'
 import { useHistory } from 'react-router-dom'
-import { requestServerList } from '../../service/auth_service'
 import LoginButton from '../shared/LoginButton/LoginButton'
 import Input from '../shared/Input/Input'
 import LogoutButton from '../shared/LogoutButton/LogoutButton'
 import { primaryButton } from '../../styles/bigButton'
 import createLoginStyles from './Login.style'
+import { AuthState } from '../../store/auth_reducers'
 
 function Login() {
   const style = { ...createLoginStyles(), ...primaryButton() }
   const dispatch = useDispatch()
   const history = useHistory()
-  const [username, setUsername] = useState(null)
-  const [password, setPassword] = useState(null)
-  const error = useSelector(state => state.error)
-  const loading = useSelector(state => state.loading)
-  const loggedIn = useSelector(state => state.loggedIn)
+  const [username, setUsername] = useState<string | null>(null)
+  const [password, setPassword] = useState<string | null>(null)
+  const error = useSelector((state: AuthState) => state.error)
+  const loading = useSelector((state: AuthState) => state.loading)
+  const loggedIn = useSelector((state: AuthState) => state.loggedIn)
   const valid = username && password
   const navigateToServers = async () => {
     history.push('/servers')
   }
-  const handleLogin = async e => {
+  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const status: string = await logIn(username, password, dispatch)
     if (status === 'success') {
@@ -51,7 +50,7 @@ function Login() {
               disabled={loading}
               className="mb"
               required={!username}
-              onChange={e => setUsername(e.target.value)}
+              onChange={(e: ChangeEvent) => setUsername(e.target.nodeValue)}
               placeholder="Username"
               icon={<UsernameIcon />}
               type="text"
@@ -60,7 +59,7 @@ function Login() {
               disabled={loading}
               className="mb"
               required={!password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e: ChangeEvent) => setPassword(e.target.nodeValue)}
               placeholder="Password"
               icon={<LockIcon />}
               type="password"

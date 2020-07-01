@@ -1,4 +1,10 @@
-import { REQUEST_LOGIN, LOGGED_IN, ERROR, LOG_OUT } from './auth_constants'
+import {
+  REQUEST_LOGIN,
+  LOGGED_IN,
+  ERROR,
+  LOG_OUT,
+  AuthActions,
+} from './auth_constants'
 import { authLogin } from '../service/auth_service'
 import { Dispatch } from 'react'
 
@@ -17,7 +23,7 @@ export function userLoggedIn(
   }
 }
 
-function userLoginError(err): { type: ERROR; err: any } {
+function userLoginError(err: Error): { type: ERROR; err: any } {
   return {
     type: 'ERROR',
     err,
@@ -30,7 +36,11 @@ function userLogout(): { type: LOG_OUT } {
   }
 }
 
-export const logIn = (username: string, password: string, dispatch) => {
+export const logIn = (
+  username: string | null,
+  password: string | null,
+  dispatch: Dispatch<AuthActions>
+) => {
   dispatch(requestLogIn())
   return authLogin(username, password)
     .then(res => {
@@ -44,7 +54,7 @@ export const logIn = (username: string, password: string, dispatch) => {
 }
 
 export function logOut() {
-  return dispatch => {
+  return (dispatch: Dispatch<AuthActions>) => {
     dispatch(userLogout())
   }
 }
