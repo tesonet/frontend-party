@@ -8,32 +8,16 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom'
-import { createUseStyles } from 'react-jss'
-import styleConsts from '../../styles'
-import { useDispatch, connect } from 'react-redux'
+import { useDispatch, connect, useSelector } from 'react-redux'
 import { userLoggedIn } from '../../store/auth_actions'
-
-const makeStyles = createUseStyles({
-  app: {
-    height: '100vh',
-    position: 'relative',
-    fontFamily: "'Roboto', sans-serif",
-    fontSize: styleConsts.fontSize,
-    '& *': {
-      boxSizing: 'border-box',
-    },
-    '& .mb': {
-      marginBottom: styleConsts.marginBottom,
-    },
-    '& .mr': {
-      marginRight: styleConsts.marginRight,
-    },
-  },
-})
+import NotFound from '../NotFound/NotFound'
+import AppStyle from './App.style'
 
 function App() {
-  const style = makeStyles()
+  const style = AppStyle()
   const dispatch = useDispatch()
+  const loggedIn = useSelector(state => state.loggedIn)
+
   useEffect(() => {
     const token: string | undefined = window.localStorage.getItem('token')
     console.log(dispatch)
@@ -48,8 +32,10 @@ function App() {
       <Router>
         <Switch>
           <Redirect exact from="/" to="/login" />
-          <Route exact path="/login" component={Login} />
-          <Route path="/servers" component={Servers}></Route>
+          <Route path="/login" component={Login} />
+          <Route path="/servers" component={loggedIn ? Servers : NotFound}></Route>
+          <Route path="/404" component={NotFound} />
+          <Redirect from="*" to="/404" />
         </Switch>
       </Router>
     </div>
