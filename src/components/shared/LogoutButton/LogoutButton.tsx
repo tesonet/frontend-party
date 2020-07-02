@@ -3,40 +3,12 @@ import { logOut } from '../../../store/auth_actions'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import LogoutIcon from '../../../../assets/icons/logout.svg'
-import { createUseStyles } from 'react-jss'
 import { warningButton } from '../../../styles/bigButton'
-const makeStyles = createUseStyles({
-  logoutContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    '& .btn': {
-      border: 'none',
-      backgroundColor: 'transparent',
-    },
-    '& .icon': {
-      display: 'flex',
-    },
-    '&:hover .icon': {
-      cursor: 'pointer',
-      '& svg path': {
-        fill: '#99cc33',
-      },
-    },
-    '&:hover .btn': {
-      color: '#99cc33',
-      cursor: 'pointer',
-    },
-  },
-  fillWhite: {
-    '& svg path': {
-      fill: '#fff',
-    },
-  },
-})
-function LogoutButton(props) {
+import logoutButtonStyle from './LogoutButton.style'
+function LogoutButton(props: { bigButton?: boolean }) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const styles = { ...makeStyles(), ...warningButton() }
+  const styles = { ...logoutButtonStyle(), ...warningButton() }
   const handleLogout = () => {
     dispatch(logOut())
     history.push('/login')

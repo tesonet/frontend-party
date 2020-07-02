@@ -8,7 +8,7 @@ import {
 import { authLogin } from '../service/auth_service'
 import { Dispatch } from 'react'
 
-function requestLogIn(): { type: REQUEST_LOGIN } {
+export function requestLogIn(): { type: REQUEST_LOGIN } {
   return {
     type: 'REQUEST_LOGIN',
   }
@@ -23,14 +23,14 @@ export function userLoggedIn(
   }
 }
 
-function userLoginError(err: Error): { type: ERROR; err: any } {
+export function userLoginError(err: Error): { type: ERROR; err: any } {
   return {
     type: 'ERROR',
     err,
   }
 }
 
-function userLogout(): { type: LOG_OUT } {
+export function userLogout(): { type: LOG_OUT } {
   return {
     type: 'LOG_OUT',
   }

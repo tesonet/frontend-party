@@ -21,12 +21,12 @@ function Servers() {
   const layout = makeLayout()
   const flexStyle = `${layout.displayFlex} ${layout.justifyBetween} ${layout.alignItemsCenter}`
   const navClasses = `${styles.nav} ${flexStyle}`
-  const sortableClass = selected =>
+  const sortableClass = (selected: boolean) =>
     selected ? 'underline sortable' : 'sortable'
-  const [servers, setServers] = useState([])
-  const [sortedBy, setSortedBy] = useState('country')
-  const [sortDirectionCountry, setSortDirectionCountry] = useState('asc')
-  const [sortDirectionDistance, setSortDirectionDistance] = useState('asc')
+  const [servers, setServers] = useState<Server[]>([])
+  const [sortedBy, setSortedBy] = useState<SortedByType>('country')
+  const [sortDirectionCountry, setSortDirectionCountry] = useState<SortType>('asc')
+  const [sortDirectionDistance, setSortDirectionDistance] = useState<SortType>('asc')
 
   const nameSort = (a: Server, b: Server) =>
     getCountryName(a.name).localeCompare(getCountryName(b.name))

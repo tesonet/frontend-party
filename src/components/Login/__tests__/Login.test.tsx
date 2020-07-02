@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { ReactElement, ChangeEvent } from 'react'
 import Login from '../Login'
-import { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
-
+import { mount, ReactWrapper } from 'enzyme'
+import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
+let component: ReactWrapper
+const store = configureStore()
+beforeEach(() => {
+  component = mount(
+    <Provider store={store()}>
+      <Login />
+    </Provider>
+  )
+})
 describe('Login component', () => {
-  it('should have login form with inputs', () => {
-    const login = render(<Login />)
-    expect(login).toBeTruthy()
+  test('username field should be required', () => {
+    const usernameField = component.find('input[placeholder="Username"]')
+    expect(usernameField.hasClass('required')).toBeTruthy()
+  })
+
+  test('password should be required', () => {
+    const passwordField = component.find('input[placeholder="Password"]')
+    expect(passwordField.hasClass('required')).toBeTruthy()
   })
 })

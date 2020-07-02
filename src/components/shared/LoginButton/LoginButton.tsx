@@ -1,7 +1,7 @@
 import React from 'react'
 import { successButton } from '../../../styles/bigButton'
 
-function LoginButton(props) {
+function LoginButton(props: {disabled?: boolean}) {
   const styles = successButton()
   return (
     <div className={styles.button}>

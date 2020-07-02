@@ -1,45 +1,17 @@
-import React from 'react'
-import { createUseStyles } from 'react-jss'
-import styleConsts from '../../../styles'
-
-const makeStyles = createUseStyles({
-  inputContainer: {
-    position: 'relative',
-    display: 'flex',
-
-    '& .input': {
-      width: '100%',
-      padding: '18px 50px',
-      border: '2px solid transparent',
-      borderRadius: 5,
-      color: styleConsts.mainTextColor,
-      transition: 'border 0.2s ease-in-out',
-
-      '&:focus': {
-        outline: 'none',
-      },
-      '&.required': {
-        border: '2px solid red',
-      },
-    },
-    '& .icon': {
-      height: '100%',
-      position: 'absolute',
-      display: 'flex',
-      alignItems: 'center',
-      left: 25,
-    },
-    '& small': {
-      color: 'red',
-      position: 'absolute',
-      bottom: -18,
-      left: 0,
-    },
-  },
-})
-function Input(props) {
-  const styles = makeStyles()
-  const handleChange = e => {
+import React, { ChangeEvent, ReactSVG } from 'react'
+import inputStyles from './Input.style'
+export interface InputProps {
+  icon: any
+  type: 'text' | 'password'
+  className: string
+  placeholder: string
+  required?: boolean
+  disabled?: boolean
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+}
+function Input(props: InputProps) {
+  const styles =inputStyles()
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (props.onChange) {
       props.onChange(e)
     }

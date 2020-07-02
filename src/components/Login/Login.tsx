@@ -50,7 +50,9 @@ function Login() {
               disabled={loading}
               className="mb"
               required={!username}
-              onChange={(e: ChangeEvent) => setUsername(e.target.nodeValue)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setUsername(e.target.value)
+              }
               placeholder="Username"
               icon={<UsernameIcon />}
               type="text"
@@ -59,7 +61,9 @@ function Login() {
               disabled={loading}
               className="mb"
               required={!password}
-              onChange={(e: ChangeEvent) => setPassword(e.target.nodeValue)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
               placeholder="Password"
               icon={<LockIcon />}
               type="password"

@@ -12,15 +12,15 @@ import { useDispatch, connect, useSelector } from 'react-redux'
 import { userLoggedIn } from '../../store/auth_actions'
 import NotFound from '../NotFound/NotFound'
 import AppStyle from './App.style'
+import { AuthState } from '../../store/auth_reducers'
 
 function App() {
   const style = AppStyle()
   const dispatch = useDispatch()
-  const loggedIn = useSelector(state => state.loggedIn)
+  const loggedIn = useSelector((state: AuthState) => state.loggedIn)
 
   useEffect(() => {
-    const token: string | undefined = window.localStorage.getItem('token')
-    console.log(dispatch)
+    const token: string | null = window.localStorage.getItem('token')
 
     if (token) {
       dispatch(userLoggedIn(token))
