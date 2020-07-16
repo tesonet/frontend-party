@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 const httpClient = axios.create();
 
 const api = {
@@ -14,16 +15,10 @@ const api = {
 };
 
 export function handleError(error, customErrorText) {
-  if (error) {
-    if (customErrorText) {
-      toast(customErrorText);
-    } else if (error.response && error.response.headers["x-padoq-advice"]) {
-      toast(error.response.headers["x-padoq-advice"]);
-    } else {
-      toast("Something went wrong.");
-    }
+  if (error && customErrorText) {
+    toast.error(customErrorText);
   }
-  //debug
+  //debug only in dev
   if (process.env.NODE_ENV === "development") {
     const consoleStyle = "background: red; color: white; font-size: 18px";
     console.log("%c Error ", consoleStyle);

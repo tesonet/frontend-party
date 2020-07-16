@@ -5,9 +5,11 @@ import userIcon from "../../assets/img/user.svg";
 import lockIcon from "../../assets/img/lock.svg";
 import logo from "../../assets/img/logo@2x.png";
 import { grantToken } from "../../api/auth";
+import { handleError } from "../../api";
 
 class Login extends Component {
   state = {
+    isLoading: false,
     username: "",
     password: "",
     usernameError: "",
@@ -34,21 +36,32 @@ class Login extends Component {
   }
 
   authenticate({ username, password }) {
+    this.setState({ isLoading: true });
+
     grantToken({ username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
+        this.props.history.push({ pathname: "/homefeed" });
         console.log("res", res);
       })
-      .catch((err) => {
-        handleError;
-      });
+      .catch((error) => {
+        handleError(error, "Failed to login!");
+      })
+      .finally(() => this.setState({ isLoading: false }));
   }
 
   render() {
-    const { username, password, usernameError, passwordError } = this.state;
+    const {
+      isLoading,
+      username,
+      password,
+      usernameError,
+      passwordError,
+    } = this.state;
 
     return (
       <div className="login-page">
+        {isLoading && "loading"}
         <div className="login__wrap">
           <div className="login__logo">
             <img src={logo} alt="Testio logo" width="246" height="64" />

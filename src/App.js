@@ -5,6 +5,8 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import Login from "./Containers/Login/Login";
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
           <Redirect to="/" />
         </Switch>
       </Router>
+      <ToastContainer />
     </div>
   );
 }
