@@ -9,7 +9,6 @@ import { handleError } from "../../api";
 import { connect } from "react-redux";
 import { setUserLogin } from "../../actions/user.actions.js";
 import { Spinner } from "../../Components/Spinner/Spinner";
-
 class Login extends Component {
   state = {
     isLoading: false,
@@ -44,9 +43,8 @@ class Login extends Component {
     grantToken({ username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        this.props.history.push("/server-list");
         this.props.setUserLogin();
-        console.log("res", res);
+        this.props.history.push("/server-list");
       })
       .catch((error) => {
         handleError(error, "Failed to login! Please try again.");

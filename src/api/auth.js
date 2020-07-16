@@ -3,5 +3,6 @@ import api from "./index";
 
 export function grantToken(data) {
   const url = `${apiUrl}/tokens`;
-  return api.post(url, data, { "Content-Type": "application/json" });
+  const headers = { "Content-Type": "application/json" };
+  return api.post(url, data, headers);
 }

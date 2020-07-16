@@ -11,16 +11,13 @@ const api = {
     };
     return httpClient.post(url, data, config);
   },
-  get: (url, config = {}) => {
-    const token = localStorage.getItem("token");
 
-    config = {
-      ...config,
+  get: (url, headers = {}) => {
+    const token = localStorage.getItem("token");
+    const config = {
       headers: {
-        ...config.headers,
-        ...{
-          Authorization: `Bearer ${token}`,
-        },
+        ...headers,
+        Authorization: `Bearer ${token}`,
       },
     };
     return httpClient.get(url, config);
@@ -31,7 +28,7 @@ export function handleError(error, customErrorText) {
   if (error && customErrorText) {
     toast.error(customErrorText);
   }
-  //debug only in dev
+  //debug only in dev env
   if (process.env.NODE_ENV === "development") {
     const consoleStyle = "background: red; color: white; font-size: 18px";
     console.log("%c Error ", consoleStyle);
