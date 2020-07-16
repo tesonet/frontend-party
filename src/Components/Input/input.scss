@@ -39,12 +39,10 @@
     }
   }
   &__error {
-    color: red;
+    color: $errorRed;
     font-size: 14px;
     margin-top: 10px;
-    // background: #ffd8d8;
-    // border-radius: 5px;
-    // padding: 9px;
-    // border: solid red 1px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
   }
 }

@@ -49,7 +49,7 @@ class Login extends Component {
         console.log("res", res);
       })
       .catch((error) => {
-        handleError(error, "Failed to login!");
+        handleError(error, "Failed to login! Please try again.");
       })
       .finally(() => this.setState({ isLoading: false }));
   }
