@@ -44,7 +44,7 @@ class Login extends Component {
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         this.props.history.push("/server-list");
-        //this.props.setUserLogin();
+        this.props.setUserLogin();
         console.log("res", res);
       })
       .catch((error) => {
@@ -94,11 +94,10 @@ class Login extends Component {
   }
 }
 
-// function bindActions(dispatch) {
-//   return {
-//     setUserLogin: () => dispatch(setUserLogin()),
-//   };
-// }
+function bindActions(dispatch) {
+  return {
+    setUserLogin: () => dispatch(setUserLogin()),
+  };
+}
 
-// export default connect(null, bindActions)(Login);
-export default Login;
+export default connect(null, bindActions)(Login);

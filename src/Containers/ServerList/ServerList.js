@@ -5,6 +5,7 @@ import { handleError } from "../../api";
 import { connect } from "react-redux";
 import { setServers } from "../../actions/servers.actions";
 import { Table } from "../../Components/Table/Table";
+import { setUserLogout } from "../../actions/user.actions";
 
 class ServerList extends Component {
   state = {
@@ -31,6 +32,12 @@ class ServerList extends Component {
       .finally(() => this.setState({ isLoading: false }));
   }
 
+  handleLogout() {
+    localStorage.removeItem("token");
+    this.props.setUserLogout();
+    this.props.history.push("/login");
+  }
+
   render() {
     const { isLoading } = this.state;
     const { servers } = this.props;
@@ -39,7 +46,7 @@ class ServerList extends Component {
 
     return (
       <div className="server-list-page">
-        <Header />
+        <Header logout={() => this.handleLogout()} />
         <Table headings={["SERVER", "DISTANCE"]} items={servers} />
       </div>
     );
@@ -49,6 +56,7 @@ class ServerList extends Component {
 function bindActions(dispatch) {
   return {
     setServers: (data) => dispatch(setServers(data)),
+    setUserLogout: () => dispatch(setUserLogout()),
   };
 }
 

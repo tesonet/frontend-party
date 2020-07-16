@@ -6,4 +6,23 @@
     justify-content: space-between;
     align-items: center;
   }
+  &__logout {
+    display: flex;
+    cursor: pointer;
+    svg #server-list {
+      transition: all 0.15s;
+    }
+    &:hover {
+      .header__text {
+        color: $textBrandGreen;
+      }
+      svg #server-list {
+        fill: $textBrandGreen;
+      }
+    }
+  }
+  &__text {
+    margin-left: 10px;
+    transition: all 0.15s;
+  }
 }
