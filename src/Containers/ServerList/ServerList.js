@@ -14,8 +14,8 @@ class ServerList extends Component {
   };
 
   componentDidMount() {
-    const { loggedIn } = this.props;
     //TODO: make HOC with loggedIn checking
+    const loggedIn = localStorage.getItem("token");
     if (!loggedIn) {
       this.props.history.push("/login");
     } else {
@@ -69,7 +69,6 @@ function bindActions(dispatch) {
 
 const mapStateToProps = (state) => ({
   servers: state.servers,
-  loggedIn: state.user.loggedIn,
 });
 
 export default connect(mapStateToProps, bindActions)(ServerList);
