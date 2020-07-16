@@ -6,6 +6,8 @@ import lockIcon from "../../assets/img/lock.svg";
 import logo from "../../assets/img/logo@2x.png";
 import { grantToken } from "../../api/auth";
 import { handleError } from "../../api";
+import { connect } from "react-redux";
+import { setUserLogin } from "../../actions/user.actions.js";
 
 class Login extends Component {
   state = {
@@ -41,7 +43,8 @@ class Login extends Component {
     grantToken({ username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        this.props.history.push({ pathname: "/homefeed" });
+        this.props.history.push("/server-list");
+        //this.props.setUserLogin();
         console.log("res", res);
       })
       .catch((error) => {
@@ -91,4 +94,11 @@ class Login extends Component {
   }
 }
 
+// function bindActions(dispatch) {
+//   return {
+//     setUserLogin: () => dispatch(setUserLogin()),
+//   };
+// }
+
+// export default connect(null, bindActions)(Login);
 export default Login;

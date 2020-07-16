@@ -2,8 +2,10 @@
 @import "~normalize.css/normalize.css";
 @import "./variables.scss";
 @import "../Containers/Login/login.scss";
+@import "../Components/Header/header.scss";
 @import "../Components/Input/input.scss";
 @import "../Components/Button/button.scss";
+@import "../Components/Table/table.scss";
 
 body {
   font-family: "Roboto", sans-serif;

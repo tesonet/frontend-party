@@ -1,5 +1,5 @@
 import { SET_USER_LOGIN } from "../actions/user.actions.js";
-import { SET_USER_LOGOUT } from "../actions/user.actions..js";
+import { SET_USER_LOGOUT } from "../actions/user.actions.js";
 
 const initialState = {
   loggedIn: false,

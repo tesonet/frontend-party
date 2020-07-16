@@ -3,14 +3,27 @@ import { toast } from "react-toastify";
 const httpClient = axios.create();
 
 const api = {
-  post: (url, data, config = {}) => {
+  post: (url, data, headers = {}) => {
+    const config = {
+      headers: {
+        ...headers,
+      },
+    };
+    return httpClient.post(url, data, config);
+  },
+  get: (url, config = {}) => {
+    const token = localStorage.getItem("token");
+
     config = {
       ...config,
       headers: {
         ...config.headers,
+        ...{
+          Authorization: `Bearer ${token}`,
+        },
       },
     };
-    return httpClient.post(url, data, config);
+    return httpClient.get(url, config);
   },
 };
 
