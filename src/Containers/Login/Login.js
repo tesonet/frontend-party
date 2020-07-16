@@ -4,6 +4,7 @@ import { Button } from "../../Components/Button/button";
 import userIcon from "../../assets/img/user.svg";
 import lockIcon from "../../assets/img/lock.svg";
 import logo from "../../assets/img/logo@2x.png";
+import { grantToken } from "../../api/auth";
 
 class Login extends Component {
   state = {
@@ -29,6 +30,18 @@ class Login extends Component {
     }
 
     if (!valid) return;
+    this.authenticate({ username, password });
+  }
+
+  authenticate({ username, password }) {
+    grantToken({ username, password })
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        console.log("res", res);
+      })
+      .catch((err) => {
+        handleError;
+      });
   }
 
   render() {
