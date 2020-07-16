@@ -5,13 +5,14 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import Login from "./Containers/Login/Login";
 
 function App() {
   return (
     <div className="testio-app">
       <Router>
         <Switch>
-          {/* <Route exact path="/login" component={Login} /> */}
+          <Route exact path="/login" component={Login} />
           {/* <Route exact path="/server-list" component={ServerList} /> */}
           <Redirect to="/" />
         </Switch>
