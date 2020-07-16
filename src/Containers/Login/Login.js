@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Input } from "../../Components/Input/Input";
-import { Button } from "../../Components/Button/button";
+import { Button } from "../../Components/Button/Button";
 import userIcon from "../../assets/img/user.svg";
 import lockIcon from "../../assets/img/lock.svg";
 import logo from "../../assets/img/logo@2x.png";
@@ -8,6 +8,7 @@ import { grantToken } from "../../api/auth";
 import { handleError } from "../../api";
 import { connect } from "react-redux";
 import { setUserLogin } from "../../actions/user.actions.js";
+import { Spinner } from "../../Components/Spinner/Spinner";
 
 class Login extends Component {
   state = {
@@ -64,7 +65,7 @@ class Login extends Component {
 
     return (
       <div className="login-page">
-        {isLoading && "loading"}
+        {isLoading && <Spinner />}
         <div className="login__wrap">
           <div className="login__logo">
             <img src={logo} alt="Testio logo" width="246" height="64" />

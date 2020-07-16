@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { setServers } from "../../actions/servers.actions";
 import { Table } from "../../Components/Table/Table";
 import { setUserLogout } from "../../actions/user.actions";
+import { Spinner } from "../../Components/Spinner/Spinner";
 
 class ServerList extends Component {
   state = {
@@ -46,6 +47,7 @@ class ServerList extends Component {
 
     return (
       <div className="server-list-page">
+        {isLoading && <Spinner />}
         <Header logout={() => this.handleLogout()} />
         <Table headings={["SERVER", "DISTANCE"]} items={servers} />
       </div>
