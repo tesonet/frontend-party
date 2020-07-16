@@ -10,8 +10,8 @@ export const Table = ({ headings, items }) => (
       </div>
     </div>
     <div className="table__body">
-      {items.map((item) => (
-        <div className="table__row">
+      {items.map((item, index) => (
+        <div className="table__row" key={`${item.name}-${index}`}>
           <div className="table__cell">{item.name}</div>
           <div className="table__cell">{item.distance} km</div>
         </div>

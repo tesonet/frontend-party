@@ -1,4 +1,5 @@
 .login-page {
+  width: 100%;
   width: 100vw;
   height: 100vh;
   background: url("../../assets/img/login-bg@2x.png");
@@ -12,7 +13,9 @@
 
 .login {
   &__wrap {
-    width: 360px;
+    width: 100%;
+    max-width: 390px;
+    padding: 0 15px;
   }
   &__logo {
     margin-bottom: 70px;

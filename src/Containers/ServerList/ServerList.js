@@ -21,11 +21,12 @@ class ServerList extends Component {
     this.setState({ isLoading: true });
     fetchServers()
       .then((res) => {
-        const servers = res.data.sort(
-          (a, b) => a.distance - b.distance || a.name - b.name
-        );
-        //console.log("res", res.data);
-        this.props.setServers(servers);
+        if (res && res.data) {
+          const servers = res.data.sort(
+            (a, b) => a.distance - b.distance || a.name.localeCompare(b.name)
+          );
+          this.props.setServers(servers);
+        }
       })
       .catch((error) => {
         handleError(error, "Error loading servers!");
@@ -42,8 +43,6 @@ class ServerList extends Component {
   render() {
     const { isLoading } = this.state;
     const { servers } = this.props;
-
-    console.log("servers", servers);
 
     return (
       <div className="server-list-page">
