@@ -9,3 +9,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.login {
+  &__wrap {
+    width: 360px;
+  }
+  &__logo {
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+  }
+}

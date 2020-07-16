@@ -1,12 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
 @import "~normalize.css/normalize.css";
-
+@import "./variables.scss";
 @import "../Containers/Login/login.scss";
-
 @import "../Components/Input/input.scss";
+@import "../Components/Button/button.scss";
 
 body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
   width: 100%;
   min-width: 320px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
 }

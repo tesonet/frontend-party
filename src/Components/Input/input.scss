@@ -1,4 +1,16 @@
 .input {
+  &__container {
+    position: relative;
+    margin-bottom: 18px;
+  }
+  &__icon {
+    width: 55px;
+    height: 58px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: 18px;
+  }
   &__element {
     border: none;
     background-image: none;
@@ -7,8 +19,32 @@
     -moz-box-shadow: none;
     box-shadow: none;
     width: 100%;
+    padding: 0 20px 0 55px;
+    height: 58px;
+    background: $white;
+    border-radius: 5px;
+    font-size: 16px;
+    color: $textMediumGrey;
     &:focus {
       outline: none;
     }
+    &::-webkit-input-placeholder {
+      color: $textLightGrey;
+    }
+    &:-ms-input-placeholder {
+      color: $textLightGrey;
+    }
+    &::placeholder {
+      color: $textLightGrey;
+    }
+  }
+  &__error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    // background: #ffd8d8;
+    // border-radius: 5px;
+    // padding: 9px;
+    // border: solid red 1px;
   }
 }
