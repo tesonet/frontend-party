@@ -46,9 +46,7 @@ yarn build
 - **reusable components**
   - src/Components/
 - **pages**
-
   - src/Containers/
-
 - **api endpoints**
   - src/api/
 - **redux actions**
