@@ -5,8 +5,10 @@ export const Table = ({ headings, items }) => (
     <div className="table__header">
       <div className="table__row">
         {headings &&
-          headings.map((heading) => (
-            <div className="table__cell">{heading}</div>
+          headings.map((heading, index) => (
+            <div className="table__cell" key={`${heading}-${index}`}>
+              {heading}
+            </div>
           ))}
       </div>
     </div>
