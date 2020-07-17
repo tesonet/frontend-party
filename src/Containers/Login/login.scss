@@ -1,0 +1,24 @@
+.login-page {
+  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background: url("../../assets/img/login-bg@2x.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  &__wrap {
+    width: 100%;
+    max-width: 390px;
+    padding: 0 15px;
+  }
+  &__logo {
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+  }
+}

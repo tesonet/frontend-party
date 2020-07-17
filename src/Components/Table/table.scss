@@ -1,0 +1,32 @@
+.table {
+  &__header {
+    .table__row {
+      background: $backgroundGrey;
+      cursor: default;
+      &:hover {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+    .table__cell {
+      color: $textMediumGrey;
+    }
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $borderGrey;
+    transition: all 0.15s;
+    cursor: pointer;
+    &:hover {
+      transform: scale3d(1.01, 1.01, 1.01);
+      background: $backgroundGrey;
+    }
+  }
+  &__cell {
+    padding: 15px 20px;
+    font-size: 16px;
+    color: $textDarkGrey;
+    letter-spacing: 0.4px;
+    line-height: 30px;
+  }
+}
