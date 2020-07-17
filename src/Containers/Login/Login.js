@@ -48,8 +48,8 @@ class Login extends Component {
       })
       .catch((error) => {
         handleError(error, "Failed to login! Please try again.");
-      })
-      .finally(() => this.setState({ isLoading: false }));
+        this.setState({ isLoading: false });
+      });
   }
 
   render() {
