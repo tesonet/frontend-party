@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "esnext",
+    "target": "es5",
+    "moduleResolution": "node",
+    "strict": false,
+    "jsx": "react",
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "paths": {
+      "*": ["./src/*"]
+    },
+    "types": ["react", "jest", "node"],
+    "typeRoots": ["node_modules/@types", "typings"]
+  },
+  "include": ["src/**/*", "typings"],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.tsx",
+    "**/*.spec.ts",
+    "**/*.stories.tsx"
+  ]
+}
