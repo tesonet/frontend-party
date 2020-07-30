@@ -5,7 +5,7 @@
     "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
-    "strict": false,
+    "strict": true,
     "jsx": "react",
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
@@ -24,10 +24,5 @@
     "typeRoots": ["node_modules/@types", "typings"]
   },
   "include": ["src/**/*", "typings"],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.tsx",
-    "**/*.spec.ts",
-    "**/*.stories.tsx"
-  ]
+  "exclude": ["node_modules", "**/*.spec.tsx", "**/*.spec.ts"]
 }

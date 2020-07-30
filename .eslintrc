@@ -1,0 +1,46 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "root": true,
+  "extends": [
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "import/prefer-default-export": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/require-default-props": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["src/**/*.stories.tsx"]
+      }
+    ]
+  },
+  "plugins": ["@typescript-eslint", "jest", "prettier"],
+  "settings": {
+    "parser": "typescript-eslint-parser",
+    "plugins": ["import"],
+    "rules": {
+      "import/no-unresolved": "error"
+    },
+    "react": {
+      "version": "16"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "project": "tsconfig.json",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

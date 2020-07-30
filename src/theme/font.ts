@@ -10,15 +10,15 @@ type Font = {
 
 export const font: Font = {
   fontSizes: {
-    small: "1.4rem",
-    normal: "1.6rem",
+    small: '1.4rem',
+    normal: '1.6rem',
   },
   fontWeights: {
-    lighter: "300",
-    normal: "normal",
-    bold: "bold",
+    lighter: '300',
+    normal: 'normal',
+    bold: 'bold',
   },
   fonts: {
-    family: "Roboto, sans-serif",
+    family: 'Roboto, sans-serif',
   },
 };
