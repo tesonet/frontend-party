@@ -14,5 +14,7 @@ export const colors: Colors = {
   lightText: '#B3B3B3',
   lightBg: '#F5F5F5',
   divider: '#E6E6E6',
-  bg: '##F2F2F2',
+  bg: '#F2F2F2',
+  darkBg: '#0B0F27',
+  error: '#ff0033',
 };

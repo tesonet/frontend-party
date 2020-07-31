@@ -14,7 +14,7 @@ export const font: Font = {
     normal: '1.6rem',
   },
   fontWeights: {
-    lighter: '300',
+    lighter: 'lighter',
     normal: 'normal',
     bold: 'bold',
   },

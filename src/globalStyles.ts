@@ -17,19 +17,20 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
     font-size: 1.6rem; /* =16px */
     line-height: 1.42857; /* ~20px */
+    font-family: ${theme.fonts.family};
+    font-weight: ${theme.fontWeights.lighter};
   }
   
   body {
-    font-family: ${theme.fonts.family};
     color: ${theme.colors.darkText};
     background: ${theme.colors.bg};
-    font-weight: ${theme.fontWeights.lighter};
     padding: 0;
     margin: 0;
   }
 
   body:not(.accessibility) {
-    button:focus {
+    button:focus,
+    input:focus {
         outline: 0;
     }
   }

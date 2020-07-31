@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 
+import { LoginContainer } from '@containers/Login/Login';
 import { GlobalStyles } from './globalStyles';
 import { theme } from './theme';
+import { themeMui } from './theme/themeMui';
 
 export const App = () => {
   const handleTabButton = (e: KeyboardEvent) => {
@@ -19,8 +22,11 @@ export const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <div>hello from app {process.env.API_URL}</div>
+      <MuiThemeProvider theme={themeMui}>
+        <GlobalStyles />
+        <LoginContainer />
+        <div>hello from app {process.env.API_URL}</div>
+      </MuiThemeProvider>
     </ThemeProvider>
   );
 };
