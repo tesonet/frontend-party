@@ -4,8 +4,8 @@ import withFormik from 'storybook-formik';
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
+import { UserIcon } from '@components/Icons/UserIcon';
 import { Input } from './Input';
-import { UserIcon } from '../Icons/UserIcon';
 
 const Background = styled.div`
   height: 100%;

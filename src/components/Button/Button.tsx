@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   justify-content: center;
   display: flex;
   border-radius: 6px;
-  height: 58px;
+  height: 5.8rem;
 
   &:hover {
     background-color: ${themeGet('colors.primaryDark')};

@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import { ConnectedRouter } from 'connected-react-router';
 
-import { LoginContainer } from '@containers/Login/Login';
+import { Routes } from '@routes/Routes';
+import { history } from '@redux/store';
 import { GlobalStyles } from './globalStyles';
 import { theme } from './theme';
 import { themeMui } from './theme/themeMui';
@@ -23,9 +25,10 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <MuiThemeProvider theme={themeMui}>
+        <ConnectedRouter history={history}>
+          <Routes />
+        </ConnectedRouter>
         <GlobalStyles />
-        <LoginContainer />
-        <div>hello from app {process.env.API_URL}</div>
       </MuiThemeProvider>
     </ThemeProvider>
   );

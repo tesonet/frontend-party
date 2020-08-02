@@ -54,6 +54,13 @@ module.exports = {
       '@containers': path.join(__dirname, './src/containers/'),
       '@components': path.join(__dirname, './src/components/'),
       '@assets': path.join(__dirname, './src/assets/'),
+      '@redux': path.join(__dirname, './src/redux/'),
+      '@layouts': path.join(__dirname, './src/layouts'),
+      '@theme': path.join(__dirname, './src/theme'),
+      '@utils': path.join(__dirname, './src/utils'),
+      '@pages': path.join(__dirname, './src/pages'),
+      '@routes': path.join(__dirname, './src/routes'),
+      '@typings': path.join(__dirname, './src/typings'),
     },
   },
   plugins: [

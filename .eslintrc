@@ -32,7 +32,7 @@
       "import/no-unresolved": "error"
     },
     "react": {
-      "version": "16"
+      "version": "16.13"
     }
   },
   "parserOptions": {

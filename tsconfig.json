@@ -20,7 +20,14 @@
       "*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@containers/*": ["./src/containers/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@typings/*": ["./src/typings/*"]
     },
     "types": ["react", "jest", "node"],
     "typeRoots": ["node_modules/@types", "typings"]

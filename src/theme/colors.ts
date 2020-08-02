@@ -11,6 +11,8 @@ export const colors: Colors = {
   lightGray: '#1A1A30',
   text: '#999',
   darkText: '#666',
+  dark: '#2F3254',
+  primaryHover: '#99cc33',
   lightText: '#B3B3B3',
   lightBg: '#F5F5F5',
   divider: '#E6E6E6',

@@ -2,17 +2,30 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 
 import { Button } from '@components/Button/Button';
 import { Input } from '@components/Input/Input';
 import { UserIcon } from '@components/Icons/UserIcon';
 import { LockIcon } from '@components/Icons/LockIcon';
+import * as Logo from '@assets/logo.png';
+import { media } from '@theme/media';
+import { actions } from '@redux/ducks/auth';
 
 const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 36rem;
+  width: 32rem;
+
+  ${media.sm`
+    width: 36rem;
+  `}
+`;
+
+const Image = styled.img`
+  padding-bottom: 6rem;
+  align-self: center;
 `;
 
 const LoginSchema = Yup.object().shape({
@@ -27,17 +40,21 @@ const LoginSchema = Yup.object().shape({
 });
 
 export const LoginContainer = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (arg: any) => {
     console.log('submit', arg);
+    dispatch(actions.login(arg));
   };
 
   return (
     <LoginWrapper>
+      <Image src={Logo} alt="Testio" />
       <Formik
         onSubmit={handleSubmit}
         initialValues={{ username: '', password: '' }}
-        validationSchema={LoginSchema}
         validateOnBlur
+        validationSchema={LoginSchema}
         validateOnChange={false}
         render={({ isSubmitting }) => (
           <Form>
@@ -52,3 +69,5 @@ export const LoginContainer = () => {
     </LoginWrapper>
   );
 };
+
+export default LoginContainer;
