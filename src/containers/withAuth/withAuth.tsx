@@ -10,6 +10,5 @@ export const withAuth = (Component: React.ComponentType<any>) => () => {
   const { isLoggedIn, isLoading } = useSelector((state: State) => state?.user);
   const hasToken = !!getToken();
 
-  console.log(isLoggedIn, hasToken);
   return isLoggedIn && hasToken && !isLoading ? <Component /> : <Redirect to={RoutesMap.LOGIN_ROUTE} />;
 };

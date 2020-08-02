@@ -19,4 +19,5 @@ export const colors: Colors = {
   bg: '#F2F2F2',
   darkBg: '#0B0F27',
   error: '#ff0033',
+  warning: '#ff9966',
 };

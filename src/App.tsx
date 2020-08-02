@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import { Routes } from '@routes/Routes';
 import { history } from '@redux/store';
+import { NotificationContainer } from '@containers/Notification/Notification';
 import { GlobalStyles } from './globalStyles';
 import { theme } from './theme';
 import { themeMui } from './theme/themeMui';
@@ -26,6 +27,7 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <MuiThemeProvider theme={themeMui}>
         <ConnectedRouter history={history}>
+          <NotificationContainer />
           <Routes />
         </ConnectedRouter>
         <GlobalStyles />

@@ -46,10 +46,9 @@ const StyledInput = styled.input<StyledInputProps>`
 `;
 
 export const Input = ({ icon, name, ...rest }: InputProps) => {
-  const [field, meta, helpers] = useField({ name, ...rest });
+  const [field, meta] = useField({ name, ...rest });
 
   const { error, touched } = meta;
-  console.log(field, meta, helpers);
 
   return (
     <>

@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import { storeToken, removeToken, getToken } from '@utils/token';
 import { actions as routeActions, RoutesMap } from '@redux/ducks/routes';
+import { actions as notificationActions } from '@redux/ducks/notifications';
 
 export interface UserCredentials {
   username: string;
@@ -71,7 +72,10 @@ const login: Epic<any> = action$ =>
               ? 'Invalid username and/or password'
               : 'Unknown error occured';
 
-          return of(actions.loginFail(errorMessage));
+          return of(
+            actions.loginFail(errorMessage),
+            notificationActions.setNotification({ message: errorMessage, type: 'error' }),
+          );
         }),
       );
     }),
