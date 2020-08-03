@@ -1,0 +1,10 @@
+.main-login-container {
+    background: rgba(11, 15, 39, 0.9) url("../../assets/background-image.png") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    height: 1vh; // for IE 11
+}

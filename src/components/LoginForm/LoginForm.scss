@@ -1,0 +1,20 @@
+.login-form {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    max-width: 65%;
+    min-width: 20%;
+}
+.error-container {
+    color: rgb(223, 20, 20);
+    font-size: 15px;
+    padding-left: 1rem;
+    background-color: #fce7e7;
+    border-radius: 0.3rem;
+    margin: 0.5em;
+    display: flex;
+    p:first-child {
+        font-weight: bold;
+        margin-right: 0.5em;
+    }
+}
