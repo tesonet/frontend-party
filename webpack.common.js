@@ -61,6 +61,7 @@ module.exports = {
       '@pages': path.join(__dirname, './src/pages'),
       '@routes': path.join(__dirname, './src/routes'),
       '@typings': path.join(__dirname, './src/typings'),
+      '@hooks': path.join(__dirname, './src/hooks'),
     },
   },
   plugins: [

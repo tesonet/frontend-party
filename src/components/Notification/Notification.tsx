@@ -12,12 +12,18 @@ const NotificationWrapper = styled.div<Partial<NotificationProps>>`
   display: flex;
   justify-content: space-between;
   min-height: 5.5rem;
-  background-color: ${({ type }) =>
-    type === 'error'
-      ? themeGet('colors.error')
-      : type === 'warning'
-      ? themeGet('colors.warning')
-      : themeGet('colors.primary')};
+  background-color: ${({ type }) => {
+    switch (type) {
+      case 'error':
+        return themeGet('colors.error');
+      case 'warning':
+        return themeGet('colors.warning');
+      case 'success':
+        return themeGet('colors.primary');
+      default:
+        return themeGet('colors.primary');
+    }
+  }};
   color: ${themeGet('colors.white')};
   align-items: center;
   padding: 0 1.5rem;

@@ -1,5 +1,5 @@
 import { Epic, ofType } from 'redux-observable';
-import { createAction } from 'typesafe-actions';
+import { createAction, ActionType } from 'typesafe-actions';
 import { push as routerPush } from 'connected-react-router';
 import { map } from 'rxjs/operators';
 
@@ -17,7 +17,9 @@ export const actions = {
   push: createAction(RoutesActionTypes.PUSH)<string>(),
 };
 
-const pushRoute: Epic<any> = action$ =>
+export type RouteAction = ActionType<typeof actions>;
+
+const pushRoute: Epic<RouteAction, any> = action$ =>
   action$.pipe(
     ofType(RoutesActionTypes.PUSH),
     map(({ payload }) => routerPush(payload)),

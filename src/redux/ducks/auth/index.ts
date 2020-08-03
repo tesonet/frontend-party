@@ -3,6 +3,7 @@ import { switchMap, catchError } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import { Epic, ofType } from 'redux-observable';
 import axios from 'axios';
+import { Action } from 'redux';
 
 import { storeToken, removeToken, getToken } from '@utils/token';
 import { actions as routeActions, RoutesMap } from '@redux/ducks/routes';
@@ -34,12 +35,12 @@ const initialState: UserState = {
 export const actions = {
   login: createAction(AuthActionTypes.LOGIN_REQUEST)<UserCredentials>(),
   loginSuccess: createAction(AuthActionTypes.LOGIN_SUCCESS)(),
-  loginFail: createAction(AuthActionTypes.LOGIN_FAIL)<string>(),
+  loginFail: createAction(AuthActionTypes.LOGIN_FAIL)(),
   logout: createAction(AuthActionTypes.LOGOUT_REQUEST)(),
   logoutSuccess: createAction(AuthActionTypes.LOGOUT_SUCCESS)(),
 };
 
-// type AuthActions = ActionType<typeof AuthActionTypes>;
+type AuthAction = ActionType<typeof actions>;
 
 const reducer = createReducer(initialState)
   .handleAction(actions.login, (state: UserState) => ({
@@ -57,7 +58,7 @@ const reducer = createReducer(initialState)
   }))
   .handleAction(actions.logoutSuccess, () => initialState);
 
-const login: Epic<any> = action$ =>
+export const login: Epic<AuthAction, Action> = action$ =>
   action$.pipe(
     ofType(AuthActionTypes.LOGIN_REQUEST),
     switchMap(({ payload }: ActionType<typeof actions.login>) => {
@@ -73,7 +74,7 @@ const login: Epic<any> = action$ =>
               : 'Unknown error occured';
 
           return of(
-            actions.loginFail(errorMessage),
+            actions.loginFail(),
             notificationActions.setNotification({ message: errorMessage, type: 'error' }),
           );
         }),
@@ -81,7 +82,7 @@ const login: Epic<any> = action$ =>
     }),
   );
 
-const logout: Epic<any> = action$ =>
+export const logout: Epic<AuthAction, Action> = action$ =>
   action$.pipe(
     ofType(AuthActionTypes.LOGOUT_REQUEST),
     switchMap(() => {

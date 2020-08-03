@@ -2,6 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
@@ -27,11 +28,12 @@
       "@utils/*": ["./src/utils/*"],
       "@pages/*": ["./src/pages/*"],
       "@routes/*": ["./src/routes/*"],
-      "@typings/*": ["./src/typings/*"]
+      "@typings/*": ["./src/typings/*"],
+      "@hooks/*": ["./src/hooks/*"]
     },
     "types": ["react", "jest", "node"],
     "typeRoots": ["node_modules/@types", "typings"]
   },
-  "include": ["src/**/*", "typings"],
-  "exclude": ["node_modules", "**/*.spec.tsx", "**/*.spec.ts"]
+  "include": ["src/**/*", "typings", "jest/setupTests.ts"],
+  "exclude": ["node_modules"]
 }

@@ -5,7 +5,6 @@ import { Epic, ofType } from 'redux-observable';
 import axios from 'axios';
 
 import { getToken } from '@utils/token';
-import { actions as authActions } from '@redux/ducks/auth';
 import { Server } from '@typings/servers';
 
 export interface ServersState {
@@ -30,6 +29,8 @@ export const actions = {
   fetchServersFail: createAction(ServersActionTypes.FETCH_SERVERS_FAIL)(),
 };
 
+type ServersAction = ActionType<typeof actions>;
+
 const reducer = createReducer(initialState)
   .handleAction(actions.fetchServers, (state: ServersState) => ({
     ...state,
@@ -44,7 +45,7 @@ const reducer = createReducer(initialState)
   )
   .handleAction(actions.fetchServersFail, () => initialState);
 
-const fetchServers: Epic<any> = action$ =>
+const fetchServers: Epic<ServersAction, ServersAction> = action$ =>
   action$.pipe(
     ofType(ServersActionTypes.FETCH_SERVERS),
     switchMap(() =>
@@ -56,7 +57,7 @@ const fetchServers: Epic<any> = action$ =>
         catchError((err: any) => {
           console.log(err.response.status);
           if (err?.response?.status === 401) {
-            return of(actions.fetchServersFail(), authActions.logout());
+            return of(actions.fetchServersFail());
           }
           return of(actions.fetchServersFail());
         }),

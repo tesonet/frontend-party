@@ -17,7 +17,6 @@ export const configureStore = (initialState?: State) => {
     composeEnhancer(applyMiddleware(routerMiddleware(history), epicMiddleware)),
   );
 
-  // @ts-ignore
   epicMiddleware.run(rootEpic);
 
   if (module.hot) {

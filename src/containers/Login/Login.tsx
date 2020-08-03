@@ -14,6 +14,7 @@ import { media } from '@theme/media';
 import { actions } from '@redux/ducks/auth';
 import { State } from '@redux/reducer';
 import { RoutesMap } from '@redux/ducks/routes';
+import { useUserStatus } from '@hooks/useUserStatus';
 
 const LoginWrapper = styled.div`
   display: flex;
@@ -44,18 +45,19 @@ const LoginSchema = Yup.object().shape({
 
 export const LoginContainer = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn, isLoading } = useSelector((state: State) => state.user);
+  const { isLoading } = useSelector((state: State) => state.user);
+  const isAuthorised = useUserStatus();
 
   const handleSubmit = (arg: any) => {
     dispatch(actions.login(arg));
   };
 
-  if (isLoggedIn) {
+  if (isAuthorised) {
     return <Redirect to={RoutesMap.HOME_ROUTE} />;
   }
 
   return (
-    <LoginWrapper>
+    <LoginWrapper data-testid="login-form">
       <Image src={Logo} alt="Testio" />
       <Formik
         onSubmit={handleSubmit}
@@ -63,7 +65,8 @@ export const LoginContainer = () => {
         validateOnBlur
         validationSchema={LoginSchema}
         validateOnChange={false}
-        render={() => (
+      >
+        {() => (
           <Form>
             <Input id="username" name="username" type="text" placeholder="Username" icon={<UserIcon />} />
             <Input id="password" name="password" type="password" placeholder="Password" icon={<LockIcon />} />
@@ -72,7 +75,7 @@ export const LoginContainer = () => {
             </Button>
           </Form>
         )}
-      />
+      </Formik>
     </LoginWrapper>
   );
 };

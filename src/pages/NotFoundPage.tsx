@@ -28,7 +28,7 @@ const NotFoundPage = () => (
     <br />
     <div>
       Or{' '}
-      <a href="https://youtu.be/G1IbRujko-A" target="_blank">
+      <a href="https://youtu.be/G1IbRujko-A" rel="noreferrer" target="_blank">
         click this magical link
       </a>
     </div>

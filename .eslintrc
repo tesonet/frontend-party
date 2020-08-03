@@ -18,12 +18,7 @@
     "react/jsx-props-no-spreading": 0,
     "react/require-default-props": 0,
     "@typescript-eslint/explicit-function-return-type": "off",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": ["src/**/*.stories.tsx"]
-      }
-    ]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   },
   "plugins": ["@typescript-eslint", "jest", "prettier"],
   "settings": {

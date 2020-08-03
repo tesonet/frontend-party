@@ -19,6 +19,8 @@ export const actions = {
   removeNotification: createAction(NotificationActionTypes.REMOVE_NOTIFICATION)(),
 };
 
+export type NotificationAction = ActionType<typeof actions>;
+
 const reducer = createReducer(initialState)
   .handleAction(
     actions.setNotification,

@@ -7,10 +7,11 @@ import { ServerListHeader } from '@components/ServerListHeader/ServerListHeader'
 import { ServerItem } from '@components/ServerItem/ServerItem';
 import { State } from '@redux/reducer';
 import { Server } from '@typings/servers';
+import { Loader } from '@components/Loader/Loader';
 
 export const ServerListContainer = () => {
   const dispatch = useDispatch();
-  const { servers } = useSelector((state: State) => state.servers);
+  const { servers, isLoading } = useSelector((state: State) => state.servers);
 
   const [serversToRender, setServersToRender] = React.useState<Server[]>(servers);
   const [sortedBy, setSortedBy] = React.useState<'name' | 'distance' | undefined>();
@@ -33,6 +34,10 @@ export const ServerListContainer = () => {
     setSortedBy(prop);
     setServersToRender(listSorted);
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
