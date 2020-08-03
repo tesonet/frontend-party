@@ -1,0 +1,40 @@
+$border: 1px solid #e6e6e6;
+
+.table {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #f5f5f5;
+        border-top: $border;
+        &--black{
+            background-color: black;
+        }
+    }
+    &__body {
+        flex: 1 1 auto;
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        border-top: $border;
+        flex-direction: row;
+        &:last-child {
+            border-bottom: $border;
+        }
+    }
+    &__column {
+        cursor: default;
+        padding: 1rem;
+    }    
+}
+
+
+
+
+
+
+

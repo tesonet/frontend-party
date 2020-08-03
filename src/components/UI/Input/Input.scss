@@ -1,0 +1,17 @@
+.input-container {
+    background-color: #fff;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 0.3rem;
+    margin: 0.5em;
+    input {
+        flex: 1;
+        border: 0;
+        outline: none;
+        margin-left: 1em;
+        &::placeholder {
+            color: #b3b3b3;
+        }
+    }
+}

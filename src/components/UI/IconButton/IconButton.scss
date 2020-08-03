@@ -1,0 +1,16 @@
+.icon-button {
+    display: flex;
+    cursor: pointer;    
+    min-height: 2rem;
+    min-width: 6rem;
+    height: 1rem; // for IE 11
+    border: 1px solid transparent;
+    align-items: center;
+    justify-content: center;
+    div {
+        margin-left: 0.5rem;
+    }
+    &:hover {
+        border: 1px solid #99cc33;
+    }
+}
