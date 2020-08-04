@@ -11,7 +11,7 @@ import { UserIcon } from '@components/Icons/UserIcon';
 import { LockIcon } from '@components/Icons/LockIcon';
 import * as Logo from '@assets/logo.png';
 import { media } from '@theme/media';
-import { actions } from '@redux/ducks/auth';
+import { actions, UserCredentials } from '@redux/ducks/auth';
 import { State } from '@redux/reducer';
 import { RoutesMap } from '@redux/ducks/routes';
 import { useUserStatus } from '@hooks/useUserStatus';
@@ -48,8 +48,8 @@ export const LoginContainer = () => {
   const { isLoading } = useSelector((state: State) => state.user);
   const isAuthorised = useUserStatus();
 
-  const handleSubmit = (arg: any) => {
-    dispatch(actions.login(arg));
+  const handleSubmit = (credentials: UserCredentials) => {
+    dispatch(actions.login(credentials));
   };
 
   if (isAuthorised) {
