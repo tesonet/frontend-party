@@ -1,0 +1,45 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "root": true,
+  "extends": [
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "import/prefer-default-export": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/require-default-props": 0,
+    "react/display-name": 0,
+    "no-plusplus": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+  },
+  "plugins": ["@typescript-eslint", "jest", "prettier"],
+  "settings": {
+    "parser": "typescript-eslint-parser",
+    "plugins": ["import"],
+    "rules": {
+      "import/no-unresolved": "error"
+    },
+    "react": {
+      "version": "16.13"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "project": "tsconfig.json",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}
