@@ -23,7 +23,7 @@ const InputWrapper = styled.div`
 
   svg {
     position: absolute;
-    left: 18px;
+    left: 1.8rem;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -31,10 +31,10 @@ const InputWrapper = styled.div`
 
 const StyledInput = styled.input<StyledInputProps>`
   color: ${themeGet('colors.text')};
-  height: 58px;
+  height: 5.8rem;
   width: 100%;
   border-radius: 6px;
-  padding-left: ${({ hasIcon }) => (hasIcon ? '56px' : '18px')};
+  padding-left: ${({ hasIcon }) => (hasIcon ? '5.6rem' : '1.8rem')};
   border-width: ${({ hasError }) => (hasError ? '2px' : '0')};
   border-color: ${({ hasError }) => (hasError ? themeGet('colors.error') : 'none')};
   font-weight: ${themeGet('fontWeights.lighter')};

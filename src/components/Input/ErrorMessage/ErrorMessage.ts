@@ -6,6 +6,6 @@ export const ErrorMessage = styled.div`
   color: ${themeGet('colors.error')};
   font-weight: ${themeGet('fontWeights.bold')};
   font-size: ${themeGet('fontSizes.small')};
-  height: 18px;
+  height: 1.8rem;
   text-align: center;
 `;

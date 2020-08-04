@@ -11,7 +11,7 @@ const Background = styled.div`
   height: 100%;
   width: 100%;
   background-color: ${themeGet('colors.darkBg')};
-  padding: 30px;
+  padding: 3rem;
 `;
 
 const stories: any = storiesOf('components/Input', module)
