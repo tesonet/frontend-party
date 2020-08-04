@@ -3,9 +3,11 @@ import { switchMap, catchError } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import { Epic, ofType } from 'redux-observable';
 import axios from 'axios';
+import { Action } from 'redux';
 
 import { getToken } from '@utils/token';
 import { Server } from '@typings/servers';
+import { actions as notificationActions } from '@redux/ducks/notifications';
 
 export interface ServersState {
   servers: Server[];
@@ -45,21 +47,21 @@ const reducer = createReducer(initialState)
   )
   .handleAction(actions.fetchServersFail, () => initialState);
 
-const fetchServers: Epic<ServersAction, ServersAction> = action$ =>
+const fetchServers: Epic<ServersAction, Action> = action$ =>
   action$.pipe(
     ofType(ServersActionTypes.FETCH_SERVERS),
     switchMap(() =>
       from(axios.get(`${process.env.API_URL}/servers`, { headers: { authorization: getToken() } })).pipe(
         switchMap(({ data }) => {
-          console.log(data);
           return of(actions.fetchServersSuccess(data));
         }),
         catchError((err: any) => {
-          console.log(err.response.status);
-          if (err?.response?.status === 401) {
-            return of(actions.fetchServersFail());
-          }
-          return of(actions.fetchServersFail());
+          const errorMessage =
+            err.response && err.response.status === 401 ? 'Authorization error' : 'Unknown error occured';
+          return of(
+            actions.fetchServersFail(),
+            notificationActions.setNotification({ message: errorMessage, type: 'error' }),
+          );
         }),
       ),
     ),
