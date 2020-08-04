@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { ActionsObservable } from 'redux-observable';
+import Cookies from 'js-cookie';
 
-// import { storeToken } from '@utils/token';
 import { actions as notificationActions } from '@redux/ducks/notifications';
 import { actions as routeActions, RoutesMap } from '@redux/ducks/routes';
 import reducer, { actions, UserCredentials, login as loginEpic, logout as logoutEpic } from './index';
+
+jest.mock('js-cookie', () => ({ set: jest.fn(), get: jest.fn(), remove: jest.fn() }));
 
 const userCredentials: UserCredentials = {
   username: 'username',
@@ -45,14 +47,6 @@ describe('@auth/reducer', () => {
 });
 
 describe('@auth/epic', () => {
-  // let scheduler: TestScheduler;
-
-  // beforeEach(
-  //   () =>
-  //     (scheduler = new TestScheduler((actual, expected) => {
-  //       expect(actual).toEqual(expected);
-  //     })),
-  // );
   it('should handle failed login', async done => {
     const action$ = ActionsObservable.of(actions.login(userCredentials));
 
@@ -74,30 +68,13 @@ describe('@auth/epic', () => {
 
     // @ts-ignore
     loginEpic(action$).subscribe(observer);
-
-    // scheduler.run(({ hot, expectObservable }) => {
-    //   const action$ = hot('-a', {
-    //     a: actions.login(userCredentials),
-    //   });
-    //   const expectedMarble = '---a';
-    //   const expectedActions = {
-    //     a: actions.loginFail(),
-    //   };
-    //   // @ts-ignore
-    //   expectObservable(loginEpic(action$)).toBe(expectedMarble, expectedActions);
-    // });
-    // // @ts-ignore
-    // loginEpic(action$, null, null).subscribe(actual => {
-    //   expect(actual).toEqual(actions.loginFail());
-    //   done();
-    // });
   });
 
   it('should handle successful login', async done => {
     const action$ = ActionsObservable.of(actions.login(userCredentials));
-    // const token = '123';
+    const token = '123';
 
-    mockedAxios.post.mockImplementationOnce(() => Promise.resolve({ data: {} }));
+    mockedAxios.post.mockImplementationOnce(() => Promise.resolve({ data: { token } }));
 
     const streamValues = [actions.loginSuccess(), routeActions.push(RoutesMap.HOME_ROUTE)];
     let index = 0;
@@ -107,10 +84,11 @@ describe('@auth/epic', () => {
         expect(x).toEqual(streamValues[index]);
         index++;
       },
-      complete: () => done(),
+      complete: () => {
+        expect(Cookies.set).toHaveBeenCalledWith('token', token);
+        done();
+      },
     };
-
-    // expect(storeToken).toBeCalledWith('asdas');
 
     // @ts-ignore
     loginEpic(action$).subscribe(observer);
@@ -127,10 +105,11 @@ describe('@auth/epic', () => {
         expect(x).toEqual(streamValues[index]);
         index++;
       },
-      complete: () => done(),
+      complete: () => {
+        expect(Cookies.remove).toHaveBeenCalled();
+        done();
+      },
     };
-
-    // expect(storeToken).toBeCalledWith('asdas');
 
     // @ts-ignore
     logoutEpic(action$).subscribe(observer);
