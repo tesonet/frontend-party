@@ -1,0 +1,20 @@
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('/img/main-bg.jpg') no-repeat center;
+  background-size: cover;
+
+  &__wrap{
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  &__logo{
+    width: 100%;
+    max-width: 246px;
+    margin: 0 auto 68px;
+    display: block;
+  }
+}

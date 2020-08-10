@@ -1,0 +1,13 @@
+*,*:before,*:after{
+  box-sizing: border-box;
+}
+body{
+  font-family: $font-roboto;
+  padding: 0;
+  margin: 0;
+  background: $color-white;
+}
+p{
+  line-heigt: 100%;
+  font-size: 16px;
+}
