@@ -1,7 +1,7 @@
 import React from 'react';
 
-const LoginError = ({submitFailed, error}) => {
-  return (submitFailed && error) ? <div className="form__error">{error}</div> : '';
+const LoginError = ({errors}) => {
+  return <div className="form__error">{errors}</div>;
 };
 
 export default LoginError;

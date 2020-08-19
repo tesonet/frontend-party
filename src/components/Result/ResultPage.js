@@ -1,22 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import history from '../history';
 import orderBy from 'lodash.orderby';
 import ResultHeader from './ResultHeader';
 import { fetchServers } from '../../actions'
 
-class ResultPage extends React.Component{
+const ResultPage = () => {
+  const isSignedIn = useSelector(state => state.auth.isSignedIn);
+  const credentials = useSelector(state => state.auth.credentials);
+  const serversList = useSelector(state => state.list.servers);
 
-  componentDidMount(){
-    if(this.props.isSignedIn){
-      this.props.fetchServers(this.props.credentials);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(isSignedIn){
+      dispatch(fetchServers(credentials));
     } else {
       history.push("/");
     }
-  };
+  }, []);
 
-  renderList(){
-    const servers = orderBy(this.props.list, ['name', 'distance']);
+  const renderList = () => {
+    const servers = orderBy(serversList, ['name', 'distance']);
 
     return servers.map(server => {
       return(
@@ -28,30 +33,18 @@ class ResultPage extends React.Component{
     });
   };
 
-  render(){
-    return(
-      <>
-        <ResultHeader />
-        <div className="result">
-          <div className="result__row result__row--header">
-            <div className="result__part result__part--left">Server</div>
-            <div className="result__part">Distance</div>
-          </div>
-          {this.renderList()}
+  return(
+    <>
+      <ResultHeader />
+      <div className="result">
+        <div className="result__row result__row--header">
+          <div className="result__part result__part--left">Server</div>
+          <div className="result__part">Distance</div>
         </div>
-      </>
-    );
-  };
-};
-
-const mapStateToProps = (state) => {
-  return({
-    list: state.list.servers,
-    credentials: state.auth.credentials,
-    isSignedIn: state.auth.isSignedIn
-  });
+        {renderList()}
+      </div>
+    </>
+  );
 }
 
-export default connect(mapStateToProps, {
-  fetchServers: fetchServers
-})(ResultPage);
+export default ResultPage;

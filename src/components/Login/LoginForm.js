@@ -1,66 +1,53 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import LoginInput from './LoginInput';
-import { connect } from 'react-redux';
+import React from "react";
+import { useDispatch } from 'react-redux'
+import { useForm } from "react-hook-form";
+import LoginError from './LoginError';
 import { loginToTestio } from '../../actions';
 
-class LoginForm extends React.Component {
+const LoginForm = () => {
+  const { handleSubmit, register, errors } = useForm();
+  const dispatch = useDispatch();
+  const onSubmit = values => dispatch(loginToTestio(values));
 
-  renderError = ({error, submitFailed}) => {
-    if(submitFailed && error){
-      return(
-          <div>{error}</div>
-      );
-    }
-  };
+  const isLogedIn = localStorage.getItem("myTokenLocal");
 
-  onSubmit = (formValues) => {
-    this.props.loginToTestio(formValues);
-  };
+  if(isLogedIn){
+    dispatch(loginToTestio(isLogedIn, true));
+  }
 
-  render(){
-    return(
-      <form className="form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <Field
-          component={LoginInput}
+  return(
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <div className="form__row">
+        <input
           name="username"
-          inputType="text"
           placeholder="Username"
+          type="text"
           className="form__input form__input--username"
+          ref={register({
+            required: "Required",
+            validate: value => value === "tesonet" || "Ussername is incorrect"
+          })}
         />
-        <Field
-          component={LoginInput}
+        {errors.username && <LoginError errors={errors.username.message} />}
+      </div>
+
+      <div className="form__row">
+        <input
           name="password"
-          inputType="password"
           placeholder="Password"
+          type="password"
           className="form__input form__input--password"
+          ref={register({
+            required: "Required",
+            validate: value => value === "partyanimal" || "Password is incorrect"
+          })}
         />
-        <button className="form__btn">Log In</button>
-      </form>
-    );
-  };
-};
+        {errors.password && <LoginError errors={errors.password.message} />}
+      </div>
 
-const validate = (formValues) => {
-  const errors = {};
+      <button type="submit" className="form__btn">Log In</button>
+    </form>
+  );
+}
 
-  if(!formValues.username){
-    errors.username = 'You must enter a login';
-  } else if(formValues.username !== 'tesonet'){
-    errors.username = 'Ussername is incorrect';
-  }
-  if(!formValues.password){
-    errors.password = 'You must enter a password';
-  } else if(formValues.password !== 'partyanimal'){
-    errors.password = 'Password is incorrect';
-  }
-
-  return errors;
-};
-
-export default reduxForm({
-  form: 'LoginForm',
-  validate: validate
-})(connect(null, {
-  loginToTestio
-})(LoginForm));
+export default LoginForm;
