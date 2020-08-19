@@ -1,0 +1,55 @@
+.form{
+  &__row{
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &__input{
+    background: $color-white;
+    color: $color-dark;
+    width: 100%;
+    border: none;
+    border-radius: $border-radius;
+    padding: 19px 20px 19px 54px;
+    font-size: 16px;
+    margin: 0px;
+    background-color: $color-white;
+    background-repeat: no-repeat;
+    background-position: 24px 19px;
+
+    &::-webkit-input-placeholder {
+      color: $color-placeolder;
+    }
+    &--username{
+      background-image: url("/img/username.svg");
+    }
+    &--password{
+      background-image: url("/img/password.svg");
+    }
+  }
+  &__btn{
+    width: 100%;
+    background: $login-cta-bg;
+    color: $color-white;
+    border: none;
+    border-radius: $border-radius;
+    height: 56px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+        background: $login-cta-bg-h;
+      }
+  }
+  &__error{
+    background: $color-error;
+    color: red;
+    position: absolute;
+    width: 100%;
+    padding: 3px 10px;
+    bottom: -13px;
+    font-size: 14px;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}

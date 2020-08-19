@@ -1,0 +1,33 @@
+.header{
+  margin: 40px 0px;
+  padding: 0px 15px;
+
+  &__side{
+    display: inline-block;
+    vertical-align: top;
+
+    &--right{
+      float: right;
+    }
+  }
+  &__img{
+    width: 100%;
+    max-width: 115px;
+    margin: 0;
+    display: block;
+  }
+  &__btn{
+    border: none;
+    background: url('/img/logout.svg') no-repeat left center;
+    background-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0px 0px 0px 26px;
+    color: $color-head-cta;
+    line-height: 30px;
+    &:hover{
+      color: $color-head-cta-h;
+    }
+  }
+}
