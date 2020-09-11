@@ -9,6 +9,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
+    historyApiFallback: true,
     contentBase: path.join(__dirname, './'), // where dev server will look for static files, not compiled
     publicPath: '/', //relative path to output path where  devserver will look for compiled files
   },
@@ -29,7 +30,14 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
+          options: {
+            plugins: [["@babel/plugin-transform-runtime",
+              {
+                "regenerator": true
+              }
+            ]]
+          }
         }
       },
       { // config for images
