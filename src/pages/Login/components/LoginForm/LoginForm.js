@@ -28,6 +28,7 @@ const LoginForm = () => {
   }
 
   if (authSuccess) return <Redirect to='/servers' />
+
   return (
     <>
       <Input

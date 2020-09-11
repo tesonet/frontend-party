@@ -28,9 +28,9 @@ const App = () => {
       <GlobalStyle />
       <Router>
         <Switch>
-          <Route exact path="/" render={() => <Redirect to="/login" />} />
-          <Route exact path="/login" component={LoginPage} />
-          <ProtectedRoute exact path="/servers" component={ServersPage} />
+          <Route path="/login" component={LoginPage} />
+          <ProtectedRoute path="/servers" component={ServersPage} />
+          <Route path="/" render={() => <Redirect to="/servers" />} />
         </Switch>
       </Router >
     </Provider >

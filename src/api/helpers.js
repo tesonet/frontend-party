@@ -1,4 +1,5 @@
 import { getToken } from '@/utils/localStorage';
+
 const formatOptions = (body) => (
   {
     headers: {
