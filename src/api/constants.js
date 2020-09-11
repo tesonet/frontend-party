@@ -1,5 +1,7 @@
-export const API = {
+const API = {
   DOMAIN: 'https://playground.tesonet.lt/v1/',
   AUTH: 'tokens',
-  SERVERS: 'servers'
+  SERVERS: 'servers',
 };
+
+export default API;

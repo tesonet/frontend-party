@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroundImage from '@/assets/images/background-image.png'
+import backgroundImage from '@/assets/images/background-image.png';
 
 export const StyledLoginWrapper = styled.div`
   background-image: url(${backgroundImage});
@@ -13,17 +13,17 @@ export const StyledLoginWrapper = styled.div`
   align-content: center;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const StyledLoginContainer = styled.div`
   display: flex;
   align-items: center;
   width: 360px;
   flex-direction: column;
-`
+`;
 
 export const StyledLogo = styled.img`
   width: 80%;
   max-width: 240px;
   margin-bottom: 50px;
-`
+`;

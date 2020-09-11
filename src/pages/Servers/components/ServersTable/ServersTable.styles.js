@@ -7,7 +7,7 @@ export const StyledRow = styled.div`
   padding: 20px 6px 20px 20px;
   border-bottom: 1px solid ${COLORS.TABLE.ROW_BORDER};
   color: ${COLORS.TABLE.TABLE_TEXT};
-`
+`;
 export const StyledContentContainer = styled.div`
   overflow: auto;
   flex: 1 1 auto;
@@ -25,14 +25,14 @@ export const StyledContentContainer = styled.div`
   &::-webkit-scrollbar-corner {
     background-color: transparent;
   }
-`
+`;
 
 export const StyledContentMessage = styled.div`
   color: ${COLORS.COMMON.LIGHT_GREEN};
   padding: 20px;
   justify-content: center;
   display: flex;
-`
+`;
 
 export const StyledContainer = styled.div`
   padding: 20px;
@@ -42,12 +42,12 @@ export const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-`
+`;
 
 export const StyledColumn = styled.div`
   color: ${COLORS.TABLE.HEADER_TEXT};
   cursor: pointer;
-`
+`;
 
 export const StyledArrow = styled.div`
   border: solid ${COLORS.TABLE.HEADER_TEXT};
@@ -55,13 +55,13 @@ export const StyledArrow = styled.div`
   display: inline-block;
   margin: 0px 10px;
   padding: 3px;
-`
+`;
 
 export const StyledArrowUp = styled(StyledArrow)`
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
-`
+`;
 export const StyledArrowDown = styled(StyledArrow)`
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
- ` 
+ `;

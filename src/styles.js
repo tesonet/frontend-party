@@ -7,6 +7,6 @@ const GlobalStyle = createGlobalStyle`
     @import url("https://fonts.googleapis.com/css?family=Roboto:300");
     font-family: "Roboto", sans-serif;
   }
-`
+`;
 
 export default GlobalStyle;

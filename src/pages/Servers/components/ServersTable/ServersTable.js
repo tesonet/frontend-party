@@ -18,8 +18,8 @@ const ServersTable = () => {
     servers,
     serversLoading,
     serversAuthFailure,
-    serversGlobalFailure
-  } = useSelector(state => state.servers);
+    serversGlobalFailure,
+  } = useSelector((state) => state.servers);
   const { items: sortedServers, sortData, sortConfig } = useSorting(servers);
   const dispatch = useDispatch();
 
@@ -33,21 +33,29 @@ const ServersTable = () => {
         {name}
       </div>
       <div>
-        {distance} km
+        {distance}
+        {' '}
+        km
       </div>
     </StyledRow>
-  )
+  );
 
   const renderSortingIndicator = (name) => {
     if (sortConfig.key === name) {
-      return sortConfig.direction === 'asc' ? <StyledArrowUp /> : <StyledArrowDown />
+      return sortConfig.direction === 'asc' ? <StyledArrowUp /> : <StyledArrowDown />;
     }
-  }
+    return null;
+  };
 
   const Servers = () => sortedServers.map((server, index) => renderServerRow(server, index));
 
-  if (serversAuthFailure) return <Redirect to='/login' />
-  if (serversGlobalFailure) return <StyledContentMessage>Failed to get servers. Try again later.</StyledContentMessage>
+  if (serversAuthFailure) {
+    return <Redirect to="/login" />;
+  }
+  if (serversGlobalFailure) {
+    return <StyledContentMessage>Failed to get servers. Try again later.</StyledContentMessage>;
+  }
+
   return (
     <>
       <StyledContainer>
@@ -61,11 +69,13 @@ const ServersTable = () => {
         </StyledColumn>
       </StyledContainer>
       <StyledContentContainer>
-        {serversLoading ? <StyledContentMessage>Servers loading...</StyledContentMessage> : <Servers />}
+        {serversLoading
+          ? <StyledContentMessage>Servers loading...</StyledContentMessage>
+          : <Servers />}
       </StyledContentContainer>
     </>
 
-  )
-}
+  );
+};
 
 export default ServersTable;

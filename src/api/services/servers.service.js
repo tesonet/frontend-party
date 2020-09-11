@@ -5,20 +5,19 @@ import {
   setGlobalFailure,
   clearServersState,
 } from '@/slices/servers.slice';
-import { get } from '../helpers'
-import { API } from '../constants';
+import { get } from '../helpers';
+import API from '../constants';
 
-export const getServers = () => async dispatch => {
+export const getServers = () => async (dispatch) => {
   dispatch(startFetchingServers());
   let response;
   try {
     response = await get(`${API.DOMAIN}${API.SERVERS}`);
-  }
-  catch (err) {
+  } catch (err) {
     if (err.message === '401') {
       dispatch(setAuthFailure());
     } else {
-      dispatch(setGlobalFailure())
+      dispatch(setGlobalFailure());
     }
     return;
   }
@@ -26,6 +25,6 @@ export const getServers = () => async dispatch => {
   dispatch(setServersSuccess(response));
 };
 
-export const clearServers = () => dispatch => {
+export const clearServers = () => (dispatch) => {
   dispatch(clearServersState());
-}
+};

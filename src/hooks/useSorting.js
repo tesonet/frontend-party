@@ -4,7 +4,7 @@ const useSorting = (items) => {
   const [sortConfig, setSortConfig] = useState({});
 
   const sortedItems = useMemo(() => {
-    let sortableItems = [...items];
+    const sortableItems = [...items];
     if (sortConfig) {
       sortableItems.sort((a, b) => {
         if (a[sortConfig.key] < b[sortConfig.key]) {

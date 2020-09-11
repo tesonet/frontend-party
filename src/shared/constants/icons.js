@@ -6,6 +6,6 @@ const ICONS_HASHPMAP = {
   username: usernameIcon,
   password: passwordIcon,
   logout: logoutIcon,
-}
+};
 
 export default ICONS_HASHPMAP;

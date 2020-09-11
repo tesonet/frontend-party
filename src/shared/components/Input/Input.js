@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledInput, StyledInputWrapper, StyledInputIcon } from './Input.styles';
 import ICONS from '@/shared/constants/icons';
+import { StyledInput, StyledInputWrapper, StyledInputIcon } from './Input.styles';
 
 const Input = ({ icon, ...rest }) => (
   <StyledInputWrapper>
-    {ICONS[icon] && <StyledInputIcon src={ICONS[icon]} alt='logo' />}
+    {ICONS[icon] && <StyledInputIcon src={ICONS[icon]} alt="logo" />}
     <StyledInput
       hasIcon={ICONS[icon]}
       {...rest}
     />
   </StyledInputWrapper>
 
-)
+);
 
 Input.defaultProps = {
-  icon: null
+  icon: null,
 };
 
 Input.propTypes = {
