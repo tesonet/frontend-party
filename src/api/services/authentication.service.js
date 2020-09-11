@@ -2,7 +2,9 @@ import {
   startAuthentication,
   authenticationSuccess,
   authenticationFailure,
+  clearAuthenticationState,
 } from '@/slices/authentication.slice';
+import { setToken, removeToken } from '@/utils/localStorage';
 import { post } from '../helpers'
 import { API } from '../constants';
 
@@ -13,14 +15,11 @@ export const login = ({ username, password }) => async dispatch => {
     dispatch(authenticationFailure())
     return;
   }
+  setToken(token);
   dispatch(authenticationSuccess())
 };
 
-// export const logout = () => async dispatch => {
-//   try {
-//     // const res = await api.post('/api/auth/logout/')
-//     return dispatch(logoutSuccess())
-//   } catch (e) {
-//     return console.error(e.message);
-//   }
-// }
+export const logout = () => dispatch => {
+  removeToken();
+  dispatch(clearAuthenticationState())
+}

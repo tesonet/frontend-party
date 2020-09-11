@@ -6,10 +6,21 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { getToken } from '@/utils/localStorage';
 import store from './store';
 import GlobalStyle from './styles';
 import LoginPage from '@/pages/Login/components/LoginPage/LoginPage';
 import ServersPage from '@/pages/Servers/components/ServersPage/ServersPage';
+
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const token = getToken();
+  return (
+    <Route {...rest} render={props =>
+      token ? <Component {...props} /> : <Redirect to="/login" />
+    }
+    />
+  )
+};
 
 const App = () => {
   return (
@@ -19,7 +30,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/login" />} />
           <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/servers" component={ServersPage} />
+          <ProtectedRoute exact path="/servers" component={ServersPage} />
         </Switch>
       </Router >
     </Provider >

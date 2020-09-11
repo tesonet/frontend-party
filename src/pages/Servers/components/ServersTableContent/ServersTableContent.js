@@ -1,28 +1,41 @@
-import React from 'react';
-import { StyledRow, StyledContentContainer } from './ServersTableContent.styles';
+import React, { useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getServers } from '@/api/services/servers.service';
+import { StyledRow, StyledContentContainer, StyledContentMessage } from './ServersTableContent.styles';
 
 const ServersTableContent = () => {
-  const testArray = [
-    { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 },
-    { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 },
-    { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 },
-    { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 },
-    { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 },
-    { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }, { server: 'Server', distance: 10 }
-  ];
-  const renderServerRow = ({ server, distance }) => (
-    <StyledRow>
+  const {
+    servers,
+    serversLoading,
+    serversAuthFailure,
+    serversGlobalFailure
+  } = useSelector(state => state.servers);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getServers());
+  }, []);
+
+  const renderServerRow = ({ name, distance }, index) => (
+    <StyledRow key={`${name}${index}`}>
       <div>
-        {server}
+        {name}
       </div>
       <div>
         {distance} km
       </div>
     </StyledRow>
   )
+
+  const Servers = () => servers.map((server, index) => renderServerRow(server, index));
+
+  if (serversAuthFailure) return <Redirect to='/login' />
+  if (serversGlobalFailure) return <StyledContentMessage>Failed to get servers. Try again later.</StyledContentMessage>
+
   return (
     <StyledContentContainer>
-      {testArray.map((server) => renderServerRow(server))}
+      {serversLoading ? <StyledContentMessage>Servers loading...</StyledContentMessage> : <Servers />}
     </StyledContentContainer>
   )
 }

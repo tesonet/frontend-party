@@ -25,12 +25,18 @@ const authenticationSlice = createSlice({
       state.authLoading = false
       state.authFailure = true
     },
+    clearAuthenticationState: state => {
+      state.authLoading = false;
+      state.authSuccess = false;
+      state.authFailure = false;
+    }
   },
 })
 
 export const {
   startAuthentication,
   authenticationSuccess,
-  authenticationFailure
+  authenticationFailure,
+  clearAuthenticationState,
 } = authenticationSlice.actions;
 export default authenticationSlice.reducer

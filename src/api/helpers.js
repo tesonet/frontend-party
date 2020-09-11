@@ -1,3 +1,4 @@
+import { getToken } from '@/utils/localStorage';
 const formatOptions = (body) => (
   {
     headers: {
@@ -7,22 +8,12 @@ const formatOptions = (body) => (
   }
 );
 
-export const handleJson = async (response) => {
-  let body = {};
-  try {
-    body = await response.json();
-  } catch (err) {
-    return body;
+const handleBadResponse = (response) => {
+  if (!response.ok) {
+    throw Error(response.status);
   }
-
-  // not sure if this is needed
-  // should handle cases where status is 200 ok, but contain an error attribute;
-  const { error } = body;
-  if (error) throw new Error(error);
-
-  return body;
+  return response;
 }
-
 
 export const post = async (url, body) => {
   return fetch(url, {
@@ -35,10 +26,15 @@ export const post = async (url, body) => {
     .then(data => data)
 }
 
-export const get = async (url, options = {}) => {
+export const get = async (url) => {
   return fetch(url, {
-    ...options,
     method: 'GET',
-  }).then(response => response.json())
+    headers: {
+      Authorization: getToken(),
+      "Content-Type": "application/json"
+    }
+
+  }).then(handleBadResponse)
+    .then(response => response.json())
     .then(data => data)
 }

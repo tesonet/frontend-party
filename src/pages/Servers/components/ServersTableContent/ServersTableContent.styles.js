@@ -6,6 +6,7 @@ export const StyledRow = styled.div`
   justify-content: space-between;
   padding: 20px 6px 20px 20px;
   border-bottom: 1px solid ${COLORS.TABLE.ROW_BORDER};
+  color: ${COLORS.TABLE.TABLE_TEXT};
 `
 export const StyledContentContainer = styled.div`
   overflow: auto;
@@ -24,4 +25,11 @@ export const StyledContentContainer = styled.div`
   &::-webkit-scrollbar-corner {
     background-color: transparent;
   }
+`
+
+export const StyledContentMessage = styled.div`
+  color: ${COLORS.COMMON.LIGHT_GREEN};
+  padding: 20px;
+  justify-content: center;
+  display: flex;
 `
