@@ -1,8 +1,13 @@
-import React from "react";
-import Login from '@/pages/Login';
+import React from 'react';
+import GlobalStyle from './styles';
+import LoginPage from '@/pages/Login/components/LoginPage/LoginPage';
+import ServersPage from '@/pages/Servers/components/ServersPage/ServersPage';
 
 const App = () => (
-  <Login />
+  <>
+    <GlobalStyle />
+    <LoginPage />
+  </>
 );
 
 export default App;
