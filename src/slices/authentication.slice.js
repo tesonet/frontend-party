@@ -12,18 +12,14 @@ const authenticationSlice = createSlice({
   reducers: {
     startAuthentication: (state) => {
       state.authLoading = true;
-      state.authLoading = false;
-      state.authFailure = false;
     },
     authenticationSuccess: (state) => {
       state.authSuccess = true;
       state.authLoading = false;
-      state.authFailure = false;
     },
     authenticationFailure: (state) => {
-      state.authSuccess = false;
-      state.authLoading = false;
       state.authFailure = true;
+      state.authLoading = false;
     },
     clearAuthenticationState: (state) => {
       state.authLoading = false;

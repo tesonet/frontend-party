@@ -9,6 +9,7 @@ import { get } from '../helpers';
 import API from '../constants';
 
 export const getServers = () => async (dispatch) => {
+  dispatch(clearServersState());
   dispatch(startFetchingServers());
   let response;
   try {

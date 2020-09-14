@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import useSorting from '@/hooks/useSorting';
 import { getServers } from '@/api/services/servers.service';
+import WithLoader from '@/shared/components/WithLoader/WithLoader';
 import {
   StyledRow,
   StyledContentContainer,
@@ -27,16 +28,12 @@ const ServersTable = () => {
     dispatch(getServers());
   }, []);
 
+  const formatDistanceString = (distance) => `${distance} km`;
+
   const renderServerRow = ({ name, distance }, index) => (
     <StyledRow key={`${name}${index}`}>
-      <div>
-        {name}
-      </div>
-      <div>
-        {distance}
-        {' '}
-        km
-      </div>
+      <div>{name}</div>
+      <div>{formatDistanceString(distance)}</div>
     </StyledRow>
   );
 
@@ -49,11 +46,19 @@ const ServersTable = () => {
 
   const Servers = () => sortedServers.map((server, index) => renderServerRow(server, index));
 
+  const ServersWithLoading = WithLoader(Servers);
+
   if (serversAuthFailure) {
     return <Redirect to="/login" />;
   }
   if (serversGlobalFailure) {
-    return <StyledContentMessage>Failed to get servers. Try again later.</StyledContentMessage>;
+    return (
+      <StyledContentMessage
+        data-testid="servers-error"
+      >
+        Failed to get servers. Try again later.
+      </StyledContentMessage>
+    );
   }
 
   return (
@@ -69,9 +74,7 @@ const ServersTable = () => {
         </StyledColumn>
       </StyledContainer>
       <StyledContentContainer>
-        {serversLoading
-          ? <StyledContentMessage>Servers loading...</StyledContentMessage>
-          : <Servers />}
+        <ServersWithLoading isLoading={serversLoading} />
       </StyledContentContainer>
     </>
 

@@ -12,7 +12,9 @@ const LoginForm = () => {
     password: '',
   });
   const { username, password } = userCredentials;
-  const { authLoading, authSuccess, authFailure } = useSelector((state) => state.authentication);
+  const { authLoading, authSuccess, authFailure } = useSelector(
+    ({ authentication }) => authentication,
+  );
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -39,6 +41,7 @@ const LoginForm = () => {
         value={username}
         onChange={handleInputChange}
         icon="username"
+        data-testid="username"
       />
       <Input
         placeholder="Password"
@@ -47,9 +50,17 @@ const LoginForm = () => {
         onChange={handleInputChange}
         value={password}
         icon="password"
+        data-testid="password"
       />
-      <Button title="Log In" onClick={submitForm} loading={authLoading} />
-      <StyledErrorMessage>{authFailure && 'Invalid username or password.'}</StyledErrorMessage>
+      <Button
+        title="Log In"
+        onClick={submitForm}
+        loading={authLoading}
+        data-testid="auth-submit-button"
+      />
+      <StyledErrorMessage data-testid="auth-error">
+        {authFailure && 'Invalid username or password.'}
+      </StyledErrorMessage>
     </>
   );
 };

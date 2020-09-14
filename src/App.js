@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { getToken } from '@/utils/localStorage';
-import LoginPage from '@/pages/Login/components/LoginPage/LoginPage';
-import ServersPage from '@/pages/Servers/components/ServersPage/ServersPage';
+import LoginPage from '@/pages/Login/LoginPage/LoginPage';
+import ServersPage from '@/pages/Servers/ServersPage/ServersPage';
 import store from './store';
 import GlobalStyle from './styles';
 
@@ -37,7 +37,7 @@ const App = () => (
 );
 
 ProtectedRoute.propTypes = {
-  component: PropTypes.elementType.isRequired,
+  component: PropTypes.func.isRequired,
 };
 
 export default App;

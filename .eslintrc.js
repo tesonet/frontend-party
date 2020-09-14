@@ -14,6 +14,16 @@ module.exports = {
         "react",
         "react-hooks"
     ],
+    "overrides": [
+        {
+            "files": [
+                "**/*.test.js",
+            ],
+            "env": {
+                "jest": true
+            }
+        }
+    ],
     "rules": {
         'import/prefer-default-export': 'off',
         'react/jsx-filename-extension': ['warn', { 'extensions': ['.js', '.jsx'] }],

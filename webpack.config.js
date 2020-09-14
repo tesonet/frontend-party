@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: {
-    app: "./src/index.js"
+    app: './src/index.js',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -16,13 +16,13 @@ module.exports = {
   output: {
     filename: 'js/[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
   module: {
     rules: [
@@ -30,15 +30,15 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            plugins: [["@babel/plugin-transform-runtime",
+            plugins: [['@babel/plugin-transform-runtime',
               {
-                "regenerator": true
-              }
-            ]]
-          }
-        }
+                regenerator: true,
+              },
+            ]],
+          },
+        },
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
@@ -47,8 +47,8 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: 'images',
-            }
-          }
+            },
+          },
         ],
       },
       {
@@ -58,20 +58,20 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: 'fonts',
-            }
-          }
+            },
+          },
         ],
-      }
-    ]
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-      title: "Testio"
+      template: './src/index.html',
+      filename: 'index.html',
+      title: 'Testio',
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ["js/*.*", "fonts/*.*", "images/*.*"]
+      cleanOnceBeforeBuildPatterns: ['js/*.*', 'fonts/*.*', 'images/*.*'],
     }),
-  ]
+  ],
 };

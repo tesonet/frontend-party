@@ -17,8 +17,6 @@ const serversSlice = createSlice({
     setServersSuccess: (state, { payload }) => {
       state.servers = payload;
       state.serversLoading = false;
-      state.serversAuthFailure = false;
-      state.serversGlobalFailure = false;
     },
     setAuthFailure: (state) => {
       state.serversLoading = false;

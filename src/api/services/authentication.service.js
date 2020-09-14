@@ -9,6 +9,7 @@ import { post } from '../helpers';
 import API from '../constants';
 
 export const login = ({ username, password }) => async (dispatch) => {
+  dispatch(clearAuthenticationState());
   dispatch(startAuthentication());
   const { token } = await post(`${API.DOMAIN}${API.AUTH}`, { username, password });
   if (!token) {

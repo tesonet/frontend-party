@@ -23,7 +23,7 @@ export const StyledLoginContainer = styled.div`
 `;
 
 export const StyledLogo = styled.img`
-  width: 80%;
-  max-width: 240px;
+  width: 246px;
+  height: 64px;
   margin-bottom: 50px;
 `;
