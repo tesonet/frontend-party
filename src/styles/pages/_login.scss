@@ -1,0 +1,17 @@
+.login-page {
+    background: url(~/../assets/background.png);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .login-logo {
+        margin-bottom: 60px;
+
+        @media(max-width: $breakpoint-tablet) {
+            margin-bottom: 40px;
+        }
+    }
+}

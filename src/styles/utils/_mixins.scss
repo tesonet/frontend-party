@@ -1,0 +1,15 @@
+@mixin form-item-shared-styles() {
+    outline: none;
+    border-radius: 6px;
+    border: none;
+    height: $form-item-height;
+    width: $form-item-width;
+    padding: 0;
+    font-family: inherit;
+    letter-spacing: inherit;
+
+    @media(max-width: $breakpoint-tablet) {
+        height: $form-item-height-sm;
+        width: $form-item-width-sm;
+    }
+}

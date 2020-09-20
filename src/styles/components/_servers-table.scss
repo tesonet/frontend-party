@@ -1,0 +1,25 @@
+.servers-table {
+    width: 100%;
+    border-spacing: 0;
+
+    thead {
+        text-align: left;
+        background-color: $color-white-smoke;
+
+        th {
+            border-top: 1px solid $color-gainsboro;
+            color: $color-dusty-gray;
+            font-weight: normal;
+            letter-spacing: 1.4px;
+            padding: 15px;
+        }
+    }
+
+    td {
+        border-top: 1px solid $color-gainsboro;
+        outline: 0;
+        margin: 0;
+        color: $color-dim-gray;
+        padding: 15px;
+    }
+}
