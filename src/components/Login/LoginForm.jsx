@@ -1,10 +1,10 @@
 import React, {
-    Fragment, useRef, useEffect, memo,
+    Fragment, useRef, memo,
 } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import ReactTooltip from 'react-tooltip';
+import { Overlay, Tooltip } from 'react-bootstrap';
 import LoginSubmitButton from './LoginSubmitButton';
 import PasswordFieldWrapper from './Fields/PasswordFieldWrapper';
 import UsernameFieldWrapper from './Fields/UsernameFieldWrapper';
@@ -15,19 +15,11 @@ const Form = (props) => {
     const submitted = useSelector((state) => state.auth.submitted);
     const formRef = useRef(null);
 
-    useEffect(() => {
-        if (error) {
-            ReactTooltip.show(formRef.current);
-            setTimeout(() => ReactTooltip.hide(formRef.current), 2000);
-        }
-    });
-
     return (
         <Fragment>
             <form
                 onSubmit={handleSubmit}
                 ref={formRef}
-                data-tip={error}
             >
                 <Field
                     name="username"
@@ -44,11 +36,13 @@ const Form = (props) => {
                     className="login-button"
                 />
             </form>
-            <ReactTooltip
-                effect="solid"
-                place="bottom"
-                offset={{ left: 4, bottom: 5 }}
-            />
+            <Overlay target={formRef.current} show={!!error} placement="bottom">
+                {(tooltipProps) => (
+                    <Tooltip id="button-tooltip" {...tooltipProps}>
+                        {error}
+                    </Tooltip>
+                )}
+            </Overlay>
         </Fragment>
     );
 };
