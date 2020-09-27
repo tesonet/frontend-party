@@ -1,10 +1,10 @@
-import AuthClient from '../services/AuthClient';
+import createAuthMethods from '../services/ceateAuthMethods';
 import types from '../types/authTypes';
 import resolveLoginError from '../utils/resolveLoginError';
 
 const login = (credentials, history) => async (dispatch) => {
     dispatch({ type: types.LOGIN_REQUEST });
-    const client = new AuthClient();
+    const client = createAuthMethods();
 
     try {
         const response = await client.login(credentials);

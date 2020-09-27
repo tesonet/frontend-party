@@ -1,9 +1,9 @@
 import types from '../types/serversTypes';
-import ServersClient from '../services/ServersClient';
+import createServersMethods from '../services/createServersMethods';
 
 const getServers = (token) => async (dispatch) => {
     dispatch({ type: types.SERVERS_REQUEST });
-    const client = new ServersClient();
+    const client = createServersMethods();
 
     try {
         const response = await client.getServers(token);
