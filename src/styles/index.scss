@@ -1,0 +1,19 @@
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/tooltip';
+@import './utils/mixins';
+@import './utils/variables';
+@import './utils/helpers';
+@import './pages/login';
+@import './pages/servers';
+@import './components/form-field';
+@import './components/login-button';
+@import './components/logout-button';
+@import './components/servers-table';
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.4px;
+}

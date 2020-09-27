@@ -1,0 +1,14 @@
+.login-button {
+    @include form-item-shared-styles;
+    font-weight: bold;
+    background-color: $color-atlantis;
+    box-sizing: content-box;
+
+    strong {
+        color: white;
+    }
+
+    &:hover {
+        background-color: $color-limeade;
+    }
+}

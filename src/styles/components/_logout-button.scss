@@ -1,0 +1,21 @@
+.logout-button {
+    outline: none;
+    border: none;
+    background: white;
+    width: 90px;
+    font-family: inherit;
+    letter-spacing: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 6px;
+
+    .logout-button-icon {
+        margin-right: 12px;
+    }
+
+    &:hover {
+        background-color: $color-yellow-green;
+    }
+}

@@ -1,0 +1,30 @@
+.field-wrapper {
+    position: relative;
+
+    .text-input {
+        filter: none;
+        @include form-item-shared-styles;
+        text-indent: 55px;
+        margin-bottom: 18px;
+        color: $color-dusty-gray;
+
+        &::placeholder {
+            color: $color-nobel;
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 1000px white inset;
+            -webkit-text-fill-color: $color-dusty-gray;
+        }
+    }
+}
+
+.login-icon {
+    position: absolute;
+    bottom: 50%;
+    left: 22px;
+}
+
+
