@@ -1,0 +1,143 @@
+.login {
+	background-image: linear-gradient(
+			rgba($color-blue, 0.8),
+			rgba($color-blue, 0.8)
+		),
+		url(../../images/login-bg.png);
+	background-size: cover;
+	background-position: center;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	&__form {
+		&-group {
+			display: flex;
+			align-items: center;
+			margin-bottom: 2rem;
+			position: relative;
+		}
+	}
+
+	&__logo {
+		margin-bottom: 7rem;
+	}
+
+	&__input {
+		color: $color-grey-dark-2;
+
+		border: none;
+		padding: 2rem 2rem 2rem 5rem;
+		border-radius: 0.5rem;
+		transition: all 0.2s;
+		width: 36rem;
+		font-family: inherit;
+		// padding-bottom: 2rem;
+
+		&:focus {
+			outline: none;
+		}
+
+		&::-webkit-input-placeholder {
+			font-weight: 300;
+			color: $color-grey-light-1;
+		}
+
+		&-username {
+			background: $color-white url(../../images/userLogo.svg) no-repeat left
+				2rem center;
+		}
+		&-password {
+			background: $color-white url(../../images/passwordLogo.svg) no-repeat left
+				2rem center;
+		}
+
+		&-username,
+		&-password {
+			&-error {
+				background: $color-grey-light-3;
+				padding: 1rem;
+				text-align: center;
+				font-size: 1.4rem;
+				font-weight: 700;
+				color: $color-grey-dark-1;
+				position: absolute;
+				right: -20.5rem;
+				transition: opacity 3s ease-in-out;
+				&::before {
+					content: '';
+					width: 0px;
+					height: 0px;
+					position: absolute;
+					border-left: 1rem solid transparent;
+					border-right: 1rem solid $color-grey-light-3;
+					border-top: 0.5rem solid transparent;
+					border-bottom: 1rem solid transparent;
+					left: -2rem;
+				}
+			}
+		}
+	}
+}
+
+// .login__form {
+// 	display: flex;
+// 	align-items: center;
+// 	position: relative;
+// 	flex-direction: column;
+// 	// justify-content: ;
+// 	// align-items: center;
+// 	// display: inline-block;
+// }
+
+// &-username,
+// &-password {
+// 	&-error {
+// 		// color: $color-grey-dark-1;
+// 		// background: $color-grey-light-3;
+// 		// height: max-content;
+// 		// font-size: $default-font-size;
+// 		// font-family: Roboto;
+// 		// padding: 1rem;
+// 		// position: relative;
+// 		// margin-left: 1rem;
+
+// 		// flex: 0 1 auto;
+// 		// align-self: flex-end;
+// 		// vertical-align: middle;
+// 		// position: absolute;
+// 		// right: 0;
+// 		// outline: red;
+// 		// width: 300px;
+
+// 		margin: 50px auto;
+// 		padding: 1rem;
+// 		text-align: center;
+// 		position: relative;
+// 		&-error::before {
+// 			content: '';
+// 			// width: 0px;
+// 			// height: 0px;
+// 			position: absolute;
+// 			border-left: 10px solid black;
+// 			border-right: 10px solid balck;
+// 			border-top: 10px solid transparent;
+// 			border-bottom: 10px solid transparent;
+// 			left: -23px;
+// 		}
+// 		&-error::after {
+// 			content: '';
+// 			width: 0px;
+// 			height: 0px;
+// 			position: absolute;
+// 			border-left: 10px solid transparent;
+// 			border-right: 10px solid #fff;
+// 			border-top: 10px solid transparent;
+// 			border-bottom: 10px solid transparent;
+// 			left: -17px;
+// 		}
+// 	}
+// }
