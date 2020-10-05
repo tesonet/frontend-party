@@ -7,7 +7,7 @@ import { ReactComponent as DoorsIcon } from '../assets/images/doors-icon.svg';
 function ServersTable({ serverList, setServerList, userLogOut }) {
 	const [sorted, setSorted] = useState(false);
 
-	//ONE FUNCTION TO SORT SERVERS BY NAME AND DISTANCE
+	// FUNCTION TO SORT SERVERS BY NAME AND DISTANCE
 	const sortServers = (key) => {
 		let sortedData = serverList[key];
 		if (!sorted) {

@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactComponent as LoadingIcon } from '../assets/images/server-loading-icon.svg';
 
 const SplashScreen = ({ fetchDataError }) => {
+	// LETTING USER KNOW IF REQUEST DATA FAILED
 	return (
 		<div className="splash">
 			<div className="splash__indicator">
