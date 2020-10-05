@@ -1,1 +1,5 @@
-export const AUTH_USER = 'AUTH_USER';
+export const USER_AUTH_PENDING = 'USER_AUTH_PENDING';
+export const USER_AUTH_SUCCESS = 'USER_AUTH_SUCCESS';
+export const USER_AUTH_FAILED = 'USER_AUTH_FAILED';
+export const RETRIEVED_DATA = 'RETRIEVED_DATA';
+export const USER_LOGOUT = 'USER_LOGOUT';

@@ -1,0 +1,33 @@
+.splash {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	&__indicator {
+		transform: scale(4);
+		margin-bottom: 2rem;
+
+		svg {
+			polyline {
+				fill: none;
+				stroke-width: 2;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+				&#back {
+					stroke: rgba($color-green-1, 0.3);
+				}
+				&#front {
+					stroke: $color-green-1;
+					stroke-dasharray: 12, 36;
+					stroke-dashoffset: 48;
+					animation: dash 1s linear infinite;
+				}
+			}
+		}
+	}
+	&__text {
+		font-size: $default-font-size;
+		font-weight: bold;
+	}
+}

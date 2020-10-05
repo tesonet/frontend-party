@@ -1,0 +1,17 @@
+.notFound {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	&__img {
+		height: 60%;
+		border-radius: 5rem;
+		background: white;
+		margin-bottom: 2rem;
+
+		@include responsive(phone) {
+			height: 45%;
+		}
+	}
+}
