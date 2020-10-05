@@ -30,4 +30,9 @@
 		font-size: $default-font-size;
 		font-weight: bold;
 	}
+	&__error {
+		margin-top: 2rem;
+		font-size: $default-font-size;
+		font-weight: bold;
+	}
 }

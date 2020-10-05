@@ -10,7 +10,7 @@ function ServerList() {
 	const storedToken = localStorage.getItem('token');
 
 	const dispatch = useDispatch();
-	const servers = useSelector((state) => state.fetchData.servers);
+	const { servers, fetchDataError } = useSelector((state) => state.fetchData);
 
 	const userLogOut = () => {
 		localStorage.clear();
@@ -34,13 +34,14 @@ function ServerList() {
 
 	return (
 		<>
-			{serverList === undefined || serverList.length < 2 ? (
-				<SplashScreen />
+			{!serverList || serverList.length < 2 ? (
+				<SplashScreen fetchDataError={fetchDataError} />
 			) : (
 				<ServersTable
 					serverList={serverList}
 					setServerList={setServerList}
 					userLogOut={userLogOut}
+					fetchDataError={fetchDataError}
 				/>
 			)}
 		</>

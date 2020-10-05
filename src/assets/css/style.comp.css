@@ -243,7 +243,7 @@ body {
   position: relative; }
   .login__logo {
     margin-bottom: 7rem; }
-  .login__wrongCredentials {
+  .login__error {
     position: absolute;
     transform: translate(0, -7rem);
     padding: 1.5rem 2rem;
@@ -276,6 +276,10 @@ body {
         stroke-dashoffset: 48;
         animation: dash 1s linear infinite; }
   .splash__text {
+    font-size: 1.6rem;
+    font-weight: bold; }
+  .splash__error {
+    margin-top: 2rem;
     font-size: 1.6rem;
     font-weight: bold; }
 

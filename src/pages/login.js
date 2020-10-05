@@ -7,20 +7,19 @@ import Button from '../components/Button';
 function Login(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	const [usernameValid, setUsernameValid] = useState(false);
-	const [passwordValid, setPasswordValid] = useState(false);
+	const [isUsernameBlank, setIsUsernameBlank] = useState(false);
+	const [isPasswordBlank, setIsPasswordBlank] = useState(false);
 
 	const dispatch = useDispatch();
-	const wrongCredentials = useSelector(
-		(state) => state.userAuthentication.wrongCredentials
-	);
-	const loginPending = useSelector(
-		(state) => state.userAuthentication.isPending
-	);
-	const isLoggedIn = useSelector(
-		(state) => state.userAuthentication.isLoggedIn
-	);
+	// RECEIVING ALL THE DATA ABOU USER STATUS FROM REDUX
+	const {
+		wrongCredentials,
+		loginPending,
+		isLoggedIn,
+		loginError,
+	} = useSelector((state) => state.userAuthentication);
 
+	// CHEKING USER STATUS IN REDUX, REDIRECTING TO SERVER LIST IF LOG IN IS SUCCESSFUL
 	isLoggedIn && props.history.push('/servers');
 
 	const loginSubmit = async () => {
@@ -30,38 +29,44 @@ function Login(props) {
 			body: JSON.stringify({ username: username, password: password }),
 		};
 
+		// IF USERNAME AND PASSWORD IS ENTERED SENDING API CALL TO SERVER FROM REDUX
 		username && password
 			? dispatch(userAuthentication(loginOptions))
-			: !username && setUsernameValid(true);
-		!password && setPasswordValid(true);
+			: // IF USER HAVEN'T ENTERED USERNAME OR PASSWORD SHOWING WARN MESSAGE
+			  !username && setIsUsernameBlank(true);
+		!password && setIsPasswordBlank(true);
 	};
 
 	const onChangeUsername = (e) => {
-		setUsernameValid(false);
+		setIsUsernameBlank(false);
 		setUsername(e.target.value);
 	};
 	const onChangePassword = (e) => {
-		setPasswordValid(false);
+		setIsPasswordBlank(false);
 		setPassword(e.target.value);
 	};
 
 	return (
-		<div className="login">
+		<div className="login" data-test="login">
 			<img src={logoTestio} alt="testio logo" className="login__logo" />
 			{wrongCredentials && (
-				<div className="login__wrongCredentials">
-					Incorrect username or password
+				<div className="login__error">Incorrect username or password</div>
+			)}
+			{loginError && (
+				<div className="login__error">
+					Sorry, something happened on our end. Please try again later.
 				</div>
 			)}
 			<form
 				method="post"
 				className="form"
+				data-test="form"
 				onSubmit={(e) => {
 					e.preventDefault();
 					loginSubmit();
 				}}
 			>
-				<div className="form__group">
+				<label className="form__group">
 					<input
 						className="form__input form__input--username"
 						type="text"
@@ -71,13 +76,13 @@ function Login(props) {
 						value={username}
 						onChange={(e) => onChangeUsername(e)}
 					/>
-					{usernameValid && (
+					{isUsernameBlank && (
 						<div className="form__input--error">
 							<p>Please enter your username</p>
 						</div>
 					)}
-				</div>
-				<div className="form__group">
+				</label>
+				<label className="form__group">
 					<input
 						className="form__input form__input--password"
 						type="password"
@@ -87,12 +92,12 @@ function Login(props) {
 						value={password}
 						onChange={(e) => onChangePassword(e)}
 					/>
-					{passwordValid && (
+					{isPasswordBlank && (
 						<div className="form__input--error">
 							<p>Please enter your password</p>
 						</div>
 					)}
-				</div>
+				</label>
 				<Button
 					type={'submit'}
 					className={'btn btn--green'}
