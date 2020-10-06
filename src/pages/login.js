@@ -60,7 +60,6 @@ function Login(props) {
 			<form
 				method="post"
 				className="form"
-				data-test="form"
 				onSubmit={(e) => {
 					e.preventDefault();
 					loginSubmit();
@@ -99,6 +98,7 @@ function Login(props) {
 					)}
 				</label>
 				<Button
+					data-test="login-button"
 					type={'submit'}
 					className={'btn btn--green'}
 					text={

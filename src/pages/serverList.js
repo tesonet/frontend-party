@@ -35,7 +35,10 @@ function ServerList() {
 	return (
 		<>
 			{!serverList || serverList.length < 2 ? (
-				<SplashScreen fetchDataError={fetchDataError} />
+				<SplashScreen
+					data-test="SplashScreen"
+					fetchDataError={fetchDataError}
+				/>
 			) : (
 				<ServersTable
 					serverList={serverList}
