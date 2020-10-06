@@ -1,0 +1,32 @@
+.login {
+	background-image: linear-gradient(
+			rgba($color-blue, 0.8),
+			rgba($color-blue, 0.8)
+		),
+		url(../images/login-bg.png);
+	background-size: cover;
+	background-position: center;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+
+	&__logo {
+		margin-bottom: 7rem;
+	}
+
+	&__error {
+		position: absolute;
+		transform: translate(0, -7rem);
+		padding: 1.5rem 2rem;
+		background: $color-grey-light-3;
+		color: $color-red;
+		border-radius: 0.5rem;
+		margin: 1rem;
+		font-weight: 700;
+		font-size: 1.3rem;
+	}
+}

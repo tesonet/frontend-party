@@ -1,0 +1,44 @@
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Roboto'), url(../fonts/Roboto-Light.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Roboto';
+	font-style: bold;
+	font-weight: 700;
+	src: local('Roboto'), url(../fonts/Roboto-Bold.ttf) format('truetype');
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+	@include responsive(tab-land) {
+		// width < 1200
+		font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+	}
+
+	@include responsive(tab-port) {
+		// width < 900
+		font-size: 50%; //1 rem = 8px, 8/16 = 50%
+	}
+
+	@include responsive(big-desktop) {
+		font-size: 75%; //1rem = 12, 12/16
+	}
+}
+
+body {
+	box-sizing: border-box;
+	font-family: Roboto, sans-serif;
+	overflow: overlay;
+}

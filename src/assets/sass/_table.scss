@@ -1,0 +1,66 @@
+.servers {
+	height: 100vh;
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		padding: 4rem 2rem;
+	}
+	&__logOut {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		color: $color-blue;
+		font-size: 1.4rem;
+		letter-spacing: 0.35px;
+		cursor: pointer;
+		&:hover {
+			color: $color-green-2;
+			svg path {
+				fill: $color-green-2;
+			}
+		}
+		svg {
+			margin-right: 1rem;
+		}
+	}
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: $color-grey-light-4;
+		padding: 1.5rem;
+		border: $color-grey-light-3 1px solid;
+		line-height: 30px;
+		th {
+			letter-spacing: 1.4px;
+			text-transform: uppercase;
+			color: $color-grey-dark-2;
+			font-weight: 300;
+			font-size: 1.4rem;
+			cursor: pointer;
+		}
+	}
+	tbody {
+		display: block;
+	}
+	&__row {
+		border-bottom: $color-grey-light-3 1px solid;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.5rem;
+		font-size: $default-font-size;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 30px;
+		letter-spacing: 0.4px;
+		color: $color-grey-dark-1;
+	}
+}
