@@ -1,0 +1,83 @@
+@import '_colors.scss';
+@import '_header.scss';
+@import '_button.scss';
+@import '_input.scss';
+@import '_list.scss';
+@import '_modal.scss';
+@import '_typography.scss';
+@import '_spacing.scss';
+@import '_error.scss';
+
+html {
+    overflow-y: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "ProximaNova", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    line-height: 15px;
+    color: $grey-4;
+
+    & * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+body > #root {
+    height: 100%;
+}
+
+body > #root > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    width: 100%;
+}
+
+.login-background-image {
+    background: url(../assets/images/login-artwork.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.login-page-bg {
+    background-color: $blue-3;
+}
+
+.page-bg {
+    background-color: $white-1;
+}
+
+.list-header{
+    width: 100%;
+    padding: 24px 16px;
+    background-color: $grey-1;
+    color: $grey-4;
+    text-transform: uppercase;
+    display: flex;
+    height: 64px;
+
+    .right{
+        margin-left:auto;
+    }
+}
+
+.form-container {
+    text-align: center;
+    min-height: 490px;
+}
+

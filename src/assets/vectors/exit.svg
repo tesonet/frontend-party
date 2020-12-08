@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-3023,-50)">
+        <path id="ico-logout" d="M3038,66L3029,66C3028.4,66 3028,65.6 3028,65L3028,62L3030,62L3030,64L3037,64L3037,52L3030,52L3030,54L3028,54L3028,51C3028,50.4 3028.4,50 3029,50L3038,50C3038.6,50 3039,50.4 3039,51L3039,65C3039,65.6 3038.6,66 3038,66ZM3027,54L3023,58L3027,62L3027,59L3033,59L3033,57L3027,57L3027,54Z" style="fill:rgb(47,49,83);"/>
+    </g>
+</svg>

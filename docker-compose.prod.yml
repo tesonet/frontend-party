@@ -1,0 +1,13 @@
+version: '2'
+
+# A very minimal implementation
+
+services:
+  oxi-test:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped

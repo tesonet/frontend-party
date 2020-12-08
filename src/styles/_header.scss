@@ -1,0 +1,15 @@
+.navbar {
+    flex: 0 1 auto;
+    background-color: #fff; //GOOD
+
+    .menu-right {
+        display: flex;
+        flex-grow: 0;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar__logo{
+        height: 39px;
+    }
+}
