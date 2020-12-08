@@ -1,0 +1,67 @@
+.input {
+    width: 100%;
+    border-radius: 4px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    background-color: $white-1;
+    border: 2px solid $white-1;
+    font-size: 18px;
+
+    &.error {
+        border: 2px solid $red-1;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $grey-5;
+        opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $grey-5;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: $grey-5;
+    }
+
+    .input__field{
+        width: 100%;
+        padding: 24px 0;
+        font-size: 21px;
+        color: $grey-5;
+        border: none!important;
+        background-color: $white-1;
+
+        &:focus {
+            outline: none!important;
+        }
+
+        &:active {
+            background: transparent;
+        }
+    }
+
+    .input__icon{
+        width: 24px!important;
+        margin-right: 24px;
+    }
+
+    /* This allows to focus outer div when inner element (input) is focused */
+    &:focus-within {
+        border: 2px solid $lime-1!important;
+        -webkit-box-shadow: 0px 0px 0px 1px $blue-1!important;
+        -moz-box-shadow: 0px 0px 0px 1px $blue-1!important;
+        box-shadow: 0px 0px 0px 1px $blue-1!important;
+    }
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-text-fill-color: $grey-4 !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

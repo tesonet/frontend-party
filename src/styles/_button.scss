@@ -1,0 +1,63 @@
+.button {
+    display: block;
+    color: $white-1;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    background-color: $blue-1;
+    font-size: 18px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.button--big{
+        padding: 24px 32px;
+        font-size: 21px;
+    }
+
+    .button__icon {
+        height: 24px;
+        margin-right: 16px;
+    }
+
+    &.button--link {
+        background: none !important;
+        color: $grey-4;
+        letter-spacing: -.4px;
+
+        &:hover{
+            background-color: $lime-3;
+        };
+    }
+
+    &.button--white {
+        background-color: $white-1;
+        border: 1px solid $grey-5;
+        color: $blue-4;
+
+        &:hover{
+            background-color: $lime-2;
+        };
+    }
+
+    &.button--lime {
+        background-color: $lime-1;
+        border: 1px solid $lime-1;
+
+        &:hover{
+            background-color: $lime-2;
+        };
+    }
+
+    .button__lable {
+        margin: auto;
+    }
+
+}

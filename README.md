@@ -1,15 +1,22 @@
 # Tesonet FrontEnd developer task
 
-## Basic instructions
+## Run this project in development mode
 
-1. Fork this repo
-1. Grab design files from [here](https://www.dropbox.com/sh/ql709t4h1ksl8jn/AACaARTQ9wUkpRNj07w2uHRka?dl=0).  
-   If you don't have Sketch or Photoshop, there are always free options to preview design:
-   - [Avocode](https://avocode.com/) - just import `.sketch` file
-   - [Zeplin](https://zeplin.io/) - just import `.sketch` file
-   - [Figma](https://www.figma.com/) - just import `.sketch` file
-1. Do your best with the task 💪
-1. Prepare a pull request and let us know that you are done (feel free to add comment a about the task)
+```
+npm i && npm start
+```
+
+## Run this project in development mode (dockerized)
+
+```
+docker-compose up --build
+```
+
+## Run this project in production mode
+
+```
+docker-compose --file docker-compose.prod.yml up --build
+```
 
 ## Requirements
 
