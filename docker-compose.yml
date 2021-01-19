@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: docker/nodejs/Dockerfile
+      args:
+        image: node:10.16-alpine
+        project_path: /var/www/testio
+    restart: always
+    ports:
+      - "9000:9000"
+    command: node_modules/webpack/bin/webpack.js serve --host 0.0.0.0 --inline --public localhost:9000
+
+  

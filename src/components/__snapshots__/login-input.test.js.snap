@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Fragment>
+  <styled.label />
+  <styled.input
+    icon={[Function]}
+    onChange={[Function]}
+    required={true}
+    type="text"
+  />
+</Fragment>
+`;
