@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<styled.form
+  onSubmit={[Function]}
+>
+  <LoginInput
+    label="Username"
+    onChange={[Function]}
+    value=""
+  />
+  <LoginInput
+    label="Password"
+    onChange={[Function]}
+    value=""
+  />
+  <LoginError
+    error=""
+  />
+  <LoginButton />
+</styled.form>
+`;

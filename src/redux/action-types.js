@@ -1,0 +1,2 @@
+export const SET_LOGGED_IN = "SET_LOGGED_IN";
+export const SET_SERVER_LIST = "SET_SERVER_LIST";
