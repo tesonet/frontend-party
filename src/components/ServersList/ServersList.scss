@@ -1,0 +1,21 @@
+@import "../../scss/main";
+
+.servers-list {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 11.3rem);
+  overflow: auto;
+
+  &__server-info {
+    border-top: .1rem solid $color-servers-list-border;
+    display: flex;
+    font-size: 1.6rem;
+    justify-content: space-between;
+    line-height: 1.875;
+    padding: 1.5rem 1.5rem 1rem;
+
+    &--first-row {
+      background-color: $color-light-gray;
+    }
+  }
+}

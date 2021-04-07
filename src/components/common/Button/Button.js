@@ -5,10 +5,17 @@ import "./Button.scss";
 
 export const Button = (props) => {
   return (
-    <button className={joinTruthy([
-      "button",
-      props.className,
-    ])}>
+    <button
+      className={joinTruthy([
+        "button",
+        props.className,
+        props.isDisabled && "button--disabled",
+      ])}
+      onClick={props.onClick}
+    >
+      {props.leadingIcon && (
+        <span className="button__leading-icon-wrapper">{props.leadingIcon}</span>
+      )}
       {props.children}
     </button>
   );

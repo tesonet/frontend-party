@@ -16,15 +16,25 @@
   }
 
   &__login-button {
-    background-color: $color-primary-green;
+    background-color: $color-button-green;
     color: $color-white;
     height: 5.8rem;
     width: 100%;
+
+    &:hover {
+      background-color: $color-button-green-hover;
+    }
   }
 
   &__input-wrapper {
     height: 5.8rem;
     margin-bottom: 1.8rem;
     width: 100%;
+  }
+
+  &__input-field {
+    &:focus {
+      color: $color-active-input-text;
+    }
   }
 }
