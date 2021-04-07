@@ -11,7 +11,9 @@ import {
   selectServersList,
   selectServersListLoadingFailed,
 } from "./services/selectors";
-import { joinTruthy } from "../../utils/utils";
+import { joinTruthy, sortArrayOfObjectsByKey } from "../../utils/utils";
+import Button from "../common/Button/Button";
+import { ReactComponent as SortTriangleIcon } from "../../assets/sort-triangle.svg";
 import "./ServersList.scss";
 
 export const ServersList = () => {
@@ -21,6 +23,8 @@ export const ServersList = () => {
   const isServersListLoading = useSelector(selectIsServersListLoading);
   const serversListLoadingFailed = useSelector(selectServersListLoadingFailed);
   const [serversListInternal, setServersListInternal] = useState(serversList || []);
+  const [isSortingByName, setIsSortingByName] = useState(false);
+  const [isSortingByDistance, setIsSortingByDistance] = useState(false);
 
   useEffect(() => {
     setServersListInternal(serversList);
@@ -45,7 +49,35 @@ export const ServersList = () => {
           dispatch(setServersListLoadingFailed(true));
         });
     }
-  }, []);
+  }, [dispatch, token]);
+
+  const handleSortServersListByName = () => {
+    let sortedServersList;
+    if (isSortingByName) {
+      sortedServersList = sortArrayOfObjectsByKey([...serversListInternal], "name");
+      setIsSortingByName(false);
+      setIsSortingByDistance(false);
+    } else {
+      sortedServersList = sortArrayOfObjectsByKey([...serversListInternal], "name", true);
+      setIsSortingByName(true);
+      setIsSortingByDistance(false);
+    }
+    setServersListInternal(sortedServersList);
+  };
+
+  const handleSortServersListByDistance = () => {
+    let sortedServersList;
+    if (isSortingByDistance) {
+      sortedServersList = sortArrayOfObjectsByKey([...serversListInternal], "distance");
+      setIsSortingByDistance(false);
+      setIsSortingByName(false);
+    } else {
+      sortedServersList = sortArrayOfObjectsByKey([...serversListInternal], "distance", true);
+      setIsSortingByDistance(true);
+      setIsSortingByName(false);
+    }
+    setServersListInternal(sortedServersList);
+  };
 
   return (
     <ul className="servers-list">
@@ -53,21 +85,38 @@ export const ServersList = () => {
         "servers-list__server-info",
         "servers-list__server-info--first-row"
       ])}>
-        <span>
+        <span className="servers-list__column-title">
           SERVER
+          <Button
+            className="servers-list__sort-button"
+            onClick={handleSortServersListByName}
+          >
+            <SortTriangleIcon
+              className={joinTruthy([
+                "servers-list__sort-icon",
+                isSortingByName && "servers-list__sort-icon--active",
+              ])}
+            />
+          </Button>
         </span>
-        <span>
+        <span className="servers-list__column-title">
           DISTANCE
+          <Button
+            className="servers-list__sort-button"
+            onClick={handleSortServersListByDistance}
+          >
+            <SortTriangleIcon
+              className={joinTruthy([
+                "servers-list__sort-icon",
+                isSortingByDistance && "servers-list__sort-icon--active",
+              ])}
+            />
+          </Button>
         </span>
       </li>
-      {isServersListLoading ? (
-        <div className="servers-list__loading-text">
-          Servers list loading...
-        </div>
-      ) : serversListLoadingFailed ? (
-        <div className="servers-list__loading-text">
-          Servers list loading failed.
-          Try to refresh the page.
+      {isServersListLoading || serversListLoadingFailed ? (
+        <div className="servers-list__loading-error-text">
+          {isServersListLoading ? "Servers list loading..." : "Servers list loading failed. Try to refresh the page."}
         </div>
       ) : serversListInternal.map(serverInfo => (
         <li

@@ -20,9 +20,5 @@
 
   &--disabled {
     background-color: $color-disabled-input-background;
-
-    &:hover {
-      background-color: $color-disabled-input-background;
-    }
   }
 }
