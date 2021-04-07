@@ -7,3 +7,8 @@ export const selectIsLoginInProgress = createSelector(
   [selectSlice],
   (slice) => slice.isLoginInProgress
 );
+
+export const selectAuthenticationFailed = createSelector(
+  [selectSlice],
+  (slice) => slice.authenticationFailed
+);

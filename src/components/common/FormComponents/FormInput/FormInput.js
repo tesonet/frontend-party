@@ -26,7 +26,8 @@ export const FormInput = (props) => {
         component={props.component || "input"}
         className={joinTruthy([
           "form-input__input-field",
-          props.classNames?.inputField
+          props.classNames?.inputField,
+          props.error && "form-input__input-field--invalid"
         ])}
         type={props.type}
         name={props.name}
@@ -37,6 +38,9 @@ export const FormInput = (props) => {
       >
         {props.children}
       </Field>
+      {props.error && (
+        <span className="form-input__error">{props.error}</span>
+      )}
     </div>
   );
 };

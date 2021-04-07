@@ -2,20 +2,23 @@ import React from "react";
 import { Form, Formik } from "formik";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import * as Yup from "yup";
 
 import { ReactComponent as TestioIcon } from "../../assets/logo-testio.svg";
 import { ReactComponent as UserIcon } from "../../assets/user-icon.svg";
 import { ReactComponent as PasswordIcon } from "../../assets/password-icon.svg";
 import Button from "../common/Button/Button";
 import { FormInput } from "../common/FormComponents/FormInput/FormInput";
-import { setIsLoginInProgress } from "./services/slice";
-import { selectIsLoginInProgress } from "./services/selectors";
+import { setAuthenticationFailed, setIsLoginInProgress } from "./services/slice";
+import { selectAuthenticationFailed, selectIsLoginInProgress } from "./services/selectors";
+import { AUTHENTICATION_FAILED_MESSAGE, PASSWORD_MISSING_MESSAGE, USERNAME_MISSING_MESSAGE } from "./utils/constants";
 import "./LoginBox.scss";
 
 export const LoginBox = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const isLoginInProgress = useSelector(selectIsLoginInProgress);
+  const authenticationFailed = useSelector(selectAuthenticationFailed);
 
   const handleLogin = (values) => {
     dispatch(setIsLoginInProgress(true));
@@ -33,13 +36,21 @@ export const LoginBox = () => {
         if (data.token) {
           localStorage.setItem("token", data.token);
           history.push("/servers");
+        } else {
+          dispatch(setAuthenticationFailed(true));
         }
         dispatch(setIsLoginInProgress(false));
       })
       .catch(err => {
         dispatch(setIsLoginInProgress(false));
+        dispatch(setAuthenticationFailed(true));
       });
   };
+
+  const validationSchema = Yup.object().shape({
+    username: Yup.string().required(USERNAME_MISSING_MESSAGE),
+    password: Yup.string().required(PASSWORD_MISSING_MESSAGE),
+  });
 
   return (
     <div className="login-box">
@@ -50,6 +61,7 @@ export const LoginBox = () => {
           password: "",
         }}
         onSubmit={handleLogin}
+        validationSchema={validationSchema}
       >
         {props => (
           <Form className="login-box__form">
@@ -63,7 +75,8 @@ export const LoginBox = () => {
               setFieldValue={props.setFieldValue}
               value={props.values.username}
               leadingIcon={<UserIcon />}
-              isRequiredField
+              error={props.errors.username || (authenticationFailed && AUTHENTICATION_FAILED_MESSAGE)}
+
             />
             <FormInput
               classNames={{
@@ -76,7 +89,7 @@ export const LoginBox = () => {
               value={props.values.password}
               type="password"
               leadingIcon={<PasswordIcon />}
-              isRequiredField
+              error={props.errors.password || (authenticationFailed && AUTHENTICATION_FAILED_MESSAGE)}
             />
             <Button
               className="login-box__login-button"
