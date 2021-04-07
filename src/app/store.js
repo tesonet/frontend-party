@@ -10,6 +10,4 @@ const reduxStates = {
 
 const reducer = combineReducers(reduxStates);
 
-export const getStore = () => configureStore({
-  reducer,
-});
+export const getStore = () => configureStore({ reducer });
