@@ -7,3 +7,13 @@ export const selectServersList = createSelector(
   [selectSlice],
   (slice) => slice?.serversList
 );
+
+export const selectIsServersListLoading = createSelector(
+  [selectSlice],
+  (slice) => slice?.isServersListLoading
+);
+
+export const selectServersListLoadingFailed = createSelector(
+  [selectSlice],
+  (slice) => slice?.serversListLoadingFailed
+);

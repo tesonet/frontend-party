@@ -12,6 +12,7 @@ export const Button = (props) => {
         props.isDisabled && "button--disabled",
       ])}
       onClick={props.onClick}
+      disabled={props.isDisabled}
     >
       {props.leadingIcon && (
         <span className="button__leading-icon-wrapper">{props.leadingIcon}</span>

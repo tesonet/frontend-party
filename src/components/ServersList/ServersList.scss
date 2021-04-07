@@ -18,4 +18,12 @@
       background-color: $color-light-gray;
     }
   }
+
+  &__loading-text {
+    align-items: center;
+    display: flex;
+    font-size: 2rem;
+    height: 100%;
+    justify-content: center;
+  }
 }

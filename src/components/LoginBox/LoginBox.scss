@@ -16,13 +16,16 @@
   }
 
   &__login-button {
-    background-color: $color-button-green;
     color: $color-white;
     height: 5.8rem;
     width: 100%;
 
-    &:hover {
-      background-color: $color-button-green-hover;
+    &:not(:disabled) {
+      background-color: $color-button-green;
+
+      &:hover {
+        background-color: $color-button-green-hover;
+      }
     }
   }
 
@@ -33,8 +36,6 @@
   }
 
   &__input-field {
-    &:focus {
-      color: $color-active-input-text;
-    }
+    color: $color-active-input-text;
   }
 }

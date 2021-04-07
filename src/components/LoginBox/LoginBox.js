@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Formik } from "formik";
 import { useHistory } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as TestioIcon } from "../../assets/logo-testio.svg";
 import { ReactComponent as UserIcon } from "../../assets/user-icon.svg";
@@ -82,7 +82,7 @@ export const LoginBox = () => {
               className="login-box__login-button"
               isDisabled={isLoginInProgress}
             >
-              Log in
+              {isLoginInProgress ? "Logging in..." : "Log in"}
             </Button>
           </Form>
         )}

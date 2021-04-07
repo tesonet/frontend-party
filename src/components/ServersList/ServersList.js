@@ -1,18 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setServersList } from "./services/slice";
-import { selectServersList } from "./services/selectors";
 
+import {
+  setIsServersListLoading,
+  setServersList,
+  setServersListLoadingFailed,
+} from "./services/slice";
+import {
+  selectIsServersListLoading,
+  selectServersList,
+  selectServersListLoadingFailed,
+} from "./services/selectors";
+import { joinTruthy } from "../../utils/utils";
 import "./ServersList.scss";
-import {joinTruthy} from "../../utils/utils";
 
-export const ServersList = (props) => {
+export const ServersList = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const serversList = useSelector(selectServersList);
+  const isServersListLoading = useSelector(selectIsServersListLoading);
+  const serversListLoadingFailed = useSelector(selectServersListLoadingFailed);
+  const [serversListInternal, setServersListInternal] = useState(serversList || []);
+
+  useEffect(() => {
+    setServersListInternal(serversList);
+  }, [serversList]);
 
   useEffect(() => {
     if (token) {
+      dispatch(setIsServersListLoading(true));
       fetch("https://playground.tesonet.lt/v1/servers", {
         headers: {
           Authorization: "Bearer " + token,
@@ -20,11 +36,13 @@ export const ServersList = (props) => {
       }).then(response => response.json())
         .then(data => {
           if (data?.length > 0) {
+            dispatch(setIsServersListLoading(false));
             dispatch(setServersList(data));
           }
         })
         .catch(err => {
-          console.log("Error");
+          dispatch(setIsServersListLoading(false));
+          dispatch(setServersListLoadingFailed(true));
         });
     }
   }, []);
@@ -35,11 +53,27 @@ export const ServersList = (props) => {
         "servers-list__server-info",
         "servers-list__server-info--first-row"
       ])}>
-        <span>SERVER</span>
-        <span>DISTANCE</span>
+        <span>
+          SERVER
+        </span>
+        <span>
+          DISTANCE
+        </span>
       </li>
-      {serversList.map(serverInfo => (
-        <li className="servers-list__server-info">
+      {isServersListLoading ? (
+        <div className="servers-list__loading-text">
+          Servers list loading...
+        </div>
+      ) : serversListLoadingFailed ? (
+        <div className="servers-list__loading-text">
+          Servers list loading failed.
+          Try to refresh the page.
+        </div>
+      ) : serversListInternal.map(serverInfo => (
+        <li
+          key={`${serverInfo.name}-${serverInfo.distance}`}
+          className="servers-list__server-info"
+        >
           <span>{serverInfo.name}</span>
           <span>{serverInfo.distance} km</span>
         </li>

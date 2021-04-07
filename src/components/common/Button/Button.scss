@@ -17,4 +17,12 @@
     display: flex;
     margin-right: 1rem;
   }
+
+  &--disabled {
+    background-color: $color-disabled-input-background;
+
+    &:hover {
+      background-color: $color-disabled-input-background;
+    }
+  }
 }
