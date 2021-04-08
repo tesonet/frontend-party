@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LoginBox } from "./LoginBox";
+import LoginBox from "./LoginBox";
 import { getStore } from "../../app/store";
 import { mountWithIntl } from "../../utils/testsUtils";
 import messages from "./messages";
