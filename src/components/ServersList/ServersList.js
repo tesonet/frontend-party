@@ -117,26 +117,28 @@ export const ServersList = () => {
           </Button>
         </span>
       </li>
-      {(isServersListLoading || serversListLoadingFailed) ? (
-        <div
-          data-testid="servers-list-loading-error-text"
-          className="servers-list__loading-error-text"
-        >
-          {isServersListLoading ?
-            intl.formatMessage(messages.serversListLoadingInProgressMessage) :
-            intl.formatMessage(messages.serversListLoadingFailedMessage)
-          }
-        </div>
-      ) : serversListInternal.map(serverInfo => (
-        <li
-          data-testid="server"
-          key={`${serverInfo.name}-${serverInfo.distance}`}
-          className="servers-list__server-info"
-        >
-          <span>{serverInfo.name}</span>
-          <span>{serverInfo.distance} km</span>
-        </li>
-      ))}
+      <div className="servers-list__list">
+        {(isServersListLoading || serversListLoadingFailed) ? (
+          <div
+            data-testid="servers-list-loading-error-text"
+            className="servers-list__loading-error-text"
+          >
+            {isServersListLoading ?
+              intl.formatMessage(messages.serversListLoadingInProgressMessage) :
+              intl.formatMessage(messages.serversListLoadingFailedMessage)
+            }
+          </div>
+        ) : serversListInternal.map(serverInfo => (
+          <li
+            data-testid="server"
+            key={`${serverInfo.name}-${serverInfo.distance}`}
+            className="servers-list__server-info"
+          >
+            <span>{serverInfo.name}</span>
+            <span>{serverInfo.distance} km</span>
+          </li>
+        ))}
+      </div>
     </ul>
   );
 };

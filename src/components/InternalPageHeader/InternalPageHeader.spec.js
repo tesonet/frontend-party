@@ -1,7 +1,7 @@
 import React from "react";
 
 import { InternalPageHeader } from "./InternalPageHeader";
-import { mockWindowProperty, mountWithIntl } from "../../utils/testsUtils"
+import { mountWithIntl } from "../../utils/testsUtils"
 
 const mockUseHistoryPush = jest.fn();
 
@@ -13,8 +13,12 @@ jest.mock("react-router-dom", () => ({
   },
 }));
 
-mockWindowProperty("localStorage", {
-  removeItem: jest.fn(),
+Object.defineProperty(window, "localStorage", {
+  configurable: true,
+  writable: true,
+  value: {
+    removeItem: jest.fn(),
+  },
 });
 
 describe("InternalPageHeader", () => {

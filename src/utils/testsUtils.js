@@ -1,25 +1,10 @@
 import React from "react";
 import * as Enzyme from "enzyme";
-import {Provider} from "react-redux";
-import {IntlProvider} from "react-intl";
+import { Provider } from "react-redux";
+import { IntlProvider } from "react-intl";
 
 import { MOCK_LOCALE, MOCK_MESSAGES } from "../App";
-import {getStore} from "../app/store";
-
-export const mockWindowProperty = (property, value) => {
-  const { [property]: originalProperty } = window;
-  delete window[property];
-  beforeAll(() => {
-    Object.defineProperty(window, property, {
-      configurable: true,
-      writable: true,
-      value,
-    });
-  });
-  afterAll(() => {
-    window[property] = originalProperty;
-  });
-};
+import { getStore } from "../app/store";
 
 export const mountWithIntl = (
   node,
