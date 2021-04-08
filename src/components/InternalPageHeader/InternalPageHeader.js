@@ -1,12 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useIntl } from "react-intl";
 
 import { ReactComponent as LogoutIcon } from "../../assets/logout-icon.svg";
 import { ReactComponent as TestioDarkIcon } from "../../assets/logo-testio-dark.svg";
 import Button from "../common/Button/Button";
 import "./InternalPageHeader.scss";
+import messages from "./messages";
 
 export const InternalPageHeader = () => {
+  const intl = useIntl();
   const history = useHistory();
 
   const handleLogout = () => {
@@ -23,7 +26,7 @@ export const InternalPageHeader = () => {
         onClick={handleLogout}
         leadingIcon={<LogoutIcon />}
       >
-        Logout
+        {intl.formatMessage(messages.logoutButtonText)}
       </Button>
     </div>
   );

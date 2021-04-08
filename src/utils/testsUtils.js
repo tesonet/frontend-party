@@ -4,6 +4,7 @@ import {Provider} from "react-redux";
 import {IntlProvider} from "react-intl";
 
 import { MOCK_LOCALE, MOCK_MESSAGES } from "../App";
+import {getStore} from "../app/store";
 
 export const mockWindowProperty = (property, value) => {
   const { [property]: originalProperty } = window;
@@ -20,7 +21,10 @@ export const mockWindowProperty = (property, value) => {
   });
 };
 
-export const mountWithIntl = (node, store) => Enzyme.mount((
+export const mountWithIntl = (
+  node,
+  store = getStore()
+) => Enzyme.mount((
   <Provider store={store}>
     <IntlProvider
       locale={MOCK_LOCALE}

@@ -1,7 +1,7 @@
 import React from "react";
-import * as Enzyme from "enzyme";
+
 import { InternalPageHeader } from "./InternalPageHeader";
-import { mockWindowProperty } from "../../utils/testsUtils"
+import { mockWindowProperty, mountWithIntl } from "../../utils/testsUtils"
 
 const mockUseHistoryPush = jest.fn();
 
@@ -18,7 +18,7 @@ mockWindowProperty("localStorage", {
 });
 
 describe("InternalPageHeader", () => {
-  const setup = (_props) => Enzyme.mount(<InternalPageHeader />);
+  const setup = () => mountWithIntl(<InternalPageHeader />);
 
   it("should remove localStorage token and redirect to login screen on logout click", () => {
     const wrapper = setup();
