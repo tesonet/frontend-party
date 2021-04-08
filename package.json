@@ -19,7 +19,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "build": "webpack --mode=development",
+    "build": "webpack",
     "dev": "webpack-dev-server",
     "test": "jest"
   },
