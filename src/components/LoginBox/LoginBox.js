@@ -3,6 +3,7 @@ import { Form, Formik } from "formik";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
+import { useIntl} from "react-intl";
 
 import { ReactComponent as TestioIcon } from "../../assets/logo-testio.svg";
 import { ReactComponent as UserIcon } from "../../assets/user-icon.svg";
@@ -11,16 +12,11 @@ import Button from "../common/Button/Button";
 import { FormInput } from "../common/FormComponents/FormInput/FormInput";
 import { setAuthenticationFailed, setIsLoginInProgress } from "./services/slice";
 import { selectAuthenticationFailed, selectIsLoginInProgress } from "./services/selectors";
-import { 
-  AUTHENTICATION_FAILED_MESSAGE, 
-  PASSWORD_MISSING_MESSAGE, 
-  USERNAME_MISSING_MESSAGE,
-  LOGIN_IN_PROGRESS_BUTTON_TEXT,
-  LOGIN_BUTTON_TEXT_DEFAULT,
-} from "./utils/constants";
+import messages from "./messages";
 import "./LoginBox.scss";
 
 export const LoginBox = () => {
+  const intl = useIntl();
   const dispatch = useDispatch();
   const history = useHistory();
   const isLoginInProgress = useSelector(selectIsLoginInProgress);
@@ -54,8 +50,8 @@ export const LoginBox = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required(USERNAME_MISSING_MESSAGE),
-    password: Yup.string().required(PASSWORD_MISSING_MESSAGE),
+    username: Yup.string().required(intl.formatMessage(messages.usernameMissingMessage)),
+    password: Yup.string().required(intl.formatMessage(messages.passwordMissingMessage)),
   });
 
   return (
@@ -81,7 +77,7 @@ export const LoginBox = () => {
               setFieldValue={props.setFieldValue}
               value={props.values.username}
               leadingIcon={<UserIcon />}
-              error={props.errors.username || (authenticationFailed && AUTHENTICATION_FAILED_MESSAGE)}
+              error={props.errors.username || (authenticationFailed && intl.formatMessage(messages.authenticationFailedMessage))}
             />
             <FormInput
               classNames={{
@@ -94,14 +90,17 @@ export const LoginBox = () => {
               value={props.values.password}
               type="password"
               leadingIcon={<PasswordIcon />}
-              error={props.errors.password || (authenticationFailed && AUTHENTICATION_FAILED_MESSAGE)}
+              error={props.errors.password || (authenticationFailed && intl.formatMessage(messages.authenticationFailedMessage))}
             />
             <Button
               dataTestId="login-button"
               className="login-box__login-button"
               isDisabled={isLoginInProgress}
             >
-              {isLoginInProgress ? LOGIN_IN_PROGRESS_BUTTON_TEXT : LOGIN_BUTTON_TEXT_DEFAULT}
+              {isLoginInProgress ?
+                intl.formatMessage(messages.loginInProgressButtonText) :
+                intl.formatMessage(messages.loginButtonTextDefault)
+              }
             </Button>
           </Form>
         )}

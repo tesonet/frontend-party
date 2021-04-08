@@ -1,15 +1,9 @@
 import React from "react";
-import * as Enzyme from "enzyme";
-import { Provider } from "react-redux";
+
 import { LoginBox } from "./LoginBox";
 import { getStore } from "../../app/store";
-import {
-  AUTHENTICATION_FAILED_MESSAGE,
-  LOGIN_BUTTON_TEXT_DEFAULT,
-  LOGIN_IN_PROGRESS_BUTTON_TEXT,
-  PASSWORD_MISSING_MESSAGE,
-  USERNAME_MISSING_MESSAGE
-} from "./utils/constants";
+import { mountWithIntl } from "../../utils/testsUtils";
+import messages from "./messages";
 
 let store = getStore();
 
@@ -18,11 +12,8 @@ describe("LoginBox", () => {
     const props = Object.assign({}, {
       errors: {},
     }, _props);
-    const wrapper = Enzyme.mount((
-      <Provider store={store}>
-        <LoginBox {...props} />
-      </Provider>
-    ));
+
+    const wrapper = mountWithIntl(<LoginBox {...props} />, store);
 
     return {
       wrapper,
@@ -33,7 +24,7 @@ describe("LoginBox", () => {
   it("login button should enabled and have 'Log in' text if login is not in progress", () => {
     const { wrapper } = setup();
     const loginButton = wrapper.find('[data-testid="login-button"]');
-    expect(loginButton.text()).toBe(LOGIN_BUTTON_TEXT_DEFAULT);
+    expect(loginButton.text()).toBe(messages.loginButtonTextDefault.defaultMessage);
     expect(loginButton.prop("disabled")).toBe(false);
   });
 
@@ -47,7 +38,7 @@ describe("LoginBox", () => {
     });
     const { wrapper } = setup();
     const loginButton = wrapper.find('[data-testid="login-button"]');
-    expect(loginButton.text()).toBe(LOGIN_IN_PROGRESS_BUTTON_TEXT);
+    expect(loginButton.text()).toBe(messages.loginInProgressButtonText.defaultMessage);
     expect(loginButton.prop("disabled")).toBe(true);
   });
 
@@ -60,8 +51,8 @@ describe("LoginBox", () => {
       }
     });
     const ERRORS = {
-      username: USERNAME_MISSING_MESSAGE,
-      password: PASSWORD_MISSING_MESSAGE,
+      username: messages.usernameMissingMessage.defaultMessage,
+      password: messages.passwordMissingMessage.defaultMessage,
     };
     const { wrapper } = setup({
       errors: ERRORS
@@ -70,7 +61,7 @@ describe("LoginBox", () => {
     const passwordInput = wrapper.find('[data-testid="form-input-password"]');
     const usernameInputError = usernameInput.find('[data-testid="form-input-error"]');
     const passwordInputError = passwordInput.find('[data-testid="form-input-error"]');
-    expect(usernameInputError.text()).toBe(AUTHENTICATION_FAILED_MESSAGE);
-    expect(passwordInputError.text()).toBe(AUTHENTICATION_FAILED_MESSAGE);
+    expect(usernameInputError.text()).toBe(messages.authenticationFailedMessage.defaultMessage);
+    expect(passwordInputError.text()).toBe(messages.authenticationFailedMessage.defaultMessage);
   });
 });

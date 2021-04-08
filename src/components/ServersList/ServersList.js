@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useIntl } from "react-intl";
 
 import {
   setIsServersListLoading,
@@ -14,10 +15,11 @@ import {
 import { joinTruthy, sortArrayOfObjectsByKey } from "../../utils/utils";
 import Button from "../common/Button/Button";
 import { ReactComponent as SortTriangleIcon } from "../../assets/sort-triangle.svg";
-import { SERVERS_LIST_LOADING_FAILED_MESSAGE, SERVERS_LIST_LOADING_IN_PROGRESS_MESSAGE } from "./utils/constants";
+import messages from "./messages";
 import "./ServersList.scss";
 
 export const ServersList = () => {
+  const intl = useIntl();
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const serversList = useSelector(selectServersList);
@@ -120,7 +122,10 @@ export const ServersList = () => {
           data-testid="servers-list-loading-error-text"
           className="servers-list__loading-error-text"
         >
-          {isServersListLoading ? SERVERS_LIST_LOADING_IN_PROGRESS_MESSAGE : SERVERS_LIST_LOADING_FAILED_MESSAGE}
+          {isServersListLoading ?
+            intl.formatMessage(messages.serversListLoadingInProgressMessage) :
+            intl.formatMessage(messages.serversListLoadingFailedMessage)
+          }
         </div>
       ) : serversListInternal.map(serverInfo => (
         <li
