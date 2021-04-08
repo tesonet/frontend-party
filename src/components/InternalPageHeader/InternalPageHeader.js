@@ -6,7 +6,7 @@ import { ReactComponent as LogoutIcon } from "../../assets/logout-icon.svg";
 import { ReactComponent as TestioDarkIcon } from "../../assets/logo-testio-dark.svg";
 import Button from "../common/Button/Button";
 import messages from "./messages";
-import styles from "./InternalPageHeader.module.scss";
+import styles from "./InternalPageHeader.scss";
 
 export const InternalPageHeader = () => {
   const intl = useIntl();

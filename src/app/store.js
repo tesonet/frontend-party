@@ -1,5 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import loginBoxSlice from "../components/LoginBox/services/slice";
 import serversListSlice from "../components/ServersList/services/slice";
 

@@ -1,4 +1,4 @@
-export const joinTruthy = (items, delimiter = ' ') =>
+export const joinTruthy = (items, delimiter = " ") =>
   (items || []).filter(item => !!item).join(delimiter);
 
 export const sortArrayOfObjectsByKey = (array, objectKey, isAscending) => array.sort((a, b) => {

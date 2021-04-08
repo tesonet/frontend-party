@@ -2,7 +2,7 @@ import React from "react";
 import { Field } from "formik";
 
 import { joinTruthy } from "../../../../utils/utils";
-import styles from "./FormInput.module.scss";
+import styles from "./FormInput.scss";
 
 export const FormInput = (props) => {
   return (

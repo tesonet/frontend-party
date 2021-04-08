@@ -16,7 +16,7 @@ import { joinTruthy, sortArrayOfObjectsByKey } from "../../utils/utils";
 import Button from "../common/Button/Button";
 import { ReactComponent as SortTriangleIcon } from "../../assets/sort-triangle.svg";
 import messages from "./messages";
-import styles from "./ServersList.module.scss";
+import styles from "./ServersList.scss";
 
 export const ServersList = () => {
   const intl = useIntl();

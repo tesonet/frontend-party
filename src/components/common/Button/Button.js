@@ -1,7 +1,7 @@
 import React from "react";
 
 import { joinTruthy } from "../../../utils/utils";
-import styles from "./Button.module.scss";
+import styles from "./Button.scss";
 
 export const Button = (props) => {
   return (

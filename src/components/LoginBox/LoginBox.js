@@ -13,7 +13,7 @@ import { FormInput } from "../common/FormComponents/FormInput/FormInput";
 import { setAuthenticationFailed, setIsLoginInProgress } from "./services/slice";
 import { selectAuthenticationFailed, selectIsLoginInProgress } from "./services/selectors";
 import messages from "./messages";
-import styles from "./LoginBox.module.scss";
+import styles from "./LoginBox.scss";
 
 export const LoginBox = () => {
   const intl = useIntl();
