@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 import LoginBox from "../../components/LoginBox/LoginBox";
-import "./Login.scss";
+import styles from "./Login.module.scss";
 
 export const Login = () => {
   const token = localStorage.getItem("token");
@@ -12,7 +12,7 @@ export const Login = () => {
   }
 
   return (
-    <div className="login">
+    <div className={styles["login"]}>
       <LoginBox />
     </div>
   );

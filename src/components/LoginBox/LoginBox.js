@@ -13,7 +13,7 @@ import { FormInput } from "../common/FormComponents/FormInput/FormInput";
 import { setAuthenticationFailed, setIsLoginInProgress } from "./services/slice";
 import { selectAuthenticationFailed, selectIsLoginInProgress } from "./services/selectors";
 import messages from "./messages";
-import "./LoginBox.scss";
+import styles from "./LoginBox.module.scss";
 
 export const LoginBox = () => {
   const intl = useIntl();
@@ -55,8 +55,8 @@ export const LoginBox = () => {
   });
 
   return (
-    <div className="login-box">
-      <TestioIcon className="login-box__icon" />
+    <div className={styles["login-box"]}>
+      <TestioIcon className={styles["login-box__icon"]} />
       <Formik
         initialValues={{
           username: "",
@@ -68,11 +68,11 @@ export const LoginBox = () => {
         validateOnBlur={false}
       >
         {props => (
-          <Form className="login-box__form">
+          <Form className={styles["login-box__form"]}>
             <FormInput
               classNames={{
-                wrapper: "login-box__input-wrapper",
-                inputField: "login-box__input-field"
+                wrapper: styles["login-box__input-wrapper"],
+                inputField: styles["login-box__input-field"]
               }}
               name="username"
               placeholder="Username"
@@ -83,8 +83,8 @@ export const LoginBox = () => {
             />
             <FormInput
               classNames={{
-                wrapper: "login-box__input-wrapper",
-                inputField: "login-box__input-field"
+                wrapper: styles["login-box__input-wrapper"],
+                inputField: styles["login-box__input-field"]
               }}
               name="password"
               placeholder="Password"
@@ -96,7 +96,7 @@ export const LoginBox = () => {
             />
             <Button
               dataTestId="login-button"
-              className="login-box__login-button"
+              className={styles["login-box__login-button"]}
               isDisabled={isLoginInProgress}
             >
               {isLoginInProgress ?

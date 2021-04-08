@@ -16,7 +16,7 @@ import { joinTruthy, sortArrayOfObjectsByKey } from "../../utils/utils";
 import Button from "../common/Button/Button";
 import { ReactComponent as SortTriangleIcon } from "../../assets/sort-triangle.svg";
 import messages from "./messages";
-import "./ServersList.scss";
+import styles from "./ServersList.module.scss";
 
 export const ServersList = () => {
   const intl = useIntl();
@@ -83,45 +83,45 @@ export const ServersList = () => {
   };
 
   return (
-    <ul className="servers-list">
+    <ul className={styles["servers-list"]}>
       <li className={joinTruthy([
-        "servers-list__server-info",
-        "servers-list__server-info--first-row"
+        styles["servers-list__server-info"],
+        styles["servers-list__server-info--first-row"]
       ])}>
-        <span className="servers-list__column-title">
+        <span className={styles["servers-list__column-title"]}>
           SERVER
           <Button
-            className="servers-list__sort-button"
+            className={styles["servers-list__sort-button"]}
             onClick={handleSortServersListByName}
           >
             <SortTriangleIcon
               className={joinTruthy([
-                "servers-list__sort-icon",
-                isSortingByName && "servers-list__sort-icon--active",
+                styles["servers-list__sort-icon"],
+                isSortingByName && styles["servers-list__sort-icon--active"],
               ])}
             />
           </Button>
         </span>
-        <span className="servers-list__column-title">
+        <span className={styles["servers-list__column-title"]}>
           DISTANCE
           <Button
-            className="servers-list__sort-button"
+            className={styles["servers-list__sort-button"]}
             onClick={handleSortServersListByDistance}
           >
             <SortTriangleIcon
               className={joinTruthy([
-                "servers-list__sort-icon",
-                isSortingByDistance && "servers-list__sort-icon--active",
+                styles["servers-list__sort-icon"],
+                isSortingByDistance && styles["servers-list__sort-icon--active"],
               ])}
             />
           </Button>
         </span>
       </li>
-      <div className="servers-list__list">
+      <div className={styles["servers-list__list"]}>
         {(isServersListLoading || serversListLoadingFailed) ? (
           <div
             data-testid="servers-list-loading-error-text"
-            className="servers-list__loading-error-text"
+            className={styles["servers-list__loading-error-text"]}
           >
             {isServersListLoading ?
               intl.formatMessage(messages.serversListLoadingInProgressMessage) :
@@ -132,7 +132,7 @@ export const ServersList = () => {
           <li
             data-testid="server"
             key={`${serverInfo.name}-${serverInfo.distance}`}
-            className="servers-list__server-info"
+            className={styles["servers-list__server-info"]}
           >
             <span>{serverInfo.name}</span>
             <span>{serverInfo.distance} km</span>

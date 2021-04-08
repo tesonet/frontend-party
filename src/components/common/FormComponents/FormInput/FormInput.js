@@ -2,14 +2,14 @@ import React from "react";
 import { Field } from "formik";
 
 import { joinTruthy } from "../../../../utils/utils";
-import "./FormInput.scss";
+import styles from "./FormInput.module.scss";
 
 export const FormInput = (props) => {
   return (
     <div
       data-testid={`form-input-${props.name}`}
       className={joinTruthy([
-        "form-input",
+        styles["form-input"],
         props.classNames?.wrapper,
       ])}
     >
@@ -17,8 +17,8 @@ export const FormInput = (props) => {
         <div
           data-testid="form-input-leading-icon"
           className={joinTruthy([
-            "form-input__icon",
-            "form-input__icon--leading-icon",
+            styles["form-input__icon"],
+            styles["form-input__icon--leading-icon"],
           ])}
         >
           {props.leadingIcon}
@@ -27,9 +27,9 @@ export const FormInput = (props) => {
       <Field
         component={props.component || "input"}
         className={joinTruthy([
-          "form-input__input-field",
+          styles["form-input__input-field"],
           props.classNames?.inputField,
-          props.error && "form-input__input-field--invalid"
+          props.error && styles["form-input__input-field--invalid"]
         ])}
         type={props.type}
         name={props.name}
@@ -41,7 +41,7 @@ export const FormInput = (props) => {
       {props.error && (
         <span 
           data-testid="form-input-error"
-          className="form-input__error"
+          className={styles["form-input__error"]}
         >
           {props.error}
         </span>

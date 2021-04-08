@@ -1,16 +1,16 @@
 import React from "react";
 
 import { joinTruthy } from "../../../utils/utils";
-import "./Button.scss";
+import styles from "./Button.module.scss";
 
 export const Button = (props) => {
   return (
     <button
       data-testid={props.dataTestId || "button"}
       className={joinTruthy([
-        "button",
+        styles["button"],
         props.className,
-        props.isDisabled && "button--disabled",
+        props.isDisabled && styles["button--disabled"],
       ])}
       onClick={props.onClick}
       disabled={props.isDisabled}
@@ -18,7 +18,7 @@ export const Button = (props) => {
       {props.leadingIcon && (
         <span
           data-testid="button-leading-icon"
-          className="button__leading-icon-wrapper"
+          className={styles["button__leading-icon-wrapper"]}
         >
           {props.leadingIcon}
         </span>
