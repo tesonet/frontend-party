@@ -64,6 +64,8 @@ export const LoginBox = () => {
         }}
         onSubmit={handleLogin}
         validationSchema={validationSchema}
+        validateOnChange={false}
+        validateOnBlur={false}
       >
         {props => (
           <Form className="login-box__form">

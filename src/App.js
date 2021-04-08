@@ -9,7 +9,7 @@ import Login from "./pages/Login/Login";
 import Servers from "./pages/Servers/Servers";
 import { ROUTES } from "./app/routes";
 
-// For basic implementation of react-intl hardcoded locale and translations.
+// Hardcoded locale and translations for basic implementation of react-intl.
 export const MOCK_LOCALE = "en";
 export const MOCK_MESSAGES = { [MOCK_LOCALE]: {} };
 
