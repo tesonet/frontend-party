@@ -11,7 +11,13 @@ import Button from "../common/Button/Button";
 import { FormInput } from "../common/FormComponents/FormInput/FormInput";
 import { setAuthenticationFailed, setIsLoginInProgress } from "./services/slice";
 import { selectAuthenticationFailed, selectIsLoginInProgress } from "./services/selectors";
-import { AUTHENTICATION_FAILED_MESSAGE, PASSWORD_MISSING_MESSAGE, USERNAME_MISSING_MESSAGE } from "./utils/constants";
+import { 
+  AUTHENTICATION_FAILED_MESSAGE, 
+  PASSWORD_MISSING_MESSAGE, 
+  USERNAME_MISSING_MESSAGE,
+  LOGIN_IN_PROGRESS_BUTTON_TEXT,
+  LOGIN_BUTTON_TEXT_DEFAULT,
+} from "./utils/constants";
 import "./LoginBox.scss";
 
 export const LoginBox = () => {
@@ -41,7 +47,7 @@ export const LoginBox = () => {
         }
         dispatch(setIsLoginInProgress(false));
       })
-      .catch(err => {
+      .catch(() => {
         dispatch(setIsLoginInProgress(false));
         dispatch(setAuthenticationFailed(true));
       });
@@ -76,7 +82,6 @@ export const LoginBox = () => {
               value={props.values.username}
               leadingIcon={<UserIcon />}
               error={props.errors.username || (authenticationFailed && AUTHENTICATION_FAILED_MESSAGE)}
-
             />
             <FormInput
               classNames={{
@@ -92,10 +97,11 @@ export const LoginBox = () => {
               error={props.errors.password || (authenticationFailed && AUTHENTICATION_FAILED_MESSAGE)}
             />
             <Button
+              dataTestId="login-button"
               className="login-box__login-button"
               isDisabled={isLoginInProgress}
             >
-              {isLoginInProgress ? "Logging in..." : "Log in"}
+              {isLoginInProgress ? LOGIN_IN_PROGRESS_BUTTON_TEXT : LOGIN_BUTTON_TEXT_DEFAULT}
             </Button>
           </Form>
         )}

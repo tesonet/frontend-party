@@ -14,6 +14,7 @@ import {
 import { joinTruthy, sortArrayOfObjectsByKey } from "../../utils/utils";
 import Button from "../common/Button/Button";
 import { ReactComponent as SortTriangleIcon } from "../../assets/sort-triangle.svg";
+import { SERVERS_LIST_LOADING_FAILED_MESSAGE, SERVERS_LIST_LOADING_IN_PROGRESS_MESSAGE } from "./utils/constants";
 import "./ServersList.scss";
 
 export const ServersList = () => {
@@ -44,7 +45,7 @@ export const ServersList = () => {
             dispatch(setServersList(data));
           }
         })
-        .catch(err => {
+        .catch(() => {
           dispatch(setIsServersListLoading(false));
           dispatch(setServersListLoadingFailed(true));
         });
@@ -114,12 +115,16 @@ export const ServersList = () => {
           </Button>
         </span>
       </li>
-      {isServersListLoading || serversListLoadingFailed ? (
-        <div className="servers-list__loading-error-text">
-          {isServersListLoading ? "Servers list loading..." : "Servers list loading failed. Try to refresh the page."}
+      {(isServersListLoading || serversListLoadingFailed) ? (
+        <div
+          data-testid="servers-list-loading-error-text"
+          className="servers-list__loading-error-text"
+        >
+          {isServersListLoading ? SERVERS_LIST_LOADING_IN_PROGRESS_MESSAGE : SERVERS_LIST_LOADING_FAILED_MESSAGE}
         </div>
       ) : serversListInternal.map(serverInfo => (
         <li
+          data-testid="server"
           key={`${serverInfo.name}-${serverInfo.distance}`}
           className="servers-list__server-info"
         >

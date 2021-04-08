@@ -6,7 +6,7 @@ import "./Button.scss";
 export const Button = (props) => {
   return (
     <button
-      data-testid="button"
+      data-testid={props.dataTestId || "button"}
       className={joinTruthy([
         "button",
         props.className,

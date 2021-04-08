@@ -18,6 +18,7 @@ export const InternalPageHeader = () => {
     <div className="internal-page-header">
       <TestioDarkIcon />
       <Button
+        data-testid="logout-button"
         className="internal-page-header__logout-button"
         onClick={handleLogout}
         leadingIcon={<LogoutIcon />}

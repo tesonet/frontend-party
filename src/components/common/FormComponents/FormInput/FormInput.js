@@ -7,6 +7,7 @@ import "./FormInput.scss";
 export const FormInput = (props) => {
   return (
     <div
+      data-testid={`form-input-${props.name}`}
       className={joinTruthy([
         "form-input",
         props.classNames?.wrapper,
@@ -14,6 +15,7 @@ export const FormInput = (props) => {
     >
       {props.leadingIcon && (
         <div
+          data-testid="form-input-leading-icon"
           className={joinTruthy([
             "form-input__icon",
             "form-input__icon--leading-icon",
@@ -35,11 +37,14 @@ export const FormInput = (props) => {
         placeholder={props.placeholder}
         required={props.isRequiredField}
         autoComplete="on"
-      >
-        {props.children}
-      </Field>
+      />
       {props.error && (
-        <span className="form-input__error">{props.error}</span>
+        <span 
+          data-testid="form-input-error"
+          className="form-input__error"
+        >
+          {props.error}
+        </span>
       )}
     </div>
   );

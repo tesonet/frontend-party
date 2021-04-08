@@ -16,20 +16,21 @@ describe("Button", () => {
   };
 
   it("should display leading icon if it is passed", () => {
-    const {wrapper} = setup({
-      leadingIcon: <div>leading icon</div>
+    const { wrapper } = setup({
+      leadingIcon: <div data-testid="leading-icon">leading icon</div>
     });
     expect(wrapper.find('[data-testid="button-leading-icon"]').length).toBe(1);
+    expect(wrapper.find('[data-testid="leading-icon"]').length).toBe(1);
   });
 
   it("should execute onClick when button is clicked", () => {
-    const {wrapper, props} = setup();
+    const { wrapper, props } = setup();
     wrapper.find('[data-testid="button"]').simulate('click');
     expect(props.onClick).toBeCalled();
   });
 
   it("should render children if they are passed", () => {
-    const {wrapper} = setup({
+    const { wrapper } = setup({
       children: <div data-testid="children-test" />
     });
     expect(wrapper.find('[data-testid="children-test"]').length).toBe(1);
