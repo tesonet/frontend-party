@@ -14,7 +14,7 @@ import { ROUTES } from "./app/routes";
 export const MOCK_LOCALE = "en";
 export const MOCK_MESSAGES = { [MOCK_LOCALE]: {} };
 
-function App() {
+const App = () => {
   return (
     <Router>
       <IntlProvider
