@@ -1,7 +1,10 @@
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import { Provider } from "react-redux";
+
+import App from "./App";
 import { getStore } from "./app/store";
 import "./index.scss";
 

@@ -9,6 +9,7 @@
     "formik": "^2.2.6",
     "node-sass": "^5.0.0",
     "react": "^16.13.1",
+    "react-app-polyfill": "^2.0.0",
     "react-dom": "^16.13.1",
     "react-intl": "^5.15.7",
     "react-redux": "^7.2.3",
