@@ -42,7 +42,9 @@
       "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/fileTransform.js",
       "^.+\\.(js|jsx)$": "babel-jest"
     },
-    "setupTestFrameworkScriptFile": "./src/setupTests.js",
+    "setupFilesAfterEnv": [
+      "./src/setupTests.js"
+    ],
     "moduleNameMapper": {
       "\\.svg": "<rootDir>/config/svgTransform.js"
     }
