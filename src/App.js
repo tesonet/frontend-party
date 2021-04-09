@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
 } from "react-router-dom";
@@ -16,7 +16,7 @@ export const MOCK_MESSAGES = { [MOCK_LOCALE]: {} };
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <IntlProvider
         locale={MOCK_LOCALE}
         defaultLocale={MOCK_LOCALE}
@@ -33,7 +33,7 @@ const App = () => {
           </Switch>
         </div>
       </IntlProvider>
-    </Router>
+    </BrowserRouter>
   );
 }
 
