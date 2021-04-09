@@ -1,0 +1,18 @@
+@import "../../scss/main";
+
+.internal-page-header {
+  align-items: center;
+  display: flex;
+  height: 11.3rem;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+
+  &__logout-button {
+    height: 3rem;
+    width: 10.3rem;
+
+    &:hover {
+      background-color: $color-button-transparent-hover;
+    }
+  }
+}

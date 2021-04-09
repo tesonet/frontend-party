@@ -1,0 +1,42 @@
+@import "../../scss/main";
+
+.login-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0 1rem;
+  width: 36.3rem;
+
+  &__icon {
+    margin-bottom: 7rem;
+  }
+
+  &__form {
+    width: 100%;
+  }
+
+  &__login-button {
+    color: $color-white;
+    height: 5.8rem;
+    width: 100%;
+
+    &:not(:disabled) {
+      background-color: $color-button-green;
+
+      &:hover {
+        background-color: $color-button-green-hover;
+      }
+    }
+  }
+
+  &__input-wrapper {
+    height: 5.8rem;
+    margin-bottom: 1.8rem;
+    width: 100%;
+  }
+
+  &__input-field {
+    color: $color-active-input-text;
+  }
+}

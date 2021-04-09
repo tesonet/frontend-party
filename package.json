@@ -1,0 +1,67 @@
+{
+  "name": "frontend-party",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
+    "@svgr/webpack": "^5.5.0",
+    "css-loader": "^5.2.0",
+    "formik": "^2.2.6",
+    "node-sass": "^5.0.0",
+    "react": "^16.13.1",
+    "react-app-polyfill": "^2.0.0",
+    "react-dom": "^16.13.1",
+    "react-intl": "^5.15.7",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "svg-url-loader": "^7.1.1",
+    "yup": "^0.30.0"
+  },
+  "scripts": {
+    "build": "webpack --mode=development",
+    "dev": "webpack-dev-server",
+    "test": "jest"
+  },
+  "author": "Martynas Druteika",
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
+    "webpack": "^5.31.0",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "jest": {
+    "transform": {
+      "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/fileTransform.js",
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "setupFilesAfterEnv": [
+      "./src/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.svg": "<rootDir>/config/svgTransform.js"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "ie 11"
+    ]
+  }
+}

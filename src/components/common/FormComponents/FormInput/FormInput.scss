@@ -1,0 +1,35 @@
+@import "../../../../scss/main";
+
+.form-input {
+  position: relative;
+
+  &__input-field {
+    border: .1rem solid transparent;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    height: 100%;
+    line-height: 1.875;
+    padding: 0 2.5rem 0 5.4rem;
+    width: 100%;
+
+    &--invalid {
+      border: .1rem solid $error-text-color-red;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    &--leading-icon {
+      left: 2.5rem;
+    }
+  }
+
+  &__error {
+    color: $error-text-color-red;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+}

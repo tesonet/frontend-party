@@ -1,0 +1,68 @@
+@import "../../scss/main";
+
+.servers-list {
+  $_this: &;
+  $_list-first-row-height: 5.6rem;
+  $_internal-header-height: 11.3rem;
+
+  &__list {
+    height: calc(100vh - #{$_internal-header-height} - #{$_list-first-row-height});
+    overflow: auto;
+  }
+
+  &__server-info {
+    border-top: .1rem solid $color-servers-list-border;
+    display: flex;
+    font-size: 1.6rem;
+    height: 5.6rem;
+    justify-content: space-between;
+    line-height: 1.875;
+    padding: 1.5rem 1.5rem 1rem;
+
+    &--first-row {
+      background-color: $color-light-gray;
+    }
+  }
+
+  &__loading-error-text {
+    align-items: center;
+    display: flex;
+    font-size: 2rem;
+    height: 100%;
+    justify-content: center;
+  }
+
+  &__column-title {
+    align-items: center;
+    color: $color-text-primary;
+    display: flex;
+  }
+
+  &__sort-button {
+    background-color: transparent;
+    outline: none;
+
+    &:focus {
+      #{$_this}__sort-icon {
+        fill: rgba(0, 0, 0, .4);
+      }
+    }
+  }
+
+  &__sort-icon {
+    cursor: pointer;
+    fill: rgba(0, 0, 0, .2);
+    margin-left: .5rem;
+    transform: rotate(180deg);
+    transition: .15s;
+    width: .9rem;
+
+    &:hover {
+      fill: rgba(0, 0, 0, .4);
+    }
+
+    &--active {
+      transform: rotate(0);
+    }
+  }
+}
