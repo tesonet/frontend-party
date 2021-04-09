@@ -6,16 +6,12 @@ import { ReactComponent as LogoutIcon } from "../../assets/logout-icon.svg";
 import { ReactComponent as TestioDarkIcon } from "../../assets/logo-testio-dark.svg";
 import Button from "../common/Button/Button";
 import messages from "./messages";
+import { logoutHandler } from "../../app/services";
 import styles from "./InternalPageHeader.scss";
 
 export const InternalPageHeader = () => {
   const intl = useIntl();
   const history = useHistory();
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    history.push("/");
-  }
 
   return (
     <div className={styles["internal-page-header"]}>
@@ -23,7 +19,7 @@ export const InternalPageHeader = () => {
       <Button
         data-testid="logout-button"
         className={styles["internal-page-header__logout-button"]}
-        onClick={handleLogout}
+        onClick={() => logoutHandler(history)}
         leadingIcon={<LogoutIcon />}
       >
         {intl.formatMessage(messages.logoutButtonText)}

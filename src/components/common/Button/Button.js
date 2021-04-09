@@ -14,6 +14,7 @@ export const Button = (props) => {
       ])}
       onClick={props.onClick}
       disabled={props.isDisabled}
+      type={props.type || "submit"}
     >
       {props.leadingIcon && (
         <span

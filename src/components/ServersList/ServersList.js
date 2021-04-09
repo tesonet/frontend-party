@@ -3,11 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useIntl } from "react-intl";
 
 import {
-  setIsServersListLoading,
-  setServersList,
-  setServersListLoadingFailed,
-} from "./services/slice";
-import {
   selectIsServersListLoading,
   selectServersList,
   selectServersListLoadingFailed,
@@ -16,6 +11,7 @@ import { joinTruthy, sortArrayOfObjectsByKey } from "../../utils/utils";
 import Button from "../common/Button/Button";
 import { ReactComponent as SortTriangleIcon } from "../../assets/sort-triangle.svg";
 import messages from "./messages";
+import { fetchServersList } from "../../app/services";
 import styles from "./ServersList.scss";
 
 export const ServersList = () => {
@@ -35,22 +31,7 @@ export const ServersList = () => {
 
   useEffect(() => {
     if (token) {
-      dispatch(setIsServersListLoading(true));
-      fetch("https://playground.tesonet.lt/v1/servers", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }).then(response => response.json())
-        .then(data => {
-          if (data?.length > 0) {
-            dispatch(setIsServersListLoading(false));
-            dispatch(setServersList(data));
-          }
-        })
-        .catch(() => {
-          dispatch(setIsServersListLoading(false));
-          dispatch(setServersListLoadingFailed(true));
-        });
+      fetchServersList(token, dispatch);
     }
   }, [dispatch, token]);
 
