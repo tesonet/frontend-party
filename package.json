@@ -20,7 +20,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=development",
     "dev": "webpack-dev-server",
     "test": "jest"
   },
@@ -50,5 +50,18 @@
     "moduleNameMapper": {
       "\\.svg": "<rootDir>/config/svgTransform.js"
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "ie 11"
+    ]
   }
 }
