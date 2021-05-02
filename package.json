@@ -24,7 +24,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "yarn run api-typings:generate && react-scripts start",
+    "start": "react-scripts start",
     "api-typings:generate": "yarn run clean:api-typings && yarn run dts-generate:api",
     "dts-generate:api": "dtsgen --out src/api/@generated/model/api-model.d.ts Api src/api/schema/api-schema.json",
     "clean:api-typings": "rimraf src/app/api/@generated",

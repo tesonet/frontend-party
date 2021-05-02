@@ -1,28 +1,30 @@
 import storageSession from 'redux-persist/lib/storage/session'
-import { persistReducer, persistStore } from 'redux-persist'
-import { AnyAction, combineReducers, createStore, Store, applyMiddleware } from 'redux'
+import { persistReducer } from 'redux-persist'
+import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
-import { serversReducer } from './reducers/servers'
+import { serversReducer } from './reducers/server'
+import { authReducer } from './reducers/auth'
 
 declare module 'react-redux' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface DefaultRootState extends AppState {}
 }
 
 const persistConfig = {
-  key: 'quiz-flow-boilerplate',
+  key: 'testio-boilerplate',
   storage: storageSession,
 }
 
-const persistedReducer = persistReducer(persistConfig, combineReducers({ servers: serversReducer }))
-let store: Store<{}, AnyAction> = createStore(
-  persistedReducer,
-  composeWithDevTools(applyMiddleware(thunk)),
+const persistedReducer = persistReducer(
+  persistConfig,
+  combineReducers({ servers: serversReducer, auth: authReducer }),
 )
+const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)))
 export const configStore = () => {
   return {
     store,
-    persistor: persistStore(store),
+    // persistor: persistStore(store),
   }
 }
 
