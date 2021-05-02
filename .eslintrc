@@ -1,0 +1,100 @@
+{
+  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended" // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+  ],
+  "plugins": [
+    "jest",
+    "react-hooks"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true // Allows for the parsing of JSX
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+    }
+  },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "es6": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "rules": {
+    "import/no-unresolved": 0,
+    "react/jsx-no-undef": 2,
+    "react/no-deprecated": 2,
+    "camelcase": "off",
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
+    "quotes": [
+      1,
+      "single"
+    ],
+    "no-undef": 2,
+    "global-strict": 0,
+    "no-extra-semi": 2,
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-underscore-dangle": 0,
+    "no-console": 1,
+    "no-unused-vars": 0,
+    "no-shadow": 0,
+    "no-unused-expressions": 0,
+    "consistent-return": 0,
+    "prefer-destructuring": 0,
+    "no-useless-constructor": 0,
+    "max-len": 0,
+    "prefer-const": 0,
+    "no-trailing-spaces": [
+      1,
+      {
+        "skipBlankLines": true
+      }
+    ],
+    "no-unreachable": 1,
+    "no-alert": 1,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/prop-types": "off",
+    "class-methods-use-this": [
+      "error",
+      {
+        "exceptMethods": [
+          "render"
+        ]
+      }
+    ],
+    "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-duplicate-imports": 1
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/no-this-alias": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    }
+  ]
+}
