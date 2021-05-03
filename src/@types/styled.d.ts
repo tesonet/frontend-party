@@ -4,12 +4,14 @@ import 'styled-components'
 // and extend them!
 declare module 'styled-components' {
   export interface DefaultColors {
-    grey: string
-    purple: string
-    lightGrey: string
+    limeade: string
+    dustyGray: string
+    atlantis: string
+    textGray: string
+    backgroundGray: string
     white: string
-    borderGrey: string
-    selectorGrey: string
+    logoColor: string
+    overlayColor: string
   }
   export interface DefaultTheme {
     colors: DefaultColors

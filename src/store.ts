@@ -1,3 +1,8 @@
+declare module 'react-redux' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface DefaultRootState extends AppState {}
+}
+
 import storageSession from 'redux-persist/lib/storage/session'
 import { persistReducer } from 'redux-persist'
 import { combineReducers, createStore, applyMiddleware } from 'redux'
@@ -5,11 +10,6 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import { serversReducer } from './reducers/server'
 import { authReducer } from './reducers/auth'
-
-declare module 'react-redux' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultRootState extends AppState {}
-}
 
 const persistConfig = {
   key: 'testio-boilerplate',
