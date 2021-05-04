@@ -1,6 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const ButtonWrapper = styled.div`
+const bigButtonStyle = css`
+  width: 10rem;
+  font-weight: 400;
+`
+
+export const ButtonWrapper = styled.div<{ big?: boolean }>`
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -10,6 +15,8 @@ export const ButtonWrapper = styled.div`
   border: 1px solid transparent;
   font-size: 0.875rem;
   font-weight: 300;
+
+  ${({ big }) => big && bigButtonStyle};
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.atlantis};

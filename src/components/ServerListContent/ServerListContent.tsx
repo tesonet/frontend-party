@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { loadServers } from '../../actions/servers'
+import { loadServers, sortByName, sortByDistance, removeSort } from '../../actions/servers'
 import { useActions } from '../../hooks/useActions'
-import { ServerItemWrapper, ServerListWrapper, Items } from './ServerListContent.style'
+import { ServerItemWrapper, ServerListWrapper, Items, HeaderItem } from './ServerListContent.style'
 import { Server } from 'types/server'
 import { addKmToDistance } from '../../libs/utils'
+import { serverSortSelector } from '../../selectors/server'
+import Button from 'components/core/Button/Button'
+import CloseIcon from '../Icons/CloseIcon'
 
 const ServerItem: React.FC<Server> = ({ name, distance }) => {
   return (
@@ -16,10 +19,26 @@ const ServerItem: React.FC<Server> = ({ name, distance }) => {
 }
 
 const ServerItemHeader: React.FC = () => {
+  const actions = useActions({ sortByName, sortByDistance, removeSort })
+  const sortedBy = useSelector(s => s.servers.sortBy)
+  const sortedByName = sortedBy === 'name'
+  const sortedByDistance = sortedBy === 'distance'
+
+  const ClearSortButton = () => (
+    <HeaderItem>
+      <Button big onClick={actions.removeSort} title="Clear sorting" icon={<CloseIcon />} />
+    </HeaderItem>
+  )
   return (
     <ServerItemWrapper header>
-      <div>Server</div>
-      <div>Distance</div>
+      <HeaderItem onClick={actions.sortByName} active={sortedByName}>
+        Server
+      </HeaderItem>
+
+      {(sortedByName || sortedByDistance) && <ClearSortButton />}
+      <HeaderItem onClick={actions.sortByDistance} active={sortedByDistance}>
+        Distance
+      </HeaderItem>
     </ServerItemWrapper>
   )
 }
@@ -28,8 +47,8 @@ const ServerList: React.FC = () => {
   const actions = useActions({
     loadServers,
   })
-  const servers = useSelector(s => s.servers.servers)
-  // useSelector(sortServerList)
+
+  const servers = useSelector(serverSortSelector)
 
   useEffect(() => {
     actions.loadServers()

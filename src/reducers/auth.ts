@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { AuthActionTypes, USER_LOADED, USER_LOADING, SET_LOGIN_ERROR } from 'actions/auth'
+import { Reducer } from 'redux'
 import { USER_LOGGED_OUT } from '../actions/auth'
 import { cleanLocalStorageData, setAuthToken, getAuthToken } from '../libs/auth'
 
@@ -15,7 +16,7 @@ const initialState: AuthState = {
   error: null,
 }
 
-export const authReducer = (state = initialState, action: AuthActionTypes) => {
+export const authReducer: Reducer<AuthState> = (state = initialState, action: AuthActionTypes) => {
   switch (action.type) {
     case USER_LOADING: {
       return { ...state, loading: true, error: false }

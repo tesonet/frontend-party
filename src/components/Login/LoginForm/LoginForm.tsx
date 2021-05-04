@@ -22,7 +22,7 @@ interface InputProps {
   placeholder: string
   error: string | undefined
   type: string
-  icon: any
+  icon?: any
   id: string
 }
 

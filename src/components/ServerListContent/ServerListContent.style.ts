@@ -1,12 +1,19 @@
 import styled, { css } from 'styled-components'
 import { headerHeight } from '../Header/Header.style'
 
+const listTableHeight = '3.25rem'
+
 const fixedHeaderStyle = css`
   position: fixed;
   top: ${headerHeight};
   right: 0;
   left: 0;
-  height: 3.25rem;
+  height: ${listTableHeight};
+`
+
+const activeHeaderItemStyle = css`
+  color: ${({ theme }) => theme.colors.atlantis};
+  font-weight: 400;
 `
 
 export const ServerListWrapper = styled.div``
@@ -30,7 +37,13 @@ export const ServerItemWrapper = styled.div<{ header?: boolean }>`
 `
 export const Items = styled.div`
   position: relative;
-  top: 3.25rem;
+  top: ${listTableHeight};
   height: calc(100vh - ${headerHeight} - 3.625rem);
   overflow-y: auto;
+`
+export const HeaderItem = styled.div<{ active?: boolean }>`
+  cursor: pointer;
+  display: flex;
+
+  ${({ active }) => active && activeHeaderItemStyle};
 `
