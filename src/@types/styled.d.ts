@@ -13,6 +13,8 @@ declare module 'styled-components' {
     logoColor: string
     overlayColor: string
     borderColor: string
+    pinkGlamour: string
+    iconGray: string
   }
   export interface DefaultTheme {
     colors: DefaultColors

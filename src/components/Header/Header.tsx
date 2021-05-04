@@ -4,6 +4,8 @@ import { logoutUser } from '../../actions/auth'
 import { HeaderWrapper } from './Header.style'
 import Logo from 'components/Logo/Logo'
 import { useHistory } from 'react-router'
+import Button from '../core/Button/Button'
+import LogoutIcon from 'components/Icons/LogoutIcon'
 
 interface HeaderProps {
   fixed?: boolean
@@ -19,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ fixed = false }) => {
   return (
     <HeaderWrapper fixed={fixed}>
       <Logo />
-      <button onClick={handleLogout}>Log out</button>
+      <Button title="Log out" onClick={handleLogout} icon={<LogoutIcon />} />
     </HeaderWrapper>
   )
 }

@@ -18,7 +18,7 @@ const initialState: AuthState = {
 export const authReducer = (state = initialState, action: AuthActionTypes) => {
   switch (action.type) {
     case USER_LOADING: {
-      return { ...state, loading: true }
+      return { ...state, loading: true, error: false }
     }
     case USER_LOADED: {
       setAuthToken(action.payload)
@@ -31,6 +31,7 @@ export const authReducer = (state = initialState, action: AuthActionTypes) => {
     case SET_LOGIN_ERROR: {
       return { ...state, error: true, loading: false }
     }
+
     default:
       return state
   }

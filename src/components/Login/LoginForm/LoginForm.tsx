@@ -2,13 +2,62 @@ import React from 'react'
 import { useFormik, FormikErrors } from 'formik'
 import { useActions } from '../../../hooks/useActions'
 import { loadUser } from '../../../actions/auth'
-import { Form, Input, Button, ErrorContainer } from './LoginForm.style'
+import {
+  Form,
+  StyledInput,
+  Button,
+  ErrorContainer,
+  IconContainer,
+  InputWrapper,
+} from './LoginForm.style'
 import { useSelector } from 'react-redux'
 import { Credentials } from 'types/server'
+import UserIcon from '../../Icons/UserIcon'
+import LockIcon from 'components/Icons/LockIcon'
+
+interface InputProps {
+  name: string
+  onChange: any
+  value: string
+  placeholder: string
+  error: string | undefined
+  type: string
+  icon: any
+  id: string
+}
+
+const Input: React.FC<InputProps> = ({
+  name,
+  id,
+  onChange,
+  value,
+  placeholder,
+  error,
+  type,
+  icon,
+}) => {
+  return (
+    <>
+      <InputWrapper>
+        <StyledInput
+          id={id}
+          name={name}
+          type={type}
+          onChange={onChange}
+          value={value}
+          placeholder={placeholder}
+          error={!!error}
+          autoComplete="new-password"
+        />
+        <IconContainer>{icon}</IconContainer>
+      </InputWrapper>
+      <ErrorContainer error={!!error}>{error}</ErrorContainer>
+    </>
+  )
+}
 
 const LoginForm = () => {
   const actions = useActions({ loadUser })
-  const error = useSelector(s => s.auth.error)
   const loading = useSelector(s => s.auth.loading)
 
   const formik = useFormik({
@@ -20,15 +69,10 @@ const LoginForm = () => {
     validate: (values: Credentials) => {
       const errors: FormikErrors<Credentials> = {}
       if (!values.login) {
-        errors.login = 'Required'
-      } else if (values.login.length > 15) {
-        errors.login = 'Must be 15 characters or less'
+        errors.login = 'Please enter your username'
       }
-
       if (!values.password) {
-        errors.password = 'Required'
-      } else if (values.password.length > 20) {
-        errors.password = 'Must be 20 characters or less'
+        errors.password = 'Please enter your password'
       }
 
       return errors
@@ -42,17 +86,16 @@ const LoginForm = () => {
 
   return (
     <Form onSubmit={formik.handleSubmit} autoComplete="off">
-      <input type="hidden" value="something" />
       <Input
         id="login"
         name="login"
         type="text"
         onChange={formik.handleChange}
         value={formik.values.login}
-        autoComplete="off"
         placeholder="Username"
+        error={formik.errors.login}
+        icon={<UserIcon />}
       />
-      {formik.errors.login ? <div>{formik.errors.login}</div> : null}
 
       <Input
         id="password"
@@ -61,11 +104,11 @@ const LoginForm = () => {
         onChange={formik.handleChange}
         value={formik.values.password}
         placeholder="Password"
+        error={formik.errors.password}
+        icon={<LockIcon />}
       />
-      {formik.errors.password ? <div>{formik.errors.password}</div> : null}
-      <ErrorContainer>{error && <div>Login failed</div>}</ErrorContainer>
 
-      <Button type="submit" disabled={loading}>
+      <Button type="submit" disabled={loading || !!formik.errors.login || !!formik.errors.password}>
         Login
       </Button>
     </Form>

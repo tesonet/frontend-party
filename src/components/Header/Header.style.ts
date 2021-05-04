@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const headerHeight = '112px'
+export const headerHeight = '7rem'
 
 const fixedHeaderStyle = css`
   position: fixed;
@@ -8,7 +8,6 @@ const fixedHeaderStyle = css`
   right: 0;
   bottom: ${headerHeight};
   left: 0;
-  margin-bottom: ${headerHeight};
 `
 
 export const HeaderWrapper = styled.header<{ fixed: boolean }>`

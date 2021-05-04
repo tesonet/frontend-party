@@ -6,6 +6,7 @@ import { Content, LoginWrapper, Overlay } from './Login.style'
 import backgroundImage from '../../assets/surfer.jpg'
 import Logo from 'components/Logo/Logo'
 import { colors } from '../../styles/colors'
+import { Message } from 'components/core/Message/Message'
 
 const Login: React.FC = () => {
   const history = useHistory()
@@ -13,6 +14,7 @@ const Login: React.FC = () => {
   if (isAuthenticated()) history.push('/')
   return (
     <LoginWrapper backgroundImage={backgroundImage}>
+      <Message />
       <Overlay />
       <Content>
         <Logo textColor={colors.white} size="large" />

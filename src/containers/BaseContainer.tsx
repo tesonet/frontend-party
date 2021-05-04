@@ -1,25 +1,31 @@
 import { Loading } from 'components/core/Loading/Loading'
+import styled from 'styled-components'
 import React from 'react'
+import { headerHeight } from '../components/Header/Header.style'
 
 interface BaseContainerProps {
   content: any
   header?: any
   loading?: boolean
-  error?: boolean
 }
 
-const BaseContainer: React.FC<BaseContainerProps> = ({
-  content,
-  header,
-  error = false,
-  loading = false,
-}) => {
+const Container = styled.div`
+  height: 100vh;
+  overflow: hidden;
+`
+
+const Main = styled.main<{ header?: boolean }>`
+  position: relative;
+  top: ${({ header }) => (header ? headerHeight : 0)};
+`
+
+const BaseContainer: React.FC<BaseContainerProps> = ({ content, header, loading = false }) => {
   return (
-    <>
+    <Container>
       {header && header}
       <Loading visible={loading} />
-      <main>{content}</main>
-    </>
+      <Main header={!!header}>{content}</Main>
+    </Container>
   )
 }
 

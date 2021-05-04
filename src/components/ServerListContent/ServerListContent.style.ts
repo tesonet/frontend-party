@@ -1,13 +1,12 @@
 import styled, { css } from 'styled-components'
-
-const headerHeight = '112px'
+import { headerHeight } from '../Header/Header.style'
 
 const fixedHeaderStyle = css`
   position: fixed;
   top: ${headerHeight};
   right: 0;
   left: 0;
-  height: 50px;
+  height: 3.25rem;
 `
 
 export const ServerListWrapper = styled.div``
@@ -18,13 +17,20 @@ export const ServerItemWrapper = styled.div<{ header?: boolean }>`
     header ? theme.colors.backgroundGray : theme.colors.white};
   display: flex;
   justify-content: space-between;
+  font-size: 0.875rem;
   padding: 1rem;
   color: ${({ theme, header }) => (header ? theme.colors.dustyGray : theme.colors.textGray)};
-  border-top: 1px solid ${({ theme }) => theme.colors.borderColor};
+  border-top: 1px solid ${({ theme, header }) => (header ? theme.colors.borderColor : 0)};
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
   text-transform: ${({ header }) => (header ? 'uppercase' : 'none')};
   font-weight: 300;
   position: static;
 
   ${({ header }) => header && fixedHeaderStyle};
+`
+export const Items = styled.div`
+  position: relative;
+  top: 3.25rem;
+  height: calc(100vh - ${headerHeight} - 3.625rem);
+  overflow-y: auto;
 `

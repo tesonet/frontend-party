@@ -10,4 +10,6 @@ export const colors: DefaultColors = {
   logoColor: '#2f3254',
   overlayColor: '#0B0F2795',
   borderColor: '#E6E6E6',
+  pinkGlamour: '#d63031',
+  iconGray: '#ccc',
 }

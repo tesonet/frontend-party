@@ -8,6 +8,8 @@ export const LoginWrapper = styled.div<{ backgroundImage: string }>`
   align-items: center;
   justify-content: center;
   background-image: url(${({ backgroundImage }) => backgroundImage});
+  background-position: 0 50%;
+  background-size: cover;
   position: relative;
 `
 
@@ -22,4 +24,7 @@ export const Overlay = styled.div`
 `
 export const Content = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
