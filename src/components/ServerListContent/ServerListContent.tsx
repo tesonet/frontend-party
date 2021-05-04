@@ -27,7 +27,12 @@ const ServerList: React.FC = () => {
   }
 
   const ServerItemHeader: React.FC = () => {
-    return <ServerItemWrapper header>Header</ServerItemWrapper>
+    return (
+      <ServerItemWrapper header>
+        <div>Server</div>
+        <div>Distance</div>
+      </ServerItemWrapper>
+    )
   }
 
   return (

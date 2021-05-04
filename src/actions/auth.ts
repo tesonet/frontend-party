@@ -21,7 +21,6 @@ export interface UserLoggedOut {
 
 export interface SetLoginError {
   type: typeof SET_LOGIN_ERROR
-  payload: Record<string, unknown>
 }
 
 export const loadUser = (username: string, password: string) => (dispatch: Dispatch): void => {
@@ -33,12 +32,11 @@ export const loadUser = (username: string, password: string) => (dispatch: Dispa
         payload: response,
       })
     })
-    .catch(e => dispatch({ type: SET_LOGIN_ERROR, payload: e }))
+    .catch(() => dispatch({ type: SET_LOGIN_ERROR }))
 }
 
-export const setLoginError = (error: Record<string, unknown>): SetLoginError => ({
+export const setLoginError = (): SetLoginError => ({
   type: SET_LOGIN_ERROR,
-  payload: error,
 })
 
 export const logoutUser = (): UserLoggedOut => ({

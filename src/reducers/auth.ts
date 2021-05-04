@@ -6,13 +6,13 @@ import { cleanLocalStorageData, setAuthToken, getAuthToken } from '../libs/auth'
 export interface AuthState {
   token: string | null
   loading: boolean
-  error: Record<string, unknown>
+  error: boolean | null
 }
 
 const initialState: AuthState = {
   token: getAuthToken(),
   loading: false,
-  error: {},
+  error: null,
 }
 
 export const authReducer = (state = initialState, action: AuthActionTypes) => {
@@ -22,14 +22,14 @@ export const authReducer = (state = initialState, action: AuthActionTypes) => {
     }
     case USER_LOADED: {
       setAuthToken(action.payload)
-      return { ...state, token: action.payload, loading: false, error: {} }
+      return { ...state, token: action.payload, loading: false, error: false }
     }
     case USER_LOGGED_OUT: {
       cleanLocalStorageData()
       return { ...state, token: '' }
     }
     case SET_LOGIN_ERROR: {
-      return { ...state, error: action.payload, loading: false }
+      return { ...state, error: true, loading: false }
     }
     default:
       return state

@@ -12,6 +12,7 @@ declare module 'styled-components' {
     white: string
     logoColor: string
     overlayColor: string
+    borderColor: string
   }
   export interface DefaultTheme {
     colors: DefaultColors

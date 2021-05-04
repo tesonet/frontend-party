@@ -21,7 +21,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, ...re
         if (isAuthenticated()) {
           return <Component {...props} />
         } else {
-          actions.setLoginError({ name: 'You need to login' })
+          actions.setLoginError()
           return <Redirect to="/login" />
         }
       }}

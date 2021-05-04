@@ -5,7 +5,11 @@ import { HeaderWrapper } from './Header.style'
 import Logo from 'components/Logo/Logo'
 import { useHistory } from 'react-router'
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  fixed?: boolean
+}
+
+const Header: React.FC<HeaderProps> = ({ fixed = false }) => {
   const actions = useActions({ logoutUser })
   const history = useHistory()
   const handleLogout = () => {
@@ -13,7 +17,7 @@ const Header: React.FC = () => {
     history.push('/')
   }
   return (
-    <HeaderWrapper>
+    <HeaderWrapper fixed={fixed}>
       <Logo />
       <button onClick={handleLogout}>Log out</button>
     </HeaderWrapper>
