@@ -4,8 +4,8 @@ import React from 'react'
 import { headerHeight } from '../components/Header/Header.style'
 
 interface BaseContainerProps {
-  content: any
-  header?: any
+  content: JSX.Element
+  header?: JSX.Element
   loading?: boolean
 }
 

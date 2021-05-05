@@ -1,9 +1,9 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Redirect, RouteProps, RouteComponentProps } from 'react-router-dom'
 import { isAuthenticated } from '../../libs/auth'
 
-interface PrivateRouteProps {
-  component: any
+interface PrivateRouteProps extends RouteProps {
+  component: React.ComponentType<RouteComponentProps> | React.ComponentType
   path: string
   exact?: boolean
 }

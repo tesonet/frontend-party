@@ -17,12 +17,12 @@ import LockIcon from 'components/Icons/LockIcon'
 
 interface InputProps {
   name: string
-  onChange: any
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   value: string
   placeholder: string
   error: string | undefined
   type: string
-  icon?: any
+  icon?: JSX.Element
   id: string
 }
 
@@ -56,7 +56,7 @@ const Input: React.FC<InputProps> = ({
   )
 }
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
   const actions = useActions({ loadUser })
   const loading = useSelector(s => s.auth.loading)
 

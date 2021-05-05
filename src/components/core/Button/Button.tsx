@@ -4,7 +4,7 @@ import { ButtonWrapper } from './Button.style'
 interface ButtonProps {
   title: string
   onClick?: () => void
-  icon?: any
+  icon?: JSX.Element
   big?: boolean
 }
 

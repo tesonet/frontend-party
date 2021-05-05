@@ -11,7 +11,7 @@ import { GlobalStyle } from './styles/global'
 
 const { store } = configStore()
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
