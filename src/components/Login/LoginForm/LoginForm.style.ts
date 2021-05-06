@@ -39,7 +39,7 @@ export const Button = styled.button`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.atlantis};
   color: ${({ theme }) => theme.colors.white};
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
 
   &:hover {

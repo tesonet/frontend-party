@@ -1,8 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
+import { fonts } from './fonts'
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
+  ${fonts}
+  
   * {
     box-sizing: border-box;
     margin: 0;
@@ -20,5 +21,6 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
 
 `
