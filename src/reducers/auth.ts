@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { AuthActionTypes, USER_LOADED, USER_LOADING, SET_LOGIN_ERROR } from 'actions/auth'
+import {
+  AuthActionTypes,
+  USER_LOADED,
+  USER_LOADING,
+  SET_LOGIN_ERROR,
+  USER_LOGGED_OUT,
+} from 'actions/auth'
 import { Reducer } from 'redux'
-import { USER_LOGGED_OUT } from '../actions/auth'
-import { cleanLocalStorageData, setAuthToken, getAuthToken } from '../libs/auth'
+import { cleanLocalStorageData, setAuthToken, getAuthToken } from 'libs/auth'
 
 export interface AuthState {
   token: string | null

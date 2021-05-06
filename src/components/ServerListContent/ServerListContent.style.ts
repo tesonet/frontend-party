@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { headerHeight } from '../Header/Header.style'
+import { headerHeight } from 'components/Header/Header.style'
 
 const listTableHeight = '3.25rem'
 

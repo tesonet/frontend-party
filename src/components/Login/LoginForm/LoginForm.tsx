@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormik, FormikErrors } from 'formik'
-import { useActions } from '../../../hooks/useActions'
-import { loadUser } from '../../../actions/auth'
+import { useActions } from 'hooks/useActions'
+import { loadUser } from 'actions/auth'
 import {
   Form,
   StyledInput,
@@ -12,7 +12,7 @@ import {
 } from './LoginForm.style'
 import { useSelector } from 'react-redux'
 import { Credentials } from 'types/server'
-import UserIcon from '../../Icons/UserIcon'
+import UserIcon from 'components/Icons/UserIcon'
 import LockIcon from 'components/Icons/LockIcon'
 
 interface InputProps {

@@ -1,5 +1,5 @@
-import { Server } from '../types/server'
-import { SortBy } from '../reducers/server'
+import { Server } from 'types/server'
+import { SortBy } from 'reducers/server'
 
 type SortTypeValues = -1 | 0 | 1
 

@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux'
-import { loginWithCredentials } from '../api/auth'
+import { loginWithCredentials } from 'api/auth'
 
 export const USER_LOADING = 'USER_LOADING'
 export const USER_LOADED = 'USER_LOADED'

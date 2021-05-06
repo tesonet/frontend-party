@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Redirect, RouteProps, RouteComponentProps } from 'react-router-dom'
-import { isAuthenticated } from '../../libs/auth'
+import { isAuthenticated } from 'libs/auth'
 
 interface PrivateRouteProps extends RouteProps {
   component: React.ComponentType<RouteComponentProps> | React.ComponentType

@@ -1,6 +1,6 @@
 import React from 'react'
-import { colors } from '../../styles/colors'
-import { IconProps } from '../../types/icon'
+import { colors } from 'styles/colors'
+import { IconProps } from 'types/icon'
 
 const LockIcon: React.FC<IconProps> = ({ color = colors.iconGray }) => (
   <svg width={14} height={18} viewBox="0 0 14 18">

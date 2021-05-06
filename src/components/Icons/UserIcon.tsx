@@ -1,6 +1,6 @@
 import React from 'react'
-import { colors } from '../../styles/colors'
-import { IconProps } from '../../types/icon'
+import { colors } from 'styles/colors'
+import { IconProps } from 'types/icon'
 
 const UserIcon: React.FC<IconProps> = ({ color = colors.iconGray }) => (
   <>

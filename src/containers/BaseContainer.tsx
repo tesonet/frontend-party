@@ -1,7 +1,7 @@
 import { Loading } from 'components/core/Loading/Loading'
 import styled from 'styled-components'
 import React from 'react'
-import { headerHeight } from '../components/Header/Header.style'
+import { headerHeight } from 'components/Header/Header.style'
 
 interface BaseContainerProps {
   content: JSX.Element

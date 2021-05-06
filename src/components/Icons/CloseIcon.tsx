@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconProps } from 'types/icon'
-import { colors } from '../../styles/colors'
+import { colors } from 'styles/colors'
 
 const CloseIcon: React.FC<IconProps> = ({ color = colors.pinkGlamour }) => (
   <svg viewBox="0 0 49.75 49.75" width="1rem" height="1rem">

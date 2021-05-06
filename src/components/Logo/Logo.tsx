@@ -1,7 +1,7 @@
 import React from 'react'
 import { LogoWrapper } from './Logo.style'
-import LogoIcon from '../Icons/LogoIcon'
-import { colors } from '../../styles/colors'
+import LogoIcon from 'components/Icons/LogoIcon'
+import { colors } from 'styles/colors'
 
 export type LogoSize = 'small' | 'large'
 

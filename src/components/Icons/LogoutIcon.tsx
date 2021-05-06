@@ -1,6 +1,6 @@
 import React from 'react'
-import { IconProps } from '../../types/icon'
-import { colors } from '../../styles/colors'
+import { IconProps } from 'types/icon'
+import { colors } from 'styles/colors'
 
 const LogoutIcon: React.FC<IconProps> = ({ color = colors.logoColor }) => (
   <svg width={16} height={16} viewBox="0 0 16 16">

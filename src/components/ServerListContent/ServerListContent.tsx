@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { sortByName, sortByDistance, removeSort } from '../../actions/servers'
-import { useActions } from '../../hooks/useActions'
+import { sortByName, sortByDistance, removeSort } from 'actions/servers'
+import { useActions } from 'hooks/useActions'
 import { ServerItemWrapper, ServerListWrapper, Items, HeaderItem } from './ServerListContent.style'
 import { Server } from 'types/server'
-import { addKmToDistance } from '../../libs/utils'
+import { addKmToDistance } from 'libs/utils'
 import Button from 'components/core/Button/Button'
-import CloseIcon from '../Icons/CloseIcon'
+import CloseIcon from 'components/Icons/CloseIcon'
 
 const ServerItem: React.FC<Server> = ({ name, distance }) => {
   return (
