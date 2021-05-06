@@ -8,8 +8,6 @@ const dotenv = require('dotenv')
 const appDirectory = fs.realpathSync(process.cwd())
 const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath)
 
-const currentTask = process.env.yarn_lifecycle_event
-
 module.exports = {
   entry: resolveAppPath('src'),
   target: 'web',
@@ -17,19 +15,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
+    clean: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     plugins: [new TsConfigPathsPlugin()],
   },
-  devServer: {
-    port: 3000,
-    contentBase: resolveAppPath('public'),
-    hot: true,
-    writeToDisk: true,
-    historyApiFallback: true,
-    publicPath: '/',
-  },
+
   module: {
     rules: [
       {
