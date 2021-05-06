@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
-import { loadServers, sortByName, sortByDistance, removeSort } from '../../actions/servers'
+import { sortByName, sortByDistance, removeSort } from '../../actions/servers'
 import { useActions } from '../../hooks/useActions'
 import { ServerItemWrapper, ServerListWrapper, Items, HeaderItem } from './ServerListContent.style'
 import { Server } from 'types/server'
 import { addKmToDistance } from '../../libs/utils'
-import { serverSortSelector } from '../../selectors/server'
 import Button from 'components/core/Button/Button'
 import CloseIcon from '../Icons/CloseIcon'
 
@@ -43,18 +42,11 @@ const ServerItemHeader: React.FC = () => {
   )
 }
 
-const ServerList: React.FC = () => {
-  const actions = useActions({
-    loadServers,
-  })
+interface ServerListProps {
+  servers: Server[]
+}
 
-  const servers = useSelector(serverSortSelector)
-
-  useEffect(() => {
-    actions.loadServers()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
+const ServerList: React.FC<ServerListProps> = ({ servers }) => {
   return (
     <ServerListWrapper>
       <ServerItemHeader />

@@ -8,6 +8,7 @@ import LoginContainer from './containers/LoginContainer'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styles/theme'
 import { GlobalStyle } from './styles/global'
+import NotFoundContainer from './containers/NotFoundContainer'
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <Switch>
             <PrivateRoute path="/" component={ServerListContainer} exact />
             <Route path="/login" exact component={LoginContainer} />
+            <Route component={NotFoundContainer} />
           </Switch>
         </BrowserRouter>
       </ThemeProvider>
