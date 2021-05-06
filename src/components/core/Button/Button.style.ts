@@ -3,6 +3,11 @@ import styled, { css } from 'styled-components'
 const bigButtonStyle = css`
   width: 10rem;
   font-weight: 400;
+
+  &:hover {
+    border: 1px solid transparent;
+    color: ${({ theme }) => theme.colors.atlantis};
+  }
 `
 
 export const ButtonWrapper = styled.div<{ big?: boolean }>`
@@ -16,9 +21,9 @@ export const ButtonWrapper = styled.div<{ big?: boolean }>`
   font-size: 0.875rem;
   font-weight: 300;
 
-  ${({ big }) => big && bigButtonStyle};
-
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.atlantis};
   }
+
+  ${({ big }) => big && bigButtonStyle};
 `

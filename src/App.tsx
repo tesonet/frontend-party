@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { configStore } from 'store'
+import store from 'store'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ServerListContainer from 'containers/ServerListContainer'
 import PrivateRoute from 'components/PrivateRoute'
@@ -8,8 +8,6 @@ import LoginContainer from './containers/LoginContainer'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styles/theme'
 import { GlobalStyle } from './styles/global'
-
-const { store } = configStore()
 
 const App: React.FC = () => {
   return (
