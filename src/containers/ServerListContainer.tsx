@@ -9,11 +9,10 @@ import { serverSortSelector } from 'selectors/server'
 
 const ServerListContainer: React.FC = () => {
   const loading = useSelector(s => s.servers.loading)
+  const servers = useSelector(serverSortSelector)
   const actions = useActions({
     loadServers,
   })
-
-  const servers = useSelector(serverSortSelector)
 
   useEffect(() => {
     actions.loadServers()
