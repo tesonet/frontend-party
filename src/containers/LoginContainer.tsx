@@ -5,7 +5,6 @@ import Login from 'components/Login/Login'
 
 const LoginContainer: React.FC = () => {
   const loading = useSelector(s => s.auth.loading)
-  const content = <Login />
-  return <BaseContainer content={content} loading={loading} />
+  return <BaseContainer content={<Login />} loading={loading} />
 }
 export default LoginContainer

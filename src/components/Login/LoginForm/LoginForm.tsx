@@ -20,10 +20,11 @@ interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   value: string
   placeholder: string
-  error: string | undefined
+  error: string | undefined | false
   type: string
   icon?: JSX.Element
   id: string
+  onBlur: (e: React.FocusEvent<any>) => void
 }
 
 const Input: React.FC<InputProps> = ({
@@ -35,6 +36,7 @@ const Input: React.FC<InputProps> = ({
   error,
   type,
   icon,
+  onBlur,
 }) => {
   return (
     <>
@@ -48,6 +50,7 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
           error={!!error}
           autoComplete="new-password"
+          onBlur={onBlur}
         />
         <IconContainer>{icon}</IconContainer>
       </InputWrapper>
@@ -93,8 +96,9 @@ const LoginForm: React.FC = () => {
         onChange={formik.handleChange}
         value={formik.values.login}
         placeholder="Username"
-        error={formik.errors.login}
+        error={formik.touched.login && formik.errors.login}
         icon={<UserIcon />}
+        onBlur={formik.handleBlur}
       />
 
       <Input
@@ -104,8 +108,9 @@ const LoginForm: React.FC = () => {
         onChange={formik.handleChange}
         value={formik.values.password}
         placeholder="Password"
-        error={formik.errors.password}
+        error={formik.touched.password && formik.errors.password}
         icon={<LockIcon />}
+        onBlur={formik.handleBlur}
       />
 
       <Button type="submit" disabled={loading || !!formik.errors.login || !!formik.errors.password}>

@@ -12,6 +12,7 @@ const Login: React.FC = () => {
   const history = useHistory()
 
   if (isAuthenticated()) history.push('/')
+
   return (
     <LoginWrapper backgroundImage={backgroundImage}>
       <Message />
