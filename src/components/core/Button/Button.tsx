@@ -5,7 +5,7 @@ interface ButtonProps {
   title: string
   onClick?: () => void
   icon?: JSX.Element
-  big?: any
+  big?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({ title, onClick, icon, big }) => {
