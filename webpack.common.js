@@ -6,6 +6,7 @@ const fs = require('fs')
 const webpack = require('webpack')
 const dotenv = require('dotenv')
 const appDirectory = fs.realpathSync(process.cwd())
+const ESLintPlugin = require('eslint-webpack-plugin')
 const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath)
 
 module.exports = {
@@ -69,5 +70,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(dotenv.config().parsed),
     }),
+    new ESLintPlugin({}),
   ],
 }

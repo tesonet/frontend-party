@@ -1,7 +1,5 @@
 import React from 'react'
 import { useFormik, FormikErrors } from 'formik'
-import { useActions } from 'hooks/useActions'
-import { loadUser } from 'actions/auth'
 import {
   Form,
   StyledInput,
@@ -10,10 +8,15 @@ import {
   IconContainer,
   InputWrapper,
 } from './LoginForm.style'
-import { useSelector } from 'react-redux'
-import { Credentials } from 'types/server'
+import { Credentials } from 'types/auth'
 import UserIcon from 'components/Icons/UserIcon'
 import LockIcon from 'components/Icons/LockIcon'
+import { AnyAction, Dispatch } from 'redux'
+
+interface LoginFormProps {
+  loading: boolean
+  loadUser: (username: string, password: string) => (dispatch: Dispatch<AnyAction>) => void
+}
 
 interface InputProps {
   name: string
@@ -59,10 +62,7 @@ const Input: React.FC<InputProps> = ({
   )
 }
 
-const LoginForm: React.FC = () => {
-  const actions = useActions({ loadUser })
-  const loading = useSelector(s => s.auth.loading)
-
+const LoginForm: React.FC<LoginFormProps> = ({ loading, loadUser }) => {
   const formik = useFormik({
     initialValues: {
       login: '',
@@ -82,7 +82,7 @@ const LoginForm: React.FC = () => {
     },
 
     onSubmit: values => {
-      actions.loadUser(values.login, values.password)
+      loadUser(values.login, values.password)
       formik.resetForm()
     },
   })

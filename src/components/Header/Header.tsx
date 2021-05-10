@@ -1,23 +1,15 @@
 import React from 'react'
-import { useActions } from 'hooks/useActions'
-import { logoutUser } from 'actions/auth'
 import { HeaderWrapper } from './Header.style'
 import Logo from 'components/Logo/Logo'
-import { useHistory } from 'react-router'
 import Button from 'components/core/Button/Button'
 import LogoutIcon from 'components/Icons/LogoutIcon'
 
 interface HeaderProps {
+  handleLogout: () => void
   fixed?: boolean
 }
 
-const Header: React.FC<HeaderProps> = ({ fixed = false }) => {
-  const actions = useActions({ logoutUser })
-  const history = useHistory()
-  const handleLogout = () => {
-    actions.logoutUser()
-    history.push('/')
-  }
+const Header: React.FC<HeaderProps> = ({ fixed = false, handleLogout }) => {
   return (
     <HeaderWrapper fixed={fixed}>
       <Logo />
