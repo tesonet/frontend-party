@@ -1,0 +1,46 @@
+{
+  "name": "frontend-party",
+  "version": "1.0.0",
+  "description": "FrontEnd task",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --config ./webpack.config.js --mode development",
+    "lint": "eslint ./src",
+    "test": "npm test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm lint && npm test"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tadasdulke/frontend-party.git"
+  },
+  "author": "Tadas Dulkė",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tadasdulke/frontend-party/issues"
+  },
+  "homepage": "https://github.com/tadasdulke/frontend-party#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.1",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
