@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { DEFAULT_ERROR } from '../config/errorMessages';
 
-const useApiAction = (action, errorMessage = DEFAULT_ERROR) => {
+const useApiAction = (action, showError, errorMessage = DEFAULT_ERROR) => {
   const [loaded, setLoaded] = useState(true);
 
   const sendAction = async (...args) => {
@@ -11,8 +11,7 @@ const useApiAction = (action, errorMessage = DEFAULT_ERROR) => {
 
       return await action(...args);
     } catch (e) {
-      // TODO: realize error wrapper
-      console.error(errorMessage);
+      showError(errorMessage);
     } finally {
       setLoaded(true);
     }

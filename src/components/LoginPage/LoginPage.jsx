@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { withErrorWrapper } from '@Common/HOC';
 
 import { useLocalStorage } from '../../hooks';
-
 import LoginForm from './LoginForm';
 import useLogin from './hooks/useLogin';
 
-const LoginPage = () => {
-  const { loaded, sendAction } = useLogin();
+const LoginPage = ({ showError }) => {
+  const { loaded, sendAction } = useLogin(showError);
   const { updateToken } = useLocalStorage();
 
   const onSubmit = async ({ username, password }) => {
@@ -27,4 +29,8 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+LoginPage.propTypes = {
+  showError: PropTypes.func.isRequired,
+};
+
+export default withErrorWrapper(LoginPage);
