@@ -1,16 +1,9 @@
-import axios from 'axios';
+import tesonetClient from '@Common/client/tesonetClient';
 
 const getToken = async (username, password) => {
-  const response = await axios.post('https://playground.tesonet.lt/v1/tokens', {
-    username,
-    password,
-  }, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  const token = await tesonetClient.getToken(username, password);
 
-  return response.data.token;
+  return token;
 };
 
 export default getToken;

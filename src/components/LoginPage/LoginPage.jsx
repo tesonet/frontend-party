@@ -3,34 +3,36 @@ import PropTypes from 'prop-types';
 
 import { withErrorWrapper } from '@Common/HOC';
 
-import { useLocalStorage } from '../../hooks';
-import LoginForm from './LoginForm';
+import { useLocalStorage, useRedirect } from '../../hooks';
 import useLogin from './hooks/useLogin';
+import LoginForm from './LoginForm';
+import LoginFormContainer from './LoginFormContainer';
 
-const LoginPage = ({ showError }) => {
-  const { loaded, sendAction } = useLogin(showError);
+const LoginPage = ({ errorHandler }) => {
+  const { loaded, sendAction } = useLogin(errorHandler);
   const { updateToken } = useLocalStorage();
+  const { toMain } = useRedirect();
 
   const onSubmit = async ({ username, password }) => {
-    const result = await sendAction(username, password);
-    updateToken(result);
+    const token = await sendAction(username, password);
+    if (token) {
+      updateToken(token);
+      toMain();
+    }
   };
 
-  if (!loaded) {
-    return 'Loading';
-  }
-
   return (
-    <div className="min-h-screen bg-tesonet-gray-900 flex justify-center">
-      <div className="w-full max-w-lg">
-        <LoginForm onSubmit={onSubmit} />
-      </div>
-    </div>
+    <LoginFormContainer>
+      <LoginForm onSubmit={onSubmit} />
+    </LoginFormContainer>
   );
 };
 
 LoginPage.propTypes = {
-  showError: PropTypes.func.isRequired,
+  errorHandler: PropTypes.shape({
+    showError: PropTypes.func,
+    hideError: PropTypes.func,
+  }).isRequired,
 };
 
 export default withErrorWrapper(LoginPage);

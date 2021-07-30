@@ -10,7 +10,7 @@ import { LOGIN_FORM, PASSWORD, USERNAME } from '../../config/constants';
 const LoginForm = ({ onSubmit, handleSubmit }) => (
   <form
     onSubmit={handleSubmit(onSubmit)}
-    className="bg-tesonet-gray-700 rounded-lg px-8 pt-7 pb-8 mb-4 my-16"
+    className="bg-tesonet-gray-700 rounded-lg px-8 pt-7 pb-8 mb-4 mt-4"
   >
     <InputField
       name={USERNAME}

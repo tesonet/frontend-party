@@ -2,16 +2,22 @@ import { useState } from 'react';
 
 import { DEFAULT_ERROR } from '../config/errorMessages';
 
-const useApiAction = (action, showError, errorMessage = DEFAULT_ERROR) => {
+const useApiAction = (action, errorHandler, resolveErrorMessage = null) => {
   const [loaded, setLoaded] = useState(true);
 
   const sendAction = async (...args) => {
     try {
       setLoaded(false);
+      const response = await action(...args);
+      errorHandler.hideError();
 
-      return await action(...args);
-    } catch (e) {
-      showError(errorMessage);
+      return response;
+    } catch ({ response: { status } }) {
+      const errorMessage = resolveErrorMessage === null
+        ? DEFAULT_ERROR
+        : resolveErrorMessage(status);
+
+      errorHandler.showError(errorMessage);
     } finally {
       setLoaded(true);
     }

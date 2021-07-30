@@ -1,10 +1,13 @@
 import { useApiAction } from '@Common/hooks';
 
+import { AUTH_ERROR, DEFAULT_ERROR } from '@Common/config/errorMessages';
+
 import getToken from '../services/getToken';
 
-const useLogin = (showError) => useApiAction(
+const useLogin = (errorHandler) => useApiAction(
   (username, password) => getToken(username, password),
-  showError,
+  errorHandler,
+  (status) => (status === 401 ? AUTH_ERROR : DEFAULT_ERROR),
 );
 
 export default useLogin;

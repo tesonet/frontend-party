@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Alert } from '../components';
+
 const withErrorWrapper = (Component) => (props) => {
   const [isErrorShown, setIsErrorShown] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -9,15 +11,24 @@ const withErrorWrapper = (Component) => (props) => {
     setErrorMessage(message);
   };
 
+  const hideError = () => {
+    setIsErrorShown(false);
+    setErrorMessage(null);
+  };
+
+  const errorHandler = {
+    showError,
+    hideError,
+  };
+
   return (
     <>
       {isErrorShown && errorMessage && (
-      <div>
-          {errorMessage}
-      </div>
+        <div className="flex justify-center">
+          <Alert hideAlert={hideError} message={errorMessage} />
+        </div>
       )}
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <Component {...props} showError={showError} />
+      <Component {...props} errorHandler={errorHandler} />
     </>
   );
 };
