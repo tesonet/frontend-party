@@ -15,8 +15,20 @@ const createTesonetClient = () => {
 
     return response.data.token;
   };
+
+  const getServers = async (token) => {
+    const response = await axios.get(`${baseUrl}/servers`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  };
+
   return {
     getToken,
+    getServers,
   };
 };
 

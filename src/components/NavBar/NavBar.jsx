@@ -1,5 +1,4 @@
 import React from 'react';
-import { AiOutlineMenu } from 'react-icons/all';
 
 import { useRedirect } from '../../hooks';
 
@@ -19,11 +18,16 @@ const NavBar = () => {
 
   return (
     <nav className="flex items-center justify-between text-white flex-wrap bg-black p-6">
-      <div onClick={toMain} className="cursor-pointer">
-        <span className="font-semibold text-xl tracking-tight">
-          TesoServers
-        </span>
-      </div>
+
+        {///TODO : FIX THIS}
+      <span
+        onClick={toMain}
+        className="tabular-nums- cursor-pointer font-semibold text-xl tracking-tight"
+        role="banner"
+        tabIndex="0"
+      >
+        TesoServers
+      </span>
       <div className="w-full flex flex-grow justify-end mx-3">
         {
           items.map(({ label, action }) => (

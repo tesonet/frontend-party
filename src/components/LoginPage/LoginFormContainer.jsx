@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withChildrenPropTypes, withDefaultChildrenPropTypes } from '@Common/propTypes';
+import { withChildrenPropTypes, withDefaultChildrenPropTypes } from '@Common';
 
 const LoginFormContainer = ({ children }) => (
   <div className="flex justify-center">

@@ -1,7 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import { withErrorWrapper } from '@Common/HOC';
+import React, { useEffect } from 'react';
+import {
+  withErrorWrapper,
+  Loader,
+  withErrorWrapperPropTypes,
+} from '@Common';
 
 import { useLocalStorage, useRedirect } from '../../hooks';
 import useLogin from './hooks/useLogin';
@@ -10,29 +12,33 @@ import LoginFormContainer from './LoginFormContainer';
 
 const LoginPage = ({ errorHandler }) => {
   const { loaded, sendAction } = useLogin(errorHandler);
-  const { updateToken } = useLocalStorage();
+  const { token, updateToken } = useLocalStorage();
   const { toMain } = useRedirect();
 
-  const onSubmit = async ({ username, password }) => {
-    const token = await sendAction(username, password);
+  useEffect(() => {
     if (token) {
-      updateToken(token);
       toMain();
+    }
+  }, [token]);
+
+  const onSubmit = async ({ username, password }) => {
+    const response = await sendAction(username, password);
+    if (response) {
+      updateToken(response);
     }
   };
 
   return (
     <LoginFormContainer>
-      <LoginForm onSubmit={onSubmit} />
+      <Loader loaded={loaded}>
+        <LoginForm onSubmit={onSubmit} />
+      </Loader>
     </LoginFormContainer>
   );
 };
 
 LoginPage.propTypes = {
-  errorHandler: PropTypes.shape({
-    showError: PropTypes.func,
-    hideError: PropTypes.func,
-  }).isRequired,
+  ...withErrorWrapperPropTypes,
 };
 
 export default withErrorWrapper(LoginPage);

@@ -2,6 +2,8 @@ import React from 'react';
 import { Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
+import renderField from './renderField';
+
 const InputField = ({
   name,
   label,
@@ -9,20 +11,12 @@ const InputField = ({
   type,
 }) => (
   <div className="mb-5">
-    {label && (
-    <label
-      htmlFor="lastName"
-      className="block text-gray-100 text-sm font-bold mb-2 pl-2"
-    >
-      {label}
-    </label>
-    )}
     <Field
       name={name}
-      component="input"
+      component={renderField}
       type={type}
+      label={label}
       placeholder={placeholder}
-      className="border-none text-gray-100 rounded w-full bg-tesonet-gray-500 py-1.5 px-3 focus:outline-none"
     />
   </div>
 );
@@ -37,7 +31,7 @@ InputField.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  type: PropTypes.oneOf(['text', 'password']).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default InputField;
