@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import {
   withErrorWrapper,
@@ -6,9 +6,8 @@ import {
   withErrorWrapperPropTypes,
 } from '@Common';
 
-import { useFetchServers, useSortDirection } from './hooks';
+import { useFetchServers, useSortServers } from './hooks';
 import ServerList from './components/ServerList';
-import { sortServersByDistance } from './utils';
 
 const ServerListPage = ({ errorHandler }) => {
   const {
@@ -16,22 +15,14 @@ const ServerListPage = ({ errorHandler }) => {
     servers,
     setServers,
   } = useFetchServers(errorHandler);
-  const { sortDirection, handleSortAction } = useSortDirection();
-
-  useMemo(() => {
-    if (![sortDirection, servers].includes(null)) {
-      const sortedServers = sortServersByDistance(sortDirection, servers);
-
-      setServers(sortedServers);
-    }
-  }, [servers, sortDirection]);
+  const { sortConfig, handleSortAction } = useSortServers(servers, setServers);
 
   return (
     <Loader loaded={serversLoaded}>
       {servers && (
         <ServerList
           servers={servers}
-          sortDirection={sortDirection}
+          sortConfig={sortConfig}
           handleSortAction={handleSortAction}
         />
       )}

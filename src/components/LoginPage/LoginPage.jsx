@@ -1,30 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   withErrorWrapper,
   Loader,
   withErrorWrapperPropTypes,
 } from '@Common';
 
-import { useLocalStorage, useRedirect } from '../../hooks';
+import { useLocalStorage, useRedirect, useUserAuthentication } from '../../hooks';
 import useLogin from './hooks/useLogin';
 import LoginForm from './LoginForm';
 import LoginFormContainer from './LoginFormContainer';
 
 const LoginPage = ({ errorHandler }) => {
   const { loaded, sendAction } = useLogin(errorHandler);
-  const { token, updateToken } = useLocalStorage();
+  const { updateToken } = useLocalStorage();
   const { toMain } = useRedirect();
-
-  useEffect(() => {
-    if (token) {
-      toMain();
-    }
-  }, [token]);
+  const { updateUserAuthentication } = useUserAuthentication();
 
   const onSubmit = async ({ username, password }) => {
     const response = await sendAction(username, password);
     if (response) {
       updateToken(response);
+      updateUserAuthentication(true);
+      toMain();
     }
   };
 

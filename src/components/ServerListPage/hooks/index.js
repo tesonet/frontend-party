@@ -1,2 +1,2 @@
 export { default as useFetchServers } from './useFetchServers';
-export { default as useSortDirection } from './useSortDirection';
+export { default as useSortServers } from './useSortServers';

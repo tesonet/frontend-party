@@ -1,1 +1,1 @@
-export { default as sortServersByDistance } from './sortServersByDistance';
+export { default as sortServers } from './sortServers';
