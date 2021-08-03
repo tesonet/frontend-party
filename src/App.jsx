@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Switch,
@@ -17,7 +17,7 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import { useUserAuthentication } from './hooks';
 
 const App = () => {
-  const { isAuthenticated, updateUserAuthentication } = useUserAuthentication();
+  const { isAuthenticated } = useUserAuthentication();
 
   return (
     <Container>
@@ -25,11 +25,17 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path={ROUTES.MAIN} component={Main} />
-          <Route path={ROUTES.LOGIN} component={LoginPage} />
+          <ProtectedRoute
+            path={ROUTES.LOGIN}
+            component={LoginPage}
+            fallBackRoute={ROUTES.MAIN}
+            permissionRule={!isAuthenticated}
+          />
           <ProtectedRoute
             path={ROUTES.SERVER_LIST}
             component={ServerListPage}
             fallBackRoute={ROUTES.MAIN}
+            permissionRule={isAuthenticated}
           />
           <Route component={NotFoundPage} />
         </Switch>

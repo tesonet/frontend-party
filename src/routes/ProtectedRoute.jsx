@@ -1,18 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import { useLocalStorage } from '../hooks';
-
 const ProtectedRoute = ({
   path,
-  component,
+  Component,
   fallBackRoute,
+  permissionRule,
   ...rest
 }) => {
-  const { token } = useLocalStorage();
-
-  if (token) {
-    return <Route path={path} component={component} {...rest} />;
+  if (permissionRule) {
+    return <Route path={path} render={() => <Component />} {...rest} />;
   }
 
   return <Redirect to={fallBackRoute} />;

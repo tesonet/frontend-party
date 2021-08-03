@@ -1,32 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import { TOKEN } from '../config/constants';
+const useLocalStorage = (key) => {
+  const [value, setValue] = useState(window.localStorage.getItem(key));
 
-const useLocalStorage = () => {
-  const [token, setToken] = useState(window.localStorage.getItem(TOKEN));
-
-  useEffect(() => {
-    const storageToken = window.localStorage.getItem(TOKEN);
-
-    if (storageToken) {
-      setToken(storageToken);
-    }
-  }, []);
-
-  const updateToken = (newToken) => {
-    window.localStorage.setItem(TOKEN, newToken);
-    setToken(newToken);
+  const updateKey = (newValue) => {
+    window.localStorage.setItem(key, newValue);
+    setValue(newValue);
   };
 
-  const removeToken = () => {
-    window.localStorage.removeItem(TOKEN);
-    setToken(null);
+  const removeValue = () => {
+    window.localStorage.removeItem(key);
+    setValue(null);
   };
 
   return {
-    token,
-    updateToken,
-    removeToken,
+    value,
+    updateKey,
+    removeValue,
   };
 };
 

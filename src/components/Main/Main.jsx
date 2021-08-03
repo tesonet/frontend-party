@@ -1,13 +1,16 @@
 import React from 'react';
+
+import { CommonContainer } from '@Common';
+
 import { useUserAuthentication } from '../../hooks';
 
 const Main = () => {
   const { isAuthenticated } = useUserAuthentication();
 
   return (
-    <div className="text-center tracking-wide text-gray-300 text-lg">
+    <CommonContainer>
       {isAuthenticated ? 'Hey, nice to see you here, go take a look at some servers' : 'Login to see servers'}
-    </div>
+    </CommonContainer>
   );
 };
 export default Main;

@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import TableCell from './TableCell';
+import { serverPropTypes } from '../../propTypes';
 
 const TableBody = ({ servers }) => (
   <tbody>
@@ -11,5 +14,9 @@ const TableBody = ({ servers }) => (
     ))}
   </tbody>
 );
+
+TableBody.propTypes = {
+  servers: PropTypes.arrayOf(serverPropTypes).isRequired,
+};
 
 export default TableBody;

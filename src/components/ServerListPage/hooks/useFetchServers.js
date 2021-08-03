@@ -3,9 +3,10 @@ import { useFetchData } from '@Common';
 import { useState } from 'react';
 import { getServers } from '../services';
 import { useLocalStorage } from '../../../hooks';
+import { TOKEN } from '../../../config/constants';
 
 const useFetchServers = (errorHandler) => {
-  const { token } = useLocalStorage();
+  const { value: token } = useLocalStorage(TOKEN);
   const [servers, setServers] = useState(null);
 
   const { loaded: serversLoaded } = useFetchData(

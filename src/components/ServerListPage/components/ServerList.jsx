@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ASCENDING, DESCENDING } from '../config/constants';
+import { sortConfigDefaultProps, sortConfigPropTypes } from '../propTypes';
 import { TableHead, TableBody } from './Table';
 
 const ServerList = ({ servers, handleSortAction, sortConfig }) => (
@@ -12,10 +12,7 @@ const ServerList = ({ servers, handleSortAction, sortConfig }) => (
 );
 
 ServerList.defaultProps = {
-  sortConfig: {
-    distance: null,
-    name: null,
-  },
+  sortConfig: sortConfigDefaultProps,
 };
 
 ServerList.propTypes = {
@@ -26,10 +23,7 @@ ServerList.propTypes = {
     }),
   ).isRequired,
   handleSortAction: PropTypes.func.isRequired,
-  sortConfig: PropTypes.shape({
-    distance: PropTypes.oneOf([null, ASCENDING, DESCENDING]),
-    name: PropTypes.oneOf([null, ASCENDING, DESCENDING]),
-  }),
+  sortConfig: sortConfigPropTypes,
 };
 
 export default ServerList;

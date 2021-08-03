@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { CommonContainer } from '@Common';
+
 const NotFoundPage = () => (
-  <div>
+  <CommonContainer>
     404 Not found
-  </div>
+  </CommonContainer>
 );
 
 export default NotFoundPage;

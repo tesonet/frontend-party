@@ -1,10 +1,12 @@
 import axios from 'axios';
 
 const createTesonetClient = () => {
-  const baseUrl = 'https://playground.tesonet.lt/v1';
+  const instance = axios.create({
+    baseURL: 'https://playground.tesonet.lt/v1',
+  });
 
   const getToken = async (username, password) => {
-    const response = await axios.post(`${baseUrl}/tokens`, {
+    const response = await instance.post('/tokens', {
       username,
       password,
     }, {
@@ -17,7 +19,7 @@ const createTesonetClient = () => {
   };
 
   const getServers = async (token) => {
-    const response = await axios.get(`${baseUrl}/servers`, {
+    const response = await instance.get('/servers', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

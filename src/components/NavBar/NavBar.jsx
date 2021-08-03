@@ -1,25 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { useRedirect } from '../../hooks';
-import Items from './Items';
+import Items from './Items/Items';
+import Expander from './Expander';
+import Logo from './Logo';
 
 const NavBar = () => {
-  const { toMain } = useRedirect();
+  const [isMobileExpanded, setMobileExpanded] = useState(false);
 
   return (
     <nav className="flex items-center justify-between text-white flex-wrap bg-black p-6">
-      <span
-        onClick={toMain}
-        className="tabular-nums- cursor-pointer font-semibold text-xl tracking-tight"
-      >
-        TesoServers
-      </span>
-      <div className="w-full flex flex-grow justify-end mx-3">
-        <Items />
-      </div>
-      <div className="cursor-pointer visible md:invisible">
-        {/* <AiOutlineMenu color="white" size={20} /> */}
-      </div>
+      <Logo />
+      <Expander setIsExpanded={setMobileExpanded} isExpanded={isMobileExpanded} />
+      <Items isMobileExpanded={isMobileExpanded} />
     </nav>
   );
 };
