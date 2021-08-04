@@ -17,7 +17,6 @@ const useRedirect = () => {
     toMain: () => redirect(routes.MAIN),
     toLogin: () => redirect(routes.LOGIN),
     toServerList: () => redirect(routes.SERVER_LIST),
-    toPrevious: () => history.goBack(),
   };
 };
 

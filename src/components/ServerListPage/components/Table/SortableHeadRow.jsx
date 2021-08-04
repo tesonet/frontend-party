@@ -2,8 +2,8 @@ import React from 'react';
 import { FaSort, FaSortDown, FaSortUp } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
-import { ASCENDING, DESCENDING } from '../config/constants';
-import { TableHeadRow } from './Table';
+import { ASCENDING, DESCENDING } from '../../config/constants';
+import TableHeadRow from './TableHeadRow';
 
 const SortableHeadRow = ({ name, handleSortAction, sortDirection }) => {
   const commonIconProps = {

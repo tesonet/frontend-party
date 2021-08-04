@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SortableHeadRow from '../SortableHeadRow';
+import SortableHeadRow from './SortableHeadRow';
 import { NAME, DISTANCE } from '../../config/constants';
 import { sortConfigDefaultProps, sortConfigPropTypes } from '../../propTypes';
 

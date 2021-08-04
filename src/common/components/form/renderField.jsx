@@ -3,6 +3,7 @@ import React from 'react';
 const renderField = ({
   input,
   label,
+  placeholder,
   type,
   meta: { touched, error },
 }) => (
@@ -18,7 +19,7 @@ const renderField = ({
     <div>
       <input
         {...input}
-        placeholder={label}
+        placeholder={placeholder}
         type={type}
         className="border-none text-gray-800 rounded w-full p-2.5 focus:outline-none"
       />

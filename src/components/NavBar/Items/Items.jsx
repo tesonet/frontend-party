@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { TOKEN } from '@Config/constants';
 
 import { useLocalStorage, useRedirect, useUserAuthentication } from '../../../hooks';
@@ -34,3 +36,7 @@ const Items = ({ isMobileExpanded }) => {
 };
 
 export default Items;
+
+Items.propTypes = {
+  isMobileExpanded: PropTypes.bool.isRequired,
+};
