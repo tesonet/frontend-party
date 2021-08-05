@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import withReduxStore from '../../../tests/withReduxStore';
+import { withReduxForm } from '@Common';
+
 import InputField from '../InputField';
 
 describe('InputField', () => {
@@ -21,7 +22,7 @@ describe('InputField', () => {
       },
     };
 
-    const Component = withReduxStore(InputField, formOptions, props);
+    const Component = withReduxForm(InputField, formOptions, props);
     const container = render(<Component />);
 
     const input = container.getByPlaceholderText(props.placeholder);

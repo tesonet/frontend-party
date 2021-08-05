@@ -6,7 +6,8 @@ import {
   waitFor,
 } from '@testing-library/react';
 
-import withReduxStore from '../../../common/tests/withReduxStore';
+import { withReduxForm } from '@Common';
+
 import LoginPage from '../LoginPage';
 import useLogin from '../hooks/useLogin';
 import { useLocalStorage, useRedirect, useUserAuthentication } from '../../../hooks';
@@ -29,7 +30,7 @@ const renderLoginPageWithLoginAction = () => {
     [PASSWORD]: 'randomPassword',
   };
 
-  const Component = withReduxStore(
+  const Component = withReduxForm(
     LoginPage,
     { form: LOGIN_FORM, initialValues },
     { errorHandler },
@@ -45,6 +46,7 @@ const renderLoginPageWithLoginAction = () => {
 
 const mockHooks = () => {
   const token = '1465465AS';
+
   const loginActionMock = jest.fn(() => token);
   useLogin.mockImplementation(() => ({
     loaded: true,

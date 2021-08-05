@@ -5,12 +5,23 @@ const constructServer = (name, distance) => ({
   [DISTANCE]: distance,
 });
 
-const servers = [
+export const unsortedServers = [
   constructServer('First server', 100),
-  constructServer('Second server', 200),
   constructServer('Third server', 300),
-  constructServer('Fourth server', 400),
-  constructServer('Fitfh server', 500),
+  constructServer('Second server', 200),
 ];
 
-export default servers;
+export const sortedServersByNameDescending = [
+  constructServer('Third server', 300),
+  constructServer('Second server', 200),
+  constructServer('First server', 100),
+];
+
+export const sortedServersByDistanceDescending = [
+  constructServer('Third server', 300),
+  constructServer('Second server', 200),
+  constructServer('First server', 100),
+];
+
+export const sortedServersByNameAscending = [...sortedServersByNameDescending].reverse();
+export const sortedServersByDistanceAscending = [...sortedServersByDistanceDescending].reverse();

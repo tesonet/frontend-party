@@ -5,17 +5,18 @@ import {
   fireEvent,
 } from '@testing-library/react';
 
-import withReduxStore from '../../../common/tests/withReduxStore';
+import { withReduxForm } from '@Common';
+
 import { LOGIN_FORM } from '../../../config/constants';
 import LoginForm from '../LoginForm';
 
-jest.mock('../utils/validateLoginForm', () => jest.fn());
+jest.mock('../utils/validateLoginForm', () => {});
 
 describe('LoginForm', () => {
   it('should render and call onSubmit on submit', () => {
     const onSubmit = jest.fn();
 
-    const Component = withReduxStore(
+    const Component = withReduxForm(
       LoginForm,
       {
         form: LOGIN_FORM,

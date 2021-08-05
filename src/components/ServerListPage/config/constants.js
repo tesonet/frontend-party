@@ -8,3 +8,5 @@ export const initialSortConfig = {
 
 export const NAME = 'name';
 export const DISTANCE = 'distance';
+
+export const NO_SERVERS_MESSAGE = 'There are not servers';

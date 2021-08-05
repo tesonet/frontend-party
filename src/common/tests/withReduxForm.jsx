@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import userReducer from '../../store/user/reducer';
 
-const withReduxStore = (Component, formOptions, props = {}) => {
+const withReduxForm = (Component, formOptions, props = {}) => {
   const ComponentWithReduxForm = reduxForm(formOptions)(Component);
 
   const store = createStore(combineReducers({
@@ -20,4 +20,4 @@ const withReduxStore = (Component, formOptions, props = {}) => {
   );
 };
 
-export default withReduxStore;
+export default withReduxForm;

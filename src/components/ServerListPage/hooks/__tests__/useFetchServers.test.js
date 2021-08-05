@@ -4,10 +4,13 @@ import { errorMessages } from '@Common';
 
 import { getServers } from '../../services';
 import useFetchServers from '../useFetchServers';
-import { useLocalStorage } from '../../../../hooks';
+
+const token = '465465AC';
 
 jest.mock('../../services/getServers');
-jest.mock('../../../../hooks/useLocalStorage');
+jest.mock('../../../../hooks/useLocalStorage', () => () => ({
+  value: token,
+}));
 
 const renderUseFetchServersHook = () => {
   const errorHandlerMock = {
@@ -23,20 +26,10 @@ const renderUseFetchServersHook = () => {
   };
 };
 
-const mockLocalStorage = () => {
-  const token = '465465AC';
-  useLocalStorage.mockImplementation(() => ({
-    value: token,
-  }));
-
-  return token;
-};
-
 describe('useFetchServers', () => {
   test('should fetch servers', async () => {
     const servers = 'test';
     getServers.mockResolvedValue(servers);
-    const token = mockLocalStorage();
 
     const { result, waitForNextUpdate } = renderUseFetchServersHook();
 
@@ -51,7 +44,6 @@ describe('useFetchServers', () => {
 
   test('should return default error message on fetch fail', async () => {
     getServers.mockRejectedValue({ response: { status: 404 } });
-    mockLocalStorage();
 
     const { result, waitForNextUpdate, errorHandlerMock } = renderUseFetchServersHook();
 

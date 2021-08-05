@@ -1,10 +1,9 @@
-import tesonetClient from '../../../../common/client/tesonetClient';
+import tesonetClient from '@Common/client/tesonetClient';
 
 import getToken from '../getToken';
 
-jest.mock('../../../../common/client/tesonetClient', () => ({
-  __esModule: true,
-  default: 'mockedDefaultExport',
+jest.mock('@Common/client/tesonetClient', () => ({
+  getToken: jest.fn(),
 }));
 
 describe('getToken', () => {
@@ -14,9 +13,7 @@ describe('getToken', () => {
 
     await getToken(username, password);
 
-    // expect(getTokenMock).toHaveBeenCalledTimes(1);
-    // expect(getTokenMock).toHaveBeenCalledWith(username, password);
+    expect(tesonetClient.getToken).toHaveBeenCalledTimes(1);
+    expect(tesonetClient.getToken).toHaveBeenCalledWith(username, password);
   });
 });
-
-/// COME BACK

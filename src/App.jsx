@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import ROUTES from '@Config/routes';
+import { ErrorBoundary } from '@Common';
 
 import Container from './Container';
 import NavBar from './components/NavBar/NavBar';
@@ -20,27 +21,29 @@ const App = () => {
   const { isAuthenticated } = useUserAuthentication();
 
   return (
-    <Container>
-      <BrowserRouter>
-        <NavBar />
-        <Switch>
-          <Route exact path={ROUTES.MAIN} component={Main} />
-          <ProtectedRoute
-            path={ROUTES.LOGIN}
-            component={LoginPage}
-            fallBackRoute={ROUTES.MAIN}
-            permissionRule={!isAuthenticated}
-          />
-          <ProtectedRoute
-            path={ROUTES.SERVER_LIST}
-            component={ServerListPage}
-            fallBackRoute={ROUTES.MAIN}
-            permissionRule={isAuthenticated}
-          />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </BrowserRouter>
-    </Container>
+    <ErrorBoundary>
+      <Container>
+        <BrowserRouter>
+          <NavBar />
+          <Switch>
+            <Route exact path={ROUTES.MAIN} component={Main} />
+            <ProtectedRoute
+              path={ROUTES.LOGIN}
+              component={LoginPage}
+              fallBackRoute={ROUTES.MAIN}
+              permissionRule={!isAuthenticated}
+            />
+            <ProtectedRoute
+              path={ROUTES.SERVER_LIST}
+              component={ServerListPage}
+              fallBackRoute={ROUTES.MAIN}
+              permissionRule={isAuthenticated}
+            />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </BrowserRouter>
+      </Container>
+    </ErrorBoundary>
   );
 };
 

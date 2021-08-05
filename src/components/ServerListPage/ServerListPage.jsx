@@ -8,6 +8,7 @@ import {
 
 import { useFetchServers, useSortServers } from './hooks';
 import ServerList from './components/ServerList';
+import { NO_SERVERS_MESSAGE } from './config/constants';
 
 const ServerListPage = ({ errorHandler }) => {
   const {
@@ -16,6 +17,10 @@ const ServerListPage = ({ errorHandler }) => {
     setServers,
   } = useFetchServers(errorHandler);
   const { sortConfig, handleSortAction } = useSortServers(servers, setServers);
+
+  if (servers && servers.length === 0) {
+    return NO_SERVERS_MESSAGE;
+  }
 
   return (
     <Loader loaded={serversLoaded}>

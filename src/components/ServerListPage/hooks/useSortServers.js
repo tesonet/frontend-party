@@ -7,8 +7,8 @@ import {
 } from '../config/constants';
 import { sortServers } from '../utils';
 
-const useSortServers = (servers, setServers) => {
-  const [sortConfig, setSortConfig] = useState(initialSortConfig);
+const useSortServers = (servers, setServers, initialConfig = initialSortConfig) => {
+  const [sortConfig, setSortConfig] = useState(initialConfig);
 
   const handleSortAction = (fieldName) => {
     const oldSortDirection = sortConfig[fieldName];
