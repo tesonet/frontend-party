@@ -12,7 +12,7 @@ export const sortConfigDefaultProps = {
 };
 
 export const sortConfigPropTypes = PropTypes.shape({
-  [DISTANCE]: PropTypes.oneOf([ASCENDING, DESCENDING]), // TODO: export to proptype
+  [DISTANCE]: PropTypes.oneOf([ASCENDING, DESCENDING]),
   [NAME]: PropTypes.oneOf([ASCENDING, DESCENDING]),
 });
 

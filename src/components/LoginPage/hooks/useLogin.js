@@ -1,6 +1,4 @@
-import { useApiAction } from '@Common/hooks';
-
-import { errorMessages } from '@Common';
+import { errorMessages, useApiAction } from '@Common';
 
 import getToken from '../services/getToken';
 
